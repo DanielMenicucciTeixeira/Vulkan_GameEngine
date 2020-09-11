@@ -24,12 +24,24 @@
     <ClCompile Include="VGE_SDLManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HelloTriangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VGE_VulkanManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VGE_Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VGE_SDLManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HelloTriangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VGE_VulkanManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

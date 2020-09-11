@@ -1,17 +1,34 @@
+#include "VGE_SDLManager.h"
+#include "VGE_VulkanManager.h"
+#include "HelloTriangle.h"
+#include <iostream>
+
+#include <stdexcept>
+#include <cstdlib>
 
 
 int main(int argc, char* argv[])
 {
-	//SDL_Init(SDL_INIT_VIDEO);
+	VGE_SDLManager* SDLManager = new VGE_SDLManager();
+    VGE_VulkanManager* VulkanManager = new VGE_VulkanManager();
+    
 
-	/*SDL_Window* window = SDL_CreateWindow
-	("An SDL2 window", // window's title
-		10, 25, // coordinates on the screen, in pixels, of the window's upper left corner
-		640, 480, // window's length and height in pixels  
-		SDL_WINDOW_OPENGL);
+	SDLManager->Begin();
 
-	SDL_Delay(3000); // window lasts 3 seconds
-	SDL_DestroyWindow(window);*/
-	//SDL_Quit();
+	try {
+		VulkanManager->run();
+	}
+	catch (const std::exception & e) {
+		std::cerr << e.what() << std::endl;
+		return EXIT_FAILURE;
+	}
+
+	SDLManager->End();
+
+	//Cleanup
+	if(SDLManager != nullptr) delete(SDLManager);
+	if (VulkanManager != nullptr) delete(VulkanManager);
+	//-------
+
 	return 0;
 }

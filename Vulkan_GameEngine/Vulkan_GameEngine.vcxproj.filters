@@ -13,36 +13,90 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{d9dcc41b-7915-430f-9b7f-a8ecf83af775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{0747481b-e83c-452a-a885-efa750279e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDL">
+      <UniqueIdentifier>{7a1edbfd-6940-47f7-a67a-59b80e9d3339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vulkan">
+      <UniqueIdentifier>{35b54d9c-6338-44b2-970c-22a60bdf6b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{e963e278-227d-4608-ba1a-71dd45abc618}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VGE_Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VGE_SDLManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HelloTriangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VGE_VulkanManager.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Vulkan\VGE_VulkanManager.cpp">
+      <Filter>Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\VGE_SDLManager.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\VGE_Window.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FMatrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FQuaternion.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FTransform.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FVector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\VGE_SDLEventHandler.cpp">
+      <Filter>SDL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VGE_Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VGE_SDLManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HelloTriangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VGE_VulkanManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Vulkan\VGE_VulkanManager.h">
+      <Filter>Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\VGE_SDLManager.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\VGE_Window.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FQuaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FTransform.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FVector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\VGE_SDLTextureLoader.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\VGE_SDLEventHandler.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\EngineEvent.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
-#include "VGE_SDLManager.h"
-#include "VGE_VulkanManager.h"
+#include "SDL/VGE_SDLManager.h"
+#include "Vulkan/VGE_VulkanManager.h"
 #include "HelloTriangle.h"
+#include "Core/EngineEvent.h"
 #include <iostream>
 
 #include <stdexcept>
@@ -14,6 +15,11 @@ int main(int argc, char* argv[])
     
 
 	SDLManager->Begin();
+
+	while (SDLManager->GetEvent() != E_EngineEvent::QUIT)
+	{
+		SDLManager->Render();
+	}
 
 	try {
 		VulkanManager->run();

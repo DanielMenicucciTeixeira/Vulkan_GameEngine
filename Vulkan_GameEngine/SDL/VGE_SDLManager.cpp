@@ -25,7 +25,7 @@ void VGE_SDLManager::Begin()
 
     if (InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {
-        if (WindowManager->CreateWindow("Vulkan Window"))//If the Window is not created, don't run anything that depends on the window
+        if (WindowManager->CreateWindow("Vulkan Window", (unsigned)800, (unsigned)600))//If the Window is not created, don't run anything that depends on the window
         {
             //Get window surface
             WindowManager->SetEngineWindowSurface(SDL_GetWindowSurface(WindowManager->GetEngineWindow()));
@@ -68,6 +68,16 @@ void VGE_SDLManager::Render()
 
     //Update the surface
     SDL_UpdateWindowSurface(WindowManager->GetEngineWindow());
+}
+
+bool VGE_SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionNames)
+{
+    uint32_t extensionCount;
+    if (SDL_Vulkan_GetInstanceExtensions(WindowManager->GetEngineWindow(), &extensionCount, nullptr) == SDL_FALSE) return false;
+    extensionNames.resize(extensionCount);
+    SDL_Vulkan_GetInstanceExtensions(WindowManager->GetEngineWindow(), &extensionCount, extensionNames.data());
+
+	return true;
 }
 
 bool VGE_SDLManager::InitializeSDL()

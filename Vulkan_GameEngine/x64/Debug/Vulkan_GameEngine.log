@@ -1,2 +1,9 @@
-﻿  Source.cpp
+﻿  VGE_VulkanManager.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(58,54): warning C4311: 'type cast': pointer truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(58,54): warning C4302: 'type cast': truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(60,52): warning C4311: 'type cast': pointer truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(60,52): warning C4302: 'type cast': truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(61,46): warning C4311: 'type cast': pointer truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(61,46): warning C4302: 'type cast': truncation from 'unsigned int []' to 'uint32_t'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VGE_VulkanManager.cpp(79,60): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

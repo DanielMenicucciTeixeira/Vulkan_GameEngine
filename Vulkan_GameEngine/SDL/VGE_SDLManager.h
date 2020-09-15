@@ -1,6 +1,8 @@
 #ifndef VGE_SDLMANAGER_H
 #define VGE_SDLMANAGER_H
 
+#include <vector>
+
 enum class E_EngineEvent;
 
 class VGE_SDLManager
@@ -28,6 +30,7 @@ public:
 	void End();
 	E_EngineEvent GetEvent();
 	void Render();
+	bool GetVulkanExtensions( std::vector<const char*> &extensionNames);
 
 protected:
 	bool InitializeSDL();

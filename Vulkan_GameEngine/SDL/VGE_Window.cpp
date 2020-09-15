@@ -16,7 +16,7 @@ VGE_Window::~VGE_Window()
 bool VGE_Window::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
 {
     //Set window size
-    float WINDOW_SIZE_X, WINDOW_SIZE_Y;
+    unsigned WINDOW_SIZE_X, WINDOW_SIZE_Y;
     if (windowSizeX < 0) WINDOW_SIZE_X = ScreenWidth;
     else WINDOW_SIZE_X = windowSizeX;
     if (windowSizeY < 0) WINDOW_SIZE_Y = ScreenHeight;
@@ -29,7 +29,7 @@ bool VGE_Window::CreateWindow(const char* windowName, float windowSizeX, float w
     if (windowPositionY < 0) WINDOW_POSITION_Y = SDL_WINDOWPOS_UNDEFINED;
     else WINDOW_POSITION_Y = windowPositionY;
 
-    EngineWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_SIZE_X, WINDOW_SIZE_Y, SDL_WINDOW_SHOWN);
+    EngineWindow = SDL_CreateWindow(windowName, WINDOW_POSITION_X, WINDOW_POSITION_Y, WINDOW_SIZE_X, WINDOW_SIZE_Y, SDL_WINDOW_VULKAN);
     if (EngineWindow == NULL)
     {
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());

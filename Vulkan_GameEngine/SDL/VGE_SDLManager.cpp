@@ -76,7 +76,6 @@ bool VGE_SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionName
     if (SDL_Vulkan_GetInstanceExtensions(WindowManager->GetEngineWindow(), &extensionCount, nullptr) == SDL_FALSE) return false;
     extensionNames.resize(extensionCount);
     SDL_Vulkan_GetInstanceExtensions(WindowManager->GetEngineWindow(), &extensionCount, extensionNames.data());
-
 	return true;
 }
 

@@ -164,7 +164,9 @@
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
     <ClCompile Include="SDL\VGE_Window.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Vulkan\VGE_VulkanDebugMessenger.cpp" />
     <ClCompile Include="Vulkan\VGE_VulkanManager.cpp" />
+    <ClCompile Include="Vulkan\VGE_VulkanValidationLayers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
@@ -177,7 +179,9 @@
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_Window.h" />
+    <ClInclude Include="Vulkan\VGE_VulkanDebugMessenger.h" />
     <ClInclude Include="Vulkan\VGE_VulkanManager.h" />
+    <ClInclude Include="Vulkan\VGE_VulkanValidationLayers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

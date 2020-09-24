@@ -1,6 +1,8 @@
 #ifndef VGE_VULKANMANAGER_H
 #define VGE_VULKANMANAGER_H
 
+#include <vector>
+
 struct VkInstance_T;
 
 class VGE_SDLManager;
@@ -24,17 +26,14 @@ public:
 	inline VGE_SDLManager* GetSDLManager() { return SDLManager; }
 	inline void SetSDLManager(VGE_SDLManager* sdlManager) { SDLManager = sdlManager; }
 
-private:
+protected:
     void Initialize();
 
     void MainLoop();
 
     void Cleanup();
 
-	unsigned defaultVersion[3] = { 1, 0, 0 };
-
-	void CreateInstance(unsigned appVersion[3], unsigned engineVersion[3], unsigned apiVersion[3], const char* applicationName = "App Name", const char* engineName = "Engine Name");
-	void CreateInstance(const char* applicationName = "App Name", const char* engineName = "Engine Name");
+	void CreateInstance(const char* applicationName = "App Name", const char* engineName = "Engine Name"/*, int appVersion[3] = { 1, 0, 0 }, int engineVersion[3] = { 1, 0, 0 }, int apiVersion[3] = { 1, 0, 0 }*/);
 
 	//---------Variables------------\\
 
@@ -42,6 +41,8 @@ private:
 
 protected:
 	VGE_SDLManager* SDLManager = nullptr;
+	class VGE_VulkanValidationLayers* ValidationLayers = nullptr;
+	class VGE_VulkanDebugMessenger* DebugMessenger = nullptr;
 
 };
 #endif

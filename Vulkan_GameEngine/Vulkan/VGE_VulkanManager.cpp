@@ -83,14 +83,15 @@ void VGE_VulkanManager::CreateInstance(const char* applicationName, const char* 
     createInfo.pApplicationInfo = &appInfo;
     std::vector<const char*> sdlExtensions;
     SDLManager->GetVulkanExtensions(sdlExtensions);
+    sdlExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
     createInfo.enabledExtensionCount = static_cast<uint32_t>(sdlExtensions.size());
     createInfo.ppEnabledExtensionNames = sdlExtensions.data();
 
-    VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
+    VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo = {};
     auto layerVector = ValidationLayers->GetVector();
     if (ValidationLayers->IsEnabled()) 
     {
-        debugCreateInfo = DebugMessenger->PopulateDebugMessengerCreateInfo();
+        DebugMessenger->PopulateDebugMessengerCreateInfo(debugCreateInfo);
         createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
 
         createInfo.enabledLayerCount = static_cast<uint32_t>(ValidationLayers->GetValidationLayerNames().size());

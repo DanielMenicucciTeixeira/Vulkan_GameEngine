@@ -17,13 +17,13 @@ int main(int argc, char* argv[])
 
 	SDLManager->Begin();
 
-	while (SDLManager->GetEvent() != E_EngineEvent::QUIT)
-	{
-		SDLManager->Render();
-	}
-
 	try {
 		VulkanManager->run();
+
+		while (SDLManager->GetEvent() != E_EngineEvent::QUIT)
+		{
+			SDLManager->Render();
+		}
 	}
 	catch (const std::exception & e) {
 		std::cerr << e.what() << std::endl;

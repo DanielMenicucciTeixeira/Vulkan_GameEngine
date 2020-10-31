@@ -32,22 +32,21 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityF
     return VK_FALSE;
 }
 
-VkDebugUtilsMessengerCreateInfoEXT VGE_VulkanDebugMessenger::PopulateDebugMessengerCreateInfo()
+void VGE_VulkanDebugMessenger::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
 {
-    VkDebugUtilsMessengerCreateInfoEXT createInfo;
     createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
     createInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
     createInfo.messageType = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
     createInfo.pfnUserCallback = debugCallback;
-    return createInfo;
 }
 
 void VGE_VulkanDebugMessenger::SetUp(VkInstance_T* instance)
 {
     if (!ValidationLayers->IsEnabled()) return;
 
-    VkDebugUtilsMessengerCreateInfoEXT createInfo = PopulateDebugMessengerCreateInfo();
+    VkDebugUtilsMessengerCreateInfoEXT createInfo = {};
+    PopulateDebugMessengerCreateInfo(createInfo);
 
     if (ValidationLayers->CreateDebugUtilsMessengerEXT(instance, &createInfo, nullptr, &DebugMessenger) != VK_SUCCESS) 
     {

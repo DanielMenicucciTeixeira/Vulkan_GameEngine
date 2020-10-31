@@ -26,7 +26,7 @@ public:
 	void SetUp(VkInstance_T* instance);
 
 	inline VkDebugUtilsMessengerEXT_T* GetDebugMessenger() { return DebugMessenger; }
-	VkDebugUtilsMessengerCreateInfoEXT PopulateDebugMessengerCreateInfo();
+	void PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
 
 	//------Variables-------\\
 

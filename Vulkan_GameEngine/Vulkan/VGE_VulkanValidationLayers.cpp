@@ -61,13 +61,15 @@ std::vector<const char*> VGE_VulkanValidationLayers::GetVector()
     return layerVector;
 }
 
-VkResult VGE_VulkanValidationLayers::CreateDebugUtilsMessengerEXT(VkInstance_T* instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger)
+VkResult VGE_VulkanValidationLayers::CreateDebugUtilsMessengerEXT(VkInstance_T*& instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger)
 {
     auto func = (PFN_vkCreateDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
-    if (func != nullptr) {
+    if (func != nullptr) 
+    {
         return func(instance, pCreateInfo, pAllocator, pDebugMessenger);
     }
-    else {
+    else 
+    {
         return VK_ERROR_EXTENSION_NOT_PRESENT;
     }
 }

@@ -41,7 +41,7 @@ public:
     const char* const* GetData();
     std::vector<const char*> GetVector();
 
-    VkResult CreateDebugUtilsMessengerEXT(VkInstance_T* instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger);
+    VkResult CreateDebugUtilsMessengerEXT(VkInstance_T*& instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger);
 };
 #endif
 

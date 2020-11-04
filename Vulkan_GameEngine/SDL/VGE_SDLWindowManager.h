@@ -28,7 +28,7 @@ protected:
 public:
 	bool CreateWindow(const char* windowName, float windowSizeX = -1.0f, float windowSizeY = -1.0f, float windowPositionX = -1.0f, float windowPositionY = -1.0f);
 
-	inline SDL_Window* GetEngineWindow() { return EngineWindow; }
+	SDL_Window* GetEngineWindow();
 
 	inline SDL_Surface* GetEngineWindowSurface() { return EngineWindowSurface; }
 	inline void SetEngineWindowSurface(SDL_Surface* windowSurface) { EngineWindowSurface = windowSurface; }

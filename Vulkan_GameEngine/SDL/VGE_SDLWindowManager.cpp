@@ -37,3 +37,8 @@ bool VGE_SDLWindowManager::CreateWindow(const char* windowName, float windowSize
     }
     else return true;
 }
+
+SDL_Window* VGE_SDLWindowManager::GetEngineWindow()
+{
+	return EngineWindow;
+}

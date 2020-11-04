@@ -60,21 +60,6 @@
     <ClCompile Include="SDL\VGE_SDLEventHandler.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanValidationLayers.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanDebugMessenger.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanQueueManager.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanWindowManager.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanSwapChainManager.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
@@ -109,21 +94,6 @@
     </ClInclude>
     <ClInclude Include="Core\EngineEvent.h">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VGE_VulkanValidationLayers.h">
-      <Filter>Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VGE_VulkanDebugMessenger.h">
-      <Filter>Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VGE_VulkanQueueManager.h">
-      <Filter>Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VGE_VulkanWindowManager.h">
-      <Filter>Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VGE_VulkanSwapChainManager.h">
-      <Filter>Vulkan</Filter>
     </ClInclude>
     <ClInclude Include="SDL\VGE_SDLWindowManager.h">
       <Filter>SDL</Filter>

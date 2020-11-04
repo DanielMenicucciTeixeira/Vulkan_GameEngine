@@ -164,12 +164,7 @@
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanDebugMessenger.cpp" />
     <ClCompile Include="Vulkan\VGE_VulkanManager.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanQueueManager.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanSwapChainManager.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanValidationLayers.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanWindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
@@ -182,12 +177,7 @@
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanDebugMessenger.h" />
     <ClInclude Include="Vulkan\VGE_VulkanManager.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanQueueManager.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanSwapChainManager.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanValidationLayers.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanWindowManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

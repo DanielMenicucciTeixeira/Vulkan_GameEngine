@@ -23,6 +23,7 @@ public:
 	void CreateSurface(VkInstance_T* instance, SDL_Window* window);
 	inline void SetWindow(SDL_Window* window) { Window = window; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; }
+	SDL_Window* GetWindow();
 
 	//---------Variables------------\\
 

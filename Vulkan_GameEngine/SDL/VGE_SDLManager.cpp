@@ -1,5 +1,5 @@
 #include "VGE_SDLManager.h"
-#include "VGE_Window.h"
+#include "VGE_SDLWindowManager.h"
 #include "VGE_SDLTextureLoader.h"
 #include"VGE_SDLEventHandler.h"
 
@@ -20,7 +20,7 @@ VGE_SDLManager::~VGE_SDLManager()
 
 void VGE_SDLManager::Begin()
 {
-    WindowManager = new VGE_Window();
+    WindowManager = new VGE_SDLWindowManager();
     EventHandler = new VGE_SDLEventHandler();
 
     if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions

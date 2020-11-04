@@ -24,6 +24,8 @@ void VGE_VulkanWindowManager::CreateSurface(VkInstance_T* instance)
     {
         throw std::runtime_error("failed to create window surface!");
     }
+
+    int waintingLine = 0;
 }
 
 void VGE_VulkanWindowManager::CreateSurface(VkInstance_T* instance, SDL_Window* window)
@@ -32,4 +34,9 @@ void VGE_VulkanWindowManager::CreateSurface(VkInstance_T* instance, SDL_Window* 
     {
         throw std::runtime_error("failed to create window surface!");
     }
+}
+
+SDL_Window* VGE_VulkanWindowManager::GetWindow()
+{
+    return Window;
 }

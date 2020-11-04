@@ -5,8 +5,12 @@
 #include "VGE_VulkanQueueManager.h"
 #include "VGE_VulkanWindowManager.h"
 #include"SDL/VGE_SDLManager.h"
+#include"VGE_VulkanSwapChainManager.h"
 
 #include <vulkan/vulkan.h>
+#include <SDL.h>
+#include<SDL_vulkan.h>
+
 #include <iostream>
 #include <set>
 
@@ -30,6 +34,7 @@ VGE_VulkanManager::~VGE_VulkanManager()
 {
     if (QueueManager) delete(QueueManager);
     if (WindowManager) delete(WindowManager);
+    //if (SwapChainManager) delete(SwapChainManager);
 }
 
 void VGE_VulkanManager::run()
@@ -47,6 +52,11 @@ void VGE_VulkanManager::TestMe()
     std::cout << extensionCount << " extensions supported\n";
 }
 
+SDL_Window* VGE_VulkanManager::GetWindow()
+{
+    return WindowManager->GetWindow();
+}
+
 VkSurfaceKHR_T* VGE_VulkanManager::GetSurface()
 {
     return WindowManager->GetSurface();
@@ -57,6 +67,7 @@ void VGE_VulkanManager::Initialize()
     ValidationLayers = new VGE_VulkanValidationLayers();
     QueueManager = new VGE_VulkanQueueManager(this);
     WindowManager = new VGE_VulkanWindowManager(SDLManager->GetWindow());
+    SwapChainManager = new VGE_VulkanSwapChainManager(this);
 
     if(ValidationLayers->IsEnabled()) DebugMessenger = new VGE_VulkanDebugMessenger(ValidationLayers);
     CreateInstance();
@@ -64,6 +75,7 @@ void VGE_VulkanManager::Initialize()
     WindowManager->CreateSurface(Instance);
     PickPhysicalDevice();
     CreateLogicalDevice();
+    SwapChainManager->CreateSwapChain(PhysicalDevice, LogicalDevice);
 }
 
 void VGE_VulkanManager::MainLoop()
@@ -72,6 +84,7 @@ void VGE_VulkanManager::MainLoop()
 
 void VGE_VulkanManager::Cleanup()
 {
+    vkDestroySwapchainKHR(LogicalDevice, SwapChainManager->GetSwapChain(), nullptr);
     vkDestroyDevice(LogicalDevice, nullptr);
 
     if (ValidationLayers->IsEnabled())
@@ -169,6 +182,9 @@ bool VGE_VulkanManager::IsPhysicalDeviceSuitable(VkPhysicalDevice_T* device)
 
     return  deviceProperties.deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU &&
             QueueManager->FindQueueFamilies(device).IsComplete() &&
+            SwapChainManager->CheckDeviceExtensionSupport(device) &&
+            !SwapChainManager->QuerySwapChainSupport(device).Formats.empty() &&
+            !SwapChainManager->QuerySwapChainSupport(device).PresentationModes.empty() &&
             deviceFeatures.geometryShader;
 }
 
@@ -197,6 +213,9 @@ void VGE_VulkanManager::CreateLogicalDevice()
 
     createInfo.queueCreateInfoCount = static_cast<uint32_t>(queueCreateInfos.size());
     createInfo.pQueueCreateInfos = queueCreateInfos.data();
+
+    createInfo.enabledExtensionCount = static_cast<uint32_t>(SwapChainManager->GetDeviceExtensions().size());
+    createInfo.ppEnabledExtensionNames = SwapChainManager->GetDeviceExtensions().data();
 
     createInfo.pEnabledFeatures = &deviceFeatures;
 

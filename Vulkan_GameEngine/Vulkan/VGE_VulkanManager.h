@@ -8,10 +8,13 @@ struct VkPhysicalDevice_T;
 struct VkDevice_T;
 
 class VGE_SDLManager;
+class SDL_Window;
+
 class VGE_VulkanValidationLayers;
 class VGE_VulkanDebugMessenger;
 class VGE_VulkanQueueManager;
 class VGE_VulkanWindowManager;
+class VGE_VulkanSwapChainManager;
 
 class VGE_VulkanManager
 {
@@ -34,6 +37,8 @@ public:
 	inline VGE_SDLManager* GetSDLManager() { return SDLManager; }
 	inline void SetSDLManager(VGE_SDLManager* sdlManager) { SDLManager = sdlManager; }
 	inline VGE_VulkanWindowManager* GetWindowManager() { return WindowManager; }
+	inline VGE_VulkanQueueManager* GetQueueManager() { return QueueManager; }
+	SDL_Window* GetWindow();
 
 	struct VkSurfaceKHR_T* GetSurface();
 
@@ -64,7 +69,7 @@ protected:
 	VGE_VulkanDebugMessenger* DebugMessenger = nullptr;
 	VGE_VulkanQueueManager* QueueManager = nullptr;
 	VGE_VulkanWindowManager* WindowManager = nullptr;
-
+	VGE_VulkanSwapChainManager* SwapChainManager = nullptr;
 };
 #endif
 

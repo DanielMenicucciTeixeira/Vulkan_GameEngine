@@ -18,7 +18,7 @@ public:
 	~VGE_SDLManager();
 
 protected:
-	class VGE_Window* WindowManager = nullptr;
+	class VGE_SDLWindowManager* WindowManager = nullptr;
 	class VGE_SDLTextureLoader* TextureLoader = nullptr;
 	class SDL_Surface* imageSurface = nullptr;
 	class VGE_SDLEventHandler* EventHandler = nullptr;

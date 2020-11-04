@@ -206,7 +206,6 @@ void VGE_VulkanManager::CreateLogicalDevice()
 
     createInfo.pEnabledFeatures = &deviceFeatures;
 
-    createInfo.enabledExtensionCount = 0;
     if (EnableValidationLayers)
     {
         createInfo.enabledLayerCount = static_cast<uint32_t>(ValidationLayerNames.size());
@@ -277,7 +276,7 @@ VkResult VGE_VulkanManager::CreateDebugUtilsMessengerEXT(VkInstance_T*& instance
 
 void VGE_VulkanManager::SetUpDebugMessenger()
 {
-    if (EnableValidationLayers) return;
+    if (!EnableValidationLayers) return;
 
     VkDebugUtilsMessengerCreateInfoEXT createInfo = {};
     PopulateDebugMessengerCreateInfo(createInfo);

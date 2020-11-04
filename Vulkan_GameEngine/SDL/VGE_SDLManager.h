@@ -33,6 +33,8 @@ public:
 	void Render();
 	bool GetVulkanExtensions(std::vector<const char*>& extensionNames);
 
+	class SDL_Window* GetWindow();
+
 protected:
 	bool InitializeSDL();
 };

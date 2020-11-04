@@ -6,6 +6,7 @@
 #include <SDL_vulkan.h>
 #include <stdio.h>
 #include <SDL.h>
+#include<iostream>
 
 VGE_SDLManager::VGE_SDLManager()
 {
@@ -20,15 +21,17 @@ VGE_SDLManager::~VGE_SDLManager()
 void VGE_SDLManager::Begin()
 {
     WindowManager = new VGE_Window();
-    TextureLoader = new VGE_SDLTextureLoader();
     EventHandler = new VGE_SDLEventHandler();
 
-    if (InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
+    if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {
-        if (WindowManager->CreateWindow("Vulkan Window", (unsigned)800, (unsigned)600))//If the Window is not created, don't run anything that depends on the window
+        throw std::runtime_error("SDL did not Initilize!");
+    }
+    else
+    {
+        if (!WindowManager->CreateWindow("Vulkan Window", (unsigned)800, (unsigned)600))//If the Window is not created, don't run anything that depends on the window
         {
-            //Get window surface
-            WindowManager->SetEngineWindowSurface(SDL_GetWindowSurface(WindowManager->GetEngineWindow()));
+            throw std::runtime_error("SDL Window could not be created!");
         }
     }
 
@@ -77,6 +80,11 @@ bool VGE_SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionName
     extensionNames.resize(extensionCount);
     SDL_Vulkan_GetInstanceExtensions(WindowManager->GetEngineWindow(), &extensionCount, extensionNames.data());
 	return true;
+}
+
+SDL_Window* VGE_SDLManager::GetWindow()
+{
+	return WindowManager->GetEngineWindow();
 }
 
 bool VGE_SDLManager::InitializeSDL()

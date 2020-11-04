@@ -11,8 +11,7 @@
 int main(int argc, char* argv[])
 {
 	VGE_SDLManager* SDLManager = new VGE_SDLManager();
-    VGE_VulkanManager* VulkanManager = new VGE_VulkanManager();
-	VulkanManager->SetSDLManager(SDLManager);
+    VGE_VulkanManager* VulkanManager = new VGE_VulkanManager(SDLManager);
     
 
 	SDLManager->Begin();

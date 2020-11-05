@@ -28,6 +28,12 @@
     <Filter Include="Core">
       <UniqueIdentifier>{e963e278-227d-4608-ba1a-71dd45abc618}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{39f4aac1-ea07-4cb1-9e6b-3c103b9a3959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\BaseShader">
+      <UniqueIdentifier>{2b822bc2-338f-444a-ae61-5b458378ff69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -98,5 +104,21 @@
     <ClInclude Include="SDL\VGE_SDLWindowManager.h">
       <Filter>SDL</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vulkan_GameEngine.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Base.frag">
+      <Filter>Shaders\BaseShader</Filter>
+    </None>
+    <None Include="Shaders\Base.vert">
+      <Filter>Shaders\BaseShader</Filter>
+    </None>
   </ItemGroup>
 </Project>

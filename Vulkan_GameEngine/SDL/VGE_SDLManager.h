@@ -4,6 +4,7 @@
 #include <vector>
 
 enum class E_EngineEvent;
+union SDL_Event;
 class VGE_VulkanValidationLayers;
 
 class VGE_SDLManager
@@ -29,7 +30,7 @@ protected:
 public:
 	void Begin();
 	void End();
-	E_EngineEvent GetEvent();
+	SDL_Event GetEvent();
 	void Render();
 	bool GetVulkanExtensions(std::vector<const char*>& extensionNames);
 

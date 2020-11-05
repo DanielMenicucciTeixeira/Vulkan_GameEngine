@@ -173,11 +173,19 @@
     <ClInclude Include="Math\FQuaternion.h" />
     <ClInclude Include="Math\FTransform.h" />
     <ClInclude Include="Math\FVector3.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="SDL\VGE_SDLEventHandler.h" />
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
     <ClInclude Include="Vulkan\VGE_VulkanManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vulkan_GameEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\Base.frag" />
+    <None Include="Shaders\Base.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

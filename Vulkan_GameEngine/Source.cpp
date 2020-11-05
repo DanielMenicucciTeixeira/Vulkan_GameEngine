@@ -16,12 +16,7 @@ int main(int argc, char* argv[])
 
 	VGE_VulkanManager* VulkanManager = new VGE_VulkanManager(SDLManager);
 	try {
-		VulkanManager->run();
-
-		while (SDLManager->GetEvent() != E_EngineEvent::QUIT)
-		{
-			SDLManager->Render();
-		}
+		VulkanManager->Run();
 	}
 	catch (const std::exception & e) {
 		std::cerr << e.what() << std::endl;

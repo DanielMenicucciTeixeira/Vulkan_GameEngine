@@ -4,11 +4,13 @@
 #include <vector>
 #include <set>
 #include <optional>
+#include <string>
 
 //---Forward-Declarations---\\
 
 enum VkResult;
 enum VkPresentModeKHR;
+enum VkFormat;
 
 struct VkInstance_T;
 struct VkPhysicalDevice_T;
@@ -22,6 +24,16 @@ struct VkSurfaceCapabilitiesKHR;
 struct VkSurfaceFormatKHR;
 struct VkExtent2D;
 struct VkSwapchainKHR_T;
+struct VkImage_T;
+struct VkImageView_T;
+struct VkShaderModule_T;
+struct VkPipelineLayout_T;
+struct VkRenderPass_T;
+struct VkPipeline_T;
+struct VkFramebuffer_T;
+struct VkCommandPool_T;
+struct VkCommandBuffer_T;
+struct VkSemaphore_T;
 
 class VGE_SDLManager;
 class SDL_Window;
@@ -71,12 +83,11 @@ public:
 	//Functions
 
 public:
-	void run();
-	void TestMe();
+	void Run();
 	
 	inline VGE_SDLManager* GetSDLManager() { return SDLManager; }
 	inline void SetSDLManager(VGE_SDLManager* sdlManager) { SDLManager = sdlManager; }
-	//inline SDL_Window* GetWindow() { return Window; }
+	inline SDL_Window* GetWindow() { return Window; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; };
 
 protected:
@@ -143,7 +154,7 @@ protected:
 	//Variables
 protected:
 	VkSurfaceKHR_T* Surface = nullptr;
-	SDL_Window* Window;
+	SDL_Window* Window = nullptr;
 
 	//------Swap-Chain---------\\
 	//Functions
@@ -156,11 +167,62 @@ protected:
 	VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities);
 
 	void CreateSwapChain(VkPhysicalDevice_T* physicalDevice, VkDevice_T* logicalDevice);
+	void CreateImageViews();
 
 	//Variables
 protected:
 	VkSwapchainKHR_T* SwapChain = nullptr;
 	std::vector<const char*> DeviceExtensions;
+	std::vector<VkImage_T*> SwapChainImages;
+	std::vector<VkFramebuffer_T*> SwapChainFramebuffers;
+	VkFormat SwapChainImageFormat;
+	VkExtent2D* SwapChainExtent = nullptr;
+	std::vector<VkImageView_T*> SwapChainImageViews;
+	
+	//-----Graphics-Pipeline----\\
+	//Functions
+protected:
+	void CreateGraphicsPipeline();
+	void CreateRenderPass();
+
+	//Variables
+protected:
+	VkPipelineLayout_T* PipelineLayout = nullptr;
+	VkRenderPass_T* RenderPass = nullptr;
+	VkPipeline_T* GraphicsPipeline = nullptr;
+
+	//--------Shaders--------\\
+	//Functions
+protected:
+	static std::vector<char> ReadFile(const std::string& filename);
+	VkShaderModule_T* CreateShaderModule(const std::vector<char>& code);
+
+	//-------Buffers-------\\
+	//Functions
+protected:
+	void CreateFramebuffers();
+	void CreateCommandPool();
+	void CreateCommandBuffers();
+
+	//Variables
+protected:
+	VkCommandPool_T* CommandPool;
+	std::vector<VkCommandBuffer_T*> CommandBuffers;
+
+	//-----Syncronization------\\
+	//Functions
+protected:
+	void CreateSemaphores();
+
+	//Variables
+protected:
+	VkSemaphore_T* ImageAvailableSemaphore;
+	VkSemaphore_T* RenderFinishedSemaphore;
+
+	//-----Rendering------\\
+	//Functions
+protected:
+	void DrawFrame();
 };
 #endif
 

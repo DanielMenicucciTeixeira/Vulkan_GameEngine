@@ -51,7 +51,7 @@ void VGE_SDLManager::End()
     SDL_Quit();
 }
 
-E_EngineEvent VGE_SDLManager::GetEvent()
+SDL_Event VGE_SDLManager::GetEvent()
 {
     return EventHandler->HandleEvents();
 }

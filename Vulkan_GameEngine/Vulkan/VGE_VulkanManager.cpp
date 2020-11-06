@@ -15,23 +15,23 @@
 #include <glm/vec4.hpp>
 #include <glm/mat4x4.hpp>
 
-VGE_VulkanManager::VGE_VulkanManager(VGE_SDLManager* sdlManager)
+VGE_VulkanRenderer::VGE_VulkanRenderer(VGE_SDLManager* sdlManager)
 {
-    SDLManager = sdlManager;
+    if(sdlManager) SDLManager = sdlManager;
 }
 
-VGE_VulkanManager::~VGE_VulkanManager()
+VGE_VulkanRenderer::~VGE_VulkanRenderer()
 {
 }
 
-void VGE_VulkanManager::Run()
+void VGE_VulkanRenderer::Run()
 {
     Initialize();
     MainLoop();
-    Cleanup();
+    CleanUp();
 }
 
-void VGE_VulkanManager::Initialize()
+void VGE_VulkanRenderer::Initialize()
 {
 #ifdef NDEBUG
     EnableValidationLayers = false;
@@ -49,7 +49,6 @@ void VGE_VulkanManager::Initialize()
         Window = SDLManager->GetWindow();
     }
 
-
     CreateInstance();
     if (EnableValidationLayers) SetUpDebugMessenger();
     CreateSurface();
@@ -62,22 +61,25 @@ void VGE_VulkanManager::Initialize()
     CreateFramebuffers();
     CreateCommandPool();
     CreateCommandBuffers();
-    CreateSemaphores();
+    CreateSyncObjects();
 }
 
-void VGE_VulkanManager::MainLoop()
+void VGE_VulkanRenderer::MainLoop()
 {
+    size_t currentFrame = 0;
     while (SDLManager->GetEvent().type != SDL_QUIT)
     {
-        DrawFrame();
+        DrawFrame(currentFrame);
     }
 
+    vkDeviceWaitIdle(LogicalDevice);
 }
 
-void VGE_VulkanManager::Cleanup()
+void VGE_VulkanRenderer::CleanUp()
 {
-    vkDestroySemaphore(LogicalDevice, RenderFinishedSemaphore, nullptr);
-    vkDestroySemaphore(LogicalDevice, ImageAvailableSemaphore, nullptr);
+    for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(LogicalDevice, semaphore, nullptr);
+    for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(LogicalDevice, semaphore, nullptr);
+    for (const auto& fence : InFlightFences) vkDestroyFence(LogicalDevice, fence, nullptr);
     vkDestroyCommandPool(LogicalDevice, CommandPool, nullptr);
     for (auto framebuffer : SwapChainFramebuffers) vkDestroyFramebuffer(LogicalDevice, framebuffer, nullptr);
     vkDestroyPipeline(LogicalDevice, GraphicsPipeline, nullptr);
@@ -93,7 +95,12 @@ void VGE_VulkanManager::Cleanup()
     vkDestroyInstance(Instance, nullptr);
 }
 
-void VGE_VulkanManager::CreateInstance(const char* applicationName, const char* engineName/*, int appVersion[3], int engineVersion[3], int apiVersion[3]*/)
+SDL_Window* VGE_VulkanRenderer::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
+{
+    return nullptr;
+}
+
+void VGE_VulkanRenderer::CreateInstance(const char* applicationName, const char* engineName/*, int appVersion[3], int engineVersion[3], int apiVersion[3]*/)
 {
 
     if (EnableValidationLayers && !CheckValidationLayerSupport())
@@ -139,7 +146,7 @@ void VGE_VulkanManager::CreateInstance(const char* applicationName, const char* 
     }
 }
 
-void VGE_VulkanManager::PickPhysicalDevice()
+void VGE_VulkanRenderer::PickPhysicalDevice()
 {
     PhysicalDevice = VK_NULL_HANDLE;
     uint32_t deviceCount = 0;
@@ -168,7 +175,7 @@ void VGE_VulkanManager::PickPhysicalDevice()
     }
 }
 
-bool VGE_VulkanManager::IsPhysicalDeviceSuitable(VkPhysicalDevice_T* device)
+bool VGE_VulkanRenderer::IsPhysicalDeviceSuitable(VkPhysicalDevice_T* device)
 {
     VkPhysicalDeviceProperties deviceProperties;
     vkGetPhysicalDeviceProperties(device, &deviceProperties);
@@ -184,7 +191,7 @@ bool VGE_VulkanManager::IsPhysicalDeviceSuitable(VkPhysicalDevice_T* device)
             deviceFeatures.geometryShader;
 }
 
-void VGE_VulkanManager::CreateLogicalDevice()
+void VGE_VulkanRenderer::CreateLogicalDevice()
 {
     QueueFamilyIndices indices = FindQueueFamilies(PhysicalDevice);
 
@@ -236,7 +243,7 @@ void VGE_VulkanManager::CreateLogicalDevice()
 
 //---Validation-Layers------\\
 
-bool VGE_VulkanManager::CheckValidationLayerSupport()
+bool VGE_VulkanRenderer::CheckValidationLayerSupport()
 {
     uint32_t layerCount;
     vkEnumerateInstanceLayerProperties(&layerCount, nullptr);
@@ -268,7 +275,7 @@ bool VGE_VulkanManager::CheckValidationLayerSupport()
     return true;
 }
 
-VkResult VGE_VulkanManager::CreateDebugUtilsMessengerEXT(VkInstance_T*& instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger)
+VkResult VGE_VulkanRenderer::CreateDebugUtilsMessengerEXT(VkInstance_T*& instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT_T** pDebugMessenger)
 {
     auto func = (PFN_vkCreateDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugUtilsMessengerEXT");
     if (func != nullptr)
@@ -283,7 +290,7 @@ VkResult VGE_VulkanManager::CreateDebugUtilsMessengerEXT(VkInstance_T*& instance
 
 //--------Debug-Messenger-------\\
 
-void VGE_VulkanManager::SetUpDebugMessenger()
+void VGE_VulkanRenderer::SetUpDebugMessenger()
 {
     if (!EnableValidationLayers) return;
 
@@ -303,7 +310,7 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityF
     return VK_FALSE;
 }
 
-void VGE_VulkanManager::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
+void VGE_VulkanRenderer::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
 {
     createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
@@ -312,7 +319,7 @@ void VGE_VulkanManager::PopulateDebugMessengerCreateInfo(VkDebugUtilsMessengerCr
     createInfo.pfnUserCallback = debugCallback;
 }
 
-void VGE_VulkanManager::DestroyDebugUtilsMessengerEXT(VkInstance_T* instance, const VkAllocationCallbacks* pAllocator)
+void VGE_VulkanRenderer::DestroyDebugUtilsMessengerEXT(VkInstance_T* instance, const VkAllocationCallbacks* pAllocator)
 {
     auto func = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT");
     if (func != nullptr)
@@ -323,7 +330,7 @@ void VGE_VulkanManager::DestroyDebugUtilsMessengerEXT(VkInstance_T* instance, co
 
 //---------Queues------------\\
 
-QueueFamilyIndices VGE_VulkanManager::FindQueueFamilies(VkPhysicalDevice_T* physicalDevice)
+QueueFamilyIndices VGE_VulkanRenderer::FindQueueFamilies(VkPhysicalDevice_T* physicalDevice)
 {
     QueueFamilyIndices indices;
 
@@ -355,7 +362,7 @@ QueueFamilyIndices VGE_VulkanManager::FindQueueFamilies(VkPhysicalDevice_T* phys
 
 //------Window-and-Surface------\\
 
-void VGE_VulkanManager::CreateSurface()
+void VGE_VulkanRenderer::CreateSurface()
 {
     if (SDL_Vulkan_CreateSurface(Window, Instance, &Surface) != SDL_TRUE)
     {
@@ -365,7 +372,7 @@ void VGE_VulkanManager::CreateSurface()
 
 //------Swap-Chain---------\\
 
-bool VGE_VulkanManager::CheckDeviceExtensionSupport(VkPhysicalDevice_T* device)
+bool VGE_VulkanRenderer::CheckDeviceExtensionSupport(VkPhysicalDevice_T* device)
 {
     uint32_t extensionCount;
     vkEnumerateDeviceExtensionProperties(device, nullptr, &extensionCount, nullptr);
@@ -380,7 +387,7 @@ bool VGE_VulkanManager::CheckDeviceExtensionSupport(VkPhysicalDevice_T* device)
     return requiredExtensions.empty();
 }
 
-SwapChainSupportDetails VGE_VulkanManager::QuerySwapChainSupport(VkPhysicalDevice_T* device)
+SwapChainSupportDetails VGE_VulkanRenderer::QuerySwapChainSupport(VkPhysicalDevice_T* device)
 {
     SwapChainSupportDetails details;
     vkGetPhysicalDeviceSurfaceCapabilitiesKHR(device, Surface, details.Capabilities);
@@ -406,7 +413,7 @@ SwapChainSupportDetails VGE_VulkanManager::QuerySwapChainSupport(VkPhysicalDevic
     return details;
 }
 
-VkSurfaceFormatKHR VGE_VulkanManager::ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats)
+VkSurfaceFormatKHR VGE_VulkanRenderer::ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats)
 {
     for (const auto& availableFormat : availableFormats)
     {
@@ -419,7 +426,7 @@ VkSurfaceFormatKHR VGE_VulkanManager::ChooseSwapSurfaceFormat(const std::vector<
     return availableFormats[0];
 }
 
-VkPresentModeKHR VGE_VulkanManager::ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes)
+VkPresentModeKHR VGE_VulkanRenderer::ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes)
 {
     for (const auto& availablePresentMode : availablePresentModes)
     {
@@ -429,7 +436,7 @@ VkPresentModeKHR VGE_VulkanManager::ChooseSwapPresentMode(const std::vector<VkPr
     return VK_PRESENT_MODE_FIFO_KHR;
 }
 
-VkExtent2D VGE_VulkanManager::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities)
+VkExtent2D VGE_VulkanRenderer::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities)
 {
     if (capabilities->currentExtent.width != UINT32_MAX)
     {
@@ -450,7 +457,7 @@ VkExtent2D VGE_VulkanManager::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* c
     }
 }
 
-void VGE_VulkanManager::CreateSwapChain(VkPhysicalDevice_T* physicalDevice, VkDevice_T* logicalDevice)
+void VGE_VulkanRenderer::CreateSwapChain(VkPhysicalDevice_T* physicalDevice, VkDevice_T* logicalDevice)
 {
     SwapChainSupportDetails swapChainSupport = QuerySwapChainSupport(physicalDevice);
 
@@ -506,7 +513,7 @@ void VGE_VulkanManager::CreateSwapChain(VkPhysicalDevice_T* physicalDevice, VkDe
     SwapChainExtent = new VkExtent2D(extent);
 }
 
-void VGE_VulkanManager::CreateImageViews()
+void VGE_VulkanRenderer::CreateImageViews()
 {
     SwapChainImageViews.resize(SwapChainImages.size());
 
@@ -536,7 +543,7 @@ void VGE_VulkanManager::CreateImageViews()
 
 //-----Graphics-Pipeline----\\
 
-void VGE_VulkanManager::CreateGraphicsPipeline()
+void VGE_VulkanRenderer::CreateGraphicsPipeline()
 {
     auto vertShaderCode = ReadFile("Vulkan/Shaders/vert.spv");
     auto fragShaderCode = ReadFile("Vulkan/Shaders/frag.spv");
@@ -678,7 +685,7 @@ void VGE_VulkanManager::CreateGraphicsPipeline()
     vkDestroyShaderModule(LogicalDevice, vertShaderModule, nullptr);
 }
 
-void VGE_VulkanManager::CreateRenderPass()
+void VGE_VulkanRenderer::CreateRenderPass()
 {
     VkAttachmentDescription colorAttachment{};
     colorAttachment.format = SwapChainImageFormat;
@@ -725,7 +732,7 @@ void VGE_VulkanManager::CreateRenderPass()
 
 //--------Shaders--------\\
 
-std::vector<char> VGE_VulkanManager::ReadFile(const std::string& filename)
+std::vector<char> VGE_VulkanRenderer::ReadFile(const std::string& filename)
 {
     std::ifstream file(filename, std::ios::ate | std::ios::binary);
 
@@ -743,7 +750,7 @@ std::vector<char> VGE_VulkanManager::ReadFile(const std::string& filename)
     return buffer;
 }
 
-VkShaderModule_T* VGE_VulkanManager::CreateShaderModule(const std::vector<char>& code)
+VkShaderModule_T* VGE_VulkanRenderer::CreateShaderModule(const std::vector<char>& code)
 {
     VkShaderModuleCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
@@ -761,7 +768,7 @@ VkShaderModule_T* VGE_VulkanManager::CreateShaderModule(const std::vector<char>&
 
 //-------Buffers-------\\
 
-void VGE_VulkanManager::CreateFramebuffers()
+void VGE_VulkanRenderer::CreateFramebuffers()
 {
     SwapChainFramebuffers.resize(SwapChainImageViews.size());
 
@@ -788,7 +795,7 @@ void VGE_VulkanManager::CreateFramebuffers()
     }
 }
 
-void VGE_VulkanManager::CreateCommandPool()
+void VGE_VulkanRenderer::CreateCommandPool()
 {
     QueueFamilyIndices queueFamilyIndices = FindQueueFamilies(PhysicalDevice);
 
@@ -803,7 +810,7 @@ void VGE_VulkanManager::CreateCommandPool()
     }
 }
 
-void VGE_VulkanManager::CreateCommandBuffers()
+void VGE_VulkanRenderer::CreateCommandBuffers()
 {
     CommandBuffers.resize(SwapChainFramebuffers.size());
 
@@ -856,44 +863,84 @@ void VGE_VulkanManager::CreateCommandBuffers()
 
 //-----Syncronization------\\
 
-void VGE_VulkanManager::CreateSemaphores()
+void VGE_VulkanRenderer::CreateSyncObjects()
 {
     VkSemaphoreCreateInfo semaphoreInfo{};
     semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
 
-    if (
-        vkCreateSemaphore(LogicalDevice, &semaphoreInfo, nullptr, &ImageAvailableSemaphore) != VK_SUCCESS || 
-        vkCreateSemaphore(LogicalDevice, &semaphoreInfo, nullptr, &RenderFinishedSemaphore) != VK_SUCCESS
-       ) 
+    ImageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+    RenderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+
+    VkFenceCreateInfo fenceInfo{};
+    fenceInfo.sType = VK_STRUCTURE_TYPE_FENCE_CREATE_INFO;
+    fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
+
+    InFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
+    ImagesInFlight.resize(SwapChainImages.size(), VK_NULL_HANDLE);
+
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
     {
-        throw std::runtime_error("failed to create semaphores!");
+        if (
+            vkCreateSemaphore(LogicalDevice, &semaphoreInfo, nullptr, &ImageAvailableSemaphores[i]) != VK_SUCCESS ||
+            vkCreateSemaphore(LogicalDevice, &semaphoreInfo, nullptr, &RenderFinishedSemaphores[i]) != VK_SUCCESS ||
+            vkCreateFence(LogicalDevice, &fenceInfo, nullptr, &InFlightFences[i]) != VK_SUCCESS
+            )
+        {
+            throw std::runtime_error("Failed to create synchronization objects for a frame!");
+        }
     }
 }
 
 //-----Rendering------\\
 
-void VGE_VulkanManager::DrawFrame()
+void VGE_VulkanRenderer::DrawFrame(size_t& currentFrame)
 {
+    vkWaitForFences(LogicalDevice, 1, &InFlightFences[currentFrame], VK_TRUE, UINT64_MAX);
+
     uint32_t imageIndex;
-    vkAcquireNextImageKHR(LogicalDevice, SwapChain, UINT64_MAX, ImageAvailableSemaphore, VK_NULL_HANDLE, &imageIndex);
+    vkAcquireNextImageKHR(LogicalDevice, SwapChain, UINT64_MAX, ImageAvailableSemaphores[currentFrame], VK_NULL_HANDLE, &imageIndex);
+
+    // Check if a previous frame is using this image (i.e. there is its fence to wait on)
+    if (ImagesInFlight[imageIndex] != VK_NULL_HANDLE) vkWaitForFences(LogicalDevice, 1, &ImagesInFlight[imageIndex], VK_TRUE, UINT64_MAX);
+    // Mark the image as now being in use by this frame
+    ImagesInFlight[imageIndex] = InFlightFences[currentFrame];
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
 
-    VkSemaphore waitSemaphores[] = { ImageAvailableSemaphore };
+    VkSemaphore waitSemaphores[] = { ImageAvailableSemaphores[currentFrame] };
     VkPipelineStageFlags waitStages[] = { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT };
     submitInfo.waitSemaphoreCount = 1;
     submitInfo.pWaitSemaphores = waitSemaphores;
     submitInfo.pWaitDstStageMask = waitStages;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = &CommandBuffers[imageIndex];
 
-    VkSemaphore signalSemaphores[] = { RenderFinishedSemaphore };
+    VkSemaphore signalSemaphores[] = { RenderFinishedSemaphores[currentFrame] };
     submitInfo.signalSemaphoreCount = 1;
     submitInfo.pSignalSemaphores = signalSemaphores;
-
-    if (vkQueueSubmit(Queues.GraphicsQueue, 1, &submitInfo, VK_NULL_HANDLE) != VK_SUCCESS) 
+    
+    vkResetFences(LogicalDevice, 1, &InFlightFences[currentFrame]);
+    if (vkQueueSubmit(Queues.GraphicsQueue, 1, &submitInfo, InFlightFences[currentFrame]) != VK_SUCCESS)
     {
-        throw std::runtime_error("failed to submit draw command buffer!");
+        throw std::runtime_error("Failed to submit draw command buffer!");
     }
+
+    VkPresentInfoKHR presentInfo{};
+    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores = signalSemaphores;
+
+    VkSwapchainKHR swapChains[] = { SwapChain };
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains = swapChains;
+    presentInfo.pImageIndices = &imageIndex;
+    presentInfo.pResults = nullptr; // Optional
+
+    vkQueuePresentKHR(Queues.PresentationQueue, &presentInfo);
+
+    currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 }
 
 //---Swap-Chain-Support-Details---\\

@@ -1,6 +1,5 @@
 #include "SDL/VGE_SDLManager.h"
 #include "Vulkan/VGE_VulkanManager.h"
-#include "HelloTriangle.h"
 #include "Core/EngineEvent.h"
 #include <iostream>
 
@@ -14,11 +13,13 @@ int main(int argc, char* argv[])
 	SDLManager->Begin();
 
 
-	VGE_VulkanManager* VulkanManager = new VGE_VulkanManager(SDLManager);
-	try {
-		VulkanManager->Run();
+	Renderer* GameRenderer = new VGE_VulkanRenderer(SDLManager);
+	try 
+	{
+		GameRenderer->Run();
 	}
-	catch (const std::exception & e) {
+	catch (const std::exception & e) 
+	{
 		std::cerr << e.what() << std::endl;
 		return EXIT_FAILURE;
 	}
@@ -27,7 +28,7 @@ int main(int argc, char* argv[])
 
 	//Cleanup
 	if(SDLManager != nullptr) delete(SDLManager);
-	if (VulkanManager != nullptr) delete(VulkanManager);
+	if (GameRenderer != nullptr) delete(GameRenderer);
 	//-------
 
 	return 0;

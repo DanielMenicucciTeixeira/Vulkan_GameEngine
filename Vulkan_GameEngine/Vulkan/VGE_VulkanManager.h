@@ -1,6 +1,8 @@
 #ifndef VGE_VULKANMANAGER_H
 #define VGE_VULKANMANAGER_H
 
+#include "Renderer.h"
+
 #include <vector>
 #include <set>
 #include <optional>
@@ -34,6 +36,7 @@ struct VkFramebuffer_T;
 struct VkCommandPool_T;
 struct VkCommandBuffer_T;
 struct VkSemaphore_T;
+struct VkFence_T;
 
 class VGE_SDLManager;
 class SDL_Window;
@@ -70,20 +73,20 @@ struct SwapChainSupportDetails
 
 //------Class------\\
 
-class VGE_VulkanManager
+class VGE_VulkanRenderer : public Renderer
 {
 public:
 	//Constructors
-	VGE_VulkanManager(VGE_SDLManager* sdlManager = nullptr);
+	VGE_VulkanRenderer(VGE_SDLManager* sdlManager = nullptr);
 
 	//Destructors
 
-	~VGE_VulkanManager();
+	~VGE_VulkanRenderer();
 
 	//Functions
 
 public:
-	void Run();
+	void Run() override;
 	
 	inline VGE_SDLManager* GetSDLManager() { return SDLManager; }
 	inline void SetSDLManager(VGE_SDLManager* sdlManager) { SDLManager = sdlManager; }
@@ -91,9 +94,10 @@ public:
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; };
 
 protected:
-    void Initialize();
+    void Initialize() override;
     void MainLoop();
-    void Cleanup();
+    void CleanUp() override;
+	SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) override;
 
 	void CreateInstance(const char* applicationName = "App Name", const char* engineName = "Engine Name"/*, int appVersion[3] = { 1, 0, 0 }, int engineVersion[3] = { 1, 0, 0 }, int apiVersion[3] = { 1, 0, 0 }*/);
 	void PickPhysicalDevice();
@@ -101,11 +105,11 @@ protected:
 	void CreateLogicalDevice();
 
 	//Variables
-
+protected:
 	VkInstance_T* Instance = nullptr;
-
 	VkPhysicalDevice_T* PhysicalDevice = nullptr;
 	VkDevice_T* LogicalDevice = nullptr;
+	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
 
 	//---Validation-Layers------\\
 	//Fucntions
@@ -212,17 +216,20 @@ protected:
 	//-----Syncronization------\\
 	//Functions
 protected:
-	void CreateSemaphores();
+	void CreateSyncObjects();
 
 	//Variables
 protected:
-	VkSemaphore_T* ImageAvailableSemaphore;
-	VkSemaphore_T* RenderFinishedSemaphore;
+	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
+	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;
+	std::vector<VkFence_T*> InFlightFences;
+	std::vector<VkFence_T*> ImagesInFlight;
+	
 
 	//-----Rendering------\\
 	//Functions
 protected:
-	void DrawFrame();
+	void DrawFrame(size_t& currentFrame);
 };
 #endif
 

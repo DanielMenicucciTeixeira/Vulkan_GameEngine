@@ -154,7 +154,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HelloTriangle.cpp" />
     <ClCompile Include="Math\FMatrix.cpp" />
     <ClCompile Include="Math\FQuaternion.cpp" />
     <ClCompile Include="Math\FTransform.cpp" />
@@ -168,11 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
-    <ClInclude Include="HelloTriangle.h" />
     <ClInclude Include="Math\FMatrix.h" />
     <ClInclude Include="Math\FQuaternion.h" />
     <ClInclude Include="Math\FTransform.h" />
     <ClInclude Include="Math\FVector3.h" />
+    <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDL\VGE_SDLEventHandler.h" />
     <ClInclude Include="SDL\VGE_SDLManager.h" />
@@ -184,8 +183,8 @@
     <ResourceCompile Include="Vulkan_GameEngine.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\Base.frag" />
-    <None Include="Shaders\Base.vert" />
+    <None Include="Vulkan\Shaders\Base.frag" />
+    <None Include="Vulkan\Shaders\Base.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

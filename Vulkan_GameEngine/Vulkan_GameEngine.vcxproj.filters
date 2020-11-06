@@ -39,9 +39,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HelloTriangle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Vulkan\VGE_VulkanManager.cpp">
       <Filter>Vulkan</Filter>
     </ClCompile>
@@ -71,9 +68,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HelloTriangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vulkan\VGE_VulkanManager.h">
       <Filter>Vulkan</Filter>
     </ClInclude>
@@ -107,6 +101,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -114,10 +111,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\Base.frag">
+    <None Include="Vulkan\Shaders\Base.frag">
       <Filter>Shaders\BaseShader</Filter>
     </None>
-    <None Include="Shaders\Base.vert">
+    <None Include="Vulkan\Shaders\Base.vert">
       <Filter>Shaders\BaseShader</Filter>
     </None>
   </ItemGroup>

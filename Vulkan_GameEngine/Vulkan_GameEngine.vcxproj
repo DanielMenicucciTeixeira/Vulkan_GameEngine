@@ -163,7 +163,7 @@
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Vulkan\VGE_VulkanManager.cpp" />
+    <ClCompile Include="Vulkan\VulkanRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
@@ -177,7 +177,7 @@
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
-    <ClInclude Include="Vulkan\VGE_VulkanManager.h" />
+    <ClInclude Include="Vulkan\VulkanRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

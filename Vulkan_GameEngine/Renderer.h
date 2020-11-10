@@ -12,6 +12,7 @@ protected:
 	virtual void Initialize() = 0;
 	virtual  void CleanUp() = 0;
 	virtual SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) = 0;
+	virtual void Render() = 0;
 
 };
 #endif

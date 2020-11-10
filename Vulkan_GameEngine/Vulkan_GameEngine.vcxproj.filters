@@ -39,9 +39,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VGE_VulkanManager.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
     <ClCompile Include="SDL\VGE_SDLManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
@@ -66,11 +63,11 @@
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
+    <ClCompile Include="Vulkan\VulkanRenderer.cpp">
+      <Filter>Vulkan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vulkan\VGE_VulkanManager.h">
-      <Filter>Vulkan</Filter>
-    </ClInclude>
     <ClInclude Include="SDL\VGE_SDLManager.h">
       <Filter>SDL</Filter>
     </ClInclude>
@@ -103,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanRenderer.h">
+      <Filter>Vulkan</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

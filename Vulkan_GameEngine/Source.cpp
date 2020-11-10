@@ -1,5 +1,5 @@
 #include "SDL/VGE_SDLManager.h"
-#include "Vulkan/VGE_VulkanManager.h"
+#include "Vulkan/VulkanRenderer.h"
 #include "Core/EngineEvent.h"
 #include <iostream>
 
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 	SDLManager->Begin();
 
 
-	Renderer* GameRenderer = new VGE_VulkanRenderer(SDLManager);
+	Renderer* GameRenderer = new VulkanRenderer(SDLManager);
 	try 
 	{
 		GameRenderer->Run();

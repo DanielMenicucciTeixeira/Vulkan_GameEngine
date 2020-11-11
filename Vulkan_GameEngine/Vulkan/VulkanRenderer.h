@@ -40,8 +40,19 @@ struct VkFence_T;
 
 class VGE_SDLManager;
 class SDL_Window;
+class FVector3;
+class FVector4;
 
 //------Structs------\\
+
+struct Vertex
+{
+	FVector3* Position;
+	FVector4* Colour;
+
+	inline Vertex(FVector3* position, FVector4* colour) { Position = position; Colour = colour; }
+	inline ~Vertex() { if (Position) delete(Position); if (Colour) delete(Colour); }
+};
 
 struct QueueFamilyIndices
 {
@@ -210,7 +221,8 @@ protected:
 	void CreateCommandPool();
 	void CreateCommandBuffers();
 
-	void FramebufferResizeCallback(SDL_Window* window, unsigned int width, unsigned int height);
+public:
+	void FramebufferResizeCallback() override;
 
 	//Variables
 protected:
@@ -236,6 +248,7 @@ protected:
 	//Functions
 protected:
 	void Render() override;
+	std::vector<Vertex> Vertices;
 };
 #endif
 

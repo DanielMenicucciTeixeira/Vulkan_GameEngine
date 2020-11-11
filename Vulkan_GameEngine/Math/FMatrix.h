@@ -65,6 +65,9 @@ public:
 	//Makes this Matrix a Scaling Matrix with X, Y and Z respectively on the diagonal
 	void SetToScalingMatrix(float ScaleX, float ScaleY, float ScaleZ);
 
+	//Makes this Matrix a Translation Matrix
+	void SetToTranslationMatrix(float X, float Y, float Z);
+
 	//Swaps Rows and Columns
 	void Transpose();
 

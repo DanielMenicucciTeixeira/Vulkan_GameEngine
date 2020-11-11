@@ -1,6 +1,4 @@
-﻿  VulkanRenderer.cpp
-C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
-C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
-C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanRenderer.h(42): message : see declaration of 'SDL_Window'
+﻿  FQuaternion.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(19,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(20,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

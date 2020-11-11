@@ -155,9 +155,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Math\FMatrix.cpp" />
+    <ClCompile Include="Math\FMatrix4.cpp" />
     <ClCompile Include="Math\FQuaternion.cpp" />
     <ClCompile Include="Math\FTransform.cpp" />
     <ClCompile Include="Math\FVector3.cpp" />
+    <ClCompile Include="Math\FVector4.cpp" />
     <ClCompile Include="SDL\VGE_SDLEventHandler.cpp" />
     <ClCompile Include="SDL\VGE_SDLManager.cpp" />
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
@@ -168,9 +170,11 @@
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
     <ClInclude Include="Math\FMatrix.h" />
+    <ClInclude Include="Math\FMatrix4.h" />
     <ClInclude Include="Math\FQuaternion.h" />
     <ClInclude Include="Math\FTransform.h" />
     <ClInclude Include="Math\FVector3.h" />
+    <ClInclude Include="Math\FVector4.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDL\VGE_SDLEventHandler.h" />

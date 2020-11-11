@@ -66,6 +66,11 @@ void FVector3::operator-=(FVector3 Vector)
 	z -= Vector.z;
 }
 
+bool FVector3::operator==(FVector3 Vector)
+{
+	return x == Vector.x && y == Vector.y && z == Vector.z;
+}
+
 //Overload of the "-" operator, makes a vector minus vector subtraction.
 FVector3 FVector3::operator-(FVector3 Vector)
 {
@@ -114,12 +119,6 @@ void FVector3::operator=(FVector3 * Vector)
 	y = Vector->y;
 	z = Vector->z;
 }
-
-/*inline FVector3 & FVector3::operator=(const FVector3 & Vector)
-{
-	Load(Vector.x, Vector.y, Vector.z);
-	return *this;
-}*/
 
 ///Functions
 

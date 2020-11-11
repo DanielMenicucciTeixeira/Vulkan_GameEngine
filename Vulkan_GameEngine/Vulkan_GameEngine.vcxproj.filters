@@ -42,18 +42,6 @@
     <ClCompile Include="SDL\VGE_SDLManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FMatrix.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\FQuaternion.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\FTransform.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\FVector3.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
@@ -66,22 +54,28 @@
     <ClCompile Include="Vulkan\VulkanRenderer.cpp">
       <Filter>Vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="Math\FMatrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FMatrix4.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FQuaternion.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FTransform.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FVector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FVector4.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL\VGE_SDLManager.h">
       <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FMatrix.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FQuaternion.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FTransform.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FVector3.h">
-      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h">
       <Filter>SDL</Filter>
@@ -103,6 +97,24 @@
     </ClInclude>
     <ClInclude Include="Vulkan\VulkanRenderer.h">
       <Filter>Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FMatrix4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FQuaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FTransform.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FVector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FVector4.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

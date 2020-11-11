@@ -1,5 +1,7 @@
 #include "VulkanRenderer.h"
 #include "SDL/VGE_SDLManager.h"
+#include "Math/FVector3.h"
+#include "Math/FVector4.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL.h>
@@ -17,7 +19,18 @@
 
 VulkanRenderer::VulkanRenderer(VGE_SDLManager* sdlManager)
 {
-    if(sdlManager) SDLManager = sdlManager;
+    if (sdlManager)
+    {
+        SDLManager = sdlManager;
+        SDLManager->SetRenderer(this);
+    }
+
+    Vertices = 
+    {
+        Vertex(new FVector3(0.0f, -0.5f, 0.0f), new FVector4(1.0f, 0.0f, 0.0f, 1.0f)),
+        Vertex(new FVector3(0.5f, 0.5f, 0.0f), new FVector4(0.0f, 1.0f, 0.0f, 1.0f)),
+        Vertex(new FVector3(-0.5f, 0.5f, 0.0f), new FVector4(0.0f, 0.0f, 1.0f, 1.0f))
+    };
 }
 
 VulkanRenderer::~VulkanRenderer()
@@ -523,12 +536,15 @@ void VulkanRenderer::RecreateSwapChain()
     int width = 0;
     int height = 0; 
     
-    while (width == 0 || height == 0) {
+    do
+    {
         SDL_GetWindowSize(Window, &width, &height);
         SDL_WaitEvent(&SDLManager->GetEvent());
-    }
+    } 
+    while (width == 0 || height == 0);
 
     vkDeviceWaitIdle(LogicalDevice);
+    CleanUpSwapChain();
 
     CreateSwapChain();
     CreateImageViews();
@@ -896,10 +912,9 @@ void VulkanRenderer::CreateCommandBuffers()
 
 }
 
-void VulkanRenderer::FramebufferResizeCallback(SDL_Window* window, unsigned int width, unsigned int height)
+void VulkanRenderer::FramebufferResizeCallback()
 {
-    auto app = reinterpret_cast<VulkanRenderer*>(SDL_GetWindowData(window, "Vulkan Window"));
-    app->FramebufferResized = true;
+    FramebufferResized = true;
 }
 
 
@@ -941,7 +956,11 @@ void VulkanRenderer::Render()
 
     uint32_t imageIndex;
     VkResult swapChainResult = vkAcquireNextImageKHR(LogicalDevice, SwapChain, UINT64_MAX, ImageAvailableSemaphores[CurrentFrame], VK_NULL_HANDLE, &imageIndex);
-    if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR) RecreateSwapChain();
+    if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR)
+    {
+        RecreateSwapChain();
+        return;
+    }
     else if (swapChainResult != VK_SUCCESS && swapChainResult != VK_SUBOPTIMAL_KHR)
     {
         throw std::runtime_error("Failed to acquire swap chain image!");
@@ -986,7 +1005,7 @@ void VulkanRenderer::Render()
     presentInfo.pResults = nullptr; // Optional
 
     swapChainResult = vkQueuePresentKHR(Queues.PresentationQueue, &presentInfo);
-    if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR || swapChainResult != VK_SUBOPTIMAL_KHR || FramebufferResized)
+    if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR || swapChainResult == VK_SUBOPTIMAL_KHR || FramebufferResized)
     {
         FramebufferResized = false;
         RecreateSwapChain();

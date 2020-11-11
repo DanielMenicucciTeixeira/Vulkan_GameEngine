@@ -11,6 +11,7 @@ VGE_SDLWindowManager::~VGE_SDLWindowManager()
     //if(EngineWindow != nullptr) delete(EngineWindow);
     //if(EngineWindowSurface != nullptr) delete(EngineWindowSurface);
     //TODO figure out why I can't delete "EngineWindow" and "EngineWindowSurface" when I end the application.
+    SDL_GL_DeleteContext(EngineWindow);
 }
 
 bool VGE_SDLWindowManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
@@ -29,7 +30,8 @@ bool VGE_SDLWindowManager::CreateWindow(const char* windowName, float windowSize
     if (windowPositionY < 0) WINDOW_POSITION_Y = SDL_WINDOWPOS_UNDEFINED;
     else WINDOW_POSITION_Y = windowPositionY;
 
-    EngineWindow = SDL_CreateWindow(windowName, WINDOW_POSITION_X, WINDOW_POSITION_Y, WINDOW_SIZE_X, WINDOW_SIZE_Y, SDL_WINDOW_VULKAN);
+    EngineWindow = SDL_CreateWindow(windowName, WINDOW_POSITION_X, WINDOW_POSITION_Y, WINDOW_SIZE_X, WINDOW_SIZE_Y, SDL_WINDOW_VULKAN|SDL_WINDOW_RESIZABLE);
+    SDL_GL_CreateContext(EngineWindow);
     if (EngineWindow == NULL)
     {
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());

@@ -10,10 +10,8 @@
 int main(int argc, char* argv[])
 {
 	VGE_SDLManager* SDLManager = new VGE_SDLManager();
-	SDLManager->Begin();
-
-
 	Renderer* GameRenderer = new VulkanRenderer(SDLManager);
+	SDLManager->Begin();
 	try 
 	{
 		GameRenderer->Run();

@@ -28,23 +28,25 @@ public:
 
 	///Operators
 
-	FVector3 operator+ (FVector3 Vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	virtual FVector3 operator+ (FVector3 Vector);//Overload of the "+" operator, makes a vector plus vector addition.
 
-	FVector3 operator- (FVector3 Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	virtual FVector3 operator- (FVector3 Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
 
 	FVector3 operator* (float Multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
 
 	FVector3 operator/ (float Divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	float operator* (FVector3 Vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	virtual float operator* (FVector3 Vector);//Overload of the "*" operator, makes a vector times vector dot product.
 
-	void operator= (FVector3 Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	virtual void operator= (FVector3 Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
 	void operator= (FVector3 * Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
 	void operator+= (FVector3 Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 
 	void operator-= (FVector3 Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+
+	bool operator== (FVector3 Vector);//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
 
 	///Functions
 

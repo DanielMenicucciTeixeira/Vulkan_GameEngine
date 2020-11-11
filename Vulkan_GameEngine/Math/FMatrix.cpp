@@ -1,6 +1,5 @@
 #include "FMatrix.h"
 #include "FVector3.h"
-
 #include <math.h>
 #include<iostream>
 
@@ -293,22 +292,22 @@ void FMatrix::SetToRotationMatrix(eRotationAxis Axis, float Angle, bool IsAngleR
 		{
 		case X:
 			Matrix[1][1] = cosf(Angle);
-			Matrix[1][2] = 0.0f;
-			Matrix[2][1] = 0.0f;
+			Matrix[1][2] = 0;
+			Matrix[2][1] = 0;
 			Matrix[2][2] = cosf(Angle);
 			break;
 
 		case Y:
 			Matrix[0][0] = cosf(Angle);
-			Matrix[0][2] = 0.0f;
-			Matrix[2][0] = 0.0f;
+			Matrix[0][2] = 0;
+			Matrix[2][0] = 0;
 			Matrix[2][2] = cosf(Angle);
 			break;
 
 		case Z:
 			Matrix[0][0] = cosf(Angle);
-			Matrix[0][1] = 0.0f;
-			Matrix[1][0] = 0.0f;
+			Matrix[0][1] = 0;
+			Matrix[1][0] = 0;
 			Matrix[1][1] = cosf(Angle);
 			break;
 		}
@@ -352,6 +351,11 @@ void FMatrix::SetToScalingMatrix(float ScaleX, float ScaleY, float ScaleZ)
 	Matrix[0][0] = ScaleX;
 	Matrix[1][1] = ScaleY;
 	Matrix[2][2] = ScaleZ;
+}
+
+void FMatrix::SetToTranslationMatrix(float X, float Y, float Z)
+{
+	SetToIdentity();
 }
 
 //Swaps Rows and Columns

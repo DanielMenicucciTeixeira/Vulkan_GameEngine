@@ -23,6 +23,7 @@ protected:
 	class VGE_SDLTextureLoader* TextureLoader = nullptr;
 	class SDL_Surface* imageSurface = nullptr;
 	class VGE_SDLEventHandler* EventHandler = nullptr;
+	class Renderer* WindowRenderer = nullptr;
 
 
 	//-----------------------Functions-----------------------\\
@@ -33,6 +34,8 @@ public:
 	SDL_Event GetEvent();
 	void Render();
 	bool GetVulkanExtensions(std::vector<const char*>& extensionNames);
+	
+	inline void SetRenderer(Renderer* renderer) { WindowRenderer = renderer; }
 
 	class SDL_Window* GetWindow();
 

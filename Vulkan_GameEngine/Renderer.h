@@ -14,5 +14,8 @@ protected:
 	virtual SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) = 0;
 	virtual void Render() = 0;
 
+public:
+	virtual void FramebufferResizeCallback() = 0;
+
 };
 #endif

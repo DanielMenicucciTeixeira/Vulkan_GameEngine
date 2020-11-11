@@ -21,7 +21,7 @@ VGE_SDLManager::~VGE_SDLManager()
 void VGE_SDLManager::Begin()
 {
     WindowManager = new VGE_SDLWindowManager();
-    EventHandler = new VGE_SDLEventHandler();
+    EventHandler = new VGE_SDLEventHandler(WindowRenderer);
 
     if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {

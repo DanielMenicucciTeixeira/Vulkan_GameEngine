@@ -2,13 +2,14 @@
 #define VGE_SDLEVENTHANDLER_H
 
 union SDL_Event;
+class Renderer;
 
 class VGE_SDLEventHandler
 {
 public:
 	//-------------Constructors---------------------\\
 
-	VGE_SDLEventHandler();
+	VGE_SDLEventHandler(Renderer* renderer);
 
 	//--------------Destructor-----------------------\\
 
@@ -16,6 +17,7 @@ public:
 
 protected:
 
+	Renderer* WindowRenderer;
 
 	//----------Fucntions-----------\\
 

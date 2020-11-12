@@ -11,16 +11,16 @@ public:
 	///Constructors
 
 	//Constructor using initial values for each component.
-	inline FVector4(float X, float Y, float Z, float W) { x = X; y = Y; z = Z; w = W; }
+	inline FVector4(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; w = W; }
 
 	//Constructor initializing all components to a single float value.
-	inline FVector4(float Float) { x = y = z = w = Float; }
+	inline FVector4(float Float) { X = Y = Z = w = Float; }
 
 	//Constructor initializing to match a given FVector4, a copy constructor
 	inline FVector4(const FVector4& InitilizerVector);
 
 	//Default Constructor, initializes all values to 0;
-	inline FVector4() { x = y = z = 0; w = 1; }
+	inline FVector4() { X = Y = Z = 0; w = 1; }
 
 	///Destructor
 
@@ -49,9 +49,9 @@ public:
 	///Functions
 
 	//This function treats BOTH vectors as their 3D vector(FVector3) counterparts, as there is no cross product between two 4D vectors.
-	inline FVector3 CrossProduct(const FVector4& Vector) { return FVector3(y * Vector.z - z * Vector.y, z * Vector.x - x * Vector.z, x * Vector.y - y * Vector.x); }
+	inline FVector3 CrossProduct(const FVector4& Vector) { return FVector3(Y * Vector.Z - Z * Vector.Y, Z * Vector.X - X * Vector.Z, X * Vector.Y - Y * Vector.X); }
 
-	inline float Dot(const FVector4& Vector) { return (x * Vector.x) + (y * Vector.y) + (z * Vector.z) + (w * Vector.w); }
+	inline float Dot(const FVector4& Vector) { return (X * Vector.X) + (Y * Vector.Y) + (Z * Vector.Z) + (w * Vector.w); }
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
 	float Length();
@@ -63,7 +63,7 @@ public:
 	void Normalize();
 
 	//Utility to populate vector
-	inline void Load(float X, float Y, float Z, float W) { x = X; y = Y; z = Z; w = W; }
+	inline void Load(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; w = W; }
 
 	void test();
 };

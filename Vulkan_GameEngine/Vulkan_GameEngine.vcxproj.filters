@@ -34,6 +34,9 @@
     <Filter Include="Shaders\BaseShader">
       <UniqueIdentifier>{2b822bc2-338f-444a-ae61-5b458378ff69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{638625d0-17e0-4ce6-99f0-ed4a8585f050}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -71,6 +74,18 @@
     </ClCompile>
     <ClCompile Include="Math\FVector4.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Box.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Plane.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Ray.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Sphere.cpp">
+      <Filter>Geometry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +131,18 @@
     <ClInclude Include="Math\FVector4.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Geometry\Box.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Plane.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Ray.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Sphere.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -123,10 +150,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Vulkan\Shaders\Base.frag">
+    <None Include="Shaders\Base.frag">
       <Filter>Shaders\BaseShader</Filter>
     </None>
-    <None Include="Vulkan\Shaders\Base.vert">
+    <None Include="Shaders\Base.vert">
       <Filter>Shaders\BaseShader</Filter>
     </None>
   </ItemGroup>

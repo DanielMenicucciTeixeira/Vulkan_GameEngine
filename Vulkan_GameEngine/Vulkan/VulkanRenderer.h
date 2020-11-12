@@ -7,6 +7,8 @@
 #include <set>
 #include <optional>
 #include <string>
+#include <array>
+#include <glm/glm.hpp>
 
 //---Forward-Declarations---\\
 
@@ -29,14 +31,25 @@ struct VkSwapchainKHR_T;
 struct VkImage_T;
 struct VkImageView_T;
 struct VkShaderModule_T;
+struct VkDescriptorSetLayout_T;
 struct VkPipelineLayout_T;
 struct VkRenderPass_T;
 struct VkPipeline_T;
 struct VkFramebuffer_T;
 struct VkCommandPool_T;
 struct VkCommandBuffer_T;
+struct VkBuffer_T;
 struct VkSemaphore_T;
 struct VkFence_T;
+struct VkVertexInputBindingDescription;
+struct VkVertexInputAttributeDescription;
+struct VkDeviceMemory_T;
+
+typedef unsigned int VkFlags;
+typedef VkFlags VkMemoryPropertyFlags;
+typedef VkFlags VkBufferUsageFlags;
+typedef VkFlags VkMemoryPropertyFlags;
+typedef unsigned long long VkDeviceSize;
 
 class VGE_SDLManager;
 class SDL_Window;
@@ -47,11 +60,18 @@ class FVector4;
 
 struct Vertex
 {
-	FVector3* Position;
-	FVector4* Colour;
+	glm::vec3 Position;
+	glm::vec4 Colour;
 
-	inline Vertex(FVector3* position, FVector4* colour) { Position = position; Colour = colour; }
-	inline ~Vertex() { if (Position) delete(Position); if (Colour) delete(Colour); }
+	static VkVertexInputBindingDescription GetBindingDescription();
+	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();
+};
+
+struct UniformBufferObject 
+{
+	glm::mat4 Model;
+	glm::mat4 View;
+	glm::mat4 Projection;
 };
 
 struct QueueFamilyIndices
@@ -204,6 +224,7 @@ protected:
 
 	//Variables
 protected:
+	VkDescriptorSetLayout_T* DescriptorSetLayout;
 	VkPipelineLayout_T* PipelineLayout = nullptr;
 	VkRenderPass_T* RenderPass = nullptr;
 	VkPipeline_T* GraphicsPipeline = nullptr;
@@ -217,10 +238,15 @@ protected:
 	//-------Buffers-------\\
 	//Functions
 protected:
+	void CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer_T*& buffer, VkDeviceMemory_T*& bufferMemory);
 	void CreateFramebuffers();
+	void CreateVertexBuffers();
+	void CreateIndexBuffer();
 	void CreateCommandPool();
 	void CreateCommandBuffers();
 
+	void CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size);
+	unsigned int FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties);
 public:
 	void FramebufferResizeCallback() override;
 
@@ -228,6 +254,11 @@ public:
 protected:
 	VkCommandPool_T* CommandPool;
 	std::vector<VkCommandBuffer_T*> CommandBuffers;
+	VkBuffer_T* VertexBuffer;
+	VkDeviceMemory_T* VertexBufferMemory;
+	VkBuffer_T* IndexBuffer;
+	VkDeviceMemory_T* IndexBufferMemory;
+
 	bool FramebufferResized = false;
 
 	//-----Syncronization------\\
@@ -248,7 +279,17 @@ protected:
 	//Functions
 protected:
 	void Render() override;
-	std::vector<Vertex> Vertices;
+
+	void CreateDescriptorSetLayout();
+
+	const std::vector<Vertex> Vertices =
+	{
+		{{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},
+		{{0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f, 1.0f}},
+		{{0.5f, 0.5f, 0.0f}, {0.0f, 0.5f, 0.5f, 1.0f}},
+		{{-0.5f, 0.5f, 0.0f}, {0.5f, 0.0f, 0.5f, 1.0f}}
+	};
+	const std::vector<unsigned int> Indices = { 0, 1, 2, 2, 3, 0 };
 };
 #endif
 

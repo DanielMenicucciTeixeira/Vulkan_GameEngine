@@ -4,30 +4,30 @@
 ///Constructors
 
 //Constructor using initial values for each component.
-FVector3::FVector3(float inX, float inY, float inZ)
+FVector3::FVector3(float x, float y, float z)
 {
-	x = inX;
-	y = inY;
-	z = inZ;
+	X = x;
+	Y = y;
+	Z = z;
 }
 
 //Constructor initializing all components to a single float value.
 FVector3::FVector3(float Float)
 {
-	x = y = z = Float;
+	X = Y = Z = Float;
 }
 
 inline FVector3::FVector3(const FVector3 & InitilizerVector)
 {
-	Load(InitilizerVector.x, InitilizerVector.y, InitilizerVector.z);
+	Load(InitilizerVector.X, InitilizerVector.Y, InitilizerVector.Z);
 }
 
 //Default Constructor, initializes all values to 0;
 FVector3::FVector3()
 {
-	x = 0.0f;
-	y = 0.0f;
-	z = 0.0f;
+	X = 0.0f;
+	Y = 0.0f;
+	Z = 0.0f;
 }
 
 ///Destructors
@@ -43,9 +43,9 @@ FVector3 FVector3::operator+(FVector3 Vector)
 {
 	FVector3 Result;
 
-	Result.x = x + Vector.x;
-	Result.y = y + Vector.y;
-	Result.z = z + Vector.z;
+	Result.X = X + Vector.X;
+	Result.Y = Y + Vector.Y;
+	Result.Z = Z + Vector.Z;
 
 	return Result;
 }
@@ -53,22 +53,22 @@ FVector3 FVector3::operator+(FVector3 Vector)
 //Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 void FVector3::operator+=(FVector3 Vector)
 {
-	x += Vector.x;
-	y += Vector.y;
-	z += Vector.z;
+	X += Vector.X;
+	Y += Vector.Y;
+	Z += Vector.Z;
 }
 
 //Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
 void FVector3::operator-=(FVector3 Vector)
 {
-	x -= Vector.x;
-	y -= Vector.y;
-	z -= Vector.z;
+	X -= Vector.X;
+	Y -= Vector.Y;
+	Z -= Vector.Z;
 }
 
 bool FVector3::operator==(FVector3 Vector)
 {
-	return x == Vector.x && y == Vector.y && z == Vector.z;
+	return X == Vector.X && Y == Vector.Y && Z == Vector.Z;
 }
 
 //Overload of the "-" operator, makes a vector minus vector subtraction.
@@ -77,9 +77,9 @@ FVector3 FVector3::operator-(FVector3 Vector)
 
 	FVector3 Result;
 
-	Result.x = x - Vector.x;
-	Result.y = y - Vector.y;
-	Result.z = z - Vector.z;
+	Result.X = X - Vector.X;
+	Result.Y = Y - Vector.Y;
+	Result.Z = Z - Vector.Z;
 
 	return Result;
 }
@@ -87,27 +87,27 @@ FVector3 FVector3::operator-(FVector3 Vector)
 //Overload of the "*" operator, makes a vector times scalar multiplication.
 FVector3 FVector3::operator*(float Multiplier)
 {
-	return FVector3(x * Multiplier, y * Multiplier, z * Multiplier);
+	return FVector3(X * Multiplier, Y * Multiplier, Z * Multiplier);
 }
 
 //Overload of the "/" operator, makes a vector divided by scalar division.
 FVector3 FVector3::operator/(float Divisor)
 {
-	return FVector3(x / Divisor, y / Divisor, z / Divisor);
+	return FVector3(X / Divisor, Y / Divisor, Z / Divisor);
 }
 
 //Overload of the "*" operator, makes a vector times vector dot product.
 float FVector3::operator*(FVector3 Vector)
 {
-	return (x*Vector.x + y*Vector.y + z*Vector.z);
+	return (X*Vector.X + Y*Vector.Y + Z*Vector.Z);
 }
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 void FVector3::operator=(FVector3 Vector)
 {
-	x = Vector.x;
-	y = Vector.y;
-	z = Vector.z;
+	X = Vector.X;
+	Y = Vector.Y;
+	Z = Vector.Z;
 }
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
@@ -115,9 +115,9 @@ void FVector3::operator=(FVector3 * Vector)
 {
 	if (Vector == nullptr) return;
 
-	x = Vector->x;
-	y = Vector->y;
-	z = Vector->z;
+	X = Vector->X;
+	Y = Vector->Y;
+	Z = Vector->Z;
 }
 
 ///Functions
@@ -125,16 +125,16 @@ void FVector3::operator=(FVector3 * Vector)
 //Returns the magnitude of the Vector (or Vector's scalar lenght)
 float FVector3::Length()
 {
-	return sqrt(x*x + y * y + z * z);
+	return sqrt(X*X + Y * Y + Z * Z);
 }
 
 //Returns the angle between this vector and another given vector in degrees.
 float FVector3::GetAngle(FVector3 Vector)
 {
 	FVector3 thisVector;
-	thisVector.x = x;
-	thisVector.y = y;
-	thisVector.z = z;
+	thisVector.X = X;
+	thisVector.Y = Y;
+	thisVector.Z = Z;
 	
 	return acos((thisVector * Vector)/(thisVector.Length() * Vector.Length())) * 180.0f/ 3.14159265f;
 }
@@ -143,9 +143,9 @@ float FVector3::GetAngle(FVector3 Vector)
 float FVector3::GetRadAngle(FVector3 Vector)
 {
 	FVector3 thisVector;
-	thisVector.x = x;
-	thisVector.y = y;
-	thisVector.z = z;
+	thisVector.X = X;
+	thisVector.Y = Y;
+	thisVector.Z = Z;
 
 	return acos((thisVector * Vector) / (Length() * Vector.Length()));
 }
@@ -153,13 +153,13 @@ float FVector3::GetRadAngle(FVector3 Vector)
 //Returns the Cross product of this vector and another given vector.
 FVector3 FVector3::CrossProduct(FVector3 Vector)
 {
-	return FVector3(y*Vector.z - z*Vector.y, z*Vector.x - x*Vector.z, x*Vector.y - y*Vector.x);
+	return FVector3(Y*Vector.Z - Z*Vector.Y, Z*Vector.X - X*Vector.Z, X*Vector.Y - Y*Vector.X);
 }
 
 //Gets the normalized form of this Vector
 FVector3 FVector3::GetNormal()
 {
-	FVector3 ReturnVector(x, y, z);
+	FVector3 ReturnVector(X, Y, Z);
 
 	return ReturnVector/ReturnVector.Length();
 }
@@ -167,13 +167,13 @@ FVector3 FVector3::GetNormal()
 //Divides the vector by its Magnitude to get the normalized unit vector.
 void FVector3::Normalize()
 {
-	FVector3 ReturnVector(x, y, z);
+	FVector3 ReturnVector(X, Y, Z);
 
 	ReturnVector = ReturnVector / ReturnVector.Length();
 
-	x = ReturnVector.x;
-	y = ReturnVector.y;
-	z = ReturnVector.z;
+	X = ReturnVector.X;
+	Y = ReturnVector.Y;
+	Z = ReturnVector.Z;
 }
 
 //Rotates the vector by X degrees in the Z axis
@@ -181,20 +181,20 @@ void FVector3::RotateZ(float Degrees)
 {
 	Degrees *= 0.0174533f;
 
-	x = x * cos(Degrees) - y * sin(Degrees);
-	y = x * sin(Degrees) + y * cos(Degrees);
+	X = X * cos(Degrees) - Y * sin(Degrees);
+	Y = X * sin(Degrees) + Y * cos(Degrees);
 
 }
 //Rotates the vector by disered amount in radians in the Z axis
 void FVector3::RotateZRad(float Degrees)
 {
-	x = x * cos(Degrees) - y * sin(Degrees);
-	y = x * sin(Degrees) + y * cos(Degrees);
+	X = X * cos(Degrees) - Y * sin(Degrees);
+	Y = X * sin(Degrees) + Y * cos(Degrees);
 }
 
-inline void FVector3::Load(float InX, float InY, float InZ)
+inline void FVector3::Load(float x, float y, float z)
 {
-	x = InX;
-	y = InY;
-	z = InZ;
+	X = x;
+	Y = y;
+	Z = z;
 }

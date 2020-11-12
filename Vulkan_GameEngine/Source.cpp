@@ -9,6 +9,8 @@
 
 int main(int argc, char* argv[])
 {
+	std::system("Shaders\\compile.bat");
+
 	VGE_SDLManager* SDLManager = new VGE_SDLManager();
 	Renderer* GameRenderer = new VulkanRenderer(SDLManager);
 	SDLManager->Begin();

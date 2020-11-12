@@ -35,17 +35,17 @@ FMatrix::FMatrix(float Value)
 //Initilizes the Matrix Given 3 FVector3s for rows
 FMatrix::FMatrix(FVector3 Row1, FVector3 Row2, FVector3 Row3)
 {
-	Matrix[0][0] = Row1.x;
-	Matrix[0][1] = Row1.y;
-	Matrix[0][2] = Row1.z;
+	Matrix[0][0] = Row1.X;
+	Matrix[0][1] = Row1.Y;
+	Matrix[0][2] = Row1.Z;
 
-	Matrix[1][0] = Row2.x;
-	Matrix[1][1] = Row2.y;
-	Matrix[1][2] = Row2.z;
+	Matrix[1][0] = Row2.X;
+	Matrix[1][1] = Row2.Y;
+	Matrix[1][2] = Row2.Z;
 
-	Matrix[2][0] = Row3.x;
-	Matrix[2][1] = Row3.y;
-	Matrix[2][2] = Row3.z;
+	Matrix[2][0] = Row3.X;
+	Matrix[2][1] = Row3.Y;
+	Matrix[2][2] = Row3.Z;
 }
 
 //Initialiazes the Matrix given 3 floats for the diagonal
@@ -175,9 +175,9 @@ FVector3 FMatrix::operator*(FVector3 vector)
 {
 	FVector3 ReturnVector = FVector3(0);
 
-	ReturnVector.x = Matrix[0][0] * vector.x + Matrix[0][1] * vector.y + Matrix[0][2] * vector.z;
-	ReturnVector.y = Matrix[1][0] * vector.x + Matrix[1][1] * vector.y + Matrix[1][2] * vector.z;
-	ReturnVector.z = Matrix[2][0] * vector.x + Matrix[2][1] * vector.y + Matrix[2][2] * vector.z;
+	ReturnVector.X = Matrix[0][0] * vector.X + Matrix[0][1] * vector.Y + Matrix[0][2] * vector.Z;
+	ReturnVector.Y = Matrix[1][0] * vector.X + Matrix[1][1] * vector.Y + Matrix[1][2] * vector.Z;
+	ReturnVector.Z = Matrix[2][0] * vector.X + Matrix[2][1] * vector.Y + Matrix[2][2] * vector.Z;
 
 	return ReturnVector;
 }

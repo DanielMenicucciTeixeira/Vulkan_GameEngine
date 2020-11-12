@@ -1,17 +1,19 @@
 #ifndef FVector3_
 #define FVector3_
 
+#include <array>
+
 class FVector3
 {
 public:
 
 	//Variables (coordinates of the vector)
-	float x, y, z;
+	float X, Y, Z;
 
 	///Constructors
 
 	//Constructor using initial values for each component.
-	FVector3(float X, float Y, float Z);
+	FVector3(float x, float y, float z);
 
 	//Constructor initializing all components to a single float value.
 	FVector3(float Float);
@@ -75,6 +77,9 @@ public:
 	void RotateZRad(float Degrees);
 
 	//Utility to populate vector
-	inline void Load(float InX, float InY, float InZ);
+	inline void Load(float x, float y, float z);
+
+	//Returns an array of {x, y, z}
+	inline std::array<float, 3> Array() { return {X, Y, Z}; }
 };
 #endif

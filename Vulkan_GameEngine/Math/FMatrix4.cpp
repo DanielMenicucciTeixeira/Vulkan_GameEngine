@@ -57,24 +57,24 @@ FMatrix4::FMatrix4(float Value)
 //Initilizes the Matrix Given 3 FVector3s for rows
 FMatrix4::FMatrix4(const FVector4& Row1, const FVector4& Row2, const FVector4& Row3, const FVector4& Row4)
 {
-	Matrix[0][0] = Row1.x;
-	Matrix[0][1] = Row1.y;
-	Matrix[0][2] = Row1.z;
+	Matrix[0][0] = Row1.X;
+	Matrix[0][1] = Row1.Y;
+	Matrix[0][2] = Row1.Z;
 	Matrix[0][3] = Row1.w;
 
-	Matrix[1][0] = Row2.x;
-	Matrix[1][1] = Row2.y;
-	Matrix[1][2] = Row2.z;
+	Matrix[1][0] = Row2.X;
+	Matrix[1][1] = Row2.Y;
+	Matrix[1][2] = Row2.Z;
 	Matrix[1][3] = Row2.w;
 
-	Matrix[2][0] = Row3.x;
-	Matrix[2][1] = Row3.y;
-	Matrix[2][2] = Row3.z;
+	Matrix[2][0] = Row3.X;
+	Matrix[2][1] = Row3.Y;
+	Matrix[2][2] = Row3.Z;
 	Matrix[2][3] = Row3.w;
 
-	Matrix[3][0] = Row4.x;
-	Matrix[3][1] = Row4.y;
-	Matrix[3][2] = Row4.z;
+	Matrix[3][0] = Row4.X;
+	Matrix[3][1] = Row4.Y;
+	Matrix[3][2] = Row4.Z;
 	Matrix[3][3] = Row4.w;
 }
 
@@ -205,9 +205,9 @@ FVector3 FMatrix4::operator*(FVector3 vector)
 {
 	FVector3 ReturnVector = FVector3(0);
 
-	ReturnVector.x = Matrix[0][0] * vector.x + Matrix[0][1] * vector.y + Matrix[0][2] * vector.z;
-	ReturnVector.y = Matrix[1][0] * vector.x + Matrix[1][1] * vector.y + Matrix[1][2] * vector.z;
-	ReturnVector.z = Matrix[2][0] * vector.x + Matrix[2][1] * vector.y + Matrix[2][2] * vector.z;
+	ReturnVector.X = Matrix[0][0] * vector.X + Matrix[0][1] * vector.Y + Matrix[0][2] * vector.Z;
+	ReturnVector.Y = Matrix[1][0] * vector.X + Matrix[1][1] * vector.Y + Matrix[1][2] * vector.Z;
+	ReturnVector.Z = Matrix[2][0] * vector.X + Matrix[2][1] * vector.Y + Matrix[2][2] * vector.Z;
 
 	return ReturnVector;
 }
@@ -216,10 +216,10 @@ FVector4* FMatrix4::operator*(FVector4* vector)
 {
 	FVector4* ReturnVector = new FVector4(0);
 
-	ReturnVector->x = Matrix[0][0] * vector->x + Matrix[0][1] * vector->y + Matrix[0][2] * vector->z + Matrix[0][3] * vector->w;
-	ReturnVector->y = Matrix[1][0] * vector->x + Matrix[1][1] * vector->y + Matrix[1][2] * vector->z + Matrix[1][3] * vector->w;
-	ReturnVector->z = Matrix[2][0] * vector->x + Matrix[2][1] * vector->y + Matrix[2][2] * vector->z + Matrix[2][3] * vector->w;
-	ReturnVector->w = Matrix[3][0] * vector->x + Matrix[3][1] * vector->y + Matrix[3][2] * vector->z + Matrix[3][3] * vector->w;
+	ReturnVector->X = Matrix[0][0] * vector->X + Matrix[0][1] * vector->Y + Matrix[0][2] * vector->Z + Matrix[0][3] * vector->w;
+	ReturnVector->Y = Matrix[1][0] * vector->X + Matrix[1][1] * vector->Y + Matrix[1][2] * vector->Z + Matrix[1][3] * vector->w;
+	ReturnVector->Z = Matrix[2][0] * vector->X + Matrix[2][1] * vector->Y + Matrix[2][2] * vector->Z + Matrix[2][3] * vector->w;
+	ReturnVector->w = Matrix[3][0] * vector->X + Matrix[3][1] * vector->Y + Matrix[3][2] * vector->Z + Matrix[3][3] * vector->w;
 
 	return ReturnVector;
 }

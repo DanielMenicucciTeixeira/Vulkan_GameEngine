@@ -24,13 +24,6 @@ VulkanRenderer::VulkanRenderer(VGE_SDLManager* sdlManager)
         SDLManager = sdlManager;
         SDLManager->SetRenderer(this);
     }
-
-    Vertices = 
-    {
-        Vertex(new FVector3(0.0f, -0.5f, 0.0f), new FVector4(1.0f, 0.0f, 0.0f, 1.0f)),
-        Vertex(new FVector3(0.5f, 0.5f, 0.0f), new FVector4(0.0f, 1.0f, 0.0f, 1.0f)),
-        Vertex(new FVector3(-0.5f, 0.5f, 0.0f), new FVector4(0.0f, 0.0f, 1.0f, 1.0f))
-    };
 }
 
 VulkanRenderer::~VulkanRenderer()
@@ -70,9 +63,12 @@ void VulkanRenderer::Initialize()
     CreateSwapChain();
     CreateImageViews();
     CreateRenderPass();
+    CreateDescriptorSetLayout();
     CreateGraphicsPipeline();
     CreateFramebuffers();
     CreateCommandPool();
+    CreateVertexBuffers();
+    CreateIndexBuffer();
     CreateCommandBuffers();
     CreateSyncObjects();
 }
@@ -99,6 +95,11 @@ void VulkanRenderer::CleanUp()
     vkDestroyRenderPass(LogicalDevice, RenderPass, nullptr);
     for (auto imageView : SwapChainImageViews) vkDestroyImageView(LogicalDevice, imageView, nullptr);
     vkDestroySwapchainKHR(LogicalDevice, SwapChain, nullptr);
+    vkDestroyDescriptorSetLayout(LogicalDevice, DescriptorSetLayout, nullptr);
+    vkDestroyBuffer(LogicalDevice, IndexBuffer, nullptr);
+    vkFreeMemory(LogicalDevice, IndexBufferMemory, nullptr);
+    vkDestroyBuffer(LogicalDevice, VertexBuffer, nullptr);
+    vkFreeMemory(LogicalDevice, VertexBufferMemory, nullptr);
     vkDestroyDevice(LogicalDevice, nullptr);
 
     if (EnableValidationLayers) DestroyDebugUtilsMessengerEXT(Instance, nullptr);
@@ -597,8 +598,8 @@ void VulkanRenderer::CleanUpSwapChain()
 
 void VulkanRenderer::CreateGraphicsPipeline()
 {
-    auto vertShaderCode = ReadFile("Vulkan/Shaders/vert.spv");
-    auto fragShaderCode = ReadFile("Vulkan/Shaders/frag.spv");
+    auto vertShaderCode = ReadFile("Shaders/vert.spv");
+    auto fragShaderCode = ReadFile("Shaders/frag.spv");
 
     VkShaderModule vertShaderModule = CreateShaderModule(vertShaderCode);
     VkShaderModule fragShaderModule = CreateShaderModule(fragShaderCode);
@@ -617,12 +618,15 @@ void VulkanRenderer::CreateGraphicsPipeline()
 
     VkPipelineShaderStageCreateInfo shaderStages[] = { vertShaderStageInfo, fragShaderStageInfo };
 
+    auto bindingDescription = Vertex::GetBindingDescription();
+    auto attributeDescriptions = Vertex::GetAttributeDescriptions();
+
     VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
-    vertexInputInfo.vertexBindingDescriptionCount = 0;
-    vertexInputInfo.pVertexBindingDescriptions = nullptr; // Optional
-    vertexInputInfo.vertexAttributeDescriptionCount = 0;
-    vertexInputInfo.pVertexAttributeDescriptions = nullptr; // Optional
+    vertexInputInfo.vertexBindingDescriptionCount = 1;
+    vertexInputInfo.pVertexBindingDescriptions = &bindingDescription; // Optional
+    vertexInputInfo.vertexAttributeDescriptionCount = static_cast<uint32_t>(attributeDescriptions.size());
+    vertexInputInfo.pVertexAttributeDescriptions = attributeDescriptions.data();
 
     VkPipelineInputAssemblyStateCreateInfo inputAssembly{};
     inputAssembly.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
@@ -700,8 +704,8 @@ void VulkanRenderer::CreateGraphicsPipeline()
 
     VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
     pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-    pipelineLayoutInfo.setLayoutCount = 0; // Optional
-    pipelineLayoutInfo.pSetLayouts = nullptr; // Optional
+    pipelineLayoutInfo.setLayoutCount = 1;
+    pipelineLayoutInfo.pSetLayouts = &DescriptorSetLayout;
     pipelineLayoutInfo.pushConstantRangeCount = 0; // Optional
     pipelineLayoutInfo.pPushConstantRanges = nullptr; // Optional
 
@@ -820,6 +824,33 @@ VkShaderModule_T* VulkanRenderer::CreateShaderModule(const std::vector<char>& co
 
 //-------Buffers-------\\
 
+void VulkanRenderer::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer_T*& buffer, VkDeviceMemory_T*& bufferMemory)
+{
+    VkBufferCreateInfo bufferInfo{};
+    bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
+    bufferInfo.size = size;
+    bufferInfo.usage = usage;
+    bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+
+    if (vkCreateBuffer(LogicalDevice, &bufferInfo, nullptr, &buffer) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create buffer!");
+    }
+
+    VkMemoryRequirements memRequirements;
+    vkGetBufferMemoryRequirements(LogicalDevice, buffer, &memRequirements);
+
+    VkMemoryAllocateInfo allocInfo{};
+    allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    allocInfo.allocationSize = memRequirements.size;
+    allocInfo.memoryTypeIndex = FindMemoryType(memRequirements.memoryTypeBits, properties);
+
+    if (vkAllocateMemory(LogicalDevice, &allocInfo, nullptr, &bufferMemory) != VK_SUCCESS) {
+        throw std::runtime_error("failed to allocate buffer memory!");
+    }
+
+    vkBindBufferMemory(LogicalDevice, buffer, bufferMemory, 0);
+}
+
 void VulkanRenderer::CreateFramebuffers()
 {
     SwapChainFramebuffers.resize(SwapChainImageViews.size());
@@ -845,6 +876,47 @@ void VulkanRenderer::CreateFramebuffers()
             throw std::runtime_error("failed to create framebuffer!");
         }
     }
+}
+
+void VulkanRenderer::CreateVertexBuffers()
+{
+    VkDeviceSize bufferSize = sizeof(Vertices[0]) * Vertices.size();
+
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+    
+    void* data;
+    vkMapMemory(LogicalDevice, stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, Vertices.data(), (size_t)bufferSize);
+    vkUnmapMemory(LogicalDevice, stagingBufferMemory);
+
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, VertexBuffer, VertexBufferMemory);
+    CopyBuffer(stagingBuffer, VertexBuffer, bufferSize);
+
+    vkDestroyBuffer(LogicalDevice, stagingBuffer, nullptr);
+    vkFreeMemory(LogicalDevice, stagingBufferMemory, nullptr);
+}
+
+void VulkanRenderer::CreateIndexBuffer()
+{
+    VkDeviceSize bufferSize = sizeof(Indices[0]) * Indices.size();
+
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+
+    void* data;
+    vkMapMemory(LogicalDevice, stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, Indices.data(), (size_t)bufferSize);
+    vkUnmapMemory(LogicalDevice, stagingBufferMemory);
+
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, IndexBuffer, IndexBufferMemory);
+
+    CopyBuffer(stagingBuffer, IndexBuffer, bufferSize);
+
+    vkDestroyBuffer(LogicalDevice, stagingBuffer, nullptr);
+    vkFreeMemory(LogicalDevice, stagingBufferMemory, nullptr);
 }
 
 void VulkanRenderer::CreateCommandPool()
@@ -899,9 +971,14 @@ void VulkanRenderer::CreateCommandBuffers()
         renderPassInfo.clearValueCount = 1;
         renderPassInfo.pClearValues = &clearColor;
 
+        VkBuffer vertexBuffers[] = { VertexBuffer };
+        VkDeviceSize offsets[] = { 0 };
+
         vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
         vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline);
-        vkCmdDraw(CommandBuffers[i], 3, 1, 0, 0);
+        vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
+        vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+        vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
         vkCmdEndRenderPass(CommandBuffers[i]);
 
         if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS) 
@@ -910,6 +987,68 @@ void VulkanRenderer::CreateCommandBuffers()
         }
     }
 
+}
+
+void VulkanRenderer::CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size)
+{
+    VkCommandBufferAllocateInfo allocInfo{};
+    allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+    allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+    allocInfo.commandPool = CommandPool;
+    allocInfo.commandBufferCount = 1;
+
+    VkCommandBuffer commandBuffer;
+    vkAllocateCommandBuffers(LogicalDevice, &allocInfo, &commandBuffer);
+
+    /*
+        TODO It should be noted that in a real world application, you're not supposed to actually call vkAllocateMemory for every individual buffer. 
+        The maximum number of simultaneous memory allocations is limited by the maxMemoryAllocationCount physical device limit, which may be as low as 
+        4096 even on high end hardware like an NVIDIA GTX 1080. The right way to allocate memory for a large number of objects at the same time is to 
+        create a custom allocator that splits up a single allocation among many different objects by using the offset parameters that we've seen in many 
+        functions.
+        You can either implement such an allocator yourself, or use the VulkanMemoryAllocator library provided by the GPUOpen initiative.
+        However, for this tutorial it's okay to use a separate allocation for every resource, because we won't come close to hitting any of these limits for now.
+    */
+
+    VkCommandBufferBeginInfo beginInfo{};
+    beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+    beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+
+    vkBeginCommandBuffer(commandBuffer, &beginInfo);
+
+        VkBufferCopy copyRegion{};
+        copyRegion.srcOffset = 0; // Optional
+        copyRegion.dstOffset = 0; // Optional
+        copyRegion.size = size;
+        vkCmdCopyBuffer(commandBuffer, srcBuffer, dstBuffer, 1, &copyRegion);
+
+    vkEndCommandBuffer(commandBuffer);
+
+    VkSubmitInfo submitInfo{};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = &commandBuffer;
+
+    vkQueueSubmit(Queues.GraphicsQueue, 1, &submitInfo, VK_NULL_HANDLE);
+    vkQueueWaitIdle(Queues.GraphicsQueue);
+
+    vkFreeCommandBuffers(LogicalDevice, CommandPool, 1, &commandBuffer);
+}
+
+unsigned int VulkanRenderer::FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties)
+{
+    VkPhysicalDeviceMemoryProperties memProperties;
+    vkGetPhysicalDeviceMemoryProperties(PhysicalDevice, &memProperties);
+    for (uint32_t i = 0; i < memProperties.memoryTypeCount; i++) 
+    {
+        if ((typeFilter & (1 << i)) && (memProperties.memoryTypes[i].propertyFlags & properties) == properties) 
+        {
+            return i;
+        }
+    }
+    throw std::runtime_error("Failed to find suitable memory type!");
+
+    return 0;
 }
 
 void VulkanRenderer::FramebufferResizeCallback()
@@ -1018,6 +1157,26 @@ void VulkanRenderer::Render()
     CurrentFrame = (CurrentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 }
 
+void VulkanRenderer::CreateDescriptorSetLayout()
+{
+    VkDescriptorSetLayoutBinding uboLayoutBinding{};
+    uboLayoutBinding.binding = 0;
+    uboLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    uboLayoutBinding.descriptorCount = 1;
+    uboLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    uboLayoutBinding.pImmutableSamplers = nullptr; // Optional
+
+    VkDescriptorSetLayoutCreateInfo layoutInfo{};
+    layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+    layoutInfo.bindingCount = 1;
+    layoutInfo.pBindings = &uboLayoutBinding;
+
+    if (vkCreateDescriptorSetLayout(LogicalDevice, &layoutInfo, nullptr, &DescriptorSetLayout) != VK_SUCCESS) 
+    {
+        throw std::runtime_error("failed to create descriptor set layout!");
+    }
+}
+
 //---Swap-Chain-Support-Details---\\
 
 VkSurfaceCapabilitiesKHR* SwapChainSupportDetails::InitializeCapabilities()
@@ -1025,4 +1184,29 @@ VkSurfaceCapabilitiesKHR* SwapChainSupportDetails::InitializeCapabilities()
     return new VkSurfaceCapabilitiesKHR();
 }
 
+VkVertexInputBindingDescription Vertex::GetBindingDescription()
+{
+    VkVertexInputBindingDescription bindingDescription{};
+    bindingDescription.binding = 0;
+    bindingDescription.stride = sizeof(Vertex);
+    bindingDescription.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
 
+    return bindingDescription;
+}
+
+std::array<VkVertexInputAttributeDescription, 2> Vertex::GetAttributeDescriptions()
+{
+    std::array<VkVertexInputAttributeDescription, 2> attributeDescriptions{};
+    
+    attributeDescriptions[0].binding = 0;
+    attributeDescriptions[0].location = 0;
+    attributeDescriptions[0].format = VK_FORMAT_R32G32_SFLOAT;
+    attributeDescriptions[0].offset = offsetof(Vertex, Position);
+
+    attributeDescriptions[1].binding = 0;
+    attributeDescriptions[1].location = 1;
+    attributeDescriptions[1].format = VK_FORMAT_R32G32B32_SFLOAT;
+    attributeDescriptions[1].offset = offsetof(Vertex, Colour);
+
+    return attributeDescriptions;
+}

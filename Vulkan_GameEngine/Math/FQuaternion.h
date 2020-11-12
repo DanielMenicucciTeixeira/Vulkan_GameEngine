@@ -9,9 +9,9 @@ class FQuaternion : public FVector4
 {
 public:
 
-	inline FQuaternion() { x = y = z = 0; w = 1; }
+	inline FQuaternion() { X = Y = Z = 0; w = 1; }
 	inline FQuaternion(FVector4 vector) : FVector4(vector) {}
-	inline FQuaternion(float X, float Y, float Z, float W) { x = X; y = Y; z = Z; w = W; }
+	inline FQuaternion(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; w = W; }
 	FQuaternion(FVector3 axis, float angle, bool isRotation = true, bool inRadians = false);
 
 	//Overloaded Operators
@@ -19,8 +19,8 @@ public:
 	void operator= (const FQuaternion& Quaternion);
 
 	//Functions
-	inline FQuaternion GetConjugated() { return FQuaternion(-x, -y, -z, w); }
-	inline void Conjugate() { x = -x; y = -y; z = -z; }
+	inline FQuaternion GetConjugated() { return FQuaternion(-X, -Y, -Z, w); }
+	inline void Conjugate() { X = -X; Y = -Y; Z = -Z; }
 	inline FQuaternion GetInverse() { return FQuaternion(GetConjugated()/Length()); }
 	void Invert();
 	FMatrix GetRotationMatrix();

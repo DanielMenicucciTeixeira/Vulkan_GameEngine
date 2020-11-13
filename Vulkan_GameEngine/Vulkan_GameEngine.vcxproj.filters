@@ -72,9 +72,6 @@
     <ClCompile Include="Math\FVector3.cpp">
       <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FVector4.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="Geometry\Box.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
@@ -86,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="Geometry\Sphere.cpp">
       <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\FVector4.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,9 +128,6 @@
     <ClInclude Include="Math\FVector3.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Math\FVector4.h">
-      <Filter>Math</Filter>
-    </ClInclude>
     <ClInclude Include="Geometry\Box.h">
       <Filter>Geometry</Filter>
     </ClInclude>
@@ -142,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="Geometry\Sphere.h">
       <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\FVector4.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

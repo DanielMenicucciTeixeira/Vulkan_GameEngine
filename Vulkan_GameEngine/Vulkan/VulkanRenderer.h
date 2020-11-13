@@ -55,6 +55,8 @@ class VGE_SDLManager;
 class SDL_Window;
 class FVector3;
 class FVector4;
+//#include "Math/FVector3.h"
+//#include "Math/FVector4.h"
 
 //------Structs------\\
 
@@ -62,6 +64,8 @@ struct Vertex
 {
 	glm::vec3 Position;
 	glm::vec4 Colour;
+	//FVector3* Position;
+	//FVector4* Colour;
 
 	static VkVertexInputBindingDescription GetBindingDescription();
 	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();

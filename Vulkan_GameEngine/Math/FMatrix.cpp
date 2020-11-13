@@ -199,19 +199,16 @@ FMatrix FMatrix::GetInverse()
 {
 	if (Det() == 0) return FMatrix();
 
-	FMatrix* tempMatrix = new FMatrix();
+	FMatrix returnMatrix = FMatrix();
 
 	for (int row = 0; row < 3; row++)
 	{
 		for (int col = 0; col < 3; col++)
 		{
 			//Row and collumns are swapt so there is no need to transpose the matrix later
-			tempMatrix[col][row] = ((this[(row + 1) % 3][(col + 1) % 3] * this[(row + 2) % 3][(col + 2) % 3]) - (this[(row + 1) % 3][(col + 2) % 3] * this[(row + 2) % 3][(col + 1) % 3]))/Det();
+			returnMatrix[col + 3*row] = ((this[((row + 1) % 3) + 3*((col + 1) % 3)] * this[((row + 2) % 3) + 3*((col + 2) % 3)]) - (this[((row + 1) % 3) + 3*((col + 2) % 3)] * this[((row + 2) % 3) + 3*((col + 1) % 3)]))/Det();
 		}
 	}
-
-	FMatrix returnMatrix = *tempMatrix;
-	delete(tempMatrix);
 
 	return returnMatrix;
 }
@@ -229,7 +226,7 @@ void FMatrix::PrintMatrix()
 	{
 		for (int row = 0; row < 3; row++)
 		{
-			std::cout << this[row][col] << "\t";
+			std::cout << this[row + 3*col] << "\t";
 		}
 		std::cout << std::endl;
 	}
@@ -333,17 +330,15 @@ void FMatrix::SetToTranslationMatrix(float X, float Y, float Z)
 //Swaps Rows and Columns
 void FMatrix::Transpose()
 {
-	FMatrix* tempMatrix = new FMatrix(Matrix);
+	FMatrix tempMatrix = FMatrix(Matrix);
 
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			this[i][j] = tempMatrix[j][i];
+			Matrix[i + 3*j] = tempMatrix[j + 3*i];
 		}
 	}
-
-	delete(tempMatrix);
 }
 
 //Sets all elements of the matrix to a given value

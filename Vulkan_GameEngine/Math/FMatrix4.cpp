@@ -12,25 +12,25 @@
 //Default contructor, initilizes to an identity matrix
 FMatrix4::FMatrix4()
 {
-	this[0][0] = 1.0f;
-	this[0][1] = 0.0f;
-	this[0][2] = 0.0f;
-	this[0][3] = 0.0f;
+	Matrix[0] = 1.0f;
+	Matrix[4] = 0.0f;
+	Matrix[8] = 0.0f;
+	Matrix[12] = 0.0f;
 
-	this[1][0] = 0.0f;
-	this[1][1] = 1.0f;
-	this[1][2] = 0.0f;
-	this[1][3] = 0.0f;
+	Matrix[1] = 0.0f;
+	Matrix[5] = 1.0f;
+	Matrix[9] = 0.0f;
+	Matrix[13] = 0.0f;
 
-	this[2][0] = 0.0f;
-	this[2][1] = 0.0f;
-	this[2][2] = 1.0f;
-	this[2][3] = 0.0f;
+	Matrix[2] = 0.0f;
+	Matrix[6] = 0.0f;
+	Matrix[10] = 1.0f;
+	Matrix[14] = 0.0f;
 
-	this[3][0] = 0.0f;
-	this[3][1] = 0.0f;
-	this[3][2] = 0.0f;
-	this[3][3] = 1.0f;
+	Matrix[3] = 0.0f;
+	Matrix[7] = 0.0f;
+	Matrix[11] = 0.0f;
+	Matrix[15] = 1.0f;
 }
 
 FMatrix4::FMatrix4(FMatrix matrix)
@@ -39,7 +39,7 @@ FMatrix4::FMatrix4(FMatrix matrix)
 
 	for (int i = 0; i < 16; i++)
 	{
-		this[i] = matrix[i];
+		Matrix[i] = matrix[i];
 	}
 }
 
@@ -47,32 +47,32 @@ FMatrix4::FMatrix4(float value)
 {
 	for (int i = 0; i < 16; i++)
 	{
-		this[i] = value;
+		Matrix[i] = value;
 	}
 }
 
 //Initilizes the Matrix Given 3 FVector3s for rows
 FMatrix4::FMatrix4(const FVector4& row1, const FVector4& row2, const FVector4& row3, const FVector4& row4)
 {
-	this[0][0] = row1.VectorArray[0];
-	this[0][1] = row1.VectorArray[1];
-	this[0][2] = row1.VectorArray[2];
-	this[0][3] = row1.VectorArray[3];
+	Matrix[0] = row1.VectorArray[0];
+	Matrix[4] = row1.VectorArray[1];
+	Matrix[8] = row1.VectorArray[2];
+	Matrix[12] = row1.VectorArray[3];
 
-	this[1][0] = row2.VectorArray[0];
-	this[1][1] = row2.VectorArray[1];
-	this[1][2] = row2.VectorArray[2];
-	this[1][3] = row2.VectorArray[3];
+	Matrix[1] = row2.VectorArray[0];
+	Matrix[5] = row2.VectorArray[1];
+	Matrix[9] = row2.VectorArray[2];
+	Matrix[13] = row2.VectorArray[3];
 
-	this[2][0] = row3.VectorArray[0];
-	this[2][1] = row3.VectorArray[1];
-	this[2][2] = row3.VectorArray[2];
-	this[2][3] = row3.VectorArray[3];
+	Matrix[2] = row3.VectorArray[0];
+	Matrix[6] = row3.VectorArray[1];
+	Matrix[10] = row3.VectorArray[2];
+	Matrix[14] = row3.VectorArray[3];
 
-	this[3][0] = row4.VectorArray[0];
-	this[3][1] = row4.VectorArray[1];
-	this[3][2] = row4.VectorArray[2];
-	this[3][3] = row4.VectorArray[3];
+	Matrix[3] = row4.VectorArray[0];
+	Matrix[7] = row4.VectorArray[1];
+	Matrix[11] = row4.VectorArray[2];
+	Matrix[15] = row4.VectorArray[3];
 }
 
 //Initialiazes the Matrix given 3 floats for the diagonal
@@ -80,21 +80,17 @@ FMatrix4::FMatrix4(float x, float y, float z)
 {
 	SetToIdentity();
 
-	this[0][0] = x;
-	this[1][1] = y;
-	this[2][2] = z;
+	Matrix[0] = x;
+	Matrix[5] = y;
+	Matrix[10] = z;
 }
 
-//Initializes the Matrix given a 3x3 Array
-FMatrix4::FMatrix4(float matrix[4][4])
+FMatrix4::FMatrix4(float a0, float a1, float a2, float a3, float b0, float b1, float b2, float b3, float c0, float c1, float c2, float c3, float d0, float d1, float d2, float d3)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			this[i][j] = matrix[i][j];
-		}
-	}
+	Matrix[0] = a0;	Matrix[4] = b0;	Matrix[8] = c0;	Matrix[12] = d0;
+	Matrix[1] = a1;	Matrix[5] = b1;	Matrix[9] = c1;	Matrix[13] = d1;
+	Matrix[2] = a2;	Matrix[6] = b2;	Matrix[10] = c2;Matrix[14] = d2;
+	Matrix[3] = a3;	Matrix[7] = b3;	Matrix[11] = c3;Matrix[15] = d3;
 }
 
 //Initializes the Matrix to a rotation matrix given the angle and axis, optionaly, input true to give the angle in radians
@@ -106,24 +102,24 @@ FMatrix4::FMatrix4(eRotationAxis axis, float angle, bool isAngleRadian)
 	switch (axis)
 	{
 	case X:
-		this[1][1] = cos(angle);
-		this[1][2] = -sin(angle);
-		this[2][1] = sin(angle);
-		this[2][2] = cos(angle);
+		Matrix[5] = cos(angle);
+		Matrix[9] = -sin(angle);
+		Matrix[6] = sin(angle);
+		Matrix[10] = cos(angle);
 		break;
 
 	case Y:
-		this[0][0] = cos(angle);
-		this[0][1] = -sin(angle);
-		this[1][0] = sin(angle);
-		this[1][1] = cos(angle);
+		Matrix[0] = cos(angle);
+		Matrix[4] = -sin(angle);
+		Matrix[1] = sin(angle);
+		Matrix[5] = cos(angle);
 		break;
 
 	case Z:
-		this[0][0] = cos(angle);
-		this[0][2] = -sin(angle);
-		this[2][0] = sin(angle);
-		this[2][2] = cos(angle);
+		Matrix[0] = cos(angle);
+		Matrix[8] = -sin(angle);
+		Matrix[2] = sin(angle);
+		Matrix[10] = cos(angle);
 		break;
 	}
 }
@@ -138,201 +134,275 @@ FMatrix4::~FMatrix4()
 
 void FMatrix4::operator=(FMatrix4 matrix)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 16; i++)
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			this[i][j] = this[i][j];
-		}
+			Matrix[i] = matrix[i];
 	}
 }
 
 void FMatrix4::operator=(FMatrix4* matrix)
 {
-	*this = *matrix;
+	for (int i = 0; i < 16; i++)
+	{
+		Matrix[i] = *matrix[i];
+	}
 }
 
-FMatrix4 FMatrix4::operator*(float Multiplier)
+FMatrix4 FMatrix4::operator*(float multiplier)
 {
-	FMatrix4* tempMatrix = new FMatrix4(*this);
+	FMatrix4 returnMatrix = FMatrix4(*Matrix);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 16; i++)
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			tempMatrix[i][j] *= Multiplier;
-		}
+		returnMatrix[i] *= multiplier;
 	}
-	FMatrix4 returnMatrix = *tempMatrix;
-	delete(tempMatrix);
-
-	return returnMatrix;
-}
-
-FMatrix4 FMatrix4::operator*(FMatrix4* matrix)
-{
-	FMatrix4* tempMatrix = new FMatrix4(0.0f);
-
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)//The first two for loops will be looping through each element of the Return Matrix
-		{
-			for (int k = 0; k < 4; k++)//Loops through each element of current row for this matrix and of current coloum for the multipling matrix
-			{
-				tempMatrix[i][j] += this[i][k] * matrix[k][j];//Multiplies the rows from this Matrix by the coloumns of the multipling matrix
-			}
-		}
-	}
-	FMatrix4 returnMatrix = *tempMatrix;
-	delete(tempMatrix);
 
 	return returnMatrix;
 }
 
 FMatrix4 FMatrix4::operator*(FMatrix4 matrix)
 {
-	return (*this * &matrix);
+	return FMatrix4
+	(
+		(Matrix[0 * 4 + 0] * matrix[0 * 4 + 0]) + (Matrix[1 * 4 + 0] * matrix[0 * 4 + 1]) + (Matrix[2 * 4 + 0] * matrix[0 * 4 + 2]) + (Matrix[3 * 4 + 0] * matrix[0 * 4 + 3]),
+		(Matrix[0 * 4 + 1] * matrix[0 * 4 + 0]) + (Matrix[1 * 4 + 1] * matrix[0 * 4 + 1]) + (Matrix[2 * 4 + 1] * matrix[0 * 4 + 2]) + (Matrix[3 * 4 + 1] * matrix[0 * 4 + 3]),
+		(Matrix[0 * 4 + 2] * matrix[0 * 4 + 0]) + (Matrix[1 * 4 + 2] * matrix[0 * 4 + 1]) + (Matrix[2 * 4 + 2] * matrix[0 * 4 + 2]) + (Matrix[3 * 4 + 2] * matrix[0 * 4 + 3]),
+		(Matrix[0 * 4 + 3] * matrix[0 * 4 + 0]) + (Matrix[1 * 4 + 3] * matrix[0 * 4 + 1]) + (Matrix[2 * 4 + 3] * matrix[0 * 4 + 2]) + (Matrix[3 * 4 + 3] * matrix[0 * 4 + 3]),
+		(Matrix[0 * 4 + 0] * matrix[1 * 4 + 0]) + (Matrix[1 * 4 + 0] * matrix[1 * 4 + 1]) + (Matrix[2 * 4 + 0] * matrix[1 * 4 + 2]) + (Matrix[3 * 4 + 0] * matrix[1 * 4 + 3]),
+		(Matrix[0 * 4 + 1] * matrix[1 * 4 + 0]) + (Matrix[1 * 4 + 1] * matrix[1 * 4 + 1]) + (Matrix[2 * 4 + 1] * matrix[1 * 4 + 2]) + (Matrix[3 * 4 + 1] * matrix[1 * 4 + 3]),
+		(Matrix[0 * 4 + 2] * matrix[1 * 4 + 0]) + (Matrix[1 * 4 + 2] * matrix[1 * 4 + 1]) + (Matrix[2 * 4 + 2] * matrix[1 * 4 + 2]) + (Matrix[3 * 4 + 2] * matrix[1 * 4 + 3]),
+		(Matrix[0 * 4 + 3] * matrix[1 * 4 + 0]) + (Matrix[1 * 4 + 3] * matrix[1 * 4 + 1]) + (Matrix[2 * 4 + 3] * matrix[1 * 4 + 2]) + (Matrix[3 * 4 + 3] * matrix[1 * 4 + 3]),
+		(Matrix[0 * 4 + 0] * matrix[2 * 4 + 0]) + (Matrix[1 * 4 + 0] * matrix[2 * 4 + 1]) + (Matrix[2 * 4 + 0] * matrix[2 * 4 + 2]) + (Matrix[3 * 4 + 0] * matrix[2 * 4 + 3]),
+		(Matrix[0 * 4 + 1] * matrix[2 * 4 + 0]) + (Matrix[1 * 4 + 1] * matrix[2 * 4 + 1]) + (Matrix[2 * 4 + 1] * matrix[2 * 4 + 2]) + (Matrix[3 * 4 + 1] * matrix[2 * 4 + 3]),
+		(Matrix[0 * 4 + 2] * matrix[2 * 4 + 0]) + (Matrix[1 * 4 + 2] * matrix[2 * 4 + 1]) + (Matrix[2 * 4 + 2] * matrix[2 * 4 + 2]) + (Matrix[3 * 4 + 2] * matrix[2 * 4 + 3]),
+		(Matrix[0 * 4 + 3] * matrix[2 * 4 + 0]) + (Matrix[1 * 4 + 3] * matrix[2 * 4 + 1]) + (Matrix[2 * 4 + 3] * matrix[2 * 4 + 2]) + (Matrix[3 * 4 + 3] * matrix[2 * 4 + 3]),
+		(Matrix[0 * 4 + 0] * matrix[3 * 4 + 0]) + (Matrix[1 * 4 + 0] * matrix[3 * 4 + 1]) + (Matrix[2 * 4 + 0] * matrix[3 * 4 + 2]) + (Matrix[3 * 4 + 0] * matrix[3 * 4 + 3]),
+		(Matrix[0 * 4 + 1] * matrix[3 * 4 + 0]) + (Matrix[1 * 4 + 1] * matrix[3 * 4 + 1]) + (Matrix[2 * 4 + 1] * matrix[3 * 4 + 2]) + (Matrix[3 * 4 + 1] * matrix[3 * 4 + 3]),
+		(Matrix[0 * 4 + 2] * matrix[3 * 4 + 0]) + (Matrix[1 * 4 + 2] * matrix[3 * 4 + 1]) + (Matrix[2 * 4 + 2] * matrix[3 * 4 + 2]) + (Matrix[3 * 4 + 2] * matrix[3 * 4 + 3]),
+		(Matrix[0 * 4 + 3] * matrix[3 * 4 + 0]) + (Matrix[1 * 4 + 3] * matrix[3 * 4 + 1]) + (Matrix[2 * 4 + 3] * matrix[3 * 4 + 2]) + (Matrix[3 * 4 + 3] * matrix[3 * 4 + 3])
+	);
+}
+
+FMatrix4 FMatrix4::operator*(FMatrix4* matrix)
+{
+	return (*this * *matrix);
 }
 
 FVector3 FMatrix4::operator*(FVector3 vector)
 {
 	FVector3 ReturnVector = FVector3();
 
-	ReturnVector.VectorArray[0] = this[0][0] * vector.VectorArray[0] + this[0][1] * vector.VectorArray[1] + this[0][2] * vector.VectorArray[2];
-	ReturnVector.VectorArray[1] = this[1][0] * vector.VectorArray[0] + this[1][1] * vector.VectorArray[1] + this[1][2] * vector.VectorArray[2];
-	ReturnVector.VectorArray[2] = this[2][0] * vector.VectorArray[0] + this[2][1] * vector.VectorArray[1] + this[2][2] * vector.VectorArray[2];
+	ReturnVector.VectorArray[0] = Matrix[0] * vector.VectorArray[0] + Matrix[4] * vector.VectorArray[1] + Matrix[8] * vector.VectorArray[2];
+	ReturnVector.VectorArray[1] = Matrix[1] * vector.VectorArray[0] + Matrix[5] * vector.VectorArray[1] + Matrix[9] * vector.VectorArray[2];
+	ReturnVector.VectorArray[2] = Matrix[2] * vector.VectorArray[0] + Matrix[6] * vector.VectorArray[1] + Matrix[10] * vector.VectorArray[2];
 
 	return ReturnVector;
 }
 
-FVector4 FMatrix4::operator*(FVector4* vector)
+FVector4 FMatrix4::operator*( FVector4* vector)
 {
-	FVector4 ReturnVector = FVector4(0);
 
-	ReturnVector.VectorArray[0] = this[0][0] * vector->VectorArray[0] + this[0][1] * vector->VectorArray[1] + this[0][2] * vector->VectorArray[2] + this[0][3] * vector->VectorArray[3];
-	ReturnVector.VectorArray[1] = this[1][0] * vector->VectorArray[0] + this[1][1] * vector->VectorArray[1] + this[1][2] * vector->VectorArray[2] + this[1][3] * vector->VectorArray[3];
-	ReturnVector.VectorArray[2] = this[2][0] * vector->VectorArray[0] + this[2][1] * vector->VectorArray[1] + this[2][2] * vector->VectorArray[2] + this[2][3] * vector->VectorArray[3];
-	ReturnVector.VectorArray[3] = this[3][0] * vector->VectorArray[0] + this[3][1] * vector->VectorArray[1] + this[3][2] * vector->VectorArray[2] + this[3][3] * vector->VectorArray[3];
+	return FVector4
+	(
+		(Matrix[0] * *vector[0] + Matrix[4] * *vector[1] + Matrix[8] * *vector[2] + Matrix[12] * *vector[3]),
+		(Matrix[1] * *vector[0] + Matrix[5] * *vector[1] + Matrix[9] * *vector[2] + Matrix[13] * *vector[3]),
+		(Matrix[2] * *vector[0] + Matrix[6] * *vector[1] + Matrix[10] * *vector[2] + Matrix[14] * *vector[3]),
+		(Matrix[3] * *vector[0] + Matrix[7] * *vector[1] + Matrix[11] * *vector[2] + Matrix[15] * *vector[3])
+	);
+}
 
-	return ReturnVector;
+FVector4 FMatrix4::operator*(FVector4 vector)
+{
+	return FVector4
+	(
+		(Matrix[0] * vector[0] + Matrix[4] * vector[1] + Matrix[8] * vector[2] + Matrix[12] * vector[3]),
+		(Matrix[1] * vector[0] + Matrix[5] * vector[1] + Matrix[9] * vector[2] + Matrix[13] * vector[3]),
+		(Matrix[2] * vector[0] + Matrix[6] * vector[1] + Matrix[10] * vector[2] + Matrix[14] * vector[3]),
+		(Matrix[3] * vector[0] + Matrix[7] * vector[1] + Matrix[11] * vector[2] + Matrix[15] * vector[3])
+	);
 }
 
 void FMatrix4::operator*=(FMatrix4* matrix)
 {
-	FMatrix4* tempMatrix = new FMatrix4(0.0f);
-
-	for (int i = 0; i < 4; i++)//The first two for loops will be looping through each element of the  tempMatrix
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			for (int k = 0; k < 4; k++)//Loops through each element of current row for this matrix and of current coloum for the multipling matrix
-			{
-				tempMatrix[i][j] += this[i][k] * matrix[k][j];//Multiplies the rows from this Matrix by the coloumns of the multipling matrix
-			}
-		}
-	}
-
-	*this = *tempMatrix;
-	delete(tempMatrix);
+	*this = *this * *matrix;
 }
 
 void FMatrix4::operator*=(FMatrix4 matrix)
 {
-	*this *= &matrix;
+	*this *= matrix;
 }
 
 void FMatrix4::operator*=(float Multiplier)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 16; i++)
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			this[i][j] *= Multiplier;
-		}
+		Matrix[i] *= Multiplier;
 	}
 }
 
 ///Functions
 
-//Returns the Determinant of this Matrix
-float FMatrix4::Det()//TODO fix Det()
+//Returns the Determinant of Matrix Matrix
+float FMatrix4::Det()
 {
-	float Det = 0;
+	float calculation, result = 1;
+	FMatrix tempMatrix = FMatrix(*this);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++) 
 	{
-		Det += this[0][i] * (this[1][(i + 1) % 3] * this[2][(i + 2) % 3] - this[2][(i + 1) % 3] * this[1][(i + 2) % 3]);
-	}
-
-	return Det;
-}
-
-//Returns the iverse matrix to this matrix
-FMatrix4 FMatrix4::GetInverse()
-{
-	if (Det() == 0) return FMatrix4();
-
-	FMatrix4* tempMatrix = new FMatrix4();
-
-	for (int row = 0; row < 4; row++)
-	{
-		for (int col = 0; col < 4; col++)
+		for (int k = i + 1; k < 4; k++) 
 		{
-			//row and collumns are swapt so there is no need to transpose the matrix later
-			tempMatrix[col][row] = ((this[(row + 1) % 3][(col + 1) % 3] * this[(row + 2) % 3][(col + 2) % 3]) - (this[(row + 1) % 3][(col + 2) % 3] * this[(row + 2) % 3][(col + 1) % 3])) / Det();
+			calculation = tempMatrix[k+ 4*i] / tempMatrix[i+ 4*i];
+			
+			for (int j = i; j < 4; j++)
+			{
+				tempMatrix[k+ 4*j] = tempMatrix[k + 4*j] - calculation * tempMatrix[i + 4*j];
+			}
 		}
 	}
-	
-	FMatrix4 returnMatrix = *tempMatrix;
-	delete(tempMatrix);
 
-	return returnMatrix;
+	for (int i = 0; i < 4; i++) result *= tempMatrix[i + 4*i];
+	return result;
+}
+
+//Returns the iverse matrix to Matrix matrix
+FMatrix4 FMatrix4::GetInverse()//TODO Fix GetInverse
+{
+	if (Det() == 0) return FMatrix();
+
+	FMatrix inverse;
+
+	inverse[0] =	Matrix[5] * Matrix[10] * Matrix[15] -
+					Matrix[5] * Matrix[11] * Matrix[14] -
+					Matrix[9] * Matrix[6] * Matrix[15] +
+					Matrix[9] * Matrix[7] * Matrix[14] +
+					Matrix[13] * Matrix[6] * Matrix[11] -
+					Matrix[13] * Matrix[7] * Matrix[10];
+
+	inverse[4] =	-Matrix[4] * Matrix[10] * Matrix[15] +
+					Matrix[4] * Matrix[11] * Matrix[14] +
+					Matrix[8] * Matrix[6] * Matrix[15] -
+					Matrix[8] * Matrix[7] * Matrix[14] -
+					Matrix[12] * Matrix[6] * Matrix[11] +
+					Matrix[12] * Matrix[7] * Matrix[10];
+
+	inverse[8] =	Matrix[4] * Matrix[9] * Matrix[15] -
+					Matrix[4] * Matrix[11] * Matrix[13] -
+					Matrix[8] * Matrix[5] * Matrix[15] +
+					Matrix[8] * Matrix[7] * Matrix[13] +
+					Matrix[12] * Matrix[5] * Matrix[11] -
+					Matrix[12] * Matrix[7] * Matrix[9];
+
+	inverse[12] =	-Matrix[4] * Matrix[9] * Matrix[14] +
+					Matrix[4] * Matrix[10] * Matrix[13] +
+					Matrix[8] * Matrix[5] * Matrix[14] -
+					Matrix[8] * Matrix[6] * Matrix[13] -
+					Matrix[12] * Matrix[5] * Matrix[10] +
+					Matrix[12] * Matrix[6] * Matrix[9];
+
+	inverse[1] =	-Matrix[1] * Matrix[10] * Matrix[15] +
+					Matrix[1]  * Matrix[11] * Matrix[14] +
+					Matrix[9]  * Matrix[2] * Matrix[15] -
+					Matrix[9]  * Matrix[3] * Matrix[14] -
+					Matrix[13] * Matrix[2] * Matrix[11] +
+					Matrix[13] * Matrix[3] * Matrix[10];
+
+	inverse[5] =	Matrix[0]  * Matrix[10] * Matrix[15] -
+					Matrix[0]  * Matrix[11] * Matrix[14] -
+					Matrix[8]  * Matrix[2] * Matrix[15] +
+					Matrix[8]  * Matrix[3] * Matrix[14] +
+					Matrix[12] * Matrix[2] * Matrix[11] -
+					Matrix[12] * Matrix[3] * Matrix[10];
+
+	inverse[9] =	-Matrix[0] * Matrix[9] * Matrix[15] +
+					Matrix[0]  * Matrix[11] * Matrix[13] +
+					Matrix[8]  * Matrix[1] * Matrix[15] -
+					Matrix[8]  * Matrix[3] * Matrix[13] -
+					Matrix[12] * Matrix[1] * Matrix[11] +
+					Matrix[12] * Matrix[3] * Matrix[9];
+
+	inverse[13] =	Matrix[0]  * Matrix[9] * Matrix[14] -
+					Matrix[0]  * Matrix[10] * Matrix[13] -
+					Matrix[8]  * Matrix[1] * Matrix[14] +
+					Matrix[8]  * Matrix[2] * Matrix[13] +
+					Matrix[12] * Matrix[1] * Matrix[10] -
+					Matrix[12] * Matrix[2] * Matrix[9];
+
+	inverse[2] =	Matrix[1]  * Matrix[6] * Matrix[15] -
+					Matrix[1]  * Matrix[7] * Matrix[14] -
+					Matrix[5]  * Matrix[2] * Matrix[15] +
+					Matrix[5]  * Matrix[3] * Matrix[14] +
+					Matrix[13] * Matrix[2] * Matrix[7] -
+					Matrix[13] * Matrix[3] * Matrix[6];
+
+	inverse[6] =	-Matrix[0] * Matrix[6] * Matrix[15] +
+					Matrix[0]  * Matrix[7] * Matrix[14] +
+					Matrix[4]  * Matrix[2] * Matrix[15] -
+					Matrix[4]  * Matrix[3] * Matrix[14] -
+					Matrix[12] * Matrix[2] * Matrix[7] +
+					Matrix[12] * Matrix[3] * Matrix[6];
+
+	inverse[10] =	Matrix[0]  * Matrix[5] * Matrix[15] -
+					Matrix[0]  * Matrix[7] * Matrix[13] -
+					Matrix[4]  * Matrix[1] * Matrix[15] +
+					Matrix[4]  * Matrix[3] * Matrix[13] +
+					Matrix[12] * Matrix[1] * Matrix[7] -
+					Matrix[12] * Matrix[3] * Matrix[5];
+
+	inverse[14] =	-Matrix[0] * Matrix[5] * Matrix[14] +
+					Matrix[0]  * Matrix[6] * Matrix[13] +
+					Matrix[4]  * Matrix[1] * Matrix[14] -
+					Matrix[4]  * Matrix[2] * Matrix[13] -
+					Matrix[12] * Matrix[1] * Matrix[6] +
+					Matrix[12] * Matrix[2] * Matrix[5];
+
+	inverse[3] =	-Matrix[1] * Matrix[6] * Matrix[11] +
+					Matrix[1]  * Matrix[7] * Matrix[10] +
+					Matrix[5]  * Matrix[2] * Matrix[11] -
+					Matrix[5]  * Matrix[3] * Matrix[10] -
+					Matrix[9]  * Matrix[2] * Matrix[7] +
+					Matrix[9]  * Matrix[3] * Matrix[6];
+
+	inverse[7] =	Matrix[0] * Matrix[6] * Matrix[11] -
+					Matrix[0] * Matrix[7] * Matrix[10] -
+					Matrix[4] * Matrix[2] * Matrix[11] +
+					Matrix[4] * Matrix[3] * Matrix[10] +
+					Matrix[8] * Matrix[2] * Matrix[7] -
+					Matrix[8] * Matrix[3] * Matrix[6];
+
+	inverse[11] =	-Matrix[0] * Matrix[5] * Matrix[11] +
+					Matrix[0]  * Matrix[7] * Matrix[9] +
+					Matrix[4]  * Matrix[1] * Matrix[11] -
+					Matrix[4]  * Matrix[3] * Matrix[9] -
+					Matrix[8]  * Matrix[1] * Matrix[7] +
+					Matrix[8]  * Matrix[3] * Matrix[5];
+
+	inverse[15] =	Matrix[0] * Matrix[5] * Matrix[10] -
+					Matrix[0] * Matrix[6] * Matrix[9] -
+					Matrix[4] * Matrix[1] * Matrix[10] +
+					Matrix[4] * Matrix[2] * Matrix[9] +
+					Matrix[8] * Matrix[1] * Matrix[6] -
+					Matrix[8] * Matrix[2] * Matrix[5];
+
+	return inverse;
 }
 
 //Transform the Matrix into its Inverse Matrix
 void FMatrix4::Invert()
 {
-	*this = GetInverse();
+	if(Det() != 0) *this = GetInverse();
 }
 
-//Prints Matrix to console
-void FMatrix4::Print()
-{
-	for (int col = 0; col < 4; col++)
-	{
-		for (int row = 0; row < 4; row++)
-		{
-			std::cout << this[row][col] << "\t";
-		}
-		std::cout << std::endl;
-	}
-}
-
-//Makes this Matrix an Identity matrix
+//Makes Matrix Matrix an Identity matrix
 void FMatrix4::SetToIdentity()
 {
-	this[0][0] = 1.0f;
-	this[0][1] = 0.0f;
-	this[0][2] = 0.0f;
-	this[0][3] = 0.0f;
-
-	this[1][0] = 0.0f;
-	this[1][1] = 1.0f;
-	this[1][2] = 0.0f;
-	this[1][3] = 0.0f;
-
-	this[2][0] = 0.0f;
-	this[2][1] = 0.0f;
-	this[2][2] = 1.0f;
-	this[2][3] = 0.0f;
-
-	this[3][0] = 0.0f;
-	this[3][1] = 0.0f;
-	this[3][2] = 0.0f;
-	this[3][3] = 1.0f;
+	Matrix[0] = 1.0f; Matrix[4] = 0.0f; Matrix[8] = 0.0f; Matrix[12] = 0.0f;
+	Matrix[1] = 0.0f; Matrix[5] = 1.0f; Matrix[9] = 0.0f; Matrix[13] = 0.0f;
+	Matrix[2] = 0.0f; Matrix[6] = 0.0f; Matrix[10] = 1.0f; Matrix[14] = 0.0f;
+	Matrix[3] = 0.0f; Matrix[7] = 0.0f; Matrix[11] = 0.0f; Matrix[15] = 1.0f;
 }
 
-//Makes this Matrix a Rotation Matrix on Z axis with given degrees
+//Makes Matrix Matrix a Rotation Matrix on Z axis with given degrees
 void FMatrix4::SetToRotationMatrix(eRotationAxis axis, float angle, bool isAngleRadian)
 {
 	this->SetToIdentity();
@@ -344,24 +414,24 @@ void FMatrix4::SetToRotationMatrix(eRotationAxis axis, float angle, bool isAngle
 		switch (axis)
 		{
 		case X:
-			this[1][1] = cosf(angle);
-			this[1][2] = 0;
-			this[2][1] = 0;
-			this[2][2] = cosf(angle);
+			Matrix[5] = cosf(angle);
+			Matrix[9] = 0;
+			Matrix[6] = 0;
+			Matrix[10] = cosf(angle);
 			break;
 
 		case Y:
-			this[0][0] = cosf(angle);
-			this[0][2] = 0;
-			this[2][0] = 0;
-			this[2][2] = cosf(angle);
+			Matrix[0] = cosf(angle);
+			Matrix[8] = 0;
+			Matrix[2] = 0;
+			Matrix[10] = cosf(angle);
 			break;
 
 		case Z:
-			this[0][0] = cosf(angle);
-			this[0][1] = 0;
-			this[1][0] = 0;
-			this[1][1] = cosf(angle);
+			Matrix[0] = cosf(angle);
+			Matrix[4] = 0;
+			Matrix[1] = 0;
+			Matrix[5] = cosf(angle);
 			break;
 		}
 	}
@@ -372,73 +442,68 @@ void FMatrix4::SetToRotationMatrix(eRotationAxis axis, float angle, bool isAngle
 		switch (axis)
 		{
 		case X:
-			this[1][1] = cosf(angle);
-			this[1][2] = -sinf(angle);
-			this[2][1] = sinf(angle);
-			this[2][2] = cosf(angle);
+			Matrix[5] = cosf(angle);
+			Matrix[9] = -sinf(angle);
+			Matrix[6] = sinf(angle);
+			Matrix[10] = cosf(angle);
 			break;
 
 		case Y:
-			this[0][0] = cosf(angle);
-			this[0][2] = -sinf(angle);
-			this[2][0] = sinf(angle);
-			this[2][2] = cosf(angle);
+			Matrix[0] = cosf(angle);
+			Matrix[8] = -sinf(angle);
+			Matrix[2] = sinf(angle);
+			Matrix[10] = cosf(angle);
 			break;
 
 		case Z:
-			this[0][0] = cosf(angle);
-			this[0][1] = -sinf(angle);
-			this[1][0] = sinf(angle);
-			this[1][1] = cosf(angle);
+			Matrix[0] = cosf(angle);
+			Matrix[4] = -sinf(angle);
+			Matrix[1] = sinf(angle);
+			Matrix[5] = cosf(angle);
 			break;
 		}
 	}
 
 }
 
-//Makes this Matrix a Scaling Matrix with X, Y and Z respectively on the diagonal
+//Makes Matrix Matrix a Scaling Matrix with X, Y and Z respectively on the diagonal
 void FMatrix4::SetToScalingMatrix(float scaleX, float scaleY, float scaleZ)
 {
 	SetToIdentity();
 
-	this[0][0] = scaleX;
-	this[1][1] = scaleY;
-	this[2][2] = scaleZ;
+	Matrix[0] = scaleX;
+	Matrix[5] = scaleY;
+	Matrix[10] = scaleZ;
 }
 
 void FMatrix4::SetToTranslationMatrix(float X, float Y, float Z)
 {
 	SetToIdentity();
 
-	this[0][3] = X;
-	this[1][3] = Y;
-	this[2][3] = Z;
+	Matrix[12] = X;
+	Matrix[13] = Y;
+	Matrix[14] = Z;
 }
 
 //Swaps rows and Columns
 void FMatrix4::Transpose()
 {
-	FMatrix4* tempMatrix = new FMatrix4(*this);
+	FMatrix4 tempMatrix = FMatrix4(*Matrix);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 4; j++)
 		{
-			this[i][j] = tempMatrix[j][i];
+			Matrix[i + 4*j] = tempMatrix[j + 4*i];
 		}
 	}
-
-	delete(tempMatrix);
 }
 
 //Sets all elements of the matrix to a given value
 void FMatrix4::SetAllElements(float value)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 16; i++)
 	{
-		for (int j = 0; j < 4; j++)
-		{
-			this[i][j] = value;
-		}
+		Matrix[i] = value;
 	}
 }

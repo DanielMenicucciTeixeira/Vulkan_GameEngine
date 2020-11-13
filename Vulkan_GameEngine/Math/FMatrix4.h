@@ -31,7 +31,13 @@ public:
 	FMatrix4(float x, float y, float z);
 
 	//Initializes the Matrix given a 4x4 Array
-	FMatrix4(float matrix[4][4]);
+	FMatrix4
+		(
+			float a0, float a1, float a2, float a3,
+			float b0, float b1, float b2, float b3,
+			float c0, float c1, float c2, float c3,
+			float d0, float d1, float d2, float d3
+		);
 
 	//Initializes the Matrix to a rotation matrix given the angle and axis, optionaly, input true to give the angle in radians
 	FMatrix4(eRotationAxis axis, float angle, bool isAngleRadian = false);
@@ -54,6 +60,8 @@ public:
 
 	FVector4 operator*(FVector4* vector);
 
+	FVector4 operator*(FVector4 vector);
+
 	FVector3 operator*(FVector3 vector);
 
 	void operator*= (FMatrix4* matrix);
@@ -63,11 +71,8 @@ public:
 	void operator*= (float multiplier);
 
 
-	inline const float operator[] (int index) const { return Matrix[index]; }
-	inline float& operator[] (int index) { return Matrix[index]; }
-
-	inline const float operator[] (int index[2]) const { return Matrix[index[0] + index[1] * 4]; }
-	inline float& operator[] (int index[2]) { return Matrix[index[0] + index[1] * 4]; }
+	inline const float operator[] (unsigned int index) const { return *(&Matrix[index]); }
+	inline float& operator[] (unsigned int index) { return *(&Matrix[index]); }
 
 	inline operator const float* () const { return static_cast<const float*>(&Matrix[0]); }
 	inline operator float* () { return static_cast<float*>(&Matrix[0]); }
@@ -100,9 +105,6 @@ public:
 
 	//Inverts the Matrix
 	void Invert();
-
-	//Prints the matrix to console
-	void Print();
 };
 #endif
 

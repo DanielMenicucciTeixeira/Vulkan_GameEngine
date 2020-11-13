@@ -11,16 +11,18 @@ public:
 	///Constructors
 
 	//Constructor using initial values for each component.
-	inline FVector4(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; VectorArray[3] = W; }
+	inline FVector4(float x, float y, float z, float w) { VectorArray[0] = x; VectorArray[1] = y; VectorArray[2] = z; VectorArray[3] = w; }
 
 	//Constructor initializing all components to a single float value.
-	inline FVector4(float Float) { VectorArray[0] = VectorArray[1] = VectorArray[2] = VectorArray[3] = Float; }
+	inline FVector4(float value) { VectorArray[0] = VectorArray[1] = VectorArray[2] = VectorArray[3] = value; }
 
 	//Constructor initializing to match a given FVector4, a copy constructor
-	inline FVector4(const FVector4& InitilizerVector);
+	inline FVector4(const FVector4& initilizerVector);
 
 	//Default Constructor, initializes all values to 0;
-	inline FVector4() { VectorArray[0] = VectorArray[1] = VectorArray[2] = 0; VectorArray[3] = 1; }
+	inline FVector4() { VectorArray[0] = 0; VectorArray[1] = 0; VectorArray[2] = 0; VectorArray[3] = 1; }
+
+	inline FVector4(float array[4]) { VectorArray[0] = array[0]; VectorArray[1] = array[1]; VectorArray[2] = array[2]; VectorArray[3] = array[3]; }
 
 	///Destructor
 
@@ -48,7 +50,7 @@ public:
 
 	///The next 4 operators make sure the FVector3 class can be used as an array by API such as Open-GL and Vulkan
 		inline const float operator[] (unsigned int index) const { return *(&VectorArray[0] + index); }//For R-values
-		inline float& operator[] (unsigned int index) { return*(&VectorArray[0] + index); }//For L-Values
+		inline float& operator[] (unsigned int index) { return *(&VectorArray[0] + index); }//For L-Values
 
 		inline operator const float* () const { return static_cast<const float*>(&VectorArray[0]); }//For R-Values
 		inline operator float* () { return static_cast<float*>(&VectorArray[0]); }//For L-Values

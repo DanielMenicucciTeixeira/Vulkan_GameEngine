@@ -54,11 +54,8 @@ public:
 
 	void operator*= (float multiplier);
 
-	inline const float operator[] (int index) const { return Matrix[index]; }
-	inline float& operator[] (int index) { return Matrix[index]; }
-
-	inline const float operator[] (int index[2]) const { return Matrix[index[0] + index[1] * 3]; }
-	inline float& operator[] (int index[2]) { return Matrix[index[0] + index[1] * 3]; }
+	inline const float operator[] (int index) const { return *(&Matrix[index]); }
+	inline float& operator[] (int index) { return *(&Matrix[index]); }
 
 	inline operator const float* () const { return static_cast<const float*>(&Matrix[0]); }
 	inline operator float* () { return static_cast<float*>(&Matrix[0]); }

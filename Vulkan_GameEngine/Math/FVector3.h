@@ -1,7 +1,6 @@
 #ifndef FVector3_
 #define FVector3_
 
-#include <array>
 
 class FVector3
 {

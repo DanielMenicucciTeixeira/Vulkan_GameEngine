@@ -1,30 +1,30 @@
 #ifndef RAY_H
 #define RAY_H
 
-#include "Math/FVector3.h"
+class FVector3;
 
 class Ray
 {
 public:
 	//Contructors
-	inline Ray() { startPosition = FVector3(0); direction = FVector3(1.0f, 0.0f, 0.0f); lenght = 0; infinit = true; }
-	Ray(FVector3 Start, FVector3 Direction, int Length = 0, bool Infinit = true);
+	Ray();
+	Ray(FVector3* Start, FVector3* Direction, int Length = 0, bool Infinit = true);
 
 	~Ray();
 
 private:
-	FVector3 startPosition;
-	FVector3 direction;
-	float lenght;
-	bool infinit;
+	FVector3* StartPosition;
+	FVector3* Direction;
+	float Lenght;
+	bool Infinit;
 
 public:
 	FVector3 GetPosition(float displacement);
 
-	inline FVector3 GetStartPosition() { return startPosition; }
-	inline FVector3 GetDirection() { return direction; }
-	inline float GetLenght() { return lenght; }
-	inline bool IsInfinit() { return infinit; }
+	FVector3* GetStartPosition() { return StartPosition; }
+	FVector3* GetDirection() { return Direction; }
+	inline float GetLenght() { return Lenght; }
+	inline bool IsInfinit() { return Infinit; }
 };
 
 #endif

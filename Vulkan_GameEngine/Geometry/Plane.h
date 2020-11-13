@@ -1,11 +1,12 @@
 #pragma once
 #include "Math/FVector4.h"
+#include "Math/FVector3.h"
 class Ray;
 
 class Plane : public FVector4
 {
 public:
-	inline Plane() { X = Y = Z = 1; w = 0; }
+	inline Plane() { VectorArray[0] = VectorArray[1] = VectorArray[2] = 1; VectorArray[3] = 0; }
 	Plane(float X, float Y, float Z, float W) : FVector4{ X, Y, Z, W } { normal = FVector3(X, Y, Z); }
 
 	//Creates a plane given 3 points on that plane. All of the points must be different
@@ -13,7 +14,7 @@ public:
 
 	bool InterssectionPoint(Ray* ray, FVector3& interssectionPoint);
 	
-	inline FVector3 GetPlaneNormal() { return FVector3(X, Y, Z).GetNormal(); }
+	inline FVector3 GetPlaneNormal() { return FVector3(VectorArray[0], VectorArray[1], VectorArray[2]).GetNormal(); }
 	FVector3 GetRandomPointInPlane();
 
 private:

@@ -18,19 +18,19 @@ Plane::Plane(const FVector3& Vector0, const FVector3& Vector1, const FVector3& V
 		FVector3 vectorB = point0 - point2;
 		normal = vectorA.CrossProduct(vectorB).GetNormal();
 
-		X = normal.X;
-		Y = normal.Y;
-		Z = normal.Z;
-		w = normal * point0;
+		VectorArray[0] = normal.VectorArray[0];
+		VectorArray[1] = normal.VectorArray[1];
+		VectorArray[2] = normal.VectorArray[2];
+		VectorArray[3] = normal * point0;
 	}
 }
 
 bool Plane::InterssectionPoint(Ray* ray, FVector3& interssectionPoint)
 {
-	if (ray->GetDirection() * normal != 0.0f)
+	if (*ray->GetDirection() * normal != 0.0f)
 	{
 		//float displacement = (w - (normal * ray->GetStartPosition())) / (normal * ray->GetDirection());
-		float displacement = (normal * ray->GetStartPosition() + w) / (normal * (ray->GetDirection() -  ray->GetStartPosition()));
+		float displacement = (normal * *ray->GetStartPosition() + VectorArray[3]) / (normal * (*ray->GetDirection() -  *ray->GetStartPosition()));
 		if (ray->IsInfinit() || abs(displacement) <= ray->GetLenght())
 		{
 			interssectionPoint = ray->GetPosition(displacement);
@@ -43,8 +43,8 @@ bool Plane::InterssectionPoint(Ray* ray, FVector3& interssectionPoint)
 
 FVector3 Plane::GetRandomPointInPlane()
 {
-	if (X != 0) return FVector3(w / X, 0, 0);
-	else if (Y != 0) return FVector3(0, w / Y, 0);
-	else if (Z != 0) return FVector3(0, 0, Z / w);
+	if (VectorArray[0] != 0) return FVector3(VectorArray[3] / VectorArray[0], 0, 0);
+	else if (VectorArray[1] != 0) return FVector3(0, VectorArray[3] / VectorArray[1], 0);
+	else if (VectorArray[2] != 0) return FVector3(0, 0, VectorArray[2] / VectorArray[3]);
 	else return FVector3();
 }

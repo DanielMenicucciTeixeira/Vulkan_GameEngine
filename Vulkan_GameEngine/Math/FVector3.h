@@ -6,9 +6,8 @@
 class FVector3
 {
 public:
-
-	//Variables (coordinates of the vector)
-	float X, Y, Z;
+	//Array containing Vector elements
+	float VectorArray[3];
 
 	///Constructors
 
@@ -19,7 +18,10 @@ public:
 	FVector3(float Float);
 
 	//Constructor initializing to match a given FVector3, a copy constructor
-	inline FVector3(const FVector3& InitilizerVector);
+	FVector3(const FVector3& InitilizerVector);
+
+	//Contructor initalizaing to match given array
+	FVector3(float array[3]);
 
 	//Default Constructor, initializes all values to 0;
 	FVector3();
@@ -50,6 +52,15 @@ public:
 
 	bool operator== (FVector3 Vector);//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
 
+	///The next 4 operators make sure the FVector3 class can be used as an array by API such as Open-GL and Vulkan
+		inline const float operator[] (unsigned int index) const { return *(&VectorArray[0] + index); }//For R-values
+		inline float& operator[] (unsigned int index) { return*(&VectorArray[0] + index); }//For L-Values
+
+		inline operator const float* () const { return static_cast<const float*>(&VectorArray[0]); }//For R-Values
+		inline operator float* () { return static_cast<float*>(&VectorArray[0]); }//For L-Values
+	///-----------------------------------------------------------------------------------------------------------
+
+
 	///Functions
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
@@ -78,8 +89,5 @@ public:
 
 	//Utility to populate vector
 	inline void Load(float x, float y, float z);
-
-	//Returns an array of {x, y, z}
-	inline std::array<float, 3> Array() { return {X, Y, Z}; }
 };
 #endif

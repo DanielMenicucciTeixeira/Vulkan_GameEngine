@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-inline FVector4::FVector4(const FVector4& InitilizerVector)
+FVector4::FVector4(const FVector4& InitilizerVector)
 {
 	VectorArray[0] = InitilizerVector.VectorArray[0];
 	VectorArray[1] = InitilizerVector.VectorArray[1];

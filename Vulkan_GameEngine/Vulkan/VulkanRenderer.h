@@ -15,6 +15,8 @@
 enum VkResult;
 enum VkPresentModeKHR;
 enum VkFormat;
+enum VkImageTiling;
+enum VkImageLayout;
 
 struct VkInstance_T;
 struct VkPhysicalDevice_T;
@@ -44,19 +46,22 @@ struct VkFence_T;
 struct VkVertexInputBindingDescription;
 struct VkVertexInputAttributeDescription;
 struct VkDeviceMemory_T;
+struct VkDescriptorPool_T;
+struct VkDescriptorSet_T;
+struct VkSampler_T;
+
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkMemoryPropertyFlags;
 typedef VkFlags VkBufferUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
+typedef VkFlags VkImageUsageFlags;
 typedef unsigned long long VkDeviceSize;
 
 class VGE_SDLManager;
 class SDL_Window;
 class FVector3;
 class FVector4;
-//#include "Math/FVector3.h"
-//#include "Math/FVector4.h"
 
 //------Structs------\\
 
@@ -69,6 +74,10 @@ struct Vertex
 
 	static VkVertexInputBindingDescription GetBindingDescription();
 	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();
+
+	/*Vertex();
+	Vertex(FVector3 position, FVector4 colour);
+	inline ~Vertex() {}*/
 };
 
 struct UniformBufferObject 
@@ -208,6 +217,7 @@ protected:
 	void CreateSwapChain();
 	void RecreateSwapChain();
 	void CreateImageViews();
+	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format);
 	void CleanUpSwapChain();
 
 	//Variables
@@ -246,11 +256,16 @@ protected:
 	void CreateFramebuffers();
 	void CreateVertexBuffers();
 	void CreateIndexBuffer();
+	void CreateUniformBuffers();
 	void CreateCommandPool();
 	void CreateCommandBuffers();
+	VkCommandBuffer_T* BeginSingleTimeCommands();
+	void EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer);
 
 	void CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size);
 	unsigned int FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties);
+	void UpdateUniformBuffer(unsigned int currentImageIndex);
+
 public:
 	void FramebufferResizeCallback() override;
 
@@ -258,10 +273,15 @@ public:
 protected:
 	VkCommandPool_T* CommandPool;
 	std::vector<VkCommandBuffer_T*> CommandBuffers;
+	
 	VkBuffer_T* VertexBuffer;
 	VkDeviceMemory_T* VertexBufferMemory;
+	
 	VkBuffer_T* IndexBuffer;
 	VkDeviceMemory_T* IndexBufferMemory;
+
+	std::vector<VkBuffer_T*> UniformBuffers;
+	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
 
 	bool FramebufferResized = false;
 
@@ -285,14 +305,32 @@ protected:
 	void Render() override;
 
 	void CreateDescriptorSetLayout();
+	void CreateDescriptorPool();
+	void CreateDescriptorSet();
+	void CreateTextureImage();
+	void CreateTextureImageView();
+	void CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory);
+	void TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
+	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height);
+	void CreateTextureSampler();
 
-	const std::vector<Vertex> Vertices =
-	{
+	//Variables
+protected:
+	VkDescriptorPool_T* DescriptorPool = nullptr;
+	std::vector<VkDescriptorSet_T*> DescriptorSets;
+	VkImage_T* TextureImage = nullptr;
+	VkImageView_T* TextureImageView = nullptr;
+	VkDeviceMemory_T* TextureImageMemory = nullptr;
+	VkSampler_T* TextureSampler = nullptr;
+
+	const std::vector<Vertex> Vertices
+	 ={
 		{{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},
 		{{0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f, 1.0f}},
 		{{0.5f, 0.5f, 0.0f}, {0.0f, 0.5f, 0.5f, 1.0f}},
 		{{-0.5f, 0.5f, 0.0f}, {0.5f, 0.0f, 0.5f, 1.0f}}
 	};
+
 	const std::vector<unsigned int> Indices = { 0, 1, 2, 2, 3, 0 };
 };
 #endif

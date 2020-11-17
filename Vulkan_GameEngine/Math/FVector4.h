@@ -17,7 +17,7 @@ public:
 	inline FVector4(float value) { VectorArray[0] = VectorArray[1] = VectorArray[2] = VectorArray[3] = value; }
 
 	//Constructor initializing to match a given FVector4, a copy constructor
-	inline FVector4(const FVector4& initilizerVector);
+	FVector4(const FVector4& initilizerVector);
 
 	//Default Constructor, initializes all values to 0;
 	inline FVector4() { VectorArray[0] = 0; VectorArray[1] = 0; VectorArray[2] = 0; VectorArray[3] = 1; }

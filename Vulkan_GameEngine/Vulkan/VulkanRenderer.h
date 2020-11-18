@@ -10,6 +10,9 @@
 #include <array>
 #include <glm/glm.hpp>
 
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/hash.hpp>
+
 //---Forward-Declarations---\\
 
 enum VkResult;
@@ -77,6 +80,7 @@ struct Vertex
 	static VkVertexInputBindingDescription GetBindingDescription();
 	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
+	bool operator==(const Vertex& other) const;
 
 	/*FVector3* Position;
 	FVector4* Colour;
@@ -84,6 +88,19 @@ struct Vertex
 	Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates);
 	inline ~Vertex() {}*/
 };
+
+namespace std 
+{
+	template<> struct hash<Vertex> 
+	{
+		size_t operator()(Vertex const& vertex) const 
+		{
+			return ((hash<glm::vec3>()(vertex.Position) ^
+				(hash<glm::vec3>()(vertex.Colour) << 1)) >> 1) ^
+				(hash<glm::vec2>()(vertex.TextureCoordinates) << 1);
+		}
+	};
+}
 
 struct UniformBufferObject 
 {
@@ -335,25 +352,10 @@ protected:
 	VkDeviceMemory_T* DepthImageMemory;
 	VkImageView_T* DepthImageView;
 
-	const std::vector<Vertex> Vertices =
-	{
-		{{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f}},
-		{{0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f, 1.0f}, {0.0f, 0.0f}},
-		{{0.5f, 0.5f, 0.0f}, {0.0f, 0.5f, 0.5f, 1.0f}, {0.0f, 1.0f}},
-		{{-0.5f, 0.5f, 0.0f}, {0.5f, 0.0f, 0.5f, 1.0f}, {1.0f, 1.0f}},
-
-		{{-0.5f, -0.5f, -0.5f}, {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f}},
-		{{0.5f, -0.5f, -0.5f}, {0.5f, 0.5f, 0.0f, 1.0f}, {0.0f, 0.0f}},
-		{{0.5f, 0.5f, -0.5f}, {0.0f, 0.5f, 0.5f, 1.0f}, {0.0f, 1.0f}},
-		{{-0.5f, 0.5f, -0.5f}, {0.5f, 0.0f, 0.5f, 1.0f}, {1.0f, 1.0f}}
-	};
-
-	//std::vector<Vertex> Vertices;
-
-	const std::vector<unsigned int> Indices = 
-	{ 
-		0, 1, 2, 2, 3, 0,
-		4, 5, 6, 6, 7, 4
-	};
+	void LoadModel();
+	const std::string MODEL_PATH = "Models/viking_room.obj";
+	const std::string TEXTURE_PATH = "Textures/viking_room.png";
+	std::vector<Vertex> Vertices;
+	std::vector<unsigned int> Indices;
 };
 #endif

@@ -6,35 +6,35 @@
 //Constructor using initial values for each component.
 FVector3::FVector3(float x, float y, float z)
 {
-	VectorArray[0] = x;
-	VectorArray[1] = y;
-	VectorArray[2] = z;
+	X = x;
+	Y = y;
+	Z = z;
 }
 
 //Constructor initializing all components to a single float value.
 FVector3::FVector3(float Float)
 {
-	VectorArray[0] = VectorArray[1] = VectorArray[2] = Float;
+	X = Y = Z = Float;
 }
 
 inline FVector3::FVector3(const FVector3 & InitilizerVector)
 {
-	Load(InitilizerVector.VectorArray[0], InitilizerVector.VectorArray[1], InitilizerVector.VectorArray[2]);
+	Load(InitilizerVector.X, InitilizerVector.Y, InitilizerVector.Z);
 }
 
-FVector3::FVector3(float array[3])
+FVector3::FVector3(float values[3])
 {
-	VectorArray[0] = array[0];
-	VectorArray[0] = array[1];
-	VectorArray[0] = array[2];
+	X = values[0];
+	X = values[1];
+	X = values[2];
 }
 
 //Default Constructor, initializes all values to 0;
 FVector3::FVector3()
 {
-	VectorArray[0] = 0.0f;
-	VectorArray[1] = 0.0f;
-	VectorArray[2] = 0.0f;
+	X = 0.0f;
+	Y = 0.0f;
+	Z = 0.0f;
 }
 
 ///Destructors
@@ -50,9 +50,9 @@ FVector3 FVector3::operator+(FVector3 Vector)
 {
 	FVector3 Result;
 
-	Result.VectorArray[0] = VectorArray[0] + Vector.VectorArray[0];
-	Result.VectorArray[1] = VectorArray[1] + Vector.VectorArray[1];
-	Result.VectorArray[2] = VectorArray[2] + Vector.VectorArray[2];
+	Result.X = X + Vector.X;
+	Result.Y = Y + Vector.Y;
+	Result.Z = Z + Vector.Z;
 
 	return Result;
 }
@@ -60,22 +60,22 @@ FVector3 FVector3::operator+(FVector3 Vector)
 //Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 void FVector3::operator+=(FVector3 Vector)
 {
-	VectorArray[0] += Vector.VectorArray[0];
-	VectorArray[1] += Vector.VectorArray[1];
-	VectorArray[2] += Vector.VectorArray[2];
+	X += Vector.X;
+	Y += Vector.Y;
+	Z += Vector.Z;
 }
 
 //Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
 void FVector3::operator-=(FVector3 Vector)
 {
-	VectorArray[0] -= Vector.VectorArray[0];
-	VectorArray[1] -= Vector.VectorArray[1];
-	VectorArray[2] -= Vector.VectorArray[2];
+	X -= Vector.X;
+	Y -= Vector.Y;
+	Z -= Vector.Z;
 }
 
 bool FVector3::operator==(FVector3 Vector)
 {
-	return VectorArray[0] == Vector.VectorArray[0] && VectorArray[1] == Vector.VectorArray[1] && VectorArray[2] == Vector.VectorArray[2];
+	return X == Vector.X && Y == Vector.Y && Z == Vector.Z;
 }
 
 //Overload of the "-" operator, makes a vector minus vector subtraction.
@@ -84,9 +84,9 @@ FVector3 FVector3::operator-(FVector3 Vector)
 
 	FVector3 Result;
 
-	Result.VectorArray[0] = VectorArray[0] - Vector.VectorArray[0];
-	Result.VectorArray[1] = VectorArray[1] - Vector.VectorArray[1];
-	Result.VectorArray[2] = VectorArray[2] - Vector.VectorArray[2];
+	Result.X = X - Vector.X;
+	Result.Y = Y - Vector.Y;
+	Result.Z = Z - Vector.Z;
 
 	return Result;
 }
@@ -94,27 +94,27 @@ FVector3 FVector3::operator-(FVector3 Vector)
 //Overload of the "*" operator, makes a vector times scalar multiplication.
 FVector3 FVector3::operator*(float Multiplier)
 {
-	return FVector3(VectorArray[0] * Multiplier, VectorArray[1] * Multiplier, VectorArray[2] * Multiplier);
+	return FVector3(X * Multiplier, Y * Multiplier, Z * Multiplier);
 }
 
 //Overload of the "/" operator, makes a vector divided by scalar division.
 FVector3 FVector3::operator/(float Divisor)
 {
-	return FVector3(VectorArray[0] / Divisor, VectorArray[1] / Divisor, VectorArray[2] / Divisor);
+	return FVector3(X / Divisor, Y / Divisor, Z / Divisor);
 }
 
 //Overload of the "*" operator, makes a vector times vector dot product.
 float FVector3::operator*(FVector3 Vector)
 {
-	return (VectorArray[0]*Vector.VectorArray[0] + VectorArray[1]*Vector.VectorArray[1] + VectorArray[2]*Vector.VectorArray[2]);
+	return (X*Vector.X + Y*Vector.Y + Z*Vector.Z);
 }
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 void FVector3::operator=(FVector3 Vector)
 {
-	VectorArray[0] = Vector.VectorArray[0];
-	VectorArray[1] = Vector.VectorArray[1];
-	VectorArray[2] = Vector.VectorArray[2];
+	X = Vector.X;
+	Y = Vector.Y;
+	Z = Vector.Z;
 }
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
@@ -122,9 +122,16 @@ void FVector3::operator=(FVector3 * Vector)
 {
 	if (Vector == nullptr) return;
 
-	VectorArray[0] = Vector->VectorArray[0];
-	VectorArray[1] = Vector->VectorArray[1];
-	VectorArray[2] = Vector->VectorArray[2];
+	X = Vector->X;
+	Y = Vector->Y;
+	Z = Vector->Z;
+}
+
+void FVector3::operator=(float values[3])
+{
+	X = values[0];
+	Y = values[1];
+	Z = values[2];
 }
 
 ///Functions
@@ -132,16 +139,16 @@ void FVector3::operator=(FVector3 * Vector)
 //Returns the magnitude of the Vector (or Vector's scalar lenght)
 float FVector3::Length()
 {
-	return sqrt(VectorArray[0]*VectorArray[0] + VectorArray[1] * VectorArray[1] + VectorArray[2] * VectorArray[2]);
+	return sqrt(X*X + Y * Y + Z * Z);
 }
 
 //Returns the angle between this vector and another given vector in degrees.
 float FVector3::GetAngle(FVector3 Vector)
 {
 	FVector3 thisVector;
-	thisVector.VectorArray[0] = VectorArray[0];
-	thisVector.VectorArray[1] = VectorArray[1];
-	thisVector.VectorArray[2] = VectorArray[2];
+	thisVector.X = X;
+	thisVector.Y = Y;
+	thisVector.Z = Z;
 	
 	return acos((thisVector * Vector)/(thisVector.Length() * Vector.Length())) * 180.0f/ 3.14159265f;
 }
@@ -150,9 +157,9 @@ float FVector3::GetAngle(FVector3 Vector)
 float FVector3::GetRadAngle(FVector3 Vector)
 {
 	FVector3 thisVector;
-	thisVector.VectorArray[0] = VectorArray[0];
-	thisVector.VectorArray[1] = VectorArray[1];
-	thisVector.VectorArray[2] = VectorArray[2];
+	thisVector.X = X;
+	thisVector.Y = Y;
+	thisVector.Z = Z;
 
 	return acos((thisVector * Vector) / (Length() * Vector.Length()));
 }
@@ -160,13 +167,13 @@ float FVector3::GetRadAngle(FVector3 Vector)
 //Returns the Cross product of this vector and another given vector.
 FVector3 FVector3::CrossProduct(FVector3 Vector)
 {
-	return FVector3(VectorArray[1]*Vector.VectorArray[2] - VectorArray[2]*Vector.VectorArray[1], VectorArray[2]*Vector.VectorArray[0] - VectorArray[0]*Vector.VectorArray[2], VectorArray[0]*Vector.VectorArray[1] - VectorArray[1]*Vector.VectorArray[0]);
+	return FVector3(Y*Vector.Z - Z*Vector.Y, Z*Vector.X - X*Vector.Z, X*Vector.Y - Y*Vector.X);
 }
 
 //Gets the normalized form of this Vector
 FVector3 FVector3::GetNormal()
 {
-	FVector3 ReturnVector(VectorArray[0], VectorArray[1], VectorArray[2]);
+	FVector3 ReturnVector(X, Y, Z);
 
 	return ReturnVector/ReturnVector.Length();
 }
@@ -174,34 +181,34 @@ FVector3 FVector3::GetNormal()
 //Divides the vector by its Magnitude to get the normalized unit vector.
 void FVector3::Normalize()
 {
-	FVector3 ReturnVector(VectorArray[0], VectorArray[1], VectorArray[2]);
+	FVector3 ReturnVector(X, Y, Z);
 
 	ReturnVector = ReturnVector / ReturnVector.Length();
 
-	VectorArray[0] = ReturnVector.VectorArray[0];
-	VectorArray[1] = ReturnVector.VectorArray[1];
-	VectorArray[2] = ReturnVector.VectorArray[2];
+	X = ReturnVector.X;
+	Y = ReturnVector.Y;
+	Z = ReturnVector.Z;
 }
 
-//Rotates the vector by VectorArray[0] degrees in the VectorArray[2] axis
+//Rotates the vector by X degrees in the Z axis
 void FVector3::RotateZ(float Degrees)
 {
 	Degrees *= 0.0174533f;
 
-	VectorArray[0] = VectorArray[0] * cos(Degrees) - VectorArray[1] * sin(Degrees);
-	VectorArray[1] = VectorArray[0] * sin(Degrees) + VectorArray[1] * cos(Degrees);
+	X = X * cos(Degrees) - Y * sin(Degrees);
+	Y = X * sin(Degrees) + Y * cos(Degrees);
 
 }
-//Rotates the vector by disered amount in radians in the VectorArray[2] axis
+//Rotates the vector by disered amount in radians in the Z axis
 void FVector3::RotateZRad(float Degrees)
 {
-	VectorArray[0] = VectorArray[0] * cos(Degrees) - VectorArray[1] * sin(Degrees);
-	VectorArray[1] = VectorArray[0] * sin(Degrees) + VectorArray[1] * cos(Degrees);
+	X = X * cos(Degrees) - Y * sin(Degrees);
+	Y = X * sin(Degrees) + Y * cos(Degrees);
 }
 
 inline void FVector3::Load(float x, float y, float z)
 {
-	VectorArray[0] = x;
-	VectorArray[1] = y;
-	VectorArray[2] = z;
+	X = x;
+	Y = y;
+	Z = z;
 }

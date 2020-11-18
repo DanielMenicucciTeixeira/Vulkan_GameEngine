@@ -939,11 +939,6 @@ void VulkanRenderer::CreateFramebuffers()
 void VulkanRenderer::CreateVertexBuffers()
 {
     VkDeviceSize bufferSize = sizeof(Vertex) * Vertices.size();
-    int vertexSize = sizeof(Vertex);
-    int size0 = sizeof(Vertices[0].Position);
-    int size1 = sizeof(Vertices[0].Colour);
-    int size2 = sizeof(Vertices[0].TextureCoordinates);
-    int verticesCount = Vertices.size();
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
@@ -1614,11 +1609,11 @@ void VulkanRenderer::LoadModel()
             Vertex vertex = Vertex();
 
             vertex.Position = 
-            FVector3(
+            {
                 attrib.vertices[3 * index.vertex_index + 0],
                 attrib.vertices[3 * index.vertex_index + 1],
                 attrib.vertices[3 * index.vertex_index + 2]
-            );
+            };
 
             vertex.TextureCoordinates = 
             {
@@ -1626,7 +1621,7 @@ void VulkanRenderer::LoadModel()
                 1.0f - attrib.texcoords[2 * index.texcoord_index + 1]
             };
 
-            vertex.Colour = FVector4(1.0f, 1.0f, 1.0f, 1.0f);
+            vertex.Colour = { 1.0f, 1.0f, 1.0f, 1.0f };
 
             /*if (uniqueVertices.count(vertex) == 0)
             {
@@ -1685,7 +1680,7 @@ bool Vertex::operator==(const Vertex& other) const
     return Position == other.Position && Colour == other.Colour && TextureCoordinates == other.TextureCoordinates;
 }
 
-Vertex::Vertex()
+/*Vertex::Vertex()
 {
     Position = new FVector3();
     Colour = new FVector4();
@@ -1696,4 +1691,4 @@ Vertex::Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates)
     Position = new FVector3(position);
     Colour = new FVector4 (colour);
     TextureCoordinates = textureCoordinates;
-}
+}*/

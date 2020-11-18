@@ -22,6 +22,8 @@ Ray::Ray(FVector3* Start, FVector3* Direction, int Length, bool Infinit)
 
 Ray::~Ray()
 {
+	if (StartPosition) delete(StartPosition);
+	if (Direction) delete(Direction);
 }
 
 FVector3 Ray::GetPosition(float displacement)

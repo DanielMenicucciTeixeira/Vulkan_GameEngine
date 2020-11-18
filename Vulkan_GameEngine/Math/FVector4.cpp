@@ -5,10 +5,10 @@
 
 FVector4::FVector4(const FVector4& InitilizerVector)
 {
-	VectorArray[0] = InitilizerVector.VectorArray[0];
-	VectorArray[1] = InitilizerVector.VectorArray[1];
-	VectorArray[2] = InitilizerVector.VectorArray[2];
-	VectorArray[3] = InitilizerVector.VectorArray[3];
+	X = InitilizerVector.X;
+	Y = InitilizerVector.Y;
+	Z = InitilizerVector.Z;
+	W = InitilizerVector.W;
 }
 
 FVector4::~FVector4()
@@ -17,83 +17,91 @@ FVector4::~FVector4()
 
 FVector4 FVector4::operator+(const FVector4& Vector)
 {
-	return FVector4(VectorArray[0] + Vector.VectorArray[0], VectorArray[1] + Vector.VectorArray[1], VectorArray[2] + Vector.VectorArray[2], VectorArray[3] + Vector.VectorArray[3]);
+	return FVector4(X + Vector.X, Y + Vector.Y, Z + Vector.Z, W + Vector.W);
 }
 
 FVector4 FVector4::operator-(const FVector4& Vector)
 {
-	return FVector4(VectorArray[0] - Vector.VectorArray[0], VectorArray[1] - Vector.VectorArray[1], VectorArray[2] - Vector.VectorArray[2], VectorArray[3] - Vector.VectorArray[3]);
+	return FVector4(X - Vector.X, Y - Vector.Y, Z - Vector.Z, W - Vector.W);
 }
 
 FVector4 FVector4::operator*(float Multiplier)
 {
-	return FVector4(VectorArray[0] * Multiplier, VectorArray[1] * Multiplier, VectorArray[2] * Multiplier, VectorArray[3] * Multiplier);
+	return FVector4(X * Multiplier, Y * Multiplier, Z * Multiplier, W * Multiplier);
 }
 
 FVector4 FVector4::operator/(float Divisor)
 {
-	return FVector4(VectorArray[0] / Divisor, VectorArray[1] / Divisor, VectorArray[2] / Divisor, VectorArray[3] / Divisor);
+	return FVector4(X / Divisor, Y / Divisor, Z / Divisor, W / Divisor);
 }
 
 float FVector4::operator*(const FVector4& Vector)
 {
-	return (VectorArray[0] * Vector.VectorArray[0]) + (VectorArray[1] * Vector.VectorArray[1]) + (VectorArray[2] * Vector.VectorArray[2]) + (VectorArray[3] * Vector.VectorArray[3]);
+	return (X * Vector.X) + (Y * Vector.Y) + (Z * Vector.Z) + (W * Vector.W);
 }
 
 void FVector4::operator=(const FVector4& Vector)
 {
-	VectorArray[0] = Vector.VectorArray[0];
-	VectorArray[1] = Vector.VectorArray[1];
-	VectorArray[2] = Vector.VectorArray[2];
-	VectorArray[3] = Vector.VectorArray[3];
+	X = Vector.X;
+	Y = Vector.Y;
+	Z = Vector.Z;
+	W = Vector.W;
 }
 
 void FVector4::operator=(FVector4* Vector)
 {
-	VectorArray[0] = Vector->VectorArray[0];
-	VectorArray[1] = Vector->VectorArray[1];
-	VectorArray[2] = Vector->VectorArray[2];
-	VectorArray[3] = Vector->VectorArray[3];
+	X = Vector->X;
+	Y = Vector->Y;
+	Z = Vector->Z;
+	W = Vector->W;
+}
+
+void FVector4::operator=(float values[4])
+{
+	X = values[0];
+	Y = values[1];
+	Z = values[2];
+	W = values[3];
 }
 
 void FVector4::operator+=(const FVector4& Vector)
 {
-	VectorArray[0] += Vector.VectorArray[0];
-	VectorArray[1] += Vector.VectorArray[1];
-	VectorArray[2] += Vector.VectorArray[2];
-	VectorArray[3] += Vector.VectorArray[3];
+	X += Vector.X;
+	Y += Vector.Y;
+	Z += Vector.Z;
+	W += Vector.W;
 }
 
 void FVector4::operator-=(const FVector4& Vector)
 {
-	VectorArray[0] -= Vector.VectorArray[0];
-	VectorArray[1] -= Vector.VectorArray[1];
-	VectorArray[2] -= Vector.VectorArray[2];
-	VectorArray[3] -= Vector.VectorArray[3];
+	X -= Vector.X;
+	Y -= Vector.Y;
+	Z -= Vector.Z;
+	W -= Vector.W;
 }
 
 FVector3 FVector4::CrossProduct(const FVector4& Vector)
 {
-	return FVector3(VectorArray[1] * Vector.VectorArray[2] - VectorArray[2] * Vector.VectorArray[1], VectorArray[2] * Vector.VectorArray[0] - VectorArray[0] * Vector.VectorArray[2], VectorArray[0] * Vector.VectorArray[1] - VectorArray[1] * Vector.VectorArray[0]);
+	return FVector3(Y * Vector.Z - Z * Vector.Y, Z * Vector.X - X * Vector.Z, X * Vector.Y - Y * Vector.X);
 }
 
 float FVector4::Length()
 {
-	return sqrt(pow(VectorArray[0], 2) + pow(VectorArray[1], 2) + pow(VectorArray[2], 2) + pow(VectorArray[3], 2));
+	return sqrt(pow(X, 2) + pow(Y, 2) + pow(Z, 2) + pow(W, 2));
 }
 
 FVector4 FVector4::GetNormal()
 {
 	int length = Length();
-	return FVector4(VectorArray[0] / length, VectorArray[1] / length, VectorArray[2] / length, VectorArray[3] / length);
+	return FVector4(X / length, Y / length, Z / length, W / length);
 }
 
 void FVector4::Normalize()
 {
 	int length = Length();
 
-	VectorArray[0] = VectorArray[0] / length;
-	VectorArray[1] = VectorArray[1] / length;
-	VectorArray[2] = VectorArray[2] / length;
-	VectorArray[3] = VectorArray[3] / length;
+	X = X / length;
+	Y = Y / length;
+	Z = Z / length;
+	W = W / length;
 }

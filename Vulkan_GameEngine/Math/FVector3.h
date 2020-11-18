@@ -1,12 +1,12 @@
-#ifndef FVector3_
-#define FVector3_
+#ifndef FVector3_H
+#define FVector3_H
 
 
 class FVector3
 {
 public:
 	//Array containing Vector elements
-	float VectorArray[3];
+	float X, Y, Z;
 
 	///Constructors
 
@@ -19,8 +19,8 @@ public:
 	//Constructor initializing to match a given FVector3, a copy constructor
 	FVector3(const FVector3& InitilizerVector);
 
-	//Contructor initalizaing to match given array
-	FVector3(float array[3]);
+	//Contructor initalizaing to match given values
+	FVector3(float values[3]);
 
 	//Default Constructor, initializes all values to 0;
 	FVector3();
@@ -31,32 +31,34 @@ public:
 
 	///Operators
 
-	virtual FVector3 operator+ (FVector3 Vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	FVector3 operator+ (FVector3 vector);//Overload of the "+" operator, makes a vector plus vector addition.
 
-	virtual FVector3 operator- (FVector3 Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	FVector3 operator- (FVector3 vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
 
-	FVector3 operator* (float Multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
+	FVector3 operator* (float multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
 
-	FVector3 operator/ (float Divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
+	FVector3 operator/ (float divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	virtual float operator* (FVector3 Vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	float operator* (FVector3 vector);//Overload of the "*" operator, makes a vector times vector dot product.
 
-	virtual void operator= (FVector3 Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	void operator= (FVector3 vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator= (FVector3 * Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	void operator= (FVector3* vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator+= (FVector3 Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	void operator= (float values[3]);
 
-	void operator-= (FVector3 Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+	void operator+= (FVector3 vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 
-	bool operator== (FVector3 Vector);//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
+	void operator-= (FVector3 vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
 
-	///The next 4 operators make sure the FVector3 class can be used as an array by API such as Open-GL and Vulkan
-		inline const float operator[] (unsigned int index) const { return *(&VectorArray[0] + index); }//For R-values
-		inline float& operator[] (unsigned int index) { return*(&VectorArray[0] + index); }//For L-Values
+	bool operator== (FVector3 vector);//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
 
-		inline operator const float* () const { return static_cast<const float*>(&VectorArray[0]); }//For R-Values
-		inline operator float* () { return static_cast<float*>(&VectorArray[0]); }//For L-Values
+	///The next 4 operators make sure the FVector3 class can be used as an values by API such as Open-GL and Vulkan
+		inline const float operator[] (unsigned int index) const { return *(&X + index); }//For R-values
+		inline float& operator[] (unsigned int index) { return*(&X + index); }//For L-Values
+
+		inline operator const float* () const { return static_cast<const float*>(&X); }//For R-Values
+		inline operator float* () { return static_cast<float*>(&X); }//For L-Values
 	///-----------------------------------------------------------------------------------------------------------
 
 

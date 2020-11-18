@@ -54,25 +54,25 @@ FMatrix4::FMatrix4(float value)
 //Initilizes the Matrix Given 3 FVector3s for rows
 FMatrix4::FMatrix4(const FVector4& row1, const FVector4& row2, const FVector4& row3, const FVector4& row4)
 {
-	Matrix[0] = row1.VectorArray[0];
-	Matrix[4] = row1.VectorArray[1];
-	Matrix[8] = row1.VectorArray[2];
-	Matrix[12] = row1.VectorArray[3];
+	Matrix[0] = row1.X;
+	Matrix[4] = row1.Y;
+	Matrix[8] = row1.Z;
+	Matrix[12] = row1.W;
 
-	Matrix[1] = row2.VectorArray[0];
-	Matrix[5] = row2.VectorArray[1];
-	Matrix[9] = row2.VectorArray[2];
-	Matrix[13] = row2.VectorArray[3];
+	Matrix[1] = row2.X;
+	Matrix[5] = row2.Y;
+	Matrix[9] = row2.Z;
+	Matrix[13] = row2.W;
 
-	Matrix[2] = row3.VectorArray[0];
-	Matrix[6] = row3.VectorArray[1];
-	Matrix[10] = row3.VectorArray[2];
-	Matrix[14] = row3.VectorArray[3];
+	Matrix[2] = row3.X;
+	Matrix[6] = row3.Y;
+	Matrix[10] = row3.Z;
+	Matrix[14] = row3.W;
 
-	Matrix[3] = row4.VectorArray[0];
-	Matrix[7] = row4.VectorArray[1];
-	Matrix[11] = row4.VectorArray[2];
-	Matrix[15] = row4.VectorArray[3];
+	Matrix[3] = row4.X;
+	Matrix[7] = row4.Y;
+	Matrix[11] = row4.Z;
+	Matrix[15] = row4.W;
 }
 
 //Initialiazes the Matrix given 3 floats for the diagonal
@@ -192,9 +192,9 @@ FVector3 FMatrix4::operator*(FVector3 vector)
 {
 	FVector3 ReturnVector = FVector3();
 
-	ReturnVector.VectorArray[0] = Matrix[0] * vector.VectorArray[0] + Matrix[4] * vector.VectorArray[1] + Matrix[8] * vector.VectorArray[2];
-	ReturnVector.VectorArray[1] = Matrix[1] * vector.VectorArray[0] + Matrix[5] * vector.VectorArray[1] + Matrix[9] * vector.VectorArray[2];
-	ReturnVector.VectorArray[2] = Matrix[2] * vector.VectorArray[0] + Matrix[6] * vector.VectorArray[1] + Matrix[10] * vector.VectorArray[2];
+	ReturnVector.X = Matrix[0] * vector.X + Matrix[4] * vector.Y + Matrix[8] * vector.Z;
+	ReturnVector.Y = Matrix[1] * vector.X + Matrix[5] * vector.Y + Matrix[9] * vector.Z;
+	ReturnVector.Z = Matrix[2] * vector.X + Matrix[6] * vector.Y + Matrix[10] * vector.Z;
 
 	return ReturnVector;
 }

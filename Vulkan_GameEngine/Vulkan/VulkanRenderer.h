@@ -77,17 +77,17 @@ struct Vertex
 {
 	//glm::vec3 Position;
 	//glm::vec4 Colour;
-	alignas(16) FVector3 Position;
-	alignas(16) FVector4 Colour;
-	alignas(8) glm::vec2 TextureCoordinates;
+	FVector3 Position;
+	FVector4 Colour;
+	glm::vec2 TextureCoordinates;
 
 	static VkVertexInputBindingDescription GetBindingDescription();
 	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
 	bool operator==(const Vertex& other) const;
-	Vertex();
+	/*Vertex();
 	Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates);
-	inline ~Vertex() {}
+	inline ~Vertex() {}*/
 };
 
 /*namespace std 

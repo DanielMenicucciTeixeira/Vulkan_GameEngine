@@ -3,26 +3,26 @@
 
 class FVector3;
 
-class FVector4 
+class FVector4
 {
 public:
-	float VectorArray[4];
+	float X, Y, Z, W;
 
 	///Constructors
 
 	//Constructor using initial values for each component.
-	inline FVector4(float x, float y, float z, float w) { VectorArray[0] = x; VectorArray[1] = y; VectorArray[2] = z; VectorArray[3] = w; }
+	inline FVector4(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
 
 	//Constructor initializing all components to a single float value.
-	inline FVector4(float value) { VectorArray[0] = VectorArray[1] = VectorArray[2] = VectorArray[3] = value; }
+	inline FVector4(float value) { X = Y = Z = W = value; }
 
 	//Constructor initializing to match a given FVector4, a copy constructor
 	FVector4(const FVector4& initilizerVector);
 
 	//Default Constructor, initializes all values to 0;
-	inline FVector4() { VectorArray[0] = 0; VectorArray[1] = 0; VectorArray[2] = 0; VectorArray[3] = 1; }
+	inline FVector4() { X = 0; Y = 0; Z = 0; W = 1; }
 
-	inline FVector4(float array[4]) { VectorArray[0] = array[0]; VectorArray[1] = array[1]; VectorArray[2] = array[2]; VectorArray[3] = array[3]; }
+	inline FVector4(float values[4]) { X = values[0]; Y = values[1]; Z = values[2]; W = values[3]; }
 
 	///Destructor
 
@@ -44,16 +44,18 @@ public:
 
 	void operator = (FVector4* Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
+	void operator = (float values[4]);//
+
 	void operator += (const FVector4& Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 
 	void operator -= (const FVector4& Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
 
-	///The next 4 operators make sure the FVector3 class can be used as an array by API such as Open-GL and Vulkan
-		inline const float operator[] (unsigned int index) const { return *(&VectorArray[0] + index); }//For R-values
-		inline float& operator[] (unsigned int index) { return *(&VectorArray[0] + index); }//For L-Values
+	///The next 4 operators make sure the FVector3 class can be used as an values by API such as Open-GL and Vulkan
+		inline const float operator[] (unsigned int index) const { return *(&X + index); }//For R-values
+		inline float& operator[] (unsigned int index) { return *(&X + index); }//For L-Values
 
-		inline operator const float* () const { return static_cast<const float*>(&VectorArray[0]); }//For R-Values
-		inline operator float* () { return static_cast<float*>(&VectorArray[0]); }//For L-Values
+		inline operator const float* () const { return static_cast<const float*>(&X); }//For R-Values
+		inline operator float* () { return static_cast<float*>(&X); }//For L-Values
 	///-----------------------------------------------------------------------------------------------------------
 
 	///Functions
@@ -61,7 +63,7 @@ public:
 	//This function treats BOTH vectors as their 3D vector(FVector3) counterparts, as there is no cross product between two 4D vectors.
 	FVector3 CrossProduct(const FVector4& Vector);
 
-	inline float Dot(const FVector4& Vector) { return (VectorArray[0] * Vector.VectorArray[0]) + (VectorArray[1] * Vector.VectorArray[1]) + (VectorArray[2] * Vector.VectorArray[2]) + (VectorArray[3] * Vector.VectorArray[3]); }
+	inline float Dot(const FVector4& Vector) { return (X * Vector.X) + (Y * Vector.Y) + (Z * Vector.Z) + (W * Vector.W); }
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
 	float Length();
@@ -73,7 +75,7 @@ public:
 	void Normalize();
 
 	//Utility to populate vector
-	inline void Load(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; VectorArray[3] = W; }
+	inline void Load(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; W = W; }
 };
 
 #endif // !FVECTOR4_H

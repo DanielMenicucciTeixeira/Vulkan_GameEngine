@@ -2,7 +2,7 @@
 #extension GL_ARB_separate_shader_objects : enable
 //#extension GL_KHR_vulkan_glsl : enable
 
-layout(set = 0, binding = 0) uniform UniformBufferObject 
+layout(binding = 0) uniform UniformBufferObject 
 {
     mat4 Model;
     mat4 View;
@@ -11,10 +11,14 @@ layout(set = 0, binding = 0) uniform UniformBufferObject
 
 layout(location = 0) in vec3 InPosition;
 layout(location = 1) in vec4 InColor;
+layout(location = 2) in vec2 InTextureCoordinate;
 
+layout(location = 1) out vec2 FragTextureCoordinate;
 layout(location = 0) out vec4 FragColor;
 
-void main() {
+void main() 
+{
     gl_Position = UBO.Projecjtion * UBO.View * UBO.Model * vec4(InPosition, 1.0);
     FragColor = InColor;
+    FragTextureCoordinate = InTextureCoordinate;
 }

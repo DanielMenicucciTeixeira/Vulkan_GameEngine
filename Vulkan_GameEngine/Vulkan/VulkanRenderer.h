@@ -56,7 +56,10 @@ typedef VkFlags VkMemoryPropertyFlags;
 typedef VkFlags VkBufferUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
 typedef VkFlags VkImageUsageFlags;
+typedef VkFlags VkFormatFeatureFlags;
+typedef VkFlags VkImageAspectFlags;
 typedef unsigned long long VkDeviceSize;
+
 
 class VGE_SDLManager;
 class SDL_Window;
@@ -69,14 +72,16 @@ struct Vertex
 {
 	glm::vec3 Position;
 	glm::vec4 Colour;
-	//FVector3* Position;
-	//FVector4* Colour;
+	glm::vec2 TextureCoordinates;
 
 	static VkVertexInputBindingDescription GetBindingDescription();
-	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();
+	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
-	/*Vertex();
-	Vertex(FVector3 position, FVector4 colour);
+
+	/*FVector3* Position;
+	FVector4* Colour;
+	Vertex();
+	Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates);
 	inline ~Vertex() {}*/
 };
 
@@ -217,7 +222,7 @@ protected:
 	void CreateSwapChain();
 	void RecreateSwapChain();
 	void CreateImageViews();
-	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format);
+	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags);
 	void CleanUpSwapChain();
 
 	//Variables
@@ -306,13 +311,17 @@ protected:
 
 	void CreateDescriptorSetLayout();
 	void CreateDescriptorPool();
-	void CreateDescriptorSet();
+	void CreateDescriptorSets();
 	void CreateTextureImage();
 	void CreateTextureImageView();
 	void CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory);
 	void TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
 	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height);
 	void CreateTextureSampler();
+	void CreateDepthResources();
+	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
+	VkFormat FindDepthFormat();
+	bool HasStencilComponent(VkFormat format);
 
 	//Variables
 protected:
@@ -322,16 +331,29 @@ protected:
 	VkImageView_T* TextureImageView = nullptr;
 	VkDeviceMemory_T* TextureImageMemory = nullptr;
 	VkSampler_T* TextureSampler = nullptr;
+	VkImage_T* DepthImage;
+	VkDeviceMemory_T* DepthImageMemory;
+	VkImageView_T* DepthImageView;
 
-	const std::vector<Vertex> Vertices
-	 ={
-		{{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}},
-		{{0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f, 1.0f}},
-		{{0.5f, 0.5f, 0.0f}, {0.0f, 0.5f, 0.5f, 1.0f}},
-		{{-0.5f, 0.5f, 0.0f}, {0.5f, 0.0f, 0.5f, 1.0f}}
+	const std::vector<Vertex> Vertices =
+	{
+		{{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f}},
+		{{0.5f, -0.5f, 0.0f}, {0.5f, 0.5f, 0.0f, 1.0f}, {0.0f, 0.0f}},
+		{{0.5f, 0.5f, 0.0f}, {0.0f, 0.5f, 0.5f, 1.0f}, {0.0f, 1.0f}},
+		{{-0.5f, 0.5f, 0.0f}, {0.5f, 0.0f, 0.5f, 1.0f}, {1.0f, 1.0f}},
+
+		{{-0.5f, -0.5f, -0.5f}, {1.0f, 0.0f, 0.0f, 1.0f}, {1.0f, 0.0f}},
+		{{0.5f, -0.5f, -0.5f}, {0.5f, 0.5f, 0.0f, 1.0f}, {0.0f, 0.0f}},
+		{{0.5f, 0.5f, -0.5f}, {0.0f, 0.5f, 0.5f, 1.0f}, {0.0f, 1.0f}},
+		{{-0.5f, 0.5f, -0.5f}, {0.5f, 0.0f, 0.5f, 1.0f}, {1.0f, 1.0f}}
 	};
 
-	const std::vector<unsigned int> Indices = { 0, 1, 2, 2, 3, 0 };
+	//std::vector<Vertex> Vertices;
+
+	const std::vector<unsigned int> Indices = 
+	{ 
+		0, 1, 2, 2, 3, 0,
+		4, 5, 6, 6, 7, 4
+	};
 };
 #endif
-

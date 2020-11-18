@@ -66,41 +66,48 @@ typedef unsigned long long VkDeviceSize;
 
 class VGE_SDLManager;
 class SDL_Window;
-class FVector3;
-class FVector4;
+//class FVector3;
+//class FVector4;
+#include "Math/FVector3.h"
+#include "Math/FVector4.h"
 
 //------Structs------\\
 
 struct Vertex
 {
-	glm::vec3 Position;
-	glm::vec4 Colour;
-	glm::vec2 TextureCoordinates;
+	//glm::vec3 Position;
+	//glm::vec4 Colour;
+	alignas(16) FVector3 Position;
+	alignas(16) FVector4 Colour;
+	alignas(8) glm::vec2 TextureCoordinates;
 
 	static VkVertexInputBindingDescription GetBindingDescription();
 	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
 	bool operator==(const Vertex& other) const;
-
-	/*FVector3* Position;
-	FVector4* Colour;
 	Vertex();
 	Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates);
-	inline ~Vertex() {}*/
+	inline ~Vertex() {}
 };
 
-namespace std 
+/*namespace std 
 {
 	template<> struct hash<Vertex> 
 	{
 		size_t operator()(Vertex const& vertex) const 
 		{
-			return ((hash<glm::vec3>()(vertex.Position) ^
-				(hash<glm::vec3>()(vertex.Colour) << 1)) >> 1) ^
-				(hash<glm::vec2>()(vertex.TextureCoordinates) << 1);
+			return 
+				(
+					//(hash<glm::vec3>()(vertex.Position) ^
+					//(hash<glm::vec3>()(vertex.Colour) << 1)) >> 1) ^
+					//(hash<glm::vec2>()(vertex.TextureCoordinates) << 1
+					(hash<FVector3>()(vertex.Position) ^
+					(hash<FVector4>()(vertex.Colour) << 1)) >> 1) ^
+					(hash<glm::vec2>()(vertex.TextureCoordinates) << 1
+				);
 		}
 	};
-}
+}*/
 
 struct UniformBufferObject 
 {

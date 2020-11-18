@@ -33,11 +33,6 @@ VulkanRenderer::VulkanRenderer(VGE_SDLManager* sdlManager)
         SDLManager = sdlManager;
         SDLManager->SetRenderer(this);
     }
-
-   /* Vertices.push_back(Vertex(FVector3(-0.5f, -0.5f, 0.0f), FVector4(1.0f, 0.0f, 0.0f, 1.0f), glm::vec2(1.0f, 0.0f)));
-    Vertices.push_back(Vertex(FVector3(0.5f, -0.5f, 0.0f), FVector4(0.5f, 0.5f, 0.0f, 1.0f), glm::vec2(1.0f, 0.0f)));
-    Vertices.push_back(Vertex(FVector3(0.5f, 0.5f, 0.0f), FVector4(0.0f, 0.5f, 0.5f, 1.0f), glm::vec2(1.0f, 0.0f)));
-    Vertices.push_back(Vertex(FVector3(-0.5f, 0.5f, 0.0f), FVector4(0.5f, 0.0f, 0.5f, 1.0f), glm::vec2(1.0f, 0.0f)));*/
 }
 
 VulkanRenderer::~VulkanRenderer()
@@ -896,7 +891,8 @@ void VulkanRenderer::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, V
     bufferInfo.usage = usage;
     bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
 
-    if (vkCreateBuffer(LogicalDevice, &bufferInfo, nullptr, &buffer) != VK_SUCCESS) {
+    if (vkCreateBuffer(LogicalDevice, &bufferInfo, nullptr, &buffer) != VK_SUCCESS)
+    {
         throw std::runtime_error("failed to create buffer!");
     }
 
@@ -908,8 +904,9 @@ void VulkanRenderer::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, V
     allocInfo.allocationSize = memRequirements.size;
     allocInfo.memoryTypeIndex = FindMemoryType(memRequirements.memoryTypeBits, properties);
 
-    if (vkAllocateMemory(LogicalDevice, &allocInfo, nullptr, &bufferMemory) != VK_SUCCESS) {
-        throw std::runtime_error("failed to allocate buffer memory!");
+    if (vkAllocateMemory(LogicalDevice, &allocInfo, nullptr, &bufferMemory) != VK_SUCCESS) 
+    {
+        throw std::runtime_error("Failed to allocate buffer memory!");
     }
 
     vkBindBufferMemory(LogicalDevice, buffer, bufferMemory, 0);
@@ -941,7 +938,12 @@ void VulkanRenderer::CreateFramebuffers()
 
 void VulkanRenderer::CreateVertexBuffers()
 {
-    VkDeviceSize bufferSize = sizeof(Vertices[0]) * Vertices.size();
+    VkDeviceSize bufferSize = sizeof(Vertex) * Vertices.size();
+    int vertexSize = sizeof(Vertex);
+    int size0 = sizeof(Vertices[0].Position);
+    int size1 = sizeof(Vertices[0].Colour);
+    int size2 = sizeof(Vertices[0].TextureCoordinates);
+    int verticesCount = Vertices.size();
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
@@ -1603,20 +1605,20 @@ void VulkanRenderer::LoadModel()
         throw std::runtime_error(warn + err);
     }
 
-    std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+    //std::unordered_map<Vertex, uint32_t> uniqueVertices{};
 
     for (const auto& shape : shapes) 
     {
         for (const auto& index : shape.mesh.indices) 
         {
-            Vertex vertex{};
+            Vertex vertex = Vertex();
 
             vertex.Position = 
-            {
+            FVector3(
                 attrib.vertices[3 * index.vertex_index + 0],
                 attrib.vertices[3 * index.vertex_index + 1],
                 attrib.vertices[3 * index.vertex_index + 2]
-            };
+            );
 
             vertex.TextureCoordinates = 
             {
@@ -1624,15 +1626,17 @@ void VulkanRenderer::LoadModel()
                 1.0f - attrib.texcoords[2 * index.texcoord_index + 1]
             };
 
-            vertex.Colour = { 1.0f, 1.0f, 1.0f, 1.0f };
+            vertex.Colour = FVector4(1.0f, 1.0f, 1.0f, 1.0f);
 
-            if (uniqueVertices.count(vertex) == 0)
+            /*if (uniqueVertices.count(vertex) == 0)
             {
                 uniqueVertices[vertex] = static_cast<uint32_t>(Vertices.size());
                 Vertices.push_back(vertex);
-            }
+            }*/
 
-            Indices.push_back(uniqueVertices[vertex]);
+            //Indices.push_back(uniqueVertices[vertex]);
+            Vertices.push_back(vertex);
+            Indices.push_back(Indices.size());
         }
     }
 }
@@ -1681,8 +1685,10 @@ bool Vertex::operator==(const Vertex& other) const
     return Position == other.Position && Colour == other.Colour && TextureCoordinates == other.TextureCoordinates;
 }
 
-/*Vertex::Vertex()
+Vertex::Vertex()
 {
+    Position = new FVector3();
+    Colour = new FVector4();
 }
 
 Vertex::Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates)
@@ -1690,4 +1696,4 @@ Vertex::Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates)
     Position = new FVector3(position);
     Colour = new FVector4 (colour);
     TextureCoordinates = textureCoordinates;
-}*/
+}

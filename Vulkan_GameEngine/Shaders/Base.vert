@@ -10,7 +10,7 @@ layout(binding = 0) uniform UniformBufferObject
 } UBO;
 
 layout(location = 0) in vec3 InPosition;
-layout(location = 1) in vec4 InColor;
+layout(location = 1) in vec4 InColour;
 layout(location = 2) in vec2 InTextureCoordinate;
 
 layout(location = 1) out vec2 FragTextureCoordinate;
@@ -19,6 +19,6 @@ layout(location = 0) out vec4 FragColor;
 void main() 
 {
     gl_Position = UBO.Projecjtion * UBO.View * UBO.Model * vec4(InPosition, 1.0);
-    FragColor = InColor;
+    FragColor = InColour;
     FragTextureCoordinate = InTextureCoordinate;
 }

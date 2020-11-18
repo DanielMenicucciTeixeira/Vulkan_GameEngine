@@ -5,6 +5,7 @@
 
 #include <stdexcept>
 #include <cstdlib>
+#include "Math/FVector4.h"
 
 int main(int argc, char* argv[])
 {

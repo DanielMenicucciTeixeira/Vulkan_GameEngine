@@ -2,6 +2,7 @@
 #include "VulkanManager.h"
 #include "SDL/VGE_SDLManager.h"
 #include "UniformCameraObject.h"
+#include "Math/FVector3.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
@@ -10,6 +11,7 @@
 #include <algorithm>
 #include<fstream>
 #include<array>
+#include<chrono>
 
 //#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -106,17 +108,17 @@ void VulkanSwapchain::CreateSwapChain()
     createInfo.clipped = VK_TRUE;
     createInfo.oldSwapchain = VK_NULL_HANDLE;
 
-    if (vkCreateSwapchainKHR(Manager->GetLogicalDevice(), &createInfo, nullptr, &SwapChain) != VK_SUCCESS)
+    if (vkCreateSwapchainKHR(Manager->GetLogicalDevice(), &createInfo, nullptr, &Swapchain) != VK_SUCCESS)
     {
         throw std::runtime_error("Failed to create SwapChain!");
     }
 
-    vkGetSwapchainImagesKHR(Manager->GetLogicalDevice(), SwapChain, &imageCount, nullptr);
-    SwapChainImages.resize(imageCount);
-    vkGetSwapchainImagesKHR(Manager->GetLogicalDevice(), SwapChain, &imageCount, SwapChainImages.data());
+    vkGetSwapchainImagesKHR(Manager->GetLogicalDevice(), Swapchain, &imageCount, nullptr);
+    Images.resize(imageCount);
+    vkGetSwapchainImagesKHR(Manager->GetLogicalDevice(), Swapchain, &imageCount, Images.data());
 
-    SwapChainImageFormat = surfaceFormat.format;
-    SwapChainExtent = new VkExtent2D(extent);
+    ImageFormat = surfaceFormat.format;
+    Extent = new VkExtent2D(extent);
 }
 
 void VulkanSwapchain::RecreateSwapChain()
@@ -147,10 +149,10 @@ void VulkanSwapchain::RecreateSwapChain()
 
 void VulkanSwapchain::CreateImageViews()
 {
-    SwapChainImageViews.resize(SwapChainImages.size());
+    ImageViews.resize(Images.size());
 
-    for (uint32_t i = 0; i < SwapChainImages.size(); i++) {
-        SwapChainImageViews[i] = CreateImageView(SwapChainImages[i], SwapChainImageFormat, VK_IMAGE_ASPECT_COLOR_BIT);
+    for (uint32_t i = 0; i < Images.size(); i++) {
+        ImageViews[i] = CreateImageView(Images[i], ImageFormat, VK_IMAGE_ASPECT_COLOR_BIT);
     }
 }
 
@@ -179,7 +181,7 @@ VkImageView_T* VulkanSwapchain::CreateImageView(VkImage_T* image, VkFormat forma
 void VulkanSwapchain::CreateRenderPass()
 {
     VkAttachmentDescription colorAttachment{};
-    colorAttachment.format = SwapChainImageFormat;
+    colorAttachment.format = ImageFormat;
     colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -278,29 +280,29 @@ void VulkanSwapchain::CreateDepthResources()
 {
     VkFormat depthFormat = FindDepthFormat();
 
-    CreateImage(SwapChainExtent->width, SwapChainExtent->height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, DepthImage, DepthImageMemory);
+    CreateImage(Extent->width, Extent->height, depthFormat, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, DepthImage, DepthImageMemory);
     DepthImageView = CreateImageView(DepthImage, depthFormat, VK_IMAGE_ASPECT_DEPTH_BIT);
     TransitionImageLayout(DepthImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 }
 
 void VulkanSwapchain::CreateFramebuffers()
 {
-    SwapChainFramebuffers.resize(SwapChainImageViews.size());
+    Framebuffers.resize(ImageViews.size());
 
-    for (size_t i = 0; i < SwapChainImageViews.size(); i++)
+    for (size_t i = 0; i < ImageViews.size(); i++)
     {
-        std::array<VkImageView, 2> attachments = { SwapChainImageViews[i], DepthImageView };
+        std::array<VkImageView, 2> attachments = { ImageViews[i], DepthImageView };
 
         VkFramebufferCreateInfo framebufferInfo{};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass = RenderPass;
         framebufferInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
         framebufferInfo.pAttachments = attachments.data();
-        framebufferInfo.width = SwapChainExtent->width;
-        framebufferInfo.height = SwapChainExtent->height;
+        framebufferInfo.width = Extent->width;
+        framebufferInfo.height = Extent->height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(Manager->GetLogicalDevice(), &framebufferInfo, nullptr, &SwapChainFramebuffers[i]) != VK_SUCCESS)
+        if (vkCreateFramebuffer(Manager->GetLogicalDevice(), &framebufferInfo, nullptr, &Framebuffers[i]) != VK_SUCCESS)
         {
             throw std::runtime_error("Failed to create framebuffer!");
         }
@@ -311,10 +313,10 @@ void VulkanSwapchain::CreateUniformBuffers()
 {
     VkDeviceSize bufferSize = sizeof(UniformBufferObject);
 
-    UniformBuffers.resize(SwapChainImages.size());
-    UniformBuffersMemory.resize(SwapChainImages.size());
+    UniformBuffers.resize(Images.size());
+    UniformBuffersMemory.resize(Images.size());
 
-    for (size_t i = 0; i < SwapChainImages.size(); i++)
+    for (size_t i = 0; i < Images.size(); i++)
     {
         Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, UniformBuffers[i], UniformBuffersMemory[i]);
     }
@@ -342,7 +344,7 @@ void VulkanSwapchain::CreateDescriptorSetLayout()
     layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
     layoutInfo.pBindings = bindings.data();
 
-    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorSetLayout) != VK_SUCCESS)
+    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorSetLayouts[0]) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create descriptor set layout!");
     }
@@ -352,15 +354,15 @@ void VulkanSwapchain::CreateDescriptorPool()
 {
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSizes[0].descriptorCount = static_cast<uint32_t>(SwapChainImages.size());
+    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size());
     poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    poolSizes[1].descriptorCount = static_cast<uint32_t>(SwapChainImages.size());
+    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size());
 
     VkDescriptorPoolCreateInfo poolInfo{};
     poolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes = poolSizes.data();
-    poolInfo.maxSets = static_cast<uint32_t>(SwapChainImages.size());
+    poolInfo.maxSets = static_cast<uint32_t>(Images.size());
 
     if (vkCreateDescriptorPool(Manager->GetLogicalDevice(), &poolInfo, nullptr, &DescriptorPool) != VK_SUCCESS)
     {
@@ -370,21 +372,21 @@ void VulkanSwapchain::CreateDescriptorPool()
 
 void VulkanSwapchain::CreateDescriptorSets()
 {
-    std::vector<VkDescriptorSetLayout> layouts(SwapChainImages.size(), DescriptorSetLayout);
+    std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayouts[0]);
 
     VkDescriptorSetAllocateInfo allocInfo{};
     allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
     allocInfo.descriptorPool = DescriptorPool;
-    allocInfo.descriptorSetCount = static_cast<uint32_t>(SwapChainImages.size());
+    allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
     allocInfo.pSetLayouts = layouts.data();
 
-    DescriptorSets.resize(SwapChainImages.size());
+    DescriptorSets.resize(Images.size());
     if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSets.data()) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to allocate descriptor sets!");
     }
 
-    for (size_t i = 0; i < SwapChainImages.size(); i++)
+    for (size_t i = 0; i < Images.size(); i++)
     {
         VkDescriptorBufferInfo bufferInfo{};
         bufferInfo.buffer = UniformBuffers[i];
@@ -464,13 +466,13 @@ void VulkanSwapchain::CleanUpSwapChain()
     vkDestroyImageView(Manager->GetLogicalDevice(), DepthImageView, nullptr);
     vkDestroyImage(Manager->GetLogicalDevice(), DepthImage, nullptr);
     vkFreeMemory(Manager->GetLogicalDevice(), DepthImageMemory, nullptr);
-    for (const auto& framebuffer : SwapChainFramebuffers) vkDestroyFramebuffer(Manager->GetLogicalDevice(), framebuffer, nullptr);
+    for (const auto& framebuffer : Framebuffers) vkDestroyFramebuffer(Manager->GetLogicalDevice(), framebuffer, nullptr);
     //vkFreeCommandBuffers(Manager->GetLogicalDevice(), CommandPool, static_cast<uint32_t>(CommandBuffers.size()), CommandBuffers.data());
     //vkDestroyPipeline(Manager->GetLogicalDevice(), GraphicsPipeline, nullptr);
     //vkDestroyPipelineLayout(Manager->GetLogicalDevice(), PipelineLayout, nullptr);
     vkDestroyRenderPass(Manager->GetLogicalDevice(), RenderPass, nullptr);
-    for (size_t i = 0; i < SwapChainImageViews.size(); i++) vkDestroyImageView(Manager->GetLogicalDevice(), SwapChainImageViews[i], nullptr);
-    vkDestroySwapchainKHR(Manager->GetLogicalDevice(), SwapChain, nullptr);
+    for (size_t i = 0; i < ImageViews.size(); i++) vkDestroyImageView(Manager->GetLogicalDevice(), ImageViews[i], nullptr);
+    vkDestroySwapchainKHR(Manager->GetLogicalDevice(), Swapchain, nullptr);
     for (const auto& buffer : UniformBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
     for (const auto& memory : UniformBuffersMemory) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
     vkDestroyDescriptorPool(Manager->GetLogicalDevice(), DescriptorPool, nullptr);
@@ -594,4 +596,29 @@ void VulkanSwapchain::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, un
     vkCmdCopyBufferToImage(commandBuffer, buffer, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
 
     Manager->EndSingleTimeCommands(commandBuffer);
+}
+
+std::vector<VkDescriptorSetLayout_T*> VulkanSwapchain::GetDescriptorSetLayouts()
+{
+    return DescriptorSetLayouts;
+}
+
+void VulkanSwapchain::UpdateUniformBuffer(unsigned int currentImageIndex)
+{
+    static auto startTime = std::chrono::high_resolution_clock::now();
+
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    float time = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - startTime).count();
+
+    UniformBufferObject ubo{};
+    ubo.Model.SetToRotationMatrix(time * 90.0f, 0.0f, 0.0f, 1.0f);
+    ubo.View.SetToLookAtMatrix(FVector3(2.0f, 2.0f, 2.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
+    ubo.Projection.SetToPerspectiveMatrix(45.0f, Extent->width / (float)Extent->height, 0.1f, 10.0f);
+    ubo.Projection[1][1] *= -1;
+
+    void* data;
+    int size = sizeof(ubo);
+    vkMapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex], 0, sizeof(ubo), 0, &data);
+    memcpy(data, &ubo, sizeof(ubo));
+    vkUnmapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex]);
 }

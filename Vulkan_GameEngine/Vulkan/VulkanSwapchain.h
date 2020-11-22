@@ -67,22 +67,32 @@ public:
 	bool HasStencilComponent(VkFormat format);
 	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height);
 
+	inline VkExtent2D* GetExtent() { return Extent; }
+	inline VkRenderPass_T* GetRenderPass() { return RenderPass; }
+	inline std::vector<VkFramebuffer_T*> GetFramebuffers() { return Framebuffers; }
+	inline std::vector<VkDescriptorSet_T*> GetDescriptorSets() { return DescriptorSets; }
+	inline std::vector<VkImage_T*> GetImages() { return Images; }
+	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
+	std::vector<VkDescriptorSetLayout_T*> GetDescriptorSetLayouts();
+
+	void UpdateUniformBuffer(unsigned int currentImageIndex);
+
 //Variables
 protected:
-	VkSwapchainKHR_T* SwapChain = nullptr;
+	VkSwapchainKHR_T* Swapchain = nullptr;
 	std::vector<const char*> DeviceExtensions;
-	std::vector<VkImage_T*> SwapChainImages;
-	std::vector<VkFramebuffer_T*> SwapChainFramebuffers;
-	VkFormat SwapChainImageFormat;
-	VkExtent2D* SwapChainExtent = nullptr;
-	std::vector<VkImageView_T*> SwapChainImageViews;
+	std::vector<VkImage_T*> Images;
+	std::vector<VkFramebuffer_T*> Framebuffers;
+	VkFormat ImageFormat;
+	VkExtent2D* Extent = nullptr;
+	std::vector<VkImageView_T*> ImageViews;
 	VkRenderPass_T* RenderPass = nullptr;
 	VkImage_T* DepthImage;
 	VkDeviceMemory_T* DepthImageMemory;
 	VkImageView_T* DepthImageView;
 	std::vector<VkBuffer_T*> UniformBuffers;
 	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
-	VkDescriptorSetLayout_T* DescriptorSetLayout = nullptr;
+	std::vector<VkDescriptorSetLayout_T*> DescriptorSetLayouts;
 	VkDescriptorPool_T* DescriptorPool = nullptr;
 	std::vector<VkDescriptorSet_T*> DescriptorSets;
 	VkImage_T* TextureImage = nullptr;

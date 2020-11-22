@@ -4,6 +4,7 @@
 #include "Renderer.h"
 #include <vector>
 #include <optional>
+#include <string>
 
 //-----Forward Declarations------\\
 //Vulkan Renderer Classes
@@ -11,6 +12,7 @@ class VulkanDebugger;
 class VulkanDevices;
 class VulkanPipeline;
 class VulkanSwapchain;
+struct Vertex;
 
 //Vulkan API Declarations
 enum VkPresentModeKHR;
@@ -26,6 +28,12 @@ struct VkSurfaceFormatKHR;
 struct VkCommandBuffer_T;
 struct VkCommandPool_T;
 struct VkBuffer_T;
+struct VkExtent2D;
+struct VkDescriptorSetLayout_T;
+struct VkRenderPass_T;
+struct VkCommandBuffer_T;
+struct VkFence_T;
+struct VkSemaphore_T;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkMemoryPropertyFlags;
@@ -76,6 +84,7 @@ public:
 	void Run() override;
 	void FramebufferResizeCallback() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
+	void MainLoop();
 
 	//Getters
 	inline VGE_SDLManager* GetWindowManager() { return WindowManager; }
@@ -90,6 +99,9 @@ public:
 	VkDevice_T* GetLogicalDevice();
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
+	VkExtent2D* GetSwapchainExtent();
+	std::vector<VkDescriptorSetLayout_T*> GetDescriptorSetLayouts();
+	VkRenderPass_T* GetRenderPass();
 
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
@@ -100,6 +112,14 @@ protected:
 //CommandBuffers
 	void CreateCommandPool();
 	VkCommandPool_T* CommandPool;
+	void CreateCommandBuffers();
+	std::vector<VkCommandBuffer_T*> CommandBuffers;
+
+	void CreateVertexBuffers();
+	void CreateIndexBuffer();
+	void CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size);
+	void CreateSyncObjects();
+
 
 public:
 	VkCommandBuffer_T* BeginSingleTimeCommands();
@@ -127,6 +147,25 @@ protected:
 
 	VkInstance_T* Instance = nullptr;
 	QueueStruct* Queues = nullptr;
+
+	bool FramebufferResized = false;
+	std::vector<Vertex> Vertices;
+	std::vector<unsigned int> Indices;
+
+	VkBuffer_T* VertexBuffer;
+	VkDeviceMemory_T* VertexBufferMemory;
+	VkBuffer_T* IndexBuffer;
+	VkDeviceMemory_T* IndexBufferMemory;
+
+	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
+	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;
+	std::vector<VkFence_T*> InFlightFences;
+	std::vector<VkFence_T*> ImagesInFlight;
+	size_t CurrentFrame = 0;
+	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
+
+	void LoadModel();
+	const std::string MODEL_PATH = "Models/viking_room.obj";
 };
 #endif
 

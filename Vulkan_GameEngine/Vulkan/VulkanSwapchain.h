@@ -43,7 +43,6 @@ public:
 	VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities);
 
 	void CreateSwapChain();
-	void RecreateSwapChain();
 
 	void CreateImageViews();
 	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags);
@@ -59,7 +58,8 @@ public:
 	void CreateTextureImageView();
 	void CreateTextureSampler();
 
-	void CleanUpSwapChain();
+	void RecreationCleanUp();
+	void FinalCleanUp();
 
 	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 	VkFormat FindDepthFormat();
@@ -73,14 +73,13 @@ public:
 	inline std::vector<VkDescriptorSet_T*> GetDescriptorSets() { return DescriptorSets; }
 	inline std::vector<VkImage_T*> GetImages() { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
-	std::vector<VkDescriptorSetLayout_T*> GetDescriptorSetLayouts();
+	inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
 	void UpdateUniformBuffer(unsigned int currentImageIndex);
 
 //Variables
 protected:
 	VkSwapchainKHR_T* Swapchain = nullptr;
-	std::vector<const char*> DeviceExtensions;
 	std::vector<VkImage_T*> Images;
 	std::vector<VkFramebuffer_T*> Framebuffers;
 	VkFormat ImageFormat;
@@ -92,9 +91,9 @@ protected:
 	VkImageView_T* DepthImageView;
 	std::vector<VkBuffer_T*> UniformBuffers;
 	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
-	std::vector<VkDescriptorSetLayout_T*> DescriptorSetLayouts;
 	VkDescriptorPool_T* DescriptorPool = nullptr;
 	std::vector<VkDescriptorSet_T*> DescriptorSets;
+	VkDescriptorSetLayout_T* DescriptorSetLayout;
 	VkImage_T* TextureImage = nullptr;
 	VkImageView_T* TextureImageView = nullptr;
 	VkDeviceMemory_T* TextureImageMemory = nullptr;

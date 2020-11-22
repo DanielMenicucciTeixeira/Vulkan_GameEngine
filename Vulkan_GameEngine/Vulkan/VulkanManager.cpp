@@ -19,6 +19,7 @@
 #include <SDL_vulkan.h>
 #include <SDL.h>
 
+#define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 
 VulkanManager::VulkanManager(VGE_SDLManager* windowManager)
@@ -30,14 +31,10 @@ VulkanManager::VulkanManager(VGE_SDLManager* windowManager)
     Queues = new QueueStruct();
 	WindowManager = windowManager;
     Window = WindowManager->GetWindow();
-
-    Initialize();
 }
 
 VulkanManager::~VulkanManager()
 {
-    CleanUp();
-
 	if (Debugger) delete(Debugger);
 	if (Devices) delete(Devices);
 	if (GraphicsPipeline) delete(GraphicsPipeline);
@@ -69,7 +66,7 @@ VkPhysicalDevice_T* VulkanManager::GetPhysicalDevice()
 
 SwapchainSupportDetails VulkanManager::GetSwapchainSupportDetails()
 {
-    return Devices->GetSwapChainSupportDetails();
+    return Devices->GetSwapchainSupportDetails();
 }
 
 VkExtent2D* VulkanManager::GetSwapchainExtent()
@@ -77,9 +74,9 @@ VkExtent2D* VulkanManager::GetSwapchainExtent()
     return Swapchain->GetExtent();
 }
 
-std::vector<VkDescriptorSetLayout_T*> VulkanManager::GetDescriptorSetLayouts()
+VkDescriptorSetLayout_T* VulkanManager::GetDescriptorSetLayout()
 {
-    return Swapchain->GetDescriptorSetLayouts();
+    return Swapchain->GetDescriptorSetLayout();
 }
 
 VkRenderPass_T* VulkanManager::GetRenderPass()
@@ -162,6 +159,32 @@ void VulkanManager::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, Vk
     vkBindBufferMemory(Devices->GetLogicalDevice(), buffer, bufferMemory, 0);
 }
 
+void VulkanManager::RecreateSwapchain()
+{
+    int width = 0;
+    int height = 0;
+
+    do
+    {
+        SDL_GetWindowSize(Window, &width, &height);
+        SDL_WaitEvent(&WindowManager->GetEvent());
+    } while (width == 0 || height == 0);
+
+    vkDeviceWaitIdle(Devices->GetLogicalDevice());
+    Swapchain->RecreationCleanUp();
+    vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, static_cast<uint32_t>(CommandBuffers.size()), CommandBuffers.data());
+
+    Swapchain->CreateSwapChain();
+    Swapchain->CreateImageViews();
+    Swapchain->CreateRenderPass();
+    Swapchain->CreateDepthResources();
+    Swapchain->CreateFramebuffers();
+    Swapchain->CreateUniformBuffers();
+    Swapchain->CreateDescriptorPool();
+    Swapchain->CreateDescriptorSets();
+    CreateCommandBuffers();
+}
+
 void VulkanManager::CreateCommandPool()
 {
     QueueFamilyIndices queueFamilyIndices = FindQueueFamilies(Devices->GetPhysicalDevice());
@@ -219,12 +242,26 @@ void VulkanManager::CreateCommandBuffers()
         VkBuffer vertexBuffers[] = { VertexBuffer };
         VkDeviceSize offsets[] = { 0 };
 
+        VkViewport viewport{};
+        viewport.x = 0.0f;
+        viewport.y = 0.0f;
+        viewport.width = (float)GetSwapchainExtent()->width;
+        viewport.height = (float)GetSwapchainExtent()->height;
+        viewport.minDepth = 0.0f;
+        viewport.maxDepth = 1.0f;
+
+        VkRect2D scissor{};
+        scissor.offset = { 0, 0 };
+        scissor.extent = *GetSwapchainExtent();
+
         vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-        vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipeline());
-        vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
-        vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
-        vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipelineLayout(), 0, 1, &Swapchain->GetDescriptorSets()[i], 0, nullptr);
-        vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
+            vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
+            vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
+            vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipeline());
+            vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
+            vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipelineLayout(), 0, 1, &Swapchain->GetDescriptorSets()[i], 0, nullptr);
+            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
         vkCmdEndRenderPass(CommandBuffers[i]);
 
         if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS)
@@ -382,10 +419,29 @@ void VulkanManager::Initialize()
     Swapchain->CreateDescriptorPool();
     Swapchain->CreateDescriptorSets();
     CreateCommandBuffers();
+    CreateSyncObjects();
 }
 
 void VulkanManager::CleanUp()
 {
+    Swapchain->FinalCleanUp();
+    vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, CommandBuffers.size(), CommandBuffers.data());
+    vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipeline->GetPipeline(), nullptr);
+    vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipeline->GetPipelineLayout(), nullptr);
+    for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
+    for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
+    for (const auto& fence : InFlightFences) vkDestroyFence(Devices->GetLogicalDevice(), fence, nullptr);
+    vkDestroyCommandPool(Devices->GetLogicalDevice(), CommandPool, nullptr);
+    vkDestroyBuffer(Devices->GetLogicalDevice(), IndexBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), IndexBufferMemory, nullptr);
+    vkDestroyBuffer(Devices->GetLogicalDevice(), VertexBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), VertexBufferMemory, nullptr);
+    vkDestroyDevice(Devices->GetLogicalDevice(), nullptr);
+
+    if (Debugger->IsEnabled()) Debugger->DestroyDebugUtilsMessengerEXT(Instance, nullptr);
+
+    vkDestroySurfaceKHR(Instance, Surface, nullptr);
+    vkDestroyInstance(Instance, nullptr);
 }
 
 SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
@@ -409,7 +465,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     VkResult swapChainResult = vkAcquireNextImageKHR(Devices->GetLogicalDevice(), Swapchain->GetSwapchain(), UINT64_MAX, ImageAvailableSemaphores[CurrentFrame], VK_NULL_HANDLE, &imageIndex);
     if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR)
     {
-        Swapchain->RecreateSwapChain();
+        RecreateSwapchain();
         return;
     }
     else if (swapChainResult != VK_SUCCESS && swapChainResult != VK_SUBOPTIMAL_KHR)
@@ -461,7 +517,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR || swapChainResult == VK_SUBOPTIMAL_KHR || FramebufferResized)
     {
         FramebufferResized = false;
-        Swapchain->RecreateSwapChain();
+        RecreateSwapchain();
     }
     else if (swapChainResult != VK_SUCCESS)
     {
@@ -512,8 +568,8 @@ void VulkanManager::CreateInstance(const char* applicationName, const char* engi
         Debugger->PopulateDebugMessengerCreateInfo(debugCreateInfo);
         createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
 
-        createInfo.enabledLayerCount = static_cast<uint32_t>(Debugger->GetValidationLayerNames().size());
-        createInfo.ppEnabledLayerNames = Debugger->GetValidationLayerNames().data();
+        createInfo.enabledLayerCount = static_cast<uint32_t>(Debugger->GetValidationLayerNames()->size());
+        createInfo.ppEnabledLayerNames = Debugger->GetValidationLayerNames()->data();
     }
     else
     {
@@ -533,7 +589,7 @@ void VulkanManager::LoadModel()
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
     std::string warn, err;
-
+    
     if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, MODEL_PATH.c_str()))
     {
         throw std::runtime_error(warn + err);
@@ -565,7 +621,7 @@ void VulkanManager::LoadModel()
     }
 }
 
-VkSurfaceCapabilitiesKHR* SwapchainSupportDetails::InitializeCapabilities02()
+VkSurfaceCapabilitiesKHR* SwapchainSupportDetails::InitializeCapabilities()
 {
     return new VkSurfaceCapabilitiesKHR();
 }

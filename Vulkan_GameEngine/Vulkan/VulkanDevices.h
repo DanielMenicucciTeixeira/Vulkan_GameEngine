@@ -26,7 +26,7 @@ public:
 
 	inline VkPhysicalDevice_T* GetPhysicalDevice() { return Physical; }
 	inline VkDevice_T* GetLogicalDevice() { return Logical; }
-	SwapchainSupportDetails GetSwapChainSupportDetails();
+	SwapchainSupportDetails GetSwapchainSupportDetails();
 
 protected:
 	SwapchainSupportDetails QuerySwapChainSupport(VkPhysicalDevice_T* device);

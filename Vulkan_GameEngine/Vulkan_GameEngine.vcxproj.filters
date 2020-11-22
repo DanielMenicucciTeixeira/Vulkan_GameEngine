@@ -57,9 +57,6 @@
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanRenderer.cpp">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClCompile>
     <ClCompile Include="Math\FMatrix.cpp">
       <Filter>Math</Filter>
     </ClCompile>
@@ -125,9 +122,6 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Vulkan\VulkanRenderer.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
     <ClInclude Include="Math\FMatrix.h">
       <Filter>Math</Filter>
     </ClInclude>
@@ -167,9 +161,6 @@
     <ClInclude Include="Vulkan\VulkanManager.h">
       <Filter>Renderers\Vulkan</Filter>
     </ClInclude>
-    <ClInclude Include="Vulkan\VulkanPipeline.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Renderers</Filter>
     </ClInclude>
@@ -181,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="UniformCameraObject.h">
       <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanPipeline.h">
+      <Filter>Renderers\Vulkan</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

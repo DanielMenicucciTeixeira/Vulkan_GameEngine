@@ -10,10 +10,39 @@
 VulkanDevices::VulkanDevices(VulkanManager* manager)
 {
 	Manager = manager;
+    DeviceExtensions =
+    {
+        VK_KHR_SWAPCHAIN_EXTENSION_NAME
+    };
 }
 
 void VulkanDevices::PickPhysicalDevice()
 {
+    Physical = VK_NULL_HANDLE;
+    uint32_t deviceCount = 0;
+
+    vkEnumeratePhysicalDevices(Manager->GetInstance(), &deviceCount, nullptr);
+    if (deviceCount == 0)
+    {
+        throw std::runtime_error("Failed to find GPUs with Vulkan support!");
+    }
+
+    std::vector<VkPhysicalDevice> devices(deviceCount);
+    vkEnumeratePhysicalDevices(Manager->GetInstance(), &deviceCount, devices.data());
+
+    for (const auto& device : devices)
+    {
+        if (IsPhysicalDeviceSuitable(device))
+        {
+            Physical = device;
+            break;
+        }
+    }
+
+    if (Physical == VK_NULL_HANDLE)
+    {
+        throw std::runtime_error("Failed to find a suitable GPU!");
+    }
 }
 
 bool VulkanDevices::IsPhysicalDeviceSuitable(VkPhysicalDevice_T* device)
@@ -67,8 +96,8 @@ void VulkanDevices::CreateLogicalDevice()
 
     if (Manager->GetDebugger()->IsEnabled())
     {
-        createInfo.enabledLayerCount = static_cast<uint32_t>(Manager->GetDebugger()->GetValidationLayerNames().size());
-        createInfo.ppEnabledLayerNames = Manager->GetDebugger()->GetValidationLayerNames().data();
+        createInfo.enabledLayerCount = static_cast<uint32_t>(Manager->GetDebugger()->GetValidationLayerNames()->size());
+        createInfo.ppEnabledLayerNames = Manager->GetDebugger()->GetValidationLayerNames()->data();
     }
     else
     {
@@ -99,7 +128,7 @@ bool VulkanDevices::CheckDeviceExtensionSupport(VkPhysicalDevice_T* device)
     return requiredExtensions.empty();
 }
 
-SwapchainSupportDetails VulkanDevices::GetSwapChainSupportDetails()
+SwapchainSupportDetails VulkanDevices::GetSwapchainSupportDetails()
 {
     if (!Physical)
     {

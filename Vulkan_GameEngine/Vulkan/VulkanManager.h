@@ -66,12 +66,12 @@ struct QueueFamilyIndices
 
 struct SwapchainSupportDetails
 {
-	VkSurfaceCapabilitiesKHR* Capabilities = InitializeCapabilities02();
+	VkSurfaceCapabilitiesKHR* Capabilities = InitializeCapabilities();
 	std::vector<VkSurfaceFormatKHR> Formats;
 	std::vector<VkPresentModeKHR> PresentationModes;
 
 	//This function makes sure Capabilities is not a nullptr, this is necessary since Capabilites cannot be properly initilized in the header while using forward declarations.
-	VkSurfaceCapabilitiesKHR* InitializeCapabilities02();
+	VkSurfaceCapabilitiesKHR* InitializeCapabilities();
 };
 
 class VulkanManager : public Renderer
@@ -100,13 +100,14 @@ public:
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
 	VkExtent2D* GetSwapchainExtent();
-	std::vector<VkDescriptorSetLayout_T*> GetDescriptorSetLayouts();
+	VkDescriptorSetLayout_T* GetDescriptorSetLayout();
 	VkRenderPass_T* GetRenderPass();
 
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
 	unsigned int FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties);
 	void CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer_T*& buffer, VkDeviceMemory_T*& bufferMemory);
+	void RecreateSwapchain();
 
 protected:
 //CommandBuffers

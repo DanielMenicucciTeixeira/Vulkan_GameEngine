@@ -1,19 +1,17 @@
 #include "VulkanSwapchain.h"
 #include "VulkanManager.h"
-#include "SDL/VGE_SDLManager.h"
 #include "UniformCameraObject.h"
 #include "Math/FVector3.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
-#include<SDL.h>
 #include<cmath>
 #include <algorithm>
 #include<fstream>
 #include<array>
 #include<chrono>
 
-//#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 VulkanSwapchain::VulkanSwapchain(VulkanManager* manager)
@@ -110,7 +108,7 @@ void VulkanSwapchain::CreateSwapChain()
 
     if (vkCreateSwapchainKHR(Manager->GetLogicalDevice(), &createInfo, nullptr, &Swapchain) != VK_SUCCESS)
     {
-        throw std::runtime_error("Failed to create SwapChain!");
+        throw std::runtime_error("Failed to create Swapchain!");
     }
 
     vkGetSwapchainImagesKHR(Manager->GetLogicalDevice(), Swapchain, &imageCount, nullptr);
@@ -119,32 +117,6 @@ void VulkanSwapchain::CreateSwapChain()
 
     ImageFormat = surfaceFormat.format;
     Extent = new VkExtent2D(extent);
-}
-
-void VulkanSwapchain::RecreateSwapChain()
-{
-    int width = 0;
-    int height = 0;
-
-    do
-    {
-        SDL_GetWindowSize(Manager->GetWindow(), &width, &height);
-        SDL_WaitEvent(&Manager->GetWindowManager()->GetEvent());
-    } while (width == 0 || height == 0);
-
-    vkDeviceWaitIdle(Manager->GetLogicalDevice());
-    CleanUpSwapChain();
-
-    CreateSwapChain();
-    CreateImageViews();
-    CreateRenderPass();
-    //CreateGraphicsPipeline();
-    CreateDepthResources();
-    CreateFramebuffers();
-    CreateUniformBuffers();
-    CreateDescriptorPool();
-    CreateDescriptorSets();
-    //CreateCommandBuffers();
 }
 
 void VulkanSwapchain::CreateImageViews()
@@ -344,7 +316,7 @@ void VulkanSwapchain::CreateDescriptorSetLayout()
     layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
     layoutInfo.pBindings = bindings.data();
 
-    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorSetLayouts[0]) != VK_SUCCESS)
+    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorSetLayout) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create descriptor set layout!");
     }
@@ -372,7 +344,7 @@ void VulkanSwapchain::CreateDescriptorPool()
 
 void VulkanSwapchain::CreateDescriptorSets()
 {
-    std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayouts[0]);
+    std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
 
     VkDescriptorSetAllocateInfo allocInfo{};
     allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
@@ -455,27 +427,57 @@ void VulkanSwapchain::CreateTextureImage()
 
 void VulkanSwapchain::CreateTextureImageView()
 {
+    TextureImageView = CreateImageView(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
 }
 
 void VulkanSwapchain::CreateTextureSampler()
 {
+    VkSamplerCreateInfo samplerInfo{};
+    samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
+    samplerInfo.magFilter = VK_FILTER_LINEAR;
+    samplerInfo.minFilter = VK_FILTER_LINEAR;
+    samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    samplerInfo.anisotropyEnable = VK_TRUE;
+    samplerInfo.maxAnisotropy = 16.0f;
+    samplerInfo.borderColor = VK_BORDER_COLOR_INT_OPAQUE_BLACK;
+    samplerInfo.unnormalizedCoordinates = VK_FALSE;
+    samplerInfo.compareEnable = VK_FALSE;
+    samplerInfo.compareOp = VK_COMPARE_OP_ALWAYS;
+    samplerInfo.mipmapMode = VK_SAMPLER_MIPMAP_MODE_LINEAR;
+    samplerInfo.mipLodBias = 0.0f;
+    samplerInfo.minLod = 0.0f;
+    samplerInfo.maxLod = 0.0f;
+
+    if (vkCreateSampler(Manager->GetLogicalDevice(), &samplerInfo, nullptr, &TextureSampler) != VK_SUCCESS)
+    {
+        throw std::runtime_error("Failed to create texture sampler!");
+    }
 }
 
-void VulkanSwapchain::CleanUpSwapChain()
+void VulkanSwapchain::RecreationCleanUp()
 {
     vkDestroyImageView(Manager->GetLogicalDevice(), DepthImageView, nullptr);
     vkDestroyImage(Manager->GetLogicalDevice(), DepthImage, nullptr);
     vkFreeMemory(Manager->GetLogicalDevice(), DepthImageMemory, nullptr);
     for (const auto& framebuffer : Framebuffers) vkDestroyFramebuffer(Manager->GetLogicalDevice(), framebuffer, nullptr);
-    //vkFreeCommandBuffers(Manager->GetLogicalDevice(), CommandPool, static_cast<uint32_t>(CommandBuffers.size()), CommandBuffers.data());
-    //vkDestroyPipeline(Manager->GetLogicalDevice(), GraphicsPipeline, nullptr);
-    //vkDestroyPipelineLayout(Manager->GetLogicalDevice(), PipelineLayout, nullptr);
     vkDestroyRenderPass(Manager->GetLogicalDevice(), RenderPass, nullptr);
     for (size_t i = 0; i < ImageViews.size(); i++) vkDestroyImageView(Manager->GetLogicalDevice(), ImageViews[i], nullptr);
     vkDestroySwapchainKHR(Manager->GetLogicalDevice(), Swapchain, nullptr);
     for (const auto& buffer : UniformBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
     for (const auto& memory : UniformBuffersMemory) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
     vkDestroyDescriptorPool(Manager->GetLogicalDevice(), DescriptorPool, nullptr);
+}
+
+void VulkanSwapchain::FinalCleanUp()
+{
+    RecreationCleanUp();
+    vkDestroySampler(Manager->GetLogicalDevice(), TextureSampler, nullptr);
+    vkDestroyImageView(Manager->GetLogicalDevice(), TextureImageView, nullptr);
+    vkDestroyImage(Manager->GetLogicalDevice(), TextureImage, nullptr);
+    vkFreeMemory(Manager->GetLogicalDevice(), TextureImageMemory, nullptr);
+    vkDestroyDescriptorSetLayout(Manager->GetLogicalDevice(), DescriptorSetLayout, nullptr);
 }
 
 VkFormat VulkanSwapchain::FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
@@ -596,11 +598,6 @@ void VulkanSwapchain::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, un
     vkCmdCopyBufferToImage(commandBuffer, buffer, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
 
     Manager->EndSingleTimeCommands(commandBuffer);
-}
-
-std::vector<VkDescriptorSetLayout_T*> VulkanSwapchain::GetDescriptorSetLayouts()
-{
-    return DescriptorSetLayouts;
 }
 
 void VulkanSwapchain::UpdateUniformBuffer(unsigned int currentImageIndex)

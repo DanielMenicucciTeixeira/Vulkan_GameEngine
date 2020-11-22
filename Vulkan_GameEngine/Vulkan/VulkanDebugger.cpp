@@ -94,3 +94,8 @@ void VulkanDebugger::DestroyDebugUtilsMessengerEXT(VkInstance_T* instance, const
         func(instance, DebugMessenger, pAllocator);
     }
 }
+
+const std::vector<const char*>* const VulkanDebugger::GetValidationLayerNames()
+{
+    return &ValidationLayerNames;
+}

@@ -1,33 +1,19 @@
 #include "SDL/VGE_SDLManager.h"
-#include "Vulkan/VulkanRenderer.h"
+#include "Vulkan/VulkanManager.h"
 #include "Core/EngineEvent.h"
-#include <iostream>
 
+#include <iostream>
 #include <stdexcept>
 #include <cstdlib>
-#include "Math/FMatrix4.h"
-#include "Math/FMatrix.h"
-#include <glm/glm.hpp>
-
-void glPrint(glm::mat4 mat)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			printf("%f""\t", mat[i][j]);
-		}
-		printf("\n");
-	}
-}
 
 int main(int argc, char* argv[])
 {
-	std::system("Shaders\\compile.bat");
+	std::system("Shaders\\compile.bat");//Compile the shaders to .spv files
+	printf("------------------------------------------------------------------------------------------\n\n");
 
 	VGE_SDLManager* SDLManager = new VGE_SDLManager();
-	Renderer* GameRenderer = new VulkanRenderer(SDLManager);
 	SDLManager->Begin();
+	Renderer* GameRenderer = new VulkanManager(SDLManager);
 	try 
 	{
 		GameRenderer->Run();

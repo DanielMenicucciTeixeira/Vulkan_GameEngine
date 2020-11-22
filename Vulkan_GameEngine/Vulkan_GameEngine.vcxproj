@@ -173,7 +173,6 @@
     <ClCompile Include="Vulkan\VulkanDevices.cpp" />
     <ClCompile Include="Vulkan\VulkanManager.cpp" />
     <ClCompile Include="Vulkan\VulkanPipeline.cpp" />
-    <ClCompile Include="Vulkan\VulkanRenderer.cpp" />
     <ClCompile Include="Vulkan\VulkanSwapchain.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -200,7 +199,6 @@
     <ClInclude Include="Vulkan\VulkanDevices.h" />
     <ClInclude Include="Vulkan\VulkanManager.h" />
     <ClInclude Include="Vulkan\VulkanPipeline.h" />
-    <ClInclude Include="Vulkan\VulkanRenderer.h" />
     <ClInclude Include="Vulkan\VulkanSwapchain.h" />
   </ItemGroup>
   <ItemGroup>

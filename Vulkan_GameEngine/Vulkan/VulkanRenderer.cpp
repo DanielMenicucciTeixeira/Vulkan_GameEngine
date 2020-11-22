@@ -84,7 +84,6 @@ void VulkanRenderer::Initialize()
     CreateDescriptorSets();
     CreateCommandBuffers();
     CreateSyncObjects();  
-     
 }
 
 void VulkanRenderer::MainLoop()

@@ -48,7 +48,7 @@ void VulkanPipeline::CreateGraphicsPipeline()
     inputAssembly.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
     inputAssembly.primitiveRestartEnable = VK_FALSE;
 
-    VkViewport viewport{};
+    /*VkViewport viewport{};
     viewport.x = 0.0f;
     viewport.y = 0.0f;
     viewport.width = (float)Manager->GetSwapchainExtent()->width;
@@ -58,14 +58,16 @@ void VulkanPipeline::CreateGraphicsPipeline()
 
     VkRect2D scissor{};
     scissor.offset = { 0, 0 };
-    scissor.extent = *Manager->GetSwapchainExtent();
+    scissor.extent = *Manager->GetSwapchainExtent();*/
 
     VkPipelineViewportStateCreateInfo viewportState{};
     viewportState.sType = VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;
     viewportState.viewportCount = 1;
-    viewportState.pViewports = &viewport;
+    //viewportState.pViewports = &viewport;
+    viewportState.pViewports = NULL;
     viewportState.scissorCount = 1;
-    viewportState.pScissors = &scissor;
+   // viewportState.pScissors = &scissor;
+    viewportState.pScissors = NULL;
 
     VkPipelineRasterizationStateCreateInfo rasterizer{};
     rasterizer.sType = VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
@@ -110,17 +112,18 @@ void VulkanPipeline::CreateGraphicsPipeline()
     colorBlending.blendConstants[2] = 0.0f; // Optional
     colorBlending.blendConstants[3] = 0.0f; // Optional
 
-    VkDynamicState dynamicStates[] = { VK_DYNAMIC_STATE_VIEWPORT,  VK_DYNAMIC_STATE_LINE_WIDTH };
+    VkDynamicState dynamicStates[] = { VK_DYNAMIC_STATE_VIEWPORT,  VK_DYNAMIC_STATE_LINE_WIDTH, VK_DYNAMIC_STATE_SCISSOR };
 
     VkPipelineDynamicStateCreateInfo dynamicState{};
     dynamicState.sType = VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
-    dynamicState.dynamicStateCount = 2;
+    dynamicState.dynamicStateCount = 3;
     dynamicState.pDynamicStates = dynamicStates;
 
     VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
     pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-    pipelineLayoutInfo.setLayoutCount = static_cast<uint32_t>(Manager->GetDescriptorSetLayouts().size());
-    pipelineLayoutInfo.pSetLayouts = Manager->GetDescriptorSetLayouts().data();
+    pipelineLayoutInfo.setLayoutCount = 1;// static_cast<uint32_t>(Manager->GetDescriptorSetLayouts().size());
+    VkDescriptorSetLayout temp = Manager->GetDescriptorSetLayout();
+    pipelineLayoutInfo.pSetLayouts = &temp;
     pipelineLayoutInfo.pushConstantRangeCount = 0; // Optional
     pipelineLayoutInfo.pPushConstantRanges = nullptr; // Optional
 
@@ -159,6 +162,7 @@ void VulkanPipeline::CreateGraphicsPipeline()
     pipelineInfo.basePipelineHandle = VK_NULL_HANDLE; // Optional
     pipelineInfo.basePipelineIndex = -1; // Optional
     pipelineInfo.pDepthStencilState = &depthStencil;
+    pipelineInfo.pDynamicState = &dynamicState;
 
     if (vkCreateGraphicsPipelines(Manager->GetLogicalDevice(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &Pipeline) != VK_SUCCESS)
     {

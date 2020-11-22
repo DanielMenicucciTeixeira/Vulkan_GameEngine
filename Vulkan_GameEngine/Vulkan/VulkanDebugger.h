@@ -25,7 +25,7 @@ public:
 
 	
 	inline bool IsEnabled() { return Enabled; }
-	inline std::vector<const char*> GetValidationLayerNames() { return ValidationLayerNames; }
+	const std::vector<const char*>* const GetValidationLayerNames();
 
 protected:
 	VulkanManager* Manager = nullptr;

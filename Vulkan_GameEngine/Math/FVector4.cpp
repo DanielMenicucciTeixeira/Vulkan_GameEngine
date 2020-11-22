@@ -80,6 +80,11 @@ void FVector4::operator-=(const FVector4& Vector)
 	W -= Vector.W;
 }
 
+void FVector4::operator*=(const FVector4& vector)
+{
+	*this = *this * vector;
+}
+
 FVector3 FVector4::CrossProduct(const FVector4& Vector)
 {
 	return FVector3(Y * Vector.Z - Z * Vector.Y, Z * Vector.X - X * Vector.Z, X * Vector.Y - Y * Vector.X);

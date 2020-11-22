@@ -1,11 +1,13 @@
-﻿  VulkanRenderer.cpp
+﻿  Source.cpp
+  VulkanRenderer.cpp
 C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
 C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
 C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanRenderer.h(68): message : see declaration of 'SDL_Window'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanRenderer.cpp(1634,45): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanRenderer.h(64): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanRenderer.cpp(1632,45): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
           with
           [
               _Ty=unsigned int
           ]
+  Generating Code...
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

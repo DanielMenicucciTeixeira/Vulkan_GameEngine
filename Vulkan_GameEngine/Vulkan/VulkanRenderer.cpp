@@ -2,6 +2,7 @@
 #include "SDL/VGE_SDLManager.h"
 #include "Math/FVector3.h"
 #include "Math/FVector4.h"
+#include "Math/FMatrix.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL.h>
@@ -19,12 +20,6 @@
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
-
-#define GLM_FORCE_RADIANS
-#define GLM_FORCE_DEPTH_ZERO_TO_ONE
-#include <glm/vec4.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 VulkanRenderer::VulkanRenderer(VGE_SDLManager* sdlManager)
 {
@@ -48,6 +43,7 @@ void VulkanRenderer::Run()
 
 void VulkanRenderer::Initialize()
 {
+
 #ifdef NDEBUG
     EnableValidationLayers = false;
 #else
@@ -87,7 +83,8 @@ void VulkanRenderer::Initialize()
     CreateDescriptorPool();
     CreateDescriptorSets();
     CreateCommandBuffers();
-    CreateSyncObjects();
+    CreateSyncObjects();  
+     
 }
 
 void VulkanRenderer::MainLoop()
@@ -424,9 +421,9 @@ bool VulkanRenderer::CheckDeviceExtensionSupport(VkPhysicalDevice_T* device)
     return requiredExtensions.empty();
 }
 
-SwapChainSupportDetails VulkanRenderer::QuerySwapChainSupport(VkPhysicalDevice_T* device)
+SwapchainSupportDetails VulkanRenderer::QuerySwapChainSupport(VkPhysicalDevice_T* device)
 {
-    SwapChainSupportDetails details;
+    SwapchainSupportDetails details;
     vkGetPhysicalDeviceSurfaceCapabilitiesKHR(device, Surface, details.Capabilities);
 
     uint32_t formatCount;
@@ -496,7 +493,7 @@ VkExtent2D VulkanRenderer::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capa
 
 void VulkanRenderer::CreateSwapChain()
 {
-    SwapChainSupportDetails swapChainSupport = QuerySwapChainSupport(PhysicalDevice);
+    SwapchainSupportDetails swapChainSupport = QuerySwapChainSupport(PhysicalDevice);
 
     VkSurfaceFormatKHR surfaceFormat = ChooseSwapSurfaceFormat(swapChainSupport.Formats);
     VkPresentModeKHR presentationMode = ChooseSwapPresentMode(swapChainSupport.PresentationModes);
@@ -984,7 +981,8 @@ void VulkanRenderer::CreateUniformBuffers()
     UniformBuffers.resize(SwapChainImages.size());
     UniformBuffersMemory.resize(SwapChainImages.size());
 
-    for (size_t i = 0; i < SwapChainImages.size(); i++) {
+    for (size_t i = 0; i < SwapChainImages.size(); i++) 
+    {
         CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, UniformBuffers[i], UniformBuffersMemory[i]);
     }
 }
@@ -1141,12 +1139,13 @@ void VulkanRenderer::UpdateUniformBuffer(unsigned int currentImageIndex)
     float time = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - startTime).count();
 
     UniformBufferObject ubo{};
-    ubo.Model = glm::rotate(glm::mat4(1.0f), time * glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-    ubo.View = glm::lookAt(glm::vec3(2.0f, 2.0f, 2.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-    ubo.Projection = glm::perspective(glm::radians(45.0f), SwapChainExtent->width / (float)SwapChainExtent->height, 0.1f, 10.0f);
+    ubo.Model.SetToRotationMatrix(time * 90.0f, 0.0f, 0.0f, 1.0f);
+    ubo.View.SetToLookAtMatrix(FVector3(2.0f, 2.0f, 2.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
+    ubo.Projection.SetToPerspectiveMatrix(45.0f, SwapChainExtent->width/(float)SwapChainExtent->height, 0.1f, 10.0f);
     ubo.Projection[1][1] *= -1;
 
     void* data;
+    int size = sizeof(ubo);
     vkMapMemory(LogicalDevice, UniformBuffersMemory[currentImageIndex], 0, sizeof(ubo), 0, &data);
     memcpy(data, &ubo, sizeof(ubo));
     vkUnmapMemory(LogicalDevice, UniformBuffersMemory[currentImageIndex]);
@@ -1190,7 +1189,7 @@ void VulkanRenderer::CreateSyncObjects()
 
 //-----Rendering------\\
 
-void VulkanRenderer::Render()
+void VulkanRenderer::Render(SDL_Window** windowArray, unsigned int numberOfWindows, unsigned int arrayOffset)
 {
     vkWaitForFences(LogicalDevice, 1, &InFlightFences[CurrentFrame], VK_TRUE, UINT64_MAX);
 
@@ -1600,7 +1599,7 @@ void VulkanRenderer::LoadModel()
         throw std::runtime_error(warn + err);
     }
 
-    //std::unordered_map<Vertex, uint32_t> uniqueVertices{};
+    std::unordered_map<Vertex, uint32_t> uniqueVertices{};
 
     for (const auto& shape : shapes) 
     {
@@ -1618,10 +1617,9 @@ void VulkanRenderer::LoadModel()
             vertex.TextureCoordinates = 
             {
                 attrib.texcoords[2 * index.texcoord_index + 0],
-                1.0f - attrib.texcoords[2 * index.texcoord_index + 1]
+                1.0f - attrib.texcoords[2 * index.texcoord_index + 1],
+                0
             };
-
-            vertex.Colour = { 1.0f, 1.0f, 1.0f, 1.0f };
 
             /*if (uniqueVertices.count(vertex) == 0)
             {
@@ -1638,7 +1636,7 @@ void VulkanRenderer::LoadModel()
 
 //---Swap-Chain-Support-Details---\\
 
-VkSurfaceCapabilitiesKHR* SwapChainSupportDetails::InitializeCapabilities()
+VkSurfaceCapabilitiesKHR* SwapchainSupportDetails::InitializeCapabilities()
 {
     return new VkSurfaceCapabilitiesKHR();
 }
@@ -1653,9 +1651,9 @@ VkVertexInputBindingDescription Vertex::GetBindingDescription()
     return bindingDescription;
 }
 
-std::array<VkVertexInputAttributeDescription, 3> Vertex::GetAttributeDescriptions()
+std::array<VkVertexInputAttributeDescription, 2> Vertex::GetAttributeDescriptions()
 {
-    std::array<VkVertexInputAttributeDescription, 3> attributeDescriptions{};
+    std::array<VkVertexInputAttributeDescription, 2> attributeDescriptions{};
     
     attributeDescriptions[0].binding = 0;
     attributeDescriptions[0].location = 0;
@@ -1664,31 +1662,13 @@ std::array<VkVertexInputAttributeDescription, 3> Vertex::GetAttributeDescription
 
     attributeDescriptions[1].binding = 0;
     attributeDescriptions[1].location = 1;
-    attributeDescriptions[1].format = VK_FORMAT_R32G32B32A32_SFLOAT;
-    attributeDescriptions[1].offset = offsetof(Vertex, Colour);
-
-    attributeDescriptions[2].binding = 0;
-    attributeDescriptions[2].location = 2;
-    attributeDescriptions[2].format = VK_FORMAT_R32G32_SFLOAT;
-    attributeDescriptions[2].offset = offsetof(Vertex, TextureCoordinates);
+    attributeDescriptions[1].format = VK_FORMAT_R32G32B32_SFLOAT;
+    attributeDescriptions[1].offset = offsetof(Vertex, TextureCoordinates);
 
     return attributeDescriptions;
 }
 
 bool Vertex::operator==(const Vertex& other) const
 {
-    return Position == other.Position && Colour == other.Colour && TextureCoordinates == other.TextureCoordinates;
+    return Position == other.Position && TextureCoordinates == other.TextureCoordinates;
 }
-
-/*Vertex::Vertex()
-{
-    Position = new FVector3();
-    Colour = new FVector4();
-}
-
-Vertex::Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates)
-{
-    Position = new FVector3(position);
-    Colour = new FVector4 (colour);
-    TextureCoordinates = textureCoordinates;
-}*/

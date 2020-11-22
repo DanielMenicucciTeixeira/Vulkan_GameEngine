@@ -22,20 +22,23 @@
     <Filter Include="SDL">
       <UniqueIdentifier>{7a1edbfd-6940-47f7-a67a-59b80e9d3339}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Vulkan">
-      <UniqueIdentifier>{35b54d9c-6338-44b2-970c-22a60bdf6b14}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{e963e278-227d-4608-ba1a-71dd45abc618}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shaders">
-      <UniqueIdentifier>{39f4aac1-ea07-4cb1-9e6b-3c103b9a3959}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shaders\BaseShader">
-      <UniqueIdentifier>{2b822bc2-338f-444a-ae61-5b458378ff69}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Geometry">
       <UniqueIdentifier>{638625d0-17e0-4ce6-99f0-ed4a8585f050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderers">
+      <UniqueIdentifier>{a33ed243-c2d8-46d2-93e7-002118ffdce1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderers\Vulkan">
+      <UniqueIdentifier>{35b54d9c-6338-44b2-970c-22a60bdf6b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderers\Shaders">
+      <UniqueIdentifier>{39f4aac1-ea07-4cb1-9e6b-3c103b9a3959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderers\Shaders\BaseShader">
+      <UniqueIdentifier>{2b822bc2-338f-444a-ae61-5b458378ff69}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +58,7 @@
       <Filter>SDL</Filter>
     </ClCompile>
     <ClCompile Include="Vulkan\VulkanRenderer.cpp">
-      <Filter>Vulkan</Filter>
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
     <ClCompile Include="Math\FMatrix.cpp">
       <Filter>Math</Filter>
@@ -87,6 +90,21 @@
     <ClCompile Include="Math\FVector4.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="Vulkan\VulkanDebugger.cpp">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="Vulkan\VulkanDevices.cpp">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="Vulkan\VulkanManager.cpp">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="Vulkan\VulkanPipeline.cpp">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClCompile>
+    <ClCompile Include="Vulkan\VulkanSwapchain.cpp">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL\VGE_SDLManager.h">
@@ -107,11 +125,8 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vulkan\VulkanRenderer.h">
-      <Filter>Vulkan</Filter>
+      <Filter>Renderers\Vulkan</Filter>
     </ClInclude>
     <ClInclude Include="Math\FMatrix.h">
       <Filter>Math</Filter>
@@ -143,6 +158,30 @@
     <ClInclude Include="Math\FVector4.h">
       <Filter>Math</Filter>
     </ClInclude>
+    <ClInclude Include="Vulkan\VulkanDebugger.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanDevices.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanManager.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanPipeline.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanSwapchain.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformCameraObject.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -151,10 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\Base.frag">
-      <Filter>Shaders\BaseShader</Filter>
+      <Filter>Renderers\Shaders\BaseShader</Filter>
     </None>
     <None Include="Shaders\Base.vert">
-      <Filter>Shaders\BaseShader</Filter>
+      <Filter>Renderers\Shaders\BaseShader</Filter>
     </None>
   </ItemGroup>
 </Project>

@@ -8,10 +8,6 @@
 #include <optional>
 #include <string>
 #include <array>
-#include <glm/glm.hpp>
-
-#define GLM_ENABLE_EXPERIMENTAL
-#include <glm/gtx/hash.hpp>
 
 //---Forward-Declarations---\\
 
@@ -70,27 +66,22 @@ class SDL_Window;
 //class FVector4;
 #include "Math/FVector3.h"
 #include "Math/FVector4.h"
+#include "Math/FMatrix4.h"
 
 //------Structs------\\
 
 struct Vertex
 {
-	//glm::vec3 Position;
-	//glm::vec4 Colour;
 	FVector3 Position;
-	FVector4 Colour;
-	glm::vec2 TextureCoordinates;
+	FVector3 TextureCoordinates;
 
 	static VkVertexInputBindingDescription GetBindingDescription();
-	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
+	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();
 
 	bool operator==(const Vertex& other) const;
-	/*Vertex();
-	Vertex(FVector3 position, FVector4 colour, glm::vec2 textureCoordinates);
-	inline ~Vertex() {}*/
 };
 
-/*namespace std 
+namespace std 
 {
 	template<> struct hash<Vertex> 
 	{
@@ -98,22 +89,17 @@ struct Vertex
 		{
 			return 
 				(
-					//(hash<glm::vec3>()(vertex.Position) ^
-					//(hash<glm::vec3>()(vertex.Colour) << 1)) >> 1) ^
-					//(hash<glm::vec2>()(vertex.TextureCoordinates) << 1
-					(hash<FVector3>()(vertex.Position) ^
-					(hash<FVector4>()(vertex.Colour) << 1)) >> 1) ^
-					(hash<glm::vec2>()(vertex.TextureCoordinates) << 1
+					(hash<float>()(vertex.Position.X) ^ (hash<float>()(vertex.Position.Y) << 1)) >> 1) ^ (hash<float>()(vertex.Position.Z)
 				);
 		}
 	};
-}*/
+}
 
 struct UniformBufferObject 
 {
-	glm::mat4 Model;
-	glm::mat4 View;
-	glm::mat4 Projection;
+	FMatrix4 Model;
+	FMatrix4 View;
+	FMatrix4 Projection;
 };
 
 struct QueueFamilyIndices
@@ -134,7 +120,7 @@ struct QueueStruct
 	VkQueue_T* PresentationQueue = nullptr;
 };
 
-struct SwapChainSupportDetails
+struct SwapchainSupportDetails
 {
 	VkSurfaceCapabilitiesKHR* Capabilities = InitializeCapabilities();
 	std::vector<VkSurfaceFormatKHR> Formats;
@@ -237,7 +223,7 @@ protected:
 	//Functions
 protected:
 	bool CheckDeviceExtensionSupport(VkPhysicalDevice_T* device);
-	SwapChainSupportDetails QuerySwapChainSupport(VkPhysicalDevice_T* device);
+	SwapchainSupportDetails QuerySwapChainSupport(VkPhysicalDevice_T* device);
 
 	VkSurfaceFormatKHR ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats);
 	VkPresentModeKHR ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
@@ -331,7 +317,7 @@ protected:
 	//-----Rendering------\\
 	//Functions
 protected:
-	void Render() override;
+	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
 
 	void CreateDescriptorSetLayout();
 	void CreateDescriptorPool();

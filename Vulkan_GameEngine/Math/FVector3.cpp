@@ -139,7 +139,7 @@ void FVector3::operator=(float values[3])
 //Returns the magnitude of the Vector (or Vector's scalar lenght)
 float FVector3::Length()
 {
-	return sqrt(X*X + Y * Y + Z * Z);
+	return sqrt(X*X + Y*Y + Z*Z);
 }
 
 //Returns the angle between this vector and another given vector in degrees.
@@ -173,21 +173,14 @@ FVector3 FVector3::CrossProduct(FVector3 Vector)
 //Gets the normalized form of this Vector
 FVector3 FVector3::GetNormal()
 {
-	FVector3 ReturnVector(X, Y, Z);
 
-	return ReturnVector/ReturnVector.Length();
+	return *this/Length();
 }
 
 //Divides the vector by its Magnitude to get the normalized unit vector.
 void FVector3::Normalize()
 {
-	FVector3 ReturnVector(X, Y, Z);
-
-	ReturnVector = ReturnVector / ReturnVector.Length();
-
-	X = ReturnVector.X;
-	Y = ReturnVector.Y;
-	Z = ReturnVector.Z;
+	*this = *this/Length();
 }
 
 //Rotates the vector by X degrees in the Z axis

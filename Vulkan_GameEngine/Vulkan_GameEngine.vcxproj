@@ -169,7 +169,12 @@
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Vulkan\VulkanDebugger.cpp" />
+    <ClCompile Include="Vulkan\VulkanDevices.cpp" />
+    <ClCompile Include="Vulkan\VulkanManager.cpp" />
+    <ClCompile Include="Vulkan\VulkanPipeline.cpp" />
     <ClCompile Include="Vulkan\VulkanRenderer.cpp" />
+    <ClCompile Include="Vulkan\VulkanSwapchain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
@@ -189,7 +194,14 @@
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
+    <ClInclude Include="UniformCameraObject.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="Vulkan\VulkanDebugger.h" />
+    <ClInclude Include="Vulkan\VulkanDevices.h" />
+    <ClInclude Include="Vulkan\VulkanManager.h" />
+    <ClInclude Include="Vulkan\VulkanPipeline.h" />
     <ClInclude Include="Vulkan\VulkanRenderer.h" />
+    <ClInclude Include="Vulkan\VulkanSwapchain.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

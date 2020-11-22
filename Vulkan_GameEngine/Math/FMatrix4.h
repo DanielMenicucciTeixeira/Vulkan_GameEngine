@@ -1,18 +1,17 @@
 #ifndef FMATRIX4_H
 #define FMATRIX4_H
 
-class FVector3;
-class FVector4;
+class FVector3; 
 class FMatrix;
+#include "FVector4.h"
 
 enum eRotationAxis;
 
 class FMatrix4
 {
 public:
-
 	//the Matrix itself
-	float Matrix[16];//this
+	FVector4 Colum[4];
 
 	///Constructors
 
@@ -70,12 +69,15 @@ public:
 
 	void operator*= (float multiplier);
 
+	inline const FVector4 operator [] (int index) const { return *(Colum + index); }
+	inline FVector4& operator [] (int index) { return *(Colum + index); }
 
-	inline const float operator[] (unsigned int index) const { return *(&Matrix[index]); }
-	inline float& operator[] (unsigned int index) { return *(&Matrix[index]); }
+	/// These allow me convert from type Matrix to const float * without issues
+	inline operator float* () { return static_cast<float*>(&Colum[0][0]); }
+	inline operator const float* () const { return static_cast<const float*>(Colum[0]); }
 
-	inline operator const float* () const { return static_cast<const float*>(&Matrix[0]); }
-	inline operator float* () { return static_cast<float*>(&Matrix[0]); }
+	//inline operator FVector4* () { return static_cast<FVector4*>(&Colum[0]); }
+	//inline operator const FVector4* () const { return static_cast<const FVector4*>(&Colum[0]); }
 
 	///Functions
 
@@ -83,7 +85,17 @@ public:
 	void SetToIdentity();
 
 	//Makes this Matrix a Rotation Matrix on given axis with given degrees optionaly, input true to give the angle in radians
-	void SetToRotationMatrix(eRotationAxis axis, float angle, bool isAngleRadian = false);
+	FMatrix4 GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
+
+	void SetToRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
+
+	void SetToLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up);
+
+	FMatrix4 GetLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up);
+
+	void SetToPerspectiveMatrix(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian = false);
+
+	FMatrix4 GetPerspectiveMatrix(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian = false);
 
 	//Makes this Matrix a Scaling Matrix with X, Y and Z respectively on the diagonal
 	void SetToScalingMatrix(float scaleX, float scaleY, float scaleZ);
@@ -105,6 +117,8 @@ public:
 
 	//Inverts the Matrix
 	void Invert();
+
+	void Print();
 };
 #endif
 

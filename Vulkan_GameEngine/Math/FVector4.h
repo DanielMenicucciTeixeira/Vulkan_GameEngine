@@ -30,25 +30,27 @@ public:
 
 	///Operators
 
-	FVector4 operator + (const FVector4& Vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	FVector4 operator+ (const FVector4& vector);//Overload of the "+" operator, makes a vector plus vector addition.
 
-	FVector4 operator - (const FVector4& Vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	FVector4 operator- (const FVector4& vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
 
-	FVector4 operator * (float Multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
+	FVector4 operator* (float multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
 
-	FVector4 operator / (float Divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
+	FVector4 operator/ (float divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	float operator * (const FVector4& Vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	float operator* (const FVector4& vector);//Overload of the "*" operator, makes a vector times vector dot product.
 
-	void operator = (const FVector4& Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	void operator= (const FVector4& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator = (FVector4* Vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	void operator= (FVector4* vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
-	void operator = (float values[4]);//
+	void operator= (float values[4]);//
 
-	void operator += (const FVector4& Vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	void operator+= (const FVector4& vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
 
-	void operator -= (const FVector4& Vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+	void operator-= (const FVector4& vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+
+	void operator*= (const FVector4& vector);
 
 	///The next 4 operators make sure the FVector3 class can be used as an values by API such as Open-GL and Vulkan
 		inline const float operator[] (unsigned int index) const { return *(&X + index); }//For R-values

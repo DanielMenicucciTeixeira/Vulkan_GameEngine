@@ -82,6 +82,12 @@ bool VGE_SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionName
 	return true;
 }
 
+void VGE_SDLManager::SetRenderer(Renderer* renderer)
+{
+    WindowRenderer = renderer;
+    EventHandler->WindowRenderer = renderer;
+}
+
 SDL_Window* VGE_SDLManager::GetWindow()
 {
 	return WindowManager->GetEngineWindow();

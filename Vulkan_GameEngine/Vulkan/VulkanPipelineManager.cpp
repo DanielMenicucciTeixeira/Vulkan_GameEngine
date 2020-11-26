@@ -1,4 +1,4 @@
-#include "VulkanPipeline.h"
+#include "VulkanPipelineManager.h"
 #include "VulkanManager.h"
 #include "Vertex.h"
 
@@ -6,12 +6,12 @@
 #include <fstream>
 #include <iostream>
 
-VulkanPipeline::VulkanPipeline(VulkanManager* manager)
+VulkanPipelineManager::VulkanPipelineManager(VulkanManager* manager)
 {
 	Manager = manager;
 }
 
-void VulkanPipeline::CreateGraphicsPipeline()
+void VulkanPipelineManager::CreateGraphicsPipeline()
 {
     auto vertShaderCode = ReadFile("Shaders/vert.spv");
     auto fragShaderCode = ReadFile("Shaders/frag.spv");
@@ -48,25 +48,11 @@ void VulkanPipeline::CreateGraphicsPipeline()
     inputAssembly.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
     inputAssembly.primitiveRestartEnable = VK_FALSE;
 
-    /*VkViewport viewport{};
-    viewport.x = 0.0f;
-    viewport.y = 0.0f;
-    viewport.width = (float)Manager->GetSwapchainExtent()->width;
-    viewport.height = (float)Manager->GetSwapchainExtent()->height;
-    viewport.minDepth = 0.0f;
-    viewport.maxDepth = 1.0f;
-
-    VkRect2D scissor{};
-    scissor.offset = { 0, 0 };
-    scissor.extent = *Manager->GetSwapchainExtent();*/
-
     VkPipelineViewportStateCreateInfo viewportState{};
     viewportState.sType = VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;
     viewportState.viewportCount = 1;
-    //viewportState.pViewports = &viewport;
     viewportState.pViewports = NULL;
     viewportState.scissorCount = 1;
-   // viewportState.pScissors = &scissor;
     viewportState.pScissors = NULL;
 
     VkPipelineRasterizationStateCreateInfo rasterizer{};
@@ -173,7 +159,7 @@ void VulkanPipeline::CreateGraphicsPipeline()
     vkDestroyShaderModule(Manager->GetLogicalDevice(), vertShaderModule, nullptr);
 }
 
-VkVertexInputBindingDescription VulkanPipeline::GetBindingDescription()
+VkVertexInputBindingDescription VulkanPipelineManager::GetBindingDescription()
 {
     VkVertexInputBindingDescription bindingDescription{};
     bindingDescription.binding = 0;
@@ -183,7 +169,7 @@ VkVertexInputBindingDescription VulkanPipeline::GetBindingDescription()
     return bindingDescription;
 }
 
-std::array<VkVertexInputAttributeDescription, 2> VulkanPipeline::GetAttributeDescriptions()
+std::array<VkVertexInputAttributeDescription, 2> VulkanPipelineManager::GetAttributeDescriptions()
 {
     std::array<VkVertexInputAttributeDescription, 2> attributeDescriptions{};
 
@@ -200,7 +186,7 @@ std::array<VkVertexInputAttributeDescription, 2> VulkanPipeline::GetAttributeDes
     return attributeDescriptions;
 }
 
-std::vector<char> VulkanPipeline::ReadFile(const std::string& filename)
+std::vector<char> VulkanPipelineManager::ReadFile(const std::string& filename)
 {
     std::ifstream file(filename, std::ios::ate | std::ios::binary);
 
@@ -218,7 +204,7 @@ std::vector<char> VulkanPipeline::ReadFile(const std::string& filename)
     return buffer;
 }
 
-VkShaderModule_T* VulkanPipeline::CreateShaderModule(const std::vector<char>& code)
+VkShaderModule_T* VulkanPipelineManager::CreateShaderModule(const std::vector<char>& code)
 {
     VkShaderModuleCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;

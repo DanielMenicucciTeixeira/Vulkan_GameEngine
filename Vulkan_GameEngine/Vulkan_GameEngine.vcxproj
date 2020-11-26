@@ -164,16 +164,18 @@
     <ClCompile Include="Math\FTransform.cpp" />
     <ClCompile Include="Math\FVector3.cpp" />
     <ClCompile Include="Math\FVector4.cpp" />
+    <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="SDL\VGE_SDLEventHandler.cpp" />
     <ClCompile Include="SDL\VGE_SDLManager.cpp" />
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
     <ClCompile Include="SDL\VGE_SDLWindowManager.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="Vulkan\VulkanDebugger.cpp" />
     <ClCompile Include="Vulkan\VulkanDevices.cpp" />
     <ClCompile Include="Vulkan\VulkanManager.cpp" />
-    <ClCompile Include="Vulkan\VulkanPipeline.cpp" />
-    <ClCompile Include="Vulkan\VulkanSwapchain.cpp" />
+    <ClCompile Include="Vulkan\VulkanPipelineManager.cpp" />
+    <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
@@ -187,19 +189,22 @@
     <ClInclude Include="Math\FTransform.h" />
     <ClInclude Include="Math\FVector3.h" />
     <ClInclude Include="Math\FVector4.h" />
+    <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RenderObject.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDL\VGE_SDLEventHandler.h" />
     <ClInclude Include="SDL\VGE_SDLManager.h" />
     <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
     <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
+    <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="UniformCameraObject.h" />
     <ClInclude Include="Vertex.h" />
     <ClInclude Include="Vulkan\VulkanDebugger.h" />
     <ClInclude Include="Vulkan\VulkanDevices.h" />
     <ClInclude Include="Vulkan\VulkanManager.h" />
-    <ClInclude Include="Vulkan\VulkanPipeline.h" />
-    <ClInclude Include="Vulkan\VulkanSwapchain.h" />
+    <ClInclude Include="Vulkan\VulkanPipelineManager.h" />
+    <ClInclude Include="Vulkan\VulkanSwapchainManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

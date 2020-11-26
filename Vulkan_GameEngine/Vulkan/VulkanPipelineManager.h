@@ -1,5 +1,5 @@
-#ifndef VULKANPIPELINE_H
-#define VULKANPIPELINE_H
+#ifndef VULKANPIPELINEMANAGER_H
+#define VULKANPIPELINEMANAGER_H
 
 #include <vector>
 #include <string>
@@ -13,10 +13,10 @@ struct VkVertexInputAttributeDescription;
 struct VkPipelineLayout_T;
 struct VkPipeline_T;
 
-class VulkanPipeline
+class VulkanPipelineManager
 {
 public:
-	VulkanPipeline(VulkanManager* manager);
+	VulkanPipelineManager(VulkanManager* manager);
 
 	void CreateGraphicsPipeline();
 	static VkVertexInputBindingDescription GetBindingDescription();

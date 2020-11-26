@@ -35,7 +35,7 @@ public:
 	void Render();
 	bool GetVulkanExtensions(std::vector<const char*>& extensionNames);
 	
-	inline void SetRenderer(Renderer* renderer) { WindowRenderer = renderer; }
+	void SetRenderer(Renderer* renderer);
 
 	class SDL_Window* GetWindow();
 

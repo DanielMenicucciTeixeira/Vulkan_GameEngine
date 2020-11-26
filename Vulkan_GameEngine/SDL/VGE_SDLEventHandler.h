@@ -13,11 +13,11 @@ public:
 
 	//--------------Destructor-----------------------\\
 
-	~VGE_SDLEventHandler();;
-
-protected:
+	~VGE_SDLEventHandler();
 
 	Renderer* WindowRenderer;
+
+protected:
 
 	//----------Fucntions-----------\\
 

@@ -1,7 +1,8 @@
-#include "VulkanSwapchain.h"
+#include "VulkanSwapchainManager.h"
 #include "VulkanManager.h"
 #include "UniformCameraObject.h"
 #include "Math/FVector3.h"
+#include "RenderObject.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
@@ -14,12 +15,17 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
-VulkanSwapchain::VulkanSwapchain(VulkanManager* manager)
+VulkanSwapchainManager::VulkanSwapchainManager(VulkanManager* manager)
 {
 	Manager = manager;
 }
 
-VkSurfaceFormatKHR VulkanSwapchain::ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats)
+VulkanSwapchainManager::~VulkanSwapchainManager()
+{
+    if (Extent != nullptr) delete(Extent);
+}
+
+VkSurfaceFormatKHR VulkanSwapchainManager::ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats)
 {
     for (const auto& availableFormat : availableFormats)
     {
@@ -32,7 +38,7 @@ VkSurfaceFormatKHR VulkanSwapchain::ChooseSwapSurfaceFormat(const std::vector<Vk
     return availableFormats[0];
 }
 
-VkPresentModeKHR VulkanSwapchain::ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes)
+VkPresentModeKHR VulkanSwapchainManager::ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes)
 {
     for (const auto& availablePresentMode : availablePresentModes)
     {
@@ -42,7 +48,7 @@ VkPresentModeKHR VulkanSwapchain::ChooseSwapPresentMode(const std::vector<VkPres
     return VK_PRESENT_MODE_FIFO_KHR;
 }
 
-VkExtent2D VulkanSwapchain::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities)
+VkExtent2D VulkanSwapchainManager::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* capabilities)
 {
     if (capabilities->currentExtent.width != UINT32_MAX)
     {
@@ -63,7 +69,7 @@ VkExtent2D VulkanSwapchain::ChooseSwapExtent(const VkSurfaceCapabilitiesKHR* cap
     }
 }
 
-void VulkanSwapchain::CreateSwapChain()
+void VulkanSwapchainManager::CreateSwapChain()
 {
     SwapchainSupportDetails swapChainSupport = Manager->GetSwapchainSupportDetails();
 
@@ -119,7 +125,7 @@ void VulkanSwapchain::CreateSwapChain()
     Extent = new VkExtent2D(extent);
 }
 
-void VulkanSwapchain::CreateImageViews()
+void VulkanSwapchainManager::CreateImageViews()
 {
     ImageViews.resize(Images.size());
 
@@ -128,7 +134,7 @@ void VulkanSwapchain::CreateImageViews()
     }
 }
 
-VkImageView_T* VulkanSwapchain::CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags)
+VkImageView_T* VulkanSwapchainManager::CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags)
 {
     VkImageViewCreateInfo viewInfo{};
     viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
@@ -150,7 +156,7 @@ VkImageView_T* VulkanSwapchain::CreateImageView(VkImage_T* image, VkFormat forma
     return imageView;
 }
 
-void VulkanSwapchain::CreateRenderPass()
+void VulkanSwapchainManager::CreateRenderPass()
 {
     VkAttachmentDescription colorAttachment{};
     colorAttachment.format = ImageFormat;
@@ -210,7 +216,7 @@ void VulkanSwapchain::CreateRenderPass()
     }
 }
 
-void VulkanSwapchain::CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory)
+void VulkanSwapchainManager::CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory)
 {
     VkImageCreateInfo imageInfo{};
     imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
@@ -248,7 +254,7 @@ void VulkanSwapchain::CreateImage(unsigned int width, unsigned int height, VkFor
     vkBindImageMemory(Manager->GetLogicalDevice(), image, imageMemory, 0);
 }
 
-void VulkanSwapchain::CreateDepthResources()
+void VulkanSwapchainManager::CreateDepthResources()
 {
     VkFormat depthFormat = FindDepthFormat();
 
@@ -257,7 +263,7 @@ void VulkanSwapchain::CreateDepthResources()
     TransitionImageLayout(DepthImage, depthFormat, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL);
 }
 
-void VulkanSwapchain::CreateFramebuffers()
+void VulkanSwapchainManager::CreateFramebuffers()
 {
     Framebuffers.resize(ImageViews.size());
 
@@ -281,7 +287,7 @@ void VulkanSwapchain::CreateFramebuffers()
     }
 }
 
-void VulkanSwapchain::CreateUniformBuffers()
+void VulkanSwapchainManager::CreateUniformBuffers()
 {
     VkDeviceSize bufferSize = sizeof(UniformBufferObject);
 
@@ -294,7 +300,7 @@ void VulkanSwapchain::CreateUniformBuffers()
     }
 }
 
-void VulkanSwapchain::CreateDescriptorSetLayout()
+void VulkanSwapchainManager::CreateDescriptorSetLayout()
 {
     VkDescriptorSetLayoutBinding uboLayoutBinding{};
     uboLayoutBinding.binding = 0;
@@ -322,7 +328,7 @@ void VulkanSwapchain::CreateDescriptorSetLayout()
     }
 }
 
-void VulkanSwapchain::CreateDescriptorPool()
+void VulkanSwapchainManager::CreateDescriptorPool()
 {
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -342,7 +348,7 @@ void VulkanSwapchain::CreateDescriptorPool()
     }
 }
 
-void VulkanSwapchain::CreateDescriptorSets()
+void VulkanSwapchainManager::CreateDescriptorSets()
 {
     std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
 
@@ -393,13 +399,17 @@ void VulkanSwapchain::CreateDescriptorSets()
     }
 }
 
-void VulkanSwapchain::CreateTextureImage()
+void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 {
-    int texWidth, texHeight, texChannels;
-    stbi_uc* pixels = stbi_load(TEXTURE_PATH.c_str(), &texWidth, &texHeight, &texChannels, STBI_rgb_alpha);
-    VkDeviceSize imageSize = texWidth * texHeight * 4;
+    //int textureWidth, textureHeight, textureChannels;
+    //stbi_uc* texturePixels = stbi_load(TEXTURE_PATH.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
+    int textureWidth = Manager->GetRenderObject()->Texture.Width;
+    int textureHeight = Manager->GetRenderObject()->Texture.Height;
+    unsigned char* texturePixels = Manager->GetRenderObject()->Texture.Pixels;
 
-    if (!pixels)
+    VkDeviceSize imageSize = textureWidth * textureHeight * 4;
+
+    if (!texturePixels)
     {
         throw std::runtime_error("Failed to load texture image!");
     }
@@ -410,27 +420,27 @@ void VulkanSwapchain::CreateTextureImage()
     Manager->CreateBuffer(imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
     void* data;
     vkMapMemory(Manager->GetLogicalDevice(), stagingBufferMemory, 0, imageSize, 0, &data);
-    memcpy(data, pixels, static_cast<size_t>(imageSize));
+    memcpy(data, texturePixels, static_cast<size_t>(imageSize));
     vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
 
-    stbi_image_free(pixels);
+    stbi_image_free(texturePixels);
 
-    CreateImage(texWidth, texHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureImage, TextureImageMemory);
+    CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureImage, TextureImageMemory);
 
     TransitionImageLayout(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-    CopyBufferToImage(stagingBuffer, TextureImage, static_cast<uint32_t>(texWidth), static_cast<uint32_t>(texHeight));
+    CopyBufferToImage(stagingBuffer, TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
     TransitionImageLayout(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 
     vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
     vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
-void VulkanSwapchain::CreateTextureImageView()
+void VulkanSwapchainManager::CreateTextureImageView()
 {
     TextureImageView = CreateImageView(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
 }
 
-void VulkanSwapchain::CreateTextureSampler()
+void VulkanSwapchainManager::CreateTextureSampler()
 {
     VkSamplerCreateInfo samplerInfo{};
     samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
@@ -456,7 +466,7 @@ void VulkanSwapchain::CreateTextureSampler()
     }
 }
 
-void VulkanSwapchain::RecreationCleanUp()
+void VulkanSwapchainManager::RecreationCleanUp()
 {
     vkDestroyImageView(Manager->GetLogicalDevice(), DepthImageView, nullptr);
     vkDestroyImage(Manager->GetLogicalDevice(), DepthImage, nullptr);
@@ -470,7 +480,7 @@ void VulkanSwapchain::RecreationCleanUp()
     vkDestroyDescriptorPool(Manager->GetLogicalDevice(), DescriptorPool, nullptr);
 }
 
-void VulkanSwapchain::FinalCleanUp()
+void VulkanSwapchainManager::FinalCleanUp()
 {
     RecreationCleanUp();
     vkDestroySampler(Manager->GetLogicalDevice(), TextureSampler, nullptr);
@@ -480,7 +490,7 @@ void VulkanSwapchain::FinalCleanUp()
     vkDestroyDescriptorSetLayout(Manager->GetLogicalDevice(), DescriptorSetLayout, nullptr);
 }
 
-VkFormat VulkanSwapchain::FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
+VkFormat VulkanSwapchainManager::FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
 {
     for (VkFormat format : candidates)
     {
@@ -500,13 +510,13 @@ VkFormat VulkanSwapchain::FindSupportedFormat(const std::vector<VkFormat>& candi
     throw std::runtime_error("Failed to find supported format!");
 }
 
-VkFormat VulkanSwapchain::FindDepthFormat()
+VkFormat VulkanSwapchainManager::FindDepthFormat()
 {
     return FindSupportedFormat({ VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT }, VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 
 }
 
-void VulkanSwapchain::TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)
+void VulkanSwapchainManager::TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)
 {
     VkCommandBuffer commandBuffer = Manager->BeginSingleTimeCommands();
 
@@ -573,12 +583,12 @@ void VulkanSwapchain::TransitionImageLayout(VkImage_T* image, VkFormat format, V
     Manager->EndSingleTimeCommands(commandBuffer);
 }
 
-bool VulkanSwapchain::HasStencilComponent(VkFormat format)
+bool VulkanSwapchainManager::HasStencilComponent(VkFormat format)
 {
     return format == VK_FORMAT_D32_SFLOAT_S8_UINT || format == VK_FORMAT_D24_UNORM_S8_UINT;
 }
 
-void VulkanSwapchain::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height)
+void VulkanSwapchainManager::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height)
 {
     VkCommandBuffer commandBuffer = Manager->BeginSingleTimeCommands();
 
@@ -600,9 +610,9 @@ void VulkanSwapchain::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, un
     Manager->EndSingleTimeCommands(commandBuffer);
 }
 
-void VulkanSwapchain::UpdateUniformBuffer(unsigned int currentImageIndex)
+void VulkanSwapchainManager::UpdateUniformBuffer(unsigned int currentImageIndex, UniformBufferObject& uniformBufferObject)//TODO remove depricated code
 {
-    static auto startTime = std::chrono::high_resolution_clock::now();
+    /*static auto startTime = std::chrono::high_resolution_clock::now();
 
     auto currentTime = std::chrono::high_resolution_clock::now();
     float time = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - startTime).count();
@@ -610,12 +620,11 @@ void VulkanSwapchain::UpdateUniformBuffer(unsigned int currentImageIndex)
     UniformBufferObject ubo{};
     ubo.Model.SetToRotationMatrix(time * 90.0f, 0.0f, 0.0f, 1.0f);
     ubo.View.SetToLookAtMatrix(FVector3(2.0f, 2.0f, 2.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
-    ubo.Projection.SetToPerspectiveMatrix(45.0f, Extent->width / (float)Extent->height, 0.1f, 10.0f);
-    ubo.Projection[1][1] *= -1;
+    ubo.Projection.SetToPerspectiveMatrix(45.0f, Extent->width / (float)Extent->height, 0.1f, 10.0f);*/
+    uniformBufferObject.Projection[1][1] *= -1.0f;
 
     void* data;
-    int size = sizeof(ubo);
-    vkMapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex], 0, sizeof(ubo), 0, &data);
-    memcpy(data, &ubo, sizeof(ubo));
+    vkMapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex], 0, sizeof(uniformBufferObject), 0, &data);
+    memcpy(data, &uniformBufferObject, sizeof(uniformBufferObject));
     vkUnmapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex]);
 }

@@ -10,8 +10,8 @@
 //Vulkan Renderer Classes
 class VulkanDebugger;
 class VulkanDevices;
-class VulkanPipeline;
-class VulkanSwapchain;
+class VulkanPipelineManager;
+class VulkanSwapchainManager;
 struct Vertex;
 
 //Vulkan API Declarations
@@ -34,6 +34,7 @@ struct VkRenderPass_T;
 struct VkCommandBuffer_T;
 struct VkFence_T;
 struct VkSemaphore_T;
+struct RenderObject;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkMemoryPropertyFlags;
@@ -42,7 +43,6 @@ typedef unsigned long long VkDeviceSize;
 
 //SDL Classes
 class SDL_Window;
-class VGE_SDLManager;
 
 //--------------------------------------------------
 
@@ -78,24 +78,24 @@ class VulkanManager : public Renderer
 {
 //Functions
 public:
-	VulkanManager(VGE_SDLManager* windowManager);
+	VulkanManager(SDL_Window* window);
 	~VulkanManager();
 	
-	void Run() override;
 	void FramebufferResizeCallback() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
-	void MainLoop();
+	void Initialize(RenderObject* renderObject) override;
+	void CleanUp() override;
 
 	//Getters
-	inline VGE_SDLManager* GetWindowManager() { return WindowManager; }
 	inline SDL_Window* GetWindow() { return Window; }
 	inline VulkanDebugger* GetDebugger() { return Debugger; }
 	inline VulkanDevices* GetDevices() { return Devices; }
-	inline VulkanPipeline* GetGraphicsPipeline() { return GraphicsPipeline; }
-	inline VulkanSwapchain* GetSwapchain() { return Swapchain; }
+	inline VulkanPipelineManager* GetGraphicsPipeline() { return GraphicsPipelineManager; }
+	inline VulkanSwapchainManager* GetSwapchain() { return SwapchainManager; }
 	inline VkInstance_T* GetInstance() { return Instance; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; }
 	inline QueueStruct* GetQueues() { return Queues; }
+	inline RenderObject* GetRenderObject() { return ObjectToRender; }
 	VkDevice_T* GetLogicalDevice();
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
@@ -116,7 +116,7 @@ protected:
 	void CreateCommandBuffers();
 	std::vector<VkCommandBuffer_T*> CommandBuffers;
 
-	void CreateVertexBuffers();
+	void CreateVerticesBuffer();
 	void CreateIndexBuffer();
 	void CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size);
 	void CreateSyncObjects();
@@ -127,21 +127,19 @@ public:
 	void EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer);
 
 protected:
-	void Initialize() override;
-	void CleanUp() override;
 	SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) override;
 	void CreateSurface();
 
 	//appVersion must be an array of 3 unsigned int values, if a smaller array is passed, program might crash or appVersion might have unpredicted values
 	void CreateInstance(const char* applicationName = "App Name", const char* engineName = "Engine Name", unsigned int* appVersion = nullptr);
+	std::vector<const char*> GetSDLExetensions();
 
 //Variables
 protected:
 	VulkanDebugger* Debugger = nullptr;
 	VulkanDevices* Devices = nullptr;
-	VulkanPipeline* GraphicsPipeline = nullptr;
-	VulkanSwapchain* Swapchain = nullptr;
-	VGE_SDLManager* WindowManager = nullptr;
+	VulkanPipelineManager* GraphicsPipelineManager = nullptr;
+	VulkanSwapchainManager* SwapchainManager = nullptr;
 
 	SDL_Window* Window;
 	VkSurfaceKHR_T* Surface = nullptr;
@@ -164,6 +162,7 @@ protected:
 	std::vector<VkFence_T*> ImagesInFlight;
 	size_t CurrentFrame = 0;
 	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
+	RenderObject* ObjectToRender;
 
 	void LoadModel();
 	const std::string MODEL_PATH = "Models/viking_room.obj";

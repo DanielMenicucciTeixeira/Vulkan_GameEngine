@@ -3,11 +3,11 @@
 
 #include "Math/FMatrix4.h"
 
-struct UnifromCameraObject
+struct UniformCameraObject
 {
 	FMatrix4 View, Projection;
 
-	inline bool operator== (UnifromCameraObject uniformCameraBuffer) { return View == uniformCameraBuffer.View && Projection == uniformCameraBuffer.Projection; }
+	inline bool operator== (UniformCameraObject uniformCameraObject) { return View == uniformCameraObject.View && Projection == uniformCameraObject.Projection; }
 };
 
 struct UniformBufferObject
@@ -15,6 +15,17 @@ struct UniformBufferObject
 	FMatrix4 Model;
 	FMatrix4 View;
 	FMatrix4 Projection;
+
+	inline bool operator== (UniformBufferObject uniformBufferObject) { return View == uniformBufferObject.View && Projection == uniformBufferObject.Projection; }
+
+	UniformBufferObject(){}
+
+	UniformBufferObject(FMatrix4 modelMatrix, FMatrix4 viewMatrix, FMatrix4 projectionMatrix)
+	{
+		Model = modelMatrix;
+		View = viewMatrix;
+		Projection = projectionMatrix;
+	}
 };
 
 

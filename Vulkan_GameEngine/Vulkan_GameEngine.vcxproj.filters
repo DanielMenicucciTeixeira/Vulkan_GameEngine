@@ -96,10 +96,16 @@
     <ClCompile Include="Vulkan\VulkanManager.cpp">
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanPipeline.cpp">
+    <ClCompile Include="MeshLoader.cpp">
+      <Filter>Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="Vulkan\VulkanPipelineManager.cpp">
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanSwapchain.cpp">
+    <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp">
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,16 +170,25 @@
     <ClInclude Include="Renderer.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanSwapchain.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
     <ClInclude Include="UniformCameraObject.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Vulkan\VulkanPipeline.h">
+    <ClInclude Include="Vertex.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderObject.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanPipelineManager.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Vulkan\VulkanSwapchainManager.h">
       <Filter>Renderers\Vulkan</Filter>
     </ClInclude>
   </ItemGroup>

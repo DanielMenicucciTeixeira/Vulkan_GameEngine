@@ -1,5 +1,5 @@
-#ifndef VULKANSWAPCHAIN_H
-#define VULKANSWAPCHAIN_H
+#ifndef VULKANSWAPCHAINMANAGER_H
+#define VULKANSWAPCHAINMANAGER_H
 
 #include <vector>
 #include <string>
@@ -25,6 +25,7 @@ struct VkDescriptorSetLayout_T;
 struct VkDescriptorPool_T;
 struct VkDescriptorSet_T;
 struct VkSampler_T;
+struct UniformBufferObject;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkImageAspectFlags;
@@ -32,10 +33,11 @@ typedef VkFlags VkFormatFeatureFlags;
 typedef VkFlags VkImageUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
 
-class VulkanSwapchain
+class VulkanSwapchainManager
 {
 public:
-	VulkanSwapchain(VulkanManager* manager);
+	VulkanSwapchainManager(VulkanManager* manager);
+	~VulkanSwapchainManager();
 
 //Functions
 	VkSurfaceFormatKHR ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR> availableFormats);
@@ -75,7 +77,7 @@ public:
 	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
 	inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
-	void UpdateUniformBuffer(unsigned int currentImageIndex);
+	void UpdateUniformBuffer(unsigned int currentImageIndex, UniformBufferObject& ubo);
 
 //Variables
 protected:
@@ -86,9 +88,9 @@ protected:
 	VkExtent2D* Extent = nullptr;
 	std::vector<VkImageView_T*> ImageViews;
 	VkRenderPass_T* RenderPass = nullptr;
-	VkImage_T* DepthImage;
-	VkDeviceMemory_T* DepthImageMemory;
-	VkImageView_T* DepthImageView;
+	VkImage_T* DepthImage = nullptr;
+	VkDeviceMemory_T* DepthImageMemory = nullptr;
+	VkImageView_T* DepthImageView = nullptr;
 	std::vector<VkBuffer_T*> UniformBuffers;
 	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
 	VkDescriptorPool_T* DescriptorPool = nullptr;

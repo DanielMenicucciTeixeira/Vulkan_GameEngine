@@ -7,46 +7,39 @@
 ///VulkanRenderer includes:
 #include "VulkanDebugger.h"
 #include "VulkanDevices.h"
-#include "VulkanPipeline.h"
-#include "VulkanSwapchain.h"
+#include "VulkanPipelineManager.h"
+#include "VulkanSwapchainManager.h"
 #include "Vertex.h"
 
 //Vulkan API includes
 #include <vulkan/vulkan.h>
 
 //SDL includes
-#include "SDL/VGE_SDLManager.h"
 #include <SDL_vulkan.h>
 #include <SDL.h>
 
+//ExtraIncludes
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
+#include "RenderObject.h"
 
-VulkanManager::VulkanManager(VGE_SDLManager* windowManager)
+VulkanManager::VulkanManager(SDL_Window* window)
 {
 	Debugger = new VulkanDebugger(this);
 	Devices = new VulkanDevices(this);
-	GraphicsPipeline = new VulkanPipeline(this);
-	Swapchain = new VulkanSwapchain(this);
+	GraphicsPipelineManager = new VulkanPipelineManager(this);
+	SwapchainManager = new VulkanSwapchainManager(this);
     Queues = new QueueStruct();
-	WindowManager = windowManager;
-    Window = WindowManager->GetWindow();
+    Window = window;
 }
 
 VulkanManager::~VulkanManager()
 {
 	if (Debugger) delete(Debugger);
 	if (Devices) delete(Devices);
-	if (GraphicsPipeline) delete(GraphicsPipeline);
-	if (Swapchain) delete(Swapchain);
+	if (GraphicsPipelineManager) delete(GraphicsPipelineManager);
+	if (SwapchainManager) delete(SwapchainManager);
     if (Queues) delete(Queues);
-}
-
-void VulkanManager::Run()
-{
-    Initialize();
-    MainLoop();
-    CleanUp();
 }
 
 void VulkanManager::FramebufferResizeCallback()
@@ -71,17 +64,17 @@ SwapchainSupportDetails VulkanManager::GetSwapchainSupportDetails()
 
 VkExtent2D* VulkanManager::GetSwapchainExtent()
 {
-    return Swapchain->GetExtent();
+    return SwapchainManager->GetExtent();
 }
 
 VkDescriptorSetLayout_T* VulkanManager::GetDescriptorSetLayout()
 {
-    return Swapchain->GetDescriptorSetLayout();
+    return SwapchainManager->GetDescriptorSetLayout();
 }
 
 VkRenderPass_T* VulkanManager::GetRenderPass()
 {
-    return Swapchain->GetRenderPass();
+    return SwapchainManager->GetRenderPass();
 }
 
 QueueFamilyIndices VulkanManager::FindQueueFamilies(VkPhysicalDevice_T* physicalDevice)
@@ -167,21 +160,21 @@ void VulkanManager::RecreateSwapchain()
     do
     {
         SDL_GetWindowSize(Window, &width, &height);
-        SDL_WaitEvent(&WindowManager->GetEvent());
+        SDL_WaitEvent(nullptr);
     } while (width == 0 || height == 0);
 
     vkDeviceWaitIdle(Devices->GetLogicalDevice());
-    Swapchain->RecreationCleanUp();
+    SwapchainManager->RecreationCleanUp();
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, static_cast<uint32_t>(CommandBuffers.size()), CommandBuffers.data());
 
-    Swapchain->CreateSwapChain();
-    Swapchain->CreateImageViews();
-    Swapchain->CreateRenderPass();
-    Swapchain->CreateDepthResources();
-    Swapchain->CreateFramebuffers();
-    Swapchain->CreateUniformBuffers();
-    Swapchain->CreateDescriptorPool();
-    Swapchain->CreateDescriptorSets();
+    SwapchainManager->CreateSwapChain();
+    SwapchainManager->CreateImageViews();
+    SwapchainManager->CreateRenderPass();
+    SwapchainManager->CreateDepthResources();
+    SwapchainManager->CreateFramebuffers();
+    SwapchainManager->CreateUniformBuffers();
+    SwapchainManager->CreateDescriptorPool();
+    SwapchainManager->CreateDescriptorSets();
     CreateCommandBuffers();
 }
 
@@ -202,7 +195,7 @@ void VulkanManager::CreateCommandPool()
 
 void VulkanManager::CreateCommandBuffers()
 {
-    CommandBuffers.resize(Swapchain->GetFramebuffers().size());
+    CommandBuffers.resize(SwapchainManager->GetFramebuffers().size());
 
     VkCommandBufferAllocateInfo allocInfo{};
     allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -229,10 +222,10 @@ void VulkanManager::CreateCommandBuffers()
 
         VkRenderPassBeginInfo renderPassInfo{};
         renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-        renderPassInfo.renderPass = Swapchain->GetRenderPass();
-        renderPassInfo.framebuffer = Swapchain->GetFramebuffers()[i];
+        renderPassInfo.renderPass = SwapchainManager->GetRenderPass();
+        renderPassInfo.framebuffer = SwapchainManager->GetFramebuffers()[i];
         renderPassInfo.renderArea.offset = { 0, 0 };
-        renderPassInfo.renderArea.extent = *Swapchain->GetExtent();
+        renderPassInfo.renderArea.extent = *SwapchainManager->GetExtent();
         std::array<VkClearValue, 2> clearValues{};
         clearValues[0].color = { 0.0f, 0.0f, 0.0f, 1.0f };
         clearValues[1].depthStencil = { 1.0f, 0 };
@@ -257,10 +250,10 @@ void VulkanManager::CreateCommandBuffers()
         vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
-            vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipeline());
+            vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
             vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
             vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
-            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipeline->GetPipelineLayout(), 0, 1, &Swapchain->GetDescriptorSets()[i], 0, nullptr);
+            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSets()[i], 0, nullptr);
             vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
         vkCmdEndRenderPass(CommandBuffers[i]);
 
@@ -271,7 +264,7 @@ void VulkanManager::CreateCommandBuffers()
     }
 }
 
-void VulkanManager::CreateVertexBuffers()
+void VulkanManager::CreateVerticesBuffer()
 {
     VkDeviceSize bufferSize = sizeof(Vertex) * Vertices.size();
 
@@ -336,7 +329,7 @@ void VulkanManager::CreateSyncObjects()
     fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
 
     InFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
-    ImagesInFlight.resize(Swapchain->GetImages().size(), VK_NULL_HANDLE);
+    ImagesInFlight.resize(SwapchainManager->GetImages().size(), VK_NULL_HANDLE);
 
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
     {
@@ -369,7 +362,7 @@ VkCommandBuffer_T* VulkanManager::BeginSingleTimeCommands()
       functions.
       You can either implement such an allocator yourself, or use the VulkanMemoryAllocator library provided by the GPUOpen initiative.
       However, for this tutorial it's okay to use a separate allocation for every resource, because we won't come close to hitting any of these limits for now.
-  */
+    */
     VkCommandBufferBeginInfo beginInfo{};
     beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
     beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
@@ -394,40 +387,44 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-void VulkanManager::Initialize()
+void VulkanManager::Initialize(RenderObject* renderObject)
 {
+    ObjectToRender = renderObject;
+
     CreateInstance();
     Debugger->SetUpDebugMessenger();
     CreateSurface();
     Devices->PickPhysicalDevice();
     Devices->CreateLogicalDevice();
-    Swapchain->CreateSwapChain();
-    Swapchain->CreateImageViews();
-    Swapchain->CreateRenderPass();
-    Swapchain->CreateDescriptorSetLayout();
-    GraphicsPipeline->CreateGraphicsPipeline();
+    SwapchainManager->CreateSwapChain();
+    SwapchainManager->CreateImageViews();
+    SwapchainManager->CreateRenderPass();
+    SwapchainManager->CreateDescriptorSetLayout();
+    GraphicsPipelineManager->CreateGraphicsPipeline();
     CreateCommandPool();
-    Swapchain->CreateDepthResources();
-    Swapchain->CreateFramebuffers();
-    Swapchain->CreateTextureImage();
-    Swapchain->CreateTextureImageView();
-    Swapchain->CreateTextureSampler();
+    SwapchainManager->CreateDepthResources();
+    SwapchainManager->CreateFramebuffers();
+    SwapchainManager->CreateTextureImage();
+    SwapchainManager->CreateTextureImageView();
+    SwapchainManager->CreateTextureSampler();
     LoadModel();
-    CreateVertexBuffers();
+    CreateVerticesBuffer();
     CreateIndexBuffer();
-    Swapchain->CreateUniformBuffers();
-    Swapchain->CreateDescriptorPool();
-    Swapchain->CreateDescriptorSets();
+    SwapchainManager->CreateUniformBuffers();
+    SwapchainManager->CreateDescriptorPool();
+    SwapchainManager->CreateDescriptorSets();
     CreateCommandBuffers();
     CreateSyncObjects();
 }
 
 void VulkanManager::CleanUp()
 {
-    Swapchain->FinalCleanUp();
+    vkDeviceWaitIdle(Devices->GetLogicalDevice());
+
+    SwapchainManager->FinalCleanUp();
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, CommandBuffers.size(), CommandBuffers.data());
-    vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipeline->GetPipeline(), nullptr);
-    vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipeline->GetPipelineLayout(), nullptr);
+    vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipeline(), nullptr);
+    vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelineLayout(), nullptr);
     for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& fence : InFlightFences) vkDestroyFence(Devices->GetLogicalDevice(), fence, nullptr);
@@ -446,7 +443,7 @@ void VulkanManager::CleanUp()
 
 SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
 {
-	return WindowManager->GetWindow();
+	return Window;
 }
 
 void VulkanManager::CreateSurface()
@@ -462,7 +459,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     vkWaitForFences(Devices->GetLogicalDevice(), 1, &InFlightFences[CurrentFrame], VK_TRUE, UINT64_MAX);
 
     uint32_t imageIndex;
-    VkResult swapChainResult = vkAcquireNextImageKHR(Devices->GetLogicalDevice(), Swapchain->GetSwapchain(), UINT64_MAX, ImageAvailableSemaphores[CurrentFrame], VK_NULL_HANDLE, &imageIndex);
+    VkResult swapChainResult = vkAcquireNextImageKHR(Devices->GetLogicalDevice(), SwapchainManager->GetSwapchain(), UINT64_MAX, ImageAvailableSemaphores[CurrentFrame], VK_NULL_HANDLE, &imageIndex);
     if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR)
     {
         RecreateSwapchain();
@@ -478,7 +475,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     // Mark the image as now being in use by this frame
     ImagesInFlight[imageIndex] = InFlightFences[CurrentFrame];
 
-    Swapchain->UpdateUniformBuffer(imageIndex);
+    SwapchainManager->UpdateUniformBuffer(imageIndex, ObjectToRender->UBO);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
@@ -507,7 +504,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     presentInfo.waitSemaphoreCount = 1;
     presentInfo.pWaitSemaphores = signalSemaphores;
 
-    VkSwapchainKHR swapChains[] = { Swapchain->GetSwapchain() };
+    VkSwapchainKHR swapChains[] = { SwapchainManager->GetSwapchain() };
     presentInfo.swapchainCount = 1;
     presentInfo.pSwapchains = swapChains;
     presentInfo.pImageIndices = &imageIndex;
@@ -525,16 +522,6 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     }
 
     CurrentFrame = (CurrentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
-}
-
-void VulkanManager::MainLoop()
-{
-    while (WindowManager->GetEvent().type != SDL_QUIT)
-    {
-        Render();
-    }
-
-    vkDeviceWaitIdle(Devices->GetLogicalDevice());
 }
 
 void VulkanManager::CreateInstance(const char* applicationName, const char* engineName, unsigned int* appVersion)
@@ -556,8 +543,7 @@ void VulkanManager::CreateInstance(const char* applicationName, const char* engi
     VkInstanceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
     createInfo.pApplicationInfo = &appInfo;
-    std::vector<const char*> sdlExtensions;
-    WindowManager->GetVulkanExtensions(sdlExtensions);
+    std::vector<const char*> sdlExtensions = GetSDLExetensions();
     sdlExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
     createInfo.enabledExtensionCount = static_cast<uint32_t>(sdlExtensions.size());
     createInfo.ppEnabledExtensionNames = sdlExtensions.data();
@@ -583,9 +569,23 @@ void VulkanManager::CreateInstance(const char* applicationName, const char* engi
     }
 }
 
-void VulkanManager::LoadModel()
+std::vector<const char*> VulkanManager::GetSDLExetensions()
 {
-    tinyobj::attrib_t attrib;
+    std::vector<const char*> sdlExtensions;
+    uint32_t extensionCount;
+    if (SDL_Vulkan_GetInstanceExtensions(Window, &extensionCount, nullptr) == SDL_FALSE);
+    sdlExtensions.resize(extensionCount);
+    SDL_Vulkan_GetInstanceExtensions(Window, &extensionCount, sdlExtensions.data());
+
+    return sdlExtensions;
+}
+
+void VulkanManager::LoadModel()//TODO remove depricated code
+{
+    Vertices = ObjectToRender->Vertices;
+    Indices = ObjectToRender->Indices;
+
+    /*tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
     std::string warn, err;
@@ -618,7 +618,7 @@ void VulkanManager::LoadModel()
             Vertices.push_back(vertex);
             Indices.push_back(Indices.size());
         }
-    }
+    }*/
 }
 
 VkSurfaceCapabilitiesKHR* SwapchainSupportDetails::InitializeCapabilities()

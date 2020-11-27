@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include<unordered_map>
 
 class VulkanManager;
 
@@ -26,6 +27,7 @@ struct VkDescriptorPool_T;
 struct VkDescriptorSet_T;
 struct VkSampler_T;
 struct UniformBufferObject;
+struct TextureStruct;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkImageAspectFlags;
@@ -55,8 +57,8 @@ public:
 	void CreateUniformBuffers();
 	void CreateDescriptorSetLayout();
 	void CreateDescriptorPool();
-	void CreateDescriptorSets();
-	void CreateTextureImage();
+	void CreateDescriptorSetsMap();
+	void CreateTextureImages();
 	void CreateTextureImageView();
 	void CreateTextureSampler();
 
@@ -72,12 +74,12 @@ public:
 	inline VkExtent2D* GetExtent() { return Extent; }
 	inline VkRenderPass_T* GetRenderPass() { return RenderPass; }
 	inline std::vector<VkFramebuffer_T*> GetFramebuffers() { return Framebuffers; }
-	inline std::vector<VkDescriptorSet_T*> GetDescriptorSets() { return DescriptorSets; }
+	inline std::unordered_map<UniformBufferObject*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() { return DescriptorSetsMap; }
 	inline std::vector<VkImage_T*> GetImages() { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
 	inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
-	void UpdateUniformBuffer(unsigned int currentImageIndex, UniformBufferObject& ubo);
+	void UpdateUniformBuffer(unsigned int currentImageIndex);
 
 //Variables
 protected:
@@ -91,14 +93,15 @@ protected:
 	VkImage_T* DepthImage = nullptr;
 	VkDeviceMemory_T* DepthImageMemory = nullptr;
 	VkImageView_T* DepthImageView = nullptr;
-	std::vector<VkBuffer_T*> UniformBuffers;
-	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
+	std::vector<std::vector<VkBuffer_T*>> ImagesUniformBuffers;
+	std::vector<std::vector<VkDeviceMemory_T*>> ImagesUniformBufferMemories;
+	std::unordered_map<UniformBufferObject*, std::vector<VkBuffer_T*>> UBOMap;
 	VkDescriptorPool_T* DescriptorPool = nullptr;
-	std::vector<VkDescriptorSet_T*> DescriptorSets;
+	std::unordered_map<UniformBufferObject*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	VkDescriptorSetLayout_T* DescriptorSetLayout;
-	VkImage_T* TextureImage = nullptr;
-	VkImageView_T* TextureImageView = nullptr;
-	VkDeviceMemory_T* TextureImageMemory = nullptr;
+	std::unordered_map<TextureStruct*, VkImage_T*> TextureImagesMap;
+	std::unordered_map<TextureStruct*, VkImageView_T*> TextureImageViewsMap;
+	std::unordered_map<TextureStruct*, VkDeviceMemory_T*> TextureImageMemoriesMap;
 	VkSampler_T* TextureSampler = nullptr;
 
 	VulkanManager* Manager = nullptr;

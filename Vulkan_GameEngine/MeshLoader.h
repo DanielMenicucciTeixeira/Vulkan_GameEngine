@@ -3,12 +3,12 @@
 
 #include <string>
 
-struct RenderObject;
+struct MeshStruct;
 
 class MeshLoader
 {
 public:
-	static void LoadMesh(std::string meshPath, RenderObject* renderObject);
+	static void LoadMesh(std::string meshPath, MeshStruct* mesh);
 };
 #endif
 

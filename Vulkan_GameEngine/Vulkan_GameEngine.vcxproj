@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Geometry\Box.cpp" />
     <ClCompile Include="Geometry\Plane.cpp" />
     <ClCompile Include="Geometry\Ray.cpp" />
@@ -179,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\EngineEvent.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Geometry\Box.h" />
     <ClInclude Include="Geometry\Plane.h" />
     <ClInclude Include="Geometry\Ray.h" />
@@ -191,6 +193,7 @@
     <ClInclude Include="Math\FVector4.h" />
     <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="RendererInitializationData.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SDL\VGE_SDLEventHandler.h" />

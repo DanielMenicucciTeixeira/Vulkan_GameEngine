@@ -22,7 +22,6 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 #include "RenderObject.h"
-#include "RendererInitializationData.h"
 
 VulkanManager::VulkanManager(SDL_Window* window)
 {
@@ -175,7 +174,7 @@ void VulkanManager::RecreateSwapchain()
     SwapchainManager->CreateFramebuffers();
     SwapchainManager->CreateUniformBuffers();
     SwapchainManager->CreateDescriptorPool();
-    SwapchainManager->CreateDescriptorSetsMap();
+    SwapchainManager->CreateDescriptorSets();
     CreateCommandBuffers();
 }
 
@@ -233,6 +232,7 @@ void VulkanManager::CreateCommandBuffers()
         renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
         renderPassInfo.pClearValues = clearValues.data();
 
+        VkBuffer vertexBuffers[] = { VertexBuffer };
         VkDeviceSize offsets[] = { 0 };
 
         VkViewport viewport{};
@@ -251,19 +251,10 @@ void VulkanManager::CreateCommandBuffers()
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
             vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
-            for (const auto& mesh : InitializationData->MeshToMaterialMap)
-            {
-                vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &VertexBufferMap[mesh.first], offsets);
-                vkCmdBindIndexBuffer(CommandBuffers[i], IndexBufferMap[mesh.first], 0, VK_INDEX_TYPE_UINT32);
-                for (const auto& texture : InitializationData->MeshToMaterialMap[mesh.first])
-                {
-                    for (const auto& ubo : InitializationData->MaterialToUBOMap[texture])
-                    {
-                        vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[ubo][i], 0, nullptr);
-                    }
-                }
-                vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh.first->Indices.size()), 1, 0, 0, 0);
-            }
+            vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
+            vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSets()[i], 0, nullptr);
+            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
         vkCmdEndRenderPass(CommandBuffers[i]);
 
         if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS)
@@ -273,55 +264,45 @@ void VulkanManager::CreateCommandBuffers()
     }
 }
 
-void VulkanManager::CreateVerticesBuffers()
+void VulkanManager::CreateVerticesBuffer()
 {
-    for (const auto& pair : InitializationData->MeshToMaterialMap)
-    {
-        VkDeviceSize bufferSize = sizeof(Vertex) * pair.first->Vertices.size();
+    VkDeviceSize bufferSize = sizeof(Vertex) * Vertices.size();
 
-        VkBuffer stagingBuffer;
-        VkDeviceMemory stagingBufferMemory;
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
 
-        void* data;
-        vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, pair.first->Vertices.data(), (size_t)bufferSize);
-        vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+    void* data;
+    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, Vertices.data(), (size_t)bufferSize);
+    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        VertexBufferMap[pair.first] = VkBuffer();
-        VertexBufferMemoryMap[pair.first] = VkDeviceMemory();
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, VertexBufferMap[pair.first], VertexBufferMemoryMap[pair.first]);
-        CopyBuffer(stagingBuffer, VertexBufferMap[pair.first], bufferSize);
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, VertexBuffer, VertexBufferMemory);
+    CopyBuffer(stagingBuffer, VertexBuffer, bufferSize);
 
-        vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
-        vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
-    }
+    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
 void VulkanManager::CreateIndexBuffer()
 {
-    for (const auto& pair : InitializationData->MeshToMaterialMap)
-    {
-        VkDeviceSize bufferSize = sizeof(unsigned int) * pair.first->Indices.size();
+    VkDeviceSize bufferSize = sizeof(Indices[0]) * Indices.size();
 
-        VkBuffer stagingBuffer;
-        VkDeviceMemory stagingBufferMemory;
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
 
-        void* data;
-        vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, pair.first->Indices.data(), (size_t)bufferSize);
-        vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+    void* data;
+    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, Indices.data(), (size_t)bufferSize);
+    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        IndexBufferMap[pair.first] = VkBuffer();
-        IndexBufferMemoryMap[pair.first] = VkDeviceMemory();
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, IndexBufferMap[pair.first], IndexBufferMemoryMap[pair.first]);
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, IndexBuffer, IndexBufferMemory);
 
-        CopyBuffer(stagingBuffer, IndexBufferMap[pair.first], bufferSize);
+    CopyBuffer(stagingBuffer, IndexBuffer, bufferSize);
 
-        vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
-        vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
-    }
+    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
 void VulkanManager::CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size)
@@ -406,9 +387,9 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-void VulkanManager::Initialize(RendererInitializationData* initializationData)
+void VulkanManager::Initialize(RenderObject* renderObject)
 {
-    InitializationData = initializationData;
+    ObjectToRender = renderObject;
 
     CreateInstance();
     Debugger->SetUpDebugMessenger();
@@ -423,15 +404,15 @@ void VulkanManager::Initialize(RendererInitializationData* initializationData)
     CreateCommandPool();
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
-    SwapchainManager->CreateTextureImages();
+    SwapchainManager->CreateTextureImage();
     SwapchainManager->CreateTextureImageView();
     SwapchainManager->CreateTextureSampler();
     LoadModel();
-    CreateVerticesBuffers();
+    CreateVerticesBuffer();
     CreateIndexBuffer();
     SwapchainManager->CreateUniformBuffers();
     SwapchainManager->CreateDescriptorPool();
-    SwapchainManager->CreateDescriptorSetsMap();
+    SwapchainManager->CreateDescriptorSets();
     CreateCommandBuffers();
     CreateSyncObjects();
 }
@@ -448,10 +429,10 @@ void VulkanManager::CleanUp()
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& fence : InFlightFences) vkDestroyFence(Devices->GetLogicalDevice(), fence, nullptr);
     vkDestroyCommandPool(Devices->GetLogicalDevice(), CommandPool, nullptr);
-    for (const auto& pair : IndexBufferMap) vkDestroyBuffer(Devices->GetLogicalDevice(), pair.second, nullptr);
-    for (const auto& pair : IndexBufferMemoryMap) vkFreeMemory(Devices->GetLogicalDevice(), pair.second, nullptr);
-    for (const auto& pair : VertexBufferMap) vkDestroyBuffer(Devices->GetLogicalDevice(), pair.second, nullptr);
-    for (const auto& pair : VertexBufferMemoryMap) vkFreeMemory(Devices->GetLogicalDevice(), pair.second, nullptr);
+    vkDestroyBuffer(Devices->GetLogicalDevice(), IndexBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), IndexBufferMemory, nullptr);
+    vkDestroyBuffer(Devices->GetLogicalDevice(), VertexBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), VertexBufferMemory, nullptr);
     vkDestroyDevice(Devices->GetLogicalDevice(), nullptr);
 
     if (Debugger->IsEnabled()) Debugger->DestroyDebugUtilsMessengerEXT(Instance, nullptr);
@@ -494,7 +475,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     // Mark the image as now being in use by this frame
     ImagesInFlight[imageIndex] = InFlightFences[CurrentFrame];
 
-    SwapchainManager->UpdateUniformBuffer(imageIndex);
+    SwapchainManager->UpdateUniformBuffer(imageIndex, ObjectToRender->UBO);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
@@ -601,8 +582,8 @@ std::vector<const char*> VulkanManager::GetSDLExetensions()
 
 void VulkanManager::LoadModel()//TODO remove depricated code
 {
-    //Vertices = InitializationData->Vertices;
-    //Indices = InitializationData->Indices;
+    Vertices = ObjectToRender->Vertices;
+    Indices = ObjectToRender->Indices;
 
     /*tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;

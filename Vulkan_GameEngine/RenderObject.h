@@ -11,12 +11,6 @@ struct TextureStruct
 	unsigned char* Pixels;
 };
 
-struct MeshStruct
-{
-	std::vector<Vertex> Vertices;
-	std::vector<unsigned int> Indices;
-};
-
 struct RenderObject
 {
 	std::vector<Vertex> Vertices;

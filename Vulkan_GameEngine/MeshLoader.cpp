@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-void MeshLoader::LoadMesh(std::string meshPath, RenderObject* renderObject)
+void MeshLoader::LoadMesh(std::string meshPath, MeshStruct* mesh)
 {
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
@@ -38,8 +38,8 @@ void MeshLoader::LoadMesh(std::string meshPath, RenderObject* renderObject)
                 0
             };
 
-            renderObject->Vertices.push_back(vertex);
-            renderObject->Indices.push_back(renderObject->Indices.size());
+            mesh->Vertices.push_back(vertex);
+            mesh->Indices.push_back(mesh->Indices.size());
         }
     }
 }

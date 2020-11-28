@@ -22,6 +22,7 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 #include "RenderObject.h"
+#include "RenderInitializationData.h"
 
 VulkanManager::VulkanManager(SDL_Window* window)
 {
@@ -232,7 +233,6 @@ void VulkanManager::CreateCommandBuffers()
         renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
         renderPassInfo.pClearValues = clearValues.data();
 
-        VkBuffer vertexBuffers[] = { VertexBuffer };
         VkDeviceSize offsets[] = { 0 };
 
         VkViewport viewport{};
@@ -250,11 +250,20 @@ void VulkanManager::CreateCommandBuffers()
         vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
-            vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
-            vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, vertexBuffers, offsets);
-            vkCmdBindIndexBuffer(CommandBuffers[i], IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
-            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSets()[i], 0, nullptr);
-            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(Indices.size()), 1, 0, 0, 0);
+            for (const auto& mesh : InitializationData->MeshToMaterialMap)
+            {
+                vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[mesh.first]->VertexBuffer, offsets);
+                vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh.first]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+                for (const auto& material : mesh.second)
+                {
+                    vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
+                    for (const auto& model : InitializationData->MaterialToModelMap[material])
+                    {
+                        vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
+                        vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh.first->Indices.size()), 1, 0, 0, 0);
+                    }
+                }
+            }
         vkCmdEndRenderPass(CommandBuffers[i]);
 
         if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS)
@@ -264,45 +273,52 @@ void VulkanManager::CreateCommandBuffers()
     }
 }
 
-void VulkanManager::CreateVerticesBuffer()
+void VulkanManager::CreateVertexBuffers()
 {
-    VkDeviceSize bufferSize = sizeof(Vertex) * Vertices.size();
+    for (const auto& pair : InitializationData->MeshToMaterialMap)
+    {
+        VkDeviceSize bufferSize = sizeof(Vertex) * pair.first->Vertices.size();
 
-    VkBuffer stagingBuffer;
-    VkDeviceMemory stagingBufferMemory;
-    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+        VkBuffer stagingBuffer;
+        VkDeviceMemory stagingBufferMemory;
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
 
-    void* data;
-    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-    memcpy(data, Vertices.data(), (size_t)bufferSize);
-    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+        void* data;
+        vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+        memcpy(data, pair.first->Vertices.data(), (size_t)bufferSize);
+        vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, VertexBuffer, VertexBufferMemory);
-    CopyBuffer(stagingBuffer, VertexBuffer, bufferSize);
+        MeshDataMap[pair.first] = new MeshDataStruct();
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[pair.first]->VertexBuffer, MeshDataMap[pair.first]->VertexBufferMemory);
+        CopyBuffer(stagingBuffer, MeshDataMap[pair.first]->VertexBuffer, bufferSize);
 
-    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
-    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
+        vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+        vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
+    }
 }
 
-void VulkanManager::CreateIndexBuffer()
+void VulkanManager::CreateIndexBuffers()
 {
-    VkDeviceSize bufferSize = sizeof(Indices[0]) * Indices.size();
+    for (const auto& pair : InitializationData->MeshToMaterialMap)
+    {
+        VkDeviceSize bufferSize = sizeof(unsigned int) * pair.first->Indices.size();
 
-    VkBuffer stagingBuffer;
-    VkDeviceMemory stagingBufferMemory;
-    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+        VkBuffer stagingBuffer;
+        VkDeviceMemory stagingBufferMemory;
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
 
-    void* data;
-    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-    memcpy(data, Indices.data(), (size_t)bufferSize);
-    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+        void* data;
+        vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+        memcpy(data, pair.first->Indices.data(), (size_t)bufferSize);
+        vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, IndexBuffer, IndexBufferMemory);
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[pair.first]->IndexBuffer, MeshDataMap[pair.first]->IndexBufferMemory);
 
-    CopyBuffer(stagingBuffer, IndexBuffer, bufferSize);
+        CopyBuffer(stagingBuffer, MeshDataMap[pair.first]->IndexBuffer, bufferSize);
 
-    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
-    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
+        vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+        vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
+    }
 }
 
 void VulkanManager::CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size)
@@ -387,9 +403,9 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-void VulkanManager::Initialize(RenderObject* renderObject)
+void VulkanManager::Initialize(RenderInitializationData* initializationData)
 {
-    ObjectToRender = renderObject;
+    InitializationData = initializationData;
 
     CreateInstance();
     Debugger->SetUpDebugMessenger();
@@ -405,11 +421,9 @@ void VulkanManager::Initialize(RenderObject* renderObject)
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
     SwapchainManager->CreateTextureImage();
-    SwapchainManager->CreateTextureImageView();
-    SwapchainManager->CreateTextureSampler();
     LoadModel();
-    CreateVerticesBuffer();
-    CreateIndexBuffer();
+    CreateVertexBuffers();
+    CreateIndexBuffers();
     SwapchainManager->CreateUniformBuffers();
     SwapchainManager->CreateDescriptorPool();
     SwapchainManager->CreateDescriptorSets();
@@ -429,10 +443,14 @@ void VulkanManager::CleanUp()
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& fence : InFlightFences) vkDestroyFence(Devices->GetLogicalDevice(), fence, nullptr);
     vkDestroyCommandPool(Devices->GetLogicalDevice(), CommandPool, nullptr);
-    vkDestroyBuffer(Devices->GetLogicalDevice(), IndexBuffer, nullptr);
-    vkFreeMemory(Devices->GetLogicalDevice(), IndexBufferMemory, nullptr);
-    vkDestroyBuffer(Devices->GetLogicalDevice(), VertexBuffer, nullptr);
-    vkFreeMemory(Devices->GetLogicalDevice(), VertexBufferMemory, nullptr);
+    for (const auto& meshData : MeshDataMap)
+    {
+        vkDestroyBuffer(Devices->GetLogicalDevice(), meshData.second->IndexBuffer, nullptr);
+        vkFreeMemory(Devices->GetLogicalDevice(), meshData.second->IndexBufferMemory, nullptr);
+        vkDestroyBuffer(Devices->GetLogicalDevice(), meshData.second->VertexBuffer, nullptr);
+        vkFreeMemory(Devices->GetLogicalDevice(), meshData.second->VertexBufferMemory, nullptr);
+        delete(meshData.second);
+    }
     vkDestroyDevice(Devices->GetLogicalDevice(), nullptr);
 
     if (Debugger->IsEnabled()) Debugger->DestroyDebugUtilsMessengerEXT(Instance, nullptr);
@@ -475,7 +493,7 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     // Mark the image as now being in use by this frame
     ImagesInFlight[imageIndex] = InFlightFences[CurrentFrame];
 
-    SwapchainManager->UpdateUniformBuffer(imageIndex, ObjectToRender->UBO);
+    SwapchainManager->UpdateBuffers(imageIndex);
 
     VkSubmitInfo submitInfo{};
     submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
@@ -582,8 +600,11 @@ std::vector<const char*> VulkanManager::GetSDLExetensions()
 
 void VulkanManager::LoadModel()//TODO remove depricated code
 {
-    Vertices = ObjectToRender->Vertices;
-    Indices = ObjectToRender->Indices;
+   /* for (const auto& pair : InitializationData->MeshToMaterialMap)
+    {
+        Vertices = pair.first->Vertices;
+        Indices = pair.first->Indices;
+    }*/
 
     /*tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;

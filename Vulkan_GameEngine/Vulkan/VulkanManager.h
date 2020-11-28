@@ -5,6 +5,7 @@
 #include <vector>
 #include <optional>
 #include <string>
+#include <unordered_map>
 
 //-----Forward Declarations------\\
 //Vulkan Renderer Classes
@@ -34,7 +35,7 @@ struct VkRenderPass_T;
 struct VkCommandBuffer_T;
 struct VkFence_T;
 struct VkSemaphore_T;
-struct RenderObject;
+struct MeshStruct;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkMemoryPropertyFlags;
@@ -74,6 +75,14 @@ struct SwapchainSupportDetails
 	VkSurfaceCapabilitiesKHR* InitializeCapabilities();
 };
 
+struct MeshDataStruct
+{
+	VkBuffer_T* VertexBuffer;
+	VkDeviceMemory_T* VertexBufferMemory;
+	VkBuffer_T* IndexBuffer;
+	VkDeviceMemory_T* IndexBufferMemory;
+};
+
 class VulkanManager : public Renderer
 {
 //Functions
@@ -83,7 +92,7 @@ public:
 	
 	void FramebufferResizeCallback() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
-	void Initialize(RenderObject* renderObject) override;
+	void Initialize(RenderInitializationData* initializationData) override;
 	void CleanUp() override;
 
 	//Getters
@@ -95,7 +104,7 @@ public:
 	inline VkInstance_T* GetInstance() { return Instance; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; }
 	inline QueueStruct* GetQueues() { return Queues; }
-	inline RenderObject* GetRenderObject() { return ObjectToRender; }
+	inline RenderInitializationData* GetInitializationData() { return InitializationData; }
 	VkDevice_T* GetLogicalDevice();
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
@@ -116,8 +125,8 @@ protected:
 	void CreateCommandBuffers();
 	std::vector<VkCommandBuffer_T*> CommandBuffers;
 
-	void CreateVerticesBuffer();
-	void CreateIndexBuffer();
+	void CreateVertexBuffers();
+	void CreateIndexBuffers();
 	void CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size);
 	void CreateSyncObjects();
 
@@ -148,13 +157,10 @@ protected:
 	QueueStruct* Queues = nullptr;
 
 	bool FramebufferResized = false;
-	std::vector<Vertex> Vertices;
-	std::vector<unsigned int> Indices;
+	//std::vector<Vertex> Vertices;
+	//std::vector<unsigned int> Indices;
 
-	VkBuffer_T* VertexBuffer;
-	VkDeviceMemory_T* VertexBufferMemory;
-	VkBuffer_T* IndexBuffer;
-	VkDeviceMemory_T* IndexBufferMemory;
+	std::unordered_map<MeshStruct*, MeshDataStruct*> MeshDataMap;
 
 	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
 	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;
@@ -162,7 +168,7 @@ protected:
 	std::vector<VkFence_T*> ImagesInFlight;
 	size_t CurrentFrame = 0;
 	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
-	RenderObject* ObjectToRender;
+	RenderInitializationData* InitializationData;
 
 	void LoadModel();
 	const std::string MODEL_PATH = "Models/viking_room.obj";

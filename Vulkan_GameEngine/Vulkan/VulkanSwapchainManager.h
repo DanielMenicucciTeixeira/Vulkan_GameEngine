@@ -3,8 +3,10 @@
 
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 class VulkanManager;
+class FMatrix4;
 
 enum VkPresentModeKHR;
 enum VkFormat;
@@ -26,12 +28,28 @@ struct VkDescriptorPool_T;
 struct VkDescriptorSet_T;
 struct VkSampler_T;
 struct UniformBufferObject;
+struct UniformCameraObject;
+struct TextureStruct;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkImageAspectFlags;
 typedef VkFlags VkFormatFeatureFlags;
 typedef VkFlags VkImageUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
+
+struct ModelDataStruct
+{
+	VkBuffer_T* ModelBuffer;
+	VkDeviceMemory_T* ModelBufferMemory;
+};
+
+struct TextureDataStruct
+{
+	VkImage_T* TextureImage = nullptr;
+	VkDeviceMemory_T* TextureImageMemory = nullptr;
+	VkImageView_T* TextureImageView = nullptr;
+	VkSampler_T* TextureSampler = nullptr;
+};
 
 class VulkanSwapchainManager
 {
@@ -58,7 +76,7 @@ public:
 	void CreateDescriptorSets();
 	void CreateTextureImage();
 	void CreateTextureImageView();
-	void CreateTextureSampler();
+	void CreateTextureSampler(VkSampler_T*& sampler);
 
 	void RecreationCleanUp();
 	void FinalCleanUp();
@@ -72,34 +90,43 @@ public:
 	inline VkExtent2D* GetExtent() { return Extent; }
 	inline VkRenderPass_T* GetRenderPass() { return RenderPass; }
 	inline std::vector<VkFramebuffer_T*> GetFramebuffers() { return Framebuffers; }
-	inline std::vector<VkDescriptorSet_T*> GetDescriptorSets() { return DescriptorSets; }
+	inline std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() { return DescriptorSetsMap; }
 	inline std::vector<VkImage_T*> GetImages() { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
 	inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
-	void UpdateUniformBuffer(unsigned int currentImageIndex, UniformBufferObject& ubo);
+	void UpdateBuffers(unsigned int currentImageIndex);
 
 //Variables
 protected:
 	VkSwapchainKHR_T* Swapchain = nullptr;
+
 	std::vector<VkImage_T*> Images;
 	std::vector<VkFramebuffer_T*> Framebuffers;
 	VkFormat ImageFormat;
 	VkExtent2D* Extent = nullptr;
 	std::vector<VkImageView_T*> ImageViews;
+
 	VkRenderPass_T* RenderPass = nullptr;
+
 	VkImage_T* DepthImage = nullptr;
 	VkDeviceMemory_T* DepthImageMemory = nullptr;
 	VkImageView_T* DepthImageView = nullptr;
+
 	std::vector<VkBuffer_T*> UniformBuffers;
 	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
+
+	//std::vector<VkBuffer_T*> ModelBuffers;
+	//std::vector<VkDeviceMemory_T*> ModelBufferMemories;
+	std::unordered_map<FMatrix4*, std::vector<ModelDataStruct>> ModelMap;
+	std::vector<VkBuffer_T*> CameraBuffers;
+	std::vector<VkDeviceMemory_T*> CameraBufferMemories;
+
 	VkDescriptorPool_T* DescriptorPool = nullptr;
-	std::vector<VkDescriptorSet_T*> DescriptorSets;
+	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	VkDescriptorSetLayout_T* DescriptorSetLayout;
-	VkImage_T* TextureImage = nullptr;
-	VkImageView_T* TextureImageView = nullptr;
-	VkDeviceMemory_T* TextureImageMemory = nullptr;
-	VkSampler_T* TextureSampler = nullptr;
+
+	std::unordered_map<TextureStruct*, TextureDataStruct> TextureDataMap;
 
 	VulkanManager* Manager = nullptr;
 

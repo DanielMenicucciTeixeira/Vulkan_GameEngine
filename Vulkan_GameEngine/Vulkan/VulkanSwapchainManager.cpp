@@ -1,8 +1,9 @@
 #include "VulkanSwapchainManager.h"
 #include "VulkanManager.h"
-#include "UniformCameraObject.h"
+#include "UniformBufferObject.h"
 #include "Math/FVector3.h"
 #include "RenderObject.h"
+#include "RenderInitializationData.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
@@ -293,30 +294,46 @@ void VulkanSwapchainManager::CreateUniformBuffers()
 
     UniformBuffers.resize(Images.size());
     UniformBuffersMemory.resize(Images.size());
+    CameraBuffers.resize(Images.size());
+    CameraBufferMemories.resize(Images.size());
 
     for (size_t i = 0; i < Images.size(); i++)
     {
         Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, UniformBuffers[i], UniformBuffersMemory[i]);
+        Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraBuffers[i], CameraBufferMemories[i]);
+        
+        for (const auto& model : Manager->GetInitializationData()->Models)
+        {
+            ModelMap[model].resize(Images.size());
+            Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].ModelBuffer, ModelMap[model][i].ModelBufferMemory);
+        }
     }
 }
 
 void VulkanSwapchainManager::CreateDescriptorSetLayout()
 {
-    VkDescriptorSetLayoutBinding uboLayoutBinding{};
-    uboLayoutBinding.binding = 0;
-    uboLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    uboLayoutBinding.descriptorCount = 1;
-    uboLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-    uboLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    VkDescriptorSetLayoutBinding cameraLayoutBinding{};
+    cameraLayoutBinding.binding = 0;
+    cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    cameraLayoutBinding.descriptorCount = 1;
+    cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
+
+    VkDescriptorSetLayoutBinding modelLayoutBinding{};
+    modelLayoutBinding.binding = 1;
+    modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    modelLayoutBinding.descriptorCount = 1;
+    modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
 
     VkDescriptorSetLayoutBinding samplerLayoutBinding{};
-    samplerLayoutBinding.binding = 1;
+    samplerLayoutBinding.binding = 2;
     samplerLayoutBinding.descriptorCount = 1;
     samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    samplerLayoutBinding.pImmutableSamplers = nullptr;
     samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    samplerLayoutBinding.pImmutableSamplers = nullptr;
 
-    std::array<VkDescriptorSetLayoutBinding, 2> bindings = { uboLayoutBinding, samplerLayoutBinding };
+    std::array<VkDescriptorSetLayoutBinding, 3> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding };
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
     layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
     layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
@@ -332,15 +349,15 @@ void VulkanSwapchainManager::CreateDescriptorPool()
 {
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size());
+    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size() *Manager->GetInitializationData()->Models.size());
     poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size());
+    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetInitializationData()->Models.size());
 
     VkDescriptorPoolCreateInfo poolInfo{};
     poolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes = poolSizes.data();
-    poolInfo.maxSets = static_cast<uint32_t>(Images.size());
+    poolInfo.maxSets = static_cast<uint32_t>(Images.size() * Manager->GetInitializationData()->Models.size());
 
     if (vkCreateDescriptorPool(Manager->GetLogicalDevice(), &poolInfo, nullptr, &DescriptorPool) != VK_SUCCESS)
     {
@@ -350,52 +367,73 @@ void VulkanSwapchainManager::CreateDescriptorPool()
 
 void VulkanSwapchainManager::CreateDescriptorSets()
 {
-    std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
-
-    VkDescriptorSetAllocateInfo allocInfo{};
-    allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
-    allocInfo.descriptorPool = DescriptorPool;
-    allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
-    allocInfo.pSetLayouts = layouts.data();
-
-    DescriptorSets.resize(Images.size());
-    if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSets.data()) != VK_SUCCESS)
+    for (const auto& model : Manager->GetInitializationData()->Models)
     {
-        throw std::runtime_error("failed to allocate descriptor sets!");
+        std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
+
+        VkDescriptorSetAllocateInfo allocInfo{};
+        allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+        allocInfo.descriptorPool = DescriptorPool;
+        allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
+        allocInfo.pSetLayouts = layouts.data();
+
+        DescriptorSetsMap[model].resize(Images.size());
+        if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model].data()) != VK_SUCCESS)
+        {
+            throw std::runtime_error("failed to allocate descriptor sets!");
+        }
     }
 
     for (size_t i = 0; i < Images.size(); i++)
     {
-        VkDescriptorBufferInfo bufferInfo{};
-        bufferInfo.buffer = UniformBuffers[i];
-        bufferInfo.offset = 0;
-        bufferInfo.range = sizeof(UniformBufferObject);
+        VkDescriptorBufferInfo cameraInfo{};
+        cameraInfo.buffer = CameraBuffers[i];
+        cameraInfo.offset = 0;
+        cameraInfo.range = sizeof(UniformCameraObject);
 
-        VkDescriptorImageInfo imageInfo{};
-        imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-        imageInfo.imageView = TextureImageView;
-        imageInfo.sampler = TextureSampler;
+        for (const auto& texture : Manager->GetInitializationData()->MaterialToModelMap)
+        {
+            VkDescriptorImageInfo imageInfo{};
+            imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+            imageInfo.imageView = TextureDataMap[texture.first].TextureImageView;
+            imageInfo.sampler = TextureDataMap[texture.first].TextureSampler;
 
-        std::array<VkWriteDescriptorSet, 2> descriptorWrites{};
+            for (const auto& model : Manager->GetInitializationData()->MaterialToModelMap[texture.first])
+            {
+                VkDescriptorBufferInfo modelInfo{};
+                modelInfo.buffer = ModelMap[model][i].ModelBuffer;
+                modelInfo.offset = 0;
+                modelInfo.range = sizeof(FMatrix4);
 
-        descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-        descriptorWrites[0].dstSet = DescriptorSets[i];
-        descriptorWrites[0].dstBinding = 0;
-        descriptorWrites[0].dstArrayElement = 0;
-        descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        descriptorWrites[0].descriptorCount = 1;
-        descriptorWrites[0].pBufferInfo = &bufferInfo;
+                std::array<VkWriteDescriptorSet, 3> descriptorWrites{};
 
-        descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-        descriptorWrites[1].dstSet = DescriptorSets[i];
-        descriptorWrites[1].dstBinding = 1;
-        descriptorWrites[1].dstArrayElement = 0;
-        descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-        descriptorWrites[1].descriptorCount = 1;
-        descriptorWrites[1].pImageInfo = &imageInfo;
+                descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[0].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[0].dstBinding = 0;
+                descriptorWrites[0].dstArrayElement = 0;
+                descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                descriptorWrites[0].descriptorCount = 1;
+                descriptorWrites[0].pBufferInfo = &cameraInfo;
 
+                descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[1].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[1].dstBinding = 1;
+                descriptorWrites[1].dstArrayElement = 0;
+                descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                descriptorWrites[1].descriptorCount = 1;
+                descriptorWrites[1].pBufferInfo = &modelInfo;
 
-        vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
+                descriptorWrites[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[2].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[2].dstBinding = 2;
+                descriptorWrites[2].dstArrayElement = 0;
+                descriptorWrites[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+                descriptorWrites[2].descriptorCount = 1;
+                descriptorWrites[2].pImageInfo = &imageInfo;
+
+                vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
+            }
+        }
     }
 }
 
@@ -403,44 +441,45 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 {
     //int textureWidth, textureHeight, textureChannels;
     //stbi_uc* texturePixels = stbi_load(TEXTURE_PATH.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
-    int textureWidth = Manager->GetRenderObject()->Texture.Width;
-    int textureHeight = Manager->GetRenderObject()->Texture.Height;
-    unsigned char* texturePixels = Manager->GetRenderObject()->Texture.Pixels;
-
-    VkDeviceSize imageSize = textureWidth * textureHeight * 4;
-
-    if (!texturePixels)
+    for (const auto& texture : Manager->GetInitializationData()->MaterialToModelMap)
     {
-        throw std::runtime_error("Failed to load texture image!");
+        int textureWidth = texture.first->Width;
+        int textureHeight = texture.first->Height;
+        unsigned char* texturePixels = texture.first->Pixels;
+
+        VkDeviceSize imageSize = textureWidth * textureHeight * 4;
+
+        if (!texturePixels)
+        {
+            throw std::runtime_error("Failed to load texture image!");
+        }
+
+        VkBuffer stagingBuffer;
+        VkDeviceMemory stagingBufferMemory;
+
+        Manager->CreateBuffer(imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+        void* data;
+        vkMapMemory(Manager->GetLogicalDevice(), stagingBufferMemory, 0, imageSize, 0, &data);
+        memcpy(data, texturePixels, static_cast<size_t>(imageSize));
+        vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
+
+        stbi_image_free(texturePixels);
+
+        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[texture.first].TextureImage, TextureDataMap[texture.first].TextureImageMemory);
+
+        TransitionImageLayout(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+        CopyBufferToImage(stagingBuffer, TextureDataMap[texture.first].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
+        TransitionImageLayout(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+
+        vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
+        vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
+
+        TextureDataMap[texture.first].TextureImageView = CreateImageView(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
+        CreateTextureSampler(TextureDataMap[texture.first].TextureSampler);
     }
-
-    VkBuffer stagingBuffer;
-    VkDeviceMemory stagingBufferMemory;
-
-    Manager->CreateBuffer(imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
-    void* data;
-    vkMapMemory(Manager->GetLogicalDevice(), stagingBufferMemory, 0, imageSize, 0, &data);
-    memcpy(data, texturePixels, static_cast<size_t>(imageSize));
-    vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
-
-    stbi_image_free(texturePixels);
-
-    CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureImage, TextureImageMemory);
-
-    TransitionImageLayout(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-    CopyBufferToImage(stagingBuffer, TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
-    TransitionImageLayout(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
-
-    vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
-    vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
-void VulkanSwapchainManager::CreateTextureImageView()
-{
-    TextureImageView = CreateImageView(TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
-}
-
-void VulkanSwapchainManager::CreateTextureSampler()
+void VulkanSwapchainManager::CreateTextureSampler(VkSampler_T*& sampler)
 {
     VkSamplerCreateInfo samplerInfo{};
     samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
@@ -460,7 +499,7 @@ void VulkanSwapchainManager::CreateTextureSampler()
     samplerInfo.minLod = 0.0f;
     samplerInfo.maxLod = 0.0f;
 
-    if (vkCreateSampler(Manager->GetLogicalDevice(), &samplerInfo, nullptr, &TextureSampler) != VK_SUCCESS)
+    if (vkCreateSampler(Manager->GetLogicalDevice(), &samplerInfo, nullptr, &sampler) != VK_SUCCESS)
     {
         throw std::runtime_error("Failed to create texture sampler!");
     }
@@ -477,16 +516,29 @@ void VulkanSwapchainManager::RecreationCleanUp()
     vkDestroySwapchainKHR(Manager->GetLogicalDevice(), Swapchain, nullptr);
     for (const auto& buffer : UniformBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
     for (const auto& memory : UniformBuffersMemory) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
+    for (const auto& buffer : CameraBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
+    for (const auto& memory : CameraBufferMemories) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
+    for (const auto& model : ModelMap)
+    {
+        for (const auto& modelData : model.second) 
+        { 
+            vkDestroyBuffer(Manager->GetLogicalDevice(), modelData.ModelBuffer, nullptr);
+            vkFreeMemory(Manager->GetLogicalDevice(), modelData.ModelBufferMemory, nullptr);
+        }
+    }
     vkDestroyDescriptorPool(Manager->GetLogicalDevice(), DescriptorPool, nullptr);
 }
 
 void VulkanSwapchainManager::FinalCleanUp()
 {
     RecreationCleanUp();
-    vkDestroySampler(Manager->GetLogicalDevice(), TextureSampler, nullptr);
-    vkDestroyImageView(Manager->GetLogicalDevice(), TextureImageView, nullptr);
-    vkDestroyImage(Manager->GetLogicalDevice(), TextureImage, nullptr);
-    vkFreeMemory(Manager->GetLogicalDevice(), TextureImageMemory, nullptr);
+    for (const auto& textureData : TextureDataMap)
+    {
+        vkDestroySampler(Manager->GetLogicalDevice(), textureData.second.TextureSampler, nullptr);
+        vkDestroyImageView(Manager->GetLogicalDevice(), textureData.second.TextureImageView, nullptr);
+        vkDestroyImage(Manager->GetLogicalDevice(), textureData.second.TextureImage, nullptr);
+        vkFreeMemory(Manager->GetLogicalDevice(), textureData.second.TextureImageMemory, nullptr);
+    }
     vkDestroyDescriptorSetLayout(Manager->GetLogicalDevice(), DescriptorSetLayout, nullptr);
 }
 
@@ -610,7 +662,7 @@ void VulkanSwapchainManager::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* im
     Manager->EndSingleTimeCommands(commandBuffer);
 }
 
-void VulkanSwapchainManager::UpdateUniformBuffer(unsigned int currentImageIndex, UniformBufferObject& uniformBufferObject)//TODO remove depricated code
+void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)//TODO remove depricated code
 {
     /*static auto startTime = std::chrono::high_resolution_clock::now();
 
@@ -621,10 +673,20 @@ void VulkanSwapchainManager::UpdateUniformBuffer(unsigned int currentImageIndex,
     ubo.Model.SetToRotationMatrix(time * 90.0f, 0.0f, 0.0f, 1.0f);
     ubo.View.SetToLookAtMatrix(FVector3(2.0f, 2.0f, 2.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
     ubo.Projection.SetToPerspectiveMatrix(45.0f, Extent->width / (float)Extent->height, 0.1f, 10.0f);*/
-    uniformBufferObject.Projection[1][1] *= -1.0f;
+    Manager->GetInitializationData()->Camera->Projection[1][1] *= -1.0f;
 
-    void* data;
-    vkMapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex], 0, sizeof(uniformBufferObject), 0, &data);
-    memcpy(data, &uniformBufferObject, sizeof(uniformBufferObject));
-    vkUnmapMemory(Manager->GetLogicalDevice(), UniformBuffersMemory[currentImageIndex]);
+    void* cameraData;
+    VkDeviceMemory cameraTest = CameraBufferMemories[currentImageIndex];
+    vkMapMemory(Manager->GetLogicalDevice(), CameraBufferMemories[currentImageIndex], 0, sizeof(UniformCameraObject), 0, &cameraData);
+    memcpy(cameraData, Manager->GetInitializationData()->Camera, sizeof(UniformCameraObject));
+    vkUnmapMemory(Manager->GetLogicalDevice(), CameraBufferMemories[currentImageIndex]);
+
+    for (const auto& model : Manager->GetInitializationData()->Models)
+    {
+        void* modelData;
+        VkDeviceMemory test = ModelMap[model][currentImageIndex].ModelBufferMemory;
+        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory, 0, sizeof(FMatrix4), 0, &modelData);
+        memcpy(modelData, model, sizeof(FMatrix4));
+        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory);
+    }
 }

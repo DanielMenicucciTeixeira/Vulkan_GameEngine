@@ -108,6 +108,9 @@
     <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp">
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SDL\VGE_SDLManager.h">
@@ -170,9 +173,6 @@
     <ClInclude Include="Renderer.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="UniformCameraObject.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
     <ClInclude Include="Vertex.h">
       <Filter>Renderers</Filter>
     </ClInclude>
@@ -190,6 +190,15 @@
     </ClInclude>
     <ClInclude Include="Vulkan\VulkanSwapchainManager.h">
       <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformBufferObject.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderInitializationData.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

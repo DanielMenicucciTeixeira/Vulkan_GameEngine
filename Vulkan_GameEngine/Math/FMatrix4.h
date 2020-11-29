@@ -2,6 +2,7 @@
 #define FMATRIX4_H
 
 class FVector3; 
+class FQuaternion;
 class FMatrix;
 #include "FVector4.h"
 
@@ -85,23 +86,32 @@ public:
 	void SetToIdentity();
 
 	//Makes this Matrix a Rotation Matrix on given axis with given degrees optionaly, input true to give the angle in radians
-	FMatrix4 GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
+	static FMatrix4 GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
+
+	static FMatrix4 GetRotationMatrix(const FQuaternion& rotation);
+	inline static FMatrix4 GetRotationMatrix(const FQuaternion*& rotation) { return GetRotationMatrix(*rotation); }
 
 	void SetToRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
 
-	void SetToLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up);
+	void SetToLookAtMatrix(const FVector3& eye, const FVector3& target, const FVector3& up);
 
-	FMatrix4 GetLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up);
+	static FMatrix4 GetLookAtMatrix(const FVector3& eye, const FVector3& target, const FVector3& up);
 
 	void SetToPerspectiveMatrix(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian = false);
 
-	FMatrix4 GetPerspectiveMatrix(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian = false);
+	static FMatrix4 GetPerspectiveMatrix(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian = false);
 
 	//Makes this Matrix a Scaling Matrix with X, Y and Z respectively on the diagonal
 	void SetToScalingMatrix(float scaleX, float scaleY, float scaleZ);
 
+	static FMatrix4 GetScalingMatrix(const FVector3& scale);
+	inline static FMatrix4 GetScalingMatrix(const FVector3*& scale) { return GetScalingMatrix(*scale); }
+
 	//Makes this Matrix a Translation Matrix
 	void SetToTranslationMatrix(float X, float Y, float Z);
+
+	static FMatrix4 GetTranslationMatrix(const FVector3& position);
+	inline static FMatrix4 GetTranslationMatrix(const FVector3*& position) { return GetTranslationMatrix(*position); }
 
 	//Swaps rows and Columns
 	void Transpose();

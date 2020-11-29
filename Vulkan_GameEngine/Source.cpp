@@ -7,6 +7,12 @@
 #include "UniformBufferObject.h"
 #include "RenderInitializationData.h"
 #include "GameObject.h"
+#include "Component.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/quaternion.hpp>
+#include "Math/FQuaternion.h"
 
 #include <SDL.h>
 #include <iostream>
@@ -25,39 +31,34 @@ void UpdateUBO(FMatrix4* model, UniformCameraObject* camera)
 	camera->Projection.SetToPerspectiveMatrix(45.0f, 800.0f / 600.0f, 0.1f, 10.0f);
 }
 
+void glPrintMat4(glm::mat4 matrix)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			printf("%f\t", matrix[i][j]);
+		}
+		printf("\n");
+	}
+}
+
+void glPrintQuat(glm::quat quat)
+{
+	printf("[ %f,\t%f,\t%f,\t%f ]\n", quat.x, quat.y, quat.z, quat.w);
+}
+
 int main(int argc, char* argv[])
 {
+
+	O_GameObject* Thing = new O_GameObject();
+	Thing->AddComponentOfClass<O_Component>();
+	delete(Thing);
+
 	std::system("Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
-	
-	
-	MeshStruct vikingRoomMesh;
-	TextureStruct vikingRoomTexture;
-	MeshLoader::LoadMesh("Models/viking_room.obj", &vikingRoomMesh);
-	TextureLoader::LoadTexture("Textures/viking_room.png", &vikingRoomTexture);
-
-	MeshStruct sphereMesh;
-	TextureStruct sphereTexture;
-	MeshLoader::LoadMesh("Models/sphere.obj", &sphereMesh);
-	TextureLoader::LoadTexture("Textures/texture.jpg", &sphereTexture);
-
-
-	UniformCameraObject* Camera = new UniformCameraObject();
-	
-
-	GameObject* VikingRoom = new GameObject();
-	VikingRoom->Mesh = &vikingRoomMesh;
-	VikingRoom->Texture = &vikingRoomTexture;
-
-	GameObject* Sphere = new GameObject();
-	Sphere->Mesh = &sphereMesh;
-	Sphere->Texture = &sphereTexture;
 
 	RenderInitializationData* renderData = new RenderInitializationData();
-	renderData->LoadGameObject(VikingRoom);
-	renderData->LoadGameObject(Sphere);
-	renderData->Camera = Camera;
-
 	VGE_SDLManager* SDLManager = new VGE_SDLManager();
 	SDLManager->Begin();
 	Renderer* GameRenderer = new VulkanManager(SDLManager->GetWindow());
@@ -67,9 +68,6 @@ int main(int argc, char* argv[])
 		GameRenderer->Initialize(renderData);
 		while (SDLManager->GetEvent().type != SDL_QUIT)
 		{
-			UpdateUBO(VikingRoom->Model, Camera);
-			Sphere->Model->SetToScalingMatrix(0.2, 0.2, 0.2);
-
 			GameRenderer->Render();
 		}
 		GameRenderer->CleanUp();
@@ -85,9 +83,6 @@ int main(int argc, char* argv[])
 	//Cleanup
 	if(SDLManager != nullptr) delete(SDLManager);
 	if (GameRenderer != nullptr) delete(GameRenderer);
-	if (VikingRoom != nullptr) delete(VikingRoom);
-	if (Sphere != nullptr) delete(Sphere);
-	if (Camera != nullptr) delete(Camera);
 	if (renderData != nullptr) delete(renderData);
 	//-------
 

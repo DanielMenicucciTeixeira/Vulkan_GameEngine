@@ -1,6 +1,8 @@
 #ifndef FVector3_H
 #define FVector3_H
 
+class FQuaternion;
+
 class FVector3
 {
 public:
@@ -13,10 +15,10 @@ public:
 	FVector3(float x, float y, float z);
 
 	//Constructor initializing all components to a single float value.
-	FVector3(float Float);
+	FVector3(float value);
 
 	//Constructor initializing to match a given FVector3, a copy constructor
-	FVector3(const FVector3& InitilizerVector);
+	FVector3(const FVector3& vector);
 
 	//Contructor initalizaing to match given values
 	FVector3(float values[3]);
@@ -30,29 +32,34 @@ public:
 
 	///Operators
 
-	FVector3 operator+ (FVector3 vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	FVector3 operator+ (const FVector3& vector) const;//Overload of the "+" operator, makes a vector plus vector addition.
+	inline FVector3 operator+ (const FVector3*& vector) const { return *this + *vector; }
 
-	FVector3 operator- (FVector3 vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	FVector3 operator- (const FVector3& vector) const;//Overload of the "-" operator, makes a vector minus vector subtraction.
+	inline FVector3 operator- (const FVector3*& vector) const { return *this - *vector; }
 
-	FVector3 operator* (float multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
+	FVector3 operator* (float multiplier) const;//Overload of the "*" operator, makes a vector times scalar multiplication.
 
-	FVector3 operator/ (float divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
+	FVector3 operator/ (float divisor) const;//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	float operator* (FVector3 vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	float operator* (const FVector3& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
+	inline float operator* (const FVector3*& vector) const { return *this * *vector; }
 
-	void operator= (FVector3 vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
-
-	void operator= (FVector3* vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	void operator= (const FVector3& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
+	inline void operator= (FVector3* vector) { *this = *vector; }
 
 	void operator= (float values[3]);
 
-	void operator+= (FVector3 vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	void operator+= (const FVector3& vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	inline void operator+= (const FVector3*& vector) { *this += *vector; }
 
-	void operator-= (FVector3 vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+	void operator-= (const FVector3& vector);//Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
+	inline void operator-= (const FVector3*& vector) { *this -= *vector; }
 
-	bool operator== (FVector3 vector);//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
+	bool operator== (const FVector3& vector) const;//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
+	inline bool operator== (const FVector3*& vector) const { return *this == *vector; }
 
-	///The next 4 operators make sure the FVector3 class can be used as an values by API such as Open-GL and Vulkan
+	///The next 4 operators make sure the FVector3 class can be used as an values by APIs such as Open-GL and Vulkan
 		inline const float operator[] (unsigned int index) const { return *(&X + index); }//For R-values
 		inline float& operator[] (unsigned int index) { return*(&X + index); }//For L-Values
 
@@ -64,30 +71,33 @@ public:
 	///Functions
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
-	float Length();
+	float Length() const;
 
 	//Returns the angle between this vector and another given vector in degrees.
-	float GetAngle(FVector3 Vector);
-
-	//Returns the angle between this vector and another given vector in radians.
-	float GetRadAngle(FVector3 Vector);
+	float GetAngle(const FVector3& vector, bool inRadians = false);
+	inline float GetAngle(const FVector3*& vector, bool inRadians = false) { return GetAngle(*vector, inRadians); }
 
 	//Returns the cross product between this vector and another given vector.
-	FVector3 CrossProduct(FVector3 Vector);
+	FVector3 CrossProduct(const FVector3& vector);
+	inline FVector3 CrossProduct(const FVector3*& vector) { return CrossProduct(*vector); }
 
 	//Gets the normalized form of this Vector
-	FVector3 GetNormal();
+	FVector3 GetNormal() const;
 
 	//Divides the vector by its Magnitude to get the normalized unit vector.
 	void Normalize();
 
-	//Rotates the vector by disered amount in degrees in the Z axis
-	void RotateZ(float Degrees);
+	//Rotates the vector by a quarternion
+	void Rotate(const FQuaternion& rotation);
+	inline void Rotate(const FQuaternion*& rotation) { Rotate(*rotation); }
 
-	//Rotates the vector by disered amount in radians in the Z axis
-	void RotateZRad(float Degrees);
+	//Returns the rotated form of the vector given a quaternion
+	FVector3 GetRotatedVector(const FQuaternion& rotation) const;
+	inline FVector3 GetRotatedVector(const FQuaternion*& rotation) const { return GetRotatedVector(*rotation); }
 
 	//Utility to populate vector
 	inline void Load(float x, float y, float z);
+
+	void Print();
 };
 #endif

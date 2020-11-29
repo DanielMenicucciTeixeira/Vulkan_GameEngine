@@ -1,24 +1,26 @@
 #ifndef FTransform_
 #define FTransform_
 
-#include "FQuaternion.h"
-#include "FVector3.h"
+class FVector3;
+class FQuaternion;
+class FMatrix4;
 
-//class FQuaternion;
-
-class FTransform
+struct FTransform
 {
-public:
-	//Constructors
-
 	FTransform();
-
-	FTransform(FVector3 InPosition, FVector3 InScale = FVector3(0, 0, 0));
+	FTransform(const FTransform& transform);
+	FTransform(const FVector3& position, const FQuaternion& rotation, const FVector3& scale);
 
 	~FTransform();
 
-	FVector3 Position;
-	FVector3  Scale;
+	FVector3* Position;
+	FVector3*  Scale;
 	FQuaternion* Rotation;
+
+	FMatrix4 GetModelMatrix() const;
+	void operator= (const FTransform& transform);
+	inline void operator= (const FTransform*& transform) { *this = *transform; }
+	bool operator== (const FTransform& transform) const;
+	inline bool operator== (const FTransform*& transform) const { return *this == *transform; }
 };
 #endif

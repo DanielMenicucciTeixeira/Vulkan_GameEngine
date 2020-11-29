@@ -30,15 +30,15 @@ public:
 
 	///Operators
 
-	FVector4 operator+ (const FVector4& vector);//Overload of the "+" operator, makes a vector plus vector addition.
+	FVector4 operator+ (const FVector4& vector) const;//Overload of the "+" operator, makes a vector plus vector addition.
 
-	FVector4 operator- (const FVector4& vector);//Overload of the "-" operator, makes a vector minus vector subtraction.
+	FVector4 operator- (const FVector4& vector) const;//Overload of the "-" operator, makes a vector minus vector subtraction.
 
-	FVector4 operator* (float multiplier);//Overload of the "*" operator, makes a vector times scalar multiplication.
+	FVector4 operator* (float multiplier) const;//Overload of the "*" operator, makes a vector times scalar multiplication.
 
-	FVector4 operator/ (float divisor);//Overload of the "/" operator, makes a vector divided by scalar division.
+	FVector4 operator/ (float divisor) const;//Overload of the "/" operator, makes a vector divided by scalar division.
 
-	float operator* (const FVector4& vector);//Overload of the "*" operator, makes a vector times vector dot product.
+	float operator* (const FVector4& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
 
 	void operator= (const FVector4& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 
@@ -63,21 +63,23 @@ public:
 	///Functions
 
 	//This function treats BOTH vectors as their 3D vector(FVector3) counterparts, as there is no cross product between two 4D vectors.
-	FVector3 CrossProduct(const FVector4& Vector);
+	FVector3 CrossProduct(const FVector4& Vector) const;
 
-	inline float Dot(const FVector4& Vector) { return (X * Vector.X) + (Y * Vector.Y) + (Z * Vector.Z) + (W * Vector.W); }
+	inline float Dot(const FVector4& Vector) const { return (X * Vector.X) + (Y * Vector.Y) + (Z * Vector.Z) + (W * Vector.W); }
 
 	//Returns the magnitude of the Vector (or Vector's scalar lenght)
-	float Length();
+	float Length() const;
 
 	//Gets the normalized form of this Vector
-	FVector4 GetNormal();
+	FVector4 GetNormal() const;
 
 	//Divides the vector by its Magnitude to get the normalized unit vector.
 	void Normalize();
 
 	//Utility to populate vector
 	inline void Load(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; W = W; }
+
+	void Print() const;
 };
 
 #endif // !FVECTOR4_H

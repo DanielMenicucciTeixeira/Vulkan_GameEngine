@@ -1,18 +1,18 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
+#include "Object.h"
 
-class GameObject;
+class O_GameObject;
 
-class Component
+class O_Component : public O_Object
 {
-protected:
-	GameObject* Parent = nullptr;
-	Component();
-	inline Component(GameObject* parent) { Parent = parent; }
-
 public:
-	inline void SetParent(GameObject* gameObject) { Parent = gameObject; }
-	virtual void Update(float deltaTime);
+	inline O_Component(O_GameObject* owner) { Owner = owner; }
+	inline void SetOwner(O_GameObject* gameObject) { Owner = gameObject; }
+	inline O_GameObject* GetOwner() { return Owner; }
+
+protected:
+	O_GameObject* Owner = nullptr;
 };
 
 #endif // !COMPONENT_H

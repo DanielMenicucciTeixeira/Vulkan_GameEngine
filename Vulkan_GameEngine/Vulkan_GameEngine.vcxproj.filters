@@ -40,6 +40,9 @@
     <Filter Include="Renderers\Shaders\BaseShader">
       <UniqueIdentifier>{2b822bc2-338f-444a-ae61-5b458378ff69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{18bc5a66-56e6-4209-ab5d-4c13aadb0386}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -109,6 +112,9 @@
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -198,6 +204,15 @@
       <Filter>Renderers</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

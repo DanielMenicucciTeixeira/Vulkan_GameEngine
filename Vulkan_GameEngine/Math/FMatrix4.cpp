@@ -3,6 +3,7 @@
 #include "FVector4.h"
 #include "FVector3.h"
 #include "FMatrix.h"
+#include "FQuaternion.h"
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -450,20 +451,42 @@ FMatrix4 FMatrix4::GetRotationMatrix(float angle, float x, float y, float z, boo
 	return returnMatrix;
 }
 
+FMatrix4 FMatrix4::GetRotationMatrix(const FQuaternion& rotation)
+{
+	FMatrix4 matrixA
+	(
+		rotation.W, rotation.Z, -rotation.Y, rotation.X,
+		-rotation.Z, rotation.W, rotation.X, rotation.Y,
+		rotation.Y, -rotation.X, rotation.W, rotation.Z,
+		-rotation.X, -rotation.Y, -rotation.Z, rotation.W
+	);
+
+	FMatrix4 matrixB
+	(
+		rotation.W, rotation.Z, -rotation.Y, -rotation.X,
+		-rotation.Z, rotation.W, rotation.X, -rotation.Y,
+		rotation.Y, -rotation.X, rotation.W, -rotation.Z,
+		rotation.X, rotation.Y, rotation.Z, rotation.W
+	);
+
+	return matrixA * matrixB;
+}
+
 void FMatrix4::SetToRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian)
 {
 	*this = GetRotationMatrix(angle, x, y, z, isAngleRadian);
 }
 
-void FMatrix4::SetToLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up)
+void FMatrix4::SetToLookAtMatrix(const FVector3& eye, const FVector3& target, const FVector3& up)
 {
 	*this = GetLookAtMatrix(eye, target, up);
 }
 
-FMatrix4 FMatrix4::GetLookAtMatrix(FVector3 eye, FVector3 target, FVector3 up)
+FMatrix4 FMatrix4::GetLookAtMatrix(const FVector3& eye, const FVector3& target, const FVector3& up)
 {
 	FMatrix4 returnMatrix;
-	FVector3 forward = (target - eye).GetNormal();
+	FVector3 forward = (target - eye);
+	forward.Normalize();
 	FVector3 right = forward.CrossProduct(up).GetNormal();
 	FVector3 upVec = right.CrossProduct(forward).GetNormal();
 
@@ -517,13 +540,31 @@ void FMatrix4::SetToScalingMatrix(float scaleX, float scaleY, float scaleZ)
 	Colum[2][2] = scaleZ;
 }
 
-void FMatrix4::SetToTranslationMatrix(float X, float Y, float Z)
+FMatrix4 FMatrix4::GetScalingMatrix(const FVector3& scale)
+{
+	FMatrix4 returnMatrix;
+	returnMatrix.Colum[0][0] = scale.X;
+	returnMatrix.Colum[1][1] = scale.Y;
+	returnMatrix.Colum[2][2] = scale.Z;
+	return returnMatrix;
+}
+
+void FMatrix4::SetToTranslationMatrix(float x, float y, float z)
 {
 	SetToIdentity();
 
-	Colum[3][0] = X;
-	Colum[3][1] = Y;
-	Colum[3][2] = Z;
+	Colum[3][0] = x;
+	Colum[3][1] = y;
+	Colum[3][2] = z;
+}
+
+FMatrix4 FMatrix4::GetTranslationMatrix(const FVector3& position)
+{
+	FMatrix4 returnMatrix;
+	returnMatrix.Colum[3][0] = position.X;
+	returnMatrix.Colum[3][1] = position.Y;
+	returnMatrix.Colum[3][2] = position.Z;
+	return returnMatrix;
 }
 
 //Swaps rows and Columns

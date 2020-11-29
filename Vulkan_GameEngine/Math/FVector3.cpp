@@ -1,5 +1,9 @@
 #include "FVector3.h"
+#include "FQuaternion.h"
+
+#define _USE_MATH_DEFINES
 #include <cmath>
+#include <iostream>
 
 ///Constructors
 
@@ -12,21 +16,21 @@ FVector3::FVector3(float x, float y, float z)
 }
 
 //Constructor initializing all components to a single float value.
-FVector3::FVector3(float Float)
+FVector3::FVector3(float value)
 {
-	X = Y = Z = Float;
+	X = Y = Z = value;
 }
 
-inline FVector3::FVector3(const FVector3 & InitilizerVector)
+inline FVector3::FVector3(const FVector3& vector)
 {
-	Load(InitilizerVector.X, InitilizerVector.Y, InitilizerVector.Z);
+	Load(vector.X, vector.Y, vector.Z);
 }
 
 FVector3::FVector3(float values[3])
 {
 	X = values[0];
-	X = values[1];
-	X = values[2];
+	Y = values[1];
+	Z = values[2];
 }
 
 //Default Constructor, initializes all values to 0;
@@ -46,85 +50,75 @@ FVector3::~FVector3()
 ///Operators
 
 //Overload of the "+" operator, makes a vector plus vector addition.
-FVector3 FVector3::operator+(FVector3 Vector)
+FVector3 FVector3::operator+(const FVector3& vector) const
 {
-	FVector3 Result;
+	FVector3 result;
 
-	Result.X = X + Vector.X;
-	Result.Y = Y + Vector.Y;
-	Result.Z = Z + Vector.Z;
+	result.X = X + vector.X;
+	result.Y = Y + vector.Y;
+	result.Z = Z + vector.Z;
 
-	return Result;
+	return result;
 }
 
 //Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
-void FVector3::operator+=(FVector3 Vector)
+void FVector3::operator+=(const FVector3& vector)
 {
-	X += Vector.X;
-	Y += Vector.Y;
-	Z += Vector.Z;
+	X += vector.X;
+	Y += vector.Y;
+	Z += vector.Z;
 }
 
 //Overload of the "-=" operator, makes a vector minus vector subtraction. changing the current vector to equal the result.
-void FVector3::operator-=(FVector3 Vector)
+void FVector3::operator-=(const FVector3& vector)
 {
-	X -= Vector.X;
-	Y -= Vector.Y;
-	Z -= Vector.Z;
+	X -= vector.X;
+	Y -= vector.Y;
+	Z -= vector.Z;
 }
 
-bool FVector3::operator==(FVector3 Vector)
+bool FVector3::operator==(const FVector3& vector) const
 {
-	return X == Vector.X && Y == Vector.Y && Z == Vector.Z;
+	return X == vector.X && Y == vector.Y && Z == vector.Z;
 }
 
 //Overload of the "-" operator, makes a vector minus vector subtraction.
-FVector3 FVector3::operator-(FVector3 Vector)
+FVector3 FVector3::operator-(const FVector3& vector) const
 {
 
 	FVector3 Result;
 
-	Result.X = X - Vector.X;
-	Result.Y = Y - Vector.Y;
-	Result.Z = Z - Vector.Z;
+	Result.X = X - vector.X;
+	Result.Y = Y - vector.Y;
+	Result.Z = Z - vector.Z;
 
 	return Result;
 }
 
 //Overload of the "*" operator, makes a vector times scalar multiplication.
-FVector3 FVector3::operator*(float Multiplier)
+FVector3 FVector3::operator*(float multiplier) const
 {
-	return FVector3(X * Multiplier, Y * Multiplier, Z * Multiplier);
+	return FVector3(X * multiplier, Y * multiplier, Z * multiplier);
 }
 
 //Overload of the "/" operator, makes a vector divided by scalar division.
-FVector3 FVector3::operator/(float Divisor)
+FVector3 FVector3::operator/(float divisor) const
 {
-	return FVector3(X / Divisor, Y / Divisor, Z / Divisor);
+	return FVector3(X / divisor, Y / divisor, Z / divisor);
 }
 
 //Overload of the "*" operator, makes a vector times vector dot product.
-float FVector3::operator*(FVector3 Vector)
+float FVector3::operator*(const FVector3& vector) const
 {
-	return (X*Vector.X + Y*Vector.Y + Z*Vector.Z);
+	return (X*vector.X + Y*vector.Y + Z*vector.Z);
 }
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
-void FVector3::operator=(FVector3 Vector)
+void FVector3::operator=(const FVector3& vector)
 {
-	X = Vector.X;
-	Y = Vector.Y;
-	Z = Vector.Z;
-}
-
-//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
-void FVector3::operator=(FVector3 * Vector)
-{
-	if (Vector == nullptr) return;
-
-	X = Vector->X;
-	Y = Vector->Y;
-	Z = Vector->Z;
+	X = vector.X;
+	Y = vector.Y;
+	Z = vector.Z;
 }
 
 void FVector3::operator=(float values[3])
@@ -136,42 +130,33 @@ void FVector3::operator=(float values[3])
 
 ///Functions
 
-//Returns the magnitude of the Vector (or Vector's scalar lenght)
-float FVector3::Length()
+//Returns the magnitude of the vector (or vector's scalar lenght)
+float FVector3::Length() const
 {
-	return sqrt(X*X + Y*Y + Z*Z);
+	return sqrt(X * X + Y * Y + Z * Z);
 }
 
 //Returns the angle between this vector and another given vector in degrees.
-float FVector3::GetAngle(FVector3 Vector)
+float FVector3::GetAngle(const FVector3& vector, bool inRadians)
 {
-	FVector3 thisVector;
-	thisVector.X = X;
-	thisVector.Y = Y;
-	thisVector.Z = Z;
-	
-	return acos((thisVector * Vector)/(thisVector.Length() * Vector.Length())) * 180.0f/ 3.14159265f;
-}
-
-//Returns the angle between this vector and another given vector in radians.
-float FVector3::GetRadAngle(FVector3 Vector)
-{
-	FVector3 thisVector;
-	thisVector.X = X;
-	thisVector.Y = Y;
-	thisVector.Z = Z;
-
-	return acos((thisVector * Vector) / (Length() * Vector.Length()));
+	if (inRadians)
+	{
+		return acos((*this * vector) / (Length() * vector.Length()));
+	}
+	else
+	{
+		return acos((*this * vector) / (Length() * vector.Length())) * 180.0f / M_PI;
+	}
 }
 
 //Returns the Cross product of this vector and another given vector.
-FVector3 FVector3::CrossProduct(FVector3 Vector)
+FVector3 FVector3::CrossProduct(const FVector3& vector)
 {
-	return FVector3(Y*Vector.Z - Z*Vector.Y, Z*Vector.X - X*Vector.Z, X*Vector.Y - Y*Vector.X);
+	return FVector3(Y*vector.Z - Z*vector.Y, Z*vector.X - X*vector.Z, X*vector.Y - Y*vector.X);
 }
 
-//Gets the normalized form of this Vector
-FVector3 FVector3::GetNormal()
+//Gets the normalized form of this vector
+FVector3 FVector3::GetNormal() const
 {
 
 	return *this/Length();
@@ -183,20 +168,25 @@ void FVector3::Normalize()
 	*this = *this/Length();
 }
 
-//Rotates the vector by X degrees in the Z axis
-void FVector3::RotateZ(float Degrees)
+void FVector3::Rotate(const FQuaternion& rotation)
 {
-	Degrees *= 0.0174533f;
+	// Extract the vector part of the quaternion
+	FVector3 vector(rotation.X, rotation.Y, rotation.Z);
 
-	X = X * cos(Degrees) - Y * sin(Degrees);
-	Y = X * sin(Degrees) + Y * cos(Degrees);
+	// Extract the scalar part of the quaternion
+	float scalar = rotation.W;
 
+	// Do the math
+	*this =   (vector * (2.0f * (vector * *this )))
+			+ (*this * (scalar * scalar - (vector * vector)))
+			+ (vector.CrossProduct(*this) * 2.0f * scalar);
 }
-//Rotates the vector by disered amount in radians in the Z axis
-void FVector3::RotateZRad(float Degrees)
+
+FVector3 FVector3::GetRotatedVector(const FQuaternion& rotation) const
 {
-	X = X * cos(Degrees) - Y * sin(Degrees);
-	Y = X * sin(Degrees) + Y * cos(Degrees);
+	FVector3 temp = *this;
+	temp.Rotate(rotation);
+	return temp;
 }
 
 inline void FVector3::Load(float x, float y, float z)
@@ -204,4 +194,9 @@ inline void FVector3::Load(float x, float y, float z)
 	X = x;
 	Y = y;
 	Z = z;
+}
+
+void FVector3::Print()
+{
+	printf("[ %f,\t%f,\t%f ]\n", X, Y, Z);
 }

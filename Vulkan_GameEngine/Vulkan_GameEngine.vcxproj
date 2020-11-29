@@ -166,6 +166,7 @@
     <ClCompile Include="Math\FVector3.cpp" />
     <ClCompile Include="Math\FVector4.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="SDL\VGE_SDLEventHandler.cpp" />
     <ClCompile Include="SDL\VGE_SDLManager.cpp" />
     <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
@@ -179,12 +180,15 @@
     <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
     <ClInclude Include="Core\EngineEvent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Geometry\Box.h" />
     <ClInclude Include="Geometry\Plane.h" />
     <ClInclude Include="Geometry\Ray.h" />
     <ClInclude Include="Geometry\Sphere.h" />
+    <ClInclude Include="MovementComponent.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Math\FMatrix.h" />
     <ClInclude Include="Math\FMatrix4.h" />
     <ClInclude Include="Math\FQuaternion.h" />

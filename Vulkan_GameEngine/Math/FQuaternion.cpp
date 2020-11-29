@@ -1,12 +1,12 @@
 #include "FQuaternion.h"
 
-#include "FMatrix.h"
+#include "FMatrix4.h"
 #include "FVector3.h"
 
 #include<cmath>
 #include <stdio.h>
 
-FQuaternion::FQuaternion(FVector3 axis, float angle, bool isRotation, bool inRadians)
+FQuaternion::FQuaternion(const FVector3& axis, float angle, bool isRotation, bool inRadians)
 {
 	if (isRotation)
 	{
@@ -64,15 +64,7 @@ void FQuaternion::Invert()
 	W = W / Length();
 }
 
-FMatrix FQuaternion::GetRotationMatrix()
-{
-	FVector3 row0 = FVector3(1 - 2 * pow(Y,2) - 2 * pow(Z,2), 2 * X * Y - 2 * Z * W, 2 * X * Z + 2 * Y * W);
-	FVector3 row1 = FVector3(2 * X * Y + 2 * Z * W, 1 - 2 * pow(X,2) - 2 * pow(Z,2), 2 * Y * Z - 2 * X * W);
-	FVector3 row2 = FVector3(2 * X * Z - 2 * Y * W, 2 * Y * Z + 2 * X * W, 1 - 2 * pow(X,2) - 2 * pow(Y,2));
-	return FMatrix(row0, row1, row2);
-}
-
-FVector3 FQuaternion::GetEulerAngle()
+FVector3 FQuaternion::GetEulerAngle() const
 {
 	float a = atan2(2 * (W * X + Y * Z), 1 - 2 * (pow(X, 2) + pow(Y, 2)));
 	float b = asin(2 * (W * Y - Z * X));
@@ -80,16 +72,9 @@ FVector3 FQuaternion::GetEulerAngle()
 	return FVector3(a, b, c);
 }
 
-FVector3 FQuaternion::RotateVector(FVector3 vector)
+FVector3 FQuaternion::GetRotatedVector(const FVector3& vector, const FQuaternion& quaternion)
 {
-	FQuaternion pureQuat = FQuaternion(vector, 0, false);
-	pureQuat = *this * pureQuat * GetConjugated();
-	return FVector3(pureQuat.X, pureQuat.Y, pureQuat.Z);
-}
-
-void FQuaternion::PrintQuaternion()
-{
-	printf("\n[%f, %f, %f, %f]", X, Y, Z, W);
+	return vector.GetRotatedVector(quaternion);
 }
 
 FQuaternion::~FQuaternion()

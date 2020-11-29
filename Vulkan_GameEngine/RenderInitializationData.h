@@ -14,11 +14,9 @@ struct RenderInitializationData
 	std::vector<FMatrix4*> Models;
 	UniformCameraObject* Camera;
 
-	void LoadGameObject(GameObject* gameObject)
+	void LoadGameObject(O_GameObject* gameObject)
 	{
-		MeshToMaterialMap[gameObject->Mesh].insert(gameObject->Texture);
-		MaterialToModelMap[gameObject->Texture].push_back(gameObject->Model);
-		Models.push_back(gameObject->Model);
+		Models.push_back(gameObject->GetModelMatrixPointer());
 	}
 };
 #endif // !RENDERINITIALIZATIONDATA_H

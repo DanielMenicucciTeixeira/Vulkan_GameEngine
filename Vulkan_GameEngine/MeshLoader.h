@@ -3,12 +3,12 @@
 
 #include <string>
 
-struct MeshStruct;
+struct S_Mesh;
 
 class MeshLoader
 {
 public:
-	static void LoadMesh(std::string meshPath, MeshStruct* mesh);
+	static void LoadMesh(std::string meshPath, S_Mesh* mesh);
 };
 #endif
 

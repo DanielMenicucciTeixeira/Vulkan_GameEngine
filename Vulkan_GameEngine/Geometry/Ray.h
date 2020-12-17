@@ -8,7 +8,7 @@ class Ray
 public:
 	//Contructors
 	Ray();
-	Ray(FVector3* Start, FVector3* Direction, int Length = 0, bool Infinit = true);
+	Ray(const FVector3& start, const FVector3& direction, float length = 0, bool infinit = true);
 
 	~Ray();
 
@@ -19,12 +19,16 @@ private:
 	bool Infinit;
 
 public:
-	FVector3 GetPosition(float displacement);
+	FVector3 GetPosition(float displacement) const;
 
-	FVector3* GetStartPosition() { return StartPosition; }
-	FVector3* GetDirection() { return Direction; }
-	inline float GetLenght() { return Lenght; }
-	inline bool IsInfinit() { return Infinit; }
+	FVector3 GetStartPosition() const;
+	FVector3 GetDirection() const;
+
+	void SetStartPosition(const FVector3& position);
+	void SetDirection(const FVector3& direction);
+
+	inline float GetLenght() const { return Lenght; }
+	inline bool IsInfinit() const { return Infinit; }
 };
 
 #endif

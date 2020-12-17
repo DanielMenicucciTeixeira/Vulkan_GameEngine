@@ -9,45 +9,49 @@ class FVector3;
 class FQuaternion;
 class O_Component;
 struct FTransform;
+class C_TransformComponent;
+class O_Level;
 
 class O_GameObject : public O_Object
 {
 public:
-	O_GameObject();
+	O_GameObject(O_Level* level = nullptr);
 	~O_GameObject();
 
 	void Update(float deltaTime) override;
 
 	///Gettters
-	inline FMatrix4* GetModelMatrixPointer() const { return ModelMatrix; }
 	FTransform GetTransform() const;
 	FVector3 GetPosition() const;
 	FQuaternion GetRotation() const;
 	FVector3 GetScale() const;
+	inline C_TransformComponent* GetRoot() const { return Root; }
 
 	///Setters
 	void SetTransform(const FTransform& transform);
 	void SetPosition(const FVector3& position);
 	void SetRotation(const FQuaternion& rotation);
 	void SetScale(const FVector3& scale);
+	void SetRoot(C_TransformComponent* root);
 	
 	template<class componentClass>
-	void AddComponentOfClass()
+	componentClass* AddComponentOfClass()
 	{
-		Components.push_back(new componentClass(this));
+		componentClass* component = new componentClass(this);
+		Components.push_back(component);
+		return component;
 	}
 
 	template<class componentClass>
 	std::vector<componentClass*> GetComponentsOfClass()
 	{
 		std::vector<componentClass*> returnVector;
-		for (const auto& component : Components) if (dynamic_cast<componentClass*>(component)) returnVector.push_back(component);
+		for (const auto component : Components) if (dynamic_cast<componentClass*>(component)) returnVector.push_back(dynamic_cast<componentClass*>(component));
 		return returnVector;
 	}
 
 protected:
-	FMatrix4* ModelMatrix;
-	FTransform* Transform;
+	C_TransformComponent* Root = nullptr;
 	std::vector<O_Component*> Components;
 	
 };

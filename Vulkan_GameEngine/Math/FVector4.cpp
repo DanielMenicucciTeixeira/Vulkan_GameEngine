@@ -93,18 +93,18 @@ FVector3 FVector4::CrossProduct(const FVector4& Vector) const
 
 float FVector4::Length() const
 {
-	return sqrt(pow(X, 2) + pow(Y, 2) + pow(Z, 2) + pow(W, 2));
+	return sqrt((X * X) + (Y * Y) + (Z * Z) + (W * W));
 }
 
 FVector4 FVector4::GetNormal() const
 {
-	int length = Length();
+	float length = Length();
 	return FVector4(X / length, Y / length, Z / length, W / length);
 }
 
 void FVector4::Normalize()
 {
-	int length = Length();
+	float length = Length();
 
 	X = X / length;
 	Y = Y / length;

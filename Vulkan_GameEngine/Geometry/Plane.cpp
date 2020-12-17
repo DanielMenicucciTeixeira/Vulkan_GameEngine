@@ -25,15 +25,15 @@ Plane::Plane(const FVector3& Vector0, const FVector3& Vector1, const FVector3& V
 	}
 }
 
-bool Plane::InterssectionPoint(Ray* ray, FVector3& interssectionPoint)
+bool Plane::InterssectionPoint(const Ray& ray, FVector3& interssectionPoint) const
 {
-	if (*ray->GetDirection() * normal != 0.0f)
+	if (ray.GetDirection() * normal != 0.0f)
 	{
-		//float displacement = (w - (normal * ray->GetStartPosition())) / (normal * ray->GetDirection());
-		float displacement = (normal * *ray->GetStartPosition() + W) / (normal * (*ray->GetDirection() -  *ray->GetStartPosition()));
-		if (ray->IsInfinit() || abs(displacement) <= ray->GetLenght())
+		//float displacement = (W - (normal * ray.GetStartPosition())) / (normal * ray.GetDirection());
+		float displacement = (normal * ray.GetStartPosition() + W) / (normal * (ray.GetDirection() -  ray.GetStartPosition()));
+		if (ray.IsInfinit() || abs(displacement) <= ray.GetLenght())
 		{
-			interssectionPoint = ray->GetPosition(displacement);
+			interssectionPoint = ray.GetPosition(displacement);
 			return true;
 		}
 		else return false;
@@ -41,7 +41,7 @@ bool Plane::InterssectionPoint(Ray* ray, FVector3& interssectionPoint)
 	else return false;
 }
 
-FVector3 Plane::GetRandomPointInPlane()
+FVector3 Plane::GetRandomPointInPlane() const
 {
 	if (X != 0) return FVector3(W / X, 0, 0);
 	else if (Y != 0) return FVector3(0, W / Y, 0);

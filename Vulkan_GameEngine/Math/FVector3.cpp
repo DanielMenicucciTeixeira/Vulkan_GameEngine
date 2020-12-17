@@ -18,7 +18,9 @@ FVector3::FVector3(float x, float y, float z)
 //Constructor initializing all components to a single float value.
 FVector3::FVector3(float value)
 {
-	X = Y = Z = value;
+	X = value;
+	Y = value;
+	Z = value;
 }
 
 inline FVector3::FVector3(const FVector3& vector)

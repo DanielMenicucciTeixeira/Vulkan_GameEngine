@@ -7,11 +7,14 @@ FTransform::FTransform()
 {
 	Position = new FVector3();
 	Rotation = new FQuaternion();
-	Scale = new FVector3();
+	Scale = new FVector3(1);
 }
 
 FTransform::FTransform(const FTransform& transform)
 {
+	Position = new FVector3();
+	Rotation = new FQuaternion();
+	Scale = new FVector3(1);
 	*this = transform;
 }
 
@@ -44,4 +47,35 @@ void FTransform::operator=(const FTransform& transform)
 bool FTransform::operator==(const FTransform& transform) const
 {
 	return *Position == *transform.Position && *Rotation == *transform.Rotation && *Scale == *transform.Scale;
+}
+
+FTransform FTransform::operator+(const FTransform& transform) const
+{
+	return FTransform
+	(
+		FVector3(*Position + *transform.Position),
+		FQuaternion((*Rotation * *transform.Rotation).GetNormal()),
+		FVector3
+		(
+			Scale->X * transform.Scale->X,
+			Scale->Y * transform.Scale->Y,
+			Scale->Z * transform.Scale->Z
+		)
+
+	);
+}
+
+void FTransform::SetPosition(const FVector3& position)
+{
+	*Position = position;
+}
+
+void FTransform::SetRotation(const FQuaternion& rotation)
+{
+	*Rotation = rotation;
+}
+
+void FTransform::SetScale(const FVector3& scale)
+{
+	*Scale = scale;
 }

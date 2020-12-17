@@ -4,62 +4,71 @@
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
 #include "Component.h"
+#include "TransformComponent.h"
+#include "Level.h"
 
-O_GameObject::O_GameObject()
+O_GameObject::O_GameObject(O_Level* level) : O_Object()
 {
-	Transform = new FTransform();
-	ModelMatrix = new FMatrix4();
+	Level = level;
+	Components.clear();
+	Root = AddComponentOfClass<C_TransformComponent>();
 }
 
 O_GameObject::~O_GameObject()
 {
-	if (Transform) delete(Transform);
-	if (ModelMatrix) delete(ModelMatrix);
-	for (const auto& component : Components) { if(component) delete(component); }
+	for (const auto& component : Components) 
+	{ 
+		if(component) delete(component);
+		int debug = 0;
+	}
 }
 
 void O_GameObject::Update(float deltaTime)
 {
 	for (const auto& component : Components) component->Update(deltaTime);
-	*ModelMatrix = Transform->GetModelMatrix();
 }
 
 FTransform O_GameObject::GetTransform() const
 {
-	return FTransform(*Transform);
+	return FTransform(Root->GetComponentTransform());
 }
 
 FVector3 O_GameObject::GetPosition() const
 {
-	return FVector3(*Transform->Position);
+	return FVector3(Root->GetComponentPosition());
 }
 
 FQuaternion O_GameObject::GetRotation() const
 {
-	return FQuaternion(*Transform->Rotation);
+	return FQuaternion(Root->GetComponentRotation());
 }
 
 FVector3 O_GameObject::GetScale() const
 {
-	return FVector3(*Transform->Scale);
+	return FVector3(Root->GetComponentScale());
 }
 
 void O_GameObject::SetTransform(const FTransform& transform)
 {
-	*Transform = transform;
+	Root->SetComponentTransform(transform);
 }
 
 void O_GameObject::SetPosition(const FVector3& position)
 {
-	*Transform->Position = position;
+	Root->SetComponentPosition(position);
 }
 
 void O_GameObject::SetRotation(const FQuaternion& rotation)
 {
-	*Transform->Rotation = rotation;
+	Root->SetComponentRotation(rotation);
 }
 
 void O_GameObject::SetScale(const FVector3& scale)
 {
-	*Transform->Scale = scale;
+	Root->SetComponentScale(scale);
+}
+
+void O_GameObject::SetRoot(C_TransformComponent* root)
+{
+	Root = root;
 }

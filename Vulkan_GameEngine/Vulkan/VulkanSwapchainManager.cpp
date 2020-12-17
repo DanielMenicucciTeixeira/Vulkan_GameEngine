@@ -662,17 +662,8 @@ void VulkanSwapchainManager::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* im
     Manager->EndSingleTimeCommands(commandBuffer);
 }
 
-void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)//TODO remove depricated code
+void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
 {
-    /*static auto startTime = std::chrono::high_resolution_clock::now();
-
-    auto currentTime = std::chrono::high_resolution_clock::now();
-    float time = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - startTime).count();
-
-    UniformBufferObject ubo{};
-    ubo.Model.SetToRotationMatrix(time * 90.0f, 0.0f, 0.0f, 1.0f);
-    ubo.View.SetToLookAtMatrix(FVector3(2.0f, 2.0f, 2.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
-    ubo.Projection.SetToPerspectiveMatrix(45.0f, Extent->width / (float)Extent->height, 0.1f, 10.0f);*/
     Manager->GetInitializationData()->Camera->Projection[1][1] *= -1.0f;
 
     void* cameraData;

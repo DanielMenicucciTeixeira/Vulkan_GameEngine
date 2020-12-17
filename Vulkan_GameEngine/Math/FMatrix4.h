@@ -89,7 +89,7 @@ public:
 	static FMatrix4 GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
 
 	static FMatrix4 GetRotationMatrix(const FQuaternion& rotation);
-	inline static FMatrix4 GetRotationMatrix(const FQuaternion*& rotation) { return GetRotationMatrix(*rotation); }
+	inline static FMatrix4 GetRotationMatrix(const FQuaternion* rotation) { return GetRotationMatrix(*rotation); }
 
 	void SetToRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
 

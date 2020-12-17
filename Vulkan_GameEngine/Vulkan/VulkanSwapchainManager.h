@@ -29,7 +29,7 @@ struct VkDescriptorSet_T;
 struct VkSampler_T;
 struct UniformBufferObject;
 struct UniformCameraObject;
-struct TextureStruct;
+struct S_Texture;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkImageAspectFlags;
@@ -126,7 +126,7 @@ protected:
 	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	VkDescriptorSetLayout_T* DescriptorSetLayout;
 
-	std::unordered_map<TextureStruct*, TextureDataStruct> TextureDataMap;
+	std::unordered_map<S_Texture*, TextureDataStruct> TextureDataMap;
 
 	VulkanManager* Manager = nullptr;
 

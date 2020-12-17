@@ -6,7 +6,7 @@
 #include <iostream>
 
 
-void MeshLoader::LoadMesh(std::string meshPath, MeshStruct* mesh)
+void MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
 {
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;

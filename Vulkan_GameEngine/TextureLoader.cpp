@@ -4,7 +4,7 @@
 #include <stb_image.h>
 #include "RenderObject.h"
 
-void TextureLoader::LoadTexture(std::string texturePath, TextureStruct* texture)
+void TextureLoader::LoadTexture(std::string texturePath, S_Texture* texture)
 {
     texture->Pixels = stbi_load(texturePath.c_str(), &texture->Width, &texture->Height, &texture->Channels, STBI_rgb_alpha);
 }

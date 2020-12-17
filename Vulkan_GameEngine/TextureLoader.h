@@ -3,12 +3,12 @@
 
 #include <string>
 
-struct TextureStruct;
+struct S_Texture;
 
 class TextureLoader
 {
 public:
-	static void LoadTexture(std::string texturePath, TextureStruct* texture);
+	static void LoadTexture(std::string texturePath, S_Texture* texture);
 };
 #endif
 

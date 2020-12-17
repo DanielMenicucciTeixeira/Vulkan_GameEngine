@@ -7,6 +7,7 @@ class FMatrix4;
 
 struct FTransform
 {
+public:
 	FTransform();
 	FTransform(const FTransform& transform);
 	FTransform(const FVector3& position, const FQuaternion& rotation, const FVector3& scale);
@@ -22,5 +23,11 @@ struct FTransform
 	inline void operator= (const FTransform*& transform) { *this = *transform; }
 	bool operator== (const FTransform& transform) const;
 	inline bool operator== (const FTransform*& transform) const { return *this == *transform; }
+	FTransform operator+ (const FTransform& transform) const;
+	inline FTransform operator+ (const FTransform* transform) const { return *this + *transform; }
+
+	void SetPosition(const FVector3& position);
+	void SetRotation(const FQuaternion& rotation);
+	void SetScale(const FVector3& scale);
 };
 #endif

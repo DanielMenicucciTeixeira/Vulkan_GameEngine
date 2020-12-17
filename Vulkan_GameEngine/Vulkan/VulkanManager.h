@@ -35,7 +35,7 @@ struct VkRenderPass_T;
 struct VkCommandBuffer_T;
 struct VkFence_T;
 struct VkSemaphore_T;
-struct MeshStruct;
+struct S_Mesh;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkMemoryPropertyFlags;
@@ -160,7 +160,7 @@ protected:
 	//std::vector<Vertex> Vertices;
 	//std::vector<unsigned int> Indices;
 
-	std::unordered_map<MeshStruct*, MeshDataStruct*> MeshDataMap;
+	std::unordered_map<S_Mesh*, MeshDataStruct*> MeshDataMap;
 
 	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
 	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;

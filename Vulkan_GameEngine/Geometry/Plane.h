@@ -12,12 +12,12 @@ public:
 	//Creates a plane given 3 points on that plane. All of the points must be different
 	Plane(const FVector3& Vector0, const FVector3& Vector1, const FVector3& Vector2);
 
-	bool InterssectionPoint(Ray* ray, FVector3& interssectionPoint);
+	bool InterssectionPoint(const Ray& ray, FVector3& interssectionPoint) const;
 	
-	inline FVector3 GetPlaneNormal() { return FVector3(X, Y, Z).GetNormal(); }
-	FVector3 GetRandomPointInPlane();
+	inline FVector3 GetPlaneNormal() const { return FVector3(X, Y, Z).GetNormal(); }
+	FVector3 GetRandomPointInPlane() const;
 
-private:
+protected:
 	FVector3 normal;
 };
 

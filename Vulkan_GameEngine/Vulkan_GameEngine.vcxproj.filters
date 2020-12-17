@@ -43,6 +43,18 @@
     <Filter Include="Objects">
       <UniqueIdentifier>{18bc5a66-56e6-4209-ab5d-4c13aadb0386}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Components">
+      <UniqueIdentifier>{d37a1860-5b35-43d9-b6d7-3b4d789bf357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Levels">
+      <UniqueIdentifier>{431cbc55-f548-423f-a28b-4680fa26759f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Components\Collision">
+      <UniqueIdentifier>{620ae3cd-6396-477b-a9be-5d485b81cd0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BilliardGame">
+      <UniqueIdentifier>{8551d203-c898-4a55-9759-5cb44bb8289f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -115,7 +127,58 @@
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="MovementComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticMeshComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsLib.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsBody.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Clock.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionData.h">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardBall.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollision.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollision.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardTable.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardGame.cpp">
+      <Filter>BilliardGame</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardLevel.cpp">
+      <Filter>BilliardGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,14 +269,68 @@
     <ClInclude Include="GameObject.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Objects</Filter>
     </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
     <ClInclude Include="MovementComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderableComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticMeshComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsLib.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsBody.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Clock.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardBall.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollision.h">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollision.h">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardTable.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardGame.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardLevel.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardBallMaterials.h">
+      <Filter>BilliardGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

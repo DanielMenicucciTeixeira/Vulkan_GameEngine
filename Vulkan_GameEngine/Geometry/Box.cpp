@@ -1,38 +1,58 @@
 #include "Box.h"
-#include "Plane.h"
 
 Box::Box()
 {
-	width = 1.0f;
-	height = 1.0f;
-	depth = 1.0f;
+	Extent.X = 1.0f;
+	Extent.Y = 1.0f;
+	Extent.Z = 1.0f;
 
-	box[0] = new Plane(1, 0, 0, 0);
-	box[1] = new Plane(0, 1, 0, 0);
-	box[2] = new Plane(0, 0, 1, 0);
-	box[3] = new Plane(1, 0, 0, width);
-	box[4] = new Plane(0, 1, 0, height);
-	box[5] = new Plane(0, 0, 1, depth);
+	box[0] = Plane(1, 0, 0, 0);
+	box[1] = Plane(0, 1, 0, 0);
+	box[2] = Plane(0, 0, 1, 0);
+	box[3] = Plane(1, 0, 0, Extent.X);
+	box[4] = Plane(0, 1, 0, Extent.Y);
+	box[5] = Plane(0, 0, 1, Extent.Z);
+
+	Position = FVector3();
 }
 
-Box::Box(float Width, float Height, float Depth)
+Box::Box(const FVector3& extent, const FVector3& position)
 {
-	width = Width;
-	height = Height;
-	depth = Depth;
+	Extent = extent;
+	Position = position;
 
-	box[0] = new Plane(1, 0, 0, 0);
-	box[1] = new Plane(0, 1, 0, 0);
-	box[2] = new Plane(0, 0, 1, 0);
-	box[3] = new Plane(1, 0, 0, width);
-	box[4] = new Plane(0, 1, 0, height);
-	box[5] = new Plane(0, 0, 1, depth);
+	box[0] = Plane(1, 0, 0, position.X);
+	box[1] = Plane(0, 1, 0, position.Y);
+	box[2] = Plane(0, 0, 1, position.Z);
+	box[3] = Plane(1, 0, 0, extent.X + position.X);
+	box[4] = Plane(0, 1, 0, extent.Y + position.Y);
+	box[5] = Plane(0, 0, 1, extent.Z + position.Z);
 }
 
 Box::~Box()
 {
-	for (auto plane : box)
-	{
-		delete(plane);
-	}
+}
+
+void Box::SetPosition(FVector3 position)
+{
+	box[0] = Plane(1, 0, 0, position.X);
+	box[1] = Plane(0, 1, 0, position.Y);
+	box[2] = Plane(0, 0, 1, position.Z);
+	box[3] = Plane(1, 0, 0, Extent.X + position.X);
+	box[4] = Plane(0, 1, 0, Extent.Y + position.Y);
+	box[5] = Plane(0, 0, 1, Extent.Z + position.Z);
+
+	Position = position;
+}
+
+void Box::SetExtent(FVector3 extent)
+{
+	box[0] = Plane(1, 0, 0, Position.X);
+	box[1] = Plane(0, 1, 0, Position.Y);
+	box[2] = Plane(0, 0, 1, Position.Z);
+	box[3] = Plane(1, 0, 0, extent.X + Position.X);
+	box[4] = Plane(0, 1, 0, extent.Y + Position.Y);
+	box[5] = Plane(0, 0, 1, extent.Z + Position.Z);
+
+	Extent = extent;
 }

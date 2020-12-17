@@ -12,12 +12,12 @@ Ray::Ray()
 	Infinit = true;
 }
 
-Ray::Ray(FVector3* Start, FVector3* Direction, int Length, bool Infinit)
+Ray::Ray(const FVector3& start, const FVector3& direction, float length, bool infinit)
 {
-	StartPosition = Start;
-	Direction = new FVector3(Direction->GetNormal());//Direction should always be normalized
-	Lenght = Length;
-	Infinit = Infinit;
+	StartPosition = new FVector3(start);
+	Direction = new FVector3(direction.GetNormal());//Direction should always be normalized
+	Lenght = length;
+	Infinit = infinit;
 }
 
 Ray::~Ray()
@@ -26,7 +26,7 @@ Ray::~Ray()
 	if (Direction) delete(Direction);
 }
 
-FVector3 Ray::GetPosition(float displacement)
+FVector3 Ray::GetPosition(float displacement) const
 {
 	if (Infinit || abs(displacement) <= Lenght)
 	{
@@ -36,4 +36,24 @@ FVector3 Ray::GetPosition(float displacement)
 	{
 		throw std::runtime_error("Ray::GetPosition() tried to acess position beyond ray lenght");
 	}
+}
+
+FVector3 Ray::GetStartPosition() const
+{
+	return *StartPosition;
+}
+
+FVector3 Ray::GetDirection() const
+{
+	return *Direction;
+}
+
+void Ray::SetStartPosition(const FVector3& position)
+{
+	*StartPosition = position;
+}
+
+void Ray::SetDirection(const FVector3& direction)
+{
+	*Direction = direction;
 }

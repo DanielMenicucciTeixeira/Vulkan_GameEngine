@@ -59,6 +59,9 @@ public:
 	bool operator== (const FVector3& vector) const;//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
 	inline bool operator== (const FVector3*& vector) const { return *this == *vector; }
 
+	inline bool operator!= (const FVector3& vector) const { return !(*this == vector); }//Overload of the "!=" operator, returns the boolean value of not equal to between two vectors.
+	inline bool operator!= (const FVector3*& vector) const { return !(*this == *vector); }
+
 	///The next 4 operators make sure the FVector3 class can be used as an values by APIs such as Open-GL and Vulkan
 		inline const float operator[] (unsigned int index) const { return *(&X + index); }//For R-values
 		inline float& operator[] (unsigned int index) { return*(&X + index); }//For L-Values

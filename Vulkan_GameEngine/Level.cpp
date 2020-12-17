@@ -19,9 +19,9 @@ void O_Level::Start()
 
 void O_Level::Update(float deltaTime)
 {
-	C_CollisionComponent::CheckForCollisions(Colliders);
 	if (!CurrentGame->IsPaused()) for (const auto& object : LevelObjects) object->Update(deltaTime);
 	else for (const auto& object : LevelObjects) if (object->UpdateWhenPaused) object->Update(deltaTime);
+	C_CollisionComponent::CheckForCollisions(Colliders);
 }
 
 void O_Level::AddCollider(C_CollisionComponent* collider)

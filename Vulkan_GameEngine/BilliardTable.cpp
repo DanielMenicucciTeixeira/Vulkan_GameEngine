@@ -4,9 +4,13 @@
 #include "PhysicsComponent.h"
 #include "Geometry/Box.h"
 
-GO_BilliardTable::GO_BilliardTable() : O_GameObject()
+GO_BilliardTable::GO_BilliardTable(O_Level* level) : O_GameObject(level)
 {
+	Name = "Table";
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
+	SetRoot(Mesh);
+	Mesh->SetMeshName("BilliardTable");
+	Mesh->SetTextureName("Wood");
 	Physics = AddComponentOfClass<C_PhysicsComponent>();
 	
 	BackWall = AddComponentOfClass<C_BoxCollision>();
@@ -19,14 +23,13 @@ GO_BilliardTable::GO_BilliardTable() : O_GameObject()
 	LeftWall->SetCollisionType(COLLISION);
 	RightWall->SetCollisionType(COLLISION);
 
-	BackWall->SetBoxExtent(FVector3(10.0f, 0.1f, 10.f));
-	FrontWall->SetBoxExtent(FVector3(10.0f, -0.1f, 10.f));
-	LeftWall->SetBoxExtent(FVector3(0.1f, 10.0f, 10.f));
-	RightWall->SetBoxExtent(FVector3(0.1f, 10.0f, 10.f));
+	BackWall->SetBoxExtent(FVector3(30.0f, 0.1f, 10.f));
+	FrontWall->SetBoxExtent(FVector3(30.0f, -0.1f, 10.f));
+	LeftWall->SetBoxExtent(FVector3(0.1f, 30.0f, 10.f));
+	RightWall->SetBoxExtent(FVector3(0.1f, 30.0f, 10.f));
 
-	BackWall->SetComponentPosition(FVector3(-5.0f, 1.0f, -5.0f));
-	FrontWall->SetComponentPosition(FVector3(-5.0f, -1.0f, -5.0f));
-	LeftWall->SetComponentPosition(FVector3(-1.0f, -5.0f, -5.0f));
-	RightWall->SetComponentPosition(FVector3(1.0f, -5.0f, -5.0f));
-
+	BackWall->SetComponentPosition(FVector3(-15.0f, 4.0f, -5.0f));
+	FrontWall->SetComponentPosition(FVector3(-15.0f, 0.0f, -5.0f));
+	LeftWall->SetComponentPosition(FVector3(-1.5f, -15.0f, -5.0f));
+	RightWall->SetComponentPosition(FVector3(1.5f, -15.0f, -5.0f));
 }

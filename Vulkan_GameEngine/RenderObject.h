@@ -5,18 +5,21 @@
 #include "Vertex.h"
 #include <vector>
 #include "Math\FVector3.h"
+#include <string>
 
 struct S_Texture
 {
+public:
 	int Width, Height, Channels;
 	unsigned char* Pixels;
 
 	std::string Path;
-	std::string Name;
+	char* Name;
 };
 
 struct S_Mesh
 {
+public:
 	std::vector<Vertex> Vertices;
 	std::vector<unsigned int> Indices;
 
@@ -26,6 +29,7 @@ struct S_Mesh
 
 struct S_Material
 {
+public:
 	FVector3 Ambient;
 	FVector3 Specular;
 	FVector3 Difuse;
@@ -43,6 +47,7 @@ struct S_Material
 
 struct RenderObject
 {
+public:
 	std::vector<Vertex> Vertices;
 	std::vector<unsigned int> Indices;
 	UniformBufferObject UBO;

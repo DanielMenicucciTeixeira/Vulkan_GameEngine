@@ -16,6 +16,7 @@
 #include "CollisionComponent.h"
 #include "SphereCollision.h"
 #include "BilliardTable.h"
+#include "BilliardGame.h";
 
 #include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -63,7 +64,17 @@ int main(int argc, char* argv[])
 {
 	std::system("Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
-
+	
+	
+	
+	Game* NewGame = new BilliardGame();
+	
+	NewGame->Run();
+	delete(NewGame);
+	
+	
+	
+	/*
 	S_Mesh* sphere = new S_Mesh();
 	MeshLoader::LoadMesh("Models/sphere.obj", sphere);
 	
@@ -79,15 +90,15 @@ int main(int argc, char* argv[])
 	S_Texture* vikingTexture = new S_Texture();
 	TextureLoader::LoadTexture("Textures/viking_room.png", vikingTexture);
 
-	/*O_GameObject* VikingRoom = new O_GameObject();
+	O_GameObject* VikingRoom = new O_GameObject();
 	VikingRoom->AddComponentOfClass<C_StaticMeshComponent>();
 	for (auto& mesh : VikingRoom->GetComponentsOfClass<C_StaticMeshComponent>())
 	{
 		mesh->SetMesh(vikingRoom);
 		mesh->SetTexture(vikingTexture);
-	}*/
+	}
 
-	/*O_GameObject* Sphere = new O_GameObject();
+	O_GameObject* Sphere = new O_GameObject();
 	Sphere->AddComponentOfClass<C_StaticMeshComponent>();
 	Sphere->AddComponentOfClass<C_PhysicsComponent>();
 	for (auto& mesh : Sphere->GetComponentsOfClass<C_StaticMeshComponent>())
@@ -104,7 +115,7 @@ int main(int argc, char* argv[])
 	}
 	Sphere->SetScale(FVector3(0.2, 0.2, 0.2));
 	Sphere->SetPosition(FVector3(0.0f, 0.0f, 0.5f));
-	Sphere->AddTag("S");*/
+	Sphere->AddTag("S");
 
 	GO_BilliardBall* BallA = new GO_BilliardBall();
 	BallA->SetScale(FVector3(0.2, 0.2, 0.2));
@@ -135,8 +146,8 @@ int main(int argc, char* argv[])
 
 	RenderInitializationData* renderData = new RenderInitializationData();
 	renderData->Camera = camera;
-	//renderData->LoadGameObject(VikingRoom);
-	//renderData->LoadGameObject(Sphere);
+	renderData->LoadGameObject(VikingRoom);
+	renderData->LoadGameObject(Sphere);
 	renderData->LoadGameObject(BallA);
 	renderData->LoadGameObject(BallB);
 
@@ -167,8 +178,8 @@ int main(int argc, char* argv[])
 		{
 			//For testing-------------------------------------------------------------------------
 			deltaTime = GameClock->GetDeltaTimeSeconds();
-			//Sphere->Update(deltaTime);
-			//VikingRoom->Update(deltaTime);
+			Sphere->Update(deltaTime);
+			VikingRoom->Update(deltaTime);
 			C_CollisionComponent::CheckForCollisions(Colliders);
 			for (auto& gameObject : GameObjectsSet)
 			{
@@ -195,8 +206,8 @@ int main(int argc, char* argv[])
 	if(SDLManager != nullptr) delete(SDLManager);
 	if (GameRenderer != nullptr) delete(GameRenderer);
 	if (renderData != nullptr) delete(renderData);
-	//if (VikingRoom != nullptr) delete(VikingRoom);
-	//if (Sphere != nullptr) delete(Sphere);
+	if (VikingRoom != nullptr) delete(VikingRoom);
+	if (Sphere != nullptr) delete(Sphere);
 	if (texture != nullptr) delete(texture);
 	if (planet != nullptr) delete(planet);
 	if (BallA != nullptr) delete(BallA);
@@ -207,6 +218,6 @@ int main(int argc, char* argv[])
 	if (camera != nullptr) delete(camera);
 	if (Table) delete(Table);
 	//-------
-
+	*/
 	return 0;
 }

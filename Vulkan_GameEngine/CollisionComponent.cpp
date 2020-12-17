@@ -159,7 +159,7 @@ void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*>
 	{
 		for (int j = i+1; j < colliderVector.size(); j++)
 		{
-			if (!colliderVector[i]->IsCollidingWith(colliderVector[j]) && colliderVector[i]->Collide(colliderVector[j], data))
+			if (colliderVector[i]->Collide(colliderVector[j], data))
 			{
 				colliderVector[i]->AddOverlapedCollider(colliderVector[j]);
 				colliderVector[j]->AddOverlapedCollider(colliderVector[i]);

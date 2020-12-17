@@ -7,7 +7,7 @@
 #include "TextureLoader.h"
 #include "Vulkan/VulkanManager.h"
 #include "SDL/VGE_SDLManager.h"
-
+#include "GameObject.h"
 #include "SDL.h"
 
 #include <iostream>
@@ -78,16 +78,43 @@ void Game::LoadMaterial(S_Material* material)
 	TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
 }
 
+void Game::LoadLevelObjects(std::set<O_Object*> levelObjects)
+{
+	for (auto& object : levelObjects)
+	{
+		O_GameObject* gameObject = dynamic_cast<O_GameObject*>(object);
+		if (gameObject)
+		{
+			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
+			{
+				mesh->SetTexture(Materials[mesh->GetTextureName()]->TextureDifuse);
+				mesh->SetMesh(Meshes[mesh->GetMeshName()]);
+			}
+			RenderData->LoadGameObject(dynamic_cast<O_GameObject*>(object));
+		}
+	}
+
+}
+
 int Game::Run()
 {
+	CurrentLevel;
+	UniformCameraObject* camera = new UniformCameraObject();
+	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
+	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);
+	RenderData->Camera = camera;
 	try
 	{
-		GameRenderer->Initialize(RenderData);
 		Start();
+		GameRenderer->Initialize(RenderData);
 		while (SDLManager->GetEvent().type != SDL_QUIT)
 		{
 			HandleEvents();
 			Update();
+			int w, h;
+			SDL_GetWindowSize(SDLManager->GetWindow(), &w, &h);
+			camera->View.SetToLookAtMatrix(FVector3(0.0f, -4.0, 4.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
+			camera->Projection.SetToPerspectiveMatrix(60.0f, (float)w / (float)h, 0.1f, 20.0f);
 			GameRenderer->Render();
 		}
 		GameRenderer->CleanUp();
@@ -99,7 +126,6 @@ int Game::Run()
 	}
 
 	SDLManager->End();
-	delete(this);
 }
 
 S_Mesh* Game::GetMesh(std::string meshName)

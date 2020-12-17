@@ -27,6 +27,7 @@ public:
 		dynamic_cast<O_GameObject*>(gameObject)->SetTransform(transform);
 		LevelObjects.insert(gameObject);
 		dynamic_cast<O_GameObject*>(gameObject)->Start();
+		return gameObject;
 	}
 
 	template<class ObjectClass>

@@ -9,7 +9,7 @@ class FQuaternion : public FVector4
 {
 public:
 
-	inline FQuaternion() { X =  Y = Z = 0; W = 1; }
+	inline FQuaternion() { X = 1.0f;  Y = Z = 0; W = 1; }
 	inline FQuaternion(const FVector4& vector) : FVector4(vector) {}
 	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
 	FQuaternion(const FVector3& axis, float angle, bool isRotation = true, bool inRadians = false);

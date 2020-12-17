@@ -12,6 +12,7 @@ protected:
 
 public:
 	void SetComponentPosition(const FVector3& position) override;
+	void SetComponentScale(const FVector3& scale) override;
 	void SetComponentTransform(const FTransform& transform) override;
 	float GetRadius();
 	void SetRadius(const float& radius);

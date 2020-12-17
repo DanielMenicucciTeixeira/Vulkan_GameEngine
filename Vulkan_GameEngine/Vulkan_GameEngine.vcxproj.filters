@@ -153,9 +153,6 @@
     <ClCompile Include="CollisionData.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="BilliardBall.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionComponent.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
@@ -164,9 +161,6 @@
     </ClCompile>
     <ClCompile Include="SphereCollision.cpp">
       <Filter>Objects\Components\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="BilliardTable.cpp">
-      <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="Level.cpp">
       <Filter>Levels</Filter>
@@ -178,6 +172,12 @@
       <Filter>BilliardGame</Filter>
     </ClCompile>
     <ClCompile Include="BilliardLevel.cpp">
+      <Filter>BilliardGame</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardTable.cpp">
+      <Filter>BilliardGame</Filter>
+    </ClCompile>
+    <ClCompile Include="BilliardBall.cpp">
       <Filter>BilliardGame</Filter>
     </ClCompile>
   </ItemGroup>
@@ -302,9 +302,6 @@
     <ClInclude Include="CameraComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardBall.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="CollisionComponent.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
@@ -313,9 +310,6 @@
     </ClInclude>
     <ClInclude Include="BoxCollision.h">
       <Filter>Objects\Components\Collision</Filter>
-    </ClInclude>
-    <ClInclude Include="BilliardTable.h">
-      <Filter>Objects\Components</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Levels</Filter>
@@ -329,7 +323,13 @@
     <ClInclude Include="BilliardLevel.h">
       <Filter>BilliardGame</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardBallMaterials.h">
+    <ClInclude Include="BilliardBalls.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardBall.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="BilliardTable.h">
       <Filter>BilliardGame</Filter>
     </ClInclude>
   </ItemGroup>

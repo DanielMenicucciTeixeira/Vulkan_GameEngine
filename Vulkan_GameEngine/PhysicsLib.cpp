@@ -15,6 +15,5 @@ void FPhysicsLib::AddForce(C_PhysicsComponent* target, FVector3 force, FVector3 
 
 	FVector3 torque = (location - target->GetOwner()->GetPosition()).CrossProduct(force);
 	if (torque == FVector3()) return;
-	FVector3 resultingVelocity = torque.CrossProduct(force);
 	target->SetAngularVelocity(target->GetAngularVelocity() + torque / target->AngularInertia);
 }

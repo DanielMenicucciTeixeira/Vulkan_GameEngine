@@ -10,6 +10,7 @@ struct S_CollisionData;
 class FVector3;
 class GO_BilliardTable;
 class C_BoxCollision;
+class O_Level;
 
 class GO_BilliardBall : public O_GameObject
 {
@@ -21,10 +22,12 @@ public:
 	static void OnCollision(O_GameObject* self, const S_CollisionData& data);
 	void BounceOnBall(GO_BilliardBall* otherBall, FVector3 pointOfImpact);
 	void BounceOnWall(C_BoxCollision* wall, FVector3 pointOfImpact);
+	void Update(float deltaTime) override;
 
-	GO_BilliardBall();
+	GO_BilliardBall(O_Level* level = nullptr);
 	~GO_BilliardBall();
-
+protected:
+	float Drag = 0.05f;
 };
 #endif
 

@@ -7,13 +7,19 @@
 void C_SphereCollision::SetComponentPosition(const FVector3& position)
 {
 	C_TransformComponent::SetComponentPosition(position);
-	CollisionSphere->position = GetComponentPosition() + GetOwner()->GetPosition();
+	CollisionSphere->position = GetComponentAbsolutePosition();
+}
+
+void C_SphereCollision::SetComponentScale(const FVector3& scale)
+{
+	C_TransformComponent::SetComponentScale(scale);
+	CollisionSphere->radius = CollisionSphere->radius * GetComponentAbsoluteScale().Z;
 }
 
 void C_SphereCollision::SetComponentTransform(const FTransform& transform)
 {
 	C_TransformComponent::SetComponentTransform(transform);
-	CollisionSphere->position = GetComponentPosition() + GetOwner()->GetPosition();
+	CollisionSphere->position = GetComponentAbsolutePosition();
 }
 
 float C_SphereCollision::GetRadius()
@@ -46,6 +52,7 @@ bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_Collision
 	}
 	if (dynamic_cast<C_SphereCollision*>(otherCollider))
 	{
+		this;
 		return SphereSphereCollision(*CollisionSphere, dynamic_cast<C_SphereCollision*>(otherCollider)->GetCollisionSphere(), data);
 	}
 	return false;

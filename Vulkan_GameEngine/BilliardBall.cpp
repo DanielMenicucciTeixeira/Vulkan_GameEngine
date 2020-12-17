@@ -50,14 +50,25 @@ void GO_BilliardBall::BounceOnWall(C_BoxCollision* wall, FVector3 pointOfImpact)
 	FPhysicsLib::AddForce(Physics, force, pointOfImpact);
 }
 
-GO_BilliardBall::GO_BilliardBall() : O_GameObject()
+void GO_BilliardBall::Update(float deltaTime)
+{
+	O_GameObject::Update(deltaTime);
+	FPhysicsLib::AddForce(Physics, (Physics->GetVelocity() * -Drag * deltaTime), GetPosition() + (FVector3(0.0f, 0.0f, -
+		1.0f) * Collider->GetRadius()));
+}
+
+GO_BilliardBall::GO_BilliardBall(O_Level* level) : O_GameObject(level)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
+	Mesh->SetMeshName("SphereMesh");
 	Physics = AddComponentOfClass<C_PhysicsComponent>();
+	Physics->AngularInertia = 0.01f;
 	Collider = AddComponentOfClass<C_SphereCollision>();
 	Collider->SetCollisionType(COLLISION);
 	Collider->SetCollisionFunction(OnCollision);
 	Collider->SetRadius(0.2f);
+	SetRoot(Mesh);
+	SetScale(FVector3(0.2f, 0.2f, 0.2f));
 }
 
 GO_BilliardBall::~GO_BilliardBall()

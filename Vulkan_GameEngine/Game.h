@@ -7,6 +7,7 @@
 
 class Clock;
 class O_Object;
+class O_GameObject;
 class O_Level;
 class Renderer;
 class VGE_SDLManager;
@@ -20,9 +21,9 @@ public:
 	Game();
 	~Game();
 
-	void Start();
-	void HandleEvents();
-	void Update();
+	virtual void Start();
+	virtual void HandleEvents();
+	virtual void Update();
 	void SetPause(const bool& pause);
 	inline bool IsPaused() { return Paused; };
 	
@@ -30,6 +31,7 @@ public:
 	void LoadLevel(std::string levelName);
 	void LoadMesh(S_Mesh* mesh);
 	void LoadMaterial(S_Material* material);
+	void LoadLevelObjects(std::set<O_Object*> levelObjects);
 
 	int Run();
 

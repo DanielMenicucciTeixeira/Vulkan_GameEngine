@@ -20,7 +20,7 @@ public:
 struct S_Mesh
 {
 public:
-	std::vector<Vertex> Vertices;
+	std::vector<S_Vertex> Vertices;
 	std::vector<unsigned int> Indices;
 
 	std::string Path;
@@ -48,7 +48,7 @@ public:
 struct RenderObject
 {
 public:
-	std::vector<Vertex> Vertices;
+	std::vector<S_Vertex> Vertices;
 	std::vector<unsigned int> Indices;
 	UniformBufferObject UBO;
 	S_Texture Texture;

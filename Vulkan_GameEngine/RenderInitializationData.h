@@ -23,8 +23,6 @@ struct RenderInitializationData
 			MaterialToModelMap[staticMesh->GetTexture()].push_back(staticMesh->GetModelMatrix());
 			Models.push_back(staticMesh->GetModelMatrix());
 		}
-
-		int debug = 0;
 	}
 };
 #endif // !RENDERINITIALIZATIONDATA_H

@@ -180,19 +180,7 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 {
 	if (this->CollisionType == NO_COLLISION || otherCollider->CollisionType == NO_COLLISION) return;
 
-	if (this->CollisionType == BOTH)
-	{
-		switch (otherCollider->CollisionType)
-		{
-		case OVERLAP:
-			OnOverlapBegin(data);
-		case COLLISION:
-			OnCollision(data);
-		default:
-			break;
-		}
-	}
-	else if (otherCollider->CollisionType == BOTH || this->CollisionType == otherCollider->CollisionType)
+	if (this->CollisionType == otherCollider->CollisionType)
 	{
 		switch (this->CollisionType)
 		{
@@ -229,8 +217,6 @@ void C_CollisionComponent::OnOverlapEnd(C_CollisionComponent* otherCollider)
 	{
 		OverlapEndFunction(Owner, otherCollider);
 	}
-
-	int debug = 0;
 }
 
 void C_CollisionComponent::Update(float deltaTime)

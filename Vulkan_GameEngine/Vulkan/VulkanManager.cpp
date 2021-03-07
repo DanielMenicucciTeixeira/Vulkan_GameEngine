@@ -277,7 +277,7 @@ void VulkanManager::CreateVertexBuffers()
 {
     for (const auto& pair : InitializationData->MeshToMaterialMap)
     {
-        VkDeviceSize bufferSize = sizeof(Vertex) * pair.first->Vertices.size();
+        VkDeviceSize bufferSize = sizeof(S_Vertex) * pair.first->Vertices.size();
 
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;

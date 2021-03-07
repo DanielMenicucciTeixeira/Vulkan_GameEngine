@@ -27,7 +27,7 @@ public:
 	GO_BilliardBall(O_Level* level = nullptr);
 	~GO_BilliardBall();
 protected:
-	float Drag = 0.05f;
+	float Drag = 0.1f;
 };
 #endif
 

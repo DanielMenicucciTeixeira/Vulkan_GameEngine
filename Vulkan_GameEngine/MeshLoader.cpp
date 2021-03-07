@@ -22,7 +22,7 @@ void MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
     {
         for (const auto& index : shape.mesh.indices)
         {
-            Vertex vertex = Vertex();
+            S_Vertex vertex = S_Vertex();
 
             vertex.Position =
             {

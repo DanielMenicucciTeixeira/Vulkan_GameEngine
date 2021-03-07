@@ -38,21 +38,23 @@ public:
 	componentClass* AddComponentOfClass()
 	{
 		componentClass* component = new componentClass(this);
-		Components.push_back(component);
+		Components.insert(component);
 		return component;
 	}
 
 	template<class componentClass>
-	std::vector<componentClass*> GetComponentsOfClass()
+	std::set<componentClass*> GetComponentsOfClass()
 	{
-		std::vector<componentClass*> returnVector;
-		for (const auto component : Components) if (dynamic_cast<componentClass*>(component)) returnVector.push_back(dynamic_cast<componentClass*>(component));
-		return returnVector;
+		std::set<componentClass*> returnSet;
+		for (const auto& component : Components) if (dynamic_cast<componentClass*>(component)) returnSet.insert(dynamic_cast<componentClass*>(component));
+		return returnSet;
 	}
+
+	void RemoveComponent(O_Component* component);
 
 protected:
 	C_TransformComponent* Root = nullptr;
-	std::vector<O_Component*> Components;
+	std::set<O_Component*> Components;
 	
 };
 #endif

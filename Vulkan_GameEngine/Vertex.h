@@ -3,11 +3,12 @@
 
 #include "Math/FVector3.h"
 
-struct Vertex
+struct S_Vertex
 {
 	FVector3 Position, TextureCoordinates;
 
-	inline bool operator== (Vertex& vertex) { return vertex.Position == Position && vertex.TextureCoordinates == TextureCoordinates; }
+	inline bool operator== (const S_Vertex& vertex) const { return vertex.Position == Position && vertex.TextureCoordinates == TextureCoordinates; }
+	inline bool operator!= (const S_Vertex& vertex) const { return !(*this == vertex); }
 };
 
 #endif

@@ -98,7 +98,6 @@ void Game::LoadLevelObjects(std::set<O_Object*> levelObjects)
 
 int Game::Run()
 {
-	CurrentLevel;
 	UniformCameraObject* camera = new UniformCameraObject();
 	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
 	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);

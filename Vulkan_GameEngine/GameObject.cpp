@@ -19,7 +19,6 @@ O_GameObject::~O_GameObject()
 	for (const auto& component : Components) 
 	{ 
 		if(component) delete(component);
-		int debug = 0;
 	}
 }
 
@@ -71,4 +70,11 @@ void O_GameObject::SetScale(const FVector3& scale)
 void O_GameObject::SetRoot(C_TransformComponent* root)
 {
 	Root = root;
+}
+
+void O_GameObject::RemoveComponent(O_Component* component)
+{
+	if (!component || !Components.count(component)) return;
+	Components.erase(component);
+	delete(component);
 }

@@ -27,7 +27,7 @@ void L_BilliardLevel::Start()
 			Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(initialPosition + displacement, FQuaternion(FVector3(0.0f, 0.0f, 1.0f), -45), FVector3(0.5, 0.5, 0.5))));
 		}
 	}
-	Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(FVector3(0.0f, -5.0f, 0.0f), FQuaternion(), FVector3(0.5, 0.5, 0.5))));
+	Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(FVector3(0.0f, -4.0f, 0.0f), FQuaternion(), FVector3(0.5, 0.5, 0.5))));
 
 	Balls[0]->Mesh->SetTextureName("Ball01");
 	Balls[1]->Mesh->SetTextureName("Ball02");
@@ -63,7 +63,7 @@ void L_BilliardLevel::Start()
 	Balls[14]->SetName("15");
 	Balls[15]->SetName("Cue");
 
-	Balls[15]->Physics->SetVelocity(FVector3(0.0f, 2.5f, 0.0f));
+	Balls[15]->Physics->SetVelocity(FVector3(0.0f, 2.0f, 0.0f));
 
 	auto Table = SpawnGameObjectOfClass<GO_BilliardTable>(FTransform(FVector3(0.0f, 2.0f, -0.3f), FQuaternion(), FVector3(1.3, 1.3, 1.3)));
 

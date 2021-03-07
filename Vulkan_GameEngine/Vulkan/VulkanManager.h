@@ -13,7 +13,7 @@ class VulkanDebugger;
 class VulkanDevices;
 class VulkanPipelineManager;
 class VulkanSwapchainManager;
-struct Vertex;
+struct S_Vertex;
 
 //Vulkan API Declarations
 enum VkPresentModeKHR;

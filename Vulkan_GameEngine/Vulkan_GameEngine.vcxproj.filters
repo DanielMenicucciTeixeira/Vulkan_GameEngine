@@ -183,6 +183,9 @@
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp">
       <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Core\CoreEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\SDL\SDLEventHandler.h">
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="Engine\Renderers\RenderObject.h">
       <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\CoreEngine.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

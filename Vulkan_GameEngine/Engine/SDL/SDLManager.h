@@ -6,6 +6,8 @@
 enum class E_EngineEvent;
 union SDL_Event;
 class VGE_VulkanValidationLayers;
+class Window;
+enum ERendererType;
 
 class SDLManager
 {
@@ -29,11 +31,11 @@ protected:
 	//-----------------------Functions-----------------------\\
 	
 public:
-	void Begin();
+	bool Begin();
 	void End();
 	SDL_Event GetEvent();
 	bool GetVulkanExtensions(std::vector<const char*>& extensionNames);
-	
+	Window* CreateWindow(const char* windowName, ERendererType rendererType, float windowSizeX = -1.0f, float windowSizeY = -1.0f, float windowPositionX = -1.0f, float windowPositionY = -1.0f);
 	void SetRenderer(Renderer* renderer);
 
 	class SDL_Window* GetSDLWindowByName(const char* name = GetDefaultWindowName());

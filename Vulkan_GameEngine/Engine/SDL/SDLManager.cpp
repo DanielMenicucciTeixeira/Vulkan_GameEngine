@@ -20,23 +20,18 @@ SDLManager::~SDLManager()
    if (TextureLoader != nullptr) delete(TextureLoader);
 }
 
-void SDLManager::Begin()
+bool SDLManager::Begin()
 {
     WindowManager = new SDLWindowManager(this);
     EventHandler = new SDLEventHandler(WindowRenderer);
 
     if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {
-        throw std::runtime_error("SDL did not Initilize!");
-    }
-    else
-    {
-        if (!WindowManager->CreateWindow(GetDefaultWindowName(), WindowRenderer->GetType(), (unsigned)800, (unsigned)600))//If the Window is not created, don't run anything that depends on the window
-        {
-            throw std::runtime_error("SDL Window could not be created!");
-        }
+       printf("SDL did not Initilize!");
+       return false;
     }
 
+    return true;
 }
 
 void SDLManager::End()
@@ -68,6 +63,11 @@ bool SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionNames)
         SDL_Vulkan_GetInstanceExtensions(window.second->GetSDLWindow(), &extensionCount, extensionNames.data());
         return true;
     }
+}
+
+Window* SDLManager::CreateWindow(const char* windowName, ERendererType rendererType, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
+{
+    return WindowManager->CreateWindow(windowName, rendererType, windowSizeX, windowSizeY);//If the Window is not created, don't run anything that depends on the window
 }
 
 void SDLManager::SetRenderer(Renderer* renderer)

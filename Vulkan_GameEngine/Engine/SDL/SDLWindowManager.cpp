@@ -15,7 +15,7 @@ SDLWindowManager::~SDLWindowManager()
    for( const auto window : WindowsByName) SDL_GL_DeleteContext(window.second);
 }
 
-bool SDLWindowManager::CreateWindow(const char* name, ERendererType rendererType, float width, float height, float positionX, float positionY)
+Window* SDLWindowManager::CreateWindow(const char* name, ERendererType rendererType, float width, float height, float positionX, float positionY)
 {
     //Set window size
     unsigned WIDTH, HEIGHT;
@@ -32,7 +32,9 @@ bool SDLWindowManager::CreateWindow(const char* name, ERendererType rendererType
     else POSITION_Y = positionY;
 
     WindowsByName[name] = new Window(this);
-    return WindowsByName[name]->OnCreate(name, rendererType, width, height, POSITION_X, POSITION_Y);
+    if (WindowsByName[name]->OnCreate(name, rendererType, WIDTH, HEIGHT, POSITION_X, POSITION_Y)) return WindowsByName[name];
+    else return nullptr;
+
 }
 
 SDL_Window* SDLWindowManager::GetSDLWindowByName(const char* name)

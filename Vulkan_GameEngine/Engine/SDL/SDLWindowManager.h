@@ -33,7 +33,7 @@ protected:
 	//-----------------------Functions-----------------------\\
 	
 public:
-	bool CreateWindow(const char* windowName, ERendererType rendererType, float windowSizeX = -1.0f, float windowSizeY = -1.0f, float windowPositionX = -1.0f, float windowPositionY = -1.0f);
+	Window* CreateWindow(const char* windowName, ERendererType rendererType, float windowSizeX = -1.0f, float windowSizeY = -1.0f, float windowPositionX = -1.0f, float windowPositionY = -1.0f);
 
 	inline Window* GetWindowByName(const char* name) { return WindowsByName[name]; }
 	class SDL_Window* GetSDLWindowByName(const char* name);

@@ -87,7 +87,7 @@ class VulkanManager : public Renderer
 {
 //Functions
 public:
-	VulkanManager(SDL_Window* window);
+	VulkanManager();
 	~VulkanManager();
 	
 	void FramebufferResizeCallback() override;
@@ -112,6 +112,8 @@ public:
 	VkDescriptorSetLayout_T* GetDescriptorSetLayout();
 	VkRenderPass_T* GetRenderPass();
 
+	//Settters
+	inline void SetMainWindow(SDL_Window* window) { Window = window; }
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
 	unsigned int FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties);

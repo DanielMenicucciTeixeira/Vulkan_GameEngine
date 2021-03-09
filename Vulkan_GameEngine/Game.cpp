@@ -6,7 +6,7 @@
 #include "MeshLoader.h"
 #include "TextureLoader.h"
 #include "Vulkan/VulkanManager.h"
-#include "SDL/VGE_SDLManager.h"
+#include "SDL/SDLManager.h"
 #include "GameObject.h"
 #include "SDL.h"
 
@@ -17,15 +17,16 @@ Game::Game()
 {
 	GameClock = new Clock();
 	RenderData = new RenderInitializationData();
-	SDLManager = new VGE_SDLManager();
-	SDLManager->Begin();
-	GameRenderer = new VulkanManager(SDLManager->GetWindow());
-	SDLManager->SetRenderer(GameRenderer);
+	InterfaceManager = new SDLManager();
+	GameRenderer = new VulkanManager();
+	InterfaceManager->SetRenderer(GameRenderer);
+	InterfaceManager->Begin();
+	dynamic_cast<VulkanManager*>(GameRenderer)->SetMainWindow(InterfaceManager->GetSDLWindowByName(InterfaceManager->GetDefaultWindowName()));
 }
 
 Game::~Game()
 {
-	SDLManager->End();
+	InterfaceManager->End();
 	if (GameClock) delete(GameClock);
 	if (RenderData) delete(RenderData);
 	if (GameRenderer) delete(GameRenderer);
@@ -106,12 +107,12 @@ int Game::Run()
 	{
 		Start();
 		GameRenderer->Initialize(RenderData);
-		while (SDLManager->GetEvent().type != SDL_QUIT)
+		while (InterfaceManager->GetEvent().type != SDL_QUIT)
 		{
 			HandleEvents();
 			Update();
 			int w, h;
-			SDL_GetWindowSize(SDLManager->GetWindow(), &w, &h);
+			SDL_GetWindowSize(InterfaceManager->GetSDLWindowByName(), &w, &h);
 			camera->View.SetToLookAtMatrix(FVector3(0.0f, -4.0, 4.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
 			camera->Projection.SetToPerspectiveMatrix(60.0f, (float)w / (float)h, 0.1f, 20.0f);
 			GameRenderer->Render();
@@ -124,7 +125,7 @@ int Game::Run()
 		return EXIT_FAILURE;
 	}
 
-	SDLManager->End();
+	InterfaceManager->End();
 }
 
 S_Mesh* Game::GetMesh(std::string meshName)

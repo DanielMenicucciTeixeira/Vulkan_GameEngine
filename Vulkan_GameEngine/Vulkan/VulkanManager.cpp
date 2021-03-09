@@ -24,14 +24,14 @@
 #include "RenderObject.h"
 #include "RenderInitializationData.h"
 
-VulkanManager::VulkanManager(SDL_Window* window)
+VulkanManager::VulkanManager()
 {
+    Type = VULKAN;
 	Debugger = new VulkanDebugger(this);
 	Devices = new VulkanDevices(this);
 	GraphicsPipelineManager = new VulkanPipelineManager(this);
 	SwapchainManager = new VulkanSwapchainManager(this);
     Queues = new QueueStruct();
-    Window = window;
 }
 
 VulkanManager::~VulkanManager()

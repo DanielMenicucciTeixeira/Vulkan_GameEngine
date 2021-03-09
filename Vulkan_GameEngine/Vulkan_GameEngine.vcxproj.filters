@@ -60,18 +60,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDL\VGE_SDLManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\VGE_SDLEventHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\VGE_SDLWindowManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Math\FMatrix.cpp">
       <Filter>Math</Filter>
     </ClCompile>
@@ -180,22 +168,25 @@
     <ClCompile Include="BilliardBall.cpp">
       <Filter>BilliardGame</Filter>
     </ClCompile>
+    <ClCompile Include="SDL\SDLEventHandler.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\SDLManager.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\SDLTextureLoader.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL\SDLWindowManager.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDL\VGE_SDLManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL\VGE_SDLTextureLoader.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL\VGE_SDLEventHandler.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Core\EngineEvent.h">
       <Filter>Core</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL\VGE_SDLWindowManager.h">
-      <Filter>SDL</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
@@ -331,6 +322,21 @@
     </ClInclude>
     <ClInclude Include="BilliardTable.h">
       <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\SDLEventHandler.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\SDLManager.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\SDLTextureLoader.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL\SDLWindowManager.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

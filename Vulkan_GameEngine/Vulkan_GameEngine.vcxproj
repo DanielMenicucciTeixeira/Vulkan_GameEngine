@@ -71,15 +71,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,8 +97,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;C:\GameDev\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GameDev\OpenGL\lib;C:\GameDev\SDL2-2.0.12\lib\x64;D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,8 +113,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;C:\GameDev\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GameDev\OpenGL\lib;C:\GameDev\SDL2-2.0.12\lib\x64;D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -129,8 +133,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;C:\GameDev\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GameDev\OpenGL\lib;C:\GameDev\SDL2-2.0.12\lib\x64;D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,8 +153,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;C:\GameDev\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GameDev\OpenGL\lib;C:\GameDev\SDL2-2.0.12\lib\x64;D:\Dev\SDL2_image-2.0.5\VisualC\external\lib;C:\GameDev\VulkanSDK\1.2.148.1\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -181,10 +185,10 @@
     <ClCompile Include="PhysicsBody.cpp" />
     <ClCompile Include="PhysicsComponent.cpp" />
     <ClCompile Include="PhysicsLib.cpp" />
-    <ClCompile Include="SDL\VGE_SDLEventHandler.cpp" />
-    <ClCompile Include="SDL\VGE_SDLManager.cpp" />
-    <ClCompile Include="SDL\VGE_SDLTextureLoader.cpp" />
-    <ClCompile Include="SDL\VGE_SDLWindowManager.cpp" />
+    <ClCompile Include="SDL\SDLEventHandler.cpp" />
+    <ClCompile Include="SDL\SDLManager.cpp" />
+    <ClCompile Include="SDL\SDLTextureLoader.cpp" />
+    <ClCompile Include="SDL\SDLWindowManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="SphereCollision.cpp" />
     <ClCompile Include="StaticMeshComponent.cpp" />
@@ -195,6 +199,7 @@
     <ClCompile Include="Vulkan\VulkanManager.cpp" />
     <ClCompile Include="Vulkan\VulkanPipelineManager.cpp" />
     <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BilliardBall.h" />
@@ -232,10 +237,10 @@
     <ClInclude Include="RenderInitializationData.h" />
     <ClInclude Include="RenderObject.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SDL\VGE_SDLEventHandler.h" />
-    <ClInclude Include="SDL\VGE_SDLManager.h" />
-    <ClInclude Include="SDL\VGE_SDLTextureLoader.h" />
-    <ClInclude Include="SDL\VGE_SDLWindowManager.h" />
+    <ClInclude Include="SDL\SDLEventHandler.h" />
+    <ClInclude Include="SDL\SDLManager.h" />
+    <ClInclude Include="SDL\SDLTextureLoader.h" />
+    <ClInclude Include="SDL\SDLWindowManager.h" />
     <ClInclude Include="SphereCollision.h" />
     <ClInclude Include="StaticMeshComponent.h" />
     <ClInclude Include="TextureLoader.h" />
@@ -247,6 +252,7 @@
     <ClInclude Include="Vulkan\VulkanManager.h" />
     <ClInclude Include="Vulkan\VulkanPipelineManager.h" />
     <ClInclude Include="Vulkan\VulkanSwapchainManager.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

@@ -4,6 +4,12 @@
 class SDL_Window;
 struct RenderInitializationData;
 
+enum ERendererType
+{
+	VULKAN,
+	OPEN_GL
+};
+
 class Renderer
 {
 public:
@@ -13,5 +19,9 @@ public:
 	virtual void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) = 0;
 
 	virtual void FramebufferResizeCallback() = 0;
+	inline ERendererType GetType() const { return Type; }
+
+protected:
+	ERendererType Type;
 };
 #endif

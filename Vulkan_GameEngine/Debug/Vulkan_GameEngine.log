@@ -1,2 +1,1228 @@
-﻿  Source.cpp
-LINK : fatal error LNK1104: cannot open file 'opengl64.lib'
+﻿  BilliardBall.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\BilliardBall.cpp(34,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\BilliardBall.cpp(47,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  BilliardGame.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  BilliardTable.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+  BoxCollision.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+  CameraComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+  Clock.cpp
+  CollisionComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.cpp(41,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.cpp(49,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.cpp(158,20): warning C4018: '<': signed/unsigned mismatch
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.cpp(160,23): warning C4018: '<': signed/unsigned mismatch
+  CollisionData.h
+  Game.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+  GameObject.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  Box.cpp
+  Plane.cpp
+  Ray.cpp
+  Sphere.cpp
+  BilliardLevel.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
+  FMatrix.cpp
+  FMatrix4.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(17,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(17,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(17,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(17,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(18,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(18,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(18,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(18,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(19,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(19,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(19,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(19,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(20,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(20,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(20,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(20,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(22,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(22,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(22,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(22,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(23,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(23,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(23,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(23,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(24,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(24,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(24,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(24,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(25,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(25,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(25,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(25,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(27,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(27,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(27,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(27,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(28,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(28,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(28,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(28,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(29,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(29,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(29,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(29,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(30,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(30,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(30,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(30,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(32,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(32,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(32,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(32,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(33,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(33,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(33,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(33,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(34,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(34,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(34,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(34,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(35,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(35,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(35,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(35,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(51,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(51,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(51,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(51,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(58,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(58,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(58,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(58,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(59,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(59,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(59,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(59,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(60,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(60,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(60,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(60,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(61,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(61,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(61,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(61,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(63,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(63,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(63,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(63,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(64,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(64,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(64,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(64,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(65,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(65,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(65,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(65,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(66,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(66,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(66,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(66,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(68,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(68,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(68,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(68,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(69,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(69,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(69,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(69,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(70,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(70,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(70,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(70,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(71,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(71,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(71,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(71,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(73,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(73,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(73,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(73,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(74,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(74,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(74,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(74,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(75,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(75,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(75,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(75,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(76,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(76,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(76,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(76,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(84,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(84,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(84,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(84,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(85,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(85,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(85,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(85,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(86,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(86,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(86,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(86,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,30): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,30): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,30): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,30): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,48): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,48): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,48): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,48): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,66): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,66): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,66): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(91,66): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,30): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,30): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,30): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,30): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,48): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,48): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,48): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,48): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,66): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,66): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,66): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(92,66): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,30): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,30): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,30): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,30): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,48): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,48): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,48): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,48): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,66): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,66): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,66): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(93,66): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,12): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,12): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,12): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,12): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,30): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,30): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,30): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,30): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,48): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,48): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,48): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,48): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,66): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,66): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,66): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(94,66): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(100,42): warning C4305: '*=': truncation from 'double' to 'float'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(106,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(106,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(106,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(106,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(107,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(107,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(107,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(107,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(108,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(108,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(108,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(108,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(109,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(109,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(109,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(109,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(113,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(113,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(113,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(113,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(114,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(114,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(114,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(114,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(115,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(115,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(115,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(115,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(116,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(116,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(116,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(116,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(120,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(120,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(120,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(120,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(121,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(121,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(121,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(121,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(122,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(122,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(122,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(122,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(123,13): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(123,13): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(123,13): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(123,13): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,14): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,14): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,14): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,14): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,29): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,29): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,29): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,29): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,45): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,45): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,45): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,45): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,60): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,60): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,60): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,60): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,76): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,76): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,76): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,76): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,91): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,91): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,91): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,91): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,107): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,107): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,107): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,107): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,122): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,122): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,122): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(168,122): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,14): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,14): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,14): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,14): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,29): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,29): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,29): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,29): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,45): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,45): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,45): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,45): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,60): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,60): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,60): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,60): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,76): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,76): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,76): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,76): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,91): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,91): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,91): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,91): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,107): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,107): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,107): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,107): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,122): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,122): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,122): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(169,122): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,14): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,14): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,14): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,14): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,29): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,29): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,29): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,29): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,45): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,45): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,45): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,45): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,60): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,60): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,60): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,60): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,76): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,76): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,76): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,76): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,91): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,91): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,91): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,91): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,107): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,107): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,107): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,107): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,122): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,122): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,122): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(170,122): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,14): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,14): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,14): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,14): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,29): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,29): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,29): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,29): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,45): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,45): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,45): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,45): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,60): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,60): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,60): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,60): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,76): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,76): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,76): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,76): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,91): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,91): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,91): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,91): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,107): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,107): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,107): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,107): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,122): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,122): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,122): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(171,122): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,14): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,14): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,14): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,14): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,29): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,29): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,29): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,29): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,45): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,45): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,45): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,45): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,60): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.cpp(172,60): fatal error C1003: error count exceeds 100; stopping compilation
+  FQuaternion.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(16,38): warning C4305: '*=': truncation from 'double' to 'float'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(74,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(76,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FQuaternion.cpp(104,36): warning C4305: 'initializing': truncation from 'double' to 'float'
+  FTransform.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  FVector3.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector3.cpp(150,73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  FVector4.cpp
+  MeshLoader.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  MovementComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\MovementComponent.cpp(44,82): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Level.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+  PhysicsBody.cpp
+  PhysicsComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\PhysicsComponent.cpp(24): error C2102: '&' requires l-value
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\PhysicsComponent.cpp(37): error C2102: '&' requires l-value
+  PhysicsLib.cpp
+  SDLEventHandler.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Renderer.h(4): message : see declaration of 'SDL_Window'
+  SDLManager.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Renderer.h(4): message : see declaration of 'SDL_Window'
+  SDLTextureLoader.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+  SDLWindowManager.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Window.h(5): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(23,18): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(25,19): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(35,89): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(35,77): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(35,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLWindowManager.cpp(35,62): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Source.cpp
+  SphereCollision.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+  StaticMeshComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  TextureLoader.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+  TransformComponent.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+  VulkanDebugger.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDebugger.cpp(52,71): error C2664: 'VkResult (VkInstance,const VkDebugUtilsMessengerCreateInfoEXT *,const VkAllocationCallbacks *,VkDebugUtilsMessengerEXT *)': cannot convert argument 4 from 'VkDebugUtilsMessengerEXT_T **' to 'VkDebugUtilsMessengerEXT *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDebugger.cpp(52,56): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDebugger.cpp(94,50): error C2664: 'void (VkInstance,VkDebugUtilsMessengerEXT,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDebugUtilsMessengerEXT_T *' to 'VkDebugUtilsMessengerEXT'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDebugger.cpp(94,24): message : There is no context in which this conversion is possible
+  VulkanDevices.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(143,98): error C2664: 'VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR(VkPhysicalDevice,VkSurfaceKHR,VkSurfaceCapabilitiesKHR *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(143,74): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5715,32): message : see declaration of 'vkGetPhysicalDeviceSurfaceCapabilitiesKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(146,94): error C2664: 'VkResult vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice,VkSurfaceKHR,uint32_t *,VkSurfaceFormatKHR *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(146,69): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5720,32): message : see declaration of 'vkGetPhysicalDeviceSurfaceFormatsKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(151,113): error C2664: 'VkResult vkGetPhysicalDeviceSurfaceFormatsKHR(VkPhysicalDevice,VkSurfaceKHR,uint32_t *,VkSurfaceFormatKHR *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(151,73): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5720,32): message : see declaration of 'vkGetPhysicalDeviceSurfaceFormatsKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(155,109): error C2664: 'VkResult vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice,VkSurfaceKHR,uint32_t *,VkPresentModeKHR *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(155,74): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5726,32): message : see declaration of 'vkGetPhysicalDeviceSurfacePresentModesKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(160,138): error C2664: 'VkResult vkGetPhysicalDeviceSurfacePresentModesKHR(VkPhysicalDevice,VkSurfaceKHR,uint32_t *,VkPresentModeKHR *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanDevices.cpp(160,78): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5726,32): message : see declaration of 'vkGetPhysicalDeviceSurfacePresentModesKHR'
+  VulkanManager.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(97,89): error C2664: 'VkResult vkGetPhysicalDeviceSurfaceSupportKHR(VkPhysicalDevice,uint32_t,VkSurfaceKHR,VkBool32 *)': cannot convert argument 3 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(97,65): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5709,32): message : see declaration of 'vkGetPhysicalDeviceSurfaceSupportKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(135,8): error C2664: 'VkResult vkCreateBuffer(VkDevice,const VkBufferCreateInfo *,const VkAllocationCallbacks *,VkBuffer *)': cannot convert argument 4 from 'VkBuffer_T **' to 'VkBuffer *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(135,75): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3481,32): message : see declaration of 'vkCreateBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(141,88): error C2664: 'void vkGetBufferMemoryRequirements(VkDevice,VkBuffer,VkMemoryRequirements *)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(141,64): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3367,28): message : see declaration of 'vkGetBufferMemoryRequirements'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(148,8): error C2664: 'VkResult vkAllocateMemory(VkDevice,const VkMemoryAllocateInfo *,const VkAllocationCallbacks *,VkDeviceMemory *)': cannot convert argument 4 from 'VkDeviceMemory_T **' to 'VkDeviceMemory *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(148,76): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3317,32): message : see declaration of 'vkAllocateMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(153,76): error C2664: 'VkResult vkBindBufferMemory(VkDevice,VkBuffer,VkDeviceMemory,VkDeviceSize)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(153,53): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3355,32): message : see declaration of 'vkBindBufferMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(169,135): error C2664: 'void vkFreeCommandBuffers(VkDevice,VkCommandPool,uint32_t,const VkCommandBuffer *)': cannot convert argument 2 from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(169,55): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3701,28): message : see declaration of 'vkFreeCommandBuffers'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(191,8): error C2664: 'VkResult vkCreateCommandPool(VkDevice,const VkCommandPoolCreateInfo *,const VkAllocationCallbacks *,VkCommandPool *)': cannot convert argument 4 from 'VkCommandPool_T **' to 'VkCommandPool *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(191,78): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3680,32): message : see declaration of 'vkCreateCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(203,40): error C2440: '=': cannot convert from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(203,29): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(226,70): error C2440: '=': cannot convert from 'VkRenderPass_T *' to 'VkRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(226,68): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(227,76): error C2440: '=': cannot convert from '_Ty' to 'VkFramebuffer'
+          with
+          [
+              _Ty=VkFramebuffer_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(227,75): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(255,112): error C2664: 'void vkCmdBindVertexBuffers(VkCommandBuffer,uint32_t,uint32_t,const VkBuffer *,const VkDeviceSize *)': cannot convert argument 4 from 'VkBuffer_T **' to 'const VkBuffer *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(255,65): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3785,28): message : see declaration of 'vkCmdBindVertexBuffers'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(256,118): error C2664: 'void vkCmdBindIndexBuffer(VkCommandBuffer,VkBuffer,VkDeviceSize,VkIndexType)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(256,80): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3779,28): message : see declaration of 'vkCmdBindIndexBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(259,129): error C2664: 'void vkCmdBindPipeline(VkCommandBuffer,VkPipelineBindPoint,VkPipeline)': cannot convert argument 3 from 'VkPipeline_T *' to 'VkPipeline'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(259,127): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3718,28): message : see declaration of 'vkCmdBindPipeline'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(262,216): error C2664: 'void vkCmdBindDescriptorSets(VkCommandBuffer,VkPipelineBindPoint,VkPipelineLayout,uint32_t,uint32_t,const VkDescriptorSet *,uint32_t,const uint32_t *)': cannot convert argument 3 from 'VkPipelineLayout_T *' to 'VkPipelineLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(262,143): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3769,28): message : see declaration of 'vkCmdBindDescriptorSets'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(284,178): error C2664: 'void VulkanManager::CreateBuffer(VkDeviceSize,VkBufferUsageFlags,VkMemoryPropertyFlags,VkBuffer_T *&,VkDeviceMemory_T *&)': cannot convert argument 4 from 'VkBuffer' to 'VkBuffer_T *&'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(127,21): message : see declaration of 'VulkanManager::CreateBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(293,84): error C2664: 'void VulkanManager::CopyBuffer(VkBuffer_T *,VkBuffer_T *,VkDeviceSize)': cannot convert argument 1 from 'VkBuffer' to 'VkBuffer_T *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(293,20): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(132,7): message : see declaration of 'VulkanManager::CopyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(308,178): error C2664: 'void VulkanManager::CreateBuffer(VkDeviceSize,VkBufferUsageFlags,VkMemoryPropertyFlags,VkBuffer_T *&,VkDeviceMemory_T *&)': cannot convert argument 4 from 'VkBuffer' to 'VkBuffer_T *&'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(127,21): message : see declaration of 'VulkanManager::CreateBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(317,83): error C2664: 'void VulkanManager::CopyBuffer(VkBuffer_T *,VkBuffer_T *,VkDeviceSize)': cannot convert argument 1 from 'VkBuffer' to 'VkBuffer_T *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(317,20): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(132,7): message : see declaration of 'VulkanManager::CopyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(330,72): error C2664: 'void vkCmdCopyBuffer(VkCommandBuffer,VkBuffer,VkBuffer,uint32_t,const VkBufferCopy *)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(330,36): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3832,28): message : see declaration of 'vkCmdCopyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(353,1): error C2664: 'VkResult vkCreateSemaphore(VkDevice,const VkSemaphoreCreateInfo *,const VkAllocationCallbacks *,VkSemaphore *)': cannot convert argument 4 from '_Ty *' to 'VkSemaphore *'
+          with
+          [
+              _Ty=VkSemaphore_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(353,85): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3426,32): message : see declaration of 'vkCreateSemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(354,1): error C2664: 'VkResult vkCreateSemaphore(VkDevice,const VkSemaphoreCreateInfo *,const VkAllocationCallbacks *,VkSemaphore *)': cannot convert argument 4 from '_Ty *' to 'VkSemaphore *'
+          with
+          [
+              _Ty=VkSemaphore_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(354,85): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3426,32): message : see declaration of 'vkCreateSemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(355,1): error C2664: 'VkResult vkCreateFence(VkDevice,const VkFenceCreateInfo *,const VkAllocationCallbacks *,VkFence *)': cannot convert argument 4 from '_Ty *' to 'VkFence *'
+          with
+          [
+              _Ty=VkFence_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(355,77): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3399,32): message : see declaration of 'vkCreateFence'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(368,40): error C2440: '=': cannot convert from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(368,29): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(403,85): error C2664: 'void vkFreeCommandBuffers(VkDevice,VkCommandPool,uint32_t,const VkCommandBuffer *)': cannot convert argument 2 from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(403,55): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3701,28): message : see declaration of 'vkFreeCommandBuffers'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(439,112): error C2664: 'void vkFreeCommandBuffers(VkDevice,VkCommandPool,uint32_t,const VkCommandBuffer *)': cannot convert argument 2 from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(439,55): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3701,28): message : see declaration of 'vkFreeCommandBuffers'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(440,99): error C2664: 'void vkDestroyPipeline(VkDevice,VkPipeline,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkPipeline_T *' to 'VkPipeline'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(440,88): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3581,28): message : see declaration of 'vkDestroyPipeline'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(441,111): error C2664: 'void vkDestroyPipelineLayout(VkDevice,VkPipelineLayout,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkPipelineLayout_T *' to 'VkPipelineLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(441,100): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3592,28): message : see declaration of 'vkDestroyPipelineLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(442,126): error C2664: 'void vkDestroySemaphore(VkDevice,VkSemaphore,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkSemaphore_T *const ' to 'VkSemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(442,108): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3432,28): message : see declaration of 'vkDestroySemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(443,126): error C2664: 'void vkDestroySemaphore(VkDevice,VkSemaphore,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkSemaphore_T *const ' to 'VkSemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(443,108): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3432,28): message : see declaration of 'vkDestroySemaphore'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(444,104): error C2664: 'void vkDestroyFence(VkDevice,VkFence,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkFence_T *const ' to 'VkFence'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(444,90): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3405,28): message : see declaration of 'vkDestroyFence'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(445,75): error C2664: 'void vkDestroyCommandPool(VkDevice,VkCommandPool,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkCommandPool_T *' to 'VkCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(445,55): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3686,28): message : see declaration of 'vkDestroyCommandPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(448,91): error C2664: 'void vkDestroyBuffer(VkDevice,VkBuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(448,69): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3487,28): message : see declaration of 'vkDestroyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(449,94): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(449,66): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(450,92): error C2664: 'void vkDestroyBuffer(VkDevice,VkBuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(450,69): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3487,28): message : see declaration of 'vkDestroyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(451,95): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(451,66): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(458,51): error C2664: 'void vkDestroySurfaceKHR(VkInstance,VkSurfaceKHR,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(458,35): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5704,28): message : see declaration of 'vkDestroySurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(469,8): error C2664: 'SDL_bool SDL_Vulkan_CreateSurface(SDL_Window *,VkInstance,VkSurfaceKHR *)': cannot convert argument 3 from 'VkSurfaceKHR_T **' to 'VkSurfaceKHR *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(469,52): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\SDL2-2.0.12\include\SDL_vulkan.h(241,34): message : see declaration of 'SDL_Vulkan_CreateSurface'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(477,103): error C2664: 'VkResult vkWaitForFences(VkDevice,uint32_t,const VkFence *,VkBool32,uint64_t)': cannot convert argument 3 from '_Ty *' to 'const VkFence *'
+          with
+          [
+              _Ty=VkFence_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(477,53): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3419,32): message : see declaration of 'vkWaitForFences'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(480,196): error C2664: 'VkResult vkAcquireNextImageKHR(VkDevice,VkSwapchainKHR,uint64_t,VkSemaphore,VkFence,uint32_t *)': cannot convert argument 2 from 'VkSwapchainKHR_T *' to 'VkSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(480,113): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5859,32): message : see declaration of 'vkAcquireNextImageKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(492,151): error C2664: 'VkResult vkWaitForFences(VkDevice,uint32_t,const VkFence *,VkBool32,uint64_t)': cannot convert argument 3 from '_Ty *' to 'const VkFence *'
+          with
+          [
+              _Ty=VkFence_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(492,103): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3419,32): message : see declaration of 'vkWaitForFences'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(501,77): error C2440: 'initializing': cannot convert from '_Ty' to 'VkSemaphore'
+          with
+          [
+              _Ty=VkSemaphore_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(501,75): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(509,79): error C2440: 'initializing': cannot convert from '_Ty' to 'VkSemaphore'
+          with
+          [
+              _Ty=VkSemaphore_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(509,77): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(513,80): error C2664: 'VkResult vkResetFences(VkDevice,uint32_t,const VkFence *)': cannot convert argument 3 from '_Ty *' to 'const VkFence *'
+          with
+          [
+              _Ty=VkFence_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(513,51): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3410,32): message : see declaration of 'vkResetFences'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(514,8): error C2664: 'VkResult vkQueueSubmit(VkQueue,uint32_t,const VkSubmitInfo *,VkFence)': cannot convert argument 4 from '_Ty' to 'VkFence'
+          with
+          [
+              _Ty=VkFence_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(514,89): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3305,32): message : see declaration of 'vkQueueSubmit'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(525,70): error C2440: 'initializing': cannot convert from 'VkSwapchainKHR_T *' to 'VkSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(525,67): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(594,89): warning C4390: ';': empty controlled statement found; is this the intent?
+  VulkanPipelineManager.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(19,73): error C2440: 'initializing': cannot convert from 'VkShaderModule_T *' to 'VkShaderModule'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(19,37): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(20,73): error C2440: 'initializing': cannot convert from 'VkShaderModule_T *' to 'VkShaderModule'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(20,37): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(111,67): error C2440: 'initializing': cannot convert from 'VkDescriptorSetLayout_T *' to 'VkDescriptorSetLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(111,32): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(116,8): error C2664: 'VkResult vkCreatePipelineLayout(VkDevice,const VkPipelineLayoutCreateInfo *,const VkAllocationCallbacks *,VkPipelineLayout *)': cannot convert argument 4 from 'VkPipelineLayout_T **' to 'VkPipelineLayout *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(116,91): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3586,32): message : see declaration of 'vkCreatePipelineLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(145,41): error C2440: '=': cannot convert from 'VkPipelineLayout_T *' to 'VkPipelineLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(145,27): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(146,55): error C2440: '=': cannot convert from 'VkRenderPass_T *' to 'VkRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(146,53): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(153,8): error C2664: 'VkResult vkCreateGraphicsPipelines(VkDevice,VkPipelineCache,uint32_t,const VkGraphicsPipelineCreateInfo *,const VkAllocationCallbacks *,VkPipeline *)': cannot convert argument 6 from 'VkPipeline_T **' to 'VkPipeline *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(153,107): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3565,32): message : see declaration of 'vkCreateGraphicsPipelines'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(220,24): error C2440: 'return': cannot convert from 'VkShaderModule' to 'VkShaderModule_T *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanPipelineManager.cpp(220,12): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+  Generating Code...
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLManager.cpp(71): warning C4715: 'SDLManager::GetVulkanExtensions': not all control paths return a value
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\SDL\SDLEventHandler.cpp(29): warning C4715: 'SDLEventHandler::HandleEvents': not all control paths return a value
+  Compiling...
+  VulkanSwapchainManager.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FMatrix4.h(77,28): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(86,47): error C2440: '=': cannot convert from 'VkSurfaceKHR_T *' to 'VkSurfaceKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(86,45): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(116,8): error C2664: 'VkResult vkCreateSwapchainKHR(VkDevice,const VkSwapchainCreateInfoKHR *,const VkAllocationCallbacks *,VkSwapchainKHR *)': cannot convert argument 4 from 'VkSwapchainKHR_T **' to 'VkSwapchainKHR *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(116,81): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5842,32): message : see declaration of 'vkCreateSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(121,89): error C2664: 'VkResult vkGetSwapchainImagesKHR(VkDevice,VkSwapchainKHR,uint32_t *,VkImage *)': cannot convert argument 2 from 'VkSwapchainKHR_T *' to 'VkSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(121,58): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5853,32): message : see declaration of 'vkGetSwapchainImagesKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(123,95): error C2664: 'VkResult vkGetSwapchainImagesKHR(VkDevice,VkSwapchainKHR,uint32_t *,VkImage *)': cannot convert argument 2 from 'VkSwapchainKHR_T *' to 'VkSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(123,58): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5853,32): message : see declaration of 'vkGetSwapchainImagesKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(142,27): error C2440: '=': cannot convert from 'VkImage_T *' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(142,22): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(157,21): error C2440: 'return': cannot convert from 'VkImageView' to 'VkImageView_T *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(157,12): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(215,8): error C2664: 'VkResult vkCreateRenderPass(VkDevice,const VkRenderPassCreateInfo *,const VkAllocationCallbacks *,VkRenderPass *)': cannot convert argument 4 from 'VkRenderPass_T **' to 'VkRenderPass *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(215,83): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3664,32): message : see declaration of 'vkCreateRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(237,8): error C2664: 'VkResult vkCreateImage(VkDevice,const VkImageCreateInfo *,const VkAllocationCallbacks *,VkImage *)': cannot convert argument 4 from 'VkImage_T **' to 'VkImage *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(237,73): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3503,32): message : see declaration of 'vkCreateImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(243,86): error C2664: 'void vkGetImageMemoryRequirements(VkDevice,VkImage,VkMemoryRequirements *)': cannot convert argument 2 from 'VkImage_T *' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(243,63): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3372,28): message : see declaration of 'vkGetImageMemoryRequirements'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(250,8): error C2664: 'VkResult vkAllocateMemory(VkDevice,const VkMemoryAllocateInfo *,const VkAllocationCallbacks *,VkDeviceMemory *)': cannot convert argument 4 from 'VkDeviceMemory_T **' to 'VkDeviceMemory *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(250,76): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3317,32): message : see declaration of 'vkAllocateMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(255,73): error C2664: 'VkResult vkBindImageMemory(VkDevice,VkImage,VkDeviceMemory,VkDeviceSize)': cannot convert argument 2 from 'VkImage_T *' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(255,52): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3361,32): message : see declaration of 'vkBindImageMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(273,82): error C2440: 'initializing': cannot convert from '_Ty' to '_Ty'
+          with
+          [
+              _Ty=VkImageView_T *
+          ]
+          and
+          [
+              _Ty=VkImageView
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(273,64): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(273,82): error C2440: 'initializing': cannot convert from 'VkImageView_T *' to '_Ty'
+          with
+          [
+              _Ty=VkImageView
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(273,67): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(277,48): error C2440: '=': cannot convert from 'VkRenderPass_T *' to 'VkRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(277,38): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(284,12): error C2664: 'VkResult vkCreateFramebuffer(VkDevice,const VkFramebufferCreateInfo *,const VkAllocationCallbacks *,VkFramebuffer *)': cannot convert argument 4 from '_Ty *' to 'VkFramebuffer *'
+          with
+          [
+              _Ty=VkFramebuffer_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(284,89): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3653,32): message : see declaration of 'vkCreateFramebuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(342,8): error C2664: 'VkResult vkCreateDescriptorSetLayout(VkDevice,const VkDescriptorSetLayoutCreateInfo *,const VkAllocationCallbacks *,VkDescriptorSetLayout *)': cannot convert argument 4 from 'VkDescriptorSetLayout_T **' to 'VkDescriptorSetLayout *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(342,88): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3608,32): message : see declaration of 'vkCreateDescriptorSetLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(362,8): error C2664: 'VkResult vkCreateDescriptorPool(VkDevice,const VkDescriptorPoolCreateInfo *,const VkAllocationCallbacks *,VkDescriptorPool *)': cannot convert argument 4 from 'VkDescriptorPool_T **' to 'VkDescriptorPool *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(362,81): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3619,32): message : see declaration of 'vkCreateDescriptorPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(372,87): error C2664: 'std::vector<VkDescriptorSetLayout,std::allocator<VkDescriptorSetLayout>>::vector(const unsigned int,const _Alloc &)': cannot convert argument 2 from 'VkDescriptorSetLayout_T *' to 'const _Alloc &'
+          with
+          [
+              _Alloc=std::allocator<VkDescriptorSetLayout>
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(372,87): message : Reason: cannot convert from 'VkDescriptorSetLayout_T *' to 'const _Alloc'
+          with
+          [
+              _Alloc=std::allocator<VkDescriptorSetLayout>
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(372,87): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\include\vector(470,5): message : see declaration of 'std::vector<VkDescriptorSetLayout,std::allocator<VkDescriptorSetLayout>>::vector'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(376,50): error C2440: '=': cannot convert from 'VkDescriptorPool_T *' to 'VkDescriptorPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(376,36): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(381,12): error C2664: 'VkResult vkAllocateDescriptorSets(VkDevice,const VkDescriptorSetAllocateInfo *,VkDescriptorSet *)': cannot convert argument 3 from '_Ty *' to 'VkDescriptorSet *'
+          with
+          [
+              _Ty=VkDescriptorSet_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(381,108): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3635,32): message : see declaration of 'vkAllocateDescriptorSets'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(390,45): error C2440: '=': cannot convert from '_Ty' to 'VkBuffer'
+          with
+          [
+              _Ty=VkBuffer_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(390,44): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(398,81): error C2440: '=': cannot convert from 'VkImageView_T *' to 'VkImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(398,64): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(399,77): error C2440: '=': cannot convert from 'VkSampler_T *' to 'VkSampler'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(399,62): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(404,66): error C2440: '=': cannot convert from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(404,54): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(411,73): error C2440: '=': cannot convert from '_Ty' to 'VkDescriptorSet'
+          with
+          [
+              _Ty=VkDescriptorSet_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(411,72): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(419,73): error C2440: '=': cannot convert from '_Ty' to 'VkDescriptorSet'
+          with
+          [
+              _Ty=VkDescriptorSet_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(419,72): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(427,73): error C2440: '=': cannot convert from '_Ty' to 'VkDescriptorSet'
+          with
+          [
+              _Ty=VkDescriptorSet_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(427,72): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(460,186): error C2664: 'void VulkanManager::CreateBuffer(VkDeviceSize,VkBufferUsageFlags,VkMemoryPropertyFlags,VkBuffer_T *&,VkDeviceMemory_T *&)': cannot convert argument 4 from 'VkBuffer' to 'VkBuffer_T *&'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(120,7): message : see declaration of 'VulkanManager::CreateBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(471,159): error C2664: 'void VulkanSwapchainManager::CopyBufferToImage(VkBuffer_T *,VkImage_T *,unsigned int,unsigned int)': cannot convert argument 1 from 'VkBuffer' to 'VkBuffer_T *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(471,27): message : Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.h(88,7): message : see declaration of 'VulkanSwapchainManager::CopyBufferToImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(502,8): error C2664: 'VkResult vkCreateSampler(VkDevice,const VkSamplerCreateInfo *,const VkAllocationCallbacks *,VkSampler *)': cannot convert argument 4 from 'VkSampler_T **' to 'VkSampler *'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(502,77): message : Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3597,32): message : see declaration of 'vkCreateSampler'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(510,76): error C2664: 'void vkDestroyImageView(VkDevice,VkImageView,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkImageView_T *' to 'VkImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(510,53): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3526,28): message : see declaration of 'vkDestroyImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(511,68): error C2664: 'void vkDestroyImage(VkDevice,VkImage,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkImage_T *' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(511,49): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3509,28): message : see declaration of 'vkDestroyImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(512,72): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(512,47): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(513,120): error C2664: 'void vkDestroyFramebuffer(VkDevice,VkFramebuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkFramebuffer_T *const ' to 'VkFramebuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(513,100): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3659,28): message : see declaration of 'vkDestroyFramebuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(514,73): error C2664: 'void vkDestroyRenderPass(VkDevice,VkRenderPass,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkRenderPass_T *' to 'VkRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(514,54): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3670,28): message : see declaration of 'vkDestroyRenderPass'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(515,122): error C2664: 'void vkDestroyImageView(VkDevice,VkImageView,const VkAllocationCallbacks *)': cannot convert argument 2 from '_Ty' to 'VkImageView'
+          with
+          [
+              _Ty=VkImageView_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(515,112): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3526,28): message : see declaration of 'vkDestroyImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(516,74): error C2664: 'void vkDestroySwapchainKHR(VkDevice,VkSwapchainKHR,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkSwapchainKHR_T *' to 'VkSwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(516,56): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(5848,28): message : see declaration of 'vkDestroySwapchainKHR'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(517,109): error C2664: 'void vkDestroyBuffer(VkDevice,VkBuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkBuffer_T *const ' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(517,94): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3487,28): message : see declaration of 'vkDestroyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(518,112): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *const ' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(518,97): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(519,108): error C2664: 'void vkDestroyBuffer(VkDevice,VkBuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkBuffer_T *const ' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(519,93): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3487,28): message : see declaration of 'vkDestroyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(520,112): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *const ' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(520,97): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(525,88): error C2664: 'void vkDestroyBuffer(VkDevice,VkBuffer,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkBuffer_T *const ' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(525,67): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3487,28): message : see declaration of 'vkDestroyBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(526,91): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *const ' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(526,64): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(529,81): error C2664: 'void vkDestroyDescriptorPool(VkDevice,VkDescriptorPool,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDescriptorPool_T *' to 'VkDescriptorPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(529,58): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3625,28): message : see declaration of 'vkDestroyDescriptorPool'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(537,97): error C2664: 'void vkDestroySampler(VkDevice,VkSampler,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkSampler_T *const ' to 'VkSampler'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(537,73): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3603,28): message : see declaration of 'vkDestroySampler'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(538,101): error C2664: 'void vkDestroyImageView(VkDevice,VkImageView,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkImageView_T *const ' to 'VkImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(538,75): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3526,28): message : see declaration of 'vkDestroyImageView'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(539,93): error C2664: 'void vkDestroyImage(VkDevice,VkImage,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkImage_T *const ' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(539,71): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3509,28): message : see declaration of 'vkDestroyImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(540,97): error C2664: 'void vkFreeMemory(VkDevice,VkDeviceMemory,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDeviceMemory_T *const ' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(540,69): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3323,28): message : see declaration of 'vkFreeMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(542,91): error C2664: 'void vkDestroyDescriptorSetLayout(VkDevice,VkDescriptorSetLayout,const VkAllocationCallbacks *)': cannot convert argument 2 from 'VkDescriptorSetLayout_T *' to 'VkDescriptorSetLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(542,63): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3614,28): message : see declaration of 'vkDestroyDescriptorSetLayout'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(581,26): error C2440: '=': cannot convert from 'VkImage_T *' to 'VkImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(581,21): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(660,106): error C2664: 'void vkCmdCopyBufferToImage(VkCommandBuffer,VkBuffer,VkImage,VkImageLayout,uint32_t,const VkBufferImageCopy *)': cannot convert argument 2 from 'VkBuffer_T *' to 'VkBuffer'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(660,43): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3858,28): message : see declaration of 'vkCmdCopyBufferToImage'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(667,62): error C2666: 'FVector4::operator []': 4 overloads have similar conversions
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(57,17): message : could be 'float &FVector4::operator [](unsigned int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Math\FVector4.h(56,22): message : or       'const float FVector4::operator [](unsigned int) const'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(667,62): message : or       'built-in C++ operator[(const float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(667,62): message : or       'built-in C++ operator[(float *, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(667,62): message : while trying to match the argument list '(FVector4, int)'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(670,72): error C2440: 'initializing': cannot convert from '_Ty' to 'VkDeviceMemory'
+          with
+          [
+              _Ty=VkDeviceMemory_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(670,31): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(671,133): error C2664: 'VkResult vkMapMemory(VkDevice,VkDeviceMemory,VkDeviceSize,VkDeviceSize,VkMemoryMapFlags,void **)': cannot convert argument 2 from '_Ty' to 'VkDeviceMemory'
+          with
+          [
+              _Ty=VkDeviceMemory_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(671,84): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3328,32): message : see declaration of 'vkMapMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(673,87): error C2664: 'void vkUnmapMemory(VkDevice,VkDeviceMemory)': cannot convert argument 2 from '_Ty' to 'VkDeviceMemory'
+          with
+          [
+              _Ty=VkDeviceMemory_T *
+          ]
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(673,86): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3336,28): message : see declaration of 'vkUnmapMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(678,83): error C2440: 'initializing': cannot convert from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(678,29): message : There is no context in which this conversion is possible
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(679,138): error C2664: 'VkResult vkMapMemory(VkDevice,VkDeviceMemory,VkDeviceSize,VkDeviceSize,VkMemoryMapFlags,void **)': cannot convert argument 2 from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(679,84): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3328,32): message : see declaration of 'vkMapMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(681,104): error C2664: 'void vkUnmapMemory(VkDevice,VkDeviceMemory)': cannot convert argument 2 from 'VkDeviceMemory_T *' to 'VkDeviceMemory'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanSwapchainManager.cpp(681,86): message : There is no context in which this conversion is possible
+C:\GameDev\VulkanSDK\1.2.148.1\Include\vulkan\vulkan_core.h(3336,28): message : see declaration of 'vkUnmapMemory'
+  Window.cpp
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Renderer.h(4): message : see declaration of 'SDL_Window'
+  Generating Code...
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Window.cpp(58): warning C4715: 'Window::OnCreateVulkanWindow': not all control paths return a value

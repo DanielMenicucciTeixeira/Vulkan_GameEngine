@@ -10,7 +10,7 @@ class O_Object;
 class O_GameObject;
 class O_Level;
 class Renderer;
-class VGE_SDLManager;
+class SDLManager;
 struct S_Mesh;
 struct S_Material;
 struct RenderInitializationData;
@@ -41,7 +41,7 @@ public:
 protected:
 	Clock* GameClock;
 	O_Level* CurrentLevel;
-	VGE_SDLManager* SDLManager;
+	SDLManager* InterfaceManager;
 	Renderer* GameRenderer;
 	
 	std::map<std::string, O_Level*> Levels;

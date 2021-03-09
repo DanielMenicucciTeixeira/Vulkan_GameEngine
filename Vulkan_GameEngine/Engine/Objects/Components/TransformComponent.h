@@ -14,6 +14,7 @@ public:
 	~C_TransformComponent() { O_Component::~O_Component(); if (Transform) delete(Transform); }
 	
 	FTransform GetComponentTransform() const;
+	FTransform* GetComponentTransformReference() const;
 	FVector3 GetComponentPosition() const;
 	FQuaternion GetComponentRotation() const;
 	FVector3 GetComponentScale() const;

@@ -1,6 +1,6 @@
 #include "Window.h"
 #include "SDL/SDLWindowManager.h"
-#include "Renderer.h"
+#include "Renderers/Renderer.h"
 
 #include <SDL.h>
 #include <glew.h>

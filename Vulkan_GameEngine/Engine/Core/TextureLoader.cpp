@@ -2,7 +2,7 @@
 
 //#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
-#include "RenderObject.h"
+#include "Renderers/RenderObject.h"
 
 void TextureLoader::LoadTexture(std::string texturePath, S_Texture* texture)
 {

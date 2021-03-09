@@ -21,8 +21,8 @@
 //ExtraIncludes
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
-#include "RenderObject.h"
-#include "RenderInitializationData.h"
+#include "Renderers/RenderObject.h"
+#include "Renderers/RenderInitializationData.h"
 
 VulkanManager::VulkanManager()
 {

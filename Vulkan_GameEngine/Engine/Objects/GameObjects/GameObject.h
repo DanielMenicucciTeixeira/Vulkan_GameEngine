@@ -22,6 +22,7 @@ public:
 
 	///Gettters
 	FTransform GetTransform() const;
+	FTransform* GetTransformReference() const;
 	FVector3 GetPosition() const;
 	FQuaternion GetRotation() const;
 	FVector3 GetScale() const;

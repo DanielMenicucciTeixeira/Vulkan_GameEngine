@@ -1,6 +1,6 @@
 #include "StaticMeshComponent.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "RenderObject.h"
+#include "Renderers/RenderObject.h"
 #include "Math/FMatrix4.h"
 #include "Math/FTransform.h"
 

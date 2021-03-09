@@ -1,8 +1,9 @@
 #include "PhysicsComponent.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "PhysicsLib.h"
+#include "Physics/PhysicsLib.h"
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
+#include "Math/FTransform.h"
 
 void C_PhysicsComponent::Update(float deltaTime)
 {
@@ -21,7 +22,7 @@ void C_PhysicsComponent::CalculateCenterOfMass()
 	if (!MeshComponent)
 	{
 		UseCenterOfMass = false;
-		CenterOfMass = &Owner->GetPosition();
+		CenterOfMass = Owner->GetTransformReference()->Position;
 	}
 }
 
@@ -34,7 +35,7 @@ C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool use
 {
 	Mass = mass;
 	if (UseCenterOfMass) CalculateCenterOfMass();
-	else CenterOfMass = &Owner->GetPosition();
+	else CenterOfMass = Owner->GetTransformReference()->Position;
 	if (useCalculatedAngularIntertia && MeshComponent) CalculateAngularInertia();
 	else AngularInertia = angularInertia;
 

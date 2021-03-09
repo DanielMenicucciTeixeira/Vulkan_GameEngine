@@ -2,8 +2,8 @@
 #include "VulkanManager.h"
 #include "UniformBufferObject.h"
 #include "Math/FVector3.h"
-#include "RenderObject.h"
-#include "RenderInitializationData.h"
+#include "Renderers/RenderObject.h"
+#include "Renderers/RenderInitializationData.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>

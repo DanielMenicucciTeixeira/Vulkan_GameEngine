@@ -165,7 +165,7 @@
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp" />
     <ClCompile Include="Engine\Core\Clock.cpp" />
     <ClCompile Include="Engine\Objects\Components\CollisionComponent.cpp" />
-    <ClCompile Include="Engine\CollisionData.h" />
+    <ClCompile Include="Engine\Core\CollisionData.h" />
     <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp" />
     <ClCompile Include="Engine\Geometry\Box.cpp" />
@@ -182,9 +182,9 @@
     <ClCompile Include="Engine\Core\MeshLoader.cpp" />
     <ClCompile Include="Engine\Objects\Components\MovementComponent.cpp" />
     <ClCompile Include="Engine\Core\Level.cpp" />
-    <ClCompile Include="Engine\PhysicsBody.cpp" />
+    <ClCompile Include="Engine\Objects\GameObjects\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp" />
-    <ClCompile Include="Engine\PhysicsLib.cpp" />
+    <ClCompile Include="Engine\Physics\PhysicsLib.cpp" />
     <ClCompile Include="Engine\SDL\SDLEventHandler.cpp" />
     <ClCompile Include="Engine\SDL\SDLManager.cpp" />
     <ClCompile Include="Engine\SDL\SDLTextureLoader.cpp" />
@@ -194,11 +194,11 @@
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
     <ClCompile Include="Engine\Core\TextureLoader.cpp" />
     <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp" />
-    <ClCompile Include="Engine\Vulkan\VulkanDebugger.cpp" />
-    <ClCompile Include="Engine\Vulkan\VulkanDevices.cpp" />
-    <ClCompile Include="Engine\Vulkan\VulkanManager.cpp" />
-    <ClCompile Include="Engine\Vulkan\VulkanPipelineManager.cpp" />
-    <ClCompile Include="Engine\Vulkan\VulkanSwapchainManager.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanDebugger.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanDevices.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanManager.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanPipelineManager.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp" />
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -229,13 +229,13 @@
     <ClInclude Include="Engine\Math\FVector4.h" />
     <ClInclude Include="Engine\Core\MeshLoader.h" />
     <ClInclude Include="Engine\Core\Level.h" />
-    <ClInclude Include="Engine\PhysicsBody.h" />
+    <ClInclude Include="Engine\Objects\GameObjects\PhysicsBody.h" />
     <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h" />
-    <ClInclude Include="Engine\PhysicsLib.h" />
+    <ClInclude Include="Engine\Physics\PhysicsLib.h" />
     <ClInclude Include="Engine\Objects\Components\RenderableComponent.h" />
-    <ClInclude Include="Engine\Renderer.h" />
-    <ClInclude Include="Engine\RenderInitializationData.h" />
-    <ClInclude Include="Engine\Core\RenderObject.h" />
+    <ClInclude Include="Engine\Renderers\Renderer.h" />
+    <ClInclude Include="Engine\Renderers\RenderInitializationData.h" />
+    <ClInclude Include="Engine\Renderers\RenderObject.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />
@@ -247,11 +247,11 @@
     <ClInclude Include="Engine\Objects\Components\TransformComponent.h" />
     <ClInclude Include="Engine\Core\UniformBufferObject.h" />
     <ClInclude Include="Engine\Core\Vertex.h" />
-    <ClInclude Include="Engine\Vulkan\VulkanDebugger.h" />
-    <ClInclude Include="Engine\Vulkan\VulkanDevices.h" />
-    <ClInclude Include="Engine\Vulkan\VulkanManager.h" />
-    <ClInclude Include="Engine\Vulkan\VulkanPipelineManager.h" />
-    <ClInclude Include="Engine\Vulkan\VulkanSwapchainManager.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanDebugger.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanDevices.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanManager.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanPipelineManager.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.h" />
     <ClInclude Include="Engine\SDL\Window.h" />
   </ItemGroup>
   <ItemGroup>

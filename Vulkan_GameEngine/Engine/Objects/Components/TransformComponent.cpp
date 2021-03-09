@@ -15,6 +15,11 @@ FTransform C_TransformComponent::GetComponentTransform() const
 	return *Transform;
 }
 
+FTransform* C_TransformComponent::GetComponentTransformReference() const
+{
+	return Transform;
+}
+
 FVector3 C_TransformComponent::GetComponentPosition() const
 {
 	return *Transform->Position;

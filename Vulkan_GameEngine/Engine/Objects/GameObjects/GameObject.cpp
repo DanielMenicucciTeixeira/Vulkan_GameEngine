@@ -32,6 +32,11 @@ FTransform O_GameObject::GetTransform() const
 	return FTransform(Root->GetComponentTransform());
 }
 
+FTransform* O_GameObject::GetTransformReference() const
+{
+	return Root->GetComponentTransformReference();
+}
+
 FVector3 O_GameObject::GetPosition() const
 {
 	return FVector3(Root->GetComponentPosition());

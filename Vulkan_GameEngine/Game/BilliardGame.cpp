@@ -1,5 +1,5 @@
 #include "BilliardGame.h"
-#include "RenderObject.h"
+#include "Renderers/RenderObject.h"
 #include "BilliardLevel.h"
 
 BilliardGame::BilliardGame() : Game()

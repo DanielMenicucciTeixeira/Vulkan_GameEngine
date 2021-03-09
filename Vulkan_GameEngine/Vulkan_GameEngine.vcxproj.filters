@@ -60,283 +60,283 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FMatrix.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Engine\Vulkan\VulkanDebugger.cpp">
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FMatrix4.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Engine\Vulkan\VulkanDevices.cpp">
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FQuaternion.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Engine\Vulkan\VulkanManager.cpp">
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FTransform.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Engine\Vulkan\VulkanPipelineManager.cpp">
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FVector3.cpp">
-      <Filter>Math</Filter>
+    <ClCompile Include="Engine\Vulkan\VulkanSwapchainManager.cpp">
+      <Filter>Renderers\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry\Box.cpp">
+    <ClCompile Include="Engine\SDL\SDLEventHandler.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SDL\SDLManager.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SDL\SDLTextureLoader.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\SDL\SDLWindowManager.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Geometry\Box.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry\Plane.cpp">
+    <ClCompile Include="Engine\Geometry\Plane.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry\Ray.cpp">
+    <ClCompile Include="Engine\Geometry\Ray.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry\Sphere.cpp">
+    <ClCompile Include="Engine\Geometry\Sphere.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Math\FVector4.cpp">
+    <ClCompile Include="Engine\Math\FMatrix.cpp">
       <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanDebugger.cpp">
-      <Filter>Renderers\Vulkan</Filter>
+    <ClCompile Include="Engine\Math\FMatrix4.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanDevices.cpp">
-      <Filter>Renderers\Vulkan</Filter>
+    <ClCompile Include="Engine\Math\FQuaternion.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanManager.cpp">
-      <Filter>Renderers\Vulkan</Filter>
+    <ClCompile Include="Engine\Math\FTransform.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="MeshLoader.cpp">
-      <Filter>Renderers</Filter>
+    <ClCompile Include="Engine\Math\FVector3.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="TextureLoader.cpp">
-      <Filter>Renderers</Filter>
+    <ClCompile Include="Engine\Math\FVector4.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanPipelineManager.cpp">
-      <Filter>Renderers\Vulkan</Filter>
+    <ClCompile Include="Game\BilliardBall.cpp">
+      <Filter>BilliardGame</Filter>
     </ClCompile>
-    <ClCompile Include="Vulkan\VulkanSwapchainManager.cpp">
-      <Filter>Renderers\Vulkan</Filter>
+    <ClCompile Include="Game\BilliardGame.cpp">
+      <Filter>BilliardGame</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
+    <ClCompile Include="Game\BilliardLevel.cpp">
+      <Filter>BilliardGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\BilliardTable.cpp">
+      <Filter>BilliardGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CollisionData.h">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\PhysicsBody.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Objects\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="StaticMeshComponent.cpp">
-      <Filter>Objects\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="TransformComponent.cpp">
-      <Filter>Objects\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsLib.cpp">
+    <ClCompile Include="Engine\PhysicsLib.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsBody.cpp">
+    <ClCompile Include="Engine\SDL\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\Clock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\CollisionComponent.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\BoxCollision.cpp">
+      <Filter>Objects\Components\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="PhysicsComponent.cpp">
-      <Filter>Objects\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Clock.cpp">
+    <ClCompile Include="Engine\Core\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CameraComponent.cpp">
-      <Filter>Objects\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionData.h">
-      <Filter>Objects\Components\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionComponent.cpp">
-      <Filter>Objects\Components\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="BoxCollision.cpp">
-      <Filter>Objects\Components\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="SphereCollision.cpp">
-      <Filter>Objects\Components\Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
+    <ClCompile Include="Engine\Core\Level.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Engine\Core\MeshLoader.cpp">
+      <Filter>Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="BilliardGame.cpp">
-      <Filter>BilliardGame</Filter>
+    <ClCompile Include="Engine\Core\TextureLoader.cpp">
+      <Filter>Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="BilliardLevel.cpp">
-      <Filter>BilliardGame</Filter>
+    <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp">
+      <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="BilliardTable.cpp">
-      <Filter>BilliardGame</Filter>
-    </ClCompile>
-    <ClCompile Include="BilliardBall.cpp">
-      <Filter>BilliardGame</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\SDLEventHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\SDLManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\SDLTextureLoader.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="SDL\SDLWindowManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Engine\Objects\Components\MovementComponent.cpp">
+      <Filter>Objects\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\EngineEvent.h">
-      <Filter>Core</Filter>
+    <ClInclude Include="Engine\Vulkan\VulkanDebugger.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vulkan\VulkanDevices.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vulkan\VulkanManager.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vulkan\VulkanPipelineManager.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Vulkan\VulkanSwapchainManager.h">
+      <Filter>Renderers\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SDL\SDLEventHandler.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SDL\SDLManager.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SDL\SDLTextureLoader.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SDL\SDLWindowManager.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Geometry\Box.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Geometry\Plane.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Geometry\Ray.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Geometry\Sphere.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FMatrix4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FQuaternion.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FTransform.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FVector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FVector4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BilliardBall.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BilliardBalls.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BilliardGame.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BilliardLevel.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\BilliardTable.h">
+      <Filter>BilliardGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\PhysicsBody.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\PhysicsLib.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderer.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\RenderInitializationData.h">
+      <Filter>Renderers</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\SDL\Window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Math\FMatrix.h">
-      <Filter>Math</Filter>
+    <ClInclude Include="Engine\Core\EngineEvent.h">
+      <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Math\FMatrix4.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FQuaternion.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FTransform.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FVector3.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry\Box.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry\Plane.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry\Ray.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Geometry\Sphere.h">
-      <Filter>Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\FVector4.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanDebugger.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanDevices.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanManager.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="Vertex.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderObject.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="MeshLoader.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureLoader.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanPipelineManager.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="Vulkan\VulkanSwapchainManager.h">
-      <Filter>Renderers\Vulkan</Filter>
-    </ClInclude>
-    <ClInclude Include="UniformBufferObject.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderInitializationData.h">
-      <Filter>Renderers</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderableComponent.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticMeshComponent.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformComponent.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsLib.h">
-      <Filter>Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsBody.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsComponent.h">
-      <Filter>Objects\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Clock.h">
+    <ClInclude Include="Engine\Core\Clock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CameraComponent.h">
+    <ClInclude Include="Engine\Objects\Components\CameraComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionComponent.h">
+    <ClInclude Include="Engine\Objects\Components\CollisionComponent.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="SphereCollision.h">
+    <ClInclude Include="Engine\Objects\Components\Component.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\Components\SphereCollision.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="BoxCollision.h">
+    <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\Components\BoxCollision.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="Level.h">
+    <ClInclude Include="Engine\Objects\Object.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\GameObjects\GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Level.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Core\MeshLoader.h">
+      <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardGame.h">
-      <Filter>BilliardGame</Filter>
+    <ClInclude Include="Engine\Core\TextureLoader.h">
+      <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardLevel.h">
-      <Filter>BilliardGame</Filter>
+    <ClInclude Include="Engine\Core\RenderObject.h">
+      <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardBalls.h">
-      <Filter>BilliardGame</Filter>
+    <ClInclude Include="Engine\Core\Vertex.h">
+      <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardBall.h">
-      <Filter>BilliardGame</Filter>
+    <ClInclude Include="Engine\Core\UniformBufferObject.h">
+      <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardTable.h">
-      <Filter>BilliardGame</Filter>
+    <ClInclude Include="Engine\Objects\Components\TransformComponent.h">
+      <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="SDL\SDLEventHandler.h">
-      <Filter>SDL</Filter>
+    <ClInclude Include="Engine\Objects\Components\MovementComponent.h">
+      <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="SDL\SDLManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL\SDLTextureLoader.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="SDL\SDLWindowManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Engine\Objects\Components\RenderableComponent.h">
+      <Filter>Objects\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -345,10 +345,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\Base.frag">
+    <None Include="Engine\Shaders\Base.frag">
       <Filter>Renderers\Shaders\BaseShader</Filter>
     </None>
-    <None Include="Shaders\Base.vert">
+    <None Include="Engine\Shaders\Base.vert">
       <Filter>Renderers\Shaders\BaseShader</Filter>
     </None>
   </ItemGroup>

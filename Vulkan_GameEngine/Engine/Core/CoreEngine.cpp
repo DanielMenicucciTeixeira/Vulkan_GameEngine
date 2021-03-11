@@ -4,6 +4,8 @@
 #include "SDL/Window.h"
 #include "Renderers/Vulkan/VulkanManager.h"
 #include "Clock.h"
+#include "DebugLogger.h"
+#include "GameInterface.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -11,7 +13,17 @@
 
 std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
-CoreEngine::CoreEngine() : EngineWindow(nullptr), Running(false), InterfaceManager(nullptr), EngineRenderer(nullptr), EngineClock(nullptr)
+bool CoreEngine::StartGame()
+{
+	if (!Game || !Game->Initialize(this))
+	{
+		DebugLogger::Warning("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
+		return  RunningGame = false;
+	}
+	return RunningGame = true;
+}
+
+CoreEngine::CoreEngine() : EngineWindow(nullptr), RunningEngine(false), RunningGame(false), InterfaceManager(nullptr), EngineRenderer(nullptr), EngineClock(nullptr), FramesPerSecond(60), Game(nullptr)
 {
 }
 
@@ -19,46 +31,77 @@ CoreEngine::~CoreEngine()
 {
 }
 
-CoreEngine* CoreEngine::GetInstance()
+bool CoreEngine::Initialize(const char* name, ERendererType renderType, int width, int height, int positionX, int positionY)
 {
-	if (Instance.get() == nullptr) Instance.reset(new CoreEngine);
-	return Instance.get();
-}
+	DebugLogger::Initialize();
 
-bool CoreEngine::OnCreate(const char* name, ERendererType renderType, int width, int height, int positionX, int positionY)
-{
-	EngineClock = new Clock();
 	InterfaceManager = new SDLManager();
 	if (!InterfaceManager->Begin())
 	{
-		OnDestroy();
-		return Running = false;
+		CleanUp();
+		return RunningEngine = false;
 	}
+
 	EngineWindow = InterfaceManager->CreateWindow(name, renderType, width, height, positionX, positionY);
 	if (!EngineWindow)
 	{
-		OnDestroy();
-		return Running = false;
+		CleanUp();
+		return RunningEngine = false;
 	}
-	return Running = true;
+	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
+
+	EngineClock = new Clock();
+	EngineClock->StartClock();
+
+	return RunningEngine = true;
 }
 
 void CoreEngine::Run()
 {
-	while (Running)
+	while (RunningEngine)
 	{
-		Update(0.0167f);
+		if (Game && RunningGame) Game->Run();
+
+		EngineClock->UpdateClock();
+		HandleEvents();
+		Update(EngineClock->GetDeltaTimeSeconds());
 		Render();
+		SDL_Delay(EngineClock->GetSleepTime(FramesPerSecond));
 	}
-	OnDestroy();
+	CleanUp();
 }
 
 void CoreEngine::HandleEvents()
 {
+	SDL_Event event;
+	while (SDL_PollEvent(&event))
+	{
+		auto eventType = event.type;
+		int32_t keycode;
+
+		//If the event is key or button realted, set the keycode
+		switch (eventType)
+		{
+		case SDL_CONTROLLERBUTTONUP | SDL_CONTROLLERBUTTONDOWN:
+			keycode = event.cbutton.button;
+			break;
+		case SDL_KEYUP | SDL_KEYDOWN:
+			keycode = event.key.keysym.sym;
+			break;
+		case SDL_MOUSEBUTTONUP | SDL_MOUSEBUTTONDOWN:
+			keycode = event.button.button;
+			break;
+		default:
+			keycode = SDLK_UNKNOWN;
+		}
+		//Then find the function in the map using the event type and keycode as directions, if it exists, call it.
+		if (EngineInputFunctions[std::make_pair(eventType, keycode)]) EngineInputFunctions[std::make_pair(eventType, keycode)](this);
+	}
 }
 
 void CoreEngine::Update(const float deltaTime)
 {
+	//printf("Delta Time: %f\tTotal Time: %f\n", deltaTime, EngineClock->GetTimeSeconds());
 }
 
 void CoreEngine::Render()
@@ -69,8 +112,19 @@ void CoreEngine::Render()
 	SDL_GL_SwapWindow(EngineWindow->GetSDLWindow());
 }
 
-void CoreEngine::OnDestroy()
+void CoreEngine::SetEngineInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(CoreEngine*))
+{
+	//If the event is not key realted, mark the keycode as Unknown
+	if (eventType != SDL_KEYUP && eventType != SDL_KEYDOWN) keycode = SDLK_UNKNOWN;
+
+	//Then map the function to the EngineInputFunctions map
+	EngineInputFunctions[std::make_pair(eventType, keycode)] = function;
+}
+
+void CoreEngine::CleanUp()
 {
 	InterfaceManager->End();
+	if(EngineClock) delete(EngineClock);
+	if (Game) delete(Game);
 	exit(0);
 }

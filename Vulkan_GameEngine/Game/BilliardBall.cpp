@@ -4,7 +4,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Math/FVector3.h"
 #include "Geometry/Sphere.h"
-#include "PhysicsLib.h"
+#include "Physics/PhysicsLib.h"
 #include "BilliardTable.h"
 #include "Objects/Components/BoxCollision.h"
 #include "Geometry/Box.h"

@@ -1,0 +1,3 @@
+[INFO]: GL version: 4.5.0 NVIDIA 461.72 in: SDL/Window.cpp on line: 90
+[INFO]: Engine initilized successfully. in: Core/CoreEngine.cpp on line: 52
+[WARNING]: Failed to load game! in: Core/CoreEngine.cpp on line: 21

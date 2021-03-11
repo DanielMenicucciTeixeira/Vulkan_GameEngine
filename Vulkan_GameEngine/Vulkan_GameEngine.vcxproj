@@ -158,6 +158,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Core\DebugLogger.cpp" />
     <ClCompile Include="Engine\Core\CoreEngine.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
     <ClCompile Include="Game\BilliardGame.cpp" />
@@ -203,7 +204,10 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Core\DebugLogger.h" />
+    <ClInclude Include="Engine\Auxiliary\Singleton.h" />
     <ClInclude Include="Engine\Core\CoreEngine.h" />
+    <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />
     <ClInclude Include="Game\BilliardGame.h" />

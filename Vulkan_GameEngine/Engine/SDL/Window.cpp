@@ -1,12 +1,14 @@
 #include "Window.h"
 #include "SDL/SDLWindowManager.h"
 #include "Renderers/Renderer.h"
+#include "DebugLogger.h"
 
 #include <SDL.h>
 #include <glew.h>
 #include <SDL_opengl.h>
 
 #include <unordered_map>
+#include <string>
 
 Window::Window(SDLWindowManager* windowManager) : SDLWindow(nullptr), Context(nullptr)
 {
@@ -35,7 +37,7 @@ bool Window::OnCreate(const char* name, ERendererType rendererType, int width, i
 		return OnCreateOpenGLWindow(name, width, height, positionX, positionY);
 	}
 
-	printf("Failed to create Window!");
+	DebugLogger::FatalError("Failed to create Window!", "SLD/Window.cpp", __LINE__);
 	return false;
 }
 
@@ -59,7 +61,7 @@ bool Window::OnCreateVulkanWindow(const char* name, int width, int height, int p
 	SDLWindow = SDL_CreateWindow(name, positionX, positionY, width, height, SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE);
 	if (SDLWindow == NULL)
 	{
-		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+		DebugLogger::FatalError("Window could not be created! SDL_Error: " + std::string(SDL_GetError()), "SDL/Window.cpp", __LINE__);
 		return false;
 	}
 }
@@ -71,7 +73,7 @@ bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int p
 	SDL_GL_CreateContext(SDLWindow);
 	if (SDLWindow == NULL)
 	{
-		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+		DebugLogger::FatalError("Window could not be created! SDL_Error: " + std::string(SDL_GetError()), "SDL/Window.cpp", __LINE__);
 		return false;
 	}
 
@@ -80,10 +82,11 @@ bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int p
 
 	if (glewInit() != GLEW_OK)
 	{
-		printf("Failed to initialize Glew!");
+		DebugLogger::FatalError("Failed to initialize Glew!", "SDL/Window.cpp", __LINE__);
 		return false;
 	}
 	glEnable(GL_DEPTH_TEST);
-	printf("GL version: %s.\n", glGetString(GL_VERSION));
+	std::string version((const char*)glGetString(GL_VERSION));
+	DebugLogger::Info("GL version: " + version, "SDL/Window.cpp", __LINE__);
 	return true;
 }

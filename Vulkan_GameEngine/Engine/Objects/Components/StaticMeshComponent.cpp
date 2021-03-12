@@ -9,7 +9,7 @@ void C_StaticMeshComponent::Start()
 	*ModelMatrix = (Owner->GetTransform() + Transform).GetModelMatrix();
 }
 
-void C_StaticMeshComponent::Update(float deltaTime)
+void C_StaticMeshComponent::Update(const float deltaTime)
 {
 	*ModelMatrix = (Owner->GetTransform() + Transform).GetModelMatrix();
 }

@@ -10,14 +10,21 @@
 #include <SDL.h>
 #include<iostream>
 
+
+std::unique_ptr<SDLManager> SDLManager::Instance = nullptr;
+
 SDLManager::SDLManager()
 {
 }
 
 SDLManager::~SDLManager()
 {
-   if(WindowManager != nullptr) delete(WindowManager);
-   if (TextureLoader != nullptr) delete(TextureLoader);
+}
+
+SDLManager* SDLManager::GetInstance()
+{
+    if(Instance.get() == nullptr) Instance.reset(new SDLManager);
+    return Instance.get();
 }
 
 bool SDLManager::Begin()
@@ -36,8 +43,6 @@ bool SDLManager::Begin()
 
 void SDLManager::End()
 {
-
-
     //Deallocate surface
     SDL_FreeSurface(imageSurface);
 
@@ -46,6 +51,9 @@ void SDLManager::End()
 
     //Quit SDL subsystems
     SDL_Quit();
+
+    if (WindowManager != nullptr) delete(WindowManager);
+    if (TextureLoader != nullptr) delete(TextureLoader);
 }
 
 SDL_Event SDLManager::GetEvent()

@@ -30,6 +30,6 @@ public:
 	C_PhysicsComponent(O_GameObject* owner, float mass = 1.0f, bool useCenterOfMass = false, float angularInertia = 1.0f, bool useCalculatedAngularIntertia = false);
 	~C_PhysicsComponent();
 
-	void Update(float deltaTime) override;
+	void Update(const float deltaTime) override;
 };
 #endif

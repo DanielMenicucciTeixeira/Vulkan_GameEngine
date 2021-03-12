@@ -4,6 +4,7 @@
 
 BilliardGame::BilliardGame() : Game()
 {
+	/*
 	CurrentLevel = new L_BilliardLevel(this);
 	Levels["BilliardLevel"] = CurrentLevel;
 
@@ -87,9 +88,5 @@ BilliardGame::BilliardGame() : Game()
 	for (auto& material : Materials) LoadMaterial(material.second);
 	for (auto& mesh : Meshes) LoadMesh(mesh.second);
 	int debug = 0;
-}
-
-void BilliardGame::Start()
-{
-	Game::Start();
+	*/
 }

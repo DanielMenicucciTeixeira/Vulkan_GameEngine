@@ -1,6 +1,6 @@
 #include "CameraComponent.h"
 
-void C_CameraComponent::Update(float deltaTime)
+void C_CameraComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
 }

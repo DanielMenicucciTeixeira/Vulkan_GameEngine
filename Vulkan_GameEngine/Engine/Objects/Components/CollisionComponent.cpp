@@ -219,7 +219,7 @@ void C_CollisionComponent::OnOverlapEnd(C_CollisionComponent* otherCollider)
 	}
 }
 
-void C_CollisionComponent::Update(float deltaTime)
+void C_CollisionComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
 	S_CollisionData data;

@@ -12,7 +12,7 @@ class C_StaticMeshComponent : public C_RenderableComponent
 {
 public:
 	void Start() override;
-	void Update(float deltaTime) override;
+	void Update(const float deltaTime) override;
 	C_StaticMeshComponent(O_GameObject* owner);
 	~C_StaticMeshComponent();
 

@@ -20,7 +20,7 @@ protected:
 public:
 	S_FieldOfView FildOfView;
 
-	void Update(float deltaTime) override;
+	void Update(const float deltaTime) override;
 	C_CameraComponent(O_GameObject* owner);
 	~C_CameraComponent();
 };

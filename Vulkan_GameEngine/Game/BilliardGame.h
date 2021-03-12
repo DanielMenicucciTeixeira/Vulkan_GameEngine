@@ -4,8 +4,5 @@ class BilliardGame : public Game
 {
 public:
 	BilliardGame();
-
-protected:
-	void Start() override;
 };
 

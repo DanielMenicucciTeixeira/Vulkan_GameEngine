@@ -32,7 +32,7 @@ C_MovementComponent::~C_MovementComponent()
 	if (AngularVelocityBuffer) delete(AngularVelocityBuffer);
 }
 
-void C_MovementComponent::Update(float deltaTime)//TODO implement rotation to always face forward
+void C_MovementComponent::Update(const float deltaTime)//TODO implement rotation to always face forward
 {
 	FVector3 displacement = *VelocityBuffer * deltaTime + ((*AccelerationBuffer * (deltaTime * deltaTime)) / 2.0f);
 	Owner->SetPosition(Owner->GetPosition() + displacement);

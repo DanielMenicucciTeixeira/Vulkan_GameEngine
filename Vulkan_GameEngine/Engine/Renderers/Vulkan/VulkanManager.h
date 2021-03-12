@@ -88,7 +88,7 @@ class VulkanManager : public Renderer
 //Functions
 public:
 	VulkanManager();
-	~VulkanManager();
+	virtual ~VulkanManager();
 	
 	void FramebufferResizeCallback() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;

@@ -2,15 +2,11 @@
 #define DEBUGLOGGER_H
 
 #include <string>
-
-
-
-class DebugLogger
-{
-//Uses a define macro to make this class a staic class
-#define staticClass DebugLogger
 #include "Auxiliary/Singleton.h"
-//---------------------------------------------------------------------------------------------
+
+
+class DebugLogger : public StaticClass<DebugLogger>
+{
 public:
 	enum class EDebugMessageType : unsigned short
 	{

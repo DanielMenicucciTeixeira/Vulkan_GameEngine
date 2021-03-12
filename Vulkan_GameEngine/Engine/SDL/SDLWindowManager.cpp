@@ -31,8 +31,8 @@ Window* SDLWindowManager::CreateWindow(const char* name, ERendererType rendererT
     if (positionY < 0) POSITION_Y = SDL_WINDOWPOS_UNDEFINED;
     else POSITION_Y = positionY;
 
-    WindowsByName[name] = new Window(this);
-    if (WindowsByName[name]->OnCreate(name, rendererType, WIDTH, HEIGHT, POSITION_X, POSITION_Y)) return WindowsByName[name];
+    WindowsByName[name] = new Window();
+    if (WindowsByName[name]->Initialize(this, name, rendererType, WIDTH, HEIGHT, POSITION_X, POSITION_Y)) return WindowsByName[name];
     else return nullptr;
 
 }

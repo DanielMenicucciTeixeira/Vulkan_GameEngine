@@ -8,8 +8,11 @@ class O_Level;
 class O_Object
 {
 public:
+	O_Object() { Level = nullptr; }
+	virtual ~O_Object() {}
+
 	virtual void Start() {};
-	virtual void Update(float deltaTime) {};
+	virtual void Update(const float deltaTime) {};
 	bool UpdateWhenPaused = false;
 	
 	///Tag Functions

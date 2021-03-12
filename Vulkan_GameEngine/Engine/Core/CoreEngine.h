@@ -11,36 +11,42 @@ class SDLManager;
 class Window;
 class Clock;
 class Renderer;
-class GameInterface;
+class Game;
+class O_Level;
 enum ERendererType;
-union SDL_Event;;
+union SDL_Event;
 
 struct S_InputFunctionPointers;
 enum EInputSources;
 
 class CoreEngine
 {
-//Uses a define macro to make this class a Singleton (only one instance of it can exist)
-#define singletonClass CoreEngine
-#include "Auxiliary/Singleton.h"
-//---------------------------------------------------------------------------------------------
 
 public:
 
 	bool Initialize(const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 	void Run();
 
-	///Gettters
+	CoreEngine(const CoreEngine&) = delete;
+	CoreEngine(CoreEngine&&) = delete;
+	CoreEngine& operator=(const CoreEngine&) = delete;
+	CoreEngine& operator=(CoreEngine&&) = delete;
 
+
+	///Gettters
+	static CoreEngine* GetInstance();
+	inline SDLManager* GetInterfaceManager() { return InterfaceManager; }
+	inline Renderer* GetRenderer() { return EngineRenderer; }
 	inline bool IsRunningEngine() const { return RunningEngine; }
 	inline bool IsRunningGame() const { return RunningGame; }
-	inline void SetGame(GameInterface* game) { Game = game; }
+	inline void SetGame(Game* game) { CurrentGame = game; }
 
 	//Using a pair of the SDL_Event type and keycode (uint32_t, int32_t respectively), map a function pointer to the EngineInputFunctions map.
-	//The maped function must be of static void type and have a self reference to the engine as it's only parameter
-	void SetEngineInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(CoreEngine*));
-	inline static void LoadGame(CoreEngine* self) { self->StartGame(); }
-	inline static void Quit(CoreEngine* self) { self->CleanUp(); }
+	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
+	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
+	void SetEngineInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(SDL_Event*));
+	inline static void LoadGame(SDL_Event* event) { GetInstance()->StartGame(); }
+	inline static void Quit(SDL_Event* event) { GetInstance()->StopEngine(); }
 	void CleanUp();
 
 protected:
@@ -48,17 +54,21 @@ protected:
 	void Update(const float deltaTime);
 	void Render();
 	bool StartGame();
+	inline void StopEngine() { RunningEngine = false; }
 	inline void StopGame() { RunningGame = false; }
 
 	Renderer* EngineRenderer;
 	SDLManager* InterfaceManager;
 	Window* EngineWindow;
 	Clock* EngineClock;
-	GameInterface* Game;
+	Game* CurrentGame;
+	O_Level* StartingLevel;
 	unsigned int FramesPerSecond;
 	bool RunningEngine;
 	bool RunningGame;
-	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(CoreEngine*)> EngineInputFunctions;
+	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(SDL_Event*)> EngineInputFunctions;
+	static std::unique_ptr<CoreEngine> Instance;
+	friend std::default_delete<CoreEngine>;
 
 private:
 	CoreEngine();

@@ -9,8 +9,8 @@ constexpr float MILLISECONDS_TO_SECONDS = 1000.0f;
 class Clock
 {
 //Uses a define macro to prevent copying of this class
-#define noCopyClass Clock
-#include "Auxiliary/Singleton.h"
+//#define noCopyClass Clock
+//#include "Auxiliary/Singleton.h"
 //---------------------------------------------------------------------------------------------
 protected:
 	//Actual time at which the clock has started (StartClock function was called).

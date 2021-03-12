@@ -55,7 +55,7 @@ public:
 
 	static void CheckForCollisions(std::vector<C_CollisionComponent*> colliderSet);
 
-	void Update(float deltaTime) override;
+	virtual void Update(const float deltaTime) override;
 
 	C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType = NO_COLLISION);
 	~C_CollisionComponent();

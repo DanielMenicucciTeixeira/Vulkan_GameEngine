@@ -10,9 +10,8 @@
 #include <unordered_map>
 #include <string>
 
-Window::Window(SDLWindowManager* windowManager) : SDLWindow(nullptr), Context(nullptr)
+Window::Window() : SDLWindow(nullptr), Context(nullptr), WindowManager(nullptr), Height(-1), Width(-1), WindowName("")
 {
-	WindowManager = windowManager;
 }
 
 Window::~Window()
@@ -23,8 +22,15 @@ Window::~Window()
 	SDLWindow = nullptr;
 }
 
-bool Window::OnCreate(const char* name, ERendererType rendererType, int width, int height, int positionX, int positionY)
+bool Window::Initialize(SDLWindowManager* windowManager, const char* name, ERendererType rendererType, int width, int height, int positionX, int positionY)
 {
+	if (!windowManager)
+	{
+		DebugLogger::FatalError("Failed to create Window!", "SLD/Window.cpp", __LINE__);
+		return false;
+	}
+	WindowManager = windowManager;
+
 	WindowName = name;
 	Width = width;
 	Height = height;

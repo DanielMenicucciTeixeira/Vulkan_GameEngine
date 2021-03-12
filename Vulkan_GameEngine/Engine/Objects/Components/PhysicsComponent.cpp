@@ -5,7 +5,7 @@
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
 
-void C_PhysicsComponent::Update(float deltaTime)
+void C_PhysicsComponent::Update(const float deltaTime)
 {
 	C_MovementComponent::Update(deltaTime);
 	*Acceleration = FVector3();

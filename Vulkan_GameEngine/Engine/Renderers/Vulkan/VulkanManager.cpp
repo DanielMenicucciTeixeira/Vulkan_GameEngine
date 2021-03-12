@@ -24,7 +24,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
 
-VulkanManager::VulkanManager()
+VulkanManager::VulkanManager() : Renderer()
 {
     Type = VULKAN;
 	Debugger = new VulkanDebugger(this);

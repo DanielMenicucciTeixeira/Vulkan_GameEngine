@@ -189,6 +189,15 @@
     <ClCompile Include="Engine\Core\DebugLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Levels\L_StartLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Levels\L_MainLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game01.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\SDL\SDLEventHandler.h">
@@ -353,7 +362,16 @@
     <ClInclude Include="Engine\Core\DebugLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\GameInterface.h">
+    <ClInclude Include="Engine\Auxiliary\SingletonCPP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Levels\L_StartLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Levels\L_MainLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game01.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

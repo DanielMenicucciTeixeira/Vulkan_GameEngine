@@ -1,53 +1,109 @@
 #include "Game.h"
 #include "Level.h"
 #include "Clock.h"
-#include "Renderers/RenderObject.h"
-#include "Renderers/RenderInitializationData.h"
-#include "MeshLoader.h"
-#include "TextureLoader.h"
-#include "Renderers/Vulkan/VulkanManager.h"
 #include "SDL/SDLManager.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "SDL.h"
+#include "DebugLogger.h"
+
+#include <SDL.h>
 
 #include <iostream>
 #include <stdexcept>
 
-Game::Game()
+Game::Game() : Running(false), Paused(false), GameClock(nullptr), InterfaceManager(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
 {
-	GameClock = new Clock();
-	RenderData = new RenderInitializationData();
-	InterfaceManager = new SDLManager();
-	GameRenderer = new VulkanManager();
-	InterfaceManager->SetRenderer(GameRenderer);
-	InterfaceManager->Begin();
-	dynamic_cast<VulkanManager*>(GameRenderer)->SetMainWindow(InterfaceManager->GetSDLWindowByName(InterfaceManager->GetDefaultWindowName()));
+	
 }
 
 Game::~Game()
 {
-	InterfaceManager->End();
-	if (GameClock) delete(GameClock);
-	if (RenderData) delete(RenderData);
-	if (GameRenderer) delete(GameRenderer);
-
-	for (auto& level : Levels) delete(level.second);
-	for (auto& mesh : Meshes) delete(mesh.second);
-	for (auto& material : Materials) delete(material.second);
+	CleanUp();
 }
 
-void Game::Start()
+bool Game::Initialize(SDLManager* interfaceManager, Renderer* gameRenderer)
 {
-	CurrentLevel->Start();
+	if (!interfaceManager)
+	{
+		DebugLogger::FatalError("Failed to get valid interface manager!", "Core/Game.cpp", __LINE__);
+		return false;
+	}
+	if (!CurrentLevel)
+	{
+		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
+		return false;
+	}
+	CurrentLevel->Initialize(this);
+	InterfaceManager = interfaceManager;
+	GameClock = new Clock();
+	Running = true;
+	//TODO implement render choosing mechanic
+	/*
+	RenderData = new RenderInitializationData();
+	GameRenderer = gameRenderer;
+	InterfaceManager->SetRenderer(GameRenderer);
+	InterfaceManager->Begin();
+	dynamic_cast<VulkanManager*>(GameRenderer)->SetMainWindow(InterfaceManager->GetSDLWindowByName(InterfaceManager->GetDefaultWindowName()));
+	*/
+	return true;
 }
 
 void Game::HandleEvents()
 {
+	SDL_Event event;
+	while (SDL_PollEvent(&event))
+	{
+		auto eventType = event.type;
+		int32_t keycode;
+
+		//If the event is key or button realted, set the keycode
+		switch (eventType)
+		{
+		case SDL_CONTROLLERBUTTONUP:
+		case SDL_CONTROLLERBUTTONDOWN:
+			keycode = event.cbutton.button;
+			break;
+		case SDL_KEYUP:
+		case SDL_KEYDOWN:
+			keycode = event.key.keysym.sym;
+			break;
+		case SDL_MOUSEBUTTONUP:
+		case SDL_MOUSEBUTTONDOWN:
+			keycode = event.button.button;
+			break;
+		default:
+			keycode = SDLK_UNKNOWN;
+			break;
+		}
+		//Then find the function in the map using the event type and keycode as directions, if it exists, call it.
+		if (GameInputFunctions[std::make_pair(eventType, keycode)]) GameInputFunctions[std::make_pair(eventType, keycode)](this, &event);
+	}
 }
 
-void Game::Update()
+void Game::Update(const float deltaTime)
 {
-	CurrentLevel->Update(GameClock->GetDeltaTimeSeconds());
+	if(CurrentLevel) CurrentLevel->Update(deltaTime);//Remove the extra check at every frame
+}
+
+void Game::Render()
+{
+	
+	if (CurrentLevel) CurrentLevel->Render();
+}
+
+void Game::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void(*function)(Game*, SDL_Event*))
+{
+	//If the event is not key realted, mark the keycode as Unknown
+	if (
+		eventType != SDL_KEYUP && eventType != SDL_KEYDOWN &&
+		eventType != SDL_MOUSEBUTTONUP && eventType != SDL_MOUSEBUTTONDOWN &&
+		eventType != SDL_CONTROLLERBUTTONUP && eventType != SDL_CONTROLLERBUTTONDOWN
+		)
+	{
+		keycode = SDLK_UNKNOWN;
+	}
+
+	//Then map the function to the EngineInputFunctions map
+	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
 void Game::SetPause(const bool& pause)
@@ -55,69 +111,92 @@ void Game::SetPause(const bool& pause)
 	Paused = pause;
 }
 
-void Game::LoadLevel(O_Level* level)
+float Game::GetTimeSeconds()
 {
-	CurrentLevel = level;
-	Levels[level->GetName()] = level;
+	return GameClock->GetTimeSeconds();
 }
 
-void Game::LoadLevel(std::string levelName)
+float Game::GetDeltaTimeSeconds()
 {
-	if (Levels[levelName]) CurrentLevel = Levels[levelName];
-	else printf("Invalid level name.");
+	return GameClock->GetDeltaTimeSeconds();
 }
 
-void Game::LoadMesh(S_Mesh* mesh)
+float Game::GetDeltaTimeMiliseconds()
 {
-	if (!Meshes[mesh->Name]) Meshes[mesh->Name] = mesh;
-	MeshLoader::LoadMesh(mesh->Path, mesh);
+	return GameClock->GetDeltaTimeMiliSecods();
 }
 
-void Game::LoadMaterial(S_Material* material)
+float Game::GetSleepTime()
 {
-	if (!Materials[material->Name]) Materials[material->Name] = material;
-	TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
+	return GameClock->GetSleepTime(FramesPerSecond);
 }
 
-void Game::LoadLevelObjects(std::set<O_Object*> levelObjects)
+void Game::SetCurrentLevel()
 {
-	for (auto& object : levelObjects)
+	if (CurrentLevel) CurrentLevel->CleanUp();
+	CurrentLevel = NextLevel;
+	Levels[CurrentLevel->GetName()] = CurrentLevel;
+	CurrentLevel->Initialize(this);
+	CurrentLevel->Start();
+	ShouldStartNewLevel = false;
+}
+
+void Game::CleanUp()
+{
+	//InterfaceManager->End();
+	if (GameClock) delete(GameClock);
+	if (GameRenderer) delete(GameRenderer);
+	for (auto& level : Levels) delete(level.second);
+}
+
+void Game::StartNewLevel(O_Level* level)
+{
+	NextLevel = level;
+	ShouldStartNewLevel = true;
+}
+
+void Game::StartNewLevel(std::string levelName)
+{
+	if (Levels[levelName])
 	{
-		O_GameObject* gameObject = dynamic_cast<O_GameObject*>(object);
-		if (gameObject)
-		{
-			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
-			{
-				mesh->SetTexture(Materials[mesh->GetTextureName()]->TextureDifuse);
-				mesh->SetMesh(Meshes[mesh->GetMeshName()]);
-			}
-			RenderData->LoadGameObject(dynamic_cast<O_GameObject*>(object));
-		}
+		NextLevel = Levels[levelName];
+		ShouldStartNewLevel = true;
 	}
-
+	else DebugLogger::Error("Invalid level name.", "Core/Level.cpp", __LINE__);
 }
 
 int Game::Run()
 {
+	/*
 	UniformCameraObject* camera = new UniformCameraObject();
 	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
 	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);
 	RenderData->Camera = camera;
+	*/
+	GameClock->StartClock();
 	try
 	{
-		Start();
-		GameRenderer->Initialize(RenderData);
-		while (InterfaceManager->GetEvent().type != SDL_QUIT)
+		CurrentLevel->Start();
+		//GameRenderer->Initialize(RenderData);
+		while (Running)
 		{
+			if (ShouldStartNewLevel) SetCurrentLevel();
+			GameClock->UpdateClock();
 			HandleEvents();
-			Update();
+			Update(GameClock->GetDeltaTimeSeconds());
+			Render();
+			/*
 			int w, h;
 			SDL_GetWindowSize(InterfaceManager->GetSDLWindowByName(), &w, &h);
 			camera->View.SetToLookAtMatrix(FVector3(0.0f, -4.0, 4.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
 			camera->Projection.SetToPerspectiveMatrix(60.0f, (float)w / (float)h, 0.1f, 20.0f);
 			GameRenderer->Render();
+			*/
+			SDL_Delay(GameClock->GetSleepTime(FramesPerSecond));
 		}
-		GameRenderer->CleanUp();
+		CleanUp();
+		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);
+		//GameRenderer->CleanUp();
 	}
 	catch (const std::exception & e)
 	{
@@ -125,16 +204,5 @@ int Game::Run()
 		return EXIT_FAILURE;
 	}
 
-	InterfaceManager->End();
-}
-
-S_Mesh* Game::GetMesh(std::string meshName)
-{
-
-	return Meshes[meshName];
-}
-
-S_Material* Game::GetMaterial(std::string materialName)
-{
-	return Materials[materialName];
+	//InterfaceManager->End();
 }

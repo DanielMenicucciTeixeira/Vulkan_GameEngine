@@ -24,7 +24,7 @@ public:
 	C_MovementComponent(O_GameObject* owner);
 	~C_MovementComponent();
 
-	void Update(float deltaTime) override;
+	void Update(const float deltaTime) override;
 
 	void SetAcceleration(FVector3 acceleration);
 	void SetVelocity(FVector3 velocity);

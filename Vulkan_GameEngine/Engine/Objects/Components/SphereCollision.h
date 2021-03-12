@@ -18,7 +18,7 @@ public:
 	void SetRadius(const float& radius);
 	Sphere GetCollisionSphere();
 
-	void Update(float deltaTime) override;
+	void Update(const float deltaTime) override;
 
 	bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 

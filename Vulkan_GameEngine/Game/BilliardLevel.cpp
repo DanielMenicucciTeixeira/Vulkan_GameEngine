@@ -8,7 +8,7 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Game.h"
 
-L_BilliardLevel::L_BilliardLevel(Game* game) : O_Level(game)
+L_BilliardLevel::L_BilliardLevel(Game* game) : O_Level()
 {
 }
 
@@ -68,5 +68,5 @@ void L_BilliardLevel::Start()
 	auto Table = SpawnGameObjectOfClass<GO_BilliardTable>(FTransform(FVector3(0.0f, 2.0f, -0.3f), FQuaternion(), FVector3(1.3, 1.3, 1.3)));
 
 	LevelObjects;
-	CurrentGame->LoadLevelObjects(LevelObjects);
+	LoadLevelObjects();
 }

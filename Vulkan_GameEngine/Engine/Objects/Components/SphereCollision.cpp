@@ -37,7 +37,7 @@ Sphere C_SphereCollision::GetCollisionSphere()
 	return *CollisionSphere;
 }
 
-void C_SphereCollision::Update(float deltaTime)
+void C_SphereCollision::Update(const float deltaTime)
 {
 	C_CollisionComponent::Update(deltaTime);
 

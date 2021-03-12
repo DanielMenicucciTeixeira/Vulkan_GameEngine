@@ -1,19 +1,20 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#include "Auxiliary/Singleton.h"
+
 class SDLWindowManager;
 class SDL_Window;
 typedef void* SDL_GLContext;
 enum ERendererType;
 
-class Window
+class Window : public NoCopyClass<Window>
 {
 public:
-
-	Window(SDLWindowManager* windowManager);
+	Window();
 	~Window();
 
-	bool OnCreate(const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
+	bool Initialize(SDLWindowManager* windowManager, const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 
 	inline int GetWidth() const { return Width; }
 	inline int GetHeight() const { return Height; }

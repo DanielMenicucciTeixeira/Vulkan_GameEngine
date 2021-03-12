@@ -191,6 +191,9 @@
     <ClCompile Include="Engine\SDL\SDLManager.cpp" />
     <ClCompile Include="Engine\SDL\SDLTextureLoader.cpp" />
     <ClCompile Include="Engine\SDL\SDLWindowManager.cpp" />
+    <ClCompile Include="Game\Levels\L_StartLevel.cpp" />
+    <ClCompile Include="Game\Levels\L_MainLevel.cpp" />
+    <ClCompile Include="Game\Game01.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -204,10 +207,10 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Auxiliary\SingletonCPP.h" />
     <ClInclude Include="Engine\Core\DebugLogger.h" />
     <ClInclude Include="Engine\Auxiliary\Singleton.h" />
     <ClInclude Include="Engine\Core\CoreEngine.h" />
-    <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />
     <ClInclude Include="Game\BilliardGame.h" />
@@ -242,6 +245,9 @@
     <ClInclude Include="Engine\Renderers\Renderer.h" />
     <ClInclude Include="Engine\Renderers\RenderInitializationData.h" />
     <ClInclude Include="Engine\Renderers\RenderObject.h" />
+    <ClInclude Include="Game\Levels\L_StartLevel.h" />
+    <ClInclude Include="Game\Levels\L_MainLevel.h" />
+    <ClInclude Include="Game\Game01.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />

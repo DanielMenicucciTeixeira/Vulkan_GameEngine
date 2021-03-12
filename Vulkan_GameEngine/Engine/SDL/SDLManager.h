@@ -1,25 +1,16 @@
 #ifndef SDLMANAGER_H
 #define SDLMANAGER_H
 
+#include <memory>
 #include <vector>
 
 enum class E_EngineEvent;
 union SDL_Event;
-class VGE_VulkanValidationLayers;
 class Window;
 enum ERendererType;
 
 class SDLManager
 {
-public:
-	//-------------Constructors---------------------\\
-
-	SDLManager();
-
-	//--------------Destructor-----------------------\\
-
-	~SDLManager();
-
 protected:
 	class SDLWindowManager* WindowManager = nullptr;
 	class SDLTextureLoader* TextureLoader = nullptr;
@@ -31,6 +22,13 @@ protected:
 	//-----------------------Functions-----------------------\\
 	
 public:
+	static SDLManager* GetInstance();
+
+	SDLManager(const SDLManager&) = delete;
+	SDLManager(SDLManager&&) = delete;
+	SDLManager& operator=(const SDLManager&) = delete;
+	SDLManager& operator=(SDLManager&&) = delete;
+
 	bool Begin();
 	void End();
 	SDL_Event GetEvent();
@@ -44,6 +42,12 @@ public:
 
 protected:
 	bool InitializeSDL();
+	static std::unique_ptr<SDLManager> Instance;
+	friend std::default_delete<SDLManager>;
+
+private:
+	SDLManager();
+	~SDLManager();
 };
 #endif
 

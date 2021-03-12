@@ -13,6 +13,9 @@ enum ERendererType
 class Renderer
 {
 public:
+	Renderer() {}
+	virtual ~Renderer() {}
+
 	virtual void Initialize(RenderInitializationData* initializationData) = 0;
 	virtual  void CleanUp() = 0;
 	virtual SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) = 0;

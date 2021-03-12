@@ -16,7 +16,7 @@ O_GameObject::O_GameObject(O_Level* level) : O_Object()
 
 O_GameObject::~O_GameObject()
 {
-	for (const auto& component : Components) 
+	for (auto& component : Components) 
 	{ 
 		if(component) delete(component);
 	}

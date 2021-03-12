@@ -11,8 +11,8 @@ class FMatrix4;
 class C_StaticMeshComponent : public C_RenderableComponent
 {
 public:
-	void Start() override;
-	void Update(const float deltaTime) override;
+	virtual void Start() override;
+	virtual void Update(const float deltaTime) override;
 	C_StaticMeshComponent(O_GameObject* owner);
 	~C_StaticMeshComponent();
 

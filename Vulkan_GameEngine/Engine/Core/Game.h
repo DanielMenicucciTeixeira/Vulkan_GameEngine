@@ -42,7 +42,7 @@ public:
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(Game*, SDL_Event*));
 	inline static void QuitGame(Game* self, SDL_Event* event) { self->SetRunning(false); }
-	inline Renderer* GetRenderer() { return GameRenderer; }
+	Renderer* GetRenderer();
 
 	void SetPause(const bool& pause);
 	inline bool IsPaused() const  { return Paused; };

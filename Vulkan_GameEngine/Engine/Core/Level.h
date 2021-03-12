@@ -33,7 +33,7 @@ public:
 	{
 		objectClass* gameObject = new objectClass(this);
 		dynamic_cast<O_GameObject*>(gameObject)->SetTransform(transform);
-		LevelObjects.insert(gameObject);
+		UnloadedObjects.insert(gameObject);
 		dynamic_cast<O_GameObject*>(gameObject)->Start();
 		return gameObject;
 	}
@@ -63,6 +63,7 @@ public:
 
 protected:
 	std::set<O_Object*> LevelObjects;
+	std::set<O_Object*> UnloadedObjects;
 	std::vector<C_CollisionComponent*> Colliders;
 	Game* CurrentGame;
 

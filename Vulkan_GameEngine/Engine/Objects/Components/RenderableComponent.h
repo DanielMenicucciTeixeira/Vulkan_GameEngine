@@ -8,8 +8,8 @@ struct FTransform;
 class C_RenderableComponent : public C_TransformComponent
 {
 public:
-	C_RenderableComponent(O_GameObject* owner) : C_TransformComponent(owner) {};
-	~C_RenderableComponent() {};
+	C_RenderableComponent(O_GameObject* owner) : C_TransformComponent(owner) {}
+	~C_RenderableComponent() { }
 	inline const bool IsVisible() const { return Visible; }
 	inline void SetVisibility(const bool& isVisible) { Visible = isVisible; }
 

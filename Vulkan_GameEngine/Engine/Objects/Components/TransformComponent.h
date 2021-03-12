@@ -11,7 +11,7 @@ class C_TransformComponent : public O_Component
 {
 public:
 	C_TransformComponent(O_GameObject* owner);
-	~C_TransformComponent() { O_Component::~O_Component(); if (Transform) delete(Transform); }
+	~C_TransformComponent() { if (Transform) delete(Transform); }
 	
 	FTransform GetComponentTransform() const;
 	FTransform* GetComponentTransformReference() const;

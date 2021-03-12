@@ -20,11 +20,15 @@ bool O_Level::Initialize(Game* game)
 {
 	if (!game) return false;
 	CurrentGame = game;
+	RenderData = new RenderInitializationData();
+	LoadLevelObjects();
+	CurrentGame->GetRenderer()->Initialize(RenderData);
 	return true;
 }
 
 void O_Level::Start()
 {
+	LoadLevelObjects();
 	for (const auto& object : LevelObjects) object->Start();
 }
 
@@ -52,7 +56,7 @@ S_Material* O_Level::GetMaterial(std::string materialName)
 
 void O_Level::LoadLevelObjects()
 {
-	for (auto& object : LevelObjects)
+	for (auto& object : UnloadedObjects)
 	{
 		O_GameObject* gameObject = dynamic_cast<O_GameObject*>(object);
 		if (gameObject)
@@ -64,12 +68,18 @@ void O_Level::LoadLevelObjects()
 			}
 			RenderData->LoadGameObject(dynamic_cast<O_GameObject*>(object));
 		}
+		LevelObjects.insert(object);
 	}
 
+	if (UnloadedObjects.size() > 0)
+	{
+		UnloadedObjects = std::set<O_Object*>();
+	}
 }
 
 void O_Level::Update(const float deltaTime)
 {
+	LoadLevelObjects();
 	if (!CurrentGame->IsPaused()) for (const auto& object : LevelObjects) object->Update(deltaTime);
 	else for (const auto& object : LevelObjects) if (object->UpdateWhenPaused) object->Update(deltaTime);
 	C_CollisionComponent::CheckForCollisions(Colliders);
@@ -77,15 +87,16 @@ void O_Level::Update(const float deltaTime)
 
 void O_Level::Render()
 {
+	CurrentGame->GetRenderer()->Render();
 }
 
 void O_Level::CleanUp()
 {
-	for (const auto& object : LevelObjects) if (object) delete(object);
+	for (auto& object : LevelObjects) if (object) delete(object);
 
 	if (RenderData) delete(RenderData);
-	for (auto& mesh : Meshes) delete(mesh.second);
-	for (auto& material : Materials) delete(material.second);
+	for (auto& mesh : Meshes) if(mesh.second) delete(mesh.second);
+	for (auto& material : Materials) if(material.second) delete(material.second);
 }
 
 void O_Level::AddCollider(C_CollisionComponent* collider)

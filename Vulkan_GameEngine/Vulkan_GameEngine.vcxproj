@@ -194,6 +194,8 @@
     <ClCompile Include="Game\Levels\L_StartLevel.cpp" />
     <ClCompile Include="Game\Levels\L_MainLevel.cpp" />
     <ClCompile Include="Game\Game01.cpp" />
+    <ClCompile Include="Engine\Renderers\OpenGL\OpelGLManager.cpp" />
+    <ClCompile Include="Game\GO_Triangle.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -248,6 +250,8 @@
     <ClInclude Include="Game\Levels\L_StartLevel.h" />
     <ClInclude Include="Game\Levels\L_MainLevel.h" />
     <ClInclude Include="Game\Game01.h" />
+    <ClInclude Include="Engine\Renderers\OpenGL\OpelGLManager.h" />
+    <ClInclude Include="Game\GO_Triangle.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />

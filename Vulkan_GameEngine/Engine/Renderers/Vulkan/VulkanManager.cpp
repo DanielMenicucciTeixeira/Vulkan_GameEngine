@@ -403,7 +403,7 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-void VulkanManager::Initialize(RenderInitializationData* initializationData)
+bool VulkanManager::Initialize(RenderInitializationData* initializationData)
 {
     InitializationData = initializationData;
 
@@ -429,6 +429,8 @@ void VulkanManager::Initialize(RenderInitializationData* initializationData)
     SwapchainManager->CreateDescriptorSets();
     CreateCommandBuffers();
     CreateSyncObjects();
+
+    return true;
 }
 
 void VulkanManager::CleanUp()

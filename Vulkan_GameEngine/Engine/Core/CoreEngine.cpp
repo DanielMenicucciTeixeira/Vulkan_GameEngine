@@ -3,6 +3,7 @@
 #include "SDL/SDLWindowManager.h"
 #include "SDL/Window.h"
 #include "Renderers/Vulkan/VulkanManager.h"
+#include "Renderers/OpenGL/OpelGLManager.h"
 #include "Clock.h"
 #include "DebugLogger.h"
 #include "Game.h"
@@ -15,7 +16,7 @@ std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
 bool CoreEngine::StartGame()
 {
-	if (!CurrentGame || !CurrentGame->Initialize(SDLManager::GetInstance(), nullptr))//TODO pass a proper renderer!
+	if (!CurrentGame || !CurrentGame->Initialize(SDLManager::GetInstance(), EngineRenderer))//TODO pass a proper renderer!
 	{
 		DebugLogger::Warning("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
 		return  RunningGame = false;
@@ -51,6 +52,18 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
 
 	EngineClock = new Clock();
+
+	switch (renderType)
+	{
+	case OPEN_GL:
+		EngineRenderer = new OpelGLManager();
+		break;
+	case VULKAN:
+		EngineRenderer = new VulkanManager();
+		break;
+	default:
+		EngineRenderer = new OpelGLManager();
+	}
 
 	return RunningEngine = true;
 }
@@ -139,6 +152,7 @@ void CoreEngine::SetEngineInputFunction(sdlEventType eventType, sdlKeycode keyco
 void CoreEngine::CleanUp()
 {
 	if (EngineClock) delete(EngineClock);
+	if (EngineRenderer) delete(EngineRenderer);
 	InterfaceManager->End();
 	exit(0);
 }

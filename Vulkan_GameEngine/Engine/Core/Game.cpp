@@ -32,14 +32,14 @@ bool Game::Initialize(SDLManager* interfaceManager, Renderer* gameRenderer)
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	CurrentLevel->Initialize(this);
 	InterfaceManager = interfaceManager;
 	GameClock = new Clock();
 	Running = true;
+	GameRenderer = gameRenderer;
+	CurrentLevel->Initialize(this);
 	//TODO implement render choosing mechanic
 	/*
 	RenderData = new RenderInitializationData();
-	GameRenderer = gameRenderer;
 	InterfaceManager->SetRenderer(GameRenderer);
 	InterfaceManager->Begin();
 	dynamic_cast<VulkanManager*>(GameRenderer)->SetMainWindow(InterfaceManager->GetSDLWindowByName(InterfaceManager->GetDefaultWindowName()));
@@ -104,6 +104,11 @@ void Game::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void
 
 	//Then map the function to the EngineInputFunctions map
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
+}
+
+Renderer* Game::GetRenderer()
+{
+	return GameRenderer;
 }
 
 void Game::SetPause(const bool& pause)

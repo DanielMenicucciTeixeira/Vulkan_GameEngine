@@ -16,7 +16,6 @@ void C_StaticMeshComponent::Update(const float deltaTime)
 
 C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_RenderableComponent(owner)
 {
-	Transform = new FTransform();
 	ModelMatrix = new FMatrix4();
 }
 

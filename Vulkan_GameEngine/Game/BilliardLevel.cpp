@@ -1,4 +1,4 @@
-#include "BilliardLevel.h"
+ #include "BilliardLevel.h"
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
 #include "BilliardBall.h"
@@ -67,6 +67,5 @@ void L_BilliardLevel::Start()
 
 	auto Table = SpawnGameObjectOfClass<GO_BilliardTable>(FTransform(FVector3(0.0f, 2.0f, -0.3f), FQuaternion(), FVector3(1.3, 1.3, 1.3)));
 
-	LevelObjects;
 	LoadLevelObjects();
 }

@@ -154,6 +154,7 @@ bool C_CollisionComponent::SphereBoxCollision(const Sphere& sphere, const Box& b
 
 void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*> colliderVector)
 {
+	if (colliderVector.size() <= 0) return;
 	S_CollisionData data;
 	for (int i = 0; i < colliderVector.size(); i++)
 	{

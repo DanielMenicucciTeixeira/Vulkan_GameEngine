@@ -15,6 +15,7 @@
 #include <vulkan/vulkan.h>
 
 //SDL includes
+#include "SDL/SDLManager.h"
 #include <SDL_vulkan.h>
 #include <SDL.h>
 
@@ -468,6 +469,7 @@ SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSize
 
 void VulkanManager::CreateSurface()
 {
+    Window = SDLManager::GetInstance()->GetSDLWindowByName();
     if (SDL_Vulkan_CreateSurface(Window, Instance, &Surface) != SDL_TRUE)
     {
         throw std::runtime_error("Failed to create window surface!");

@@ -1,11 +1,47 @@
-﻿  L_MainLevel.cpp
+﻿  CoreEngine.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(47,108): warning C4042: 'function': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(20,31): warning C4099: 'RenderInitializationData': type name first seen using 'struct' now seen using 'class'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Renderer.h(5): message : see declaration of 'RenderInitializationData'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,113): warning C4042: 'function': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(83,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
+C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(46,92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(46,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(46,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(46,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(135,119): warning C4042: 'function': has bad storage class
+  Level.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(20,31): warning C4099: 'RenderInitializationData': type name first seen using 'struct' now seen using 'class'
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Level.h(18): message : see declaration of 'RenderInitializationData'
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,113): warning C4042: 'function': has bad storage class
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(83,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  VulkanDebugger.cpp
+  VulkanDevices.cpp
+  VulkanManager.cpp
 C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
 C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
 C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Renderer.h(4): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(442,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(598,89): warning C4390: ';': empty controlled statement found; is this the intent?
+  VulkanPipelineManager.cpp
+  VulkanSwapchainManager.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\RenderObject.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,26): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(46): message : see declaration of 'SDL_Window'
+  Generating Code...
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Level.cpp(90): warning C4715: 'O_Level::LoadCamera': not all control paths return a value
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

@@ -3,6 +3,8 @@
 #include "Renderers/RenderInitializationData.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
+#include "SDL/SDLManager.h"
+#include <SDL.h>
 #include <glew.h>
 
 OpenGLManager::~OpenGLManager()
@@ -51,9 +53,9 @@ SDL_Window* OpenGLManager::CreateWindow(const char* windowName, float windowSize
 
 void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindows, unsigned int arrayOffset)
 {
-	/*UniformCameraObject* camera = new UniformCameraObject();
-	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
-	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);*/
+
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
@@ -79,6 +81,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 
 		glBindVertexArray(0);
 	}
+	SDL_GL_SwapWindow(SDLManager::GetInstance()->GetSDLWindowByName());
 }
 
 void OpenGLManager::FramebufferResizeCallback()

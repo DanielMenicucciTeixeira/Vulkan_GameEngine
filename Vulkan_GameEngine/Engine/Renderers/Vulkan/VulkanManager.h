@@ -92,8 +92,8 @@ public:
 	
 	void FramebufferResizeCallback() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
-	bool Initialize(RenderInitializationData* initializationData) override;
-	void CleanUp() override;
+	virtual bool Initialize(RenderInitializationData* initializationData) override;
+	virtual void CleanUp() override;
 
 	//Getters
 	inline SDL_Window* GetWindow() { return Window; }

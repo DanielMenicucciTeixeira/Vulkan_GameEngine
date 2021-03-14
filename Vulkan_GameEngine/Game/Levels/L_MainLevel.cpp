@@ -35,10 +35,7 @@ bool L_MainLevel::Initialize(Game* game)
 
 void L_MainLevel::Render()
 {
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	O_Level::Render();
-	SDL_GL_SwapWindow(CurrentGame->GetInterfaceManager()->GetSDLWindowByName(CurrentGame->GetInterfaceManager()->GetDefaultWindowName()));
 }
 
 void L_MainLevel::Update(float deltaTime)

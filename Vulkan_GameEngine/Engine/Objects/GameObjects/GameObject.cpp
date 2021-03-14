@@ -27,6 +27,11 @@ void O_GameObject::Update(float deltaTime)
 	for (const auto& component : Components) component->Update(deltaTime);
 }
 
+void O_GameObject::Start()
+{
+	for (const auto& component : Components) component->Start();
+}
+
 FTransform O_GameObject::GetTransform() const
 {
 	return FTransform(Root->GetComponentTransform());

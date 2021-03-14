@@ -10,7 +10,7 @@
 #include <unordered_map>
 #include <string>
 
-Window::Window() : SDLWindow(nullptr), Context(nullptr), WindowManager(nullptr), Height(-1), Width(-1), WindowName("")
+Window::Window() : SDLWindow(nullptr), Context(nullptr), WindowManager(nullptr), WindowName("")
 {
 }
 
@@ -32,8 +32,6 @@ bool Window::Initialize(SDLWindowManager* windowManager, const char* name, ERend
 	WindowManager = windowManager;
 
 	WindowName = name;
-	Width = width;
-	Height = height;
 	
 	switch (rendererType)
 	{
@@ -62,6 +60,20 @@ void Window::SetPostAttributes()
 	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 64);
 }
 
+float Window::GetHeight() const
+{
+	int w, h;
+	SDL_GetWindowSize(SDLWindow, &w, &h);
+	return w;
+}
+
+float Window::GetWidth() const
+{
+	int w, h;
+	SDL_GetWindowSize(SDLWindow, &w, &h);
+	return h;
+}
+
 bool Window::OnCreateVulkanWindow(const char* name, int width, int height, int positionX, int positionY)
 {
 	SDLWindow = SDL_CreateWindow(name, positionX, positionY, width, height, SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE);
@@ -76,7 +88,7 @@ bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int p
 {
 	SetPreAttributes();
 	SDLWindow = SDL_CreateWindow(name, positionX, positionY, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
-	SDL_GL_CreateContext(SDLWindow);
+
 	if (SDLWindow == NULL)
 	{
 		DebugLogger::FatalError("Window could not be created! SDL_Error: " + std::string(SDL_GetError()), "SDL/Window.cpp", __LINE__);
@@ -91,8 +103,9 @@ bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int p
 		DebugLogger::FatalError("Failed to initialize Glew!", "SDL/Window.cpp", __LINE__);
 		return false;
 	}
-	glEnable(GL_DEPTH_TEST);
 	std::string version((const char*)glGetString(GL_VERSION));
 	DebugLogger::Info("GL version: " + version, "SDL/Window.cpp", __LINE__);
+
+	glViewport(0, 0, width, height);
 	return true;
 }

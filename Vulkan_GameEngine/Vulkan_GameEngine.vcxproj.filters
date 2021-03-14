@@ -204,6 +204,12 @@
     <ClCompile Include="Game\GO_Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GO_Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\SDL\SDLEventHandler.h">
@@ -386,6 +392,12 @@
     <ClInclude Include="Game\GO_Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GO_Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -399,5 +411,7 @@
     <None Include="Engine\Shaders\Base.vert">
       <Filter>Renderers\Shaders\BaseShader</Filter>
     </None>
+    <None Include="Engine\Shaders\ColourShader.vert" />
+    <None Include="Engine\Shaders\ColourShader.frag" />
   </ItemGroup>
 </Project>

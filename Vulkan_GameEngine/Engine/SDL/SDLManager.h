@@ -37,6 +37,7 @@ public:
 	void SetRenderer(Renderer* renderer);
 
 	class SDL_Window* GetSDLWindowByName(const char* name = GetDefaultWindowName());
+	Window* GetWindowByName(const char* name = GetDefaultWindowName());
 
 	inline static const char* GetDefaultWindowName() { return "window"; }
 

@@ -8,7 +8,10 @@ void C_StaticMeshComponent::Start()
 {
 	*ModelMatrix = (Owner->GetTransform() + Transform).GetModelMatrix();
 }
-
+S_Texture* C_StaticMeshComponent::GetTexture() const
+{
+	return Material->TextureDifuse;
+}
 void C_StaticMeshComponent::Update(const float deltaTime)
 {
 	*ModelMatrix = (Owner->GetTransform() + Transform).GetModelMatrix();

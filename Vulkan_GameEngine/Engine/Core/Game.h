@@ -2,11 +2,13 @@
 #define GAME_H
 
 #include "Auxiliary/Singleton.h"
+#include "DebugLogger.h"
 
 #include <set>
 #include <unordered_map>
 #include <map>
 #include <string>
+#include <iostream>
 
 
 class Clock;
@@ -15,6 +17,7 @@ class O_GameObject;
 class O_Level;
 class Renderer;
 class SDLManager;
+class RenderInitializationData;
 
 union SDL_Event;
 
@@ -52,9 +55,22 @@ public:
 	
 	//Loaders
 
-	void StartNewLevel(O_Level* level);
-	void StartNewLevel(std::string levelName);
-	inline void AddLevel(std::string levelName, O_Level* level) { Levels[levelName] = level; }
+	template<class levelClass>
+	bool StartNewLevel()
+	{
+		static_assert(std::is_base_of<O_Level, levelClass>::value, "levelClass must derive from O_Level!");
+		auto nextLevel = new levelClass;
+		if (dynamic_cast<O_Level*>(nextLevel))
+		{
+			NextLevel = nextLevel;
+			ShouldStartNewLevel = true;
+			return true;
+		}
+		else
+		{
+			DebugLogger::Error("Invalid Level class: " + std::string(typeid(levelClass).name()), "Core/Game.h", __LINE__);
+		}
+	}
 
 	//Getters
 
@@ -75,8 +91,6 @@ protected:
 	O_Level* NextLevel;
 	SDLManager* InterfaceManager;
 	Renderer* GameRenderer;
-	
-	std::unordered_map<std::string, O_Level*> Levels;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(Game*, SDL_Event*)> GameInputFunctions;
 

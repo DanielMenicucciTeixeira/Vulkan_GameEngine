@@ -1,6 +1,7 @@
 #include "L_StartLevel.h"
 #include "Game.h"
 #include "SDL/SDLManager.h"
+#include "GO_Camera.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -13,6 +14,8 @@ L_StartLevel::L_StartLevel() : O_Level()
 
 void L_StartLevel::Start()
 {
+
+	SpawnGameObjectOfClass<GO_Camera>();
 	O_Level::Start();
 	printf("StartLevel Started!\n");
 }
@@ -20,7 +23,6 @@ void L_StartLevel::Start()
 void L_StartLevel::Update(float deltaTime)
 {
 	O_Level::Update(deltaTime);
-	printf("StartLevel\tDelta Time: %f\tTotal Time: %f\n", deltaTime, CurrentGame->GetTimeSeconds());
 }
 
 void L_StartLevel::Render()

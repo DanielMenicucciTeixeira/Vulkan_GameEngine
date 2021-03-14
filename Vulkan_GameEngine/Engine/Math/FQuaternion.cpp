@@ -132,6 +132,21 @@ float FQuaternion::DotProduct(const FQuaternion& quaternion0, const FQuaternion&
 	return x + y + z + w;
 }
 
+FVector3 FQuaternion::GetUpVector()
+{
+	return GetRotatedVector(FVector3(0.0f, 0.0f, -1.0f), *this);
+}
+
+FVector3 FQuaternion::GetForwardVector()
+{
+	return GetRotatedVector(FVector3(0.0f, -1.0f, 0.0f), *this);
+}
+
+FVector3 FQuaternion::GetRightVector()
+{
+	return GetRotatedVector(FVector3(1.0f, 0.0f, 0.0f), *this);
+}
+
 FQuaternion::~FQuaternion()
 {
 }

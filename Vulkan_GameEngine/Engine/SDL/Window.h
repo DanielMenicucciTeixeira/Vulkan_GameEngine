@@ -16,8 +16,8 @@ public:
 
 	bool Initialize(SDLWindowManager* windowManager, const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 
-	inline int GetWidth() const { return Width; }
-	inline int GetHeight() const { return Height; }
+	float GetWidth() const;
+	float GetHeight() const;
 	inline const char* GetName() const { return WindowName; }
 	inline SDL_Window* GetSDLWindow() const { return SDLWindow; }
 	inline SDL_GLContext GetContext() const { return Context; }
@@ -31,8 +31,6 @@ protected:
 	bool OnCreateOpenGLWindow(const char* name, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 
 	SDLWindowManager* WindowManager;
-	int Width;
-	int Height;
 	const char* WindowName;
 	SDL_Window* SDLWindow;
 	SDL_GLContext Context;

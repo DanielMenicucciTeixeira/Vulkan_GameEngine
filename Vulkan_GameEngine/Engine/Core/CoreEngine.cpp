@@ -18,7 +18,7 @@ bool CoreEngine::StartGame()
 {
 	if (!CurrentGame || !CurrentGame->Initialize(SDLManager::GetInstance(), EngineRenderer))//TODO pass a proper renderer!
 	{
-		DebugLogger::Warning("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
+		DebugLogger::Error("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
 		return  RunningGame = false;
 	}
 	return RunningGame = true;
@@ -56,13 +56,13 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	switch (renderType)
 	{
 	case OPEN_GL:
-		EngineRenderer = new OpelGLManager();
+		EngineRenderer = new OpenGLManager();
 		break;
 	case VULKAN:
 		EngineRenderer = new VulkanManager();
 		break;
 	default:
-		EngineRenderer = new OpelGLManager();
+		EngineRenderer = new OpenGLManager();
 	}
 
 	return RunningEngine = true;
@@ -116,7 +116,6 @@ void CoreEngine::HandleEvents()
 
 void CoreEngine::Update(const float deltaTime)
 {
-	printf("Engine\tDelta Time: %f\tTotal Time: %f\n", deltaTime, EngineClock->GetTimeSeconds());
 }
 
 void CoreEngine::Render()

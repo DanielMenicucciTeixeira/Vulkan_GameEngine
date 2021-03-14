@@ -196,6 +196,8 @@
     <ClCompile Include="Game\Game01.cpp" />
     <ClCompile Include="Engine\Renderers\OpenGL\OpelGLManager.cpp" />
     <ClCompile Include="Game\GO_Triangle.cpp" />
+    <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp" />
+    <ClCompile Include="Game\GO_Camera.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -252,6 +254,8 @@
     <ClInclude Include="Game\Game01.h" />
     <ClInclude Include="Engine\Renderers\OpenGL\OpelGLManager.h" />
     <ClInclude Include="Game\GO_Triangle.h" />
+    <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h" />
+    <ClInclude Include="Game\GO_Camera.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />
@@ -276,6 +280,8 @@
   <ItemGroup>
     <None Include="Engine\Shaders\Base.frag" />
     <None Include="Engine\Shaders\Base.vert" />
+    <None Include="Engine\Shaders\ColourShader.frag" />
+    <None Include="Engine\Shaders\ColourShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

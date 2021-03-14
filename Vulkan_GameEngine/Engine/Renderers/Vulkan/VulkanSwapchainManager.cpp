@@ -395,8 +395,8 @@ void VulkanSwapchainManager::CreateDescriptorSets()
         {
             VkDescriptorImageInfo imageInfo{};
             imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-            imageInfo.imageView = TextureDataMap[texture.first].TextureImageView;
-            imageInfo.sampler = TextureDataMap[texture.first].TextureSampler;
+            imageInfo.imageView = TextureDataMap[texture.first->TextureDifuse].TextureImageView;
+            imageInfo.sampler = TextureDataMap[texture.first->TextureDifuse].TextureSampler;
 
             for (const auto& model : Manager->GetInitializationData()->MaterialToModelMap[texture.first])
             {
@@ -443,9 +443,9 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
     //stbi_uc* texturePixels = stbi_load(TEXTURE_PATH.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
     for (const auto& texture : Manager->GetInitializationData()->MaterialToModelMap)
     {
-        int textureWidth = texture.first->Width;
-        int textureHeight = texture.first->Height;
-        unsigned char* texturePixels = texture.first->Pixels;
+        int textureWidth = texture.first->TextureDifuse->Width;
+        int textureHeight = texture.first->TextureDifuse->Height;
+        unsigned char* texturePixels = texture.first->TextureDifuse->Pixels;
 
         VkDeviceSize imageSize = textureWidth * textureHeight * 4;
 
@@ -465,17 +465,17 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 
         stbi_image_free(texturePixels);
 
-        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[texture.first].TextureImage, TextureDataMap[texture.first].TextureImageMemory);
+        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[texture.first->TextureDifuse].TextureImage, TextureDataMap[texture.first->TextureDifuse].TextureImageMemory);
 
-        TransitionImageLayout(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-        CopyBufferToImage(stagingBuffer, TextureDataMap[texture.first].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
-        TransitionImageLayout(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+        TransitionImageLayout(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+        CopyBufferToImage(stagingBuffer, TextureDataMap[texture.first->TextureDifuse].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
+        TransitionImageLayout(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 
         vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
 
-        TextureDataMap[texture.first].TextureImageView = CreateImageView(TextureDataMap[texture.first].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
-        CreateTextureSampler(TextureDataMap[texture.first].TextureSampler);
+        TextureDataMap[texture.first->TextureDifuse].TextureImageView = CreateImageView(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
+        CreateTextureSampler(TextureDataMap[texture.first->TextureDifuse].TextureSampler);
     }
 }
 

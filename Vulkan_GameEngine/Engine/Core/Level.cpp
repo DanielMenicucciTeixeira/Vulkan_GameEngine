@@ -6,14 +6,14 @@
 #include "MeshLoader.h"
 #include "TextureLoader.h"
 #include "Renderers/Vulkan/VulkanManager.h"
+#include "Objects/Components/CameraComponent.h"
 
-O_Level::O_Level() : O_Object(), CurrentGame(nullptr), RenderData(nullptr)
+O_Level::O_Level() : O_Object(), CurrentGame(nullptr), RenderData(nullptr), CurrentCamera(nullptr)
 {
 }
 
 O_Level::~O_Level()
 {
-	CleanUp();
 }
 
 bool O_Level::Initialize(Game* game)
@@ -30,6 +30,8 @@ void O_Level::Start()
 {
 	LoadLevelObjects();
 	for (const auto& object : LevelObjects) object->Start();
+	CheckForCamera();
+	LoadCamera();
 }
 
 void O_Level::LoadMesh(S_Mesh* mesh)
@@ -63,7 +65,7 @@ void O_Level::LoadLevelObjects()
 		{
 			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
 			{
-				mesh->SetTexture(Materials[mesh->GetTextureName()]->TextureDifuse);
+				mesh->SetMaterial(Materials[mesh->GetMaterialName()]);
 				mesh->SetMesh(Meshes[mesh->GetMeshName()]);
 			}
 			RenderData->LoadGameObject(dynamic_cast<O_GameObject*>(object));
@@ -74,6 +76,51 @@ void O_Level::LoadLevelObjects()
 	if (UnloadedObjects.size() > 0)
 	{
 		UnloadedObjects = std::set<O_Object*>();
+	}
+}
+
+bool O_Level::LoadCamera()
+{
+	if (!CurrentCamera)
+	{
+		DebugLogger::FatalError("No valid CameraFound! RenderData incomplete!", "Core/Level.cpp", __LINE__);
+		return false;
+	}
+	RenderData->Camera = CurrentCamera->GetUCO();
+}
+
+bool O_Level::FindAnyCamera()
+{
+	for (const auto gameObject : LevelObjects)
+	{
+		if (dynamic_cast<O_GameObject*>(gameObject))
+		{
+			for (const auto camera : dynamic_cast<O_GameObject*>(gameObject)->GetComponentsOfClass<C_CameraComponent>())
+			{
+				CurrentCamera = camera;
+				return true;
+			}
+		}
+	}
+	DebugLogger::Warning("No camera found!", "Core/Level.cpp", __LINE__);
+	return false;
+}
+
+void O_Level::ChangeCamera()
+{
+	CurrentCamera = NextCamera;
+	LoadCamera();
+	ShouldChangeCamera = false;
+}
+
+bool O_Level::CheckForCamera()
+{
+	if (ShouldChangeCamera) ChangeCamera();
+	if (CurrentCamera || FindAnyCamera()) return true;
+	else
+	{
+		DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
+		return false;
 	}
 }
 
@@ -92,11 +139,10 @@ void O_Level::Render()
 
 void O_Level::CleanUp()
 {
-	for (auto& object : LevelObjects) if (object) delete(object);
-
 	if (RenderData) delete(RenderData);
-	for (auto& mesh : Meshes) if(mesh.second) delete(mesh.second);
-	for (auto& material : Materials) if(material.second) delete(material.second);
+	if (LevelObjects.size() > 0) for (auto& object : LevelObjects) if (object) delete(object);
+	if (Meshes.size() > 0) for (auto& mesh : Meshes) if (mesh.second) delete(mesh.second);
+	if (Materials.size() > 0) for (auto& material : Materials) if (material.second) delete(material.second);
 }
 
 void O_Level::AddCollider(C_CollisionComponent* collider)

@@ -88,6 +88,11 @@ SDL_Window* SDLManager::GetSDLWindowByName(const char* name)
 	return WindowManager->GetSDLWindowByName(name);
 }
 
+Window* SDLManager::GetWindowByName(const char* name)
+{
+    return WindowManager->GetWindowByName(name);
+}
+
 bool SDLManager::InitializeSDL()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)

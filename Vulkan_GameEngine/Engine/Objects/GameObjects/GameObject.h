@@ -18,7 +18,8 @@ public:
 	O_GameObject(O_Level* level = nullptr);
 	~O_GameObject();
 
-	void Update(float deltaTime) override;
+	virtual void Update(float deltaTime) override;
+	virtual void Start() override;
 
 	///Gettters
 	FTransform GetTransform() const;

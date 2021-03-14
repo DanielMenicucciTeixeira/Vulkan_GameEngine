@@ -29,22 +29,22 @@ void L_BilliardLevel::Start()
 	}
 	Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(FVector3(0.0f, -4.0f, 0.0f), FQuaternion(), FVector3(0.5, 0.5, 0.5))));
 
-	Balls[0]->Mesh->SetTextureName("Ball01");
-	Balls[1]->Mesh->SetTextureName("Ball02");
-	Balls[2]->Mesh->SetTextureName("Ball03");
-	Balls[3]->Mesh->SetTextureName("Ball04");
-	Balls[4]->Mesh->SetTextureName("Ball05");
-	Balls[5]->Mesh->SetTextureName("Ball06");
-	Balls[6]->Mesh->SetTextureName("Ball07");
-	Balls[7]->Mesh->SetTextureName("Ball08");
-	Balls[8]->Mesh->SetTextureName("Ball09");
-	Balls[9]->Mesh->SetTextureName("Ball10");
-	Balls[10]->Mesh->SetTextureName("Ball11");
-	Balls[11]->Mesh->SetTextureName("Ball12");
-	Balls[12]->Mesh->SetTextureName("Ball13");
-	Balls[13]->Mesh->SetTextureName("Ball14");
-	Balls[14]->Mesh->SetTextureName("Ball15");
-	Balls[15]->Mesh->SetTextureName("BallCue");
+	Balls[0]->Mesh->SetMaterialName("Ball01");
+	Balls[1]->Mesh->SetMaterialName("Ball02");
+	Balls[2]->Mesh->SetMaterialName("Ball03");
+	Balls[3]->Mesh->SetMaterialName("Ball04");
+	Balls[4]->Mesh->SetMaterialName("Ball05");
+	Balls[5]->Mesh->SetMaterialName("Ball06");
+	Balls[6]->Mesh->SetMaterialName("Ball07");
+	Balls[7]->Mesh->SetMaterialName("Ball08");
+	Balls[8]->Mesh->SetMaterialName("Ball09");
+	Balls[9]->Mesh->SetMaterialName("Ball10");
+	Balls[10]->Mesh->SetMaterialName("Ball11");
+	Balls[11]->Mesh->SetMaterialName("Ball12");
+	Balls[12]->Mesh->SetMaterialName("Ball13");
+	Balls[13]->Mesh->SetMaterialName("Ball14");
+	Balls[14]->Mesh->SetMaterialName("Ball15");
+	Balls[15]->Mesh->SetMaterialName("BallCue");
 
 	Balls[0]->SetName("01");
 	Balls[1]->SetName("02");

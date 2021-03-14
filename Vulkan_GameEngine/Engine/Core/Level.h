@@ -4,12 +4,15 @@
 #include "Objects/Object.h"
 #include "Objects/GameObjects/GameObject.h"
 #include "Math/FTransform.h"
+#include "DebugLogger.h"
 #include <set>
 #include <vector>
 #include <unordered_map>
+#include <string>
 
 class C_CollisionComponent;
 class Game;
+class C_CameraComponent;
 struct S_Mesh;
 struct S_Material;
 struct RenderInitializationData;
@@ -28,10 +31,21 @@ public:
 	virtual void AddCollider(C_CollisionComponent* collider);
 	inline std::set<O_Object*> GetObjects() { return LevelObjects; }
 
+	//Checks if there is a CurrentCamera set, if not, checks for any other camera in the level and sets that as current camera.
+	//In case no camera is found, returs false with a FatalError message.
+	bool CheckForCamera();
+	inline void SetCamera(C_CameraComponent* camera) { NextCamera = camera; ShouldChangeCamera = true; }
+
 	template<class objectClass>
 	objectClass* SpawnGameObjectOfClass(FTransform transform = FTransform())
 	{
+		static_assert(std::is_base_of<O_GameObject, objectClass>::value, "objectClass must derive from O_GameObject!");
 		objectClass* gameObject = new objectClass(this);
+		if (!dynamic_cast<O_GameObject*>(gameObject))
+		{
+			DebugLogger::Error("Invalid GameObject class: " + std::string(typeid(gameObject).name()), "Core/Level.h", __LINE__);
+			return nullptr;
+		}
 		dynamic_cast<O_GameObject*>(gameObject)->SetTransform(transform);
 		UnloadedObjects.insert(gameObject);
 		dynamic_cast<O_GameObject*>(gameObject)->Start();
@@ -41,6 +55,7 @@ public:
 	template<class objectClass>
 	std::set<objectClass*> GetAllObjectsOfClass()
 	{
+		static_assert(std::is_base_of<O_Object, objectClass>::value, "objectClass must derive from O_Object!");
 		std::set<objectClass*> result;
 		for (const auto& object : GetAllObjectsOfClass)
 		{
@@ -60,12 +75,19 @@ public:
 	void LoadMesh(S_Mesh* mesh);
 	void LoadMaterial(S_Material* material);
 	void LoadLevelObjects();
+	bool LoadCamera();
 
 protected:
+	bool FindAnyCamera();
+	void ChangeCamera();
+
 	std::set<O_Object*> LevelObjects;
 	std::set<O_Object*> UnloadedObjects;
 	std::vector<C_CollisionComponent*> Colliders;
 	Game* CurrentGame;
+	C_CameraComponent* CurrentCamera;
+	C_CameraComponent* NextCamera;
+	bool ShouldChangeCamera;
 
 	std::unordered_map<std::string, S_Mesh*> Meshes;
 	std::unordered_map<std::string, S_Material*> Materials;

@@ -3,7 +3,6 @@
 #include "Clock.h"
 #include "SDL/SDLManager.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "DebugLogger.h"
 
 #include <SDL.h>
 
@@ -17,7 +16,6 @@ Game::Game() : Running(false), Paused(false), GameClock(nullptr), InterfaceManag
 
 Game::~Game()
 {
-	CleanUp();
 }
 
 bool Game::Initialize(SDLManager* interfaceManager, Renderer* gameRenderer)
@@ -138,9 +136,13 @@ float Game::GetSleepTime()
 
 void Game::SetCurrentLevel()
 {
-	if (CurrentLevel) CurrentLevel->CleanUp();
+	if (CurrentLevel)
+	{
+		CurrentLevel->CleanUp();
+		delete(CurrentLevel);
+		CurrentLevel = nullptr;
+	}
 	CurrentLevel = NextLevel;
-	Levels[CurrentLevel->GetName()] = CurrentLevel;
 	CurrentLevel->Initialize(this);
 	CurrentLevel->Start();
 	ShouldStartNewLevel = false;
@@ -150,24 +152,13 @@ void Game::CleanUp()
 {
 	//InterfaceManager->End();
 	if (GameClock) delete(GameClock);
-	if (GameRenderer) delete(GameRenderer);
-	for (auto& level : Levels) delete(level.second);
-}
-
-void Game::StartNewLevel(O_Level* level)
-{
-	NextLevel = level;
-	ShouldStartNewLevel = true;
-}
-
-void Game::StartNewLevel(std::string levelName)
-{
-	if (Levels[levelName])
+	if (CurrentLevel)
 	{
-		NextLevel = Levels[levelName];
-		ShouldStartNewLevel = true;
+		CurrentLevel->CleanUp();
+		delete(CurrentLevel);
+		CurrentLevel = nullptr;
 	}
-	else DebugLogger::Error("Invalid level name.", "Core/Level.cpp", __LINE__);
+	NextLevel = nullptr;
 }
 
 int Game::Run()
@@ -186,6 +177,7 @@ int Game::Run()
 		while (Running)
 		{
 			if (ShouldStartNewLevel) SetCurrentLevel();
+			if (!CurrentLevel->CheckForCamera()) break;
 			GameClock->UpdateClock();
 			HandleEvents();
 			Update(GameClock->GetDeltaTimeSeconds());

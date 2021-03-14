@@ -29,6 +29,9 @@ public:
 	static FVector3 GetRotatedVector(const FVector3& vector, const FQuaternion& quaternion);
 	static FQuaternion SLerp(FQuaternion quaternion0, FQuaternion quaternion1, float t);
 	static float DotProduct(const FQuaternion& quaternion0, const FQuaternion& quaternion1);
+	FVector3 GetUpVector();
+	FVector3 GetForwardVector();
+	FVector3 GetRightVector();
 
 	~FQuaternion();
 };

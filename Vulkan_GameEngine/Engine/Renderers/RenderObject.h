@@ -25,6 +25,8 @@ public:
 
 	std::string Path;
 	std::string Name;
+
+	~S_Mesh() {}
 };
 
 struct S_Material
@@ -36,6 +38,7 @@ public:
 	S_Texture* TextureDifuse = new S_Texture();
 	S_Texture* TextureSpecular = new S_Texture();
 
+	std::string ShaderName;
 	std::string Name;
 
 	~S_Material()

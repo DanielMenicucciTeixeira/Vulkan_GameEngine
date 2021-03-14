@@ -1,11 +1,23 @@
 #include "OpelGLManager.h"
+#include "OpenGLShaderManager.h"
 #include "Renderers/RenderInitializationData.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
 #include <glew.h>
 
-bool OpelGLManager::Initialize(RenderInitializationData* initializationData)
+OpenGLManager::~OpenGLManager()
 {
+	CleanUp();
+}
+
+bool OpenGLManager::Initialize(RenderInitializationData* initializationData)
+{
+	if (!ShaderManager)
+	{
+		ShaderManager = new OpenGLShaderManager();
+		ShaderManager->CreateShaderProgram("ColourShader", "Engine/Shaders/ColourShader.vert", "Engine/Shaders/ColourShader.frag");
+	}
+
 	if (!initializationData)
 	{
 		DebugLogger::FatalError("Failed to get valid RenderInitializationData", "Renderers/OpenGL/OpenGLManager.cpp", __LINE__);
@@ -13,6 +25,7 @@ bool OpelGLManager::Initialize(RenderInitializationData* initializationData)
 	}
 	RenderData = initializationData;
 
+	VertexObjectsMap.clear();
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
 		VertexObjectsMap[mesh.first] = std::make_pair<unsigned int, unsigned int>(0, 0);
@@ -26,44 +39,53 @@ bool OpelGLManager::Initialize(RenderInitializationData* initializationData)
 	return true;
 }
 
-void OpelGLManager::CleanUp()
+void OpenGLManager::CleanUp()
 {
+	if (ShaderManager) delete(ShaderManager);
 }
 
-SDL_Window* OpelGLManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
+SDL_Window* OpenGLManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
 {
 	return nullptr;
 }
 
-void OpelGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindows, unsigned int arrayOffset)
+void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindows, unsigned int arrayOffset)
 {
+	/*UniformCameraObject* camera = new UniformCameraObject();
+	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
+	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);*/
 
-	for (auto mesh : VertexObjectsMap)
-	{
-		GenerateBuffers(mesh.first);
-	}
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
+		GenerateBuffers(mesh.first);
+		glEnable(GL_DEPTH_TEST);
 		glBindVertexArray(VertexObjectsMap[mesh.first].first);
-		auto test = VertexObjectsMap[mesh.first].first;
 
 		for (const auto material : RenderData->MeshToMaterialMap[mesh.first])
 		{
+			glUseProgram(ShaderManager->GetShader(material->ShaderName));
+			const auto modelLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ModelMatrix");
+			const auto viewLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ViewMatrix");
+			const auto projectionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ProjectionMatrix");
 			for (const auto model : RenderData->MaterialToModelMap[material])
 			{
+				glUniformMatrix4fv(modelLocation, 1, GL_FALSE, model[0]);
+				glUniformMatrix4fv(viewLocation, 1, GL_FALSE, RenderData->Camera->View);
+				glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, RenderData->Camera->Projection);
 				glDrawArrays(GL_TRIANGLES, 0, mesh.first->Vertices.size());
 			}
+			glUseProgram(0);
 		}
 
 		glBindVertexArray(0);
 	}
 }
 
-void OpelGLManager::FramebufferResizeCallback()
+void OpenGLManager::FramebufferResizeCallback()
 {
 }
 
-void OpelGLManager::GenerateBuffers(S_Mesh* mesh)
+void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 {
 	//Bind Arrays and Buffers
 	glGenVertexArrays(1, &VertexObjectsMap[mesh].first);

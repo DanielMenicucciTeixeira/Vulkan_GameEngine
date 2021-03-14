@@ -10,7 +10,7 @@ GO_BilliardTable::GO_BilliardTable(O_Level* level) : O_GameObject(level)
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	SetRoot(Mesh);
 	Mesh->SetMeshName("BilliardTable");
-	Mesh->SetTextureName("Wood");
+	Mesh->SetMaterialName("Wood");
 	Physics = AddComponentOfClass<C_PhysicsComponent>();
 	
 	BackWall = AddComponentOfClass<C_BoxCollision>();

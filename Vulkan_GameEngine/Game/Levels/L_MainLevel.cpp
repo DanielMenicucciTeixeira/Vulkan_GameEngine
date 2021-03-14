@@ -4,6 +4,8 @@
 #include "GO_Triangle.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/Renderer.h"
+#include "Math/FQuaternion.h"
+#include "GO_Camera.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -22,6 +24,7 @@ bool L_MainLevel::Initialize(Game* game)
 	Materials["Ball14"] = new S_Material();
 	Materials["Ball14"]->Name = "Ball14";
 	Materials["Ball14"]->TextureDifuse->Path = "Game/Textures/Ball14.jpg";
+	Materials["Ball14"]->ShaderName = "ColourShader";
 
 	for (auto& mesh : Meshes) LoadMesh(mesh.second);
 
@@ -41,12 +44,14 @@ void L_MainLevel::Render()
 void L_MainLevel::Update(float deltaTime)
 {
 	O_Level::Update(deltaTime);
-	printf("MainLevel\tDelta Time: %f\tTotal Time: %f\n", deltaTime, CurrentGame->GetTimeSeconds());
 }
 
 void L_MainLevel::Start()
 {
-	SpawnGameObjectOfClass<GO_Triangle>();
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.5f, -0.25f, 0.0f), FQuaternion(), FVector3()));
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.0f, 0.5f, -2.5f), FQuaternion(), FVector3()));
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(-0.5f, -0.25f, -5.0f), FQuaternion(), FVector3()));
+	SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 5.0f), FQuaternion(), FVector3()));
 	O_Level::Start();
 	printf("MainLevel Started!\n");
 }

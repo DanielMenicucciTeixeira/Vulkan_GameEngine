@@ -1,7 +1,6 @@
 #ifndef O_LEVEL_H
 #define O_LEVEL_H
 
-#include "Objects/Object.h"
 #include "Objects/GameObjects/GameObject.h"
 #include "Math/FTransform.h"
 #include "DebugLogger.h"
@@ -15,6 +14,7 @@ class Game;
 class C_CameraComponent;
 struct S_Mesh;
 struct S_Material;
+struct S_Texture;
 struct RenderInitializationData;
 
 class O_Level : public O_Object
@@ -74,10 +74,13 @@ public:
 
 	void LoadMesh(S_Mesh* mesh);
 	void LoadMaterial(S_Material* material);
+	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
+	void ReloadLevelObjects();
 	bool LoadCamera();
 
 protected:
+
 	bool FindAnyCamera();
 	void ChangeCamera();
 
@@ -91,6 +94,7 @@ protected:
 
 	std::unordered_map<std::string, S_Mesh*> Meshes;
 	std::unordered_map<std::string, S_Material*> Materials;
+	std::unordered_map<std::string, S_Texture*> Textures;
 	RenderInitializationData* RenderData;
 };
 #endif

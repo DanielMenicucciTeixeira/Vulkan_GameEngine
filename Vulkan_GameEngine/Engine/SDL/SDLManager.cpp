@@ -1,13 +1,15 @@
 #include "SDLManager.h"
 #include "SDLWindowManager.h"
-#include "SDLTextureLoader.h"
+#include "SDLTextureHandler.h"
 #include"SDLEventHandler.h"
 #include "Window.h"
 #include "Renderers/Renderer.h"
+#include "DebugLogger.h"
 
 #include <SDL_vulkan.h>
 #include <stdio.h>
 #include <SDL.h>
+#include <string>
 #include<iostream>
 
 
@@ -34,7 +36,7 @@ bool SDLManager::Begin()
 
     if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {
-       printf("SDL did not Initilize!");
+       DebugLogger::FatalError("SDL did not Initilize!", "SDL/SDLManager.cpp", __LINE__);
        return false;
     }
 
@@ -53,7 +55,6 @@ void SDLManager::End()
     SDL_Quit();
 
     if (WindowManager != nullptr) delete(WindowManager);
-    if (TextureLoader != nullptr) delete(TextureLoader);
 }
 
 SDL_Event SDLManager::GetEvent()
@@ -97,7 +98,7 @@ bool SDLManager::InitializeSDL()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+        DebugLogger::FatalError("SDL could not initialize! SDL_Error: " + std::string(SDL_GetError()), "SDL/SDLManager.cpp", __LINE__);
         return false;
     }
     else return true;

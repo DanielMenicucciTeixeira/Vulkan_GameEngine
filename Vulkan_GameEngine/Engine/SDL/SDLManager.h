@@ -13,8 +13,7 @@ class SDLManager
 {
 protected:
 	class SDLWindowManager* WindowManager = nullptr;
-	class SDLTextureLoader* TextureLoader = nullptr;
-	class SDL_Surface* imageSurface = nullptr;
+	struct SDL_Surface* imageSurface = nullptr;
 	class SDLEventHandler* EventHandler = nullptr;
 	class Renderer* WindowRenderer = nullptr;
 
@@ -36,7 +35,7 @@ public:
 	Window* CreateWindow(const char* windowName, ERendererType rendererType, float windowSizeX = -1.0f, float windowSizeY = -1.0f, float windowPositionX = -1.0f, float windowPositionY = -1.0f);
 	void SetRenderer(Renderer* renderer);
 
-	class SDL_Window* GetSDLWindowByName(const char* name = GetDefaultWindowName());
+	struct SDL_Window* GetSDLWindowByName(const char* name = GetDefaultWindowName());
 	Window* GetWindowByName(const char* name = GetDefaultWindowName());
 
 	inline static const char* GetDefaultWindowName() { return "window"; }

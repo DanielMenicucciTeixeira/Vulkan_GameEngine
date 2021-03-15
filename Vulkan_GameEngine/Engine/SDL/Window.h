@@ -4,7 +4,7 @@
 #include "Auxiliary/Singleton.h"
 
 class SDLWindowManager;
-class SDL_Window;
+struct SDL_Window;
 typedef void* SDL_GLContext;
 enum ERendererType;
 

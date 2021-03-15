@@ -5,8 +5,9 @@
 #include "Renderers/RenderInitializationData.h"
 #include "MeshLoader.h"
 #include "TextureLoader.h"
-#include "Renderers/Vulkan/VulkanManager.h"
 #include "Objects/Components/CameraComponent.h"
+#include "Renderers/Renderer.h"
+#include "SDL/SDLTextureHandler.h"
 
 O_Level::O_Level() : O_Object(), CurrentGame(nullptr), RenderData(nullptr), CurrentCamera(nullptr)
 {
@@ -19,6 +20,8 @@ O_Level::~O_Level()
 bool O_Level::Initialize(Game* game)
 {
 	if (!game) return false;
+	for (auto& mesh : Meshes) LoadMesh(mesh.second);
+	for (auto& material : Materials) LoadMaterial(material.second);
 	CurrentGame = game;
 	RenderData = new RenderInitializationData();
 	LoadLevelObjects();
@@ -28,7 +31,7 @@ bool O_Level::Initialize(Game* game)
 
 void O_Level::Start()
 {
-	LoadLevelObjects();
+	ReloadLevelObjects();
 	for (const auto& object : LevelObjects) object->Start();
 	CheckForCamera();
 	LoadCamera();
@@ -48,7 +51,29 @@ S_Mesh* O_Level::GetMesh(std::string meshName)
 void O_Level::LoadMaterial(S_Material* material)
 {
 	if (!Materials[material->Name]) Materials[material->Name] = material;
-	TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
+	if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
+	if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
+}
+
+bool O_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
+{
+	if (!Textures[textureName])
+	{
+		DebugLogger::Error("Failed to find texture with name: " + texture->Name + ". ", "Core/Level.cpp", __LINE__);
+		return false;
+	}
+
+	if (!Textures[textureName]->Pixels)
+	{
+		if (!SDLTextureHandler::LoadTexture(textureName, Textures[textureName]->Path, Textures[textureName]))
+		{
+			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
+			return false;
+		}
+	}
+	
+	texture = Textures[textureName];
+	return true;
 }
 
 S_Material* O_Level::GetMaterial(std::string materialName)
@@ -65,6 +90,7 @@ void O_Level::LoadLevelObjects()
 		{
 			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
 			{
+				auto check = Materials[mesh->GetMaterialName()];
 				mesh->SetMaterial(Materials[mesh->GetMaterialName()]);
 				mesh->SetMesh(Meshes[mesh->GetMeshName()]);
 			}
@@ -77,6 +103,12 @@ void O_Level::LoadLevelObjects()
 	{
 		UnloadedObjects = std::set<O_Object*>();
 	}
+}
+
+void O_Level::ReloadLevelObjects()
+{
+	LoadLevelObjects();
+	CurrentGame->GetRenderer()->UpdateWithNewObjects();
 }
 
 bool O_Level::LoadCamera()
@@ -126,7 +158,7 @@ bool O_Level::CheckForCamera()
 
 void O_Level::Update(const float deltaTime)
 {
-	LoadLevelObjects();
+	ReloadLevelObjects();
 	if (!CurrentGame->IsPaused()) for (const auto& object : LevelObjects) object->Update(deltaTime);
 	else for (const auto& object : LevelObjects) if (object->UpdateWhenPaused) object->Update(deltaTime);
 	C_CollisionComponent::CheckForCollisions(Colliders);
@@ -143,6 +175,7 @@ void O_Level::CleanUp()
 	if (LevelObjects.size() > 0) for (auto& object : LevelObjects) if (object) delete(object);
 	if (Meshes.size() > 0) for (auto& mesh : Meshes) if (mesh.second) delete(mesh.second);
 	if (Materials.size() > 0) for (auto& material : Materials) if (material.second) delete(material.second);
+	if (Textures.size() > 0) for (auto& texture : Textures) if (texture.second) delete(texture.second);
 }
 
 void O_Level::AddCollider(C_CollisionComponent* collider)

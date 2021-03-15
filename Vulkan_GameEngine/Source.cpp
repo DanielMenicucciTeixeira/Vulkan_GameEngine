@@ -13,10 +13,11 @@ void printEngine(SDL_Event* event) { printf("In Engine!\n"); }
 
 int main(int argc, char* argv[])
 {
+
 	std::system("Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
 
-	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), VULKAN))
+	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), OPEN_GL))
 	{
 		printf("Failed to create Engine!");
 		return 0;

@@ -7,7 +7,7 @@ class G_Game01 : public Game
 {
 public:
 	G_Game01();
-	virtual bool Initialize(SDLManager* interfaceManager, Renderer* gameRenderer) override;
+	virtual bool Initialize(Renderer* gameRenderer) override;
 	static void LoadStartLevel(Game* self, SDL_Event* event);
 	static void LoadMainLevel(Game* self, SDL_Event* event);
 };

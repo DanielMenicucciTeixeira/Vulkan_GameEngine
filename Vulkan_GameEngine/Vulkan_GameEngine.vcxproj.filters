@@ -66,9 +66,6 @@
     <ClCompile Include="Engine\SDL\SDLManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLTextureLoader.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\SDL\SDLWindowManager.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
@@ -210,15 +207,15 @@
     <ClCompile Include="Game\GO_Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\SDL\SDLTextureHandler.cpp">
+      <Filter>SDL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\SDL\SDLEventHandler.h">
       <Filter>SDL</Filter>
     </ClInclude>
     <ClInclude Include="Engine\SDL\SDLManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLTextureLoader.h">
       <Filter>SDL</Filter>
     </ClInclude>
     <ClInclude Include="Engine\SDL\SDLWindowManager.h">
@@ -398,6 +395,9 @@
     <ClInclude Include="Game\GO_Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\SDL\SDLTextureHandler.h">
+      <Filter>SDL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -413,5 +413,7 @@
     </None>
     <None Include="Engine\Shaders\ColourShader.vert" />
     <None Include="Engine\Shaders\ColourShader.frag" />
+    <None Include="Engine\Shaders\TextureShader.vert" />
+    <None Include="Engine\Shaders\TextureShader.frag" />
   </ItemGroup>
 </Project>

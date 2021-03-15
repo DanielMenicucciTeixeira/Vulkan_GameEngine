@@ -9,7 +9,7 @@
 #include <iostream>
 #include <stdexcept>
 
-Game::Game() : Running(false), Paused(false), GameClock(nullptr), InterfaceManager(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
+Game::Game() : Running(false), Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
 {
 	
 }
@@ -18,19 +18,13 @@ Game::~Game()
 {
 }
 
-bool Game::Initialize(SDLManager* interfaceManager, Renderer* gameRenderer)
+bool Game::Initialize(Renderer* gameRenderer)
 {
-	if (!interfaceManager)
-	{
-		DebugLogger::FatalError("Failed to get valid interface manager!", "Core/Game.cpp", __LINE__);
-		return false;
-	}
 	if (!CurrentLevel)
 	{
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	InterfaceManager = interfaceManager;
 	GameClock = new Clock();
 	Running = true;
 	GameRenderer = gameRenderer;
@@ -84,7 +78,6 @@ void Game::Update(const float deltaTime)
 
 void Game::Render()
 {
-	
 	if (CurrentLevel) CurrentLevel->Render();
 }
 
@@ -112,6 +105,11 @@ Renderer* Game::GetRenderer()
 void Game::SetPause(const bool& pause)
 {
 	Paused = pause;
+}
+
+inline SDLManager* Game::GetInterfaceManager()
+{
+	return SDLManager::GetInstance();
 }
 
 float Game::GetTimeSeconds()

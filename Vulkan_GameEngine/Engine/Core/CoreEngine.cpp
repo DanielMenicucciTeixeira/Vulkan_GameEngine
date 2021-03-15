@@ -16,7 +16,7 @@ std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
 bool CoreEngine::StartGame()
 {
-	if (!CurrentGame || !CurrentGame->Initialize(SDLManager::GetInstance(), EngineRenderer))//TODO pass a proper renderer!
+	if (!CurrentGame || !CurrentGame->Initialize(EngineRenderer))//TODO pass a proper renderer!
 	{
 		DebugLogger::Error("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
 		return  RunningGame = false;
@@ -110,7 +110,10 @@ void CoreEngine::HandleEvents()
 			keycode = SDLK_UNKNOWN;
 		}
 		//Then find the function in the map using the event type and keycode as directions, if it exists, call it.
-		if (EngineInputFunctions[std::make_pair(eventType, keycode)]) EngineInputFunctions[std::make_pair(eventType, keycode)](&event);
+		if (EngineInputFunctions[std::make_pair(eventType, keycode)])
+		{
+			EngineInputFunctions[std::make_pair(eventType, keycode)](&event);
+		}
 	}
 }
 

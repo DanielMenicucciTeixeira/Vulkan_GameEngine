@@ -49,6 +49,11 @@ void VulkanManager::FramebufferResizeCallback()
     FramebufferResized = true;
 }
 
+void VulkanManager::UpdateWithNewObjects()
+{
+    RecreateSwapchain();
+}
+
 VkDevice_T* VulkanManager::GetLogicalDevice()
 {
     return Devices->GetLogicalDevice();

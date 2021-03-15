@@ -21,12 +21,14 @@ bool L_MainLevel::Initialize(Game* game)
 	Meshes["SphereMesh"]->Name = "SphereMesh";
 	Meshes["SphereMesh"]->Path = "Game/Models/sphere.obj";
 
+	Textures["Ball14"] = new S_Texture();
+	Textures["Ball14"]->Name = "Ball14";
+	Textures["Ball14"]->Path = "Game/Textures/Ball14.jpg";
+
 	Materials["Ball14"] = new S_Material();
 	Materials["Ball14"]->Name = "Ball14";
-	Materials["Ball14"]->TextureDifuse->Path = "Game/Textures/Ball14.jpg";
-	Materials["Ball14"]->ShaderName = "ColourShader";
-
-	for (auto& mesh : Meshes) LoadMesh(mesh.second);
+	Materials["Ball14"]->TextureNameDifuse = "Ball14";
+	Materials["Ball14"]->ShaderName = "TextureShader";
 
 	if (!O_Level::Initialize(game)) return false;
 

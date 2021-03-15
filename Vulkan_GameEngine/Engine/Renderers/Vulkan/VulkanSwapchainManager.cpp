@@ -445,7 +445,8 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
     {
         int textureWidth = texture.first->TextureDifuse->Width;
         int textureHeight = texture.first->TextureDifuse->Height;
-        unsigned char* texturePixels = texture.first->TextureDifuse->Pixels;
+        //unsigned char* texturePixels = texture.first->TextureDifuse->Pixels;
+        void* texturePixels = texture.first->TextureDifuse->Pixels;//TODO this may break Vulakn!!!
 
         VkDeviceSize imageSize = textureWidth * textureHeight * 4;
 
@@ -675,7 +676,7 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     for (const auto& model : Manager->GetInitializationData()->Models)
     {
         void* modelData;
-        VkDeviceMemory test = ModelMap[model][currentImageIndex].ModelBufferMemory;
+        auto memory = ModelMap[model][currentImageIndex].ModelBufferMemory;//TODO remove this line when bug is fixed.
         vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory, 0, sizeof(FMatrix4), 0, &modelData);
         memcpy(modelData, model, sizeof(FMatrix4));
         vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory);

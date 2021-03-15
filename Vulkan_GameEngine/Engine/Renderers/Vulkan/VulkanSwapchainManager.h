@@ -75,7 +75,6 @@ public:
 	void CreateDescriptorPool();
 	void CreateDescriptorSets();
 	void CreateTextureImage();
-	void CreateTextureImageView();
 	void CreateTextureSampler(VkSampler_T*& sampler);
 
 	void RecreationCleanUp();

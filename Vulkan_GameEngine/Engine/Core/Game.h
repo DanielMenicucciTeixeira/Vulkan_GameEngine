@@ -17,7 +17,7 @@ class O_GameObject;
 class O_Level;
 class Renderer;
 class SDLManager;
-class RenderInitializationData;
+struct RenderInitializationData;
 
 union SDL_Event;
 
@@ -35,7 +35,7 @@ public:
 	Game& operator=(const Game&) = delete;
 	Game& operator=(Game&&) = delete;
 
-	virtual bool Initialize(SDLManager* interfaceManager, Renderer* gameRenderer);
+	virtual bool Initialize(Renderer* gameRenderer);
 	virtual void HandleEvents();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
@@ -75,7 +75,7 @@ public:
 	//Getters
 
 	inline O_Level* GetCurrentLevel() { return CurrentLevel; }
-	inline SDLManager* GetInterfaceManager() { return InterfaceManager; }
+	inline SDLManager* GetInterfaceManager();
 	float GetTimeSeconds();
 	float GetDeltaTimeSeconds();
 	float GetDeltaTimeMiliseconds();
@@ -89,7 +89,6 @@ protected:
 	Clock* GameClock;
 	O_Level* CurrentLevel;
 	O_Level* NextLevel;
-	SDLManager* InterfaceManager;
 	Renderer* GameRenderer;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(Game*, SDL_Event*)> GameInputFunctions;

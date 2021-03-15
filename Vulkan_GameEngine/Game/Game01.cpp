@@ -7,13 +7,13 @@ G_Game01::G_Game01() : Game()
 {
 }
 
-bool G_Game01::Initialize(SDLManager* interfaceManager, Renderer* gameRenderer)
+bool G_Game01::Initialize(Renderer* gameRenderer)
 {
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_q, Game::QuitGame);
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_s, G_Game01::LoadStartLevel);
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_m, G_Game01::LoadMainLevel);
 	CurrentLevel = new L_StartLevel();
-	return Game::Initialize(interfaceManager, gameRenderer);
+	return Game::Initialize(gameRenderer);
 }
 
 void G_Game01::LoadStartLevel(Game* self, SDL_Event* event)

@@ -43,7 +43,7 @@ typedef VkFlags VkBufferUsageFlags;
 typedef unsigned long long VkDeviceSize;
 
 //SDL Classes
-class SDL_Window;
+struct SDL_Window;
 
 //--------------------------------------------------
 
@@ -91,6 +91,7 @@ public:
 	virtual ~VulkanManager();
 	
 	void FramebufferResizeCallback() override;
+	virtual void UpdateWithNewObjects() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
 	virtual bool Initialize(RenderInitializationData* initializationData) override;
 	virtual void CleanUp() override;

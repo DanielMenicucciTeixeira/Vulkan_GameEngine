@@ -20,7 +20,8 @@ public:
 	///Getters
 	inline FMatrix4* GetModelMatrix() const { return ModelMatrix; }
 	inline S_Mesh* GetMesh() const { return Mesh; }
-	S_Texture* GetTexture() const;
+	S_Texture* GetTextureDifuse() const;
+	S_Texture* GetTextureSpecular() const;
 	inline S_Material* GetMaterial() const { return Material; }
 	inline const std::string& GetMeshName() const { return MeshName; }
 	inline const std::string& GetMaterialName() const { return MaterialName; }

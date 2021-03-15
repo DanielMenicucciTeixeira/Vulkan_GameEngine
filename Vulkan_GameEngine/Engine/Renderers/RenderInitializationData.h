@@ -12,7 +12,8 @@ struct RenderInitializationData
 {
 	std::unordered_map<S_Mesh*, std::set<S_Material*>> MeshToMaterialMap;
 	std::unordered_map<S_Material*, std::vector<FMatrix4*>> MaterialToModelMap;
-	std::vector<FMatrix4*> Models;
+	std::set<FMatrix4*> Models;
+	std::set<S_Texture*> Textures;
 	UniformCameraObject* Camera;
 
 	void LoadGameObject(O_GameObject* gameObject)
@@ -21,7 +22,9 @@ struct RenderInitializationData
 		{
 			MeshToMaterialMap[staticMesh->GetMesh()].insert(staticMesh->GetMaterial());
 			MaterialToModelMap[staticMesh->GetMaterial()].push_back(staticMesh->GetModelMatrix());
-			Models.push_back(staticMesh->GetModelMatrix());
+			Models.insert(staticMesh->GetModelMatrix());
+			if (staticMesh->GetTextureDifuse()) Textures.insert(staticMesh->GetTextureDifuse());
+			if (staticMesh->GetTextureSpecular()) Textures.insert(staticMesh->GetTextureSpecular());
 		}
 	}
 

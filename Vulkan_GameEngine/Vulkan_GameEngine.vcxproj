@@ -158,6 +158,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\FX\DirectionalLightComponent.cpp" />
+    <ClCompile Include="Engine\FX\DirectionalLight.cpp" />
+    <ClCompile Include="Engine\FX\LightSourceComponent.cpp" />
     <ClCompile Include="Engine\Core\DebugLogger.cpp" />
     <ClCompile Include="Engine\Core\CoreEngine.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
@@ -198,6 +201,7 @@
     <ClCompile Include="Game\GO_Triangle.cpp" />
     <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp" />
     <ClCompile Include="Game\GO_Camera.cpp" />
+    <ClCompile Include="Engine\FX\LightSource.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -211,6 +215,10 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\FX\DirectionalLightComponent.h" />
+    <ClInclude Include="Engine\FX\DirectionalLight.h" />
+    <ClInclude Include="Engine\FX\LightInfo.h" />
+    <ClInclude Include="Engine\FX\LightSourceComponent.h" />
     <ClInclude Include="Engine\Auxiliary\SingletonCPP.h" />
     <ClInclude Include="Engine\Core\DebugLogger.h" />
     <ClInclude Include="Engine\Auxiliary\Singleton.h" />
@@ -256,6 +264,7 @@
     <ClInclude Include="Game\GO_Triangle.h" />
     <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h" />
     <ClInclude Include="Game\GO_Camera.h" />
+    <ClInclude Include="Engine\FX\LightSource.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />

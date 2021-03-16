@@ -134,7 +134,7 @@ float FQuaternion::DotProduct(const FQuaternion& quaternion0, const FQuaternion&
 
 FVector3 FQuaternion::GetUpVector()
 {
-	return GetRotatedVector(FVector3(0.0f, 0.0f, -1.0f), *this);
+	return GetRotatedVector(FVector3(0.0f, 0.0f, 1.0f), *this);
 }
 
 FVector3 FQuaternion::GetForwardVector()

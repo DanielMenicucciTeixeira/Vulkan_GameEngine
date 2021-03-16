@@ -6,13 +6,14 @@
 #include "SDL/SDLManager.h"
 #include <SDL.h>
 #include <glew.h>
+#include "FX/LightInfo.h"
 
 OpenGLManager::~OpenGLManager()
 {
 	CleanUp();
 }
 
-bool OpenGLManager::Initialize(RenderInitializationData* initializationData)
+bool OpenGLManager::Initialize(S_RenderData* initializationData)
 {
 	if (!ShaderManager)
 	{
@@ -77,7 +78,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
-
+	PopulateLigthsVector();
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
 		glBindVertexArray(VertexObjectsMap[mesh.first].first);
@@ -85,18 +86,25 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 		for (const auto material : RenderData->MeshToMaterialMap[mesh.first])
 		{
 			glUseProgram(ShaderManager->GetShader(material->ShaderName));
+			
 			const auto modelLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ModelMatrix");
 			const auto viewLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ViewMatrix");
 			const auto projectionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ProjectionMatrix");
+			const auto cameraPositionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "CameraPosition");
 			const auto difuseLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureDifuse");
 			const auto specularLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureSpecular");
+			const auto lightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "Lights");
+			const auto numberOfLightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "NumberOfLights");
+			
+			glUniform1i(difuseLocation, 0);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);
+
+			glUniform1i(numberOfLightsLocation, GLint(RenderData->LightSources.size()));
+			glUniform1fv(lightsLocation, GLsizei(Lights.size()), Lights.data());
+			glUniform3fv(cameraPositionLocation, 1, RenderData->Camera->Position);
 			for (const auto model : RenderData->MaterialToModelMap[material])
 			{
-				glUniform1i(difuseLocation, 0);
-				glActiveTexture(GL_TEXTURE0);
-				//auto checkGLuint = TextureMap[material->TextureDifuse];
-				//auto checkTexture = material->TextureDifuse;
-				glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);
 
 				/*glUniform1i(specularLocation, 1);
 				glActiveTexture(GL_TEXTURE1);
@@ -134,6 +142,31 @@ void OpenGLManager::CreateGLTexture(S_Texture* textureData)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glGenerateMipmap(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
+
+void OpenGLManager::PopulateLigthsVector()
+{
+	if (Lights.size() > 0) Lights.clear();
+	Lights = std::vector<float>();
+	Lights.reserve(RenderData->LightSources.size() * sizeof(RenderData->LightSources) / sizeof(float));
+	for (const auto& light : RenderData->LightSources)
+	{
+		Lights.push_back(light->Position.X);
+		Lights.push_back(light->Position.Y);
+		Lights.push_back(light->Position.Z);
+
+		Lights.push_back(light->Ambient);
+		Lights.push_back(light->Diffuse);
+		Lights.push_back(light->Specular);
+
+		Lights.push_back(light->Colour.X);
+		Lights.push_back(light->Colour.Y);
+		Lights.push_back(light->Colour.Z);
+
+		Lights.push_back(light->TurnedOn);
+
+		Lights.push_back(light->LightType);
+	}
 }
 
 void OpenGLManager::GenerateBuffers(S_Mesh* mesh)

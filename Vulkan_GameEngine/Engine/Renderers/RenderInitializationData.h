@@ -8,12 +8,15 @@
 #include "Objects/GameObjects/GameObject.h"
 #include "Objects/Components/StaticMeshComponent.h"
 
-struct RenderInitializationData
+struct S_LightInfo;
+
+struct S_RenderData
 {
 	std::unordered_map<S_Mesh*, std::set<S_Material*>> MeshToMaterialMap;
 	std::unordered_map<S_Material*, std::vector<FMatrix4*>> MaterialToModelMap;
 	std::set<FMatrix4*> Models;
 	std::set<S_Texture*> Textures;
+	std::set<S_LightInfo*> LightSources;
 	UniformCameraObject* Camera;
 
 	void LoadGameObject(O_GameObject* gameObject)
@@ -26,10 +29,6 @@ struct RenderInitializationData
 			if (staticMesh->GetTextureDifuse()) Textures.insert(staticMesh->GetTextureDifuse());
 			if (staticMesh->GetTextureSpecular()) Textures.insert(staticMesh->GetTextureSpecular());
 		}
-	}
-
-	~RenderInitializationData()
-	{
 	}
 };
 #endif // !RENDERINITIALIZATIONDATA_H

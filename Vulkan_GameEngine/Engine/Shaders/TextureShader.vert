@@ -6,6 +6,7 @@ layout (location = 2) in vec3 InNormal;
 
 out vec3 Normal;
 out vec2 TextureCoords;
+out vec3 FragPosition;
 
 uniform mat4 ModelMatrix;
 uniform mat4 ViewMatrix;
@@ -15,5 +16,6 @@ void main()
 {
 	gl_Position = ProjectionMatrix * ViewMatrix * ModelMatrix * vec4(InPosition, 1.0f);
 	TextureCoords = InTextureCoords.xy;
-	Normal = InNormal;
+	Normal = transpose(inverse(mat3(ModelMatrix))) * InNormal;
+	FragPosition = (ModelMatrix * vec4(InPosition, 1.0f)).xyz;
 }

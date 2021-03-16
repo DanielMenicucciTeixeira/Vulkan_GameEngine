@@ -2,12 +2,14 @@
 #define UNIFORMBUFFEROBJECT_H
 
 #include "Math/FMatrix4.h"
+#include "Math/FVector3.h"
 
 struct UniformCameraObject
 {
 	FMatrix4 View, Projection;
+	FVector3 Position;
 
-	inline bool operator== (UniformCameraObject uniformCameraObject) { return View == uniformCameraObject.View && Projection == uniformCameraObject.Projection; }
+	inline bool operator== (UniformCameraObject uniformCameraObject) { return View == uniformCameraObject.View && Projection == uniformCameraObject.Projection && Position == uniformCameraObject.Position; }
 };
 
 struct UniformBufferObject

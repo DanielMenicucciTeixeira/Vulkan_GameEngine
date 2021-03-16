@@ -6,6 +6,9 @@
 #include "Renderers/Renderer.h"
 #include "Math/FQuaternion.h"
 #include "GO_Camera.h"
+#include "FX/LightSource.h"
+#include "FX/DirectionalLight.h"
+#include "FX/LightInfo.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -47,10 +50,34 @@ void L_MainLevel::Update(float deltaTime)
 
 void L_MainLevel::Start()
 {
-	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.5f, -0.25f, 0.0f), FQuaternion(), FVector3()));
-	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.0f, 0.5f, -2.5f), FQuaternion(), FVector3()));
-	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(-0.5f, -0.25f, -5.0f), FQuaternion(), FVector3()));
-	SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 5.0f), FQuaternion(), FVector3()));
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(-3.0f, -3.0f, 0.0f), FQuaternion(), FVector3(1.0f)));
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.0f, 3.0f, -3.0f), FQuaternion(), FVector3(1.0f)));
+	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(3.0f, -3.0f, -6.0f), FQuaternion(), FVector3(1.0f)));
+	
+	auto red = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(4.0f, 0.0f, -1.5f), FQuaternion(), FVector3(1.0f)));
+	auto blue = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(0.0f, -2.0f, 1.5f), FQuaternion(), FVector3(1.0f)));
+	auto green = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(0.0f, 0.0f, 0.0f), FQuaternion(), FVector3(1.0f)));
+	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
+
+	sun->SetColour({ 1, 1, 1 });
+	sun->SetIntensity(1);
+	sun->SetAmbientMultiplier(0);
+	sun->SetRotation(FQuaternion({ 0, 0, 1 }, 90));
+	sun->SetTurnedOn(false);
+
+	red->SetColour({ 1, 0, 0 });
+	red->SetLightType(E_LightType::POINT_LIGHT);
+	red->SetIntensity(2);
+	green->SetColour({ 0, 1, 0 });
+	green->SetLightType(E_LightType::POINT_LIGHT);
+	green->SetIntensity(2);
+	blue->SetColour({ 0, 0, 1 });
+	blue->SetLightType(E_LightType::POINT_LIGHT);
+	blue->SetIntensity(2);
+	//blue->SetLightType(E_LightType::FIXED_INTENSITY_POINT_LIGHT);
+	//blue->SetIntensity(0.5);
+
+	SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 20.0f), FQuaternion(), FVector3()));
 	O_Level::Start();
 	printf("MainLevel Started!\n");
 }

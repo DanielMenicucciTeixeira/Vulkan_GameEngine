@@ -12,10 +12,11 @@
 class C_CollisionComponent;
 class Game;
 class C_CameraComponent;
+struct S_LightInfo;
 struct S_Mesh;
 struct S_Material;
 struct S_Texture;
-struct RenderInitializationData;
+struct S_RenderData;
 
 class O_Level : public O_Object
 {
@@ -29,6 +30,8 @@ public:
 	virtual void Render();
 	virtual void CleanUp();
 	virtual void AddCollider(C_CollisionComponent* collider);
+	virtual void AddLightSource(S_LightInfo* light);
+	virtual void RemoveLightSource(S_LightInfo* light);
 	inline std::set<O_Object*> GetObjects() { return LevelObjects; }
 
 	//Checks if there is a CurrentCamera set, if not, checks for any other camera in the level and sets that as current camera.
@@ -95,6 +98,6 @@ protected:
 	std::unordered_map<std::string, S_Mesh*> Meshes;
 	std::unordered_map<std::string, S_Material*> Materials;
 	std::unordered_map<std::string, S_Texture*> Textures;
-	RenderInitializationData* RenderData;
+	S_RenderData* RenderData;
 };
 #endif

@@ -11,6 +11,7 @@
 
 O_Level::O_Level() : O_Object(), CurrentGame(nullptr), RenderData(nullptr), CurrentCamera(nullptr)
 {
+	RenderData = new S_RenderData();
 }
 
 O_Level::~O_Level()
@@ -23,7 +24,6 @@ bool O_Level::Initialize(Game* game)
 	for (auto& mesh : Meshes) LoadMesh(mesh.second);
 	for (auto& material : Materials) LoadMaterial(material.second);
 	CurrentGame = game;
-	RenderData = new RenderInitializationData();
 	LoadLevelObjects();
 	CurrentGame->GetRenderer()->Initialize(RenderData);
 	return true;
@@ -171,14 +171,24 @@ void O_Level::Render()
 
 void O_Level::CleanUp()
 {
-	if (RenderData) delete(RenderData);
 	if (LevelObjects.size() > 0) for (auto& object : LevelObjects) if (object) delete(object);
 	if (Meshes.size() > 0) for (auto& mesh : Meshes) if (mesh.second) delete(mesh.second);
 	if (Materials.size() > 0) for (auto& material : Materials) if (material.second) delete(material.second);
 	if (Textures.size() > 0) for (auto& texture : Textures) if (texture.second) delete(texture.second);
+	if (RenderData) delete(RenderData);
 }
 
 void O_Level::AddCollider(C_CollisionComponent* collider)
 {
 	Colliders.push_back(collider);
+}
+
+void O_Level::AddLightSource(S_LightInfo* light)
+{
+	if(RenderData) RenderData->LightSources.insert(light);
+}
+
+void O_Level::RemoveLightSource(S_LightInfo* light)
+{
+	if (RenderData && light) RenderData->LightSources.erase(light);
 }

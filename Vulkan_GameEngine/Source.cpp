@@ -2,6 +2,7 @@
 #include "Game01.h"
 #include "SDL/SDLManager.h"
 #include "Renderers/Renderer.h"
+#include "Math/FVector3.h"
 
 #include <SDL.h>
 #include <iostream>
@@ -13,7 +14,6 @@ void printEngine(SDL_Event* event) { printf("In Engine!\n"); }
 
 int main(int argc, char* argv[])
 {
-
 	std::system("Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
 

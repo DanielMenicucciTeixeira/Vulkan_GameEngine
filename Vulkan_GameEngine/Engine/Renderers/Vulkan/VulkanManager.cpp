@@ -409,7 +409,7 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-bool VulkanManager::Initialize(RenderInitializationData* initializationData)
+bool VulkanManager::Initialize(S_RenderData* initializationData)
 {
     InitializationData = initializationData;
 

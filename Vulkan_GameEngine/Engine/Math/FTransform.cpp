@@ -7,14 +7,14 @@ FTransform::FTransform()
 {
 	Position = new FVector3();
 	Rotation = new FQuaternion();
-	Scale = new FVector3(1);
+	Scale = new FVector3(1.0f);
 }
 
 FTransform::FTransform(const FTransform& transform)
 {
 	Position = new FVector3();
 	Rotation = new FQuaternion();
-	Scale = new FVector3(1);
+	Scale = new FVector3(1.0f);
 	*this = transform;
 }
 

@@ -17,7 +17,7 @@ class O_GameObject;
 class O_Level;
 class Renderer;
 class SDLManager;
-struct RenderInitializationData;
+struct S_RenderData;
 
 union SDL_Event;
 

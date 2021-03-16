@@ -38,6 +38,13 @@ void MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
                 0
             };
 
+            vertex.Normal =
+            {
+            attrib.normals[3 * index.vertex_index + 0],
+            attrib.normals[3 * index.vertex_index + 1],
+            attrib.normals[3 * index.vertex_index + 2]
+            };
+
             mesh->Vertices.push_back(vertex);
             mesh->Indices.push_back(mesh->Indices.size());
         }

@@ -93,7 +93,7 @@ public:
 	void FramebufferResizeCallback() override;
 	virtual void UpdateWithNewObjects() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
-	virtual bool Initialize(RenderInitializationData* initializationData) override;
+	virtual bool Initialize(S_RenderData* initializationData) override;
 	virtual void CleanUp() override;
 
 	//Getters
@@ -105,7 +105,7 @@ public:
 	inline VkInstance_T* GetInstance() { return Instance; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; }
 	inline QueueStruct* GetQueues() { return Queues; }
-	inline RenderInitializationData* GetInitializationData() { return InitializationData; }
+	inline S_RenderData* GetInitializationData() { return InitializationData; }
 	VkDevice_T* GetLogicalDevice();
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
@@ -171,7 +171,7 @@ protected:
 	std::vector<VkFence_T*> ImagesInFlight;
 	size_t CurrentFrame = 0;
 	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
-	RenderInitializationData* InitializationData;
+	S_RenderData* InitializationData;
 
 	void LoadModel();
 	const std::string MODEL_PATH = "Models/viking_room.obj";

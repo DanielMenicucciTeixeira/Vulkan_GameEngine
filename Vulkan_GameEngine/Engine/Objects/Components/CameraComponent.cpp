@@ -6,7 +6,8 @@
 
 void C_CameraComponent::Update(const float deltaTime)
 {
-	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
+	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), FVector3(0.0f, 1.0f, 0.0f));
+	UCO->Position = GetComponentAbsolutePosition();
 	C_TransformComponent::Update(deltaTime);
 }
 
@@ -14,6 +15,7 @@ void C_CameraComponent::Start()
 {
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetWidth() / SDLManager::GetInstance()->GetWindowByName()->GetHeight(), FildOfView.NearPlane, FildOfView.FarPlane);
+	UCO->Position = GetComponentAbsolutePosition();
 	C_TransformComponent::Start();
 }
 

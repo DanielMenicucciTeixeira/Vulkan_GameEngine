@@ -44,12 +44,13 @@ bool SDLTextureHandler::LoadTexture(const std::string& textureName, const std::s
     outTexture->Name = textureName;
     outTexture->Path = filePath;
 
-    //SDL_FreeSurface(surface);
+    GetInstance()->Surfaces.insert(surface);
     return true;
 }
 
 void SDLTextureHandler::CleanUp()
 {
+    for (auto& surface : Surfaces) SDL_FreeSurface(surface);
 }
 
 const S_Texture* SDLTextureHandler::GetTextureData(const std::string& textureName) const

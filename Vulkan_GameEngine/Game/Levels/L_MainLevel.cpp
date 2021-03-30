@@ -63,7 +63,7 @@ void L_MainLevel::Start()
 	sun->SetIntensity(1);
 	sun->SetAmbientMultiplier(0);
 	sun->SetRotation(FQuaternion({ 0, 0, 1 }, 90));
-	sun->SetTurnedOn(false);
+	sun->SetTurnedOn(true);
 
 	red->SetColour({ 1, 0, 0 });
 	red->SetLightType(E_LightType::POINT_LIGHT);

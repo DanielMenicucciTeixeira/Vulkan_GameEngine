@@ -1,6 +1,7 @@
 #ifndef FVector3_H
 #define FVector3_H
 
+
 class FQuaternion;
 
 class FVector3
@@ -103,4 +104,10 @@ public:
 
 	void Print();
 };
+
+struct HASH_FVector3
+{
+	size_t operator() (const FVector3& vector) const;
+};
+
 #endif

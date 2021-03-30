@@ -4,6 +4,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
+#include <type_traits>
 
 ///Constructors
 
@@ -201,4 +202,13 @@ inline void FVector3::Load(float x, float y, float z)
 void FVector3::Print()
 {
 	printf("[ %f,\t%f,\t%f ]\n", X, Y, Z);
+}
+
+size_t HASH_FVector3::operator()(const FVector3& vector) const
+{
+	std::size_t vectorX = std::hash<float>()(vector.X);
+	std::size_t vectorY = std::hash<float>()(vector.Y);
+	std::size_t vectorZ = std::hash<float>()(vector.Z);
+
+	return vectorX ^ vectorY ^ vectorZ;
 }

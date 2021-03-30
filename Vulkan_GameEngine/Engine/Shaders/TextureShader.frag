@@ -16,7 +16,7 @@ in vec3 FragPosition;
 
 uniform sampler2D TextureDifuse;
 //uniform sampler2D TextureSpecular;
-uniform float Lights[66];
+uniform float Lights[330];
 uniform int NumberOfLights;
 uniform vec3 CameraPosition;
 

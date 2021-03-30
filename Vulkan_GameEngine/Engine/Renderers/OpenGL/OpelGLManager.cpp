@@ -92,7 +92,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 			const auto projectionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ProjectionMatrix");
 			const auto cameraPositionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "CameraPosition");
 			const auto difuseLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureDifuse");
-			const auto specularLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureSpecular");
+			//const auto specularLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureSpecular");
 			const auto lightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "Lights");
 			const auto numberOfLightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "NumberOfLights");
 			
@@ -114,6 +114,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 				glUniformMatrix4fv(viewLocation, 1, GL_FALSE, RenderData->Camera->View);
 				glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, RenderData->Camera->Projection);
 				glDrawArrays(GL_TRIANGLES, 0, mesh.first->Vertices.size());
+				glDrawElements(GL_TRIANGLES, mesh.first->Vertices.size(), 0, mesh.first->Indices.data());
 			}
 			glUseProgram(0);
 		}
@@ -146,6 +147,7 @@ void OpenGLManager::CreateGLTexture(S_Texture* textureData)
 
 void OpenGLManager::PopulateLigthsVector()
 {
+	//TODO look at Observer design pattern to fix this
 	if (Lights.size() > 0) Lights.clear();
 	Lights = std::vector<float>();
 	Lights.reserve(RenderData->LightSources.size() * sizeof(RenderData->LightSources) / sizeof(float));

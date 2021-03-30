@@ -13,7 +13,7 @@ struct S_Texture;
 class OpenGLManager : public Renderer
 {
 public:
-	~OpenGLManager();
+	~OpenGLManager(); 
 
 	virtual bool Initialize(S_RenderData* initializationData) override;
 	virtual void UpdateWithNewObjects() override;

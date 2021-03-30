@@ -4,6 +4,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <set>
 
 struct SDL_Surface;
 struct S_Texture;
@@ -35,5 +36,7 @@ private:
 	static std::unique_ptr<SDLTextureHandler> Instance;
 	friend std::default_delete<SDLTextureHandler>;
 	static std::vector<S_Texture*> Textures;
+	
+	std::set<SDL_Surface*> Surfaces;
 };
 #endif

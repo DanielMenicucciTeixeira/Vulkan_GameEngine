@@ -52,14 +52,14 @@ bool MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
             attrib.normals[3 * index.vertex_index + 2]
             };
 
-           /* if (uniqueVertices.count(vertex) == 0) {
+            if (uniqueVertices.count(vertex) == 0) {
                 uniqueVertices[vertex] = static_cast<uint32_t>(mesh->Vertices.size());
                 mesh->Vertices.push_back(vertex);
             }
 
-            mesh->Indices.push_back(uniqueVertices[vertex]);*/
-            mesh->Vertices.push_back(vertex);
-            mesh->Indices.push_back(mesh->Indices.size());
+            mesh->Indices.push_back(uniqueVertices[vertex]);
+           // mesh->Vertices.push_back(vertex);
+           // mesh->Indices.push_back(mesh->Indices.size());
         }
     }
 
@@ -79,6 +79,7 @@ bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
     bool loaded = false;
     S_Mesh* currentMesh = nullptr;
     S_OBJData data;
+
     while (std::getline(modelFile, line))
     {
         //Vertex Data
@@ -91,42 +92,85 @@ bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
         }
 
         //Normal Data
-        if (line.substr(0, 3) == "vn ")
+        else if (line.substr(0, 3) == "vn ")
         {
-            std::stringstream vertex(line.substr(3));
+            std::stringstream normal(line.substr(3));
             float x, y, z;
-            vertex >> x >> y >> z;
+            normal >> x >> y >> z;
             data.Normals.push_back(FVector3(x, y, z));
         }
 
         //Texture Data
-        if (line.substr(0, 3) == "vt ")
+        else if (line.substr(0, 3) == "vt ")
         {
-            std::stringstream vertex(line.substr(3));
+            std::stringstream texCoords(line.substr(3));
             float x, y, z;
-            vertex >> x >> y >> z;
+            texCoords >> x >> y >> z;
             data.TextureCoords.push_back(FVector3(x, y, z));
         }
 
-        if (line.substr(0, 2) == "f ")//TODO finish this!
+        //Face Data
+        else if (line.substr(0, 2) == "f ")//TODO finish this!
         {
+            int value = 1;
+            int vectorID = 0;
+            for (int i = 0; i < line.size() - 2; i += (1 + static_cast<int>(log10(value))))//Ajustment of how many chars to skip after reading a value
+            {
+                std::stringstream indices(line.substr(2 + i));
+                if (indices.str().substr(0, 1) == "/" || indices.str().substr(0, 1) == " ")
+                {
+                    value = 1;
+                    continue;
+                }
+
+                indices >> value;
+                switch (vectorID % 3)
+                {
+                case 2:
+                    data.NormalIndicies.push_back(value);
+                    vectorID++;
+                    break;
+                case 1:
+                    data.TextureIndices.push_back(value);
+                    vectorID++;
+                    break;
+                case 0:
+                    data.Indices.push_back(value);
+                    vectorID++;
+                }
+            }
         }
+
 
         //New Mesh
         else if (line.substr(0, 7) == "usemtl ")
         {
+        }
+
+        //MeshName
+        else if (line.substr(0, 9) == "# object ")
+        {
             if (data.Indices.size() > 0)
             {
-                currentMesh = new S_Mesh();
-                outMeshSet.insert(currentMesh);
                 LoadMeshVertices(currentMesh, data);
                 data.Indices.clear();
                 data.NormalIndicies.clear();
                 data.TextureIndices.clear();
             }
             loaded = true;
+            currentMesh = new S_Mesh();
+            outMeshSet.insert(currentMesh);
+            currentMesh->Name = line.substr(9);
+        }
+
+        else if (line.substr(0, 10) == "# 44 faces")
+        {
+            int breakPoint = 0;
         }
     }
+
+    modelFile.close();
+
     if(currentMesh) LoadMeshVertices(currentMesh, data);
     currentMesh = nullptr;
     return loaded;
@@ -165,9 +209,13 @@ void MeshLoader::LoadMeshVertices(S_Mesh* mesh, S_OBJData& data)
     {
         S_Vertex vertex = S_Vertex();
 
-        vertex.Position = data.Vertices[data.Indices[i]];
-        vertex.TextureCoordinates = data.TextureCoords[data.TextureIndices[i]];
-        vertex.Normal = data.Normals[data.NormalIndicies[i]];
+        vertex.Position = data.Vertices[data.Indices[i] - 1];
+        vertex.TextureCoordinates = data.TextureCoords[data.TextureIndices[i] - 1];
+        if (data.NormalIndicies[i] > data.Normals.size())
+        {
+            int breakPoint = 0;
+        }
+        vertex.Normal = data.Normals[data.NormalIndicies[i] - 1];
 
         if (uniqueVertices.count(vertex) == 0)
         {

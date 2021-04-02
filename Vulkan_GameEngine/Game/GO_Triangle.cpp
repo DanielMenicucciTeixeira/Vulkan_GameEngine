@@ -19,8 +19,3 @@ void GO_Triangle::Start()
 	Movement->SetAngularVelocity(FVector3(0.0f, 3.0f, 0.0f));
 	O_GameObject::Start();
 }
-
-void GO_Triangle::Update(float deltaTime)
-{
-	O_GameObject::Update(deltaTime);
-}

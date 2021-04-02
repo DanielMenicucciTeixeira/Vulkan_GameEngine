@@ -163,6 +163,7 @@
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp" />
     <ClCompile Include="Engine\Core\DebugLogger.cpp" />
     <ClCompile Include="Engine\Core\CoreEngine.cpp" />
+    <ClCompile Include="Game\Apple.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
     <ClCompile Include="Game\BilliardGame.cpp" />
     <ClCompile Include="Game\BilliardTable.cpp" />
@@ -223,6 +224,7 @@
     <ClInclude Include="Engine\Core\DebugLogger.h" />
     <ClInclude Include="Engine\Auxiliary\Singleton.h" />
     <ClInclude Include="Engine\Core\CoreEngine.h" />
+    <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />
     <ClInclude Include="Game\BilliardGame.h" />

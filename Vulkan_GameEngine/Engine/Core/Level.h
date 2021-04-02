@@ -76,6 +76,7 @@ public:
 	//Loaders
 
 	void LoadMesh(S_Mesh* mesh);
+	void LoadModels();
 	void LoadMaterial(S_Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
@@ -96,6 +97,7 @@ protected:
 	bool ShouldChangeCamera;
 
 	std::unordered_map<std::string, S_Mesh*> Meshes;
+	std::set<std::string> ModelPaths;
 	std::unordered_map<std::string, S_Material*> Materials;
 	std::unordered_map<std::string, S_Texture*> Textures;
 	S_RenderData* RenderData;

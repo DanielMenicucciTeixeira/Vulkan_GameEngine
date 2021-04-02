@@ -1,7 +1,4 @@
-﻿  MeshLoader.cpp
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\MeshLoader.cpp(62,57): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=unsigned int
-          ]
+﻿  L_MainLevel.cpp
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,113): warning C4042: 'function': has bad storage class
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(83,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

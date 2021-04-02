@@ -10,6 +10,13 @@ struct S_Mesh;
 struct S_Material;
 struct S_Texture;
 
+struct S_BindingData
+{
+	unsigned int Vertex  = 0;
+	unsigned int VertexBuffer = 0;
+	unsigned int IndexBuffer = 0;
+};
+
 class OpenGLManager : public Renderer
 {
 public:
@@ -30,7 +37,7 @@ protected:
 	
 
 	void GenerateBuffers(S_Mesh* mesh);
-	std::unordered_map<S_Mesh*, std::pair<unsigned int, unsigned int>> VertexObjectsMap;
+	std::unordered_map<S_Mesh*, S_BindingData> VertexObjectsMap;
 	std::unordered_map<S_Texture*, unsigned int> TextureMap;
 	std::vector<float> Lights;
 	S_RenderData* RenderData;

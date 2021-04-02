@@ -1,3 +1,6 @@
 [INFO]: GL version: 4.5.0 NVIDIA 461.72 in: SDL/Window.cpp on line: 107
 [INFO]: Engine initilized successfully. in: Core/CoreEngine.cpp on line: 52
+[WARNING]: Apple_Stemwas not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 30
 [WARNING]: Ball14was not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 30
+[WARNING]: Apple_Bodywas not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 30
+[INFO]: Game exited successfully! in: Core/Game.cpp on line: 201

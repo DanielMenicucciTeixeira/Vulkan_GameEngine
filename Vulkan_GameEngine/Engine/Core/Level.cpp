@@ -22,6 +22,7 @@ bool O_Level::Initialize(Game* game)
 {
 	if (!game) return false;
 	for (auto& mesh : Meshes) LoadMesh(mesh.second);
+	LoadModels();
 	for (auto& material : Materials) LoadMaterial(material.second);
 	CurrentGame = game;
 	LoadLevelObjects();
@@ -41,6 +42,13 @@ void O_Level::LoadMesh(S_Mesh* mesh)
 {
 	if (!Meshes[mesh->Name]) Meshes[mesh->Name] = mesh;
 	MeshLoader::LoadMesh(mesh->Path, mesh);
+}
+
+void O_Level::LoadModels()
+{
+	std::set<S_Mesh*> meshSet = std::set<S_Mesh*>();
+	for (const auto& path : ModelPaths) MeshLoader::LoadModel(path, meshSet);
+	for (const auto& mesh : meshSet) Meshes[mesh->Name] = mesh;
 }
 
 S_Mesh* O_Level::GetMesh(std::string meshName)

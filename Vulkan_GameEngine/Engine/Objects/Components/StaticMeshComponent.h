@@ -34,10 +34,12 @@ public:
 
 protected:
 	FMatrix4* ModelMatrix;
+
 	S_Mesh* Mesh = nullptr;
+	std::string MeshName;
+
 	S_Material* Material = nullptr;
 	std::string MaterialName;
-	std::string MeshName;
 };
 #endif
 

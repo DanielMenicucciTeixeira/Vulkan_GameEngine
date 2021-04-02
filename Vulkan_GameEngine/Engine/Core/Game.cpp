@@ -141,7 +141,12 @@ void Game::SetCurrentLevel()
 		CurrentLevel = nullptr;
 	}
 	CurrentLevel = NextLevel;
-	CurrentLevel->Initialize(this);
+	if (!CurrentLevel->Initialize(this))
+	{
+		DebugLogger::FatalError("Failed to initialize level!", "Core/Game.cpp", __LINE__);
+		SetRunning(false);
+		return;
+	}
 	CurrentLevel->Start();
 	ShouldStartNewLevel = false;
 }
@@ -174,7 +179,10 @@ int Game::Run()
 		//GameRenderer->Initialize(RenderData);
 		while (Running)
 		{
-			if (ShouldStartNewLevel) SetCurrentLevel();
+			if (ShouldStartNewLevel)
+			{
+				SetCurrentLevel();
+			}
 			if (!CurrentLevel->CheckForCamera()) break;
 			GameClock->UpdateClock();
 			HandleEvents();

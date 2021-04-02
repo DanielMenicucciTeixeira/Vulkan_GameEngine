@@ -32,7 +32,7 @@ bool OpenGLManager::Initialize(S_RenderData* initializationData)
 	VertexObjectsMap.clear();
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
-		VertexObjectsMap[mesh.first] = std::make_pair<unsigned int, unsigned int>(0, 0);
+		VertexObjectsMap[mesh.first] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -48,7 +48,7 @@ void OpenGLManager::UpdateWithNewObjects()
 	VertexObjectsMap.clear();
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
-		VertexObjectsMap[mesh.first] = std::make_pair<unsigned int, unsigned int>(0, 0);
+		VertexObjectsMap[mesh.first] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -81,7 +81,8 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 	PopulateLigthsVector();
 	for (const auto mesh : RenderData->MeshToMaterialMap)
 	{
-		glBindVertexArray(VertexObjectsMap[mesh.first].first);
+		glBindVertexArray(VertexObjectsMap[mesh.first].Vertex);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh.first].IndexBuffer);
 
 		for (const auto material : RenderData->MeshToMaterialMap[mesh.first])
 		{
@@ -100,21 +101,19 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);
 
+			/*glUniform1i(specularLocation, 1);
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureSpecular]);*/
+
 			glUniform1i(numberOfLightsLocation, GLint(RenderData->LightSources.size()));
 			glUniform1fv(lightsLocation, GLsizei(Lights.size()), Lights.data());
 			glUniform3fv(cameraPositionLocation, 1, RenderData->Camera->Position);
 			for (const auto model : RenderData->MaterialToModelMap[material])
 			{
-
-				/*glUniform1i(specularLocation, 1);
-				glActiveTexture(GL_TEXTURE1);
-				glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureSpecular]);*/
-
 				glUniformMatrix4fv(modelLocation, 1, GL_FALSE, model[0]);
 				glUniformMatrix4fv(viewLocation, 1, GL_FALSE, RenderData->Camera->View);
 				glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, RenderData->Camera->Projection);
-				glDrawArrays(GL_TRIANGLES, 0, mesh.first->Vertices.size());
-				glDrawElements(GL_TRIANGLES, mesh.first->Vertices.size(), 0, mesh.first->Indices.data());
+				glDrawElements(GL_TRIANGLES, mesh.first->Indices.size(), GL_UNSIGNED_INT, (void*)0);
 			}
 			glUseProgram(0);
 		}
@@ -173,14 +172,19 @@ void OpenGLManager::PopulateLigthsVector()
 
 void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 {
-	if (VertexObjectsMap[mesh].first != 0) return;
+	if (VertexObjectsMap[mesh].Vertex != 0) return;
 
-	//Bind Arrays and Buffers
-	glGenVertexArrays(1, &VertexObjectsMap[mesh].first);
-	glGenBuffers(1, &VertexObjectsMap[mesh].second);
-	glBindVertexArray(VertexObjectsMap[mesh].first);
-	glBindBuffer(GL_ARRAY_BUFFER, VertexObjectsMap[mesh].second);
+	//Bind Vertex Arrays and Buffers
+	glGenVertexArrays(1, &VertexObjectsMap[mesh].Vertex);
+	glGenBuffers(1, &VertexObjectsMap[mesh].VertexBuffer);
+	glBindVertexArray(VertexObjectsMap[mesh].Vertex);
+	glBindBuffer(GL_ARRAY_BUFFER, VertexObjectsMap[mesh].VertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, mesh->Vertices.size() * sizeof(S_Vertex), &mesh->Vertices[0], GL_STATIC_DRAW);
+
+	//Bind Index Arrays and Buffers
+	glGenBuffers(1, &VertexObjectsMap[mesh].IndexBuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh].IndexBuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->Indices.size() * sizeof(unsigned int), &mesh->Indices[0], GL_STATIC_DRAW);
 
 	//Position
 	glEnableVertexAttribArray(0);

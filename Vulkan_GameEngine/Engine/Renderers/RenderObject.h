@@ -20,12 +20,6 @@ public:
 
 	std::string Path = "";
 	std::string Name = "";
-
-	~S_Texture()
-	{
-		if (Pixels) delete(Pixels);
-		Pixels = nullptr;
-	}
 };
 
 struct S_Mesh

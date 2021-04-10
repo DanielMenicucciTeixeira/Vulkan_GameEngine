@@ -8,7 +8,7 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Game.h"
 
-L_BilliardLevel::L_BilliardLevel(Game* game) : O_Level()
+L_BilliardLevel::L_BilliardLevel(Game* game) : L_Level()
 {
 }
 
@@ -46,22 +46,22 @@ void L_BilliardLevel::Start()
 	Balls[14]->Mesh->SetMaterialName("Ball15");
 	Balls[15]->Mesh->SetMaterialName("BallCue");
 
-	Balls[0]->SetName("01");
-	Balls[1]->SetName("02");
-	Balls[2]->SetName("03");
-	Balls[3]->SetName("04");
-	Balls[4]->SetName("05");
-	Balls[5]->SetName("06");
-	Balls[6]->SetName("07");
-	Balls[7]->SetName("08");
-	Balls[8]->SetName("09");
-	Balls[9]->SetName("10");
-	Balls[10]->SetName("11");
-	Balls[11]->SetName("12");
-	Balls[12]->SetName("13");
-	Balls[13]->SetName("14");
-	Balls[14]->SetName("15");
-	Balls[15]->SetName("Cue");
+	Balls[0]->AddTag("01");
+	Balls[1]->AddTag("02");
+	Balls[2]->AddTag("03");
+	Balls[3]->AddTag("04");
+	Balls[4]->AddTag("05");
+	Balls[5]->AddTag("06");
+	Balls[6]->AddTag("07");
+	Balls[7]->AddTag("08");
+	Balls[8]->AddTag("09");
+	Balls[9]->AddTag("10");
+	Balls[10]->AddTag("11");
+	Balls[11]->AddTag("12");
+	Balls[12]->AddTag("13");
+	Balls[13]->AddTag("14");
+	Balls[14]->AddTag("15");
+	Balls[15]->AddTag("Cue");
 
 	Balls[15]->Physics->SetVelocity(FVector3(0.0f, 2.0f, 0.0f));
 

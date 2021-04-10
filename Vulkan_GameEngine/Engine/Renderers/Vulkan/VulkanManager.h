@@ -75,7 +75,7 @@ struct SwapchainSupportDetails
 	VkSurfaceCapabilitiesKHR* InitializeCapabilities();
 };
 
-struct MeshDataStruct
+struct S_MeshData
 {
 	VkBuffer_T* VertexBuffer;
 	VkDeviceMemory_T* VertexBufferMemory;
@@ -93,7 +93,7 @@ public:
 	void FramebufferResizeCallback() override;
 	virtual void UpdateWithNewObjects() override;
 	void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
-	virtual bool Initialize(S_RenderData* initializationData) override;
+	virtual bool Initialize() override;
 	virtual void CleanUp() override;
 
 	//Getters
@@ -105,7 +105,7 @@ public:
 	inline VkInstance_T* GetInstance() { return Instance; }
 	inline VkSurfaceKHR_T* GetSurface() { return Surface; }
 	inline QueueStruct* GetQueues() { return Queues; }
-	inline S_RenderData* GetInitializationData() { return InitializationData; }
+	inline S_RenderData* GetRenderData() { return RenderData; }
 	VkDevice_T* GetLogicalDevice();
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
@@ -163,7 +163,7 @@ protected:
 	//std::vector<Vertex> Vertices;
 	//std::vector<unsigned int> Indices;
 
-	std::unordered_map<S_Mesh*, MeshDataStruct*> MeshDataMap;
+	std::unordered_map<S_Mesh*, S_MeshData*> MeshDataMap;
 
 	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
 	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;
@@ -171,7 +171,7 @@ protected:
 	std::vector<VkFence_T*> ImagesInFlight;
 	size_t CurrentFrame = 0;
 	const unsigned int MAX_FRAMES_IN_FLIGHT = 2;
-	S_RenderData* InitializationData;
+	S_RenderData* RenderData;
 
 	void LoadModel();
 	const std::string MODEL_PATH = "Models/viking_room.obj";

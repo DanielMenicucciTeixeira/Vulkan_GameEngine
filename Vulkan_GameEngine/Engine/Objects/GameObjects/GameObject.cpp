@@ -3,11 +3,11 @@
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
-#include "Objects/Components/Component.h"
 #include "Objects/Components/TransformComponent.h"
 #include "Level.h"
+#include "LevelGraph.h"
 
-O_GameObject::O_GameObject(O_Level* level) : O_Object()
+O_GameObject::O_GameObject(L_Level* level, std::string name) : O_Object(name)
 {
 	Level = level;
 	Components.clear();

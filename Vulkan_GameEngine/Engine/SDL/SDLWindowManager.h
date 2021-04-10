@@ -22,8 +22,8 @@ protected:
 	SDLManager* Manager;
 
 	//Screen Dimension Constants
-	const unsigned ScreenWidth = 640;
-	const unsigned ScreenHeight = 480;
+	const unsigned ScreenWidth = 1024;
+	const unsigned ScreenHeight = 576;
 
 	//Surface is a 2D image, in this case, to be created inside "EngineWindow"
 	struct SDL_Surface* WindowSurface = nullptr;

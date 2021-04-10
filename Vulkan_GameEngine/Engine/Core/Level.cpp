@@ -3,94 +3,87 @@
 #include "Game.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
-#include "MeshLoader.h"
+#include "AssetLoader.h"
 #include "TextureLoader.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Renderers/Renderer.h"
 #include "SDL/SDLTextureHandler.h"
+#include "LevelGraph.h"
 
-O_Level::O_Level() : O_Object(), CurrentGame(nullptr), RenderData(nullptr), CurrentCamera(nullptr)
-{
-	RenderData = new S_RenderData();
-}
+#include <algorithm>
 
-O_Level::~O_Level()
+L_Level::L_Level() : CurrentGame(nullptr), NextCamera(nullptr), Name("")
 {
 }
 
-bool O_Level::Initialize(Game* game)
+L_Level::~L_Level()
+{
+}
+
+bool L_Level::Initialize(Game* game)
 {
 	if (!game) return false;
-	for (auto& mesh : Meshes) LoadMesh(mesh.second);
 	LoadModels();
-	for (auto& material : Materials) LoadMaterial(material.second);
 	CurrentGame = game;
 	LoadLevelObjects();
-	CurrentGame->GetRenderer()->Initialize(RenderData);
+	CurrentGame->GetRenderer()->Initialize();
 	return true;
 }
 
-void O_Level::Start()
+void L_Level::Start()
 {
 	ReloadLevelObjects();
-	for (const auto& object : LevelObjects) object->Start();
+	for (const auto& object : LevelGraph::GetInstance()->GetObjects()) object.second->Start();
 	CheckForCamera();
-	LoadCamera();
 }
 
-void O_Level::LoadMesh(S_Mesh* mesh)
-{
-	if (!Meshes[mesh->Name]) Meshes[mesh->Name] = mesh;
-	MeshLoader::LoadMesh(mesh->Path, mesh);
-}
-
-void O_Level::LoadModels()
+void L_Level::LoadModels()
 {
 	std::set<S_Mesh*> meshSet = std::set<S_Mesh*>();
-	for (const auto& path : ModelPaths) MeshLoader::LoadModel(path, meshSet);
-	for (const auto& mesh : meshSet) Meshes[mesh->Name] = mesh;
+	for (const auto& path : ModelPaths) AssetLoader::LoadModel(path, meshSet);
+	for (const auto& mesh : meshSet) LevelGraph::GetInstance()->AddMesh(mesh);
+	ModelPaths.clear();
 }
-
-S_Mesh* O_Level::GetMesh(std::string meshName)
+void L_Level::LoadMaterialLibrary()
 {
-	return Meshes[meshName];
+	std::set<S_Material*> materialSet = std::set<S_Material*>();
+	for (const auto& path : MaterialPaths) AssetLoader::LoadMaterialLibrary(path, materialSet);
+	for (const auto& material : materialSet) LevelGraph::GetInstance()->AddMaterial(material);
+	MaterialPaths.clear();
 }
-
-void O_Level::LoadMaterial(S_Material* material)
+void L_Level::LoadMaterial(S_Material* material)
 {
-	if (!Materials[material->Name]) Materials[material->Name] = material;
+	LevelGraph::GetInstance()->AddMaterial(material);
 	if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
 	if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
 }
 
-bool O_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
+bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 {
-	if (!Textures[textureName])
+	auto& textures = LevelGraph::GetInstance()->GetTextures();
+	if (!textures[textureName])
 	{
 		DebugLogger::Error("Failed to find texture with name: " + texture->Name + ". ", "Core/Level.cpp", __LINE__);
 		return false;
 	}
 
-	if (!Textures[textureName]->Pixels)
+	if (!textures[textureName]->Pixels)
 	{
-		if (!SDLTextureHandler::LoadTexture(textureName, Textures[textureName]->Path, Textures[textureName]))
+		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
 		}
 	}
 	
-	texture = Textures[textureName];
+	texture = textures[textureName];
 	return true;
 }
 
-S_Material* O_Level::GetMaterial(std::string materialName)
+void L_Level::LoadLevelObjects()
 {
-	return Materials[materialName];
-}
+	if (UnloadedObjects.empty()) return;
 
-void O_Level::LoadLevelObjects()
-{
 	for (auto& object : UnloadedObjects)
 	{
 		O_GameObject* gameObject = dynamic_cast<O_GameObject*>(object);
@@ -98,46 +91,47 @@ void O_Level::LoadLevelObjects()
 		{
 			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
 			{
-				auto check = Materials[mesh->GetMaterialName()];
-				mesh->SetMaterial(Materials[mesh->GetMaterialName()]);
-				mesh->SetMesh(Meshes[mesh->GetMeshName()]);
+				mesh->SetMaterial(LevelGraph::GetInstance()->GetMaterials()[mesh->GetMaterialName()]);
+				mesh->SetMesh(LevelGraph::GetInstance()->GetMeshes()[mesh->GetMeshName()]);
+				LevelGraph::GetInstance()->AddMeshComponent(mesh);
 			}
-			RenderData->LoadGameObject(dynamic_cast<O_GameObject*>(object));
 		}
-		LevelObjects.insert(object);
+		LevelGraph::GetInstance()->AddObject(object);
 	}
-
+	CurrentGame->GetRenderer()->UpdateWithNewObjects();
 	if (UnloadedObjects.size() > 0)
 	{
+		UnloadedObjects.clear();
 		UnloadedObjects = std::set<O_Object*>();
 	}
 }
 
-void O_Level::ReloadLevelObjects()
+void L_Level::ReloadLevelObjects()
 {
+	if (UnloadedObjects.empty()) return;
 	LoadLevelObjects();
 	CurrentGame->GetRenderer()->UpdateWithNewObjects();
 }
 
-bool O_Level::LoadCamera()
+bool L_Level::LoadCamera(C_CameraComponent* camera)
 {
-	if (!CurrentCamera)
+	if (!camera)
 	{
-		DebugLogger::FatalError("No valid CameraFound! RenderData incomplete!", "Core/Level.cpp", __LINE__);
+		DebugLogger::Error("No valid CameraFound!", "Core/Level.cpp", __LINE__);
 		return false;
 	}
-	RenderData->Camera = CurrentCamera->GetUCO();
+	LevelGraph::GetInstance()->SetActiveCamera(camera);
 }
 
-bool O_Level::FindAnyCamera()
+bool L_Level::FindAnyCamera()
 {
-	for (const auto gameObject : LevelObjects)
+	for (const auto gameObject : LevelGraph::GetInstance()->GetObjects())
 	{
-		if (dynamic_cast<O_GameObject*>(gameObject))
+		if (dynamic_cast<O_GameObject*>(gameObject.second))
 		{
-			for (const auto camera : dynamic_cast<O_GameObject*>(gameObject)->GetComponentsOfClass<C_CameraComponent>())
+			for (const auto camera : dynamic_cast<O_GameObject*>(gameObject.second)->GetComponentsOfClass<C_CameraComponent>())
 			{
-				CurrentCamera = camera;
+				NextCamera = camera;
 				return true;
 			}
 		}
@@ -146,57 +140,63 @@ bool O_Level::FindAnyCamera()
 	return false;
 }
 
-void O_Level::ChangeCamera()
+bool L_Level::ChangeCamera()
 {
-	CurrentCamera = NextCamera;
-	LoadCamera();
-	ShouldChangeCamera = false;
-}
-
-bool O_Level::CheckForCamera()
-{
-	if (ShouldChangeCamera) ChangeCamera();
-	if (CurrentCamera || FindAnyCamera()) return true;
-	else
+	if (NextCamera)
 	{
-		DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
-		return false;
+		bool returnValue = LoadCamera(NextCamera);
+		NextCamera = nullptr;
+		return returnValue;
 	}
+	DebugLogger::Warning("Invalid NextCamera!", "Core/Level.cpp", __LINE__);
+	return false;
 }
 
-void O_Level::Update(const float deltaTime)
+bool L_Level::CheckForCamera()
+{
+	if (NextCamera)
+	{
+		if (ChangeCamera()) return true;
+		else if (LevelGraph::GetInstance()->ActiveCamera) return true;
+		else
+		{
+			DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
+			return false;
+		}
+	}
+	else if (!LevelGraph::GetInstance()->ActiveCamera)
+	{
+		if (FindAnyCamera() && ChangeCamera()) return true;
+		else
+		{
+			DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
+			return false;
+		}
+	}
+
+	return true;
+}
+
+void L_Level::Update(const float deltaTime)
 {
 	ReloadLevelObjects();
-	if (!CurrentGame->IsPaused()) for (const auto& object : LevelObjects) object->Update(deltaTime);
-	else for (const auto& object : LevelObjects) if (object->UpdateWhenPaused) object->Update(deltaTime);
 	C_CollisionComponent::CheckForCollisions(Colliders);
+	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
+	if (!CurrentGame->IsPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
+	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
 }
 
-void O_Level::Render()
+void L_Level::Render()
 {
 	CurrentGame->GetRenderer()->Render();
 }
 
-void O_Level::CleanUp()
+void L_Level::CleanUp()
 {
-	if (LevelObjects.size() > 0) for (auto& object : LevelObjects) if (object) delete(object);
-	if (Meshes.size() > 0) for (auto& mesh : Meshes) if (mesh.second) delete(mesh.second);
-	if (Materials.size() > 0) for (auto& material : Materials) if (material.second) delete(material.second);
-	if (Textures.size() > 0) for (auto& texture : Textures) if (texture.second) delete(texture.second);
-	if (RenderData) delete(RenderData);
+	LevelGraph::GetInstance()->CleanUp();
 }
 
-void O_Level::AddCollider(C_CollisionComponent* collider)
+void L_Level::AddCollider(C_CollisionComponent* collider)
 {
 	Colliders.push_back(collider);
-}
-
-void O_Level::AddLightSource(S_LightInfo* light)
-{
-	if(RenderData) RenderData->LightSources.insert(light);
-}
-
-void O_Level::RemoveLightSource(S_LightInfo* light)
-{
-	if (RenderData && light) RenderData->LightSources.erase(light);
 }

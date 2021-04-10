@@ -13,8 +13,10 @@ VulkanPipelineManager::VulkanPipelineManager(VulkanManager* manager)
 
 void VulkanPipelineManager::CreateGraphicsPipeline()
 {
-    auto vertShaderCode = ReadFile("Engine/Shaders/vert.spv");
-    auto fragShaderCode = ReadFile("Engine/Shaders/frag.spv");
+    //auto vertShaderCode = ReadFile("Engine/Shaders/vert.spv");
+    //auto fragShaderCode = ReadFile("Engine/Shaders/frag.spv");
+    auto vertShaderCode = ReadFile("Engine/Shaders/TextureShaderVert.spv");
+    auto fragShaderCode = ReadFile("Engine/Shaders/TextureShaderFrag.spv");
 
     VkShaderModule vertShaderModule = CreateShaderModule(vertShaderCode);
     VkShaderModule fragShaderModule = CreateShaderModule(fragShaderCode);
@@ -169,9 +171,9 @@ VkVertexInputBindingDescription VulkanPipelineManager::GetBindingDescription()
     return bindingDescription;
 }
 
-std::array<VkVertexInputAttributeDescription, 2> VulkanPipelineManager::GetAttributeDescriptions()
+std::array<VkVertexInputAttributeDescription, 3> VulkanPipelineManager::GetAttributeDescriptions()
 {
-    std::array<VkVertexInputAttributeDescription, 2> attributeDescriptions{};
+    std::array<VkVertexInputAttributeDescription, 3> attributeDescriptions{};
 
     attributeDescriptions[0].binding = 0;
     attributeDescriptions[0].location = 0;
@@ -182,6 +184,11 @@ std::array<VkVertexInputAttributeDescription, 2> VulkanPipelineManager::GetAttri
     attributeDescriptions[1].location = 1;
     attributeDescriptions[1].format = VK_FORMAT_R32G32B32_SFLOAT;
     attributeDescriptions[1].offset = offsetof(S_Vertex, TextureCoordinates);
+
+    attributeDescriptions[2].binding = 0;
+    attributeDescriptions[2].location = 2;
+    attributeDescriptions[2].format = VK_FORMAT_R32G32B32_SFLOAT;
+    attributeDescriptions[2].offset = offsetof(S_Vertex, Normal);
 
     return attributeDescriptions;
 }

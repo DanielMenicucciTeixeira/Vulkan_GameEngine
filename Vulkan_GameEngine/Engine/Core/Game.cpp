@@ -3,6 +3,9 @@
 #include "Clock.h"
 #include "SDL/SDLManager.h"
 #include "Objects/GameObjects/GameObject.h"
+#include "Renderers/Renderer.h"
+#include "LevelGraph.h"
+#include "CoreEngine.h"
 
 #include <SDL.h>
 
@@ -46,6 +49,11 @@ void Game::HandleEvents()
 	{
 		auto eventType = event.type;
 		int32_t keycode;
+		if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
+		{
+			GameRenderer->FramebufferResizeCallback();
+			LevelGraph::GetInstance()->FrameBufferResizeCallback();
+		}
 
 		//If the event is key or button realted, set the keycode
 		switch (eventType)
@@ -95,6 +103,12 @@ void Game::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void
 
 	//Then map the function to the EngineInputFunctions map
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
+}
+
+void Game::QuitEngine(Game* self, SDL_Event* event)
+{
+	self->SetRunning(false);
+	CoreEngine::GetInstance()->Quit(event);
 }
 
 Renderer* Game::GetRenderer()

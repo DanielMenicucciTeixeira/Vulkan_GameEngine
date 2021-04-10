@@ -5,13 +5,13 @@
 
 class C_LightSourceComponent;
 class FVector3;
-struct S_LightInfo;
+class FMatrix4;
 enum E_LightType;
 
 class GO_LightSource : public O_GameObject
 {
 public:
-	GO_LightSource(O_Level* level = nullptr);
+	GO_LightSource(L_Level* level = nullptr, std::string name = "");
 	virtual ~GO_LightSource();
 
 	float GetAmbientMultiplier() const;
@@ -24,7 +24,7 @@ public:
 	float GetIntensity() const;
 	FVector3 GetColour() const;
 	bool IsOn() const;
-	const S_LightInfo* GetLightInfo() const;
+	const FMatrix4* GetLightInfo() const;
 	E_LightType GetLightType() const;
 	//Setters
 

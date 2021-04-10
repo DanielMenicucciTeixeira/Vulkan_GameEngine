@@ -20,10 +20,6 @@ SDL_Event SDLEventHandler::HandleEvents()
     //Handle events on queue
     while (SDL_PollEvent(&event) != 0)
     {
-        if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
-        {
-            WindowRenderer->FramebufferResizeCallback();
-        }
         return event;
     }
 }

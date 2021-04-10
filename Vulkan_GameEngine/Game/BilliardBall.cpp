@@ -57,7 +57,7 @@ void GO_BilliardBall::Update(float deltaTime)
 	FPhysicsLib::AddForce(Physics, (Physics->GetVelocity() * -Drag * deltaTime), GetPosition() + (FVector3(0.0f, 0.0f, -1.0f) * Collider->GetRadius()));
 }
 
-GO_BilliardBall::GO_BilliardBall(O_Level* level) : O_GameObject(level)
+GO_BilliardBall::GO_BilliardBall(L_Level* level, std::string name) : O_GameObject(level, name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("SphereMesh");

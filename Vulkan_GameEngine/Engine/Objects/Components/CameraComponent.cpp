@@ -7,21 +7,19 @@
 void C_CameraComponent::Update(const float deltaTime)
 {
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), FVector3(0.0f, 1.0f, 0.0f));
-	UCO->Position = GetComponentAbsolutePosition();
 	C_TransformComponent::Update(deltaTime);
 }
 
 void C_CameraComponent::Start()
 {
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
-	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetWidth() / SDLManager::GetInstance()->GetWindowByName()->GetHeight(), FildOfView.NearPlane, FildOfView.FarPlane);
-	UCO->Position = GetComponentAbsolutePosition();
+	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetHeight() / SDLManager::GetInstance()->GetWindowByName()->GetWidth(), FildOfView.NearPlane, FildOfView.FarPlane);
 	C_TransformComponent::Start();
 }
 
 void C_CameraComponent::UpdateProjection()
 {
-	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetWidth() / SDLManager::GetInstance()->GetWindowByName()->GetHeight(), FildOfView.NearPlane, FildOfView.FarPlane);
+	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetHeight() / SDLManager::GetInstance()->GetWindowByName()->GetWidth(), FildOfView.NearPlane, FildOfView.FarPlane);
 }
 
 C_CameraComponent::C_CameraComponent(O_GameObject* owner) : C_TransformComponent(owner), UCO(new UniformCameraObject)

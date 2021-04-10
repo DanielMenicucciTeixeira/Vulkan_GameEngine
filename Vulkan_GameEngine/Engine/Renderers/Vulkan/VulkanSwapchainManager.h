@@ -37,13 +37,13 @@ typedef VkFlags VkFormatFeatureFlags;
 typedef VkFlags VkImageUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
 
-struct ModelDataStruct
+struct S_BufferData
 {
-	VkBuffer_T* ModelBuffer;
-	VkDeviceMemory_T* ModelBufferMemory;
+	VkBuffer_T* Buffer;
+	VkDeviceMemory_T* Memory;
 };
 
-struct TextureDataStruct
+struct S_TextureData
 {
 	VkImage_T* TextureImage = nullptr;
 	VkDeviceMemory_T* TextureImageMemory = nullptr;
@@ -112,20 +112,17 @@ protected:
 	VkDeviceMemory_T* DepthImageMemory = nullptr;
 	VkImageView_T* DepthImageView = nullptr;
 
-	std::vector<VkBuffer_T*> UniformBuffers;
-	std::vector<VkDeviceMemory_T*> UniformBuffersMemory;
-
-	//std::vector<VkBuffer_T*> ModelBuffers;
-	//std::vector<VkDeviceMemory_T*> ModelBufferMemories;
-	std::unordered_map<FMatrix4*, std::vector<ModelDataStruct>> ModelMap;
-	std::vector<VkBuffer_T*> CameraBuffers;
-	std::vector<VkDeviceMemory_T*> CameraBufferMemories;
+	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> ModelMap;
+	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> MaterialMap;
+	std::vector<S_BufferData> CameraData;
+	std::vector<S_BufferData> LightsData;
+	std::vector<S_BufferData> NumberOfLightsData;
 
 	VkDescriptorPool_T* DescriptorPool = nullptr;
 	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	VkDescriptorSetLayout_T* DescriptorSetLayout;
 
-	std::unordered_map<S_Texture*, TextureDataStruct> TextureDataMap;
+	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 
 	VulkanManager* Manager = nullptr;
 

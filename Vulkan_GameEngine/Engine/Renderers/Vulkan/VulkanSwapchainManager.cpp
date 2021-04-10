@@ -4,6 +4,9 @@
 #include "Math/FVector3.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
+#include "DebugLogger.h"
+#include "TextureLoader.h"
+#include "LevelGraph.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
@@ -290,22 +293,34 @@ void VulkanSwapchainManager::CreateFramebuffers()
 
 void VulkanSwapchainManager::CreateUniformBuffers()
 {
-    VkDeviceSize bufferSize = sizeof(UniformBufferObject);
+    VkDeviceSize cameraBufferSize = sizeof(UniformCameraObject);
+    VkDeviceSize matrixBufferSize = sizeof(FMatrix4);
+    VkDeviceSize intBufferSize = sizeof(int);
 
-    UniformBuffers.resize(Images.size());
-    UniformBuffersMemory.resize(Images.size());
-    CameraBuffers.resize(Images.size());
-    CameraBufferMemories.resize(Images.size());
+    CameraData.resize(Images.size());
+    LightsData.resize(Images.size());
+    NumberOfLightsData.resize(Images.size());
+
 
     for (size_t i = 0; i < Images.size(); i++)
     {
-        Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, UniformBuffers[i], UniformBuffersMemory[i]);
-        Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraBuffers[i], CameraBufferMemories[i]);
-        
-        for (const auto& model : Manager->GetInitializationData()->Models)
+        Manager->CreateBuffer(cameraBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraData[i].Buffer, CameraData[i].Memory);
+        if (!Manager->GetRenderData()->LightSources.empty())
+        {
+            Manager->CreateBuffer(matrixBufferSize * Manager->GetRenderData()->LightSources.size(), VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, LightsData[i].Buffer, LightsData[i].Memory);
+            Manager->CreateBuffer(intBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, NumberOfLightsData[i].Buffer, NumberOfLightsData[i].Memory);
+        }
+
+        for (const auto& material : Manager->GetRenderData()->Materials)
+        {
+            MaterialMap[&material->Data].resize(Images.size());
+            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[&material->Data][i].Buffer, MaterialMap[&material->Data][i].Memory);
+        }
+
+        for (const auto& model : Manager->GetRenderData()->Models)
         {
             ModelMap[model].resize(Images.size());
-            Manager->CreateBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].ModelBuffer, ModelMap[model][i].ModelBufferMemory);
+            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].Buffer, ModelMap[model][i].Memory);
         }
     }
 }
@@ -333,7 +348,28 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     samplerLayoutBinding.pImmutableSamplers = nullptr;
 
-    std::array<VkDescriptorSetLayoutBinding, 3> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding };
+    VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
+    numberOfLightsLayoutBinding.binding = 3;
+    numberOfLightsLayoutBinding.descriptorCount = 1;
+    numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
+
+    VkDescriptorSetLayoutBinding lightsLayoutBinding{};
+    lightsLayoutBinding.binding = 4;
+    lightsLayoutBinding.descriptorCount = 1;
+    lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    lightsLayoutBinding.pImmutableSamplers = nullptr;
+
+    VkDescriptorSetLayoutBinding materialLayoutBinding{};
+    materialLayoutBinding.binding = 5;
+    materialLayoutBinding.descriptorCount = 1;
+    materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    materialLayoutBinding.pImmutableSamplers = nullptr;
+
+    std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
     layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
     layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
@@ -347,17 +383,23 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
 
 void VulkanSwapchainManager::CreateDescriptorPool()
 {
+    if (Manager->GetRenderData()->Models.empty())
+    {
+        DebugLogger::Warning("Nothing to be rendered, no descriptor pool created", "Renderers/Vulkan/VulkanSwapchainManager.cppp", __LINE__);
+        return;
+    }
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size() *Manager->GetInitializationData()->Models.size());
+    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
     poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetInitializationData()->Models.size());
+    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
 
     VkDescriptorPoolCreateInfo poolInfo{};
     poolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes = poolSizes.data();
-    poolInfo.maxSets = static_cast<uint32_t>(Images.size() * Manager->GetInitializationData()->Models.size());
+    poolInfo.maxSets = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
+    //if (poolInfo.maxSets < 1) poolInfo.maxSets = 1;
 
     if (vkCreateDescriptorPool(Manager->GetLogicalDevice(), &poolInfo, nullptr, &DescriptorPool) != VK_SUCCESS)
     {
@@ -367,7 +409,13 @@ void VulkanSwapchainManager::CreateDescriptorPool()
 
 void VulkanSwapchainManager::CreateDescriptorSets()
 {
-    for (const auto& model : Manager->GetInitializationData()->Models)
+    if (Manager->GetRenderData()->Models.empty())
+    {
+        DebugLogger::Warning("Nothing to be rendered, no descriptor set created", "Renderers/Vulkan/VulkanSwapchainManager.cppp", __LINE__);
+        return;
+    }
+
+    for (const auto& model : Manager->GetRenderData()->Models)
     {
         std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
 
@@ -387,25 +435,41 @@ void VulkanSwapchainManager::CreateDescriptorSets()
     for (size_t i = 0; i < Images.size(); i++)
     {
         VkDescriptorBufferInfo cameraInfo{};
-        cameraInfo.buffer = CameraBuffers[i];
+        cameraInfo.buffer = CameraData[i].Buffer;
         cameraInfo.offset = 0;
         cameraInfo.range = sizeof(UniformCameraObject);
 
-        for (const auto& texture : Manager->GetInitializationData()->MaterialToModelMap)
+        VkDescriptorBufferInfo lightsInfo{};
+        lightsInfo.buffer = LightsData[i].Buffer;
+        lightsInfo.offset = 0;
+        lightsInfo.range = sizeof(FMatrix4) * Manager->GetRenderData()->LightSources.size();
+
+        VkDescriptorBufferInfo numberOfLightsInfo{};
+        numberOfLightsInfo.buffer = NumberOfLightsData[i].Buffer;
+        numberOfLightsInfo.offset = 0;
+        numberOfLightsInfo.range = sizeof(int);
+
+        for (const auto& material : Manager->GetRenderData()->MeshesByMaterial)
         {
+            VkDescriptorBufferInfo materialInfo{};
+            materialInfo.buffer = MaterialMap[&material.first->Data][i].Buffer;
+            materialInfo.offset = 0;
+            materialInfo.range = sizeof(FMatrix4);
+
             VkDescriptorImageInfo imageInfo{};
             imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-            imageInfo.imageView = TextureDataMap[texture.first->TextureDifuse].TextureImageView;
-            imageInfo.sampler = TextureDataMap[texture.first->TextureDifuse].TextureSampler;
+            imageInfo.imageView = TextureDataMap[material.first->TextureDifuse].TextureImageView;
+            imageInfo.sampler = TextureDataMap[material.first->TextureDifuse].TextureSampler;
 
-            for (const auto& model : Manager->GetInitializationData()->MaterialToModelMap[texture.first])
+            
+            for (const auto& mesh : material.second) for (const auto& model : Manager->GetRenderData()->InstancesByMesh[mesh])
             {
                 VkDescriptorBufferInfo modelInfo{};
-                modelInfo.buffer = ModelMap[model][i].ModelBuffer;
+                modelInfo.buffer = ModelMap[model][i].Buffer;
                 modelInfo.offset = 0;
                 modelInfo.range = sizeof(FMatrix4);
 
-                std::array<VkWriteDescriptorSet, 3> descriptorWrites{};
+                std::array<VkWriteDescriptorSet, 6> descriptorWrites{};
 
                 descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
                 descriptorWrites[0].dstSet = DescriptorSetsMap[model][i];
@@ -431,6 +495,30 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                 descriptorWrites[2].descriptorCount = 1;
                 descriptorWrites[2].pImageInfo = &imageInfo;
 
+                descriptorWrites[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[3].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[3].dstBinding = 3;
+                descriptorWrites[3].dstArrayElement = 0;
+                descriptorWrites[3].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                descriptorWrites[3].descriptorCount = 1;
+                descriptorWrites[3].pBufferInfo = &numberOfLightsInfo;
+
+                descriptorWrites[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[4].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[4].dstBinding = 4;
+                descriptorWrites[4].dstArrayElement = 0;
+                descriptorWrites[4].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                descriptorWrites[4].descriptorCount = 1;
+                descriptorWrites[4].pBufferInfo = &lightsInfo;
+
+                descriptorWrites[5].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                descriptorWrites[5].dstSet = DescriptorSetsMap[model][i];
+                descriptorWrites[5].dstBinding = 5;
+                descriptorWrites[5].dstArrayElement = 0;
+                descriptorWrites[5].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                descriptorWrites[5].descriptorCount = 1;
+                descriptorWrites[5].pBufferInfo = &materialInfo;
+
                 vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
             }
         }
@@ -439,14 +527,15 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
 void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 {
-    //int textureWidth, textureHeight, textureChannels;
-    //stbi_uc* texturePixels = stbi_load(TEXTURE_PATH.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
-    for (const auto& texture : Manager->GetInitializationData()->MaterialToModelMap)
+    for (const auto& material : Manager->GetRenderData()->Materials)
     {
-        int textureWidth = texture.first->TextureDifuse->Width;
-        int textureHeight = texture.first->TextureDifuse->Height;
-        //unsigned char* texturePixels = texture.first->TextureDifuse->Pixels;
-        void* texturePixels = texture.first->TextureDifuse->Pixels;//TODO this may break Vulakn!!!
+        TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
+        
+        int textureWidth = material->TextureDifuse->Width;
+        int textureHeight = material->TextureDifuse->Height;
+        unsigned char* texturePixels = static_cast<unsigned char*>(material->TextureDifuse->Pixels);
+        //void* texturePixels = texture.first->TextureDifuse->Pixels;//TODO this may break Vulakn!!!
+
 
         VkDeviceSize imageSize = textureWidth * textureHeight * 4;
 
@@ -465,18 +554,17 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
         vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
 
         stbi_image_free(texturePixels);
+        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[material->TextureDifuse].TextureImage, TextureDataMap[material->TextureDifuse].TextureImageMemory);
 
-        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[texture.first->TextureDifuse].TextureImage, TextureDataMap[texture.first->TextureDifuse].TextureImageMemory);
-
-        TransitionImageLayout(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-        CopyBufferToImage(stagingBuffer, TextureDataMap[texture.first->TextureDifuse].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
-        TransitionImageLayout(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+        TransitionImageLayout(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+        CopyBufferToImage(stagingBuffer, TextureDataMap[material->TextureDifuse].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
+        TransitionImageLayout(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 
         vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
 
-        TextureDataMap[texture.first->TextureDifuse].TextureImageView = CreateImageView(TextureDataMap[texture.first->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
-        CreateTextureSampler(TextureDataMap[texture.first->TextureDifuse].TextureSampler);
+        TextureDataMap[material->TextureDifuse].TextureImageView = CreateImageView(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
+        CreateTextureSampler(TextureDataMap[material->TextureDifuse].TextureSampler);
     }
 }
 
@@ -515,16 +603,17 @@ void VulkanSwapchainManager::RecreationCleanUp()
     vkDestroyRenderPass(Manager->GetLogicalDevice(), RenderPass, nullptr);
     for (size_t i = 0; i < ImageViews.size(); i++) vkDestroyImageView(Manager->GetLogicalDevice(), ImageViews[i], nullptr);
     vkDestroySwapchainKHR(Manager->GetLogicalDevice(), Swapchain, nullptr);
-    for (const auto& buffer : UniformBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
-    for (const auto& memory : UniformBuffersMemory) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
-    for (const auto& buffer : CameraBuffers) { vkDestroyBuffer(Manager->GetLogicalDevice(), buffer, nullptr); }
-    for (const auto& memory : CameraBufferMemories) { vkFreeMemory(Manager->GetLogicalDevice(), memory, nullptr); }
+    for (const auto& data : CameraData)
+    { 
+        vkDestroyBuffer(Manager->GetLogicalDevice(), data.Buffer, nullptr);
+        vkFreeMemory(Manager->GetLogicalDevice(), data.Memory, nullptr);
+    }
     for (const auto& model : ModelMap)
     {
         for (const auto& modelData : model.second) 
         { 
-            vkDestroyBuffer(Manager->GetLogicalDevice(), modelData.ModelBuffer, nullptr);
-            vkFreeMemory(Manager->GetLogicalDevice(), modelData.ModelBufferMemory, nullptr);
+            vkDestroyBuffer(Manager->GetLogicalDevice(), modelData.Buffer, nullptr);
+            vkFreeMemory(Manager->GetLogicalDevice(), modelData.Memory, nullptr);
         }
     }
     vkDestroyDescriptorPool(Manager->GetLogicalDevice(), DescriptorPool, nullptr);
@@ -665,20 +754,37 @@ void VulkanSwapchainManager::CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* im
 
 void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
 {
-    Manager->GetInitializationData()->Camera->Projection[1][1] *= -1.0f;
-
+    auto vulkanCamera = *Manager->GetRenderData()->Camera;
+    vulkanCamera.Projection[1][1] *= -1;
     void* cameraData;
-    VkDeviceMemory cameraTest = CameraBufferMemories[currentImageIndex];
-    vkMapMemory(Manager->GetLogicalDevice(), CameraBufferMemories[currentImageIndex], 0, sizeof(UniformCameraObject), 0, &cameraData);
-    memcpy(cameraData, Manager->GetInitializationData()->Camera, sizeof(UniformCameraObject));
-    vkUnmapMemory(Manager->GetLogicalDevice(), CameraBufferMemories[currentImageIndex]);
+    vkMapMemory(Manager->GetLogicalDevice(), CameraData[currentImageIndex].Memory, 0, sizeof(UniformCameraObject), 0, &cameraData);
+    memcpy(cameraData, &vulkanCamera, sizeof(UniformCameraObject));
+    vkUnmapMemory(Manager->GetLogicalDevice(), CameraData[currentImageIndex].Memory);
 
-    for (const auto& model : Manager->GetInitializationData()->Models)
+    void* numberOfLightsData;
+    vkMapMemory(Manager->GetLogicalDevice(), NumberOfLightsData[currentImageIndex].Memory, 0, sizeof(int), 0, &numberOfLightsData);
+    int numberOfLights = Manager->GetRenderData()->LightSources.size();
+    memcpy(numberOfLightsData, &numberOfLights, sizeof(int));
+    vkUnmapMemory(Manager->GetLogicalDevice(), NumberOfLightsData[currentImageIndex].Memory);
+
+    void* lightsData;
+    vkMapMemory(Manager->GetLogicalDevice(), LightsData[currentImageIndex].Memory, 0, sizeof(FMatrix4) * numberOfLights, 0, &lightsData);
+    memcpy(lightsData, *Manager->GetRenderData()->LightSources.data(), sizeof(FMatrix4) * numberOfLights);
+    vkUnmapMemory(Manager->GetLogicalDevice(), LightsData[currentImageIndex].Memory);
+
+    for (const auto& material : Manager->GetRenderData()->Materials)
+    {
+        void* materialData;
+        vkMapMemory(Manager->GetLogicalDevice(), MaterialMap[&material->Data][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &materialData);
+        memcpy(materialData, material, sizeof(FMatrix4));
+        vkUnmapMemory(Manager->GetLogicalDevice(), MaterialMap[&material->Data][currentImageIndex].Memory);
+    }
+
+    for (const auto& model : Manager->GetRenderData()->Models)
     {
         void* modelData;
-        auto memory = ModelMap[model][currentImageIndex].ModelBufferMemory;//TODO remove this line when bug is fixed.
-        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory, 0, sizeof(FMatrix4), 0, &modelData);
+        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
         memcpy(modelData, model, sizeof(FMatrix4));
-        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].ModelBufferMemory);
+        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory);
     }
 }

@@ -3,7 +3,7 @@
 #include "Objects/Object.h"
 
 class O_GameObject;
-class O_Level;
+class L_Level;
 
 class O_Component : public O_Object
 {

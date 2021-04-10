@@ -1,4 +1,5 @@
 #include "VulkanManager.h"
+#include "LevelGraph.h"
 
 //Basic includes
 #include <iostream>
@@ -20,8 +21,8 @@
 #include <SDL.h>
 
 //ExtraIncludes
-#define TINYOBJLOADER_IMPLEMENTATION
-#include <tiny_obj_loader.h>
+//#define TINYOBJLOADER_IMPLEMENTATION
+//#include <tiny_obj_loader.h>
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
 
@@ -51,6 +52,10 @@ void VulkanManager::FramebufferResizeCallback()
 
 void VulkanManager::UpdateWithNewObjects()
 {
+    CreateVertexBuffers();
+    CreateIndexBuffers();
+    SwapchainManager->CreateDescriptorSetLayout();
+    SwapchainManager->CreateTextureImage();
     RecreateSwapchain();
 }
 
@@ -161,15 +166,6 @@ void VulkanManager::CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage, Vk
 
 void VulkanManager::RecreateSwapchain()
 {
-    int width = 0;
-    int height = 0;
-
-    do
-    {
-        SDL_GetWindowSize(Window, &width, &height);
-        SDL_WaitEvent(nullptr);
-    } while (width == 0 || height == 0);
-
     vkDeviceWaitIdle(Devices->GetLogicalDevice());
     SwapchainManager->RecreationCleanUp();
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, static_cast<uint32_t>(CommandBuffers.size()), CommandBuffers.data());
@@ -177,6 +173,7 @@ void VulkanManager::RecreateSwapchain()
     SwapchainManager->CreateSwapChain();
     SwapchainManager->CreateImageViews();
     SwapchainManager->CreateRenderPass();
+    GraphicsPipelineManager->CreateGraphicsPipeline();
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
     SwapchainManager->CreateUniformBuffers();
@@ -256,14 +253,38 @@ void VulkanManager::CreateCommandBuffers()
         vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
-            for (const auto& mesh : InitializationData->MeshToMaterialMap)
+            for (const auto& shader : RenderData->MaterialsByShader)
+            {
+                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
+                for (const auto& material : shader.second)
+                {
+                    for (const auto& mesh : RenderData->MeshesByMaterial[material])
+                    {
+                        vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[mesh]->VertexBuffer, offsets);
+                        vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+                        for (const auto& model : RenderData->InstancesByMesh[mesh])
+                        {
+
+                            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
+                            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
+                        }
+                    }
+                }
+            }
+        vkCmdEndRenderPass(CommandBuffers[i]);
+        if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS)
+        {
+            throw std::runtime_error("failed to record command buffer!");
+        }
+        /*
+            for (const auto& mesh : RenderData->MeshToMaterialMap)
             {
                 vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[mesh.first]->VertexBuffer, offsets);
                 vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh.first]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
                 for (const auto& material : mesh.second)
                 {
                     vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
-                    for (const auto& model : InitializationData->MaterialToModelMap[material])
+                    for (const auto& model : RenderData->MaterialToModelMap[material])
                     {
                         vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
                         vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh.first->Indices.size()), 1, 0, 0, 0);
@@ -276,14 +297,15 @@ void VulkanManager::CreateCommandBuffers()
         {
             throw std::runtime_error("failed to record command buffer!");
         }
+        */
     }
 }
 
 void VulkanManager::CreateVertexBuffers()
 {
-    for (const auto& pair : InitializationData->MeshToMaterialMap)
+    for (const auto& mesh : RenderData->Meshes)
     {
-        VkDeviceSize bufferSize = sizeof(S_Vertex) * pair.first->Vertices.size();
+        VkDeviceSize bufferSize = sizeof(S_Vertex) * mesh->Vertices.size();
 
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;
@@ -291,12 +313,12 @@ void VulkanManager::CreateVertexBuffers()
 
         void* data;
         vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, pair.first->Vertices.data(), (size_t)bufferSize);
+        memcpy(data, mesh->Vertices.data(), (size_t)bufferSize);
         vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        MeshDataMap[pair.first] = new MeshDataStruct();
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[pair.first]->VertexBuffer, MeshDataMap[pair.first]->VertexBufferMemory);
-        CopyBuffer(stagingBuffer, MeshDataMap[pair.first]->VertexBuffer, bufferSize);
+        MeshDataMap[mesh] = new S_MeshData();
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh]->VertexBuffer, MeshDataMap[mesh]->VertexBufferMemory);
+        CopyBuffer(stagingBuffer, MeshDataMap[mesh]->VertexBuffer, bufferSize);
 
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
@@ -305,9 +327,9 @@ void VulkanManager::CreateVertexBuffers()
 
 void VulkanManager::CreateIndexBuffers()
 {
-    for (const auto& pair : InitializationData->MeshToMaterialMap)
+    for (const auto& mesh : RenderData->Meshes)
     {
-        VkDeviceSize bufferSize = sizeof(unsigned int) * pair.first->Indices.size();
+        VkDeviceSize bufferSize = sizeof(unsigned int) * mesh->Indices.size();
 
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;
@@ -315,12 +337,12 @@ void VulkanManager::CreateIndexBuffers()
 
         void* data;
         vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, pair.first->Indices.data(), (size_t)bufferSize);
+        memcpy(data, mesh->Indices.data(), (size_t)bufferSize);
         vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[pair.first]->IndexBuffer, MeshDataMap[pair.first]->IndexBufferMemory);
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh]->IndexBuffer, MeshDataMap[mesh]->IndexBufferMemory);
 
-        CopyBuffer(stagingBuffer, MeshDataMap[pair.first]->IndexBuffer, bufferSize);
+        CopyBuffer(stagingBuffer, MeshDataMap[mesh]->IndexBuffer, bufferSize);
 
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
@@ -409,9 +431,9 @@ void VulkanManager::EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer)
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, 1, &commandBuffer);
 }
 
-bool VulkanManager::Initialize(S_RenderData* initializationData)
+bool VulkanManager::Initialize()
 {
-    InitializationData = initializationData;
+    RenderData = LevelGraph::GetInstance()->GetRenderData();
 
     CreateInstance();
     Debugger->SetUpDebugMessenger();
@@ -520,7 +542,8 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     submitInfo.pSignalSemaphores = signalSemaphores;
 
     vkResetFences(Devices->GetLogicalDevice(), 1, &InFlightFences[CurrentFrame]);
-    if (vkQueueSubmit(Queues->GraphicsQueue, 1, &submitInfo, InFlightFences[CurrentFrame]) != VK_SUCCESS)
+    auto check = vkQueueSubmit(Queues->GraphicsQueue, 1, &submitInfo, InFlightFences[CurrentFrame]);
+    if (check != VK_SUCCESS)
     {
         throw std::runtime_error("Failed to submit draw command buffer!");
     }
@@ -541,6 +564,16 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
     if (swapChainResult == VK_ERROR_OUT_OF_DATE_KHR || swapChainResult == VK_SUBOPTIMAL_KHR || FramebufferResized)
     {
         FramebufferResized = false;
+        
+        int width = 0;
+        int height = 0;
+        SDL_GetWindowSize(Window, &width, &height);
+        while (width == 0 || height == 0)
+        {
+            SDL_GetWindowSize(Window, &width, &height);
+            SDL_WaitEvent(nullptr);
+        }
+
         RecreateSwapchain();
     }
     else if (swapChainResult != VK_SUCCESS)

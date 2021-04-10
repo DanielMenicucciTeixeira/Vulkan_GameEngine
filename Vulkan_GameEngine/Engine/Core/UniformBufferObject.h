@@ -7,9 +7,8 @@
 struct UniformCameraObject
 {
 	FMatrix4 View, Projection;
-	FVector3 Position;
 
-	inline bool operator== (UniformCameraObject uniformCameraObject) { return View == uniformCameraObject.View && Projection == uniformCameraObject.Projection && Position == uniformCameraObject.Position; }
+	inline bool operator== (UniformCameraObject uniformCameraObject) { return View == uniformCameraObject.View && Projection == uniformCameraObject.Projection; }
 };
 
 struct UniformBufferObject

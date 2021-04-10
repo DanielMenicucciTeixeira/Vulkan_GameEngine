@@ -82,6 +82,7 @@ bool Window::OnCreateVulkanWindow(const char* name, int width, int height, int p
 		DebugLogger::FatalError("Window could not be created! SDL_Error: " + std::string(SDL_GetError()), "SDL/Window.cpp", __LINE__);
 		return false;
 	}
+	return true;
 }
 
 bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int positionX, int positionY)
@@ -103,6 +104,7 @@ bool Window::OnCreateOpenGLWindow(const char* name, int width, int height, int p
 		DebugLogger::FatalError("Failed to initialize Glew!", "SDL/Window.cpp", __LINE__);
 		return false;
 	}
+	if (GLEW_ARB_debug_output) { printf("GLEW_ARB_debug_output enabled!"); }
 	std::string version((const char*)glGetString(GL_VERSION));
 	DebugLogger::Info("GL version: " + version, "SDL/Window.cpp", __LINE__);
 

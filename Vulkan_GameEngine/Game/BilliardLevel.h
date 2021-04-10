@@ -3,7 +3,7 @@
 
 class Game;
 
-class L_BilliardLevel : public O_Level
+class L_BilliardLevel : public L_Level
 {
 public:
 	L_BilliardLevel(Game* game);

@@ -12,7 +12,7 @@ class Window;
 class Clock;
 class Renderer;
 class Game;
-class O_Level;
+class L_Level;
 enum ERendererType;
 union SDL_Event;
 
@@ -62,7 +62,7 @@ protected:
 	Window* EngineWindow;
 	Clock* EngineClock;
 	Game* CurrentGame;
-	O_Level* StartingLevel;
+	L_Level* StartingLevel;
 	unsigned int FramesPerSecond;
 	bool RunningEngine;
 	bool RunningGame;

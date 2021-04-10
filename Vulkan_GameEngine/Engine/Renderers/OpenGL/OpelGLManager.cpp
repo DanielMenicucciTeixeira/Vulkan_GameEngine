@@ -1,38 +1,41 @@
 #include "OpelGLManager.h"
 #include "OpenGLShaderManager.h"
-#include "Renderers/RenderInitializationData.h"
+#include "LevelGraph.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
 #include "SDL/SDLManager.h"
+
 #include <SDL.h>
-#include <glew.h>
-#include "FX/LightInfo.h"
+#include <iostream>
 
 OpenGLManager::~OpenGLManager()
 {
 	CleanUp();
 }
 
-bool OpenGLManager::Initialize(S_RenderData* initializationData)
+bool OpenGLManager::Initialize()
 {
+	// During init, enable debug output
+	glEnable(GL_DEBUG_OUTPUT);
+	glDebugMessageCallback(MessageCallback, 0);
+
 	if (!ShaderManager)
 	{
 		ShaderManager = new OpenGLShaderManager();
-		ShaderManager->CreateShaderProgram("ColourShader", "Engine/Shaders/ColourShader.vert", "Engine/Shaders/ColourShader.frag");
 		ShaderManager->CreateShaderProgram("TextureShader", "Engine/Shaders/TextureShader.vert", "Engine/Shaders/TextureShader.frag");
 	}
 
-	if (!initializationData)
+	RenderData = LevelGraph::GetInstance()->GetRenderData();
+	if (!RenderData)
 	{
-		DebugLogger::FatalError("Failed to get valid RenderInitializationData", "Renderers/OpenGL/OpenGLManager.cpp", __LINE__);
+		DebugLogger::FatalError("Failed to get valid RenderData", "Renderers/OpenGL/OpenGLManager.cpp", __LINE__);
 		return false;
 	}
-	RenderData = initializationData;
 
 	VertexObjectsMap.clear();
-	for (const auto mesh : RenderData->MeshToMaterialMap)
+	for (const auto mesh : RenderData->Meshes)
 	{
-		VertexObjectsMap[mesh.first] = S_BindingData();
+		VertexObjectsMap[mesh] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -46,9 +49,9 @@ bool OpenGLManager::Initialize(S_RenderData* initializationData)
 void OpenGLManager::UpdateWithNewObjects()
 {
 	VertexObjectsMap.clear();
-	for (const auto mesh : RenderData->MeshToMaterialMap)
+	for (const auto mesh : RenderData->Meshes)
 	{
-		VertexObjectsMap[mesh.first] = S_BindingData();
+		VertexObjectsMap[mesh] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -64,6 +67,7 @@ void OpenGLManager::UpdateWithNewObjects()
 
 void OpenGLManager::CleanUp()
 {
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	if (ShaderManager) delete(ShaderManager);
 }
 
@@ -78,53 +82,82 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
-	PopulateLigthsVector();
-	for (const auto mesh : RenderData->MeshToMaterialMap)
-	{
-		glBindVertexArray(VertexObjectsMap[mesh.first].Vertex);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh.first].IndexBuffer);
 
-		for (const auto material : RenderData->MeshToMaterialMap[mesh.first])
+	for (const auto& shader : RenderData->MaterialsByShader)
+	{
+		const auto& program = ShaderManager->GetShader(shader.first);
+		glUseProgram(program);
+
+		GLuint cameraBinding = 0, cameraIndex, cameraBuffer;
+		cameraIndex = glGetUniformBlockIndex(program, "UniformCamera");
+		glUniformBlockBinding(program, cameraIndex, cameraBinding);
+		glGenBuffers(1, &cameraBuffer);
+		glBindBuffer(GL_UNIFORM_BUFFER, cameraBuffer);
+		glBufferData(GL_UNIFORM_BUFFER, sizeof(UniformCameraObject), RenderData->Camera, GL_DYNAMIC_DRAW);
+		glBindBufferBase(GL_UNIFORM_BUFFER, cameraBinding, cameraBuffer);
+
+		GLuint modelBinding = 1, modelIndex, modelBuffer;
+		modelIndex = glGetUniformBlockIndex(program, "UniformModel");
+		glUniformBlockBinding(program, modelIndex, modelBinding);
+		glGenBuffers(1, &modelBuffer);
+
+		GLuint numberOfLightsBinding = 3, numberOfLightsIndex, numberOfLightsBuffer;
+		numberOfLightsIndex = glGetUniformBlockIndex(program, "UniformNumberOfLights");
+		glUniformBlockBinding(program, numberOfLightsIndex, numberOfLightsBinding);
+		glGenBuffers(1, &numberOfLightsBuffer);
+		glBindBuffer(GL_UNIFORM_BUFFER, numberOfLightsBuffer);
+		int numberOfLights = RenderData->LightSources.size();
+		glBufferData(GL_UNIFORM_BUFFER, sizeof(int), &numberOfLights, GL_DYNAMIC_DRAW);
+		glBindBufferBase(GL_UNIFORM_BUFFER, numberOfLightsBinding, numberOfLightsBuffer);
+
+		GLuint lightsBinding = 4, lightsIndex, lightsBuffer;
+		glGenBuffers(1, &lightsBuffer);
+		lightsIndex = glGetUniformBlockIndex(program, "UniformLights");
+		glUniformBlockBinding(program, lightsIndex, lightsBinding);
+		glBindBuffer(GL_UNIFORM_BUFFER, lightsBuffer);
+		glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4) * numberOfLights, RenderData->LightSources.data(), GL_DYNAMIC_DRAW);
+		glBindBufferBase(GL_UNIFORM_BUFFER, lightsBinding, lightsBuffer);
+
+		for (const auto& material : shader.second)
 		{
-			glUseProgram(ShaderManager->GetShader(material->ShaderName));
-			
-			const auto modelLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ModelMatrix");
-			const auto viewLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ViewMatrix");
-			const auto projectionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "ProjectionMatrix");
-			const auto cameraPositionLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "CameraPosition");
-			const auto difuseLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureDifuse");
-			//const auto specularLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "TextureSpecular");
-			const auto lightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "Lights");
-			const auto numberOfLightsLocation = glGetUniformLocation(ShaderManager->GetShader(material->ShaderName), "NumberOfLights");
-			
+			GLuint materialBinding = 5, materialIndex, materialBuffer;
+			materialIndex = glGetUniformBlockIndex(program, "UniformMaterial");
+			glUniformBlockBinding(program, materialIndex, materialBinding);
+			glGenBuffers(1, &materialBuffer);
+			glBindBuffer(GL_UNIFORM_BUFFER, materialBuffer);
+			glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), &material->Data, GL_DYNAMIC_DRAW);
+			glBindBufferBase(GL_UNIFORM_BUFFER, materialBinding, materialBuffer);
+
+			const auto& difuseLocation = glGetUniformLocation(program, "TextureDifuse");
 			glUniform1i(difuseLocation, 0);
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);
 
-			/*glUniform1i(specularLocation, 1);
-			glActiveTexture(GL_TEXTURE1);
-			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureSpecular]);*/
-
-			glUniform1i(numberOfLightsLocation, GLint(RenderData->LightSources.size()));
-			glUniform1fv(lightsLocation, GLsizei(Lights.size()), Lights.data());
-			glUniform3fv(cameraPositionLocation, 1, RenderData->Camera->Position);
-			for (const auto model : RenderData->MaterialToModelMap[material])
+			glBindBuffer(GL_UNIFORM_BUFFER, modelBuffer);
+			for (const auto& mesh : RenderData->MeshesByMaterial[material])
 			{
-				glUniformMatrix4fv(modelLocation, 1, GL_FALSE, model[0]);
-				glUniformMatrix4fv(viewLocation, 1, GL_FALSE, RenderData->Camera->View);
-				glUniformMatrix4fv(projectionLocation, 1, GL_FALSE, RenderData->Camera->Projection);
-				glDrawElements(GL_TRIANGLES, mesh.first->Indices.size(), GL_UNSIGNED_INT, (void*)0);
-			}
-			glUseProgram(0);
-		}
+				glBindVertexArray(VertexObjectsMap[mesh].Vertex);
+				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh].IndexBuffer);
 
-		glBindVertexArray(0);
+				for (const auto& model : RenderData->InstancesByMesh[mesh])
+				{
+					glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), model, GL_DYNAMIC_DRAW);
+					glBindBufferBase(GL_UNIFORM_BUFFER, modelBinding, modelBuffer);
+					glDrawElements(GL_TRIANGLES, mesh->Indices.size(), GL_UNSIGNED_INT, (void*)0);
+				}
+				glBindVertexArray(0);
+			}
+		}
+		glUseProgram(0);
 	}
 	SDL_GL_SwapWindow(SDLManager::GetInstance()->GetSDLWindowByName());
 }
 
 void OpenGLManager::FramebufferResizeCallback()
 {
+	int w, h;
+	SDL_GetWindowSize(SDLManager::GetInstance()->GetSDLWindowByName(), &w, &h);
+	glViewport(0, 0, w, h);
 }
 
 void OpenGLManager::CreateGLTexture(S_Texture* textureData)
@@ -144,32 +177,6 @@ void OpenGLManager::CreateGLTexture(S_Texture* textureData)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void OpenGLManager::PopulateLigthsVector()
-{
-	//TODO look at Observer design pattern to fix this
-	if (Lights.size() > 0) Lights.clear();
-	Lights = std::vector<float>();
-	Lights.reserve(RenderData->LightSources.size() * sizeof(RenderData->LightSources) / sizeof(float));
-	for (const auto& light : RenderData->LightSources)
-	{
-		Lights.push_back(light->Position.X);
-		Lights.push_back(light->Position.Y);
-		Lights.push_back(light->Position.Z);
-
-		Lights.push_back(light->Ambient);
-		Lights.push_back(light->Diffuse);
-		Lights.push_back(light->Specular);
-
-		Lights.push_back(light->Colour.X);
-		Lights.push_back(light->Colour.Y);
-		Lights.push_back(light->Colour.Z);
-
-		Lights.push_back(light->TurnedOn);
-
-		Lights.push_back(light->LightType);
-	}
-}
-
 void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 {
 	if (VertexObjectsMap[mesh].Vertex != 0) return;
@@ -181,6 +188,7 @@ void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 	glBindBuffer(GL_ARRAY_BUFFER, VertexObjectsMap[mesh].VertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, mesh->Vertices.size() * sizeof(S_Vertex), &mesh->Vertices[0], GL_STATIC_DRAW);
 
+
 	//Bind Index Arrays and Buffers
 	glGenBuffers(1, &VertexObjectsMap[mesh].IndexBuffer);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh].IndexBuffer);
@@ -188,7 +196,7 @@ void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 
 	//Position
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(S_Vertex), static_cast<GLvoid*>(0));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(S_Vertex), (GLvoid*)offsetof(S_Vertex, Position));
 	//TextureCoordinates
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(S_Vertex), (GLvoid*)(offsetof(S_Vertex, TextureCoordinates)));
@@ -199,4 +207,10 @@ void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 	//Free Arrays and Buffers
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
+{
+	if(type != GL_DEBUG_TYPE_ERROR) return;
+	fprintf(stderr, "GL CALLBACK: %s message = %s\n", (type == GL_DEBUG_TYPE_ERROR ? "** GL ERROR **" : ""), message);
 }

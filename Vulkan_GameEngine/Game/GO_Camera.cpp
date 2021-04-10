@@ -3,7 +3,7 @@
 #include "Objects/Components/MovementComponent.h"
 #include "Math/FVector3.h"
 
-GO_Camera::GO_Camera(O_Level* level) : O_GameObject(level)
+GO_Camera::GO_Camera(L_Level* level, std::string name) : O_GameObject(level, name)
 {
 	Camera = AddComponentOfClass<C_CameraComponent>();
 }

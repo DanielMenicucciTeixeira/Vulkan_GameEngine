@@ -1,10 +1,12 @@
 #include "SDLTextureHandler.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
+#include "SDLManager.h"
 
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
+#include <vector>
 
 std::unique_ptr<SDLTextureHandler> SDLTextureHandler::Instance = nullptr;
 std::vector<S_Texture*> SDLTextureHandler::Textures = std::vector<S_Texture*>();
@@ -37,12 +39,24 @@ bool SDLTextureHandler::LoadTexture(const std::string& textureName, const std::s
         return false;
     }
 
+    /*SDL_Surface* convertedSurface = new SDL_Surface();
+    int test = SDL_ConvertPixels(surface->w, surface->h, surface->format->format, surface->pixels, surface->format->BytesPerPixel, SDL_PIXELFORMAT_RGBA8888, outTexture->Pixels, 4);
+    if (test != 0)
+    {
+        printf(SDL_GetError());
+        printf("\n");
+        DebugLogger::Error("Failed to convert pixel format for: " + textureName + " at: " + filePath + ".\nSDL_image Error: " + std::string(IMG_GetError()) + "\n", "SDL/SDLTextureHandler.cpp", __LINE__);
+        //return false;
+    }*/
+
     outTexture->Height = surface->h;
     outTexture->Width = surface->w;
     outTexture->BytesPerPixel = surface->format->BytesPerPixel;
     outTexture->Pixels = surface->pixels;
     outTexture->Name = textureName;
     outTexture->Path = filePath;
+
+    std::cout << "Texture Format of " << outTexture->Name << ": " << SDL_GetPixelFormatName(surface->format->format) << std::endl;
 
     GetInstance()->Surfaces.insert(surface);
     return true;

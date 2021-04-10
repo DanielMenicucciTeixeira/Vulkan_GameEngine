@@ -5,7 +5,7 @@
 
 struct S_Mesh;
 
-class L_MainLevel : public O_Level
+class L_MainLevel : public L_Level
 {
 public:
 	L_MainLevel();

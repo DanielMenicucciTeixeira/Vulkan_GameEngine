@@ -3,7 +3,7 @@
 #include "Math/FVector3.h"
 #include "Level.h"
 
-GO_LightSource::GO_LightSource(O_Level* level) : O_GameObject(level)
+GO_LightSource::GO_LightSource(L_Level* level, std::string name) : O_GameObject(level, name)
 {
 	Light = AddComponentOfClass<C_LightSourceComponent>();
 	RemoveComponent(Root);
@@ -21,7 +21,7 @@ float GO_LightSource::GetAmbientMultiplier() const
 
 float GO_LightSource::GetDifuseMultiplier() const
 {
-	return Light->GetDifuseMultiplier();
+	return Light->GetDiffuseMultiplier();
 }
 
 float GO_LightSource::GetSpecularMultiplier() const
@@ -36,7 +36,7 @@ float GO_LightSource::GetAmbientIntensity() const
 
 float GO_LightSource::GetDifuseIntensity() const
 {
-	return Light->GetDifuseIntensity();
+	return Light->GetDiffuseIntensity();
 }
 
 float GO_LightSource::GetIntensity() const
@@ -54,7 +54,7 @@ bool GO_LightSource::IsOn() const
 	return Light->IsOn();
 }
 
-const S_LightInfo* GO_LightSource::GetLightInfo() const
+const FMatrix4* GO_LightSource::GetLightInfo() const
 {
 	return Light->GetLightInfo();
 }
@@ -71,7 +71,7 @@ void GO_LightSource::SetAmbientMultiplier(float intensity)
 
 void GO_LightSource::SetDifuseMultiplier(float intensity)
 {
-	Light->SetDifuseMultiplier(intensity);
+	Light->SetDiffuseMultiplier(intensity);
 }
 
 void GO_LightSource::SetSpecularMultiplier(float intensity)

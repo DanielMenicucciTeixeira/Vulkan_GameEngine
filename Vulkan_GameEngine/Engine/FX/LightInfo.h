@@ -2,8 +2,9 @@
 #define LIGHTINFO_H
 
 #include "Math/FVector3.h"
+#include "Math/FMatrix4.h"
 
-enum E_LightType
+/*enum E_LightType
 {
 	FIXED_INTENSITY_POINT_LIGHT = 0,
 	POINT_LIGHT = 1,
@@ -17,15 +18,19 @@ struct S_LightInfo
 	float Diffuse = 1.0f;
 	float Specular = 0.5f;
 	FVector3 Colour = FVector3(1.0f);
+	float LightType = static_cast<float>(E_LightType::POINT_LIGHT);
 	float TurnedOn = true;
-	float LightType = static_cast<float>(E_LightType::FIXED_INTENSITY_POINT_LIGHT);
 
-	///The next 4 operators make sure the LightInfo class can be used as an values by APIs such as Open-GL and Vulkan
-	inline const float operator[] (unsigned int index) const { return *(&Position.X + index); }//For R-values
-	inline float& operator[] (unsigned int index) { return*(&Position.X + index); }//For L-Values
-
-	inline operator const float* () const { return static_cast<const float*>(&Position.X); }//For R-Values
-	inline operator float* () { return static_cast<float*>(&Position.X); }//For L-Values
-};
+	FMatrix4 GetLightInfoMatrix()
+	{
+		return FMatrix4
+		(
+			{ Position.X, Position.Y, Position.Z, 0 }, 
+			{ Ambient, Diffuse, Specular, 0 }, 
+			{ Colour.X, Colour.Y, Colour.Z, 0 },
+			{LightType, TurnedOn, 0, 0}
+		);
+	}
+};*/
 
 #endif

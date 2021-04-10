@@ -9,7 +9,7 @@ class C_MovementComponent;
 class GO_Triangle :  public O_GameObject
 {
 public:
-	GO_Triangle(O_Level* level);
+	GO_Triangle(L_Level* level);
 	virtual void Start() override;
 	C_StaticMeshComponent* Mesh;
 	C_MovementComponent* Movement;

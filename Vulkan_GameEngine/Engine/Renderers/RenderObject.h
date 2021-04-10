@@ -38,14 +38,34 @@ public:
 struct S_Material
 {
 public:
-	unsigned short MaterialID = 0;
-	FVector3 Ambient;
-	FVector3 Specular;
-	FVector3 Difuse;
+	/*struct S_Data
+	{
+		float Opacity = 1.0f;
+		float Shininess = 32.0f;
+		alignas(FVector4) FVector4 Ambient = FVector4(1.0f);
+		alignas(FVector4) FVector4 Diffuse = FVector4(1.0f);
+		alignas(FVector4) FVector4 Specular = FVector4(1.0f);
+	};*/
+	
+
+	//[#]X--------------Y---------------Z-----------W
+	//[0]Ambient.X------Ambient.Y-------Ambient.Z---0
+	//[1]Diffuse.X------Diffuse.Y-------Diffuse.Z---0
+	//[2]Specular.X-----Specular.Y------Specular.Z--0
+	//[3]Shinines-------Opacity---------0-----------0
+	FMatrix4 Data = FMatrix4
+	{
+		1.0f,  1.0f, 1.0f, 0.0f,
+		1.0f,  1.0f, 1.0f, 0.0f,
+		1.0f,  1.0f, 1.0f, 0.0f,
+		32.0f, 1.0f, 0.0f, 0.0f
+	};
+
 	S_Texture* TextureDifuse = nullptr;
 	std::string TextureNameDifuse = "";
-	std::string TextureNameSpecular = "";
+	
 	S_Texture* TextureSpecular = nullptr;
+	std::string TextureNameSpecular = "";
 
 	std::string ShaderName;
 	std::string Name;

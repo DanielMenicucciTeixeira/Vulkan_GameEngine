@@ -2,6 +2,7 @@
 #define O_GAMEOBJECT_H
 
 #include "Objects/Object.h"
+#include "string"
 #include <vector>
 
 class FMatrix4;
@@ -10,12 +11,13 @@ class FQuaternion;
 class O_Component;
 struct FTransform;
 class C_TransformComponent;
-class O_Level;
+class L_Level;
+class LevelGraph;
 
 class O_GameObject : public O_Object
 {
 public:
-	O_GameObject(O_Level* level = nullptr);
+	O_GameObject(L_Level* level = nullptr, std::string name = "");
 	~O_GameObject();
 
 	virtual void Update(float deltaTime) override;
@@ -35,7 +37,6 @@ public:
 	void SetRotation(const FQuaternion& rotation);
 	void SetScale(const FVector3& scale);
 	void SetRoot(C_TransformComponent* root);
-	
 	template<class componentClass>
 	componentClass* AddComponentOfClass()
 	{
@@ -57,6 +58,9 @@ public:
 protected:
 	C_TransformComponent* Root = nullptr;
 	std::set<O_Component*> Components;
+
+private:
+	friend LevelGraph;
 	
 };
 #endif

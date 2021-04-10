@@ -3,6 +3,7 @@
 #include "Renderers/RenderObject.h"
 #include "Math/FMatrix4.h"
 #include "Math/FTransform.h"
+#include "LevelGraph.h"
 
 void C_StaticMeshComponent::Start()
 {
@@ -28,5 +29,6 @@ C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_Renderable
 
 C_StaticMeshComponent::~C_StaticMeshComponent()
 {
+	LevelGraph::GetInstance()->RemoveMeshComponent(this);
 	if (ModelMatrix) delete(ModelMatrix);
 }

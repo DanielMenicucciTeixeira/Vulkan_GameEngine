@@ -1,8 +1,8 @@
-#include "MeshLoader.h"
+#include "AssetLoader.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
 
-//#define TINYOBJLOADER_IMPLEMENTATION
+#define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 #include <unordered_map>
 
@@ -10,7 +10,7 @@
 #include <sstream>
 #include <fstream>
 
-bool MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
+bool AssetLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
 {
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
@@ -58,15 +58,13 @@ bool MeshLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
             }
 
             mesh->Indices.push_back(uniqueVertices[vertex]);
-           // mesh->Vertices.push_back(vertex);
-           // mesh->Indices.push_back(mesh->Indices.size());
         }
     }
 
     return true;
 }
 
-bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
+bool AssetLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
 {
     std::ifstream modelFile(modelPath.c_str(), std::ios::in);
     if (!modelFile)
@@ -88,7 +86,7 @@ bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
             std::stringstream vertex(line.substr(2));
             float x, y, z;
             vertex >> x >> y >> z;
-            data.Vertices.push_back(FVector3(x, y, z));
+            data.Position.push_back(FVector3(x, y, z));
         }
 
         //Normal Data
@@ -135,25 +133,19 @@ bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
                     vectorID++;
                     break;
                 case 0:
-                    data.Indices.push_back(value);
+                    data.PositionIndices.push_back(value);
                     vectorID++;
                 }
             }
         }
 
-
-        //New Mesh
-        else if (line.substr(0, 7) == "usemtl ")
-        {
-        }
-
         //MeshName
         else if (line.substr(0, 9) == "# object ")
         {
-            if (data.Indices.size() > 0)
+            if (data.PositionIndices.size() > 0)
             {
                 LoadMeshVertices(currentMesh, data);
-                data.Indices.clear();
+                data.PositionIndices.clear();
                 data.NormalIndicies.clear();
                 data.TextureIndices.clear();
             }
@@ -176,17 +168,12 @@ bool MeshLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet)
     return loaded;
 }
 
-bool MeshLoader::LoadMaterial(std::string materialName)
-{
-    return true;
-}
-
-bool MeshLoader::LoadMaterialLibrary(std::string materialPath)
+bool AssetLoader::LoadMaterial(std::string materialPath, S_Material* outMaterial)
 {
     std::ifstream materialFile(materialPath.c_str(), std::ios::in);
     if (!materialFile)
     {
-        DebugLogger::Error("Failed to open MTL file at: " + materialPath, "Core/MeshLoader.cpp", __LINE__);
+        DebugLogger::Error("Failed to open model file at: " + materialPath, "Core/MeshLoader.cpp", __LINE__);
         return false;
     }
 
@@ -194,27 +181,87 @@ bool MeshLoader::LoadMaterialLibrary(std::string materialPath)
     bool loaded = false;
     while (std::getline(materialFile, line))
     {
-        if (line.substr(0, 7) == "newmtl ") LoadMaterial(line.substr(7));
-        loaded = true;
     }
-    
     return loaded;
 }
 
-void MeshLoader::LoadMeshVertices(S_Mesh* mesh, S_OBJData& data)
+bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<S_Material*>& outMaterialSet)
+{
+    std::ifstream materialFile(materialPath.c_str(), std::ios::in);
+    if (!materialFile)
+    {
+        DebugLogger::Error("Failed to open model file at: " + materialPath, "Core/MeshLoader.cpp", __LINE__);
+        return false;
+    }
+
+    std::string line;
+    bool loaded = false;
+    S_Material* material = nullptr;
+    while (std::getline(materialFile, line))
+    {
+        //MeshName
+        if (line.substr(0, 7) == "newmtl ")
+        {
+            loaded = true;
+            material = new S_Material();
+            outMaterialSet.insert(material);
+            material->Name = "M_" + line.substr(7);
+        }
+
+        //Ambient Data
+        else if (line.substr(0, 4) == "\tKa ")
+        {
+            std::stringstream values(line.substr(4));
+            float x, y, z;
+            values >> x >> y >> z;
+            material->Data[0] = FVector4(x, y, z, 0);
+        }
+
+        //Diffuse Data
+        else if (line.substr(0, 4) == "\tKd ")
+        {
+            std::stringstream values(line.substr(4));
+            float x, y, z;
+            values >> x >> y >> z;
+            material->Data[1] = FVector4(x, y, z, 0);
+        }
+
+        //Specular Data
+        else if (line.substr(0, 4) == "\tKs ")
+        {
+            std::stringstream values(line.substr(4));
+            float x, y, z;
+            values >> x >> y >> z;
+            material->Data[2] = FVector4(x, y, z, 0);
+        }
+
+        //Shininess Data
+        else if (line.substr(0, 4) == "\tNs ")
+        {
+            std::stringstream values(line.substr(4));
+            values >> material->Data[3][0];
+        }
+
+        //Opacity Data
+        else if (line.substr(0, 3) == "\td ")
+        {
+            std::stringstream values(line.substr(3));
+            values >> material->Data[3][1];
+        }
+    }
+    return loaded;
+}
+
+void AssetLoader::LoadMeshVertices(S_Mesh* mesh, S_OBJData& data)
 {
     std::unordered_map<S_Vertex, uint32_t, HASH_Vertex> uniqueVertices{};
 
-    for (unsigned int i = 0; i < data.Indices.size(); i++)
+    for (unsigned int i = 0; i < data.PositionIndices.size(); i++)
     {
         S_Vertex vertex = S_Vertex();
 
-        vertex.Position = data.Vertices[data.Indices[i] - 1];
+        vertex.Position = data.Position[data.PositionIndices[i] - 1];
         vertex.TextureCoordinates = data.TextureCoords[data.TextureIndices[i] - 1];
-        if (data.NormalIndicies[i] > data.Normals.size())
-        {
-            int breakPoint = 0;
-        }
         vertex.Normal = data.Normals[data.NormalIndicies[i] - 1];
 
         if (uniqueVertices.count(vertex) == 0)

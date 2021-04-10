@@ -20,7 +20,7 @@ public:
 
 	void CreateGraphicsPipeline();
 	static VkVertexInputBindingDescription GetBindingDescription();
-	static std::array<VkVertexInputAttributeDescription, 2> GetAttributeDescriptions();
+	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
 	inline VkPipeline_T* GetPipeline() { return Pipeline; }
 	inline VkPipelineLayout_T* GetPipelineLayout() { return PipelineLayout; }

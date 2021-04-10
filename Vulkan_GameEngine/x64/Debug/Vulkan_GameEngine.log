@@ -1,4 +1,6 @@
-﻿  L_MainLevel.cpp
+﻿  Game01.cpp
 D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,113): warning C4042: 'function': has bad storage class
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(83,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(84,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(74): warning C4715: 'Game::StartNewLevel<L_StartLevel>': not all control paths return a value
+D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(74): warning C4715: 'Game::StartNewLevel<L_MainLevel>': not all control paths return a value
   Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

@@ -5,7 +5,7 @@
 #include "Renderers/RenderObject.h"
 #include "Math/FQuaternion.h"
 
-GO_Triangle::GO_Triangle(O_Level* level) : O_GameObject(level)
+GO_Triangle::GO_Triangle(L_Level* level) : O_GameObject(level)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("SphereMesh");

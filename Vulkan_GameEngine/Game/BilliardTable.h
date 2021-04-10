@@ -8,7 +8,7 @@ class C_BoxCollision;
 class C_StaticMeshComponent;
 struct S_CollisionData;
 class FVector3;
-class O_Level;
+class L_Level;
 
 class GO_BilliardTable : public O_GameObject
 {
@@ -21,7 +21,7 @@ public:
 	C_BoxCollision* LeftWall;
 	C_BoxCollision* RightWall;
 
-	GO_BilliardTable(O_Level* level = nullptr);
+	GO_BilliardTable(L_Level* level = nullptr, std::string name = "");
 };
 #endif
 

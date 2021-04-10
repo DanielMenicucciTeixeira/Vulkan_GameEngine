@@ -2,8 +2,15 @@
 #define C_LIGHTSOURCECOMPONENT_H
 
 #include "Objects/Components/TransformComponent.h"
-struct S_LightInfo;
-enum E_LightType;
+#include "Math/FMatrix4.h"
+#include <vector>
+
+enum E_LightType
+{
+	FIXED_INTENSITY_POINT_LIGHT = 0,
+	POINT_LIGHT = 1,
+	DIRECTIONAL_LIGHT = 2
+};
 
 class C_LightSourceComponent : public C_TransformComponent
 {
@@ -16,23 +23,22 @@ public:
 	//Getters
 
 	float GetAmbientMultiplier() const;
-	float GetDifuseMultiplier() const;
+	float GetDiffuseMultiplier() const;
 	float GetSpecularMultiplier() const;
 
 	float GetAmbientIntensity() const;
-	float GetDifuseIntensity() const;
+	float GetDiffuseIntensity() const;
 	float GetSpecularIntensity() const;
 
 	float GetIntensity() const;
 	FVector3 GetColour() const;
 	bool IsOn() const;
-	inline const S_LightInfo* GetLightInfo() const { return LightInfo; }
+	inline const FMatrix4* GetLightInfo() const { return LightInfo; }
 	E_LightType GetLightType() const;
 
 	//Setters
-
 	void SetAmbientMultiplier(float intensity);
-	void SetDifuseMultiplier(float intensity);
+	void SetDiffuseMultiplier(float intensity);
 	void SetSpecularMultiplier(float intensity);
 	void SetIntensity(float intensity);
 	void SetTurnedOn(bool isOn);
@@ -40,7 +46,8 @@ public:
 	void SetLightType(E_LightType type);
 
 protected:
-	S_LightInfo* LightInfo;
+	FMatrix4* LightInfo;
+	unsigned int LightIndex;
 	float Intensity;
 };
 #endif

@@ -34,10 +34,17 @@ void OpenGLShaderManager::CreateShaderProgram(const std::string& shaderName, con
 	{
 		GLint infoLogLength = 0;
 		glGetShaderiv(program, GL_INFO_LOG_LENGTH, &infoLogLength);
-		std::vector<char> programLog(infoLogLength);
-		glGetShaderInfoLog(program, infoLogLength, NULL, &programLog[0]);
-		std::string programString(programLog.begin(), programLog.end());
-		DebugLogger::Error("Error to link shader: " + shaderName + ".\nError: " + programString, "Renderers/OpenGL/OpenGLShaderManager.cpp", __LINE__);
+		if (infoLogLength > 0)
+		{
+			std::vector<char> programLog(infoLogLength);
+			glGetShaderInfoLog(program, infoLogLength, NULL, &programLog[0]);
+			std::string programString(programLog.begin(), programLog.end());
+			DebugLogger::Error("Error to link shader: " + shaderName + ".\nError: " + programString, "Renderers/OpenGL/OpenGLShaderManager.cpp", __LINE__);
+		}
+		else
+		{
+			DebugLogger::Error("Error to link shader: " + shaderName + ". Failed to recover info log.", "Renderers/OpenGL/OpenGLShaderManager.cpp", __LINE__);
+		}
 		glDeleteShader(vertexShader);
 		glDeleteShader(fragmentShader);
 		glDeleteProgram(program);

@@ -144,7 +144,7 @@
     <ClCompile Include="Engine\Core\Level.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\MeshLoader.cpp">
+    <ClCompile Include="Engine\Core\AssetLoader.cpp">
       <Filter>Renderers</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Core\TextureLoader.cpp">
@@ -223,6 +223,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Apple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\FVector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\IVector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Math\IVector3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\LevelGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -326,7 +341,7 @@
     <ClInclude Include="Engine\Core\Level.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\MeshLoader.h">
+    <ClInclude Include="Engine\Core\AssetLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core\TextureLoader.h">
@@ -419,9 +434,6 @@
     <ClInclude Include="Engine\FX\LightSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\FX\LightInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\FX\DirectionalLight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -429,6 +441,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Apple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\FVector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\IVector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Math\IVector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\LevelGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

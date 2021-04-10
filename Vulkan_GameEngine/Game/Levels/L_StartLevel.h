@@ -1,7 +1,7 @@
 #ifndef L_STARTLEVEL_H
 #define L_STARTLEVEL_H
 #include "Level.h"
-class L_StartLevel : public O_Level
+class L_StartLevel : public L_Level
 {
 public:
 	L_StartLevel();

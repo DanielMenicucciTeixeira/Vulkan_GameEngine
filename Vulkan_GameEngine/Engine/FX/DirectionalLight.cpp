@@ -4,7 +4,7 @@
 #include "LightSourceComponent.h"
 #include "Level.h"
 
-GO_DirectionalLight::GO_DirectionalLight(O_Level* level) : GO_LightSource(level)
+GO_DirectionalLight::GO_DirectionalLight(L_Level* level, std::string name) : GO_LightSource(level, name)
 {
 	SetRoot(AddComponentOfClass<C_DirectionalLightComponent>());
 	RemoveComponent(Light);

@@ -10,13 +10,14 @@
 
 struct S_LightInfo;
 
-struct S_RenderData
+/*struct S_RenderData
 {
 	std::unordered_map<S_Mesh*, std::set<S_Material*>> MeshToMaterialMap;
 	std::unordered_map<S_Material*, std::vector<FMatrix4*>> MaterialToModelMap;
 	std::set<FMatrix4*> Models;
 	std::set<S_Texture*> Textures;
-	std::set<S_LightInfo*> LightSources;
+	std::vector<FMatrix4>* LightSources;
+	inline std::vector<FMatrix4>& GetLightSources() { return *LightSources; }
 	UniformCameraObject* Camera;
 
 	void LoadGameObject(O_GameObject* gameObject)
@@ -30,6 +31,6 @@ struct S_RenderData
 			if (staticMesh->GetTextureSpecular()) Textures.insert(staticMesh->GetTextureSpecular());
 		}
 	}
-};
+};*/
 #endif // !RENDERINITIALIZATIONDATA_H
 

@@ -14,7 +14,7 @@
 class Clock;
 class O_Object;
 class O_GameObject;
-class O_Level;
+class L_Level;
 class Renderer;
 class SDLManager;
 struct S_RenderData;
@@ -45,6 +45,7 @@ public:
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(Game*, SDL_Event*));
 	inline static void QuitGame(Game* self, SDL_Event* event) { self->SetRunning(false); }
+	static void QuitEngine(Game* self, SDL_Event* event);
 	Renderer* GetRenderer();
 
 	void SetPause(const bool& pause);
@@ -58,9 +59,9 @@ public:
 	template<class levelClass>
 	bool StartNewLevel()
 	{
-		static_assert(std::is_base_of<O_Level, levelClass>::value, "levelClass must derive from O_Level!");
+		static_assert(std::is_base_of<L_Level, levelClass>::value, "levelClass must derive from O_Level!");
 		auto nextLevel = new levelClass;
-		if (dynamic_cast<O_Level*>(nextLevel))
+		if (dynamic_cast<L_Level*>(nextLevel))
 		{
 			NextLevel = nextLevel;
 			ShouldStartNewLevel = true;
@@ -74,7 +75,7 @@ public:
 
 	//Getters
 
-	inline O_Level* GetCurrentLevel() { return CurrentLevel; }
+	inline L_Level* GetCurrentLevel() { return CurrentLevel; }
 	inline SDLManager* GetInterfaceManager();
 	float GetTimeSeconds();
 	float GetDeltaTimeSeconds();
@@ -87,8 +88,8 @@ protected:
 	void CleanUp();
 
 	Clock* GameClock;
-	O_Level* CurrentLevel;
-	O_Level* NextLevel;
+	L_Level* CurrentLevel;
+	L_Level* NextLevel;
 	Renderer* GameRenderer;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(Game*, SDL_Event*)> GameInputFunctions;

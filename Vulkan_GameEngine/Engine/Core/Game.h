@@ -24,16 +24,16 @@ union SDL_Event;
 typedef uint32_t sdlEventType;
 typedef int32_t sdlKeycode;
 
-class Game
+class BaseGame
 {
 public:
-	Game();
-	virtual ~Game();
+	BaseGame();
+	virtual ~BaseGame();
 
-	Game(const Game&) = delete;
-	Game(Game&&) = delete;
-	Game& operator=(const Game&) = delete;
-	Game& operator=(Game&&) = delete;
+	BaseGame(const BaseGame&) = delete;
+	BaseGame(BaseGame&&) = delete;
+	BaseGame& operator=(const BaseGame&) = delete;
+	BaseGame& operator=(BaseGame&&) = delete;
 
 	virtual bool Initialize(Renderer* gameRenderer);
 	virtual void HandleEvents();
@@ -43,9 +43,9 @@ public:
 	//Using a pair of the SDL_Event type and keycode (uint32_t, int32_t respectively), map a function pointer to the GameInputFunctions map.
 	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
-	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(Game*, SDL_Event*));
-	inline static void QuitGame(Game* self, SDL_Event* event) { self->SetRunning(false); }
-	static void QuitEngine(Game* self, SDL_Event* event);
+	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(BaseGame*, SDL_Event*));
+	inline static void QuitGame(BaseGame* self, SDL_Event* event) { self->SetRunning(false); }
+	static void QuitEngine(BaseGame* self, SDL_Event* event);
 	Renderer* GetRenderer();
 
 	void SetPause(const bool& pause);
@@ -92,7 +92,7 @@ protected:
 	L_Level* NextLevel;
 	Renderer* GameRenderer;
 
-	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(Game*, SDL_Event*)> GameInputFunctions;
+	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(BaseGame*, SDL_Event*)> GameInputFunctions;
 
 	unsigned int FramesPerSecond;
 	bool Paused;

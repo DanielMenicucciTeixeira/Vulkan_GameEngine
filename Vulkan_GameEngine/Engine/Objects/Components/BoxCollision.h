@@ -20,7 +20,7 @@ public:
 	void SetBoxExtent(FVector3 extent);
 
 	C_BoxCollision(O_GameObject* owner);
-	~C_BoxCollision();
+	virtual ~C_BoxCollision();
 };
 #endif
 

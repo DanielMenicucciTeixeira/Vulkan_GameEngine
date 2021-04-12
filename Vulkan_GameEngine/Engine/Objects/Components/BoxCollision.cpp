@@ -47,7 +47,5 @@ C_BoxCollision::C_BoxCollision(O_GameObject* owner) : C_CollisionComponent(owner
 
 C_BoxCollision::~C_BoxCollision()
 {
-	C_CollisionComponent::~C_CollisionComponent();
-
 	if (CollisionBox) delete(CollisionBox);
 }

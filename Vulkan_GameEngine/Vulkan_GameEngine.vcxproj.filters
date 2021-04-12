@@ -240,6 +240,18 @@
     <ClCompile Include="Engine\Objects\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Event\EventHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Pawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\BoundingBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\SDL\SDLEventHandler.h">
@@ -347,10 +359,10 @@
     <ClInclude Include="Engine\Core\TextureLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\Vertex.h">
+    <ClInclude Include="Engine\Renderers\Vertex.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\UniformBufferObject.h">
+    <ClInclude Include="Engine\Renderers\UniformBufferObject.h">
       <Filter>Renderers</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\TransformComponent.h">
@@ -453,6 +465,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core\LevelGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Event\EventHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Pawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\Components\BoundingBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

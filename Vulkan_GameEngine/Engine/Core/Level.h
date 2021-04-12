@@ -11,7 +11,7 @@
 
 class LevelGraph;
 class C_CollisionComponent;
-class Game;
+class BaseGame;
 class C_CameraComponent;
 class FMatrix4;
 struct S_Mesh;
@@ -25,7 +25,7 @@ public:
 	L_Level();
 	virtual ~L_Level();
 
-	virtual bool Initialize(Game* game);
+	virtual bool Initialize(BaseGame* game);
 	virtual void Start();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
@@ -46,7 +46,6 @@ public:
 		}
 		dynamic_cast<O_GameObject*>(gameObject)->SetTransform(transform);
 		UnloadedObjects.insert(gameObject);
-		dynamic_cast<O_GameObject*>(gameObject)->Start();
 		return gameObject;
 	}
 
@@ -81,7 +80,7 @@ protected:
 	bool ChangeCamera();
 	std::set<O_Object*> UnloadedObjects;
 	std::vector<C_CollisionComponent*> Colliders;
-	Game* CurrentGame;
+	BaseGame* CurrentGame;
 	C_CameraComponent* NextCamera;
 
 	std::set<std::string> ModelPaths;

@@ -24,7 +24,7 @@ GO_Apple::~GO_Apple()
 
 void GO_Apple::Start()
 {
-	SetRotation(FQuaternion({ 1, 0, 0 }, -90));
+	SetRotation(FQuaternion({ 1, 0, 0 }, -90.0f));
 	Movement->SetAngularVelocity(FVector3(0.0f, 1.0f, 0.0f));
 	O_GameObject::Start();
 }

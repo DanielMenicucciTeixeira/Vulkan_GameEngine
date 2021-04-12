@@ -247,5 +247,4 @@ C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType c
 
 C_CollisionComponent::~C_CollisionComponent()
 {
-	C_TransformComponent::~C_TransformComponent();
 }

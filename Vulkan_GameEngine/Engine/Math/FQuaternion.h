@@ -13,6 +13,7 @@ public:
 	inline FQuaternion(const FVector4& vector) : FVector4(vector) {}
 	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
 	FQuaternion(const FVector3& axis, float angle, bool isRotation = true, bool inRadians = false);
+	FQuaternion(const FVector3& euler, bool inRadians = false);
 
 	//Overloaded Operators
 	FQuaternion operator* (const FQuaternion& quaternion) const;

@@ -22,7 +22,7 @@ protected:
 	FVector3* AngularVelocityBuffer;
 public:
 	C_MovementComponent(O_GameObject* owner);
-	~C_MovementComponent();
+	virtual ~C_MovementComponent();
 
 	void Update(const float deltaTime) override;
 

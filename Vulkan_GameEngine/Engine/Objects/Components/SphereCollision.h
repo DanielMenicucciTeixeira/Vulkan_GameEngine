@@ -23,7 +23,7 @@ public:
 	bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 
 	C_SphereCollision(O_GameObject* owner);
-	~C_SphereCollision();
+	virtual ~C_SphereCollision();
 };
 #endif
 

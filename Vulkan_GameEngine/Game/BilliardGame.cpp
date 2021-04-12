@@ -2,7 +2,7 @@
 #include "Renderers/RenderObject.h"
 #include "BilliardLevel.h"
 
-BilliardGame::BilliardGame() : Game()
+BilliardGame::BilliardGame() : BaseGame()
 {
 	/*
 	CurrentLevel = new L_BilliardLevel(this);

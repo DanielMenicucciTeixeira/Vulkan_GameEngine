@@ -8,6 +8,7 @@ struct S_Material;
 struct S_Texture;
 struct FTransform;
 class FMatrix4;
+class C_BoundingBox;
 
 class C_StaticMeshComponent : public C_RenderableComponent
 {
@@ -15,7 +16,7 @@ public:
 	virtual void Start() override;
 	virtual void Update(const float deltaTime) override;
 	C_StaticMeshComponent(O_GameObject* owner);
-	~C_StaticMeshComponent();
+	virtual ~C_StaticMeshComponent();
 
 	///Getters
 	inline FMatrix4* GetModelMatrix() const { return ModelMatrix; }
@@ -33,7 +34,10 @@ public:
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 
 protected:
+	void UpdateModelMatrix();
+
 	FMatrix4* ModelMatrix;
+	C_BoundingBox* Box;
 
 	S_Mesh* Mesh = nullptr;
 	std::string MeshName;

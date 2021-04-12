@@ -7,7 +7,7 @@
 
 C_TransformComponent::C_TransformComponent(O_GameObject* owner) : O_Component(owner)
 {
-	Transform = new FTransform();
+	if(!Transform) Transform = new FTransform();
 }
 
 FTransform C_TransformComponent::GetComponentTransform() const
@@ -43,8 +43,12 @@ FTransform C_TransformComponent::GetComponentAbsoluteTransform() const
 
 FVector3 C_TransformComponent::GetComponentAbsolutePosition() const
 {
-	if (this == Owner->GetRoot()) return GetComponentPosition();
-	else return Owner->GetPosition() + GetComponentPosition();
+	if (this != Owner->GetRoot())
+	{
+		
+		return GetComponentPosition() + Owner->GetPosition();
+	}
+	else return GetComponentPosition();
 }
 
 FQuaternion C_TransformComponent::GetComponentAbsoluteRotation() const
@@ -56,7 +60,16 @@ FQuaternion C_TransformComponent::GetComponentAbsoluteRotation() const
 FVector3 C_TransformComponent::GetComponentAbsoluteScale() const
 {
 	if (this == Owner->GetRoot()) return GetComponentScale();
-	else return Owner->GetScale() + GetComponentScale();
+	else
+	{
+		auto newScale = GetComponentScale();
+		auto ownerScale = Owner->GetScale();
+		newScale.X *= ownerScale.X;
+		newScale.Y *= ownerScale.Y;
+		newScale.Z *= ownerScale.Z;
+
+		return newScale;
+	}
 }
 
 void C_TransformComponent::SetComponentTransform(const FTransform& transform)

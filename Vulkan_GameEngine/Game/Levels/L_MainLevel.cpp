@@ -14,6 +14,7 @@
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/MovementComponent.h"
+#include "Pawn.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -23,7 +24,7 @@ L_MainLevel::L_MainLevel() : L_Level()
 	Name = "MainLevel";
 }
 
-bool L_MainLevel::Initialize(Game* game)
+bool L_MainLevel::Initialize(BaseGame* game)
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
@@ -96,17 +97,30 @@ void L_MainLevel::Start()
 	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(0.0f, 3.0f, -3.0f), FQuaternion(), FVector3(1.0f)));
 	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(3.0f, -3.0f, -6.0f), FQuaternion(), FVector3(1.0f)));*/
 	//SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
-	SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
+	
+	SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(0, 0, 0), FQuaternion(), FVector3(1)));
+
 	auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
 	auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
 	mesh->SetMeshName("Box001");
 	mesh->SetMaterialName("M_diceTexture");
+	mesh->AddTag("Main");
+
+
+	auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();
+	att->SetMeshName("Box001");
+	att->SetMaterialName("M_diceTexture");
+	att->SetComponentScale({ .8f, .8f, .8f });
+	att->SetComponentPosition({ 2.5f, 0.0f, 0.0f });
+	att->AddTag("Attached");
+	att->SetComponentRotation(FQuaternion({ 1.0f, 0.0f, 0.0f }, -90.0f));
+	
 	auto movement = dice->AddComponentOfClass<C_MovementComponent>();
 	movement->SetAngularVelocity({ 0.0f, 1.0f, 0.0f });
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
-	auto red = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(3.0f, 3.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
-	auto green = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(7.0f, 7.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
+	auto red = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(3.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
+	auto green = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(3.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
 	auto blue = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(-3.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
 
 	red->SetColour({ 1, 1, 1 });
@@ -121,13 +135,15 @@ void L_MainLevel::Start()
 	//blue->SetIntensity(0.5);
 
 
-	sun->SetColour({ 1, 1, 1 });
-	sun->SetIntensity(1);
+	sun->SetColour({ 0.2, 0.2, 0.2 });
+	sun->SetIntensity(1.0);
 	sun->SetAmbientMultiplier(0);
 	sun->SetSpecularMultiplier(0.5);
-	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90));
+	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
 	sun->SetTurnedOn(true);
 
-	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 20.0f), FQuaternion(), FVector3()));
+	auto pawn = SpawnGameObjectOfClass<GO_Pawn>();
+	pawn->SetPosition({ 0.0f, 0.0f, 5.0f });
+	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
 	L_Level::Start();
 }

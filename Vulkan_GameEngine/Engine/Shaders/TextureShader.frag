@@ -58,6 +58,7 @@ void main()
 		if(Lights.InfoMatrix[index][3].y > 0)
 		{
 			if(Lights.InfoMatrix[index][3].x == 1) intensity = 1/pow(distance(Lights.InfoMatrix[index][0].xyz, FragPosition), 2);
+			else intensity = 1;
 
 			if(Lights.InfoMatrix[index][3].x == 2) lightDirection = Lights.InfoMatrix[index][0].xyz;
 			else lightDirection = normalize(Lights.InfoMatrix[index][0].xyz - FragPosition);

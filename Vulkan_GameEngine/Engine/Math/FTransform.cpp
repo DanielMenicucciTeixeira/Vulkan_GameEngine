@@ -22,7 +22,7 @@ FTransform::FTransform(const FVector3& position, const FQuaternion& rotation, co
 {
 	Position = new FVector3(position);
 	Rotation = new FQuaternion(rotation);
-	Scale = new FVector3(scale);;
+	Scale = new FVector3(scale);
 }
 
 FTransform::~FTransform()
@@ -35,6 +35,7 @@ FTransform::~FTransform()
 FMatrix4 FTransform::GetModelMatrix() const
 {
 	return (FMatrix4::GetTranslationMatrix(*Position) * FMatrix4::GetRotationMatrix(*Rotation) * FMatrix4::GetScalingMatrix(*Scale));
+	//return (FMatrix4::GetScalingMatrix(*Scale) * FMatrix4::GetRotationMatrix(*Rotation) * FMatrix4::GetTranslationMatrix(*Position));
 }
 
 void FTransform::operator=(const FTransform& transform)

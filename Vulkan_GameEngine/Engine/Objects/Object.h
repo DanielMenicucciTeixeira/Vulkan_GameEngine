@@ -5,6 +5,7 @@
 #include <string>
 
 class L_Level;
+union SDL_Event;
 
 class O_Object
 {
@@ -17,11 +18,11 @@ public:
 	bool UpdateWhenPaused = false;
 
 	///Tag Functions
-	inline std::set<std::string> GetTags() const { return Tags; }
-	inline bool HasTag(std::string tag) const { return Tags.count(tag); }
-	void AddTag(const std::string& tag);
-	void RemoveTag(const std::string& tag);
-	void RemoveAllTags();
+	inline const std::set<std::string>& GetTags() const { return Tags; }
+	virtual bool HasTag(std::string tag) const;
+	virtual void AddTag(const std::string& tag);
+	virtual void RemoveTag(const std::string& tag);
+	virtual void RemoveAllTags();
 	inline L_Level* GetLevel() const { return Level; }
 	inline const std::string GetName() const { return Name; }
 

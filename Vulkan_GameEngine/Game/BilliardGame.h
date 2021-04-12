@@ -1,6 +1,6 @@
 #pragma once
 #include "Game.h"
-class BilliardGame : public Game
+class BilliardGame : public BaseGame
 {
 public:
 	BilliardGame();

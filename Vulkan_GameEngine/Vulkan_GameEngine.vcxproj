@@ -159,6 +159,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
+    <ClCompile Include="Engine\Event\EventHandler.cpp" />
     <ClCompile Include="Engine\FX\DirectionalLightComponent.cpp" />
     <ClCompile Include="Engine\FX\DirectionalLight.cpp" />
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Engine\Math\FVector2.cpp" />
     <ClCompile Include="Engine\Math\IVector2.cpp" />
     <ClCompile Include="Engine\Math\IVector3.cpp" />
+    <ClCompile Include="Engine\Objects\Components\BoundingBox.cpp" />
     <ClCompile Include="Engine\Objects\Object.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
@@ -208,6 +210,8 @@
     <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp" />
     <ClCompile Include="Game\GO_Camera.cpp" />
     <ClCompile Include="Engine\FX\LightSource.cpp" />
+    <ClCompile Include="Game\Pawn.cpp" />
+    <ClCompile Include="MouseHandler.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -222,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Core\LevelGraph.h" />
+    <ClInclude Include="Engine\Event\EventHandler.h" />
     <ClInclude Include="Engine\FX\DirectionalLightComponent.h" />
     <ClInclude Include="Engine\FX\DirectionalLight.h" />
     <ClInclude Include="Engine\FX\LightSourceComponent.h" />
@@ -232,6 +237,7 @@
     <ClInclude Include="Engine\Math\FVector2.h" />
     <ClInclude Include="Engine\Math\IVector2.h" />
     <ClInclude Include="Engine\Math\IVector3.h" />
+    <ClInclude Include="Engine\Objects\Components\BoundingBox.h" />
     <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />
@@ -275,6 +281,8 @@
     <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h" />
     <ClInclude Include="Game\GO_Camera.h" />
     <ClInclude Include="Engine\FX\LightSource.h" />
+    <ClInclude Include="Game\Pawn.h" />
+    <ClInclude Include="MouseHandler.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />
@@ -284,8 +292,8 @@
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h" />
     <ClInclude Include="Engine\Core\TextureLoader.h" />
     <ClInclude Include="Engine\Objects\Components\TransformComponent.h" />
-    <ClInclude Include="Engine\Core\UniformBufferObject.h" />
-    <ClInclude Include="Engine\Core\Vertex.h" />
+    <ClInclude Include="Engine\Renderers\UniformBufferObject.h" />
+    <ClInclude Include="Engine\Renderers\Vertex.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanDebugger.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanDevices.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanManager.h" />

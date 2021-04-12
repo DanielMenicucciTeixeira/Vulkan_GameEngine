@@ -9,7 +9,7 @@ class L_MainLevel : public L_Level
 {
 public:
 	L_MainLevel();
-	virtual bool Initialize(Game* game) override;
+	virtual bool Initialize(BaseGame* game) override;
 	virtual void Start() override;
 	virtual void Update(float deltaTime) override;
 	virtual void Render() override;

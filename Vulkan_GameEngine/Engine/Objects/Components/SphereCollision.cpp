@@ -65,7 +65,5 @@ C_SphereCollision::C_SphereCollision(O_GameObject* owner) : C_CollisionComponent
 
 C_SphereCollision::~C_SphereCollision()
 {
-	C_CollisionComponent::~C_CollisionComponent();
-
 	if (CollisionSphere) delete(CollisionSphere);
 }

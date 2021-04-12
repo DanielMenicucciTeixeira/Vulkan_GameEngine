@@ -20,7 +20,7 @@ L_Level::~L_Level()
 {
 }
 
-bool L_Level::Initialize(Game* game)
+bool L_Level::Initialize(BaseGame* game)
 {
 	if (!game) return false;
 	LoadModels();
@@ -33,7 +33,6 @@ bool L_Level::Initialize(Game* game)
 void L_Level::Start()
 {
 	ReloadLevelObjects();
-	for (const auto& object : LevelGraph::GetInstance()->GetObjects()) object.second->Start();
 	CheckForCamera();
 }
 
@@ -97,6 +96,7 @@ void L_Level::LoadLevelObjects()
 			}
 		}
 		LevelGraph::GetInstance()->AddObject(object);
+		gameObject->Start();
 	}
 	CurrentGame->GetRenderer()->UpdateWithNewObjects();
 	if (UnloadedObjects.size() > 0)

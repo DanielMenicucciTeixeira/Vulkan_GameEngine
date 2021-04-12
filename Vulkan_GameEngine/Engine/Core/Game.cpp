@@ -6,22 +6,23 @@
 #include "Renderers/Renderer.h"
 #include "LevelGraph.h"
 #include "CoreEngine.h"
+#include "Event/EventHandler.h"
 
 #include <SDL.h>
 
 #include <iostream>
 #include <stdexcept>
 
-Game::Game() : Running(false), Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
+BaseGame::BaseGame() : Running(false), Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
 {
 	
 }
 
-Game::~Game()
+BaseGame::~BaseGame()
 {
 }
 
-bool Game::Initialize(Renderer* gameRenderer)
+bool BaseGame::Initialize(Renderer* gameRenderer)
 {
 	if (!CurrentLevel)
 	{
@@ -42,7 +43,7 @@ bool Game::Initialize(Renderer* gameRenderer)
 	return true;
 }
 
-void Game::HandleEvents()
+void BaseGame::HandleEvents()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
@@ -79,24 +80,24 @@ void Game::HandleEvents()
 	}
 }
 
-void Game::Update(const float deltaTime)
+void BaseGame::Update(const float deltaTime)
 {
 	if(CurrentLevel) CurrentLevel->Update(deltaTime);//Remove the extra check at every frame
 }
 
-void Game::Render()
+void BaseGame::Render()
 {
 	if (CurrentLevel) CurrentLevel->Render();
 }
 
-void Game::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void(*function)(Game*, SDL_Event*))
+void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void(*function)(BaseGame*, SDL_Event*))
 {
 	//If the event is not key realted, mark the keycode as Unknown
-	if (
-		eventType != SDL_KEYUP && eventType != SDL_KEYDOWN &&
-		eventType != SDL_MOUSEBUTTONUP && eventType != SDL_MOUSEBUTTONDOWN &&
-		eventType != SDL_CONTROLLERBUTTONUP && eventType != SDL_CONTROLLERBUTTONDOWN
-		)
+	if (!(
+		eventType == SDL_KEYUP || eventType == SDL_KEYDOWN ||
+		eventType == SDL_MOUSEBUTTONUP || eventType == SDL_MOUSEBUTTONDOWN ||
+		eventType == SDL_CONTROLLERBUTTONUP || eventType == SDL_CONTROLLERBUTTONDOWN
+		))
 	{
 		keycode = SDLK_UNKNOWN;
 	}
@@ -105,48 +106,48 @@ void Game::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
-void Game::QuitEngine(Game* self, SDL_Event* event)
+void BaseGame::QuitEngine(BaseGame* self, SDL_Event* event)
 {
 	self->SetRunning(false);
 	CoreEngine::GetInstance()->Quit(event);
 }
 
-Renderer* Game::GetRenderer()
+Renderer* BaseGame::GetRenderer()
 {
 	return GameRenderer;
 }
 
-void Game::SetPause(const bool& pause)
+void BaseGame::SetPause(const bool& pause)
 {
 	Paused = pause;
 }
 
-inline SDLManager* Game::GetInterfaceManager()
+inline SDLManager* BaseGame::GetInterfaceManager()
 {
 	return SDLManager::GetInstance();
 }
 
-float Game::GetTimeSeconds()
+float BaseGame::GetTimeSeconds()
 {
 	return GameClock->GetTimeSeconds();
 }
 
-float Game::GetDeltaTimeSeconds()
+float BaseGame::GetDeltaTimeSeconds()
 {
 	return GameClock->GetDeltaTimeSeconds();
 }
 
-float Game::GetDeltaTimeMiliseconds()
+float BaseGame::GetDeltaTimeMiliseconds()
 {
 	return GameClock->GetDeltaTimeMiliSecods();
 }
 
-float Game::GetSleepTime()
+float BaseGame::GetSleepTime()
 {
 	return GameClock->GetSleepTime(FramesPerSecond);
 }
 
-void Game::SetCurrentLevel()
+void BaseGame::SetCurrentLevel()
 {
 	if (CurrentLevel)
 	{
@@ -165,7 +166,7 @@ void Game::SetCurrentLevel()
 	ShouldStartNewLevel = false;
 }
 
-void Game::CleanUp()
+void BaseGame::CleanUp()
 {
 	//InterfaceManager->End();
 	if (GameClock) delete(GameClock);
@@ -178,19 +179,14 @@ void Game::CleanUp()
 	NextLevel = nullptr;
 }
 
-int Game::Run()
+int BaseGame::Run()
 {
-	/*
-	UniformCameraObject* camera = new UniformCameraObject();
-	camera->View.SetToLookAtMatrix(FVector3(0.0f, 0.0f, 8.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
-	camera->Projection.SetToPerspectiveMatrix(0.0f, 800.0f / 600.0f, 0.1f, 10.0f);
-	RenderData->Camera = camera;
-	*/
 	GameClock->StartClock();
+	
 	try
 	{
 		CurrentLevel->Start();
-		//GameRenderer->Initialize(RenderData);
+		EventHandler::Initialize();
 		while (Running)
 		{
 			if (ShouldStartNewLevel)
@@ -199,27 +195,17 @@ int Game::Run()
 			}
 			if (!CurrentLevel->CheckForCamera()) break;
 			GameClock->UpdateClock();
-			HandleEvents();
+			EventHandler::HandleEvents();
 			Update(GameClock->GetDeltaTimeSeconds());
 			Render();
-			/*
-			int w, h;
-			SDL_GetWindowSize(InterfaceManager->GetSDLWindowByName(), &w, &h);
-			camera->View.SetToLookAtMatrix(FVector3(0.0f, -4.0, 4.0f), FVector3(0.0f, 0.0f, 0.0f), FVector3(0.0f, 0.0f, 1.0f));
-			camera->Projection.SetToPerspectiveMatrix(60.0f, (float)w / (float)h, 0.1f, 20.0f);
-			GameRenderer->Render();
-			*/
 			SDL_Delay(GameClock->GetSleepTime(FramesPerSecond));
 		}
 		CleanUp();
 		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);
-		//GameRenderer->CleanUp();
 	}
 	catch (const std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 		return EXIT_FAILURE;
 	}
-
-	//InterfaceManager->End();
 }

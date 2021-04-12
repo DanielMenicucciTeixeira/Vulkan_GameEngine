@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <iostream>
 #include <cstdlib>
+#include <set>
 
 void printUp(SDL_Event* event) { printf("Key up!\n"); }
 void printDown(SDL_Event* event) { printf("Key down!\n"); }
@@ -17,7 +18,7 @@ int main(int argc, char* argv[])
 	std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
 
-	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), VULKAN))
+	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), OPEN_GL))
 	{
 		printf("Failed to create Engine!");
 		return 0;
@@ -31,7 +32,6 @@ int main(int argc, char* argv[])
 
 	G_Game01* game = new G_Game01();
 	CoreEngine::GetInstance()->SetGame(game);
-
 	CoreEngine::GetInstance()->Run();
 	return 0;
 }

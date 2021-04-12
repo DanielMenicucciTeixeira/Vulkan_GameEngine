@@ -10,7 +10,7 @@
 #include "VulkanDevices.h"
 #include "VulkanPipelineManager.h"
 #include "VulkanSwapchainManager.h"
-#include "Vertex.h"
+#include "Renderers/Vertex.h"
 
 //Vulkan API includes
 #include <vulkan/vulkan.h>

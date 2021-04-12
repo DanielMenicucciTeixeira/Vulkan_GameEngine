@@ -29,6 +29,27 @@ FQuaternion::FQuaternion(const FVector3& axis, float angle, bool isRotation, boo
 	}
 }
 
+FQuaternion::FQuaternion(const FVector3& euler, bool inRadians)
+{
+	FVector3 vector;
+	if (!inRadians) vector = euler * M_PI / 180;
+	else vector = euler;
+	// Abbreviations for the various angular functions
+	double cy = cos(vector.Z * 0.5);
+	double sy = sin(vector.Z * 0.5);
+	double cp = cos(vector.Y * 0.5);
+	double sp = sin(vector.Y * 0.5);
+	double cr = cos(vector.X * 0.5);
+	double sr = sin(vector.X * 0.5);
+
+	W = cr * cp * cy + sr * sp * sy;
+	X = sr * cp * cy - cr * sp * sy;
+	Y = cr * sp * cy + sr * cp * sy;
+	Z = cr * cp * sy - sr * sp * cy;
+
+	Normalize();
+}
+
 FQuaternion FQuaternion::operator*(const FQuaternion& quaternion) const
 {
 	FVector3 vector0 = FVector3(X, Y, Z);

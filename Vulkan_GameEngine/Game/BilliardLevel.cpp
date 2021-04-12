@@ -8,7 +8,7 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Game.h"
 
-L_BilliardLevel::L_BilliardLevel(Game* game) : L_Level()
+L_BilliardLevel::L_BilliardLevel(BaseGame* game) : L_Level()
 {
 }
 
@@ -24,7 +24,7 @@ void L_BilliardLevel::Start()
 		for (int j = 0; j <= i; j++)
 		{
 			displacement = (row * i) + (colunm * (-i + (2.0f * j)));
-			Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(initialPosition + displacement, FQuaternion(FVector3(0.0f, 0.0f, 1.0f), -45), FVector3(0.5, 0.5, 0.5))));
+			Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(initialPosition + displacement, FQuaternion(FVector3(0.0f, 0.0f, 1.0f), -45.0f), FVector3(0.5, 0.5, 0.5))));
 		}
 	}
 	Balls.push_back(SpawnGameObjectOfClass<GO_BilliardBall>(FTransform(FVector3(0.0f, -4.0f, 0.0f), FQuaternion(), FVector3(0.5, 0.5, 0.5))));

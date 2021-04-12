@@ -7,6 +7,7 @@
 #include "Clock.h"
 #include "DebugLogger.h"
 #include "Game.h"
+#include "Event/EventHandler.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -22,6 +23,25 @@ bool CoreEngine::StartGame()
 		return  RunningGame = false;
 	}
 	return RunningGame = true;
+}
+
+bool CoreEngine::AddGameEvent(const char* eventName)
+{
+	
+	return false;
+}
+
+bool CoreEngine::RemoveGameEvent(const char* eventName)
+{
+	return false;
+}
+
+void CoreEngine::AddInputsToGameEvent(const char* eventName, std::set<SDL_Event> events)
+{
+}
+
+void CoreEngine::RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_Event> events)
+{
 }
 
 CoreEngine::CoreEngine() : EngineWindow(nullptr), RunningEngine(false), RunningGame(false), InterfaceManager(nullptr), EngineRenderer(nullptr), EngineClock(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr)
@@ -64,6 +84,9 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	default:
 		EngineRenderer = new OpenGLManager();
 	}
+
+	EventHandler::AddEvent("Quit Game");
+	EventHandler::AddInputToEvent("Quit Game", SDL_KEYDOWN, SDLK_q);
 
 	return RunningEngine = true;
 }

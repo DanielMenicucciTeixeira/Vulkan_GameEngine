@@ -470,7 +470,8 @@ FMatrix4 FMatrix4::GetRotationMatrix(const FQuaternion& rotation)
 		rotation.X, rotation.Y, rotation.Z, rotation.W
 	);
 
-	return matrixA * matrixB;
+	auto check = matrixA * matrixB;
+	return check;
 }
 
 void FMatrix4::SetToRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian)

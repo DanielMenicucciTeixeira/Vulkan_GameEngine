@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <map>
+#include <set>
 
 typedef uint32_t sdlEventType;
 typedef int32_t sdlKeycode;
@@ -11,7 +12,7 @@ class SDLManager;
 class Window;
 class Clock;
 class Renderer;
-class Game;
+class BaseGame;
 class L_Level;
 enum ERendererType;
 union SDL_Event;
@@ -39,7 +40,8 @@ public:
 	inline Renderer* GetRenderer() { return EngineRenderer; }
 	inline bool IsRunningEngine() const { return RunningEngine; }
 	inline bool IsRunningGame() const { return RunningGame; }
-	inline void SetGame(Game* game) { CurrentGame = game; }
+	inline void SetGame(BaseGame* game) { CurrentGame = game; }
+	inline BaseGame* GetGame() { return CurrentGame; }
 
 	//Using a pair of the SDL_Event type and keycode (uint32_t, int32_t respectively), map a function pointer to the EngineInputFunctions map.
 	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
@@ -57,11 +59,16 @@ protected:
 	inline void StopEngine() { RunningEngine = false; }
 	inline void StopGame() { RunningGame = false; }
 
+	bool AddGameEvent(const char* eventName);
+	bool RemoveGameEvent(const char* eventName);
+	void AddInputsToGameEvent(const char* eventName, std::set<SDL_Event> events);
+	void RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_Event> events);
+
 	Renderer* EngineRenderer;
 	SDLManager* InterfaceManager;
 	Window* EngineWindow;
 	Clock* EngineClock;
-	Game* CurrentGame;
+	BaseGame* CurrentGame;
 	L_Level* StartingLevel;
 	unsigned int FramesPerSecond;
 	bool RunningEngine;

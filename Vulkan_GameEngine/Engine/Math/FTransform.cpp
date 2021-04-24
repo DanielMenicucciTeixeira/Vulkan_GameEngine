@@ -35,7 +35,7 @@ FTransform::~FTransform()
 FMatrix4 FTransform::GetModelMatrix() const
 {
 	return (FMatrix4::GetTranslationMatrix(*Position) * FMatrix4::GetRotationMatrix(*Rotation) * FMatrix4::GetScalingMatrix(*Scale));
-	//return (FMatrix4::GetScalingMatrix(*Scale) * FMatrix4::GetRotationMatrix(*Rotation) * FMatrix4::GetTranslationMatrix(*Position));
+	//return (FMatrix4::GetScalingMatrix(*Scale) * FMatrix4::GetTranslationMatrix(*Position) * FMatrix4::GetRotationMatrix(*Rotation) );
 }
 
 void FTransform::operator=(const FTransform& transform)

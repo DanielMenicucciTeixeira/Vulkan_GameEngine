@@ -49,13 +49,13 @@ bool L_MainLevel::Initialize(BaseGame* game)
 
 	auto Apple_Stem_Texture = new S_Texture();
 	Apple_Stem_Texture->Name = "Apple_Stem";
-	Apple_Stem_Texture->Path = "Assets/Textures/Apple_Stem.png";
+	Apple_Stem_Texture->Path = "./Assets/Textures/Apple_Stem.png";
 	LevelGraph::GetInstance()->AddTexture(Apple_Stem_Texture);
 	LoadTexture(Apple_Stem_Texture, Apple_Stem_Texture->Name);
 
 	auto Dice_Texture = new S_Texture();
 	Dice_Texture->Name = "diceTexture";
-	Dice_Texture->Path = "Assets/Textures/diceTexture.png";
+	Dice_Texture->Path = "./Assets/Textures/diceTexture.png";
 	LevelGraph::GetInstance()->AddTexture(Dice_Texture);
 	LoadTexture(Dice_Texture, Dice_Texture->Name);
 
@@ -105,15 +105,16 @@ void L_MainLevel::Start()
 	mesh->SetMeshName("Box001");
 	mesh->SetMaterialName("M_diceTexture");
 	mesh->AddTag("Main");
+	//mesh->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
 
 
 	auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();
 	att->SetMeshName("Box001");
 	att->SetMaterialName("M_diceTexture");
-	att->SetComponentScale({ .8f, .8f, .8f });
-	att->SetComponentPosition({ 2.5f, 0.0f, 0.0f });
+	att->SetComponentScale({ 1.0f, 1.0f, 1.0f });
+	att->SetComponentPosition({ 0.0f, 0.0f, 5.0f });
 	att->AddTag("Attached");
-	att->SetComponentRotation(FQuaternion({ 1.0f, 0.0f, 0.0f }, -90.0f));
+	//att->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
 	
 	auto movement = dice->AddComponentOfClass<C_MovementComponent>();
 	movement->SetAngularVelocity({ 0.0f, 1.0f, 0.0f });

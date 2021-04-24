@@ -569,6 +569,24 @@ FMatrix4 FMatrix4::GetTranslationMatrix(const FVector3& position)
 	return returnMatrix;
 }
 
+FMatrix4 FMatrix4::GetViewMatrix(const FQuaternion& rotation, const FVector3& position)
+{
+	FVector3 forward = rotation.GetForwardVector();
+	FVector3 right = rotation.GetRightVector();
+	FVector3 up = rotation.GetUpVector();
+
+	FMatrix4 result =
+		FMatrix4
+		(
+			forward.X, forward.Y, forward.Z, 0,
+			up.X, up.Y, up.Z, 0,
+			right.X, right.Y, right.Z, 0,
+			position.X, position.Y, position.Z, -1
+		);
+
+	return result;
+}
+
 //Swaps rows and Columns
 void FMatrix4::Transpose()
 {

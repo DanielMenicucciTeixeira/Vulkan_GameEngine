@@ -1,6 +1,7 @@
 #ifndef PAWN_H
 #define PAWN_H
 #include "Objects/GameObjects/GameObject.h"
+#include "Math/FVector3.h"
 
 class C_CameraComponent;
 class C_MovementComponent;
@@ -17,17 +18,28 @@ public:
 	C_StaticMeshComponent* Mesh;
 	inline void SetSpeed(float speed) { Speed = speed; }
 
+	void Update(float deltaTime) override;
+
 	static void MoveForward(O_Object* self, SDL_Event* event);
 	static void MoveBackwards(O_Object* self, SDL_Event* event);
 	static void StopMoving(O_Object* self, SDL_Event* event);
+	static void TurnRight(O_Object* self, SDL_Event* event);
+	static void TurnLeft(O_Object* self, SDL_Event* event);
+	static void StopTurning(O_Object* self, SDL_Event* event);
 	static void TurnCamera(O_Object* self, SDL_Event* event);
+	static void ZoomCamera(O_Object* self, SDL_Event* event);
 	void MoveForward(bool backwards);
 	void StopMoving();
+	void Turn(bool left);
+	void StopTurning();
 	void TurnCamera(FVector2 offset);
+	void ZoomCamera(float zoom);
 
 protected:
-	float Speed = 1.0f;
-	float TurnSpeed = 0.005f;
+	float Speed = 10.0f;
+	float CameraTurnSpeed = 0.005f;
+	float CameraZoomSpeed = 1.0f;
+	FVector3 CameraRotation;
 };
 #endif
 

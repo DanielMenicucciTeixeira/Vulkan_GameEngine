@@ -43,7 +43,7 @@ void C_MovementComponent::Update(const float deltaTime)//TODO implement rotation
 	{
 		FQuaternion result = FQuaternion(rotation.GetNormal(), rotation.Length() / 2.0 * M_PI, true, true);
 		result.Normalize();
-		Owner->SetRotation((result * Owner->GetRotation()).GetNormal());
+		Owner->SetRotation((Owner->GetRotation() * result).GetNormal());
 	}
 
 	*Velocity = *VelocityBuffer;

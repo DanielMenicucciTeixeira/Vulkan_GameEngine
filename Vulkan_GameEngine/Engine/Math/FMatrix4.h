@@ -113,6 +113,8 @@ public:
 	static FMatrix4 GetTranslationMatrix(const FVector3& position);
 	inline static FMatrix4 GetTranslationMatrix(const FVector3*& position) { return GetTranslationMatrix(*position); }
 
+	static FMatrix4 GetViewMatrix(const FQuaternion& rotation, const FVector3& position);
+
 	//Swaps rows and Columns
 	void Transpose();
 

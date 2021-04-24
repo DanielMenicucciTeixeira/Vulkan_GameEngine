@@ -9,9 +9,9 @@ class FQuaternion : public FVector4
 {
 public:
 
-	inline FQuaternion() { X = 1.0f;  Y = Z = 0; W = 1; }
-	inline FQuaternion(const FVector4& vector) : FVector4(vector) {}
-	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
+	inline FQuaternion() { X = Y = Z = 0; W = 1; Normalize(); }
+	inline FQuaternion(const FVector4& vector) : FVector4(vector) { Normalize(); }
+	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; Normalize();}
 	FQuaternion(const FVector3& axis, float angle, bool isRotation = true, bool inRadians = false);
 	FQuaternion(const FVector3& euler, bool inRadians = false);
 
@@ -30,9 +30,9 @@ public:
 	static FVector3 GetRotatedVector(const FVector3& vector, const FQuaternion& quaternion);
 	static FQuaternion SLerp(FQuaternion quaternion0, FQuaternion quaternion1, float t);
 	static float DotProduct(const FQuaternion& quaternion0, const FQuaternion& quaternion1);
-	FVector3 GetUpVector();
-	FVector3 GetForwardVector();
-	FVector3 GetRightVector();
+	FVector3 GetUpVector() const;
+	FVector3 GetForwardVector() const;
+	FVector3 GetRightVector() const;
 
 	~FQuaternion();
 };

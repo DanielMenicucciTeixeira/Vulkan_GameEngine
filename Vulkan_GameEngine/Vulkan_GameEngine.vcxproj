@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -107,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -125,7 +125,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core;D:\Dev\SDL2_image-2.0.5\VisualC\external\include;D:\Dev\tinyobjloader-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine;D:\Dev\stb-master;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game;D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine;D:\Dev\Libraries\glm;C:\GameDev\VulkanSDK\1.2.148.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

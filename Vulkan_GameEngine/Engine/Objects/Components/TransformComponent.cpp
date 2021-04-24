@@ -3,6 +3,7 @@
 #include "Math/FTransform.h"
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
+#include "Math/FMatrix4.h"
 #include "Objects/GameObjects/GameObject.h"
 
 C_TransformComponent::C_TransformComponent(O_GameObject* owner) : O_Component(owner)
@@ -45,8 +46,10 @@ FVector3 C_TransformComponent::GetComponentAbsolutePosition() const
 {
 	if (this != Owner->GetRoot())
 	{
-		
-		return GetComponentPosition() + Owner->GetPosition();
+		FMatrix4 transform = Owner->GetTransform().GetModelMatrix() * Transform->GetModelMatrix();
+		FVector3 position = FVector3(transform[3][0], transform[3][1], transform[3][2]);
+		//return GetComponentPosition() + Owner->GetPosition();
+		return position;
 	}
 	else return GetComponentPosition();
 }
@@ -54,7 +57,7 @@ FVector3 C_TransformComponent::GetComponentAbsolutePosition() const
 FQuaternion C_TransformComponent::GetComponentAbsoluteRotation() const
 {
 	if (this == Owner->GetRoot()) return GetComponentRotation();
-	else return Owner->GetRotation() + GetComponentRotation();
+	else return Owner->GetRotation() * GetComponentRotation();
 }
 
 FVector3 C_TransformComponent::GetComponentAbsoluteScale() const

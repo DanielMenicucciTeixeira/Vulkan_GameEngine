@@ -27,6 +27,8 @@ FQuaternion::FQuaternion(const FVector3& axis, float angle, bool isRotation, boo
 		Z = axis.Z;
 		W = angle;
 	}
+
+	Normalize();
 }
 
 FQuaternion::FQuaternion(const FVector3& euler, bool inRadians)
@@ -153,19 +155,19 @@ float FQuaternion::DotProduct(const FQuaternion& quaternion0, const FQuaternion&
 	return x + y + z + w;
 }
 
-FVector3 FQuaternion::GetUpVector()
+FVector3 FQuaternion::GetUpVector() const
 {
-	return GetRotatedVector(FVector3(0.0f, 0.0f, 1.0f), *this);
+	return GetRotatedVector(FVector3(0.0f, 1.0f, 0.0f), *this).GetNormal();
 }
 
-FVector3 FQuaternion::GetForwardVector()
+FVector3 FQuaternion::GetForwardVector() const
 {
-	return GetRotatedVector(FVector3(0.0f, -1.0f, 0.0f), *this);
+	return GetRotatedVector(FVector3(0.0f, 0.0f, -1.0f), *this).GetNormal();
 }
 
-FVector3 FQuaternion::GetRightVector()
+FVector3 FQuaternion::GetRightVector() const
 {
-	return GetRotatedVector(FVector3(1.0f, 0.0f, 0.0f), *this);
+	return GetRotatedVector(FVector3(1.0f, 0.0f, 0.0f), *this).GetNormal();
 }
 
 FQuaternion::~FQuaternion()

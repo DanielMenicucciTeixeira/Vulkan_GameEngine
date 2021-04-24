@@ -26,6 +26,7 @@ void C_StaticMeshComponent::UpdateModelMatrix()
 {
 	//*ModelMatrix = (Owner->GetTransform() + Transform).GetModelMatrix();
 	*ModelMatrix = Owner->GetTransform().GetModelMatrix() * FTransform(GetComponentPosition(), GetComponentRotation(), GetComponentScale()).GetModelMatrix();
+	//*ModelMatrix = FTransform(GetComponentPosition(), GetComponentRotation(), GetComponentScale()).GetModelMatrix() * Owner->GetTransform().GetModelMatrix();
 }
 
 void C_StaticMeshComponent::Update(const float deltaTime)

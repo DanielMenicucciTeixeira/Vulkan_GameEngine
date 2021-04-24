@@ -6,7 +6,7 @@
 
 void C_CameraComponent::Update(const float deltaTime)
 {
-	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), FVector3(0.0f, 1.0f, 0.0f));
+	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	C_TransformComponent::Update(deltaTime);
 }
 

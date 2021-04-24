@@ -149,7 +149,7 @@ void FMatrix4::operator=(FMatrix4* matrix)
 	}
 }
 
-FMatrix4 FMatrix4::operator*(float multiplier)
+FMatrix4 FMatrix4::operator*(float multiplier) const
 {
 	FMatrix4 returnMatrix = *this;
 
@@ -161,7 +161,7 @@ FMatrix4 FMatrix4::operator*(float multiplier)
 	return returnMatrix;
 }
 
-FMatrix4 FMatrix4::operator*(FMatrix4 matrix)
+FMatrix4 FMatrix4::operator*(FMatrix4 matrix) const
 {
 	return FMatrix4
 	(
@@ -184,12 +184,12 @@ FMatrix4 FMatrix4::operator*(FMatrix4 matrix)
 	);
 }
 
-FMatrix4 FMatrix4::operator*(FMatrix4* matrix)
+FMatrix4 FMatrix4::operator*(FMatrix4* matrix) const
 {
 	return (*this * *matrix);
 }
 
-FVector3 FMatrix4::operator*(FVector3 vector)
+FVector3 FMatrix4::operator*(FVector3 vector) const
 {
 	FVector3 ReturnVector = FVector3();
 
@@ -200,7 +200,7 @@ FVector3 FMatrix4::operator*(FVector3 vector)
 	return ReturnVector;
 }
 
-FVector4 FMatrix4::operator*( FVector4* vector)
+FVector4 FMatrix4::operator*( FVector4* vector) const
 {
 
 	return FVector4
@@ -212,7 +212,7 @@ FVector4 FMatrix4::operator*( FVector4* vector)
 	);
 }
 
-FVector4 FMatrix4::operator*(FVector4 vector)
+FVector4 FMatrix4::operator*(FVector4 vector) const
 {
 	return FVector4
 	(

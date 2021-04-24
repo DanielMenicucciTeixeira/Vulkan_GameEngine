@@ -33,7 +33,8 @@ public:
 	inline void SetMeshName(const std::string& name) { MeshName = name; }
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 	inline const bool* IsInFrustum() const { return &InFrustum; }
-	inline void SetInFrustum(bool inFrustum);
+	void SetInFrustum(bool inFrustum);
+	inline C_BoundingBox* GetBoundingBox() { return Box; }
 
 protected:
 	void UpdateModelMatrix();

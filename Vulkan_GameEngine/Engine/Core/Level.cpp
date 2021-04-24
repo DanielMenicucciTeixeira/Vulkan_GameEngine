@@ -188,6 +188,7 @@ void L_Level::Update(const float deltaTime)
 
 void L_Level::Render()
 {
+	for (auto& mesh : LevelGraph::GetInstance()->StaticMehes) mesh->SetInFrustum(LevelGraph::GetInstance()->ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
 	CurrentGame->GetRenderer()->Render();
 }
 

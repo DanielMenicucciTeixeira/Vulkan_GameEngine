@@ -105,7 +105,7 @@ protected:
 	static C_CameraComponent* ActiveCamera;
 	
 	S_RenderData RenderData;
-
+	std::set<C_StaticMeshComponent*> StaticMehes;
 	std::set<unsigned int> FreeLightSlots;
 
 private:

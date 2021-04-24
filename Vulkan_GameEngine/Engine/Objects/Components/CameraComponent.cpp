@@ -7,9 +7,10 @@
 
 void C_CameraComponent::CalculateFrustum()
 {
-	FMatrix4 transposed = UCO->View;
-	transposed.Transpose();
-	FMatrix4 world = UCO->Projection * transposed;
+	//FMatrix4 transposed = UCO->View;
+	//transposed.Transpose();
+	//FMatrix4 world = UCO->Projection * transposed;
+	FMatrix4 world = UCO->View * UCO->Projection;
 
 
 	// Left clipping plane

@@ -116,6 +116,7 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 	if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
 	if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
 	RenderData.Meshes.insert(meshComponent->GetMesh());
+	StaticMehes.insert(meshComponent);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)

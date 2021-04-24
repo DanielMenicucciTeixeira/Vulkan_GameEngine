@@ -52,17 +52,17 @@ public:
 
 	void operator= (FMatrix4* matrix);
 
-	FMatrix4 operator* (float multiplier);
+	FMatrix4 operator* (float multiplier) const;
 
-	FMatrix4 operator* (FMatrix4* matrix);
+	FMatrix4 operator* (FMatrix4* matrix) const;
 
-	FMatrix4 operator* (FMatrix4 matrix);
+	FMatrix4 operator* (FMatrix4 matrix) const;
 
-	FVector4 operator*(FVector4* vector);
+	FVector4 operator*(FVector4* vector) const;
 
-	FVector4 operator*(FVector4 vector);
+	FVector4 operator*(FVector4 vector) const;
 
-	FVector3 operator*(FVector3 vector);
+	FVector3 operator*(FVector3 vector) const;
 
 	void operator*= (FMatrix4* matrix);
 

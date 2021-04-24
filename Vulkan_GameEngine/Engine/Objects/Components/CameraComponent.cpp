@@ -4,13 +4,15 @@
 #include "SDL/Window.h"
 #include "Math/FQuaternion.h"
 #include "BoundingBox.h"
+#include "Math/FTransform.h"
+#include "Objects/GameObjects/GameObject.h"
 
 void C_CameraComponent::CalculateFrustum()
 {
 	//FMatrix4 transposed = UCO->View;
 	//transposed.Transpose();
 	//FMatrix4 world = UCO->Projection * transposed;
-	FMatrix4 world = UCO->View * UCO->Projection;
+	FMatrix4 world = UCO->Projection * UCO->View;
 
 
 	// Left clipping plane
@@ -99,7 +101,6 @@ bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 	FVector3 point;
 	bool getOut;
 
-	return true;
 	for (int p = 0; p < 6; p++) //for each plane
 	{
 		wrongSide = false; rightSide = false;

@@ -32,6 +32,8 @@ public:
 	inline void SetMaterial(S_Material* material) { Material = material; }
 	inline void SetMeshName(const std::string& name) { MeshName = name; }
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
+	inline const bool* IsInFrustum() const { return &InFrustum; }
+	inline void SetInFrustum(bool inFrustum);
 
 protected:
 	void UpdateModelMatrix();
@@ -44,6 +46,8 @@ protected:
 
 	S_Material* Material = nullptr;
 	std::string MaterialName;
+
+	bool InFrustum = true;
 };
 #endif
 

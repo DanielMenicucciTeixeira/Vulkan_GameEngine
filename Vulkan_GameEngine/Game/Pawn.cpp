@@ -36,6 +36,8 @@ GO_Pawn::GO_Pawn(L_Level* level, std::string name) : O_GameObject(level, name)
 	EventHandler::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_a);
 
 	EventHandler::AddFunctionByInput(this, TurnCamera, SDL_MOUSEMOTION, SDLK_UNKNOWN);
+
+	EventHandler::AddFunctionByInput(this, PrintFrustum, SDL_KEYUP, SDLK_c);
 }
 
 GO_Pawn::~GO_Pawn()
@@ -45,8 +47,6 @@ GO_Pawn::~GO_Pawn()
 void GO_Pawn::Update(float deltaTime)
 {
 	O_GameObject::Update(deltaTime);
-	Camera->GetComponentPosition().Print();
-	Camera->GetComponentAbsolutePosition().Print();
 }
 
 void GO_Pawn::MoveForward(O_Object* self, SDL_Event* event)
@@ -87,6 +87,11 @@ void GO_Pawn::TurnCamera(O_Object* self, SDL_Event* event)
 
 void GO_Pawn::ZoomCamera(O_Object* self, SDL_Event* event)
 {
+}
+
+void GO_Pawn::PrintFrustum(O_Object* self, SDL_Event* event)
+{
+	dynamic_cast<GO_Pawn*>(self)->Camera->PrintFrustum();
 }
 
 void GO_Pawn::MoveForward(bool backwards)

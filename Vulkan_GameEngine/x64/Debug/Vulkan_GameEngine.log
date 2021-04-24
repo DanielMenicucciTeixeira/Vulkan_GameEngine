@@ -1,4 +1,35 @@
-﻿  TransformComponent.cpp
+﻿  LevelGraph.cpp
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\LevelGraph.cpp(152,45): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  StaticMeshComponent.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(47,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(48,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(49,126): warning C4042: 'overlapEndFunction': has bad storage class
+  VulkanManager.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(471,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(638,89): warning C4390: ';': empty controlled statement found; is this the intent?
+  VulkanSwapchainManager.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(766,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Apple.cpp
+  BilliardLevel.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(84,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
+  GO_Triangle.cpp
+  L_MainLevel.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Core\Game.h(84,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(138,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Pawn.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(14,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+  Generating Code...
   Vulkan_GameEngine.vcxproj -> D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

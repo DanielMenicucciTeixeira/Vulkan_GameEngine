@@ -15,6 +15,8 @@ public:
 	void GetDimensionsFromMesh(S_Mesh* mesh);
 	inline void SetModel(FMatrix4* model) { Model = model; }
 	virtual void Start() override;
+	virtual FVector3 GetMin();
+	virtual FVector3 GetMax();
 
 protected:
 	FVector3 Min;

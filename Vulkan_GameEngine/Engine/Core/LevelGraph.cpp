@@ -111,7 +111,7 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 	if (!RenderData.InstancesByMesh.count(meshComponent->GetMesh())) RenderData.InstancesByMesh[meshComponent->GetMesh()] = std::set<FMatrix4*>();
 	RenderData.InstancesByMesh[meshComponent->GetMesh()].insert(meshComponent->GetModelMatrix());
 
-	RenderData.Models.insert(meshComponent->GetModelMatrix());
+	RenderData.Models[meshComponent->GetModelMatrix()] = meshComponent->IsInFrustum();
 	RenderData.Materials.insert(meshComponent->GetMaterial());
 	if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
 	if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);

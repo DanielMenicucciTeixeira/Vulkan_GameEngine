@@ -30,7 +30,7 @@ struct S_RenderData
 	std::unordered_map<S_Material*, std::set<S_Mesh*>> MeshesByMaterial;
 	std::unordered_map<S_Mesh*, std::set<FMatrix4*>> InstancesByMesh;
 
-	std::set<FMatrix4*> Models;
+	std::unordered_map<FMatrix4*, const bool*> Models;
 	std::set<S_Texture*> Textures;
 	std::set<S_Material*> Materials;
 	std::set<S_Mesh*> Meshes;

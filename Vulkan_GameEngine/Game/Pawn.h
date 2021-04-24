@@ -28,6 +28,8 @@ public:
 	static void StopTurning(O_Object* self, SDL_Event* event);
 	static void TurnCamera(O_Object* self, SDL_Event* event);
 	static void ZoomCamera(O_Object* self, SDL_Event* event);
+	static void PrintFrustum(O_Object* self, SDL_Event* event);
+
 	void MoveForward(bool backwards);
 	void StopMoving();
 	void Turn(bool left);

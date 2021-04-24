@@ -141,9 +141,12 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 
 				for (const auto& model : RenderData->InstancesByMesh[mesh])
 				{
-					glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), model, GL_DYNAMIC_DRAW);
-					glBindBufferBase(GL_UNIFORM_BUFFER, modelBinding, modelBuffer);
-					glDrawElements(GL_TRIANGLES, mesh->Indices.size(), GL_UNSIGNED_INT, (void*)0);
+					if (*RenderData->Models[model])
+					{
+						glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), model, GL_DYNAMIC_DRAW);
+						glBindBufferBase(GL_UNIFORM_BUFFER, modelBinding, modelBuffer);
+						glDrawElements(GL_TRIANGLES, mesh->Indices.size(), GL_UNSIGNED_INT, (void*)0);
+					}
 				}
 				glBindVertexArray(0);
 			}

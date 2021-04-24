@@ -264,9 +264,11 @@ void VulkanManager::CreateCommandBuffers()
                         vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
                         for (const auto& model : RenderData->InstancesByMesh[mesh])
                         {
-
-                            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
-                            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
+                            if (*RenderData->Models[model])
+                            {
+                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
+                                vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
+                            }
                         }
                     }
                 }

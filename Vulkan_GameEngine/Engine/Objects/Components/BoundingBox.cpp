@@ -1,5 +1,6 @@
 #include "BoundingBox.h"
 #include "Renderers/RenderObject.h"
+#include "Math/FTransform.h"
 
 C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type)
 {
@@ -31,7 +32,16 @@ void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
 void C_BoundingBox::Start()
 {
 	C_CollisionComponent::Start();
-	printf("Min = "); Min.Print();
-	printf("Max = "); Max.Print();
-	printf("\n");
+}
+
+FVector3 C_BoundingBox::GetMin()
+{
+	FVector4 temp = GetComponentTransform().GetModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	return FVector3(temp.X, temp.Y, temp.Z);
+}
+
+FVector3 C_BoundingBox::GetMax()
+{
+	FVector4 temp = GetComponentTransform().GetModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+	return FVector3(temp.X, temp.Y, temp.Z);
 }

@@ -2,9 +2,11 @@
 #define CAMERACOMPONENT_H
 
 #include "TransformComponent.h"
+#include "Geometry/Plane.h"
 
 struct UniformCameraObject;
 class FMatrix4;
+class C_BoundingBox;
 
 struct S_FieldOfView
 {
@@ -18,6 +20,8 @@ class C_CameraComponent : public C_TransformComponent
 protected:
 	UniformCameraObject* UCO;
 	S_FieldOfView FildOfView;
+	Plane Frustum[6];
+	void CalculateFrustum();
 
 public:
 	virtual void Update(const float deltaTime) override;
@@ -29,6 +33,10 @@ public:
 	FMatrix4 GetViewMatrix();
 	FMatrix4 GetProjectionMatrix();
 	inline UniformCameraObject* GetUCO() { return UCO; }
+
+	bool FrustumCheck(C_BoundingBox* meshBox);
+
+	void PrintFrustum();
 };
 #endif
 

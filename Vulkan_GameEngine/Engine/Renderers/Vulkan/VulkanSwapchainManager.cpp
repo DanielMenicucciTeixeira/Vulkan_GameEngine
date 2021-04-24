@@ -319,8 +319,8 @@ void VulkanSwapchainManager::CreateUniformBuffers()
 
         for (const auto& model : Manager->GetRenderData()->Models)
         {
-            ModelMap[model].resize(Images.size());
-            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].Buffer, ModelMap[model][i].Memory);
+            ModelMap[model.first].resize(Images.size());
+            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model.first][i].Buffer, ModelMap[model.first][i].Memory);
         }
     }
 }
@@ -425,8 +425,8 @@ void VulkanSwapchainManager::CreateDescriptorSets()
         allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
         allocInfo.pSetLayouts = layouts.data();
 
-        DescriptorSetsMap[model].resize(Images.size());
-        if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model].data()) != VK_SUCCESS)
+        DescriptorSetsMap[model.first].resize(Images.size());
+        if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model.first].data()) != VK_SUCCESS)
         {
             throw std::runtime_error("failed to allocate descriptor sets!");
         }
@@ -783,8 +783,8 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     for (const auto& model : Manager->GetRenderData()->Models)
     {
         void* modelData;
-        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
-        memcpy(modelData, model, sizeof(FMatrix4));
-        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory);
+        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model.first][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
+        memcpy(modelData, model.first, sizeof(FMatrix4));
+        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model.first][currentImageIndex].Memory);
     }
 }

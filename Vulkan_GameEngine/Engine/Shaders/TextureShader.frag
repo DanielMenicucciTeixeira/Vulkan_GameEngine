@@ -43,6 +43,7 @@ layout(location = 0) out vec4 FragColour;
 
 void main()
 {
+	vec2 textureCoords = vec2(TextureCoords.x, 1 - TextureCoords.y);
 	int offset = 11;
 	vec3 ambient = vec3(0);
 	vec3 diffuse = vec3(0);
@@ -64,11 +65,11 @@ void main()
 			else lightDirection = normalize(Lights.InfoMatrix[index][0].xyz - FragPosition);
 			
 			//Ambient light calculations
-			ambient = ambient + (Material.Data[0].xyz * texture(TextureDifuse, TextureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
+			ambient = ambient + (Material.Data[0].xyz * texture(TextureDifuse, textureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
 
 			//Difuse light calculations
 			float diff = max(dot(normal,lightDirection), 0.0);
-			diffuse = diffuse + ((diff * Material.Data[1].xyz) * texture(TextureDifuse, TextureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
+			diffuse = diffuse + ((diff * Material.Data[1].xyz) * texture(TextureDifuse, textureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
 
 			//Specular light calculations
 			vec3 reflectionDirection = normalize(-lightDirection - FragPosition);
@@ -78,5 +79,4 @@ void main()
 	}
 
 	FragColour = vec4(ambient + diffuse + specular, Material.Data[3].y);
-	//FragColour = vec4(vec3(Material.Data[0].xyz), 1.0f);
 }

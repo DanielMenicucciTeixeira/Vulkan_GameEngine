@@ -111,10 +111,9 @@ void L_MainLevel::Start()
 	auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();
 	att->SetMeshName("Box001");
 	att->SetMaterialName("M_diceTexture");
-	att->SetComponentScale({ 1.0f, 1.0f, 1.0f });
-	att->SetComponentPosition({ 0.0f, 0.0f, 5.0f });
+	att->SetComponentScale({ 0.5f, 0.5f, 0.5f });
+	att->SetComponentPosition({ 0.0f, 0.0f, 2.0f });
 	att->AddTag("Attached");
-	//att->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
 	
 	auto movement = dice->AddComponentOfClass<C_MovementComponent>();
 	movement->SetAngularVelocity({ 0.0f, 1.0f, 0.0f });

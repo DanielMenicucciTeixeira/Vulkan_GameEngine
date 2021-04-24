@@ -9,6 +9,7 @@
 #include "Renderers/Renderer.h"
 #include "SDL/SDLTextureHandler.h"
 #include "LevelGraph.h"
+#include "Objects/Components/StaticMeshComponent.h"
 
 #include <algorithm>
 
@@ -188,6 +189,7 @@ void L_Level::Update(const float deltaTime)
 
 void L_Level::Render()
 {
+	//for (auto& mesh : LevelGraph::StaticMeshes) mesh->SetInFrustum(LevelGraph::ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
 	CurrentGame->GetRenderer()->Render();
 }
 

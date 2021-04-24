@@ -4,13 +4,17 @@
 #include "SDL/Window.h"
 #include "Math/FQuaternion.h"
 #include "BoundingBox.h"
+#include "Objects/GameObjects/GameObject.h"
+
+#include <iostream>
 
 void C_CameraComponent::CalculateFrustum()
 {
-	FMatrix4 transposed = UCO->View;
-	transposed.Transpose();
-	FMatrix4 world = UCO->Projection * transposed;
-
+	//FMatrix4 transposed = UCO->View;
+	//transposed.Transpose();
+	//FMatrix4 world = UCO->Projection * transposed;
+	//FMatrix4 world = UCO->View * UCO->Projection;
+	FMatrix4 world;
 
 	// Left clipping plane
 	Frustum[0].X = world[3][0] + world[0][0];
@@ -23,7 +27,7 @@ void C_CameraComponent::CalculateFrustum()
 	Frustum[1].Y = world[3][1] - world[0][1];
 	Frustum[1].Z = world[3][2] - world[0][2];
 	Frustum[1].W = world[3][3] - world[0][3];
-	//Frustum[1].Normalize();
+	Frustum[1].Normalize();
 	// Top clipping plane
 	Frustum[2].X = world[3][0] - world[1][0];
 	Frustum[2].Y = world[3][1] - world[1][1];
@@ -54,7 +58,7 @@ void C_CameraComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
-	CalculateFrustum();
+	//CalculateFrustum();
 }
 
 void C_CameraComponent::Start()
@@ -62,7 +66,7 @@ void C_CameraComponent::Start()
 	C_TransformComponent::Start();
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetHeight() / SDLManager::GetInstance()->GetWindowByName()->GetWidth(), FildOfView.NearPlane, FildOfView.FarPlane);
-	CalculateFrustum();
+	//CalculateFrustum();
 }
 
 void C_CameraComponent::UpdateProjection()
@@ -98,7 +102,8 @@ bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 	FVector3 point;
 	bool getOut;
 
-	return true;
+	//std::cout << meshBox->GetOwner()->GetName() << std::endl;
+
 	for (int p = 0; p < 6; p++) //for each plane
 	{
 		wrongSide = false; rightSide = false;
@@ -120,7 +125,9 @@ bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 					else point.Z = meshBox->GetMax().Z;
 
 					// is the corner outside or inside
-					if (Frustum[p] * FVector4(point.X, point.Y, point.Z, 1) < 0) wrongSide = true;
+					float distance = Frustum[p] * FVector4(point.X, point.Y, point.Z, 1);
+					//printf("%f\n", distance);
+					if (Frustum[p] * FVector4(point.X, point.Y, point.Z, 1) > 0) wrongSide = true;
 					else rightSide = true;
 
 					//get out of the cycle as soon as a box has corners both inside and out of the plane
@@ -129,10 +136,8 @@ bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 			}
 		}
 
-		if (!rightSide) //if all corners are out
-		{
-			return (false);
-		}
+		//printf("\n\n");
+		if (!rightSide) return (false);//if all corners are out 
 		else if (wrongSide) result = true;// if some corners are out and others are in
 	}
 	return(result);

@@ -74,7 +74,7 @@ public:
 	FVector4 GetNormal() const;
 
 	//Divides the vector by its Magnitude to get the normalized unit vector.
-	void Normalize();
+	virtual void Normalize();
 
 	//Utility to populate vector
 	inline void Load(float X, float Y, float Z, float W) { X = X; Y = Y; Z = Z; W = W; }

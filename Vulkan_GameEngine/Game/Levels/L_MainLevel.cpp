@@ -105,7 +105,7 @@ void L_MainLevel::Start()
 	mesh->SetMeshName("Box001");
 	mesh->SetMaterialName("M_diceTexture");
 	mesh->AddTag("Main");
-	mesh->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
+	//mesh->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
 
 
 	auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();

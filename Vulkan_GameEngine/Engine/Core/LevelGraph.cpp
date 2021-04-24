@@ -21,7 +21,6 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
-std::set<C_StaticMeshComponent*> LevelGraph::StaticMeshes;
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
@@ -117,8 +116,6 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 	if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
 	if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
 	RenderData.Meshes.insert(meshComponent->GetMesh());
-
-	StaticMeshes.insert(meshComponent);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)

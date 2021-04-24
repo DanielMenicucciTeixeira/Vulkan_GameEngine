@@ -24,9 +24,9 @@ S_Texture* C_StaticMeshComponent::GetTextureSpecular() const
 	return Material->TextureSpecular;
 }
 
-void C_StaticMeshComponent::SetInFrustum(bool inFrustum)
+inline void C_StaticMeshComponent::SetInFrustum(bool inFrustum)
 {
-	if (inFrustum != InFrustum) std::cout << "InFrustum = " << inFrustum << std::endl;
+	if (inFrustum != InFrustum) std::cout << "InFrustum = " << inFrustum;
 	InFrustum = inFrustum;
 }
 

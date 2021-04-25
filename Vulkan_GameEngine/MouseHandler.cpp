@@ -3,9 +3,13 @@
 #include "CoreEngine.h"
 #include "Math/IVector2.h"
 #include "Math/FVector2.h"
+#include "Math/FMatrix4.h"
+#include "Math/FVector3.h"
 #include "Geometry/Ray.h"
 #include "Renderers/UniformBufferObject.h"
 #include "SDL/SDLManager.h"
+#include "LevelGraph.h"
+#include "Objects/Components/CameraComponent.h"
 
 #include <SDL.h>
 
@@ -52,9 +56,71 @@ IVector2 MouseHandler::GetCursorOffset()
 	return IVector2(CursorPosition.X - PreviousCursorPosition.X, PreviousCursorPosition.Y - CursorPosition.Y);
 }
 
+Ray MouseHandler::MousePositionToWorldRay()
+{
+	FVector2 mousePosition = GetCursorPosition();
+	int w, h;
+	SDL_GetWindowSize(SDLManager::GetInstance()->GetSDLWindowByName(), &w, &h);
+	FVector2 screenSize(w, h);
+	UniformCameraObject* uco = LevelGraph::GetInstance()->GetActiveCamera()->GetUCO();
+	FVector4 rayOrigin = FVector4
+	(
+		(mousePosition.X / screenSize.X - 0.5) * 2.0f,
+		(mousePosition.Y / screenSize.Y - 0.5) * 2.0f,
+		-1.0f,
+		1.0f
+	);
+
+	FVector4 rayEnd = FVector4
+	(
+		(mousePosition.X / screenSize.X - 0.5) * 2.0f,
+		(mousePosition.Y / screenSize.Y - 0.5) * 2.0f,
+		0.0f,
+		1.0f
+	);
+
+	FMatrix4 inverse = (uco->Projection * uco->View).GetInverse();
+
+	FVector4 worldRayOrigin = inverse * rayOrigin;
+	worldRayOrigin = worldRayOrigin / worldRayOrigin.W;
+
+	FVector4 worldRayEnd = inverse * rayEnd;
+	worldRayEnd = worldRayEnd / worldRayEnd.W;
+
+	FVector3 worldRayDirection(worldRayEnd - worldRayOrigin);
+	worldRayDirection.Normalize();
+	return Ray(FVector3(worldRayOrigin), worldRayDirection);
+}
+
 Ray MouseHandler::MousePositionToWorldRay(FVector2 mousePosition, FVector2 screenSize, const UniformCameraObject* uco)
 {
-	return Ray();
+	FVector4 rayOrigin = FVector4
+	(
+		(mousePosition.X / screenSize.X - 0.5) * 2.0f,
+		(mousePosition.Y / screenSize.Y - 0.5) * 2.0f,
+		-1.0f,
+		1.0f
+	);
+
+	FVector4 rayEnd = FVector4
+	(
+		(mousePosition.X / screenSize.X - 0.5) * 2.0f,
+		(mousePosition.Y / screenSize.Y - 0.5) * 2.0f,
+		0.0f,
+		1.0f
+	);
+
+	FMatrix4 inverse = (uco->Projection * uco->View).GetInverse();
+	
+	FVector4 worldRayOrigin = inverse * rayOrigin;
+	worldRayOrigin = worldRayOrigin / worldRayOrigin.W;
+
+	FVector4 worldRayEnd = inverse * rayEnd;
+	worldRayEnd = worldRayEnd / worldRayEnd.W;
+
+	FVector3 worldRayDirection(worldRayEnd - worldRayOrigin);
+	worldRayDirection.Normalize();
+	return Ray(FVector3(worldRayOrigin), worldRayDirection);
 }
 
 void MouseHandler::UpdateCursorPosition()

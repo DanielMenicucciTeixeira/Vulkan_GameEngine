@@ -3,6 +3,7 @@
 
 
 class FQuaternion;
+class FVector4;
 
 class FVector3
 {
@@ -20,6 +21,9 @@ public:
 
 	//Constructor initializing to match a given FVector3, a copy constructor
 	FVector3(const FVector3& vector);
+
+	//Constructor initializing to match a given FVector3, a copy constructor
+	FVector3(const FVector4& vector);
 
 	//Contructor initalizaing to match given values
 	FVector3(float values[3]);
@@ -48,6 +52,9 @@ public:
 
 	void operator= (const FVector3& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 	inline void operator= (FVector3* vector) { *this = *vector; }
+
+	void operator= (const FVector4& vector);//Overload of the "+=" operator, makes a vector plus vector addition changing the current vector to equal to sum.
+	inline void operator= (const FVector4*& vector) { *this = *vector; }
 
 	void operator= (float values[3]);
 

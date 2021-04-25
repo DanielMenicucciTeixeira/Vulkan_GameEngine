@@ -12,7 +12,7 @@
 void C_StaticMeshComponent::Start()
 {
 	Box->GetDimensionsFromMesh(Mesh);
-	Box->SetModel(ModelMatrix);
+	Box->SetComponentTransform(*Transform);
 }
 
 S_Texture* C_StaticMeshComponent::GetTextureDifuse() const

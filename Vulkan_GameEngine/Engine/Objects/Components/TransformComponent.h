@@ -6,6 +6,7 @@
 struct FTransform;
 class FVector3;
 class FQuaternion;
+class FMatrix4;
 
 class C_TransformComponent : public O_Component
 {
@@ -14,6 +15,7 @@ public:
 	virtual ~C_TransformComponent() { if (Transform) delete(Transform); }
 	
 	FTransform GetComponentTransform() const;
+	FMatrix4 GetComponentModelMatrix() const;
 	FTransform* GetComponentTransformReference() const;
 	FVector3 GetComponentPosition() const;
 	FQuaternion GetComponentRotation() const;

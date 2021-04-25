@@ -7,8 +7,11 @@
 #include <cmath>
 #include <iostream>
 #include "BoxCollision.h"
+#include "BoundingBox.h"
 #include "Objects\GameObjects\GameObject.h"
 #include "Level.h"
+#include "LevelGraph.h"
+#include "CameraComponent.h"
 
 bool C_CollisionComponent::IsCollidingWith(C_CollisionComponent* collider)
 {
@@ -107,8 +110,26 @@ bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVect
 
 }
 
-bool C_CollisionComponent::RayBoundingBoxCollision(const Ray& ray, const FVector3& min, const FVector3& max, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision)
+bool C_CollisionComponent::RayBoundingBoxCollision(const Ray& ray, C_BoundingBox* box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision)
 {
+	FVector3 rayOrigin = ray.GetOrigin();
+	FVector3 rayDirection = ray.GetDirection();
+	FVector3 boxMin = box->GetRelativeMin();
+	FVector3 boxMax = box->GetRelativeMax();
+	FMatrix4 modelMatrix = *box->GetComponentModelMatrix();
+
+	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
+	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
+
+	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
+	FVector3 delta = worldPosition - rayOrigin;
+
+	//X Axis
+	FVector3 xAxis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
+	float deltaDot = xAxis * delta;
+	float directionDot = rayDirection * xAxis;
+
+
 	return false;
 }
 

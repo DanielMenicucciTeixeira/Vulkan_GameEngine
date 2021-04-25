@@ -1,6 +1,8 @@
 #ifndef FVector2_H
 #define FVector2_H
 
+class IVector2;
+
 class FVector2
 {
 public:
@@ -17,6 +19,9 @@ public:
 
 	//Constructor initializing to match a given FVector2, a copy constructor
 	FVector2(const FVector2& vector);
+	
+	//Constructor initializing to match a given IVector2, a copy constructor
+	FVector2(const IVector2& vector);
 
 	//Contructor initalizaing to match given values
 	FVector2(float values[2]);

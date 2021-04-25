@@ -16,6 +16,12 @@ FTransform C_TransformComponent::GetComponentTransform() const
 	return *Transform;
 }
 
+FMatrix4 C_TransformComponent::GetComponentModelMatrix() const
+{
+	if (this == Owner->GetRoot()) return Transform->GetModelMatrix();
+	else return Owner->GetTransform().GetModelMatrix() * Transform->GetModelMatrix();
+}
+
 FTransform* C_TransformComponent::GetComponentTransformReference() const
 {
 	return Transform;

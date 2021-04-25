@@ -21,6 +21,7 @@ public:
 	static const IVector2& GetPreviousCursorPosition();
 	static const IVector2& GetCursorPosition();
 	static IVector2 GetCursorOffset();
+	static Ray MousePositionToWorldRay();
 	static Ray MousePositionToWorldRay(FVector2 mousePosition, FVector2 screenSize, const UniformCameraObject* uco);
 
 protected:

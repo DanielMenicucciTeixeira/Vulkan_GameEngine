@@ -80,6 +80,7 @@ public:
 	inline std::unordered_map<std::string, S_Texture*>& GetTextures() const { return TexturesByName; }
 	inline std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
+	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
 
 	void CleanUp();

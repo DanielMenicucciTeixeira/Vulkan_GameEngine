@@ -29,6 +29,11 @@ inline FVector3::FVector3(const FVector3& vector)
 	Load(vector.X, vector.Y, vector.Z);
 }
 
+FVector3::FVector3(const FVector4& vector)
+{
+	Load(vector.X, vector.Y, vector.Z);
+}
+
 FVector3::FVector3(float values[3])
 {
 	X = values[0];
@@ -118,6 +123,13 @@ float FVector3::operator*(const FVector3& vector) const
 
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 void FVector3::operator=(const FVector3& vector)
+{
+	X = vector.X;
+	Y = vector.Y;
+	Z = vector.Z;
+}
+
+void FVector3::operator=(const FVector4& vector)
 {
 	X = vector.X;
 	Y = vector.Y;

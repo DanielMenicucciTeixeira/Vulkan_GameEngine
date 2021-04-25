@@ -575,16 +575,25 @@ FMatrix4 FMatrix4::GetViewMatrix(const FQuaternion& rotation, const FVector3& po
 	FVector3 right = rotation.GetRightVector();
 	FVector3 up = rotation.GetUpVector();
 
-	FMatrix4 result =
-		FMatrix4
-		(
-			forward.X, forward.Y, forward.Z, 0,
-			up.X, up.Y, up.Z, 0,
-			right.X, right.Y, right.Z, 0,
-			position.X, position.Y, position.Z, -1
-		);
+	FMatrix4 returnMatrix;
 
-	return result;
+	returnMatrix[0][0] = right.X;
+	returnMatrix[1][0] = right.Y;
+	returnMatrix[2][0] = right.Z;
+
+	returnMatrix[0][1] = up.X;
+	returnMatrix[1][1] = up.Y;
+	returnMatrix[2][1] = up.Z;
+
+	returnMatrix[0][2] = forward.X;
+	returnMatrix[1][2] = forward.Y;
+	returnMatrix[2][2] = forward.Z;
+
+	returnMatrix[3][0] = position.X;
+	returnMatrix[3][1] = position.Y;
+	returnMatrix[3][2] = position.Z;
+
+	return returnMatrix;
 }
 
 //Swaps rows and Columns

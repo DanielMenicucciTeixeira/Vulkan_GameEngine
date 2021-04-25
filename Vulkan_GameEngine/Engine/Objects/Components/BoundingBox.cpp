@@ -1,6 +1,7 @@
 #include "BoundingBox.h"
 #include "Renderers/RenderObject.h"
 #include "Math/FTransform.h"
+#include "Objects/GameObjects/GameObject.h"
 
 C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type)
 {
@@ -8,7 +9,6 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 
 C_BoundingBox::~C_BoundingBox()
 {
-	Model = nullptr;
 }
 
 void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
@@ -36,12 +36,16 @@ void C_BoundingBox::Start()
 
 FVector3 C_BoundingBox::GetMin()
 {
-	FVector4 temp = GetComponentTransform().GetModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	FVector4 temp = GetComponentModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	temp = temp / temp.W;
 	return FVector3(temp.X, temp.Y, temp.Z);
 }
 
 FVector3 C_BoundingBox::GetMax()
 {
-	FVector4 temp = GetComponentTransform().GetModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+	FVector4 temp = GetComponentModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+	temp = temp / temp.W;
 	return FVector3(temp.X, temp.Y, temp.Z);
 }

@@ -2,6 +2,7 @@
 #define RAY_H
 
 class FVector3;
+class C_BoundingBox;
 
 class Ray
 {
@@ -13,22 +14,27 @@ public:
 	~Ray();
 
 private:
-	FVector3* StartPosition;
+	FVector3* Origin;
 	FVector3* Direction;
 	float Lenght;
 	bool Infinit;
 
 public:
-	FVector3 GetPosition(float displacement) const;
+	FVector3 GetPositionAtLenght(float displacement) const;
 
-	FVector3 GetStartPosition() const;
+	FVector3 GetOrigin() const;
 	FVector3 GetDirection() const;
-
-	void SetStartPosition(const FVector3& position);
-	void SetDirection(const FVector3& direction);
-
 	inline float GetLenght() const { return Lenght; }
 	inline bool IsInfinit() const { return Infinit; }
+
+	void SetOrigin(const FVector3& position);
+	void SetDirection(const FVector3& direction);
+	inline void SetLenght(float lenght) { Lenght = lenght; }
+	inline void SetInfinit(bool infinit) { Infinit = infinit; }
+
+	inline Ray& operator=(const Ray& ray);
+
+	bool IsColliding(C_BoundingBox* box);
 };
 
 #endif

@@ -9,9 +9,6 @@
 
 void C_CameraComponent::CalculateFrustum()
 {
-	//FMatrix4 transposed = UCO->View;
-	//transposed.Transpose();
-	//FMatrix4 world = UCO->Projection * transposed;
 	FMatrix4 world = UCO->Projection * UCO->View;
 
 
@@ -20,37 +17,31 @@ void C_CameraComponent::CalculateFrustum()
 	Frustum[0].Y = world[3][1] + world[0][1];
 	Frustum[0].Z = world[3][2] + world[0][2];
 	Frustum[0].W = world[3][3] + world[0][3];
-	//Frustum[0].Normalize();
 	// Right clipping plane
 	Frustum[1].X = world[3][0] - world[0][0];
 	Frustum[1].Y = world[3][1] - world[0][1];
 	Frustum[1].Z = world[3][2] - world[0][2];
 	Frustum[1].W = world[3][3] - world[0][3];
-	//Frustum[1].Normalize();
 	// Top clipping plane
 	Frustum[2].X = world[3][0] - world[1][0];
 	Frustum[2].Y = world[3][1] - world[1][1];
 	Frustum[2].Z = world[3][2] - world[1][2];
 	Frustum[2].W = world[3][3] - world[1][3];
-	//Frustum[2].Normalize();
 	// Bottom clipping plane
 	Frustum[3].X = world[3][0] + world[1][0];
 	Frustum[3].Y = world[3][1] + world[1][1];
 	Frustum[3].Z = world[3][2] + world[1][2];
 	Frustum[3].W = world[3][3] + world[1][3];
-	//Frustum[3].Normalize();
 	// Near clipping plane
 	Frustum[4].X = world[3][0] + world[2][0];
 	Frustum[4].Y = world[3][1] + world[2][1];
 	Frustum[4].W = world[3][2] + world[2][2];
 	Frustum[4].Z = world[3][3] + world[2][3];
-	//Frustum[4].Normalize();
 	// Far clipping plane
 	Frustum[5].X = world[3][0] - world[2][0];
 	Frustum[5].Y = world[3][1] - world[2][1];
 	Frustum[5].W = world[3][2] - world[2][2];
 	Frustum[5].Z = world[3][3] - world[2][3];
-	//Frustum[5].Normalize();
 }
 
 void C_CameraComponent::Update(const float deltaTime)

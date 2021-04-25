@@ -2,6 +2,9 @@
 #include "Game.h"
 #include "CoreEngine.h"
 #include "Math/IVector2.h"
+#include "Math/FVector2.h"
+#include "Geometry/Ray.h"
+#include "Renderers/UniformBufferObject.h"
 #include "SDL/SDLManager.h"
 
 #include <SDL.h>
@@ -47,6 +50,11 @@ IVector2 MouseHandler::GetCursorOffset()
 {
 	//Y Axis is inverted because SDL treats screen space with Up = 0 Low = 1;
 	return IVector2(CursorPosition.X - PreviousCursorPosition.X, PreviousCursorPosition.Y - CursorPosition.Y);
+}
+
+Ray MouseHandler::MousePositionToWorldRay(FVector2 mousePosition, FVector2 screenSize, const UniformCameraObject* uco)
+{
+	return Ray();
 }
 
 void MouseHandler::UpdateCursorPosition()

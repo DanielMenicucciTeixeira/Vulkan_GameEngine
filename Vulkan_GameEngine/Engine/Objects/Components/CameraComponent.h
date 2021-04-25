@@ -33,9 +33,10 @@ public:
 	FMatrix4 GetViewMatrix();
 	FMatrix4 GetProjectionMatrix();
 	inline UniformCameraObject* GetUCO() { return UCO; }
+	inline const float& GetNearPlane() const { return FildOfView.NearPlane; }
+	inline const float& GetFarPlane() const { return FildOfView.FarPlane; }
 
 	bool FrustumCheck(C_BoundingBox* meshBox);
-
 	void PrintFrustum();
 };
 #endif

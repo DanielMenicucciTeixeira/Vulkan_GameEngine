@@ -22,8 +22,8 @@ bool C_CollisionComponent::RaySphereCollision(const Ray& ray, const Sphere& sphe
 
 	float a, b, c;
 	a = 1.0f;
-	b = (line.GetDirection() * (line.GetStartPosition() - sphere.position) * 2.0f);
-	c = ((line.GetStartPosition() - sphere.position) * (line.GetStartPosition() - sphere.position)) - (sphere.radius * sphere.radius);
+	b = (line.GetDirection() * (line.GetOrigin() - sphere.position) * 2.0f);
+	c = ((line.GetOrigin() - sphere.position) * (line.GetOrigin() - sphere.position)) - (sphere.radius * sphere.radius);
 
 	float delta = (b * b) - 4 * a * c;
 
@@ -33,24 +33,24 @@ bool C_CollisionComponent::RaySphereCollision(const Ray& ray, const Sphere& sphe
 	}
 	else if (delta == 0)
 	{
-		collisionPoints[0] = line.GetPosition(-b / (2.0f * a));
+		collisionPoints[0] = line.GetPositionAtLenght(-b / (2.0f * a));
 		return true;
 	}
 	else if (!stopAtFirstCollision)
 	{
 		float q = (b > 0) ? -0.5 * (b + sqrt(delta)) : -0.5 * (b - sqrt(delta));
-		collisionPoints[0] = line.GetPosition(q / a);
-		collisionPoints[1] = line.GetPosition(c / q);
+		collisionPoints[0] = line.GetPositionAtLenght(q / a);
+		collisionPoints[1] = line.GetPositionAtLenght(c / q);
 
 		return true;
 	}
 	else
 	{
 		float q = (b > 0) ? -0.5 * (b + sqrt(delta)) : -0.5 * (b - sqrt(delta));
-		FVector3 point0 = line.GetPosition(q / a);
-		FVector3 point1 = line.GetPosition(c / q);
+		FVector3 point0 = line.GetPositionAtLenght(q / a);
+		FVector3 point1 = line.GetPositionAtLenght(c / q);
 
-		if ((line.GetStartPosition() - point0).Length() <= (line.GetStartPosition() - point1).Length()) collisionPoints[0] = point0;
+		if ((line.GetOrigin() - point0).Length() <= (line.GetOrigin() - point1).Length()) collisionPoints[0] = point0;
 		else collisionPoints[0] = point1;
 
 		return true;
@@ -86,7 +86,7 @@ bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVect
 			FVector3 closestPoint = interssection[0];
 			for (int j = 1; j <= i; j++)
 			{
-				if ((line.GetStartPosition() - interssection[j]).Length() < (line.GetStartPosition() - closestPoint).Length())
+				if ((line.GetOrigin() - interssection[j]).Length() < (line.GetOrigin() - closestPoint).Length())
 				{
 					closestPoint = interssection[j];
 				}
@@ -105,6 +105,11 @@ bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVect
 		return true;
 	}
 
+}
+
+bool C_CollisionComponent::RayBoundingBoxCollision(const Ray& ray, const FVector3& min, const FVector3& max, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision)
+{
+	return false;
 }
 
 bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)

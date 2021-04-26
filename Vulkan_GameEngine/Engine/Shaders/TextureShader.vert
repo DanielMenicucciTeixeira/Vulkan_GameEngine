@@ -27,6 +27,8 @@ void main()
 	gl_Position = Camera.Projecjtion * Camera.View * Model.Matrix * vec4(InPosition, 1.0);
 	TextureCoords = InTextureCoords.xy;
 	Normal = transpose(inverse(mat3(Model.Matrix))) * InNormal;
-	FragPosition = (Model.Matrix * vec4(InPosition, 1.0f)).xyz;
+	vec4 fragPosition = Model.Matrix * vec4(InPosition, 1.0f);
+	fragPosition = fragPosition / fragPosition.w;
+	FragPosition = fragPosition.xyz;
 	CameraPosition = Camera.View[3].xyz;
 }

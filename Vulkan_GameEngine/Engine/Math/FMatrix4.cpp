@@ -155,7 +155,7 @@ FMatrix4 FMatrix4::operator*(float multiplier) const
 
 	for (int i = 0; i < 4; i++)
 	{
-		returnMatrix[i] *= multiplier;
+		returnMatrix[i] = returnMatrix[i] * multiplier;
 	}
 
 	return returnMatrix;
@@ -269,121 +269,243 @@ float FMatrix4::Det()
 //Returns the iverse matrix to Matrix matrix
 FMatrix4 FMatrix4::GetInverse()//TODO Fix GetInverse
 {
-	if (Det() == 0) return FMatrix();
+	if (Det() == 0) return FMatrix4();
 
-	FMatrix inverse;
+	FMatrix4 adjunt = FMatrix4();
 
-	inverse[0] =	Colum[1][1] * Colum[2][2] * Colum[3][3] -
+	/*inverse[0][0] =	Colum[1][1] * Colum[2][2] * Colum[3][3] -
 					Colum[1][1] * Colum[2][3] * Colum[3][2] -
 					Colum[2][1] * Colum[1][2] * Colum[3][3] +
 					Colum[2][1] * Colum[1][3] * Colum[3][2] +
 					Colum[3][1] * Colum[1][2] * Colum[2][3] -
 					Colum[3][1] * Colum[1][3] * Colum[2][2];
 
-	inverse[4] =	-Colum[1][0] * Colum[2][2] * Colum[3][3] +
+	inverse[0][1] =	-Colum[1][0] * Colum[2][2] * Colum[3][3] +
 					Colum[1][0] * Colum[2][3] * Colum[3][2] +
 					Colum[2][0] * Colum[1][2] * Colum[3][3] -
 					Colum[2][0] * Colum[1][3] * Colum[3][2] -
 					Colum[3][0] * Colum[1][2] * Colum[2][3] +
 					Colum[3][0] * Colum[1][3] * Colum[2][2];
 
-	inverse[8] =	Colum[1][0] * Colum[2][1] * Colum[3][3] -
+	inverse[0][2] =	Colum[1][0] * Colum[2][1] * Colum[3][3] -
 					Colum[1][0] * Colum[2][3] * Colum[3][1] -
 					Colum[2][0] * Colum[1][1] * Colum[3][3] +
 					Colum[2][0] * Colum[1][3] * Colum[3][1] +
 					Colum[3][0] * Colum[1][1] * Colum[2][3] -
 					Colum[3][0] * Colum[1][3] * Colum[2][1];
 
-	inverse[12] =	-Colum[1][0] * Colum[2][1] * Colum[3][2] +
+	inverse[0][3] =	-Colum[1][0] * Colum[2][1] * Colum[3][2] +
 					Colum[1][0] * Colum[2][2] * Colum[3][1] +
 					Colum[2][0] * Colum[1][1] * Colum[3][2] -
 					Colum[2][0] * Colum[1][2] * Colum[3][1] -
 					Colum[3][0] * Colum[1][1] * Colum[2][2] +
 					Colum[3][0] * Colum[1][2] * Colum[2][1];
 
-	inverse[1] =	-Colum[0][1] * Colum[2][2] * Colum[3][3] +
+	inverse[1][0] =	-Colum[0][1] * Colum[2][2] * Colum[3][3] +
 					Colum[0][1]  * Colum[2][3] * Colum[3][2] +
 					Colum[2][1]  * Colum[0][2] * Colum[3][3] -
 					Colum[2][1]  * Colum[0][3] * Colum[3][2] -
 					Colum[3][1] * Colum[0][2] * Colum[2][3] +
 					Colum[3][1] * Colum[0][3] * Colum[2][2];
 
-	inverse[5] =	Colum[0][0]  * Colum[2][2] * Colum[3][3] -
+	inverse[1][1] =	Colum[0][0]  * Colum[2][2] * Colum[3][3] -
 					Colum[0][0]  * Colum[2][3] * Colum[3][2] -
 					Colum[2][0]  * Colum[0][2] * Colum[3][3] +
 					Colum[2][0]  * Colum[0][3] * Colum[3][2] +
 					Colum[3][0] * Colum[0][2] * Colum[2][3] -
 					Colum[3][0] * Colum[0][3] * Colum[2][2];
 
-	inverse[9] =	-Colum[0][0] * Colum[2][1] * Colum[3][3] +
+	inverse[1][2] =	-Colum[0][0] * Colum[2][1] * Colum[3][3] +
 					Colum[0][0]  * Colum[2][3] * Colum[3][1] +
 					Colum[2][0]  * Colum[0][1] * Colum[3][3] -
 					Colum[2][0]  * Colum[0][3] * Colum[3][1] -
 					Colum[3][0] * Colum[0][1] * Colum[2][3] +
 					Colum[3][0] * Colum[0][3] * Colum[2][1];
 
-	inverse[13] =	Colum[0][0]  * Colum[2][1] * Colum[3][2] -
+	inverse[1][3] =	Colum[0][0]  * Colum[2][1] * Colum[3][2] -
 					Colum[0][0]  * Colum[2][2] * Colum[3][1] -
 					Colum[2][0]  * Colum[0][1] * Colum[3][2] +
 					Colum[2][0]  * Colum[0][2] * Colum[3][1] +
 					Colum[3][0] * Colum[0][1] * Colum[2][2] -
 					Colum[3][0] * Colum[0][2] * Colum[2][1];
 
-	inverse[2] =	Colum[0][1]  * Colum[1][2] * Colum[3][3] -
+	inverse[2][0] =	Colum[0][1]  * Colum[1][2] * Colum[3][3] -
 					Colum[0][1]  * Colum[1][3] * Colum[3][2] -
 					Colum[1][1]  * Colum[0][2] * Colum[3][3] +
 					Colum[1][1]  * Colum[0][3] * Colum[3][2] +
 					Colum[3][1] * Colum[0][2] * Colum[1][3] -
 					Colum[3][1] * Colum[0][3] * Colum[1][2];
 
-	inverse[6] =	-Colum[0][0] * Colum[1][2] * Colum[3][3] +
+	inverse[2][1] =	-Colum[0][0] * Colum[1][2] * Colum[3][3] +
 					Colum[0][0]  * Colum[1][3] * Colum[3][2] +
 					Colum[1][0]  * Colum[0][2] * Colum[3][3] -
 					Colum[1][0]  * Colum[0][3] * Colum[3][2] -
 					Colum[3][0] * Colum[0][2] * Colum[1][3] +
 					Colum[3][0] * Colum[0][3] * Colum[1][2];
 
-	inverse[10] =	Colum[0][0]  * Colum[1][1] * Colum[3][3] -
+	inverse[2][2] =	Colum[0][0]  * Colum[1][1] * Colum[3][3] -
 					Colum[0][0]  * Colum[1][3] * Colum[3][1] -
 					Colum[1][0]  * Colum[0][1] * Colum[3][3] +
 					Colum[1][0]  * Colum[0][3] * Colum[3][1] +
 					Colum[3][0] * Colum[0][1] * Colum[1][3] -
 					Colum[3][0] * Colum[0][3] * Colum[1][1];
 
-	inverse[14] =	-Colum[0][0] * Colum[1][1] * Colum[3][2] +
+	inverse[2][3] =	-Colum[0][0] * Colum[1][1] * Colum[3][2] +
 					Colum[0][0]  * Colum[1][2] * Colum[3][1] +
 					Colum[1][0]  * Colum[0][1] * Colum[3][2] -
 					Colum[1][0]  * Colum[0][2] * Colum[3][1] -
 					Colum[3][0] * Colum[0][1] * Colum[1][2] +
 					Colum[3][0] * Colum[0][2] * Colum[1][1];
 
-	inverse[3] =	-Colum[0][1] * Colum[1][2] * Colum[2][3] +
+	inverse[3][0] =	-Colum[0][1] * Colum[1][2] * Colum[2][3] +
 					Colum[0][1]  * Colum[1][3] * Colum[2][2] +
 					Colum[1][1]  * Colum[0][2] * Colum[2][3] -
 					Colum[1][1]  * Colum[0][3] * Colum[2][2] -
 					Colum[2][1]  * Colum[0][2] * Colum[1][3] +
 					Colum[2][1]  * Colum[0][3] * Colum[1][2];
 
-	inverse[7] =	Colum[0][0] * Colum[1][2] * Colum[2][3] -
+	inverse[3][1] =	Colum[0][0] * Colum[1][2] * Colum[2][3] -
 					Colum[0][0] * Colum[1][3] * Colum[2][2] -
 					Colum[1][0] * Colum[0][2] * Colum[2][3] +
 					Colum[1][0] * Colum[0][3] * Colum[2][2] +
 					Colum[2][0] * Colum[0][2] * Colum[1][3] -
 					Colum[2][0] * Colum[0][3] * Colum[1][2];
 
-	inverse[11] =	-Colum[0][0] * Colum[1][1] * Colum[2][3] +
+	inverse[3][2] =	-Colum[0][0] * Colum[1][1] * Colum[2][3] +
 					Colum[0][0]  * Colum[1][3] * Colum[2][1] +
 					Colum[1][0]  * Colum[0][1] * Colum[2][3] -
 					Colum[1][0]  * Colum[0][3] * Colum[2][1] -
 					Colum[2][0]  * Colum[0][1] * Colum[1][3] +
 					Colum[2][0]  * Colum[0][3] * Colum[1][1];
 
-	inverse[15] =	Colum[0][0] * Colum[1][1] * Colum[2][2] -
+	inverse[3][3] =	Colum[0][0] * Colum[1][1] * Colum[2][2] -
 					Colum[0][0] * Colum[1][2] * Colum[2][1] -
 					Colum[1][0] * Colum[0][1] * Colum[2][2] +
 					Colum[1][0] * Colum[0][2] * Colum[2][1] +
 					Colum[2][0] * Colum[0][1] * Colum[1][2] -
-					Colum[2][0] * Colum[0][2] * Colum[1][1];
+					Colum[2][0] * Colum[0][2] * Colum[1][1];*/
+
+adjunt[0][0] = Colum[1][1]  * Colum[2][2] * Colum[3][3] - 
+				Colum[1][1]  * Colum[2][3] * Colum[3][2] - 
+				Colum[2][1]  * Colum[1][2]  * Colum[3][3] + 
+				Colum[2][1]  * Colum[1][3]  * Colum[3][2] +
+				Colum[3][1] * Colum[1][2]  * Colum[2][3] - 
+				Colum[3][1] * Colum[1][3]  * Colum[2][2];
+
+	adjunt[1][0] = -Colum[1][0]  * Colum[2][2] * Colum[3][3] + 
+				Colum[1][0]  * Colum[2][3] * Colum[3][2] + 
+				Colum[2][0]  * Colum[1][2]  * Colum[3][3] - 
+				Colum[2][0]  * Colum[1][3]  * Colum[3][2] - 
+				Colum[3][0] * Colum[1][2]  * Colum[2][3] + 
+				Colum[3][0] * Colum[1][3]  * Colum[2][2];
+
+	adjunt[2][0] = Colum[1][0]  * Colum[2][1] * Colum[3][3] - 
+				Colum[1][0]  * Colum[2][3] * Colum[3][1] - 
+				Colum[2][0]  * Colum[1][1] * Colum[3][3] + 
+				Colum[2][0]  * Colum[1][3] * Colum[3][1] + 
+				Colum[3][0] * Colum[1][1] * Colum[2][3] - 
+				Colum[3][0] * Colum[1][3] * Colum[2][1];
+
+	adjunt[3][0] = -Colum[1][0]  * Colum[2][1] * Colum[3][2] + 
+				Colum[1][0]  * Colum[2][2] * Colum[3][1] +
+				Colum[2][0]  * Colum[1][1] * Colum[3][2] - 
+				Colum[2][0]  * Colum[1][2] * Colum[3][1] - 
+				Colum[3][0] * Colum[1][1] * Colum[2][2] + 
+				Colum[3][0] * Colum[1][2] * Colum[2][1];
+
+	adjunt[0][1] = -Colum[0][1]  * Colum[2][2] * Colum[3][3] + 
+				Colum[0][1]  * Colum[2][3] * Colum[3][2] + 
+				Colum[2][1]  * Colum[0][2] * Colum[3][3] - 
+				Colum[2][1]  * Colum[0][3] * Colum[3][2] - 
+				Colum[3][1] * Colum[0][2] * Colum[2][3] + 
+				Colum[3][1] * Colum[0][3] * Colum[2][2];
+
+	adjunt[1][1] = Colum[0][0]  * Colum[2][2] * Colum[3][3] - 
+				Colum[0][0]  * Colum[2][3] * Colum[3][2] - 
+				Colum[2][0]  * Colum[0][2] * Colum[3][3] + 
+				Colum[2][0]  * Colum[0][3] * Colum[3][2] + 
+				Colum[3][0] * Colum[0][2] * Colum[2][3] - 
+				Colum[3][0] * Colum[0][3] * Colum[2][2];
+
+	adjunt[2][1] = -Colum[0][0]  * Colum[2][1] * Colum[3][3] + 
+				Colum[0][0]  * Colum[2][3] * Colum[3][1] + 
+				Colum[2][0]  * Colum[0][1] * Colum[3][3] - 
+				Colum[2][0]  * Colum[0][3] * Colum[3][1] - 
+				Colum[3][0] * Colum[0][1] * Colum[2][3] + 
+				Colum[3][0] * Colum[0][3] * Colum[2][1];
+
+	adjunt[3][1] = Colum[0][0]  * Colum[2][1] * Colum[3][2] - 
+				Colum[0][0]  * Colum[2][2] * Colum[3][1] - 
+				Colum[2][0]  * Colum[0][1] * Colum[3][2] + 
+				Colum[2][0]  * Colum[0][2] * Colum[3][1] + 
+				Colum[3][0] * Colum[0][1] * Colum[2][2] - 
+				Colum[3][0] * Colum[0][2] * Colum[2][1];
+
+	adjunt[0][2] = Colum[0][1]  * Colum[1][2] * Colum[3][3] - 
+				Colum[0][1]  * Colum[1][3] * Colum[3][2] - 
+				Colum[1][1]  * Colum[0][2] * Colum[3][3] + 
+				Colum[1][1]  * Colum[0][3] * Colum[3][2] + 
+				Colum[3][1] * Colum[0][2] * Colum[1][3] - 
+				Colum[3][1] * Colum[0][3] * Colum[1][2];
+
+	adjunt[1][2] = -Colum[0][0]  * Colum[1][2] * Colum[3][3] + 
+				Colum[0][0]  * Colum[1][3] * Colum[3][2] + 
+				Colum[1][0]  * Colum[0][2] * Colum[3][3] - 
+				Colum[1][0]  * Colum[0][3] * Colum[3][2] - 
+				Colum[3][0] * Colum[0][2] * Colum[1][3] + 
+				Colum[3][0] * Colum[0][3] * Colum[1][2];
+
+	adjunt[2][2] = Colum[0][0]  * Colum[1][1] * Colum[3][3] - 
+				Colum[0][0]  * Colum[1][3] * Colum[3][1] - 
+				Colum[1][0]  * Colum[0][1] * Colum[3][3] + 
+				Colum[1][0]  * Colum[0][3] * Colum[3][1] + 
+				Colum[3][0] * Colum[0][1] * Colum[1][3] - 
+				Colum[3][0] * Colum[0][3] * Colum[1][1];
+
+	adjunt[3][2] = -Colum[0][0]  * Colum[1][1] * Colum[3][2] + 
+				Colum[0][0]  * Colum[1][2] * Colum[3][1] + 
+				Colum[1][0]  * Colum[0][1] * Colum[3][2] - 
+				Colum[1][0]  * Colum[0][2] * Colum[3][1] - 
+				Colum[3][0] * Colum[0][1] * Colum[1][2] + 
+				Colum[3][0] * Colum[0][2] * Colum[1][1];
+
+	adjunt[0][3] = -Colum[0][1] * Colum[1][2] * Colum[2][3] + 
+				Colum[0][1] * Colum[1][3] * Colum[2][2] + 
+				Colum[1][1] * Colum[0][2] * Colum[2][3] - 
+				Colum[1][1] * Colum[0][3] * Colum[2][2] - 
+				Colum[2][1] * Colum[0][2] * Colum[1][3] + 
+				Colum[2][1] * Colum[0][3] * Colum[1][2];
+
+	adjunt[1][3] = Colum[0][0] * Colum[1][2] * Colum[2][3] - 
+				Colum[0][0] * Colum[1][3] * Colum[2][2] - 
+				Colum[1][0] * Colum[0][2] * Colum[2][3] + 
+				Colum[1][0] * Colum[0][3] * Colum[2][2] + 
+				Colum[2][0] * Colum[0][2] * Colum[1][3] - 
+				Colum[2][0] * Colum[0][3] * Colum[1][2];
+
+	adjunt[2][3] = -Colum[0][0] * Colum[1][1] * Colum[2][3] + 
+				Colum[0][0] * Colum[1][3] * Colum[2][1] + 
+				Colum[1][0] * Colum[0][1] * Colum[2][3] - 
+				Colum[1][0] * Colum[0][3] * Colum[2][1] - 
+				Colum[2][0] * Colum[0][1] * Colum[1][3] + 
+				Colum[2][0] * Colum[0][3] * Colum[1][1];
+
+	adjunt[3][3] = Colum[0][0] * Colum[1][1] * Colum[2][2] - 
+				Colum[0][0] * Colum[1][2] * Colum[2][1] - 
+				Colum[1][0] * Colum[0][1] * Colum[2][2] + 
+				Colum[1][0] * Colum[0][2] * Colum[2][1] + 
+				Colum[2][0] * Colum[0][1] * Colum[1][2] - 
+				Colum[2][0] * Colum[0][2] * Colum[1][1];
+	
+	FMatrix4 inverse = FMatrix4();
+	float det = Det();
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			inverse[i][j] = adjunt[i][j] / det;
+		}
+	}
 
 	return inverse;
 }

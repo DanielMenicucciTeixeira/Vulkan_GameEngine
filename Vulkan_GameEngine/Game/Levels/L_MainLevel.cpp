@@ -98,7 +98,7 @@ void L_MainLevel::Start()
 	SpawnGameObjectOfClass<GO_Triangle>(FTransform(FVector3(3.0f, -3.0f, -6.0f), FQuaternion(), FVector3(1.0f)));*/
 	//SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
 	
-	SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(0, 0, 0), FQuaternion(), FVector3(1)));
+	SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 
 	auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
 	auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();

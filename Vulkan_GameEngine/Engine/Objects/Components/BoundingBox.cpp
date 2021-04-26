@@ -36,16 +36,17 @@ void C_BoundingBox::Start()
 
 FVector3 C_BoundingBox::GetMin()
 {
-	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
-	FVector4 temp = GetComponentModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+	FVector4 temp = GetComponentModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
 	temp = temp / temp.W;
 	return FVector3(temp.X, temp.Y, temp.Z);
 }
 
 FVector3 C_BoundingBox::GetMax()
 {
-	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
-	FVector4 temp = GetComponentModelMatrix() * FVector4(Min.X, Min.Y, Min.Z, 1.0f);
+
+	//FVector4 temp = Transform->GetModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
+	FVector4 temp = GetComponentModelMatrix() * FVector4(Max.X, Max.Y, Max.Z, 1.0f);
 	temp = temp / temp.W;
 	return FVector3(temp.X, temp.Y, temp.Z);
 }

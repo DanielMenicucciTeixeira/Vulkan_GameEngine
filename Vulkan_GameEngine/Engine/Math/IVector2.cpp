@@ -185,9 +185,9 @@ int IVector2::GetDistance(IVector2 vector1, IVector2 vector2)
 	return vector1.GetDistance(vector2);
 }
 
-void IVector2::Print()
+void IVector2::Print() const
 {
-	printf("[ %f,\t%f]\n", X, Y);
+	printf("[%i,\t%i]\n", X, Y);
 }
 
 size_t HASH_IVector2::operator()(const IVector2& vector) const

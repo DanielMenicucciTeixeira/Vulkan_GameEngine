@@ -180,7 +180,7 @@ bool L_Level::CheckForCamera()
 void L_Level::Update(const float deltaTime)
 {
 	ReloadLevelObjects();
-	C_CollisionComponent::CheckForCollisions(Colliders);
+	C_CollisionComponent::CheckForCollisions(LevelGraph::Colliders);
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
 	if (!CurrentGame->IsPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
@@ -199,5 +199,5 @@ void L_Level::CleanUp()
 
 void L_Level::AddCollider(C_CollisionComponent* collider)
 {
-	Colliders.push_back(collider);
+	LevelGraph::GetInstance()->AddCollisionComponent(collider);
 }

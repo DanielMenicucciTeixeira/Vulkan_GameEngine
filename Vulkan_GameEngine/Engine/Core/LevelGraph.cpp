@@ -7,6 +7,7 @@
 #include "SDL/SDLTextureHandler.h"
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
+#include "Objects/Components/CollisionComponent.h"
 
 //Static Re-declarations
 
@@ -21,6 +22,7 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
+std::vector<C_CollisionComponent*> LevelGraph::Colliders;
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
@@ -117,6 +119,11 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 	if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
 	RenderData.Meshes.insert(meshComponent->GetMesh());
 	StaticMehes.insert(meshComponent);
+}
+
+void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
+{
+	Colliders.push_back(component);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)

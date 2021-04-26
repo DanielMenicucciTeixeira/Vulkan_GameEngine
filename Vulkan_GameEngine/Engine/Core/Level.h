@@ -79,7 +79,6 @@ protected:
 	bool FindAnyCamera();
 	bool ChangeCamera();
 	std::set<O_Object*> UnloadedObjects;
-	std::vector<C_CollisionComponent*> Colliders;
 	BaseGame* CurrentGame;
 	C_CameraComponent* NextCamera;
 

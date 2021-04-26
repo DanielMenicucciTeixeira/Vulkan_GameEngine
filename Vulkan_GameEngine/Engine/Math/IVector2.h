@@ -100,7 +100,7 @@ public:
 	int GetDistance(IVector2 vector) const;
 	static int GetDistance(IVector2 vector1, IVector2 vector2);
 
-	void Print();
+	void Print() const;
 };
 
 struct HASH_IVector2

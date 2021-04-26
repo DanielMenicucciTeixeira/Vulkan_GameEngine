@@ -17,6 +17,8 @@ public:
 	inline FVector3 GetPlaneNormal() const { return FVector3(X, Y, Z).GetNormal(); }
 	FVector3 GetRandomPointInPlane() const;
 
+	void NormalizePlane();
+
 protected:
 	FVector3 normal;
 };

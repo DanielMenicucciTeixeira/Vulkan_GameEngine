@@ -30,7 +30,7 @@ protected:
 
 	static bool RaySphereCollision(const Ray& ray, const Sphere& sphere, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
-	static bool RayBoundingBoxCollision(const Ray& ray, C_BoundingBox* box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
+	static bool RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box, S_CollisionData& data);
 	static bool SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance = 0.01f);
 	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
 	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
@@ -44,6 +44,8 @@ protected:
 	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
 
 public:
+	static bool RayCast(Ray& ray, S_CollisionData& data, bool stopAtFirstCollision = true);
+
 	inline ECollisionType GetCollisionType() { return CollisionType; }
 	inline void SetCollisionType(ECollisionType type) { CollisionType = type; }
 	inline void SetCollisionFunction(static void (*collisionFunction)(O_GameObject* self, const S_CollisionData& data)) { CollisionFunction = collisionFunction; }

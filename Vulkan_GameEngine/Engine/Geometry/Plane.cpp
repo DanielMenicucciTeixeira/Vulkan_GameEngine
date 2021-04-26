@@ -48,3 +48,12 @@ FVector3 Plane::GetRandomPointInPlane() const
 	else if (Z != 0) return FVector3(0, 0, Z / W);
 	else return FVector3();
 }
+
+void Plane::NormalizePlane()
+{
+	FVector3 normal(*this);
+	normal.Normalize();
+	X = normal.X;
+	Y = normal.Y;
+	Z = normal.Z;
+}

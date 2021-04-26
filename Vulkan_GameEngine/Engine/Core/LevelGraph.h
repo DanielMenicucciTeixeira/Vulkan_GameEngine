@@ -17,6 +17,7 @@ class O_Object;
 class C_RenderableComponent;
 class C_StaticMeshComponent;
 class C_CameraComponent;
+class C_CollisionComponent;
 struct S_Mesh;
 struct S_Material;
 struct S_Texture;
@@ -69,6 +70,7 @@ public:
 
 	void AddMesh(S_Mesh* mesh);
 	void AddMeshComponent(C_StaticMeshComponent* meshComponent);
+	void AddCollisionComponent(C_CollisionComponent* component);
 	void RemoveMeshComponent(C_StaticMeshComponent* meshComponent);
 	void AddTexture(S_Texture* texture);
 	void AddMaterial(S_Material* material);
@@ -81,6 +83,7 @@ public:
 	inline std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
+	inline const std::vector<C_CollisionComponent*>& GetColliders() const { return Colliders; }
 
 
 	void CleanUp();
@@ -104,6 +107,7 @@ protected:
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
 	static C_CameraComponent* ActiveCamera;
+	static std::vector<C_CollisionComponent*> Colliders;
 	
 	S_RenderData RenderData;
 	std::set<C_StaticMeshComponent*> StaticMehes;

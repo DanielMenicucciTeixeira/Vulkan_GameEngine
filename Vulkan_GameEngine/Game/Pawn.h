@@ -29,6 +29,7 @@ public:
 	static void TurnCamera(O_Object* self, SDL_Event* event);
 	static void ZoomCamera(O_Object* self, SDL_Event* event);
 	static void PrintFrustum(O_Object* self, SDL_Event* event);
+	static void Grab(O_Object* self, SDL_Event* event);
 
 	void MoveForward(bool backwards);
 	void StopMoving();
@@ -36,6 +37,7 @@ public:
 	void StopTurning();
 	void TurnCamera(FVector2 offset);
 	void ZoomCamera(float zoom);
+	void Grab();
 
 protected:
 	float Speed = 10.0f;

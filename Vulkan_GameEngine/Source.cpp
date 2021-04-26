@@ -3,11 +3,13 @@
 #include "SDL/SDLManager.h"
 #include "Renderers/Renderer.h"
 #include "Math/FVector3.h"
+#include "Math/FMatrix4.h"
 
 #include <SDL.h>
 #include <iostream>
 #include <cstdlib>
 #include <set>
+#include <glm/glm.hpp>
 
 void printUp(SDL_Event* event) { printf("Key up!\n"); }
 void printDown(SDL_Event* event) { printf("Key down!\n"); }

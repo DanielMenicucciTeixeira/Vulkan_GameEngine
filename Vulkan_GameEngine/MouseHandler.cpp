@@ -120,7 +120,7 @@ Ray MouseHandler::MousePositionToWorldRay(FVector2 mousePosition, FVector2 scree
 
 	FVector3 worldRayDirection(worldRayEnd - worldRayOrigin);
 	worldRayDirection.Normalize();
-	return Ray(FVector3(worldRayOrigin), worldRayDirection);
+	return Ray(worldRayOrigin, worldRayDirection);
 }
 
 void MouseHandler::UpdateCursorPosition()

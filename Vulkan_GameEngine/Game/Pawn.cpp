@@ -8,17 +8,21 @@
 #include "Math/FQuaternion.h"
 #include "MouseHandler.h"
 #include "Event/EventHandler.h"
+#include "Geometry/Ray.h"
+#include "Objects/Components/CollisionComponent.h"
+#include "Math/IVector2.h"
+
+#include <iostream>
 #include <SDL.h>
 
 GO_Pawn::GO_Pawn(L_Level* level, std::string name) : O_GameObject(level, name)
 {
 
-	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
+	/*Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("Box001");
 	Mesh->SetMaterialName("M_diceTexture");
 	Mesh->SetComponentScale({ 0.3f, 0.3f, 0.3f });
-	Mesh->SetComponentPosition({ 0.0f, 0.0, 0.0 });
-	//Mesh->SetComponentRotation(FQuaternion({ 0.0f, 0.0f, 1.0f }, 90.0f));
+	Mesh->SetComponentPosition({ 0.0f, 0.0, 0.0 });*/
 
 	Camera = AddComponentOfClass<C_CameraComponent>();
 	Camera->SetComponentPosition({ 0.0f, 0.0f, 5.0f });
@@ -35,8 +39,8 @@ GO_Pawn::GO_Pawn(L_Level* level, std::string name) : O_GameObject(level, name)
 	EventHandler::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_d);
 	EventHandler::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_a);
 
-	EventHandler::AddFunctionByInput(this, TurnCamera, SDL_MOUSEMOTION, SDLK_UNKNOWN);
-
+	//EventHandler::AddFunctionByInput(this, TurnCamera, SDL_MOUSEMOTION, SDLK_UNKNOWN);
+	EventHandler::AddFunctionByInput(this, Grab, SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT);
 	EventHandler::AddFunctionByInput(this, PrintFrustum, SDL_KEYUP, SDLK_c);
 }
 
@@ -92,6 +96,11 @@ void GO_Pawn::ZoomCamera(O_Object* self, SDL_Event* event)
 void GO_Pawn::PrintFrustum(O_Object* self, SDL_Event* event)
 {
 	dynamic_cast<GO_Pawn*>(self)->Camera->PrintFrustum();
+}
+
+void GO_Pawn::Grab(O_Object* self, SDL_Event* event)
+{
+	dynamic_cast<GO_Pawn*>(self)->Grab();
 }
 
 void GO_Pawn::MoveForward(bool backwards)
@@ -151,4 +160,17 @@ void GO_Pawn::TurnCamera(FVector2 offset)
 void GO_Pawn::ZoomCamera(float zoom)
 {
 
+}
+
+void GO_Pawn::Grab()
+{
+	S_CollisionData data;
+	Ray ray = MouseHandler::MousePositionToWorldRay();
+	ray.GetOrigin().Print();
+	ray.GetDirection().Print();
+	if (C_CollisionComponent::RayCast(ray, data))
+	{
+		std::cout << data.OtherGameObject->GetName() << " was hit!" << std::endl;
+	}
+	else std::cout << "No hit!" << std::endl;
 }

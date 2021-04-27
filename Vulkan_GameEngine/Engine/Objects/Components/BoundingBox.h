@@ -1,7 +1,6 @@
 #ifndef BOUNDINGBOX_H
 #define BOUNDINGBOX_H
 #include "CollisionComponent.h"
-#include "Geometry/BoxBounds.h"
 
 #include <set>
 
@@ -23,7 +22,6 @@ public:
 protected:
 	FVector3 Min;
 	FVector3 Max;
-	S_BoxBounds Box;
 };
 #endif
 

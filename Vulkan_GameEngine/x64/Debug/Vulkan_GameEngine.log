@@ -1,9 +1,28 @@
-﻿  CollisionComponent.cpp
+﻿  BoundingBox.cpp
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(51,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(52,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(53,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(52,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(53,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(54,126): warning C4042: 'overlapEndFunction': has bad storage class
+  CameraComponent.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(52,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(53,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(54,126): warning C4042: 'overlapEndFunction': has bad storage class
+  CollisionComponent.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(52,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(53,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(54,126): warning C4042: 'overlapEndFunction': has bad storage class
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.cpp(44,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.cpp(52,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  StaticMeshComponent.cpp
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(52,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(53,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(54,126): warning C4042: 'overlapEndFunction': has bad storage class
+  Generating Code...
   Vulkan_GameEngine.vcxproj -> D:\Humber\OldVKEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

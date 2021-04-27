@@ -212,6 +212,7 @@
     <ClCompile Include="Engine\FX\LightSource.cpp" />
     <ClCompile Include="Game\Pawn.cpp" />
     <ClCompile Include="MouseHandler.cpp" />
+    <ClCompile Include="OctTree.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="Engine\Core\DebugLogger.h" />
     <ClInclude Include="Engine\Auxiliary\Singleton.h" />
     <ClInclude Include="Engine\Core\CoreEngine.h" />
+    <ClInclude Include="Engine\Geometry\BoxBounds.h" />
     <ClInclude Include="Engine\Math\FVector2.h" />
     <ClInclude Include="Engine\Math\IVector2.h" />
     <ClInclude Include="Engine\Math\IVector3.h" />
@@ -283,6 +285,7 @@
     <ClInclude Include="Engine\FX\LightSource.h" />
     <ClInclude Include="Game\Pawn.h" />
     <ClInclude Include="MouseHandler.h" />
+    <ClInclude Include="OctTree.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
     <ClInclude Include="Engine\SDL\SDLManager.h" />

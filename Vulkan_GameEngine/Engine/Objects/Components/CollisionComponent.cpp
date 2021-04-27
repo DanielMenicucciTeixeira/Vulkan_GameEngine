@@ -197,6 +197,11 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box,
 	return true;
 }
 
+bool C_CollisionComponent::BoundingBoxBoundingBoxCollision(const C_BoundingBox& box1, const C_BoundingBox& box2, S_CollisionData& data)
+{
+	return false;
+}
+
 bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
 {
 	float distance = (sphere0.position - sphere1.position).Length();

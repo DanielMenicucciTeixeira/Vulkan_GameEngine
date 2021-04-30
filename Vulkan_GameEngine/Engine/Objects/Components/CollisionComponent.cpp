@@ -3,6 +3,7 @@
 #include "Geometry/Sphere.h"
 #include "Geometry/Box.h"
 #include "Geometry/Plane.h"
+#include "Geometry/BoxBounds.h"
 #include "Math/FVector3.h"
 #include <cmath>
 #include <iostream>
@@ -110,22 +111,22 @@ bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVect
 
 }
 
-bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box,  S_CollisionData& data)
+bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, S_BoxBounds box,  S_CollisionData& data)
 {
 	FVector3 rayOrigin = ray.GetOrigin();
 	FVector3 rayDirection = ray.GetDirection().GetNormal();
-	FVector3 boxMin = box->GetRelativeMin();
-	FVector3 boxMax = box->GetRelativeMax();
-	FMatrix4 modelMatrix = box->GetComponentModelMatrix();
+	FVector3 boxMin = box.Min;
+	FVector3 boxMax = box.Max;
+	FMatrix4 modelMatrix = box.Model;
 
 	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
 	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
 
-	FVector3 worldPosition(modelMatrix[3]);
+	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
 	FVector3 delta = worldPosition - rayOrigin;
 
 	//X Axis
-	FVector3 axis(modelMatrix[0]);
+	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
 	float deltaDot = delta * axis;
 	float directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -147,7 +148,7 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box,
 	else if (-deltaDot + boxMin.X > 0.0f || -deltaDot + boxMax.X < 0.0f) return false;
 
 	//Y Axis
-	axis = FVector3(modelMatrix[1]);
+	axis = FVector3(modelMatrix[1].X, modelMatrix[1].Y, modelMatrix[1].Z);
 	deltaDot = delta * axis;
 	directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -169,7 +170,7 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box,
 	else if (-deltaDot + boxMin.Y > 0.0f || -deltaDot + boxMax.Y < 0.0f) return false;
 
 	//Z Axis
-	axis = FVector3(modelMatrix[2]);
+	axis = FVector3(modelMatrix[2].X, modelMatrix[2].Y, modelMatrix[2].Z);
 	deltaDot = delta * axis;
 	directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -192,8 +193,6 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, C_BoundingBox* box,
 
 	ray.SetLenght(tMin);
 	data.CollisionPoint = ray.GetOrigin() + (ray.GetDirection() * tMin);
-	data.OtherCollisonComponent = box;
-	data.OtherGameObject = box->GetOwner();
 	return true;
 }
 
@@ -238,20 +237,66 @@ bool C_CollisionComponent::SphereBoxCollision(const Sphere& sphere, const Box& b
 			}
 		}
 	}
-	int debug = 0;
 	return false;
 }
 
-bool C_CollisionComponent::RayCast(Ray& ray, S_CollisionData& data, bool stopAtFirstCollision)
+bool C_CollisionComponent::BoundingBoxBoundingBoxCollision(const S_BoxBounds& box1, const S_BoxBounds& box2, S_CollisionData& data)
+{
+	FVector3 RelativePosition;
+	RelativePosition = FVector3(box2.Model[3]) - FVector3(box1.Model[3]);
+	
+	FVector3 box1Axis[3] = { FVector3(box1.Model[0]), FVector3(box1.Model[1]), FVector3(box1.Model[2]) };
+	FVector3 box2Axis[3] = { FVector3(box2.Model[0]), FVector3(box2.Model[1]), FVector3(box2.Model[2]) };
+
+	return 
+		(
+			!IsSeparatingPlane(RelativePosition, box1Axis[0], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[1], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[2], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box2Axis[0], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box2Axis[1], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box2Axis[2], box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[0]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[1]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[2]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[0]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[1]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[2]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[0]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[1]), box1, box1Axis, box2, box2Axis) &&
+			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[2]), box1, box1Axis, box2, box2Axis)
+		);
+}
+
+bool C_CollisionComponent::IsSeparatingPlane(const FVector3& RelativePosition, const FVector3& Plane, const S_BoxBounds& box1, const FVector3 box1Axis[3], const S_BoxBounds& box2, const FVector3 box2Axis[3])
+{
+	FVector3 box1HalfSize = (box1.Max - box1.Min) / 2.0f;
+	FVector3 box2HalfSize = (box2.Max - box2.Min) / 2.0f;
+
+	return (
+			fabs(RelativePosition * Plane) >
+			(
+			fabs((box1Axis[0] * box1HalfSize.X) * Plane) +
+			fabs((box1Axis[1] * box1HalfSize.Y) * Plane) +
+			fabs((box1Axis[2] * box1HalfSize.Z) * Plane) +
+			fabs((box2Axis[0] * box2HalfSize.X) * Plane) +
+			fabs((box2Axis[1] * box2HalfSize.Y) * Plane) +
+			fabs((box2Axis[2] * box2HalfSize.Z) * Plane)
+			)
+		);
+}
+
+bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 {
 	bool hit = false;
 	bool firstHit = false;
 	S_CollisionData tempData;
 	float closest;
-	for (const auto& collider : LevelGraph::GetInstance()->GetColliders())
+
+	for (const auto& partition : LevelGraph::GetInstance()->GetIntersectedLeaves(ray)) for (const auto& collider : partition->GetColliders())
 	{
 		auto box = dynamic_cast<C_BoundingBox*>(collider);
-		if (box) hit = RayBoundingBoxCollision(ray, box, tempData);
+		if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
 		if (hit)
 		{
 			if (firstHit)
@@ -259,17 +304,47 @@ bool C_CollisionComponent::RayCast(Ray& ray, S_CollisionData& data, bool stopAtF
 				if (ray.GetLenght() < closest)
 				{
 					data = tempData;
+					data.OtherCollisonComponent = collider;
+					data.OtherGameObject = collider->GetOwner();
 					closest = ray.GetLenght();
 				}
 			}
 			else
 			{
 				data = tempData;
+				data.OtherCollisonComponent = collider;
+				data.OtherGameObject = collider->GetOwner();
 				closest = ray.GetLenght();
+				firstHit = true;
 			}
 		}
 	}
-	return false;
+	return firstHit;
+}
+
+bool C_CollisionComponent::RayCastMultiTarget(Ray& ray, std::vector<S_CollisionData>& outData)
+{
+	if (outData.size() != 0)
+	{
+		DebugLogger::Warning("outData was not empty, previous data will be lost!", "Core/Objects/Components/CollisionComponent.cpp", __LINE__);
+		outData.clear();
+		outData.resize(0);
+	}
+
+	bool hit = false;
+	S_CollisionData tempData;
+	float closest;
+
+	for (const auto& partition : LevelGraph::GetInstance()->GetIntersectedLeaves(ray)) for (const auto& collider : partition->GetColliders())
+	{
+		auto box = dynamic_cast<C_BoundingBox*>(collider);
+		if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
+		if (hit) outData.push_back(tempData);
+	}
+
+	outData.shrink_to_fit();
+
+	return outData.size() > size_t(0);
 }
 
 void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*> colliderVector)
@@ -318,6 +393,11 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 
 
 bool C_CollisionComponent::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
+{
+	return false;
+}
+
+bool C_CollisionComponent::SpatialPartitionCheck(S_BoxBounds box)
 {
 	return false;
 }

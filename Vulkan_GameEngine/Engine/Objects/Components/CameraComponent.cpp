@@ -96,7 +96,6 @@ FMatrix4 C_CameraComponent::GetProjectionMatrix()
 
 bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 {
-	bool result = true;
 	bool wrongSide, rightSide;
 	int i, j, k;
 	FVector3 point;
@@ -133,9 +132,8 @@ bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
 		}
 
 		if (!rightSide) return (false);//if all corners are out
-		else if (wrongSide) result = true;// if some corners are out and others are in
 	}
-	return(result);
+	return(true);
 }
 
 void C_CameraComponent::PrintFrustum()

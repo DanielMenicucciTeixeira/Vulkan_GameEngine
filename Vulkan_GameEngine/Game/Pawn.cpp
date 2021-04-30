@@ -166,9 +166,7 @@ void GO_Pawn::Grab()
 {
 	S_CollisionData data;
 	Ray ray = MouseHandler::MousePositionToWorldRay();
-	ray.GetOrigin().Print();
-	ray.GetDirection().Print();
-	if (C_CollisionComponent::RayCast(ray, data))
+	if (C_CollisionComponent::RayCastSingleTarget(ray, data))
 	{
 		std::cout << data.OtherGameObject->GetName() << " was hit!" << std::endl;
 	}

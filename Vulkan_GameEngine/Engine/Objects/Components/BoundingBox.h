@@ -1,6 +1,7 @@
 #ifndef BOUNDINGBOX_H
 #define BOUNDINGBOX_H
 #include "CollisionComponent.h"
+#include "Geometry/BoxBounds.h"
 
 #include <set>
 
@@ -14,14 +15,16 @@ public:
 	virtual ~C_BoundingBox();
 	void GetDimensionsFromMesh(S_Mesh* mesh);
 	virtual void Start() override;
+	virtual void Update(float deltaTime) override;
 	virtual FVector3 GetMin();
 	virtual FVector3 GetMax();
-	inline const FVector3& GetRelativeMin() const { return Min; }
-	inline const FVector3& GetRelativeMax() const { return Max; }
+	virtual bool SpatialPartitionCheck(S_BoxBounds box) override;
+	inline const FVector3& GetRelativeMin() const { return BoxBounds.Min; }
+	inline const FVector3& GetRelativeMax() const { return BoxBounds.Max; }
+	inline const S_BoxBounds& GetBoxBounds() const { return BoxBounds; }
 
 protected:
-	FVector3 Min;
-	FVector3 Max;
+	S_BoxBounds BoxBounds;
 };
 #endif
 

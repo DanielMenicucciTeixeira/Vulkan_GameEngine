@@ -22,7 +22,7 @@ struct S_RenderData;
 class L_Level
 {
 public:
-	L_Level();
+	L_Level(float worldSize = 100.0f);
 	virtual ~L_Level();
 
 	virtual bool Initialize(BaseGame* game);
@@ -30,6 +30,7 @@ public:
 	virtual void Update(const float deltaTime);
 	virtual void Render();
 	virtual void CleanUp();
+	virtual void CheckCollisions();
 	virtual void AddCollider(C_CollisionComponent* collider);
 	bool CheckForCamera();
 	inline void SetCamera(C_CameraComponent* camera) { NextCamera = camera;}
@@ -71,6 +72,7 @@ public:
 	void LoadLevelObjects();
 	void ReloadLevelObjects();
 	bool LoadCamera(C_CameraComponent* camera);
+	inline const float& GetWorldSize() const { return WorldSize; }
 
 protected:
 
@@ -84,5 +86,7 @@ protected:
 
 	std::set<std::string> ModelPaths;
 	std::set<std::string> MaterialPaths;
+
+	const float WorldSize;
 };
 #endif

@@ -22,7 +22,7 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
-std::vector<C_CollisionComponent*> LevelGraph::Colliders;
+OctSpactilPartition*  LevelGraph::ColliderSpationPartition = new OctSpactilPartition(100.0f);
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
@@ -123,7 +123,7 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 
 void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 {
-	Colliders.push_back(component);
+	ColliderSpationPartition->AddCollider(component);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
@@ -226,6 +226,17 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	texture = textures[textureName];
 	return true;
+}
+
+void LevelGraph::GenerateSpationPartition(float worldSize, unsigned int depth)
+{
+	if(ColliderSpationPartition) delete ColliderSpationPartition;
+	ColliderSpationPartition = new OctSpactilPartition(worldSize, depth);
+}
+
+std::set<OctSpactilPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const
+{
+	return ColliderSpationPartition->GetIntersectedLeaves(ray);
 }
 
 LevelGraph::LevelGraph()

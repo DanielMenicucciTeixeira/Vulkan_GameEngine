@@ -1,4 +1,6 @@
 #include "OctSpactilPartition.h"
+#include "Objects/GameObjects/GameObject.h"
+#include <iostream>
 
 unsigned int OctSpactilPartition::OctNode::ChildrenCount = 0;
 
@@ -109,7 +111,10 @@ void OctSpactilPartition::AddColliderToCell(C_CollisionComponent* collider, OctN
 	if (collider && cell && collider->SpatialPartitionCheck(cell->GetBoundingBox()));
 	{
 		cell->SetEmpty(false);
-		if (cell->IsLeaf()) cell->AddCollider(collider);
+		if (cell->IsLeaf())
+		{
+			cell->AddCollider(collider);
+		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) AddColliderToCell(collider, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
 }

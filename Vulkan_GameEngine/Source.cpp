@@ -19,12 +19,12 @@ int main(int argc, char* argv[])
 {
 	//std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files
 	//printf("------------------------------------------------------------------------------------------\n\n");
-
-	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), OPEN_GL))
+	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), VULKAN))
 	{
 		printf("Failed to create Engine!");
 		return 0;
 	}
+
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_QUIT, SDLK_UNKNOWN, CoreEngine::Quit);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_q, CoreEngine::Quit);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_g, CoreEngine::LoadGame);

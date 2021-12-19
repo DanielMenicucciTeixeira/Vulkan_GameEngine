@@ -1,17 +1,17 @@
-﻿  VulkanManager.cpp
-C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(71,1): warning C4099: 'SDL_Surface': type name first seen using 'class' now seen using 'struct'
-C:\GameDev\SDL2-2.0.12\include\SDL_surface.h(70): message : see declaration of 'SDL_Surface'
-C:\GameDev\SDL2-2.0.12\include\SDL_video.h(90,37): warning C4099: 'SDL_Window': type name first seen using 'class' now seen using 'struct'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.h(44): message : see declaration of 'SDL_Window'
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(430,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan\VulkanManager.cpp(621,45): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=unsigned int
-          ]
+﻿  CollisionComponent.cpp
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(27,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.cpp(45,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.cpp(53,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.cpp(336,8): warning C4101: 'closest': unreferenced local variable
   Generating code
-  1 of 2869 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 7307 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    24 functions had inline decision re-evaluated but remain unchanged
+    21 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Vulkan_GameEngine.vcxproj -> D:\Humber\GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\Vulkan_GameEngine\x64\Release\Vulkan_GameEngine.exe
+  Vulkan_GameEngine.vcxproj -> D:\Humber\Engine\Vulkan_GameEngine\x64\Release\Vulkan_GameEngine.exe

@@ -37,6 +37,7 @@ public:
 	void SetRotation(const FQuaternion& rotation);
 	void SetScale(const FVector3& scale);
 	void SetRoot(C_TransformComponent* root);
+
 	template<class componentClass>
 	componentClass* AddComponentOfClass()
 	{

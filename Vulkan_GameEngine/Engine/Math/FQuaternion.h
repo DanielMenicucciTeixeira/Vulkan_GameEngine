@@ -11,7 +11,7 @@ public:
 
 	inline FQuaternion() { X = Y = Z = 0; W = 1; Normalize(); }
 	inline FQuaternion(const FVector4& vector) : FVector4(vector) { Normalize(); }
-	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; Normalize();}
+	inline FQuaternion(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w;}
 	FQuaternion(const FVector3& axis, float angle, bool isRotation = true, bool inRadians = false);
 	FQuaternion(const FVector3& euler, bool inRadians = false);
 

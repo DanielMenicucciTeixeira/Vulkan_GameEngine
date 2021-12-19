@@ -21,19 +21,19 @@ Box C_BoxCollision::GetCollisionBox()
 	return *CollisionBox;
 }
 
-bool C_BoxCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
-{
-	if (dynamic_cast<C_BoxCollision*>(otherCollider))
-	{
-		return false;
-	}
-	if (dynamic_cast<C_SphereCollision*>(otherCollider))
-	{
-		return SphereBoxCollision(dynamic_cast<C_SphereCollision*>(otherCollider)->GetCollisionSphere(), *CollisionBox, data);
-
-	}
-	return false;
-}
+//bool C_BoxCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
+//{
+//	if (dynamic_cast<C_BoxCollision*>(otherCollider))
+//	{
+//		return false;
+//	}
+//	if (dynamic_cast<C_SphereCollision*>(otherCollider))
+//	{
+//		return SphereBoxCollision(dynamic_cast<C_SphereCollision*>(otherCollider)->GetCollisionSphere(), *CollisionBox, data);
+//
+//	}
+//	return false;
+//}
 
 void C_BoxCollision::SetBoxExtent(FVector3 extent)
 {

@@ -38,19 +38,20 @@ void C_MovementComponent::Update(const float deltaTime)//TODO implement rotation
 	Owner->SetPosition(Owner->GetPosition() + displacement);
 	*VelocityBuffer = *VelocityBuffer + (*AccelerationBuffer * deltaTime);
 
-	FVector3 rotation = *AngularVelocityBuffer * deltaTime + ((*AngularAccelerationBuffer * (deltaTime * deltaTime))/ 2.0f);
-	if (rotation != FVector3())
-	{
-		FQuaternion result = FQuaternion(rotation.GetNormal(), rotation.Length() / 2.0 * M_PI, true, true);
-		result.Normalize();
-		Owner->SetRotation((Owner->GetRotation() * result).GetNormal());
-	}
+	FQuaternion VelocityQuat = FQuaternion(AngularVelocityBuffer->X * (M_PI/180.0f), AngularVelocityBuffer->Y * (M_PI / 180.0f), AngularVelocityBuffer->Z * (M_PI / 180.0f), 0.0f);
+	FQuaternion AccelerationQuat = FQuaternion(AngularAccelerationBuffer->X * (M_PI / 180.0f), AngularAccelerationBuffer->Y * (M_PI / 180.0f), AngularAccelerationBuffer->Z * (M_PI / 180.0f), 0.0f);
+	Owner->SetRotation
+	((
+		Owner->GetRotation() + 
+		VelocityQuat * Owner->GetRotation() * 0.5f * deltaTime + 
+		AccelerationQuat * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
+	).GetNormal());
+	*AngularVelocityBuffer += *AngularAccelerationBuffer * deltaTime;
 
 	*Velocity = *VelocityBuffer;
 	*Acceleration = *AccelerationBuffer;
 	*AngularVelocity = *AngularVelocityBuffer;
 	*AngularAcceleration = *AngularAccelerationBuffer;
-
 }
 
 void C_MovementComponent::SetAcceleration(FVector3 acceleration)

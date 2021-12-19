@@ -85,6 +85,8 @@ public:
 	//Makes this Matrix an Identity matrix
 	void SetToIdentity();
 
+	void SetRow(const FVector4& vector, int row);
+
 	//Makes this Matrix a Rotation Matrix on given axis with given degrees optionaly, input true to give the angle in radians
 	static FMatrix4 GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian = false);
 

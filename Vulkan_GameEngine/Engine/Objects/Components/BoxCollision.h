@@ -15,7 +15,7 @@ public:
 	void SetComponentTransform(const FTransform& transform) override;
 	Box GetCollisionBox();
 
-	bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
+	//bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 
 	void SetBoxExtent(FVector3 extent);
 

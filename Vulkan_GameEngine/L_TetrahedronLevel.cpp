@@ -1,0 +1,120 @@
+#include "L_TetrahedronLevel.h"
+
+#include "Game.h"
+#include "SDL/SDLManager.h"
+#include "GO_Triangle.h"
+#include "Apple.h"
+#include "Renderers/RenderObject.h"
+#include "Renderers/Renderer.h"
+#include "Math/FQuaternion.h"
+#include "GO_Camera.h"
+#include "FX/LightSource.h"
+#include "FX/DirectionalLight.h"
+#include "AssetLoader.h"
+#include "LevelGraph.h"
+#include "Objects/Components/CameraComponent.h"
+#include "Objects/Components/StaticMeshComponent.h"
+#include "Objects/Components/MovementComponent.h"
+#include "Pawn.h"
+#include "Tetrahedron.h"
+#include "Math/FQuaternion.h"
+
+#include <SDL.h>
+#include <glew.h>
+#include <SDL_opengl.h>
+
+L_TetrahedronLevel::L_TetrahedronLevel()
+{
+	Name = "Tetrahedron Level";
+}
+
+bool L_TetrahedronLevel::Initialize(BaseGame* game)
+{
+	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
+
+	auto Dice_Texture = new S_Texture();
+	Dice_Texture->Name = "DumbTexture";
+	Dice_Texture->Path = "./Assets/Textures/DumbTexture.png";
+	LevelGraph::GetInstance()->AddTexture(Dice_Texture);
+	LoadTexture(Dice_Texture, Dice_Texture->Name);
+
+	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
+	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
+	LoadMaterialLibrary();
+
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Dice_Texture;
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
+	return L_Level::Initialize(game);
+}
+
+void L_TetrahedronLevel::Start()
+{
+	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
+
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
+	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
+
+	T1->GetMovement()->SetVelocity({ 1.0f, 0.0f, 0.0f });
+	T1->GetMovement()->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+
+	T2->GetMovement()->SetVelocity({ -1.0f, 0.0f, 0.0f });
+	T2->GetMovement()->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+
+	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
+	sun->SetColour({ 1.0, 1.0, 1.0 });
+	sun->SetIntensity(1.0);
+	sun->SetAmbientMultiplier(0);
+	sun->SetSpecularMultiplier(0.5);
+	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
+	sun->SetTurnedOn(true);
+
+	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	L_Level::Start();
+}
+
+void L_TetrahedronLevel::Update(float deltaTime)
+{
+	auto objects = LevelGraph::GetInstance()->GetObjects();
+	L_Level::Update(deltaTime);
+	//PrintMinowskiDifference();
+}
+
+void L_TetrahedronLevel::Render()
+{
+	L_Level::Render();
+}
+
+void L_TetrahedronLevel::PrintMinowskiDifference()
+{
+	FQuaternion temp;
+	FVector3 result1;
+	FVector3 result2;
+	int i = 0;
+
+	printf("\nMinowski Difference\n");
+	for (auto v1 : T1->GetMesh()->GetMesh()->Vertices)//for each vertex in Tetrahedron1
+	{
+		temp = FQuaternion(v1.Position.X, v1.Position.Y, v1.Position.Z, 0);
+		temp = T1->GetRotation() * temp * T1->GetRotation().GetConjugated();
+		result1 = FVector3(temp.X, temp.Y, temp.Z);
+		result1 += T1->GetPosition();
+
+		int j = 0;
+		for (auto v2 : T2->GetMesh()->GetMesh()->Vertices)//Multiply it by each vertex in Tetrahedron2
+		{
+			temp = FQuaternion(v2.Position.X, v2.Position.Y, v2.Position.Z, 0);
+			temp = T2->GetRotation() * temp * T2->GetRotation().GetConjugated();
+			result2 = FVector3(temp.X, temp.Y, temp.Z);
+			result2 += T2->GetPosition();
+
+			(result1 - result2).Print();
+
+			j++;
+			if (j >= 4) break;
+		}
+
+		i++;
+		if (i >= 4) break;
+	}
+}

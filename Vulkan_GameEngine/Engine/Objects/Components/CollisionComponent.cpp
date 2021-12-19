@@ -392,9 +392,78 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 }
 
 
-bool C_CollisionComponent::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
+bool C_CollisionComponent::Collide(const C_CollisionComponent* otherCollider, S_CollisionData& data) const
 {
-	return false;
+	if (!otherCollider) return false;
+
+	return GJK(this, otherCollider);
+
+	//Simplex3D simplex;
+
+	////First Simplex Vertex
+	//FVector3 direction = (otherCollider->GetCollisionMeshCenter() - GetCollisionMeshCenter()).GetNormal();
+	//simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
+
+	//direction = simplex.GetVertexAtIndex(0) * -1.0f;
+
+	//while (true)
+	//{
+	//	//Second Simplex Vertex
+	//	simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
+	//	if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
+	//}
+
+	//
+
+	////Third Simplex Vertex
+	//direction = (simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0)).CrossProduct(simplex.GetVertexAtIndex(0) * -1.0f).CrossProduct(simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0));
+	//simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
+	//if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
+
+	////Fourth Simplex Vertex
+
+	//FVector3 pointA = simplex.GetVertexAtIndex(2);
+	//FVector3 pointB = simplex.GetVertexAtIndex(1);
+	//FVector3 pointC = simplex.GetVertexAtIndex(0);
+	//FVector3 lineAB = pointB - pointA;
+	//FVector3 lineAC = pointC - pointA;
+	//FVector3 lineABC = lineAB.CrossProduct(lineAC);
+	//FVector3 lineAO = pointA * -1.0f;
+
+	//do
+	//{
+	//	if (lineABC.CrossProduct(lineAC) * lineAO >= 0)
+	//	{
+	//		if (lineAC * lineAO >= 0) direction = lineAC.CrossProduct(lineAO).CrossProduct(lineAC);
+	//		else if (lineAB * lineAO >= 0) direction = lineAB.CrossProduct(lineAO).CrossProduct(lineAB);
+	//		else direction = lineAO;
+	//	}
+	//	else if (lineAB.CrossProduct(lineABC) * lineAO >= 0)
+	//	{
+	//		if (lineAB * lineAO >= 0) direction = lineAB.CrossProduct(lineAO).CrossProduct(lineAB);
+	//		else direction = lineAO;
+	//	}
+	//	else if (lineABC * lineAO >= 0) direction = lineABC;
+	//	else direction = lineABC * -1.0f;
+	//	simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
+	//	if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
+	//}
+	//while (!CheckSimplexForOrigin(simplex));
+
+	//return true;
+
+	/*FVector3 AB = simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0);
+	FVector3 AC = simplex.GetVertexAtIndex(2) - simplex.GetVertexAtIndex(0);
+	FVector3 N = AB.CrossProduct(AC);
+	if ((simplex.GetCenter() * -1.0f) * N > 0)
+	{
+		direction = N;
+	}
+	else
+	{
+		direction = N * -1.0f;
+	}
+	simplex.PushFront(GetFurthestMinkDiffPoint(GetFurthestPoint(direction), otherCollider->GetFurthestPoint(direction)));*/
 }
 
 bool C_CollisionComponent::SpatialPartitionCheck(S_BoxBounds box)
@@ -448,3 +517,216 @@ C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType c
 C_CollisionComponent::~C_CollisionComponent()
 {
 }
+
+FVector3 C_CollisionComponent::GetFurthestPoint(const FVector3& direction) const
+{
+	return FVector3();
+}
+
+bool C_CollisionComponent::GJK(const C_CollisionComponent* colliderA, const C_CollisionComponent* colliderB)
+{
+	// Get initial support point in any direction
+	FVector3 support = GetFurthestMinkDiffPoint(colliderA, colliderB, FVector3(0.0f, 0.0f, 1.0f));
+	
+	// Simplex is an array of points, max count is 4
+	Simplex points;
+	points.PushFront(support);
+
+	// New direction is towards the origin
+	FVector3 direction = -support;
+	support = GetFurthestMinkDiffPoint(colliderA, colliderB, direction);
+
+	while (true) 
+	{
+		if (support * direction <= 0) 
+		{
+			return false; // no collision
+		}
+
+		Line(points, direction);
+		points.PushFront(support);
+		Triangle(points, direction);
+		points.PushFront(support);
+		if (Tetrahedron(points, direction))
+		{
+			return true;
+		}
+		else
+		{
+			points.PushFront(support);
+		}
+	}
+}
+
+FVector3 C_CollisionComponent::GetFurthestMinkDiffPoint(const C_CollisionComponent* colliderA, const C_CollisionComponent* colliderB, const FVector3& direction)
+{
+	return colliderA->GetFurthestPoint(direction) - colliderB->GetFurthestPoint(direction * -1.0f);
+}
+
+bool C_CollisionComponent::NextSimplex(Simplex& points, FVector3& direction)
+{
+	switch (points.size())
+	{
+	case 2: return Line(points, direction);
+	case 3: return Triangle(points, direction);
+	case 4: return Tetrahedron(points, direction);
+	}
+
+	return false;//this should never happen
+}
+
+bool C_CollisionComponent::SameDirection(const FVector3& direction, const FVector3& pointToOrigin)
+{
+	return direction * pointToOrigin;
+}
+
+bool C_CollisionComponent::Line(Simplex& points, FVector3& direction)
+{
+	FVector3 a = points[0];
+	FVector3 b = points[1];
+
+	FVector3 ab = b - a;
+	FVector3 ao = -a;
+
+	if (SameDirection(ab, ao)) 
+	{
+		direction = ab.CrossProduct(ao).CrossProduct(ab);
+	}
+	else 
+	{
+		points = { a };
+		direction = ao;
+	}
+
+	return false;
+}
+
+bool C_CollisionComponent::Triangle(Simplex& points, FVector3& direction)
+{
+	FVector3 a = points[0];
+	FVector3 b = points[1];
+	FVector3 c = points[2];
+
+	FVector3 ab = b - a;
+	FVector3 ac = c - a;
+	FVector3 ao = -a;
+
+	FVector3 abc = ab.CrossProduct(ac);
+
+	if (SameDirection(abc.CrossProduct(ac), ao)) 
+	{
+		if (SameDirection(ac, ao)) {
+			points = { a, c };
+			direction = ac.CrossProduct(ao).CrossProduct(ac);
+		}
+
+		else {
+			return Line(points = { a, b }, direction);
+		}
+	}
+
+	else 
+	{
+		if (SameDirection(ab.CrossProduct(abc), ao)) 
+		{
+			return Line(points = { a, b }, direction);
+		}
+
+		else {
+			if (SameDirection(abc, ao)) 
+			{
+				direction = abc;
+			}
+
+			else 
+			{
+				points = { a, c, b };
+				direction = -abc;
+			}
+		}
+	}
+
+	return false;
+}
+
+bool C_CollisionComponent::Tetrahedron(Simplex& points, FVector3& direction)
+{
+	FVector3 a = points[0];
+	FVector3 b = points[1];
+	FVector3 c = points[2];
+	FVector3 d = points[3];
+
+	FVector3 ab = b - a;
+	FVector3 ac = c - a;
+	FVector3 ad = d - a;
+	FVector3 ao = -a;
+
+	FVector3 abc = ab.CrossProduct(ac);
+	FVector3 acd = ac.CrossProduct(ad);
+	FVector3 adb = ad.CrossProduct(ab);
+
+	if (SameDirection(abc, ao)) {
+		return Triangle(points = { a, b, c }, direction);
+	}
+
+	if (SameDirection(acd, ao)) {
+		return Triangle(points = { a, c, d }, direction);
+	}
+
+	if (SameDirection(adb, ao)) {
+		return Triangle(points = { a, d, b }, direction);
+	}
+
+	return true;
+}
+
+//bool C_CollisionComponent::CheckSimplexForOrigin(Simplex& simplex) const
+//{
+//	/*float v0, v1, v2, v3, v4;
+//	FVector4 nim = FVector4(0, 0, 0, 1);
+//	v0 = FMatrix4(simplex.GetPointAtIndex(0), simplex.GetPointAtIndex(1), simplex.GetPointAtIndex(2), simplex.GetPointAtIndex(3)).Det();
+//	v1 = FMatrix4(nim, simplex.GetPointAtIndex(1), simplex.GetPointAtIndex(2), simplex.GetPointAtIndex(3)).Det();
+//	v2 = FMatrix4(simplex.GetPointAtIndex(0), nim, simplex.GetPointAtIndex(2), simplex.GetPointAtIndex(3)).Det();
+//	v3 = FMatrix4(simplex.GetPointAtIndex(0), simplex.GetPointAtIndex(1), nim, simplex.GetPointAtIndex(3)).Det();
+//	v4 = FMatrix4(simplex.GetPointAtIndex(0), simplex.GetPointAtIndex(1), simplex.GetPointAtIndex(2), nim).Det();
+//
+//	float v[] = { v1, v2, v3, v3 };
+//
+//	if (v0 < 0)
+//	{
+//		return false;
+//	}
+//	else if(v1 / v0 > 0 && v2 / v0 > 0 && v3 / v0 > 0 && v4 / v0 > 0)
+//	{
+//		return true;
+//	}*/
+//
+//	FMatrix4 matrices[5];
+//
+//	matrices[0] = FMatrix4
+//	(
+//		FVector4(simplex.GetVertexAtIndex(0).X, simplex.GetVertexAtIndex(0).Y, simplex.GetVertexAtIndex(0).Z, 1.0f),
+//		FVector4(simplex.GetVertexAtIndex(1).X, simplex.GetVertexAtIndex(1).Y, simplex.GetVertexAtIndex(1).Z, 1.0f),
+//		FVector4(simplex.GetVertexAtIndex(2).X, simplex.GetVertexAtIndex(2).Y, simplex.GetVertexAtIndex(2).Z, 1.0f),
+//		FVector4(simplex.GetVertexAtIndex(3).X, simplex.GetVertexAtIndex(3).Y, simplex.GetVertexAtIndex(3).Z, 1.0f)
+//	);
+//
+//	int determinatCheckIndex;
+//	float matrixDet = matrices[0].Det();
+//	float tempDet;
+//	for (determinatCheckIndex = 1; determinatCheckIndex < 4; determinatCheckIndex++)
+//	{
+//		matrices[determinatCheckIndex] = matrices[0];
+//		matrices[determinatCheckIndex].SetRow(FVector4(0.0f, 0.0f, 0.0f, 1.0f), determinatCheckIndex - 1);
+//		tempDet = matrices[determinatCheckIndex].Det();
+//
+//		//printf("M: %f\tT: %f\n", matrixDet, tempDet);
+//		if (matrixDet / tempDet < 0)
+//		{
+//			simplex.SetVertexAtIndex(determinatCheckIndex, simplex.GetVertexAtIndex(4));
+//			return false;
+//		}
+//	}
+//
+//	return true;
+//}

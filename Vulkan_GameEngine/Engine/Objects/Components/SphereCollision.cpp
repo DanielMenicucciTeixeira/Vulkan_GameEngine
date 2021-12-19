@@ -44,19 +44,19 @@ void C_SphereCollision::Update(const float deltaTime)
 	CollisionSphere->position = GetComponentPosition() + GetOwner()->GetPosition();
 }
 
-bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
-{
-	if (dynamic_cast<C_BoxCollision*>(otherCollider))
-	{
-		return SphereBoxCollision(*CollisionSphere, dynamic_cast<C_BoxCollision*>(otherCollider)->GetCollisionBox(), data);
-	}
-	if (dynamic_cast<C_SphereCollision*>(otherCollider))
-	{
-		this;
-		return SphereSphereCollision(*CollisionSphere, dynamic_cast<C_SphereCollision*>(otherCollider)->GetCollisionSphere(), data);
-	}
-	return false;
-}
+//bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
+//{
+//	if (dynamic_cast<C_BoxCollision*>(otherCollider))
+//	{
+//		return SphereBoxCollision(*CollisionSphere, dynamic_cast<C_BoxCollision*>(otherCollider)->GetCollisionBox(), data);
+//	}
+//	if (dynamic_cast<C_SphereCollision*>(otherCollider))
+//	{
+//		this;
+//		return SphereSphereCollision(*CollisionSphere, dynamic_cast<C_SphereCollision*>(otherCollider)->GetCollisionSphere(), data);
+//	}
+//	return false;
+//}
 
 C_SphereCollision::C_SphereCollision(O_GameObject* owner) : C_CollisionComponent(owner)
 {

@@ -1,6 +1,7 @@
 #include "Game01.h"
 #include "Levels/L_MainLevel.h"
 #include "Levels/L_StartLevel.h"
+#include "L_TetrahedronLevel.h"
 #include <SDL.h>
 #include "Event/EventHandler.h"
 #include "CoreEngine.h"
@@ -19,7 +20,8 @@ bool G_Game01::Initialize(Renderer* gameRenderer)
 	EventHandler::AddFunctionByInput(nullptr, QuitApplication, SDL_QUIT);
 	EventHandler::AddFunctionByEvent(nullptr, EndGame, "Quit Game");
 	
-	CurrentLevel = new L_MainLevel();
+	//CurrentLevel = new L_MainLevel();
+	CurrentLevel = new L_TetrahedronLevel();
 	return BaseGame::Initialize(gameRenderer);
 }
 

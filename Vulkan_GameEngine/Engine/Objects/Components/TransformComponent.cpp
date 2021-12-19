@@ -45,7 +45,10 @@ FVector3 C_TransformComponent::GetComponentScale() const
 FTransform C_TransformComponent::GetComponentAbsoluteTransform() const
 {
 	if (this == Owner->GetRoot()) return *Transform;
-	else return Owner->GetTransform() + *Transform;
+	else
+	{
+		return	FTransform(GetComponentAbsolutePosition(), GetComponentAbsoluteRotation(), GetComponentAbsoluteScale());
+	}
 }
 
 FVector3 C_TransformComponent::GetComponentAbsolutePosition() const

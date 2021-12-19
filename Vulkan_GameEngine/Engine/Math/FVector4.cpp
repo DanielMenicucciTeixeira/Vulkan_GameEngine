@@ -4,6 +4,11 @@
 #include <iostream>
 
 
+FVector4::FVector4(const FVector3& vector)
+{
+	X = vector.X; Y = vector.Y; Z = vector.Z; W = 1.0f;
+}
+
 FVector4::FVector4(const FVector4& InitilizerVector)
 {
 	X = InitilizerVector.X;
@@ -105,6 +110,7 @@ FVector4 FVector4::GetNormal() const
 void FVector4::Normalize()
 {
 	float length = Length();
+	if (length == 0) return;
 
 	X = X / length;
 	Y = Y / length;

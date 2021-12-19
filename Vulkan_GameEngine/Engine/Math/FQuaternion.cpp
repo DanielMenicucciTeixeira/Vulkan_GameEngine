@@ -27,8 +27,6 @@ FQuaternion::FQuaternion(const FVector3& axis, float angle, bool isRotation, boo
 		Z = axis.Z;
 		W = angle;
 	}
-
-	Normalize();
 }
 
 FQuaternion::FQuaternion(const FVector3& euler, bool inRadians)
@@ -48,8 +46,6 @@ FQuaternion::FQuaternion(const FVector3& euler, bool inRadians)
 	X = sr * cp * cy - cr * sp * sy;
 	Y = cr * sp * cy + sr * cp * sy;
 	Z = cr * cp * sy - sr * sp * cy;
-
-	Normalize();
 }
 
 FQuaternion FQuaternion::operator*(const FQuaternion& quaternion) const

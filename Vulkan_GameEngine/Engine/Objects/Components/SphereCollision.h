@@ -20,7 +20,7 @@ public:
 
 	void Update(const float deltaTime) override;
 
-	bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
+	//bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 
 	C_SphereCollision(O_GameObject* owner);
 	virtual ~C_SphereCollision();

@@ -13,6 +13,8 @@ public:
 	//Constructor using initial values for each component.
 	inline FVector4(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
 
+	FVector4(const FVector3& vector);
+
 	//Constructor initializing all components to a single float value.
 	inline FVector4(float value) { X = Y = Z = W = value; }
 

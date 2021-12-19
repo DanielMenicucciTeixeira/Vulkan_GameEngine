@@ -6,6 +6,7 @@
 #include <set>
 #include <vector>
 #include "CollisionData.h"
+#include "Geometry/Simplex.h"
 
 class Ray;
 class Sphere;
@@ -28,6 +29,7 @@ class C_CollisionComponent : public C_TransformComponent
 protected:
 	std::set<C_CollisionComponent*> OverlapedColliders;
 	ECollisionType CollisionType;
+	FVector3 CollisionMeshCenter;
 
 	static bool RaySphereCollision(const Ray& ray, const Sphere& sphere, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
@@ -60,7 +62,7 @@ public:
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
 	bool IsCollidingWith(C_CollisionComponent* collider);
 	inline void AddOverlapedCollider(C_CollisionComponent* collider) { OverlapedColliders.insert(collider); }
-	virtual bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const;
+	virtual bool Collide(const C_CollisionComponent* otherCollider, S_CollisionData& data) const;
 	virtual bool SpatialPartitionCheck(S_BoxBounds box);
 	static void CheckForCollisions(std::vector<C_CollisionComponent*> colliderSet);
 
@@ -69,7 +71,20 @@ public:
 	C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType = NO_COLLISION);
 	virtual ~C_CollisionComponent();
 
+	inline virtual  FVector3 GetCollisionMeshCenter() const { return CollisionMeshCenter; }
+	virtual FVector3 GetFurthestPoint(const FVector3& direction) const;
+	static bool GJK(const C_CollisionComponent* colliderA, const C_CollisionComponent* colliderB);
+	//Returns the difference between the furthest point in direction in meshA and the furthest point in -direction in meshB.
+	static FVector3 GetFurthestMinkDiffPoint(const C_CollisionComponent* colliderA, const C_CollisionComponent* colliderB, const FVector3& direction);
+	static bool NextSimplex(Simplex& points, FVector3& direction);
+	static bool SameDirection(const FVector3& direction, const FVector3& pointToOrigin);
+	static bool Line(Simplex& points, FVector3& direction);
+	static bool Triangle(Simplex& points, FVector3& direction);
+	static bool Tetrahedron(Simplex& points, FVector3& direction);
+
 private:
+	//bool CheckSimplexForOrigin(Simplex& simplex) const;
+
 	friend class OctSpactilPartition;
 };
 #endif

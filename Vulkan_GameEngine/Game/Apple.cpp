@@ -24,6 +24,6 @@ GO_Apple::~GO_Apple()
 
 void GO_Apple::Start()
 {
-	Movement->SetAngularVelocity(FVector3(0.0f, 1.0f, 0.0f));
+	Movement->SetAngularVelocity(FVector3(0.0f, 45.0f, 0.0f));
 	O_GameObject::Start();
 }

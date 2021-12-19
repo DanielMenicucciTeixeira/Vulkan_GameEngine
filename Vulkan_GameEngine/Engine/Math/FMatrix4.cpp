@@ -538,6 +538,16 @@ void FMatrix4::SetToIdentity()
 	Colum[0][3] = 0.0f; Colum[1][3] = 0.0f; Colum[2][3] = 0.0f; Colum[3][3] = 1.0f;
 }
 
+void FMatrix4::SetRow(const FVector4& vector, int row)
+{
+	if (row > 3) return;
+
+	Colum[0][row] = vector.X;
+	Colum[1][row] = vector.Y;
+	Colum[2][row] = vector.Z;
+	Colum[3][row] = vector.W;
+}
+
 FMatrix4 FMatrix4::GetRotationMatrix(float angle, float x, float y, float z, bool isAngleRadian)
 {
 	if (!isAngleRadian) angle *= M_PI/180.0f;//Converts input from degrees to radians

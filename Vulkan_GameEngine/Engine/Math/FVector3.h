@@ -66,7 +66,7 @@ public:
 
 	bool operator== (const FVector3& vector) const;//Overload of the "==" operator, returns the boolean value of equal to between two vectors.
 	inline bool operator== (const FVector3*& vector) const { return *this == *vector; }
-
+	inline FVector3 operator-() const { return FVector3(-X, -Y, -Z); }
 	inline bool operator!= (const FVector3& vector) const { return !(*this == vector); }//Overload of the "!=" operator, returns the boolean value of not equal to between two vectors.
 	inline bool operator!= (const FVector3*& vector) const { return !(*this == *vector); }
 

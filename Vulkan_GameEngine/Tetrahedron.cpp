@@ -45,10 +45,11 @@ void GO_Tetrahedron::Start()
 
 void GO_Tetrahedron::OnOverlapBegin(O_GameObject* self, const S_CollisionData& data)
 {
-	static bool overlapping = false;
+	printf("Overlapping!\n");
+	/*static bool overlapping = false;
 	if (!overlapping)
 	{
 		printf("Overlapping!\n");
 		overlapping = true;
-	}
+	}*/
 }

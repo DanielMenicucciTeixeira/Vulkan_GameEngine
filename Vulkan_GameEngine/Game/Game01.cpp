@@ -21,7 +21,7 @@ bool G_Game01::Initialize(Renderer* gameRenderer)
 	EventHandler::AddFunctionByEvent(nullptr, EndGame, "Quit Game");
 	
 	//CurrentLevel = new L_MainLevel();
-	CurrentLevel = new L_TetrahedronLevel();
+	CurrentLevel = new L_MainLevel();
 	return BaseGame::Initialize(gameRenderer);
 }
 

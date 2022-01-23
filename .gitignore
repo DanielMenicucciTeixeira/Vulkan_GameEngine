@@ -361,3 +361,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 Vulkan_GameEngine.rar
+
+# Paket dependency manager
+.paket/paket.exe
+paket-files/

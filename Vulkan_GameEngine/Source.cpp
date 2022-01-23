@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 {
 	std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
-	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), OPEN_GL))
+	if (!CoreEngine::GetInstance()->Initialize(CoreEngine::GetInstance()->GetInterfaceManager()->GetDefaultWindowName(), VULKAN))
 	{
 		printf("Failed to create Engine!");
 		return 0;

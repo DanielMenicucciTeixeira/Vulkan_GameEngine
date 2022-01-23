@@ -397,73 +397,6 @@ bool C_CollisionComponent::Collide(const C_CollisionComponent* otherCollider, S_
 	if (!otherCollider) return false;
 
 	return GJK(this, otherCollider);
-
-	//Simplex3D simplex;
-
-	////First Simplex Vertex
-	//FVector3 direction = (otherCollider->GetCollisionMeshCenter() - GetCollisionMeshCenter()).GetNormal();
-	//simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
-
-	//direction = simplex.GetVertexAtIndex(0) * -1.0f;
-
-	//while (true)
-	//{
-	//	//Second Simplex Vertex
-	//	simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
-	//	if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
-	//}
-
-	//
-
-	////Third Simplex Vertex
-	//direction = (simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0)).CrossProduct(simplex.GetVertexAtIndex(0) * -1.0f).CrossProduct(simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0));
-	//simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
-	//if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
-
-	////Fourth Simplex Vertex
-
-	//FVector3 pointA = simplex.GetVertexAtIndex(2);
-	//FVector3 pointB = simplex.GetVertexAtIndex(1);
-	//FVector3 pointC = simplex.GetVertexAtIndex(0);
-	//FVector3 lineAB = pointB - pointA;
-	//FVector3 lineAC = pointC - pointA;
-	//FVector3 lineABC = lineAB.CrossProduct(lineAC);
-	//FVector3 lineAO = pointA * -1.0f;
-
-	//do
-	//{
-	//	if (lineABC.CrossProduct(lineAC) * lineAO >= 0)
-	//	{
-	//		if (lineAC * lineAO >= 0) direction = lineAC.CrossProduct(lineAO).CrossProduct(lineAC);
-	//		else if (lineAB * lineAO >= 0) direction = lineAB.CrossProduct(lineAO).CrossProduct(lineAB);
-	//		else direction = lineAO;
-	//	}
-	//	else if (lineAB.CrossProduct(lineABC) * lineAO >= 0)
-	//	{
-	//		if (lineAB * lineAO >= 0) direction = lineAB.CrossProduct(lineAO).CrossProduct(lineAB);
-	//		else direction = lineAO;
-	//	}
-	//	else if (lineABC * lineAO >= 0) direction = lineABC;
-	//	else direction = lineABC * -1.0f;
-	//	simplex.PushFront(GetFurthestMinkDiffPoint(otherCollider, direction));
-	//	if (simplex.GetVertexAtIndex(0) * direction < 0) return false;
-	//}
-	//while (!CheckSimplexForOrigin(simplex));
-
-	//return true;
-
-	/*FVector3 AB = simplex.GetVertexAtIndex(1) - simplex.GetVertexAtIndex(0);
-	FVector3 AC = simplex.GetVertexAtIndex(2) - simplex.GetVertexAtIndex(0);
-	FVector3 N = AB.CrossProduct(AC);
-	if ((simplex.GetCenter() * -1.0f) * N > 0)
-	{
-		direction = N;
-	}
-	else
-	{
-		direction = N * -1.0f;
-	}
-	simplex.PushFront(GetFurthestMinkDiffPoint(GetFurthestPoint(direction), otherCollider->GetFurthestPoint(direction)));*/
 }
 
 bool C_CollisionComponent::SpatialPartitionCheck(S_BoxBounds box)
@@ -620,7 +553,8 @@ bool C_CollisionComponent::Triangle(Simplex& points, FVector3& direction)
 			direction = ac.CrossProduct(ao).CrossProduct(ac);
 		}
 
-		else {
+		else 
+		{
 			return Line(points = { a, b }, direction);
 		}
 	}
@@ -632,7 +566,8 @@ bool C_CollisionComponent::Triangle(Simplex& points, FVector3& direction)
 			return Line(points = { a, b }, direction);
 		}
 
-		else {
+		else 
+		{
 			if (SameDirection(abc, ao)) 
 			{
 				direction = abc;

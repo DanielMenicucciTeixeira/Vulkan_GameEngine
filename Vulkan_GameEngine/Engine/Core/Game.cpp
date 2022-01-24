@@ -33,6 +33,7 @@ bool BaseGame::Initialize(Renderer* gameRenderer)
 	Running = true;
 	GameRenderer = gameRenderer;
 	CurrentLevel->Initialize(this);
+	EventHandler::SetGameReference(this);
 	//TODO implement render choosing mechanic
 	/*
 	RenderData = new RenderInitializationData();

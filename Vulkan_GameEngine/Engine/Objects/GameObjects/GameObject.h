@@ -39,7 +39,7 @@ public:
 	void SetRoot(C_TransformComponent* root);
 
 	template<class componentClass>
-	componentClass* AddComponentOfClass()
+	componentClass* AddComponentOfClass()//TODO add assert function
 	{
 		componentClass* component = new componentClass(this);
 		Components.insert(component);
@@ -47,7 +47,7 @@ public:
 	}
 
 	template<class componentClass>
-	std::set<componentClass*> GetComponentsOfClass()
+	std::set<componentClass*> GetComponentsOfClass()//TODO add assert function
 	{
 		std::set<componentClass*> returnSet;
 		for (const auto& component : Components) if (dynamic_cast<componentClass*>(component)) returnSet.insert(dynamic_cast<componentClass*>(component));

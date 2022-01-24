@@ -32,7 +32,7 @@ protected:
 	L_Level* Level;
 
 private:
-	inline void SetName(std::string name) { Name = name; }
+	inline void SetName(std::string name) { Name = name; }//TODO find better name
 	friend class LevelGraph;
 };
 #endif // !O_OBJECT_H

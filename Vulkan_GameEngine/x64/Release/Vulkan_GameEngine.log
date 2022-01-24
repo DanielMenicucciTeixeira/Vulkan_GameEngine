@@ -1,11 +1,48 @@
-﻿  Source.cpp
+﻿  EventHandler.cpp
 D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
 D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
 D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.h(84,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
 D:\Humber\Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Humber\Engine\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Generating code
-  5 of 7322 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    21 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Level.cpp(125): warning C4715: 'L_Level::LoadCamera': not all control paths return a value
+D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.cpp(211): warning C4715: 'BaseGame::Run': not all control paths return a value
+  All 7322 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
+LevelGraph.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+DirectionalLightComponent.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+DirectionalLight.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+DebugLogger.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+CoreEngine.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Simplex.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FVector2.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+IVector2.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+IVector3.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Box.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Plane.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Ray.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+Sphere.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FMatrix.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FMatrix4.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FQuaternion.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FTransform.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FVector3.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FVector4.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+AssetLoader.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Level.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+SDLManager.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+SDLTextureHandler.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+SDLWindowManager.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+OpenGLShaderManager.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+TextureLoader.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+VulkanDebugger.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+VulkanDevices.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+VulkanPipelineManager.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Window.obj : warning LNK4204: 'D:\Humber\Engine\Vulkan_GameEngine\x64\Release\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
   Vulkan_GameEngine.vcxproj -> D:\Humber\Engine\Vulkan_GameEngine\x64\Release\Vulkan_GameEngine.exe

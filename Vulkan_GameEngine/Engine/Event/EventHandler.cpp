@@ -23,7 +23,7 @@ void EventHandler::HandleEvents()
 	while (SDL_PollEvent(&event))
 	{
 		key.first = event.type;
-		if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
+		if (/*event.type == SDL_WINDOWEVENT && */event.window.event == SDL_WINDOWEVENT_RESIZED)
 		{
 			Game->GetRenderer()->FramebufferResizeCallback();
 			LevelGraph::GetInstance()->FrameBufferResizeCallback();

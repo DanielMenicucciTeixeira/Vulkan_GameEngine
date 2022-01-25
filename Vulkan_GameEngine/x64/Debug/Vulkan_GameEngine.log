@@ -1,12 +1,102 @@
-﻿  Game.cpp
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.h(84,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Humber\Engine\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.cpp(148,32): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Humber\Engine\Vulkan_GameEngine\Engine\Core\Game.cpp(212): warning C4715: 'BaseGame::Run': not all control paths return a value
-  Vulkan_GameEngine.vcxproj -> D:\Humber\Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe
+﻿  CollisionData.h
+  CoreEngine.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(161,119): warning C4042: 'function': has bad storage class
+  Game.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.cpp(148,32): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+  EventHandler.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  IVector2.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(127,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(135,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(139,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(164,39): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(165,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(166,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  BilliardGame.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+  BilliardLevel.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game01.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+  L_MainLevel.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(138,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  L_StartLevel.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+  L_TetrahedronLevel.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  MouseHandler.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(35,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(35,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(64,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(64,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(69,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(68,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(77,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(76,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(100,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(99,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(108,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(107,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Source.cpp
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  Vulkan_GameEngine.vcxproj -> D:\Github\VulkanProject\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

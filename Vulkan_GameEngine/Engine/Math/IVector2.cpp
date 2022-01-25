@@ -34,8 +34,8 @@ IVector2::IVector2(int values[2])
 //Default Constructor, initializes all values to 0;
 IVector2::IVector2()
 {
-	X = 0.0f;
-	Y = 0.0f;
+	X = 0;
+	Y = 0;
 }
 
 ///Destructors

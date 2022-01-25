@@ -1,6 +1,1 @@
 [INFO]: Engine initilized successfully. in: Core/CoreEngine.cpp on line: 72
-[WARNING]: Apple_Bodywas not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 32
-[WARNING]: Apple_Stemwas not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 32
-[WARNING]: diceTexturewas not nullptr, it will be overriden in: SDL/SDLTextureHandler.cpp on line: 32
-[WARNING]: Nothing to be rendered, no descriptor pool created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 388
-[WARNING]: Nothing to be rendered, no descriptor set created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 414

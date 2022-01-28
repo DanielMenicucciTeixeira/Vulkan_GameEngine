@@ -17,6 +17,14 @@
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Vulkan|Win32">
+      <Configuration>Vulkan</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Vulkan|x64">
+      <Configuration>Vulkan</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -31,6 +39,12 @@
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -39,6 +53,12 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
@@ -59,10 +79,16 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -73,7 +99,15 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\GameDev\OpenGL\include;C:\GameDev\SDL\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
@@ -101,7 +135,39 @@
       <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\sdf;aksdjf;alksdjf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\GameDev\SDL\lib\x64;C:\GameDev\OpenGL\lib\x64;C:\GameDev\Vulkan\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\sdf;aksdjf;alksdjf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\GameDev\SDL\lib\x64;C:\GameDev\OpenGL\lib\x64;C:\GameDev\Vulkan\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
@@ -178,7 +244,7 @@
     <ClCompile Include="Game\BilliardBall.cpp" />
     <ClCompile Include="Game\BilliardGame.cpp" />
     <ClCompile Include="Game\BilliardTable.cpp" />
-    <ClCompile Include="Engine\Objects\Components\BoxCollision.cpp" />
+    <ClCompile Include="Engine\Objects\Components\Colliders\BoxCollider.cpp" />
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp" />
     <ClCompile Include="Engine\Core\Clock.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp" />
@@ -220,7 +286,7 @@
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
-    <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
+    <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
     <ClCompile Include="Engine\Core\TextureLoader.cpp" />
     <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp" />
@@ -255,7 +321,7 @@
     <ClInclude Include="Game\BilliardBalls.h" />
     <ClInclude Include="Game\BilliardGame.h" />
     <ClInclude Include="Game\BilliardTable.h" />
-    <ClInclude Include="Engine\Objects\Components\BoxCollision.h" />
+    <ClInclude Include="Engine\Objects\Components\Colliders\BoxCollider.h" />
     <ClInclude Include="Engine\Objects\Components\CameraComponent.h" />
     <ClInclude Include="Engine\Core\Clock.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\CollisionComponent.h" />
@@ -303,7 +369,7 @@
     <ClInclude Include="Engine\SDL\SDLManager.h" />
     <ClInclude Include="Engine\SDL\SDLTextureHandler.h" />
     <ClInclude Include="Engine\SDL\SDLWindowManager.h" />
-    <ClInclude Include="Engine\Objects\Components\SphereCollision.h" />
+    <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h" />
     <ClInclude Include="Engine\Core\TextureLoader.h" />
     <ClInclude Include="Engine\Objects\Components\TransformComponent.h" />

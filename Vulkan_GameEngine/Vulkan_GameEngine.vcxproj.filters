@@ -126,13 +126,13 @@
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\BoxCollision.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\BoxCollider.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp">
@@ -353,13 +353,13 @@
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\SphereCollision.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\BoxCollision.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\BoxCollider.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Object.h">

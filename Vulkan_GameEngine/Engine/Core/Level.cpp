@@ -1,5 +1,5 @@
 #include "Level.h"
-#include "Objects/Components/CollisionComponent.h"
+#include "Objects/Components/Colliders/CollisionComponent.h"
 #include "Game.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"

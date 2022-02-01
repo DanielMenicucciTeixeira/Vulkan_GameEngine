@@ -18,6 +18,7 @@
 #include "Pawn.h"
 #include "Tetrahedron.h"
 #include "Math/FQuaternion.h"
+#include "Objects/Components/PhysicsComponent.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -55,11 +56,17 @@ void L_TetrahedronLevel::Start()
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
 	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 
-	T1->GetMovement()->SetVelocity({ 1.0f, 0.0f, 0.0f });
-	T1->GetMovement()->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
+	{
+		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
+		phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+	}
 
-	T2->GetMovement()->SetVelocity({ -1.0f, 0.0f, 0.0f });
-	T2->GetMovement()->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
+	{
+		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
+		phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
 	sun->SetColour({ 1.0, 1.0, 1.0 });

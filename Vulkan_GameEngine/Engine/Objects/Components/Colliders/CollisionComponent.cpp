@@ -305,7 +305,7 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 				{
 					data = tempData;
 					data.OtherCollisonComponent = collider;
-					data.OtherGameObject = collider->GetOwner();
+					//data.OtherGameObject = collider->GetOwner();
 					closest = ray.GetLenght();
 				}
 			}
@@ -313,7 +313,7 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 			{
 				data = tempData;
 				data.OtherCollisonComponent = collider;
-				data.OtherGameObject = collider->GetOwner();
+				//data.OtherGameObject = collider->GetOwner();
 				closest = ray.GetLenght();
 				firstHit = true;
 			}
@@ -360,11 +360,11 @@ void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*>
 				colliderVector[i]->AddOverlapedCollider(colliderVector[j]);
 				colliderVector[j]->AddOverlapedCollider(colliderVector[i]);
 
-				data.OtherGameObject = colliderVector[j]->GetOwner();
+				//data.OtherGameObject = colliderVector[j]->GetOwner();
 				data.OtherCollisonComponent = colliderVector[j];
 				colliderVector[i]->ChooseCollisionType(colliderVector[j], data);
 
-				data.OtherGameObject = colliderVector[i]->GetOwner();
+				//data.OtherGameObject = colliderVector[i]->GetOwner();
 				data.OtherCollisonComponent = colliderVector[i];
 				colliderVector[j]->ChooseCollisionType(colliderVector[i], data);
 			}

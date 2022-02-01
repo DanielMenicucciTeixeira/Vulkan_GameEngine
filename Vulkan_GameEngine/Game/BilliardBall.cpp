@@ -1,25 +1,25 @@
 #include "BilliardBall.h"
 #include "Objects/Components/PhysicsComponent.h"
-#include "Objects/Components/SphereCollision.h"
+#include "Objects/Components/Colliders/SphereCollider.h"
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Math/FVector3.h"
 #include "Geometry/Sphere.h"
 #include "Physics/PhysicsLib.h"
 #include "BilliardTable.h"
-#include "Objects/Components/BoxCollision.h"
+#include "Objects/Components/Colliders/BoxCollider.h"
 #include "Geometry/Box.h"
 
 void GO_BilliardBall::OnCollision(O_GameObject* self, const S_CollisionData& data)
 {
-	if (dynamic_cast<GO_BilliardBall*>(data.OtherGameObject))
+	if (dynamic_cast<GO_BilliardBall*>(data.OtherCollisonComponent->GetOwner()))
 	{
-		dynamic_cast<GO_BilliardBall*>(self)->BounceOnBall(dynamic_cast<GO_BilliardBall*>(data.OtherGameObject), data.CollisionPoint);
+		dynamic_cast<GO_BilliardBall*>(self)->BounceOnBall(dynamic_cast<GO_BilliardBall*>(data.OtherCollisonComponent->GetOwner()), data.CollisionPoint);
 	}
-	else if (dynamic_cast<GO_BilliardTable*>(data.OtherGameObject))
+	else if (dynamic_cast<GO_BilliardTable*>(data.OtherCollisonComponent->GetOwner()))
 	{
-		if (dynamic_cast<C_BoxCollision*>(data.OtherCollisonComponent))
+		if (dynamic_cast<C_BoxCollider*>(data.OtherCollisonComponent))
 		{
-			dynamic_cast<GO_BilliardBall*>(self)->BounceOnWall(dynamic_cast<C_BoxCollision*>(data.OtherCollisonComponent), data.CollisionPoint);
+			dynamic_cast<GO_BilliardBall*>(self)->BounceOnWall(dynamic_cast<C_BoxCollider*>(data.OtherCollisonComponent), data.CollisionPoint);
 		}
 	}
 }
@@ -37,7 +37,7 @@ void GO_BilliardBall::BounceOnBall(GO_BilliardBall* otherBall, FVector3 pointOfI
 	FPhysicsLib::AddForce(Physics, force, pointOfImpact);
 }
 
-void GO_BilliardBall::BounceOnWall(C_BoxCollision* wall, FVector3 pointOfImpact)
+void GO_BilliardBall::BounceOnWall(C_BoxCollider* wall, FVector3 pointOfImpact)
 {
 	FVector3 distance = (GetPosition() - pointOfImpact);
 	FVector3 force =
@@ -63,7 +63,7 @@ GO_BilliardBall::GO_BilliardBall(L_Level* level, std::string name) : O_GameObjec
 	Mesh->SetMeshName("SphereMesh");
 	Physics = AddComponentOfClass<C_PhysicsComponent>();
 	Physics->AngularInertia = 0.03f;
-	Collider = AddComponentOfClass<C_SphereCollision>();
+	Collider = AddComponentOfClass<C_SphereCollider>();
 	Collider->SetCollisionType(COLLISION);
 	Collider->SetCollisionFunction(OnCollision);
 	Collider->SetRadius(0.2f);

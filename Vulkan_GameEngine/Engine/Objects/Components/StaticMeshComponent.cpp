@@ -5,7 +5,7 @@
 #include "Math/FTransform.h"
 #include "Math/FQuaternion.h"
 #include "LevelGraph.h"
-#include "Objects/Components/BoundingBox.h"
+#include "Objects/Components/Colliders/BoundingBox.h"
 
 #include <iostream>
 

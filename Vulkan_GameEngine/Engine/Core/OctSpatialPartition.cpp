@@ -1,4 +1,5 @@
 #include "OctSpatialPartition.h"
+#include "Objects/Components/Colliders/CollisionDetection.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <iostream>
 
@@ -97,9 +98,14 @@ void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& out
 
 void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set<OctNode*>& outSet) const
 {
+	//Check if cell is empty
 	if (cell->IsEmpty()) return;
+
+	//Never used variable
 	S_CollisionData data;
-	if (C_CollisionComponent::RayBoundingBoxCollision(ray, cell->GetBoundingBox(), data))
+
+	//Collision detection
+	if (CollisionDetection::Collision(ray, cell->GetBoundingBox()))
 	{
 		if (cell->IsLeaf()) outSet.insert(cell);
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)), outSet);

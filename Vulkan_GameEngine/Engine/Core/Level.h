@@ -1,8 +1,8 @@
 #ifndef O_LEVEL_H
 #define O_LEVEL_H
 
-#include "Objects/GameObjects/GameObject.h"
-#include "Math/FTransform.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
+#include "../Math/FTransform.h"
 #include "DebugLogger.h"
 #include <set>
 #include <vector>

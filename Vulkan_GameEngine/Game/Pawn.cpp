@@ -9,7 +9,7 @@
 #include "MouseHandler.h"
 #include "Event/EventHandler.h"
 #include "Geometry/Ray.h"
-#include "Objects/Components/CollisionComponent.h"
+#include "Objects/Components/Colliders/CollisionComponent.h"
 #include "Math/IVector2.h"
 
 #include <iostream>
@@ -168,7 +168,7 @@ void GO_Pawn::Grab()
 	Ray ray = MouseHandler::MousePositionToWorldRay();
 	if (C_CollisionComponent::RayCastSingleTarget(ray, data))
 	{
-		std::cout << data.OtherGameObject->GetName() << " was hit!" << std::endl;
+		std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;
 	}
 	else std::cout << "No hit!" << std::endl;
 }

@@ -1,10 +1,10 @@
-#include "CoreEngine.h"
-#include "Game01.h"
-#include "SDL/SDLManager.h"
-#include "Renderers/Renderer.h"
-#include "Math/FVector3.h"
-#include "Math/FMatrix4.h"
-#include "Geometry/Simplex.h"
+#include "Engine/Core/CoreEngine.h"
+#include "Game/Game01.h"
+#include "Engine/SDL/SDLManager.h"
+#include "Engine/Renderers/Renderer.h"
+#include "Engine/Math/FVector3.h"
+#include "Engine/Math/FMatrix4.h"
+#include "Engine/Geometry/Simplex.h"
 
 #include <SDL.h>
 #include <iostream>

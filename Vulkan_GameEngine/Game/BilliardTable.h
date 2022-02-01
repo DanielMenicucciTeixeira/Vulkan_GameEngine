@@ -1,7 +1,7 @@
 #ifndef BILLIARDTABLE_H
 #define BILLIARDTABLE_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_PhysicsComponent;
 class C_BoxCollision;

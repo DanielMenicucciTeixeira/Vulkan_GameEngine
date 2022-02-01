@@ -1,7 +1,7 @@
 #ifndef O_TETRAHEDRON_H
 #define O_TETRAHEDRON_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class GO_Tetrahedron : public O_GameObject
 {

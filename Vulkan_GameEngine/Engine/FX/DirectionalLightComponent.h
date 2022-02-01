@@ -1,7 +1,7 @@
 #ifndef DIRECTIONALLIGHTCOMPONENT_H
 #define DIRECTIONALLIGHTCOMPONENT_H
 
-#include "FX/LightSourceComponent.h"
+#include "LightSourceComponent.h"
 class C_DirectionalLightComponent : public C_LightSourceComponent
 {
 public:

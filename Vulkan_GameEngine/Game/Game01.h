@@ -1,7 +1,7 @@
 #ifndef GAME01_H
 #define GAME01_H
 
-#include "Game.h"
+#include "../Engine/Core/Game.h"
 
 class G_Game01 : public BaseGame
 {

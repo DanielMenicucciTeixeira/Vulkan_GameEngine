@@ -1,7 +1,7 @@
 #ifndef MOUSEHANDLER_H
 #define MOUSEHANDLER_H
 
-#include "Auxiliary/Singleton.h"
+#include "Engine/Auxiliary/Singleton.h"
 
 class CoreEngine;
 class BaseGame;

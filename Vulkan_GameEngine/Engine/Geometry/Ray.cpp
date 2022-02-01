@@ -1,6 +1,6 @@
 #include "Ray.h"
 
-#include "Math/FVector3.h"
+#include "../Math/FVector3.h"
 
 #include <stdexcept>
 

@@ -1,7 +1,7 @@
 #ifndef GO_TRIANGLE_H
 #define GO_TRIANGLE_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_StaticMeshComponent;
 class C_MovementComponent;

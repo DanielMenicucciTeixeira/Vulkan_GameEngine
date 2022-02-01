@@ -1,7 +1,7 @@
 #ifndef BILLIARDBALL_H
 #define BILLIARDBALL_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_PhysicsComponent;
 class C_SphereCollision;

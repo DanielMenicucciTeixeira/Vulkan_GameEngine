@@ -1,15 +1,14 @@
 #ifndef LEVELGRAPH_H
 #define LEVELGRAPH_H
 
-#include "Objects/Object.h"
-
+#include "../Objects/Object.h"
 #include <memory>
 #include <unordered_map>
 #include <map>
 #include <set>
 #include <string>
-#include "Math/FMatrix4.h"
-#include "OctSpactilPartition.h"
+#include "../Math/FMatrix4.h"
+#include "OctSpatialPartition.h"
 
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
@@ -86,7 +85,7 @@ public:
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
-	std::set<OctSpactilPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
+	std::set<OctSpatialPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
 
 
 	void CleanUp();
@@ -110,7 +109,7 @@ protected:
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
 	static C_CameraComponent* ActiveCamera;
-	static OctSpactilPartition* ColliderSpationPartition;
+	static OctSpatialPartition* ColliderSpationPartition;
 
 	void GenerateSpationPartition(float worldSize, unsigned int depth = 3);
 	

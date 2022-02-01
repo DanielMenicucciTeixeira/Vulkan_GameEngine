@@ -1,6 +1,6 @@
 #pragma once
-#include "Math/FVector4.h"
-#include "Math/FVector3.h"
+#include "../Math/FVector4.h"
+#include "../Math/FVector3.h"
 class Ray;
 
 class Plane : public FVector4

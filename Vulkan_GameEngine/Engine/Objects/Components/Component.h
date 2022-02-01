@@ -1,6 +1,6 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
-#include "Objects/Object.h"
+#include "../Object.h"
 
 class O_GameObject;
 class L_Level;

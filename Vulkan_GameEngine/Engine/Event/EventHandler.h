@@ -1,7 +1,7 @@
 #ifndef EVENTHANDLER_H
 #define ENVENTHANDLER_H
 
-#include "Auxiliary/Singleton.h"
+#include "../Auxiliary/Singleton.h"
 #include <map>
 #include <unordered_map>
 #include <set>

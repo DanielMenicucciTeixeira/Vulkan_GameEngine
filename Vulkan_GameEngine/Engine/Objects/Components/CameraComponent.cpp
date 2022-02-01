@@ -3,7 +3,7 @@
 #include "SDL/SDLManager.h"
 #include "SDL/Window.h"
 #include "Math/FQuaternion.h"
-#include "BoundingBox.h"
+#include "Colliders/BoundingBox.h"
 #include "Math/FTransform.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <SDL.h>

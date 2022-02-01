@@ -1,5 +1,5 @@
 #include "OpenGLShaderManager.h"
-#include "DebugLogger.h"
+#include "../Engine/Core/DebugLogger.h"
 #include <glew.h>
 #include <fstream>
 

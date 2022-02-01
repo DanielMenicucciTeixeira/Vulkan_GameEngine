@@ -2,7 +2,7 @@
 #define DEBUGLOGGER_H
 
 #include <string>
-#include "Auxiliary/Singleton.h"
+#include "../Auxiliary/Singleton.h"
 
 
 class DebugLogger : public StaticClass<DebugLogger>

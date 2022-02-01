@@ -1,7 +1,7 @@
 #ifndef GO_DIRECTIONALLIGHT_H
 #define GO_DIRECTIONALLIGHT_H
 
-#include "FX/LightSource.h"
+#include "../FX/LightSource.h"
 
 class GO_DirectionalLight : public GO_LightSource
 {

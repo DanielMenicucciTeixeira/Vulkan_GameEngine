@@ -1,7 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "Auxiliary/Singleton.h"
+#include "../Auxiliary/Singleton.h"
 
 class SDLWindowManager;
 struct SDL_Window;

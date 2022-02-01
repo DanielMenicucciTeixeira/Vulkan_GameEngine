@@ -2,6 +2,7 @@
 #define SPHERECOLLISION_H
 
 #include "CollisionComponent.h"
+#include "Geometry/Sphere.h"
 
 class Sphere;
 

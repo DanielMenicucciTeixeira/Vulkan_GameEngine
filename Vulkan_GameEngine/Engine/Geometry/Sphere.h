@@ -1,6 +1,6 @@
 #ifndef SPHERE_H
 #define SPHERE_H
-#include "Math/FVector3.h"
+#include "../Math/FVector3.h"
 
 class Sphere
 {

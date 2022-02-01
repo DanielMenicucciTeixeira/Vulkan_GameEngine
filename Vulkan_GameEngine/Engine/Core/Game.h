@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Auxiliary/Singleton.h"
+#include "../Auxiliary/Singleton.h"
 #include "DebugLogger.h"
 
 #include <set>

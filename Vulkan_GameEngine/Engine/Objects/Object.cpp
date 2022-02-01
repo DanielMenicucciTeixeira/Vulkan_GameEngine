@@ -1,5 +1,5 @@
 #include "Object.h"
-#include "LevelGraph.h"
+#include "../Core/LevelGraph.h"
 
 bool O_Object::HasTag(std::string tag) const
 {

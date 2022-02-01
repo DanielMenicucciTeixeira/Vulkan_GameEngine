@@ -1,102 +1,169 @@
-﻿  CollisionData.h
-  CoreEngine.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,92): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,73): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(66,66): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(161,119): warning C4042: 'function': has bad storage class
-  Game.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.cpp(148,32): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+﻿  CollisionDetection.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
+  CollisionHandler.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(9,10): fatal error C1083: Cannot open include file: 'Geometry/Simplex.h': No such file or directory
+  LevelGraph.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(9,10): fatal error C1083: Cannot open include file: 'Geometry/Simplex.h': No such file or directory
   EventHandler.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  IVector2.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(127,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(135,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(139,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(164,39): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(165,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(166,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(9,10): fatal error C1083: Cannot open include file: 'Geometry/Simplex.h': No such file or directory
+  DirectionalLightComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\FX\LightInfo.h(4,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  DirectionalLight.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\FX\DirectionalLight.cpp(5,10): fatal error C1083: Cannot open include file: 'Level.h': No such file or directory
+  LightSourceComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\FX\LightSourceComponent.cpp(2,10): fatal error C1083: Cannot open include file: 'Level.h': No such file or directory
+  DebugLogger.cpp
+  Simplex.cpp
+  BoundingBox.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
+  MeshCollision.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
+  Object.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(9,10): fatal error C1083: Cannot open include file: 'Geometry/Simplex.h': No such file or directory
+  Apple.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Apple.cpp(2,10): fatal error C1083: Cannot open include file: 'Level.h': No such file or directory
+  BilliardBall.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardBall.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/PhysicsComponent.h': No such file or directory
   BilliardGame.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-  BilliardLevel.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
-  Game01.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-  L_MainLevel.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(138,34): warning C4305: 'argument': truncation from 'double' to 'float'
-  L_StartLevel.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-  L_TetrahedronLevel.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  MouseHandler.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\OctSpactilPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(35,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(35,38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(64,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(64,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(69,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(68,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(77,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(76,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(100,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(99,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(108,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\MouseHandler.cpp(107,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Source.cpp
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
-D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardGame.cpp(2,10): fatal error C1083: Cannot open include file: 'Renderers/RenderObject.h': No such file or directory
+  BilliardTable.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardTable.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/BoxCollision.h': No such file or directory
+  BoxCollider.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
+  CameraComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\CameraComponent.h(5,10): fatal error C1083: Cannot open include file: 'Geometry/Plane.h': No such file or directory
+  Clock.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Clock.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Object.h': No such file or directory
+  CollisionComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
   Generating Code...
-  Vulkan_GameEngine.vcxproj -> D:\Github\VulkanProject\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe
+  Compiling...
+  CollisionData.h
+  Game.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.cpp(4,10): fatal error C1083: Cannot open include file: 'SDL/SDLManager.h': No such file or directory
+  GameObject.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\GameObjects\GameObject.cpp(2,10): fatal error C1083: Cannot open include file: 'Math/FMatrix4.h': No such file or directory
+  Box.cpp
+  BilliardLevel.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(2,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  FMatrix.cpp
+  MovementComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\MovementComponent.cpp(2,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  Level.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Level.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/CollisionComponent.h': No such file or directory
+  PhysicsBody.cpp
+  PhysicsComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.h(5,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  PhysicsLib.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.h(5,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  SDLEventHandler.cpp
+  SDLManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLManager.cpp(6,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  SDLTextureHandler.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLTextureHandler.cpp(2,10): fatal error C1083: Cannot open include file: 'Renderers/RenderObject.h': No such file or directory
+  SDLWindowManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLWindowManager.cpp(23,18): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLWindowManager.cpp(25,19): warning C4244: '=': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLWindowManager.cpp(35,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLWindowManager.cpp(35,82): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  L_StartLevel.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Levels\L_StartLevel.cpp(2,10): fatal error C1083: Cannot open include file: 'Game.h': No such file or directory
+  L_MainLevel.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(2,10): fatal error C1083: Cannot open include file: 'Game.h': No such file or directory
+  Game01.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Game01.cpp(4,10): fatal error C1083: Cannot open include file: 'L_TetrahedronLevel.h': No such file or directory
+  OpelGLManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  GO_Triangle.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\GO_Triangle.cpp(2,10): fatal error C1083: Cannot open include file: 'Level.h': No such file or directory
+  Generating Code...
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\SDLEventHandler.cpp(25): warning C4715: 'SDLEventHandler::HandleEvents': not all control paths return a value
+  Compiling...
+  GO_Camera.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\GO_Camera.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/CameraComponent.h': No such file or directory
+  LightSource.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\FX\LightSource.cpp(3,10): fatal error C1083: Cannot open include file: 'Math/FVector3.h': No such file or directory
+  Pawn.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Pawn.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/CameraComponent.h': No such file or directory
+  L_TetrahedronLevel.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\L_TetrahedronLevel.cpp(3,10): fatal error C1083: Cannot open include file: 'Game.h': No such file or directory
+  MouseHandler.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\UniformBufferObject.h(4,10): fatal error C1083: Cannot open include file: 'Math/FMatrix4.h': No such file or directory
+  OctSpatialPartition.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(9,10): fatal error C1083: Cannot open include file: 'Geometry/Simplex.h': No such file or directory
+  Tetrahedron.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Tetrahedron.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/Components/StaticMeshComponent.h': No such file or directory
+  Source.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(49,108): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(46,117): warning C4042: 'function': has bad storage class
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(85,45): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  SphereCollider.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(8,10): fatal error C1083: Cannot open include file: 'CollisionData.h': No such file or directory
+  StaticMeshComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.cpp(2,10): fatal error C1083: Cannot open include file: 'Objects/GameObjects/GameObject.h': No such file or directory
+  TextureLoader.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\TextureLoader.cpp(5,10): fatal error C1083: Cannot open include file: 'Renderers/RenderObject.h': No such file or directory
+  TransformComponent.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.cpp(3,10): fatal error C1083: Cannot open include file: 'Math/FTransform.h': No such file or directory
+  VulkanDebugger.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  VulkanDevices.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  VulkanManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  VulkanPipelineManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  VulkanSwapchainManager.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(4,10): fatal error C1083: Cannot open include file: 'Renderers/Renderer.h': No such file or directory
+  Window.cpp
+C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\SDL\Window.cpp(2,10): fatal error C1083: Cannot open include file: 'SDL/SDLWindowManager.h': No such file or directory
+  Generating Code...

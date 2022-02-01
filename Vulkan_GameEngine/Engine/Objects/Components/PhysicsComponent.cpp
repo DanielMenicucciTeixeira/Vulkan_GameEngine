@@ -2,7 +2,6 @@
 #include "MovementComponent.h"
 #include "Objects/GameObjects/GameObject.h"
 #include "Physics/PhysicsLib.h"
-#include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
 #define _USE_MATH_DEFINES
@@ -124,7 +123,6 @@ C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool use
 
 	//if (useCalculatedAngularIntertia && MeshComponent) CalculateAngularInertia();
 	//else AngularInertia = angularInertia;
-
 }
 
 C_PhysicsComponent::~C_PhysicsComponent()

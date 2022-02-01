@@ -1,7 +1,7 @@
 #ifndef PHYSICSBODY_H
 #define PHYSICSBODY_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_PhysicsComponent;
 

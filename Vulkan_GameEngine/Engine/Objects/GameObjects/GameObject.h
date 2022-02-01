@@ -1,7 +1,7 @@
 #ifndef O_GAMEOBJECT_H
 #define O_GAMEOBJECT_H
 
-#include "Objects/Object.h"
+#include "../Object.h"
 #include "string"
 #include <vector>
 

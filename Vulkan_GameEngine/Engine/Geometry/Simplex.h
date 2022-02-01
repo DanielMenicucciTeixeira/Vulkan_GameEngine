@@ -1,9 +1,9 @@
 #ifndef SIMPLEX_H
 #define SIMPLEX_H
 
-#include "Math/FVector3.h"
-#include "Math/FVector4.h"
-#include "Math/FMatrix.h"
+#include "../Math/FVector3.h"
+#include "../Math/FVector4.h"
+#include "../Math/FMatrix.h"
 #include <array>
 
 struct Simplex 

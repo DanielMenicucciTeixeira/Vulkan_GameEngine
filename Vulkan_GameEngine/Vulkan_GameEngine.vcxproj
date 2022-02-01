@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\sdf;aksdjf;alksdjf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\Dev\VulkanProject\Vulkan_GameEngine\Engine;C:\Dev\Github\VulkanProject\Vulkan_GameEngine\Game;C:\Dev\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\stb-master;C:\GameDev\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

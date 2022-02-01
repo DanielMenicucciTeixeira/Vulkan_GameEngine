@@ -2,12 +2,13 @@
 #define PHYSICSCOMPONENT_H
 
 #include "MovementComponent.h"
-
+#include "Math/FVector3.h"
 class O_GameObject;
 
 class FMatrix;
-class FVector3;
+//class FVector3;
 class C_StaticMeshComponent;
+
 
 class C_PhysicsComponent : public O_Component
 {
@@ -62,7 +63,5 @@ public:
 	FVector3 GetVelocity();
 	FVector3 GetAngularAcceleration();
 	FVector3 GetAngularVelocity();
-
-	void Update(const float deltaTime) override;
 };
 #endif

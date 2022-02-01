@@ -7,7 +7,7 @@
 #include "Math/FVector3.h"
 #include <cmath>
 #include <iostream>
-#include "../BoxCollision.h"
+#include "BoxCollider.h"
 #include "BoundingBox.h"
 #include "Objects\GameObjects\GameObject.h"
 #include "Level.h"
@@ -196,7 +196,7 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, S_BoxBounds box,  S
 	return true;
 }
 
-bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
+/*bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
 {
 	float distance = (sphere0.position - sphere1.position).Length();
 	if (distance - (sphere0.radius + sphere1.radius) <= tolerance)
@@ -205,7 +205,7 @@ bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sp
 		return true;
 	}
 	else return false;
-}
+}*/
 
 bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data)
 {

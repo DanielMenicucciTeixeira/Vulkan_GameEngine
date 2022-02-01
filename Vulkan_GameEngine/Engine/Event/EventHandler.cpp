@@ -1,11 +1,11 @@
 #include "EventHandler.h"
-#include "CoreEngine.h"
-#include "Game.h"
-#include "Objects/Object.h"
-#include "Renderers/Renderer.h"
-#include "LevelGraph.h"
-#include "MouseHandler.h"
-#include "DebugLogger.h"
+#include "../Core/CoreEngine.h"
+#include "../Engine/Core/Game.h"
+#include "../Objects/Object.h"
+#include "../Renderers/Renderer.h"
+#include "../Core/LevelGraph.h"
+#include "../MouseHandler.h"
+#include "../Core/DebugLogger.h"
 
 #include <SDL.h>
 #include <string>

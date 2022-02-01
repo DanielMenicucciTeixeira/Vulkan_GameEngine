@@ -1,11 +1,11 @@
 #ifndef OCTSPATIALPARTITION_H
 #define OCTSPATIALPARTITION_H
 
-#include "Math/FVector3.h"
-#include "Geometry/BoxBounds.h"
+#include "../Math/FVector3.h"
+#include "../Geometry/BoxBounds.h"
 #include <set>
 #include <iostream>
-#include "Objects/Components/Colliders/CollisionComponent.h"
+#include "../Objects/Components/Colliders/CollisionComponent.h"
 
 constexpr unsigned int CHILDREN_NUMBER = 8;
 

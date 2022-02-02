@@ -1,7 +1,7 @@
 #ifndef COLLISIONCOMPONENT_H
 #define COLLISIONCOMPONENT_H
 
-#include "../TransformComponent.h"
+#include "TransformComponent.h"
 
 #include <set>
 #include <vector>

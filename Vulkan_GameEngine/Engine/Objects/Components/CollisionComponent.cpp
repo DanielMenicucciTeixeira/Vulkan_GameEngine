@@ -7,12 +7,12 @@
 #include "Math/FVector3.h"
 #include <cmath>
 #include <iostream>
-#include "../BoxCollision.h"
+#include "BoxCollision.h"
 #include "BoundingBox.h"
 #include "Objects\GameObjects\GameObject.h"
 #include "Level.h"
 #include "LevelGraph.h"
-#include "../CameraComponent.h"
+#include "CameraComponent.h"
 
 bool C_CollisionComponent::IsCollidingWith(C_CollisionComponent* collider)
 {

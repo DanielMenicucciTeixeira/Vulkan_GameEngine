@@ -1,10 +1,10 @@
-#include "OctSpatialPartition.h"
+#include "OctSpactilPartition.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <iostream>
 
-unsigned int OctSpatialPartition::OctNode::ChildrenCount = 0;
+unsigned int OctSpactilPartition::OctNode::ChildrenCount = 0;
 
-OctSpatialPartition::OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), Colliders(std::vector<C_CollisionComponent*>()), Empty(true)
+OctSpactilPartition::OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), Colliders(std::vector<C_CollisionComponent*>()), Empty(true)
 {
 	Size = size;
 	Parent = parent;
@@ -17,7 +17,7 @@ OctSpatialPartition::OctNode::OctNode(FVector3 position, float size, OctNode* pa
 	if (IsLeaf()) Colliders.reserve(10);
 }
 
-OctSpatialPartition::OctNode::~OctNode()
+OctSpactilPartition::OctNode::~OctNode()
 {
 	delete(OctBounds);
 	OctBounds = nullptr;
@@ -32,7 +32,7 @@ OctSpatialPartition::OctNode::~OctNode()
 	}
 }
 
-void OctSpatialPartition::OctNode::Octify(unsigned int depth)
+void OctSpactilPartition::OctNode::Octify(unsigned int depth)
 {
 	if (depth > 0 && this)
 	{
@@ -53,12 +53,12 @@ void OctSpatialPartition::OctNode::Octify(unsigned int depth)
 	}
 }
 
-const S_BoxBounds OctSpatialPartition::OctNode::GetBoundingBox() const
+const S_BoxBounds OctSpactilPartition::OctNode::GetBoundingBox() const
 {
 	return *OctBounds;
 }
 
-OctSpatialPartition::OctSpatialPartition(float worldSize, unsigned int depth) : Root(nullptr)
+OctSpactilPartition::OctSpactilPartition(float worldSize, unsigned int depth) : Root(nullptr)
 {
 	OctNode::ChildrenCount = 0;
 	Root = new OctNode(FVector3(-(worldSize / 2.0f)), worldSize, nullptr);
@@ -66,20 +66,20 @@ OctSpatialPartition::OctSpatialPartition(float worldSize, unsigned int depth) : 
 	std::cout << "There are " << Root->GetChildrenCount() << " child nodes" << std::endl;
 }
 
-OctSpatialPartition::~OctSpatialPartition()
+OctSpactilPartition::~OctSpactilPartition()
 {
 	delete(Root);
 	Root = nullptr;
 }
 
-std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetActiveLeaves() const
+std::set<OctSpactilPartition::OctNode*> OctSpactilPartition::GetActiveLeaves() const
 {
 	std::set<OctNode*> returnSet = std::set<OctNode*>();
 	GetActiveLeaves(Root, returnSet);
 	return returnSet;
 }
 
-std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetIntersectedLeaves(Ray& ray) const
+std::set<OctSpactilPartition::OctNode*> OctSpactilPartition::GetIntersectedLeaves(Ray& ray) const
 {
 	std::set<OctNode*> returnSet = std::set<OctNode*>();
 
@@ -88,14 +88,14 @@ std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetIntersectedLeave
 	return returnSet;
 }
 
-void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const
+void OctSpactilPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const
 {
 	if (cell->IsEmpty()) return;
 	if (cell->IsLeaf()) outSet.insert(cell);
 	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetActiveLeaves(cell->GetChild(static_cast<EOctChildren>(i)), outSet);
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set<OctNode*>& outSet) const
+void OctSpactilPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set<OctNode*>& outSet) const
 {
 	if (cell->IsEmpty()) return;
 	S_CollisionData data;
@@ -106,7 +106,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set
 	}
 }
 
-void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)
+void OctSpactilPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)
 {
 	if (collider && cell && collider->SpatialPartitionCheck(cell->GetBoundingBox()));
 	{

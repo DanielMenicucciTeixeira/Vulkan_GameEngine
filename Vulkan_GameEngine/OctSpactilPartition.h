@@ -1,11 +1,11 @@
-#ifndef OCTSPATIALPARTITION_H
-#define OCTSPATIALPARTITION_H
+#ifndef OCTSPACTILPARTITION_H
+#define OCTSPACTILPARTITION_H
 
 #include "Math/FVector3.h"
 #include "Geometry/BoxBounds.h"
 #include <set>
 #include <iostream>
-#include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Objects/Components/CollisionComponent.h"
 
 constexpr unsigned int CHILDREN_NUMBER = 8;
 
@@ -24,7 +24,7 @@ enum class EOctChildren
 class C_CollisionComponent;
 class Ray;
 
-class OctSpatialPartition
+class OctSpactilPartition
 {
 public:
 	class OctNode
@@ -50,7 +50,7 @@ public:
 		inline void SetEmpty(bool isEmpty) { Empty = isEmpty; }
 
 	private:
-		friend OctSpatialPartition;
+		friend OctSpactilPartition;
 		S_BoxBounds* OctBounds;
 		OctNode* Parent;
 		OctNode* Children[CHILDREN_NUMBER];
@@ -61,9 +61,9 @@ public:
 		static unsigned int ChildrenCount;
 	};
 
-	OctSpatialPartition(float worldSize, unsigned int depth = 3);
+	OctSpactilPartition(float worldSize, unsigned int depth = 3);
 
-	~OctSpatialPartition();
+	~OctSpactilPartition();
 
 	inline void AddCollider(C_CollisionComponent* collider) { AddColliderToCell(collider, Root); }
 

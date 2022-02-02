@@ -91,7 +91,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\sdf;aksdjf;alksdjf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -107,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\sdf;aksdjf;alksdjf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Github\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\tinyobjloader-master;D:\Github\VulkanProject\Vulkan_GameEngine\Engine;C:\GameDev\stb-master;D:\Github\VulkanProject\Vulkan_GameEngine\Game;D:\Github\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -158,8 +158,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionDetection.cpp" />
-    <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
     <ClCompile Include="Engine\Event\EventHandler.cpp" />
     <ClCompile Include="Engine\FX\DirectionalLightComponent.cpp" />
@@ -171,7 +169,7 @@
     <ClCompile Include="Engine\Math\FVector2.cpp" />
     <ClCompile Include="Engine\Math\IVector2.cpp" />
     <ClCompile Include="Engine\Math\IVector3.cpp" />
-    <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp" />
+    <ClCompile Include="Engine\Objects\Components\BoundingBox.cpp" />
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp" />
     <ClCompile Include="Engine\Objects\Object.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
@@ -181,7 +179,7 @@
     <ClCompile Include="Engine\Objects\Components\BoxCollision.cpp" />
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp" />
     <ClCompile Include="Engine\Core\Clock.cpp" />
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp" />
+    <ClCompile Include="Engine\Objects\Components\CollisionComponent.cpp" />
     <ClCompile Include="Engine\Core\CollisionData.h" />
     <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp" />
@@ -217,7 +215,7 @@
     <ClCompile Include="Game\Pawn.cpp" />
     <ClCompile Include="L_TetrahedronLevel.cpp" />
     <ClCompile Include="MouseHandler.cpp" />
-    <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
+    <ClCompile Include="OctSpactilPartition.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp" />
@@ -232,8 +230,6 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionDetection.h" />
-    <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
     <ClInclude Include="Engine\Event\EventHandler.h" />
     <ClInclude Include="Engine\FX\DirectionalLightComponent.h" />
@@ -248,7 +244,7 @@
     <ClInclude Include="Engine\Math\FVector2.h" />
     <ClInclude Include="Engine\Math\IVector2.h" />
     <ClInclude Include="Engine\Math\IVector3.h" />
-    <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h" />
+    <ClInclude Include="Engine\Objects\Components\BoundingBox.h" />
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h" />
     <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />
@@ -258,7 +254,7 @@
     <ClInclude Include="Engine\Objects\Components\BoxCollision.h" />
     <ClInclude Include="Engine\Objects\Components\CameraComponent.h" />
     <ClInclude Include="Engine\Core\Clock.h" />
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionComponent.h" />
+    <ClInclude Include="Engine\Objects\Components\CollisionComponent.h" />
     <ClInclude Include="Engine\Objects\Components\Component.h" />
     <ClInclude Include="Engine\Core\EngineEvent.h" />
     <ClInclude Include="Engine\Core\Game.h" />
@@ -296,7 +292,7 @@
     <ClInclude Include="Game\Pawn.h" />
     <ClInclude Include="L_TetrahedronLevel.h" />
     <ClInclude Include="MouseHandler.h" />
-    <ClInclude Include="Engine\Core\OctSpatialPartition.h" />
+    <ClInclude Include="OctSpactilPartition.h" />
     <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\SDL\SDLEventHandler.h" />

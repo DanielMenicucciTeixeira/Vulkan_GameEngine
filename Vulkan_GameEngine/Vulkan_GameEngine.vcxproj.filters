@@ -120,7 +120,7 @@
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp">
+    <ClCompile Include="Engine\Objects\Components\CollisionComponent.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp">
@@ -249,10 +249,10 @@
     <ClCompile Include="Game\Pawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp">
+    <ClCompile Include="Engine\Objects\Components\BoundingBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\OctSpatialPartition.cpp">
+    <ClCompile Include="OctSpactilPartition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="L_TetrahedronLevel.cpp">
@@ -265,12 +265,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Core\CollisionHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -344,7 +338,7 @@
     <ClInclude Include="Engine\Objects\Components\CameraComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionComponent.h">
+    <ClInclude Include="Engine\Objects\Components\CollisionComponent.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\Component.h">
@@ -497,13 +491,13 @@
     <ClInclude Include="Game\Pawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h">
+    <ClInclude Include="Engine\Objects\Components\BoundingBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Geometry\BoxBounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\OctSpatialPartition.h">
+    <ClInclude Include="OctSpactilPartition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="L_TetrahedronLevel.h">
@@ -516,12 +510,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\CollisionHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

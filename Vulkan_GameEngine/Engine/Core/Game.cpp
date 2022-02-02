@@ -209,5 +209,4 @@ int BaseGame::Run()
 		std::cerr << e.what() << std::endl;
 		return EXIT_FAILURE;
 	}
-	return 0;
 }

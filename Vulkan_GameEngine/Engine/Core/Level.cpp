@@ -3,12 +3,13 @@
 #include "Game.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
-#include "AssetLoader.h"
-#include "TextureLoader.h"
+#include "Graphics/AssetLoader.h"
+#include "Graphics/TextureLoader.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Renderers/Renderer.h"
 #include "SDL/SDLTextureHandler.h"
 #include "LevelGraph.h"
+#include "CollisionHandler.h"
 
 #include <algorithm>
 
@@ -182,9 +183,16 @@ void L_Level::Update(const float deltaTime)
 {
 	ReloadLevelObjects();
 	CheckCollisions();
+
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
+
+
 	if (!CurrentGame->IsPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
+
+	//check collision here
+	CollisionHandler::GetInstance()->Update(deltaTime);
+	
 }
 
 void L_Level::Render()

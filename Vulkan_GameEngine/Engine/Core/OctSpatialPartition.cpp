@@ -1,5 +1,5 @@
 #include "OctSpatialPartition.h"
-#include "Objects/Components/Colliders/CollisionDetection.h"
+#include "Physics/CollisionDetection.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <iostream>
 
@@ -87,6 +87,17 @@ std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetIntersectedLeave
 	GetIntersectedLeaves(ray, Root, returnSet);
 
 	return returnSet;
+}
+
+void OctSpatialPartition::Update(const float deltaTime_)
+{
+	for (auto leaves : GetActiveLeaves()) {
+		for (int i = 0; i < leaves->GetColliderCount(); i++) {
+			for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
+				if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
+			}
+		}
+	}
 }
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const

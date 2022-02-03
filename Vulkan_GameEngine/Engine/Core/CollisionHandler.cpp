@@ -11,3 +11,8 @@ CollisionHandler* CollisionHandler::GetInstance()
 	}
 	return collisionInstance.get();
 }
+
+void CollisionHandler::Update(float deltaTime_)
+{
+	scenePartition->Update(deltaTime_);
+}

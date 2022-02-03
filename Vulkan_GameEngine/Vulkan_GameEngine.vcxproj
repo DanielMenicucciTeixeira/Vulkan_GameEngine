@@ -224,7 +224,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionDetection.cpp" />
+    <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
     <ClCompile Include="Engine\Event\EventHandler.cpp" />
@@ -248,7 +248,7 @@
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp" />
     <ClCompile Include="Engine\Core\Clock.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp" />
-    <ClCompile Include="Engine\Core\CollisionData.h" />
+    <ClCompile Include="Engine\Physics\CollisionData.h" />
     <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp" />
     <ClCompile Include="Engine\Geometry\Box.cpp" />
@@ -262,7 +262,7 @@
     <ClCompile Include="Engine\Math\FTransform.cpp" />
     <ClCompile Include="Engine\Math\FVector3.cpp" />
     <ClCompile Include="Engine\Math\FVector4.cpp" />
-    <ClCompile Include="Engine\Core\AssetLoader.cpp" />
+    <ClCompile Include="Engine\Graphics\AssetLoader.cpp" />
     <ClCompile Include="Engine\Objects\Components\MovementComponent.cpp" />
     <ClCompile Include="Engine\Core\Level.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\PhysicsBody.cpp" />
@@ -288,7 +288,7 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp" />
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp" />
-    <ClCompile Include="Engine\Core\TextureLoader.cpp" />
+    <ClCompile Include="Engine\Graphics\TextureLoader.cpp" />
     <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanDebugger.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanDevices.cpp" />
@@ -298,7 +298,7 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionDetection.h" />
+    <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
     <ClInclude Include="Engine\Event\EventHandler.h" />
@@ -342,7 +342,7 @@
     <ClInclude Include="Engine\Math\FTransform.h" />
     <ClInclude Include="Engine\Math\FVector3.h" />
     <ClInclude Include="Engine\Math\FVector4.h" />
-    <ClInclude Include="Engine\Core\AssetLoader.h" />
+    <ClInclude Include="Engine\Graphics\AssetLoader.h" />
     <ClInclude Include="Engine\Core\Level.h" />
     <ClInclude Include="Engine\Objects\GameObjects\PhysicsBody.h" />
     <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h" />
@@ -371,7 +371,7 @@
     <ClInclude Include="Engine\SDL\SDLWindowManager.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h" />
-    <ClInclude Include="Engine\Core\TextureLoader.h" />
+    <ClInclude Include="Engine\Graphics\TextureLoader.h" />
     <ClInclude Include="Engine\Objects\Components\TransformComponent.h" />
     <ClInclude Include="Engine\Renderers\UniformBufferObject.h" />
     <ClInclude Include="Engine\Renderers\Vertex.h" />

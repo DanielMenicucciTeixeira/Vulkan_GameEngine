@@ -5,7 +5,7 @@
 
 #include <set>
 #include <vector>
-#include "CollisionData.h"
+#include "Physics/CollisionData.h"
 #include "Geometry/Simplex.h"
 
 class Ray;

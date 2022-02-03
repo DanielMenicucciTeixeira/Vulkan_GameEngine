@@ -23,6 +23,7 @@ SDLManager::~SDLManager()
 {
 }
 
+
 SDLManager* SDLManager::GetInstance()
 {
     if(Instance.get() == nullptr) Instance.reset(new SDLManager);

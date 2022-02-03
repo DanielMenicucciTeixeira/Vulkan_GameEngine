@@ -71,6 +71,9 @@ public:
 	std::set<OctNode*> GetIntersectedLeaves(Ray& ray) const;
 	inline OctNode* GetRoot() { return Root; }
 
+	//Does collision detection on every node.
+	void Update(const float deltaTime_);
+
 protected:
 	OctNode* Root;
 	void GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const;

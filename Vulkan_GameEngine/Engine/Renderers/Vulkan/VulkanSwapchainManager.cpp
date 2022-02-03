@@ -5,7 +5,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
 #include "DebugLogger.h"
-#include "TextureLoader.h"
+#include "Graphics/TextureLoader.h"
 #include "LevelGraph.h"
 
 #include <vulkan/vulkan.h>

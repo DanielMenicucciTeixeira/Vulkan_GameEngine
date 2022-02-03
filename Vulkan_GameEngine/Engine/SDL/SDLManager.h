@@ -9,6 +9,9 @@ union SDL_Event;
 class Window;
 enum ERendererType;
 
+/// <summary>
+/// Window management class
+/// </summary>
 class SDLManager
 {
 protected:

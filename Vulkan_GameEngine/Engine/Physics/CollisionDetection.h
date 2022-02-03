@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../../Core/CollisionData.h"
+#include "CollisionData.h"
 
 class C_BoundingBox;
 class C_BoxCollider;

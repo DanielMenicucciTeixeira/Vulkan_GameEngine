@@ -8,12 +8,16 @@
 
 class CollisionHandler
 {
+public:
 	CollisionHandler(const CollisionHandler&) = delete;
 	CollisionHandler(CollisionHandler&&) = delete;
 	CollisionHandler& operator =(const CollisionHandler&) = delete;
 	CollisionHandler& operator =(CollisionHandler&&) = delete;
 
 	static CollisionHandler* GetInstance();
+
+	//Use to do collision detection for all coliders
+	void Update(float deltaTime_);
 
 private:
 	CollisionHandler();

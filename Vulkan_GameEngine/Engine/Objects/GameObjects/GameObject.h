@@ -2,6 +2,7 @@
 #define O_GAMEOBJECT_H
 
 #include "../Object.h"
+#include "Core/DebugLogger.h"
 #include "string"
 #include <vector>
 
@@ -42,6 +43,15 @@ public:
 	componentClass* AddComponentOfClass()//TODO add assert function
 	{
 		componentClass* component = new componentClass(this);
+		//Debug check
+		if (component == nullptr) {
+			DebugLogger::Error("Not child of Component class", "GameObject.h", __LINE__);
+			delete component;
+			component = nullptr;
+			return;
+		}
+
+
 		Components.insert(component);
 		return component;
 	}

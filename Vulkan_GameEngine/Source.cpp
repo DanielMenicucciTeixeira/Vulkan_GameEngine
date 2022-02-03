@@ -27,12 +27,16 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 
+	//Key bindings
+
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_QUIT, SDLK_UNKNOWN, CoreEngine::Quit);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_q, CoreEngine::Quit);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_g, CoreEngine::LoadGame);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_r, printDown);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYUP, SDLK_r, printUp);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_t, printEngine);
+
+	//Game start
 
 	G_Game01* game = new G_Game01();
 	CoreEngine::GetInstance()->SetGame(game);

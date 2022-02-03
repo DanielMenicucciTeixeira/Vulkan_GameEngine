@@ -9,7 +9,7 @@
 #include "GO_Camera.h"
 #include "FX/LightSource.h"
 #include "FX/DirectionalLight.h"
-#include "AssetLoader.h"
+#include "Graphics/AssetLoader.h"
 #include "LevelGraph.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/StaticMeshComponent.h"

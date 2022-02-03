@@ -144,10 +144,10 @@
     <ClCompile Include="Engine\Core\Level.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\AssetLoader.cpp">
+    <ClCompile Include="Engine\Graphics\AssetLoader.cpp">
       <Filter>Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\TextureLoader.cpp">
+    <ClCompile Include="Engine\Graphics\TextureLoader.cpp">
       <Filter>Renderers</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp">
@@ -162,7 +162,7 @@
     <ClCompile Include="Engine\Physics\PhysicsLib.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\CollisionData.h">
+    <ClCompile Include="Engine\Physics\CollisionData.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanDebugger.cpp">
@@ -270,7 +270,7 @@
     <ClCompile Include="Engine\Core\CollisionHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionDetection.cpp">
+    <ClCompile Include="Engine\Physics\CollisionDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -374,10 +374,10 @@
     <ClInclude Include="Engine\Core\Level.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\AssetLoader.h">
+    <ClInclude Include="Engine\Graphics\AssetLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\TextureLoader.h">
+    <ClInclude Include="Engine\Graphics\TextureLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderers\Vertex.h">
@@ -521,7 +521,7 @@
     <ClInclude Include="Engine\Core\CollisionHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionDetection.h">
+    <ClInclude Include="Engine\Physics\CollisionDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

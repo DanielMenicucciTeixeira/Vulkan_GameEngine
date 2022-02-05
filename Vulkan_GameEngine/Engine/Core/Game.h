@@ -27,6 +27,7 @@ typedef int32_t sdlKeycode;
 class BaseGame
 {
 public:
+
 	BaseGame();
 	virtual ~BaseGame();
 

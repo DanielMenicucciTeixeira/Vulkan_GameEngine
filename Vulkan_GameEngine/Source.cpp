@@ -38,8 +38,9 @@ int main(int argc, char* argv[])
 
 	//Game start
 
-	G_Game01* game = new G_Game01();
-	CoreEngine::GetInstance()->SetGame(game);
+	CoreEngine::GetInstance()->SetGame(new G_Game01);
 	CoreEngine::GetInstance()->Run();
+
+	
 	return 0;
 }

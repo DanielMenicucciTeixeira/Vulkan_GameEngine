@@ -179,5 +179,7 @@ void CoreEngine::CleanUp()
 	if (EngineClock) delete(EngineClock);
 	if (EngineRenderer) delete(EngineRenderer);
 	InterfaceManager->End();
+
+	delete(CurrentGame);
 	exit(0);
 }

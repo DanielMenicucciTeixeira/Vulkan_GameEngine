@@ -21,21 +21,23 @@ public:
 	CollisionDetection& operator =(CollisionDetection&&) = delete;
 
 	CollisionDetection() = delete;
+	~CollisionDetection();
 
 	//Ray & Bounding box collision
 	static bool Collision(Ray& a, const S_BoxBounds b);
 
+	/*
 	//AABB Collision.  Returns points of collision if true.
-	bool Collision(C_BoundingBox a, C_BoundingBox b);
+	static bool Collision(C_BoundingBox a, C_BoundingBox b);
 
 	//Box Box Collision.  Returns points of collision if true.
-	bool Collision(C_BoxCollider a, C_BoxCollider b);
+	static bool Collision(C_BoxCollider a, C_BoxCollider b);
 
 	//Sphere Sphere Collision.  Returns points of collision if true.
-	FVector3 * Collision(C_SphereCollider a, C_SphereCollider b);
-
+	static FVector3 * Collision(C_SphereCollider a, C_SphereCollider b);
+	*/
 	//Return collision data of last detection
-	S_CollisionData GetCollisionData();
+	static S_CollisionData GetCollisionData();
 	
 private:
 	static S_CollisionData collisionData;

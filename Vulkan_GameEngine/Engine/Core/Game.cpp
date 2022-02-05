@@ -13,7 +13,7 @@
 #include <iostream>
 #include <stdexcept>
 
-BaseGame::BaseGame() : Running(false), Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
+BaseGame::BaseGame() : Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
 {
 	
 }
@@ -30,10 +30,9 @@ bool BaseGame::Initialize(Renderer* gameRenderer)
 		return false;
 	}
 	GameClock = new Clock();
-	Running = true;
 	GameRenderer = gameRenderer;
 	CurrentLevel->Initialize(this);
-	EventHandler::SetGameReference(this);
+	EventListener::SetGameReference(this);
 	//TODO implement render choosing mechanic
 	/*
 	RenderData = new RenderInitializationData();
@@ -109,7 +108,6 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 
 void BaseGame::QuitEngine(BaseGame* self, SDL_Event* event)
 {
-	self->SetRunning(false);
 	CoreEngine::GetInstance()->Quit(event);
 }
 
@@ -160,7 +158,6 @@ void BaseGame::SetCurrentLevel()
 	if (!CurrentLevel->Initialize(this))
 	{
 		DebugLogger::FatalError("Failed to initialize level!", "Core/Game.cpp", __LINE__);
-		SetRunning(false);
 		return;
 	}
 	CurrentLevel->Start();
@@ -187,8 +184,11 @@ int BaseGame::Run()
 	try
 	{
 		CurrentLevel->Start();
-		EventHandler::Initialize();
-		while (Running)
+		EventListener::Initialize();
+
+		int placeholder = 0;
+		//TODO:Placeholder
+		while (placeholder != 1)
 		{
 			if (ShouldStartNewLevel)
 			{
@@ -196,7 +196,7 @@ int BaseGame::Run()
 			}
 			if (!CurrentLevel->CheckForCamera()) break;
 			GameClock->UpdateClock();
-			EventHandler::HandleEvents();
+			EventListener::HandleEvents();
 			Update(GameClock->GetDeltaTimeSeconds());
 			Render();
 			SDL_Delay(GameClock->GetSleepTime(FramesPerSecond));

@@ -47,3 +47,7 @@ float Clock::GetTimeSeconds() const
 Clock::Clock()
 {
 }
+
+Clock::~Clock()
+{
+}

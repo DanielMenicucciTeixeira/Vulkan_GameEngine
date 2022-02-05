@@ -9,6 +9,10 @@
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 
 
+CollisionDetection::~CollisionDetection()
+{
+}
+
 bool CollisionDetection::Collision(Ray& a, const S_BoxBounds b)
 {
 	FVector3 rayOrigin = a.GetOrigin();
@@ -17,8 +21,8 @@ bool CollisionDetection::Collision(Ray& a, const S_BoxBounds b)
 	FVector3 boxMax = b.Max;
 	FMatrix4 modelMatrix = b.Model;
 
-	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
-	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
+	float tMin = 10; //= LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
+	float tMax = 10; //= LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
 
 	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
 	FVector3 delta = worldPosition - rayOrigin;
@@ -94,7 +98,7 @@ bool CollisionDetection::Collision(Ray& a, const S_BoxBounds b)
 	return true;
 	return false;
 }
-
+/*
 bool CollisionDetection::Collision(C_BoundingBox a, C_BoundingBox b)
 {
 	FVector3 minCorner = a.GetMin() + a.GetComponentAbsolutePosition();
@@ -127,7 +131,7 @@ FVector3 * CollisionDetection::Collision(C_SphereCollider a, C_SphereCollider b)
 	}
 	else return nullptr;
 }
-
+*/
 S_CollisionData CollisionDetection::GetCollisionData()
 {
 	return collisionData;

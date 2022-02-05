@@ -116,8 +116,8 @@ void L_MainLevel::Start()
 	att->AddTag("Attached");
 	
 	auto movement = dice->AddComponentOfClass<C_MovementComponent>();
-	movement->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
-
+	//movement->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+	//TODO: Velocity function change
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
 	auto red = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(3.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
 	auto green = SpawnGameObjectOfClass<GO_LightSource>(FTransform(FVector3(3.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));

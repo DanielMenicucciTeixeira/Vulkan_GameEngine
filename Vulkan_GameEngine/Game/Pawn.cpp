@@ -29,19 +29,19 @@ GO_Pawn::GO_Pawn(L_Level* level, std::string name) : O_GameObject(level, name)
 
 	Movement = AddComponentOfClass<C_MovementComponent>();
 
-	EventHandler::AddFunctionByInput(this, MoveForward, SDL_KEYDOWN, SDLK_w);
-	EventHandler::AddFunctionByInput(this, MoveBackwards, SDL_KEYDOWN, SDLK_s);
-	EventHandler::AddFunctionByInput(this, StopMoving, SDL_KEYUP, SDLK_w);
-	EventHandler::AddFunctionByInput(this, StopMoving, SDL_KEYUP, SDLK_s);
+	EventListener::AddFunctionByInput(this, MoveForward, SDL_KEYDOWN, SDLK_w);
+	EventListener::AddFunctionByInput(this, MoveBackwards, SDL_KEYDOWN, SDLK_s);
+	EventListener::AddFunctionByInput(this, StopMoving, SDL_KEYUP, SDLK_w);
+	EventListener::AddFunctionByInput(this, StopMoving, SDL_KEYUP, SDLK_s);
 
-	EventHandler::AddFunctionByInput(this, TurnRight, SDL_KEYDOWN, SDLK_d);
-	EventHandler::AddFunctionByInput(this, TurnLeft, SDL_KEYDOWN, SDLK_a);
-	EventHandler::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_d);
-	EventHandler::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_a);
+	EventListener::AddFunctionByInput(this, TurnRight, SDL_KEYDOWN, SDLK_d);
+	EventListener::AddFunctionByInput(this, TurnLeft, SDL_KEYDOWN, SDLK_a);
+	EventListener::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_d);
+	EventListener::AddFunctionByInput(this, StopTurning, SDL_KEYUP, SDLK_a);
 
-	//EventHandler::AddFunctionByInput(this, TurnCamera, SDL_MOUSEMOTION, SDLK_UNKNOWN);
-	EventHandler::AddFunctionByInput(this, Grab, SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT);
-	EventHandler::AddFunctionByInput(this, PrintFrustum, SDL_KEYUP, SDLK_c);
+	//EventListener::AddFunctionByInput(this, TurnCamera, SDL_MOUSEMOTION, SDLK_UNKNOWN);
+	EventListener::AddFunctionByInput(this, Grab, SDL_MOUSEBUTTONDOWN, SDL_BUTTON_LEFT);
+	EventListener::AddFunctionByInput(this, PrintFrustum, SDL_KEYUP, SDLK_c);
 }
 
 GO_Pawn::~GO_Pawn()
@@ -105,24 +105,37 @@ void GO_Pawn::Grab(O_Object* self, SDL_Event* event)
 
 void GO_Pawn::MoveForward(bool backwards)
 {
-	if (backwards) Movement->SetVelocity(GetRotation().GetForwardVector() * -Speed);
-	else  Movement->SetVelocity(GetRotation().GetForwardVector() * Speed);
+	if (backwards) {
+		//Movement->SetVelocity(GetRotation().GetForwardVector() * -Speed);
+			//TODO: Velocity function change
+	}
+	else {
+		//Movement->SetVelocity(GetRotation().GetForwardVector() * Speed);
+			//TODO: Velocity function change
+	}
 }
 
 void GO_Pawn::StopMoving()
 {
-	Movement->SetVelocity(FVector3(0.0f));
+	//Movement->SetVelocity(FVector3(0.0f));
+		//TODO: Velocity function change
 }
 
 void GO_Pawn::Turn(bool left)
 {
-	if (left) Movement->SetAngularVelocity(FVector3(0.0f, 1.0f, 0.0f));
-	else  Movement->SetAngularVelocity(FVector3(0.0f, -1.0f, 0.0f));
+	if (left) { //Movement->SetAngularVelocity(FVector3(0.0f, 1.0f, 0.0f));
+			//TODO: Velocity function change
+	}
+	else {//Movement->SetAngularVelocity(FVector3(0.0f, -1.0f, 0.0f));
+			//TODO: Velocity function change
+
+	}
 }
 
 void GO_Pawn::StopTurning()
 {
-	Movement->SetAngularVelocity(FVector3(0.0f, 0.0f, 0.0f));
+	//Movement->SetAngularVelocity(FVector3(0.0f, 0.0f, 0.0f));
+		//TODO: Velocity function change
 }
 
 void GO_Pawn::TurnCamera(FVector2 offset)

@@ -44,7 +44,7 @@ void CoreEngine::RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_E
 {
 }
 
-CoreEngine::CoreEngine() : EngineWindow(nullptr), RunningEngine(false), RunningGame(false), InterfaceManager(nullptr), EngineRenderer(nullptr), EngineClock(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr)
+CoreEngine::CoreEngine() : EngineWindow(nullptr), RunningEngine(false), RunningGame(false), InterfaceManager(nullptr), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr)
 {
 }
 
@@ -56,8 +56,8 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 {
 	DebugLogger::Initialize();
 
-	InterfaceManager = SDLManager::GetInstance();
-	if (!InterfaceManager->Begin())
+	
+	if (!SDLManager::GetInstance()->Begin())
 	{
 		CleanUp();
 		return RunningEngine = false;
@@ -71,7 +71,7 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	}
 	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
 
-	EngineClock = new Clock();
+	EngineClock.StartClock();
 
 	switch (renderType)
 	{
@@ -85,27 +85,30 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 		EngineRenderer = new OpenGLManager();
 	}
 
-	EventHandler::AddEvent("Quit Game");
-	EventHandler::AddInputToEvent("Quit Game", SDL_KEYDOWN, SDLK_q);
+	EventListener::AddEvent("Quit Game");
+	EventListener::AddInputToEvent("Quit Game", SDL_KEYDOWN, SDLK_q);
 
 	return RunningEngine = true;
 }
 
 void CoreEngine::Run()
 {
-	EngineClock->StartClock();
+	EngineClock.StartClock();
 	while (RunningEngine)
 	{
-		if (CurrentGame && CurrentGame->IsRunning()) CurrentGame->Run();// TODO implement multiple windows to run game and engine simultaneously
-		EngineClock->UpdateClock();
+		EngineClock.UpdateClock();
+
+		EventListener::Update();
 		HandleEvents();
-		Update(EngineClock->GetDeltaTimeSeconds());
+		Update(EngineClock.GetDeltaTimeSeconds());
 		Render(); 
-		SDL_Delay(EngineClock->GetSleepTime(FramesPerSecond));
+		SDL_Delay(EngineClock.GetSleepTime(FramesPerSecond));
 	}
 	CleanUp();
 }
 
+
+//TODO: Translate this
 void CoreEngine::HandleEvents()
 {
 	SDL_Event event;
@@ -176,7 +179,6 @@ void CoreEngine::SetEngineInputFunction(sdlEventType eventType, sdlKeycode keyco
 
 void CoreEngine::CleanUp()
 {
-	if (EngineClock) delete(EngineClock);
 	if (EngineRenderer) delete(EngineRenderer);
 	InterfaceManager->End();
 

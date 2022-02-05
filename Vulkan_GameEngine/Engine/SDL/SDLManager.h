@@ -17,7 +17,7 @@ class SDLManager
 protected:
 	class SDLWindowManager* WindowManager = nullptr;
 	struct SDL_Surface* imageSurface = nullptr;
-	class SDLEventHandler* EventHandler = nullptr;
+	class SDLEventHandler* EventListener = nullptr;
 	class Renderer* WindowRenderer = nullptr;
 
 

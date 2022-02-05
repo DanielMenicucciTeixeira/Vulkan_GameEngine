@@ -9,7 +9,7 @@ class Ray
 public:
 	//Contructors
 	Ray();
-	Ray(const FVector3& start, const FVector3& direction, float length = 0, bool infinit = true);
+	Ray(const FVector3 start, const FVector3 direction, float length = 0, bool infinit = true);
 
 	~Ray();
 

@@ -16,6 +16,7 @@ GO_Triangle::GO_Triangle(L_Level* level) : O_GameObject(level)
 void GO_Triangle::Start()
 {
 	SetRotation(FQuaternion({ 0, 0, 1 }, 180.0f));
-	Movement->SetAngularVelocity(FVector3(0.0f, 3.0f, 0.0f));
+	//Movement->SetAngularVelocity(FVector3(0.0f, 3.0f, 0.0f));
+		//TODO: Velocity function change
 	O_GameObject::Start();
 }

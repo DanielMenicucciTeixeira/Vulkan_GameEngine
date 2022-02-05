@@ -16,9 +16,19 @@ using inputKey = std::pair<sdlEventType, sdlKeycode>;
 using inputFunction_t = void(*)(O_Object*, SDL_Event*);
 using functionMap_t = std::unordered_map <inputFunction_t, std::set<O_Object*>>;
 
-class EventHandler : public StaticClass<EventHandler>
+class EventListener
 {
 public:
+	EventListener(const EventListener&) = delete;
+	EventListener(EventListener&&) = delete;
+	EventListener& operator =(const EventListener&) = delete;
+	EventListener& operator =(EventListener&&) = delete;
+
+	EventListener() = delete;
+	~EventListener();
+
+	static void Update();
+
 	static bool AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
 	static void RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
 	static bool AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event);
@@ -34,6 +44,8 @@ protected:
 	static void Initialize();
 	static void HandleEvents();
 	static void CallFunctions(inputKey key, SDL_Event* event);
+
+
 	
 	struct HASH_InputKey
 	{

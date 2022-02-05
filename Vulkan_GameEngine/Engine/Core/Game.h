@@ -45,14 +45,11 @@ public:
 	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(BaseGame*, SDL_Event*));
-	inline static void QuitGame(BaseGame* self, SDL_Event* event) { self->SetRunning(false); }
 	static void QuitEngine(BaseGame* self, SDL_Event* event);
 	Renderer* GetRenderer();
 
 	void SetPause(const bool& pause);
 	inline bool IsPaused() const  { return Paused; };
-	inline bool IsRunning() const { return Running; }
-	inline void SetRunning(bool isRunning) { Running = isRunning; }
 	int Run();
 	
 	//Loaders
@@ -98,7 +95,6 @@ protected:
 
 	unsigned int FramesPerSecond;
 	bool Paused;
-	bool Running;
 	bool ShouldStartNewLevel;
 };
 

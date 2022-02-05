@@ -29,7 +29,7 @@ protected:
 	static BaseGame* Game;
 	static IVector2 CursorPosition, PreviousCursorPosition;
 	static void UpdateCursorPosition();
-	friend class EventHandler;
+	friend class EventListener;
 
 };
 #endif

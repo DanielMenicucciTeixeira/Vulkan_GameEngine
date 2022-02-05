@@ -32,8 +32,7 @@ SDLManager* SDLManager::GetInstance()
 
 bool SDLManager::Begin()
 {
-    WindowManager = new SDLWindowManager(this);
-    EventHandler = new SDLEventHandler(WindowRenderer);
+    EventListener = new SDLEventHandler(WindowRenderer);
 
     if (!InitializeSDL())//If SDL does not initilize, don't run any SDL dependent functions
     {
@@ -60,7 +59,7 @@ void SDLManager::End()
 
 SDL_Event SDLManager::GetEvent()
 {
-    return EventHandler->HandleEvents();
+    return EventListener->HandleEvents();
 }
 
 bool SDLManager::GetVulkanExtensions(std::vector<const char*> &extensionNames)

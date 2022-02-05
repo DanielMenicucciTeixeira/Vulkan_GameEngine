@@ -1,4 +1,5 @@
 #include "OctSpatialPartition.h"
+#include "Geometry/Ray.h"
 #include "Physics/CollisionDetection.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <iostream>
@@ -44,6 +45,7 @@ void OctSpatialPartition::OctNode::Octify(unsigned int depth)
 			{
 				for (int z = 0; z < 2; z++)
 				{
+					//TODO: This seem's wrong.
 					Children[z + (2 * y) + (4 * x)] = new OctNode(FVector3(OctBounds->Min.X + (x * half), OctBounds->Min.Y + (y * half), OctBounds->Min.Z + (z * half)), half, this);
 				}
 			}
@@ -94,7 +96,7 @@ void OctSpatialPartition::Update(const float deltaTime_)
 	for (auto leaves : GetActiveLeaves()) {
 		for (int i = 0; i < leaves->GetColliderCount(); i++) {
 			for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
-				if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
+				//if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
 			}
 		}
 	}
@@ -115,12 +117,14 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set
 	//Never used variable
 	S_CollisionData data;
 
+
+	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
-	if (CollisionDetection::Collision(ray, cell->GetBoundingBox()))
-	{
-		if (cell->IsLeaf()) outSet.insert(cell);
-		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)), outSet);
-	}
+	//if (CollisionDetection::Collision(ray, cell->GetBoundingBox()))
+	//{
+	//	if (cell->IsLeaf()) outSet.insert(cell);
+	//	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)), outSet);
+	//}
 }
 
 void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)

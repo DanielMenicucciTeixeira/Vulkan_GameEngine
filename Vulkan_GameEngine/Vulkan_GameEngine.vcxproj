@@ -281,6 +281,7 @@
     <ClCompile Include="Game\GO_Camera.cpp" />
     <ClCompile Include="Engine\FX\LightSource.cpp" />
     <ClCompile Include="Game\Pawn.cpp" />
+    <ClCompile Include="Game\SceneManager.cpp" />
     <ClCompile Include="L_TetrahedronLevel.cpp" />
     <ClCompile Include="MouseHandler.cpp" />
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
@@ -298,6 +299,8 @@
     <ClCompile Include="Engine\SDL\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h" />
+    <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
@@ -360,6 +363,7 @@
     <ClInclude Include="Game\GO_Camera.h" />
     <ClInclude Include="Engine\FX\LightSource.h" />
     <ClInclude Include="Game\Pawn.h" />
+    <ClInclude Include="Game\SceneManager.h" />
     <ClInclude Include="L_TetrahedronLevel.h" />
     <ClInclude Include="MouseHandler.h" />
     <ClInclude Include="Engine\Core\OctSpatialPartition.h" />

@@ -48,7 +48,7 @@ public:
 			DebugLogger::Error("Not child of Component class", "GameObject.h", __LINE__);
 			delete component;
 			component = nullptr;
-			return;
+			return nullptr;
 		}
 
 

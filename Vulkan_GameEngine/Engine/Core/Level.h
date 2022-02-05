@@ -76,6 +76,8 @@ public:
 
 protected:
 
+
+
 	std::string Name;
 
 	bool FindAnyCamera();

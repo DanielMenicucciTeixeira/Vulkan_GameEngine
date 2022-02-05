@@ -17,8 +17,8 @@ bool G_Game01::Initialize(Renderer* gameRenderer)
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_s, G_Game01::LoadStartLevel);
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_m, G_Game01::LoadMainLevel);*/
 
-	EventHandler::AddFunctionByInput(nullptr, QuitApplication, SDL_QUIT);
-	EventHandler::AddFunctionByEvent(nullptr, EndGame, "Quit Game");
+	EventListener::AddFunctionByInput(nullptr, QuitApplication, SDL_QUIT);
+	EventListener::AddFunctionByEvent(nullptr, EndGame, "Quit Game");
 	
 	//CurrentLevel = new L_MainLevel();
 	CurrentLevel = new L_MainLevel();
@@ -37,11 +37,11 @@ void G_Game01::LoadMainLevel(BaseGame* self, SDL_Event* event)
 
 void G_Game01::EndGame(O_Object* object, SDL_Event* event)
 {
-	CoreEngine::GetInstance()->GetGame()->SetRunning(false);
+	CoreEngine::GetInstance()->Exit();
 }
 
 void G_Game01::QuitApplication(O_Object* object, SDL_Event* event)
 {
-	CoreEngine::GetInstance()->GetGame()->SetRunning(false);
+	CoreEngine::GetInstance()->Exit();
 	CoreEngine::GetInstance()->Quit(event);
 }

@@ -32,6 +32,9 @@ protected:
 	float GetInstantDeltaTimeMilliseconds() const;
 
 public:
+	Clock();
+	~Clock();
+
 
 	//Set the initial values for the clocks variables.
 	void StartClock();
@@ -48,7 +51,6 @@ public:
 	float GetDeltaTimeMiliSecods() const;
 	float GetTimeSeconds() const;
 
-	Clock();
-	~Clock();
+
 };
 #endif

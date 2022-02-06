@@ -4,7 +4,7 @@
 #include "../Objects/Object.h"
 #include "../Renderers/Renderer.h"
 #include "../Core/LevelGraph.h"
-#include "../MouseHandler.h"
+#include "MouseEventHandler.h"
 #include "../Core/DebugLogger.h"
 
 #include <SDL.h>
@@ -40,14 +40,15 @@ void EventListener::HandleEvents()
 		case SDL_KEYDOWN:
 			key.second = event.key.keysym.sym;
 			break;
-		case SDL_MOUSEMOTION:
-		case SDL_MOUSEWHEEL:
-			MouseHandler::UpdateCursorPosition();
-			break;
 		case SDL_MOUSEBUTTONUP:
 		case SDL_MOUSEBUTTONDOWN:
-			MouseHandler::UpdateCursorPosition();
 			key.second = event.button.button;
+		case SDL_MOUSEMOTION:
+		case SDL_MOUSEWHEEL:
+			MouseEventHandler::UpdateCursorPosition();
+			break;
+
+
 			break;
 		default:
 			key.second = SDLK_UNKNOWN;
@@ -123,34 +124,7 @@ void EventListener::SetGameReference(BaseGame* game)
 
 void EventListener::Initialize()
 {
-	MouseHandler::Initialize();
-}
-
-void EventListener::Update()
-{
-	SDL_Event sdlEvent;
-	while (SDL_PollEvent(&sdlEvent)) {
-		if (sdlEvent.type == SDL_QUIT) {
-			//CoreEngine::GetInstance()->Quit(sdlEvent);
-		}
-
-		switch (sdlEvent.type) {
-		case SDL_MOUSEBUTTONDOWN:
-		case SDL_MOUSEBUTTONUP:
-		case SDL_MOUSEMOTION:
-		case SDL_MOUSEWHEEL:
-			//MouseEventListener::Update(sdlEvent);
-			break;
-		case SDL_KEYDOWN:
-			//KeyEventListener::PressKey(sdlEvent.key.keysym.sym);
-			break;
-		case SDL_KEYUP:
-			//KeyEventListener::ReleaseKey(sdlEvent.key.keysym.sym);
-			break;
-		default:
-			break;
-		}
-	}
+	MouseEventHandler::Initialize();
 }
 
 bool EventListener::AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)

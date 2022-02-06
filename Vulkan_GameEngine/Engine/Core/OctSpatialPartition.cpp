@@ -117,7 +117,6 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set
 	//Never used variable
 	S_CollisionData data;
 
-
 	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
 	//if (CollisionDetection::Collision(ray, cell->GetBoundingBox()))

@@ -268,10 +268,6 @@
     <ClCompile Include="Engine\Objects\GameObjects\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp" />
     <ClCompile Include="Engine\Physics\PhysicsLib.cpp" />
-    <ClCompile Include="Engine\SDL\SDLEventHandler.cpp" />
-    <ClCompile Include="Engine\SDL\SDLManager.cpp" />
-    <ClCompile Include="Engine\SDL\SDLTextureHandler.cpp" />
-    <ClCompile Include="Engine\SDL\SDLWindowManager.cpp" />
     <ClCompile Include="Game\Levels\L_StartLevel.cpp" />
     <ClCompile Include="Game\Levels\L_MainLevel.cpp" />
     <ClCompile Include="Game\Game01.cpp" />
@@ -283,7 +279,7 @@
     <ClCompile Include="Game\Pawn.cpp" />
     <ClCompile Include="Game\SceneManager.cpp" />
     <ClCompile Include="L_TetrahedronLevel.cpp" />
-    <ClCompile Include="MouseHandler.cpp" />
+    <ClCompile Include="Engine\Event\MouseEventHandler.cpp" />
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -296,7 +292,7 @@
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanManager.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanPipelineManager.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp" />
-    <ClCompile Include="Engine\SDL\Window.cpp" />
+    <ClCompile Include="Engine\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h" />
@@ -365,14 +361,10 @@
     <ClInclude Include="Game\Pawn.h" />
     <ClInclude Include="Game\SceneManager.h" />
     <ClInclude Include="L_TetrahedronLevel.h" />
-    <ClInclude Include="MouseHandler.h" />
+    <ClInclude Include="Engine\Event\MouseEventHandler.h" />
     <ClInclude Include="Engine\Core\OctSpatialPartition.h" />
     <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Engine\SDL\SDLEventHandler.h" />
-    <ClInclude Include="Engine\SDL\SDLManager.h" />
-    <ClInclude Include="Engine\SDL\SDLTextureHandler.h" />
-    <ClInclude Include="Engine\SDL\SDLWindowManager.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h" />
     <ClInclude Include="Engine\Graphics\TextureLoader.h" />
@@ -384,7 +376,7 @@
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanManager.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanPipelineManager.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.h" />
-    <ClInclude Include="Engine\SDL\Window.h" />
+    <ClInclude Include="Engine\Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

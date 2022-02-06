@@ -1,7 +1,6 @@
 #include "Game.h"
 #include "Level.h"
 #include "Clock.h"
-#include "SDL/SDLManager.h"
 #include "Objects/GameObjects/GameObject.h"
 #include "Renderers/Renderer.h"
 #include "LevelGraph.h"
@@ -119,11 +118,6 @@ Renderer* BaseGame::GetRenderer()
 void BaseGame::SetPause(const bool& pause)
 {
 	Paused = pause;
-}
-
-inline SDLManager* BaseGame::GetInterfaceManager()
-{
-	return SDLManager::GetInstance();
 }
 
 float BaseGame::GetTimeSeconds()

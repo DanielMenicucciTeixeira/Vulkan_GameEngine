@@ -16,7 +16,6 @@
 #include <vulkan/vulkan.h>
 
 //SDL includes
-#include "SDL/SDLManager.h"
 #include <SDL_vulkan.h>
 #include <SDL.h>
 

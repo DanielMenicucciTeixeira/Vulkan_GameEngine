@@ -1,14 +1,12 @@
 #include "CoreEngine.h"
-#include "SDL/SDLManager.h"
-#include "SDL/SDLWindowManager.h"
-#include "SDL/Window.h"
+#include "Window.h"
 #include "Renderers/Vulkan/VulkanManager.h"
 #include "Renderers/OpenGL/OpelGLManager.h"
 #include "Clock.h"
 #include "DebugLogger.h"
 #include "Game.h"
 #include "Event/EventHandler.h"
-
+#include "Math/FVector2.h"
 #include <SDL.h>
 #include <glew.h>
 #include <SDL_opengl.h>
@@ -44,7 +42,7 @@ void CoreEngine::RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_E
 {
 }
 
-CoreEngine::CoreEngine() : EngineWindow(nullptr), RunningEngine(false), RunningGame(false), InterfaceManager(nullptr), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr)
+CoreEngine::CoreEngine() : engineWindow(nullptr), RunningEngine(false), RunningGame(false), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr), gameInterface(nullptr), currentSceneNumber(0)
 {
 }
 
@@ -56,22 +54,14 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 {
 	DebugLogger::Initialize();
 
-	
-	if (!SDLManager::GetInstance()->Begin())
+	engineWindow = new Window();
+
+	if (!engineWindow->Initialize(name, renderType))
 	{
 		CleanUp();
+		DebugLogger::FatalError("Window failed to initialize", "CoreEngine", __LINE__);
 		return RunningEngine = false;
 	}
-
-	EngineWindow = InterfaceManager->CreateWindow(name, renderType, width, height, positionX, positionY);
-	if (!EngineWindow)
-	{
-		CleanUp();
-		return RunningEngine = false;
-	}
-	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
-
-	EngineClock.StartClock();
 
 	switch (renderType)
 	{
@@ -84,6 +74,12 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	default:
 		EngineRenderer = new OpenGLManager();
 	}
+
+
+	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
+
+	EngineClock.StartClock();
+
 
 	EventListener::AddEvent("Quit Game");
 	EventListener::AddInputToEvent("Quit Game", SDL_KEYDOWN, SDLK_q);
@@ -98,7 +94,6 @@ void CoreEngine::Run()
 	{
 		EngineClock.UpdateClock();
 
-		EventListener::Update();
 		HandleEvents();
 		Update(EngineClock.GetDeltaTimeSeconds());
 		Render(); 
@@ -107,8 +102,12 @@ void CoreEngine::Run()
 	CleanUp();
 }
 
+FVector2 CoreEngine::GetWindowSize()
+{
+	return FVector2(engineWindow->GetWidth(), engineWindow->GetHeight());
+}
 
-//TODO: Translate this
+//Any way to streamline it? any improvements? honestly I don't know.
 void CoreEngine::HandleEvents()
 {
 	SDL_Event event;
@@ -180,8 +179,6 @@ void CoreEngine::SetEngineInputFunction(sdlEventType eventType, sdlKeycode keyco
 void CoreEngine::CleanUp()
 {
 	if (EngineRenderer) delete(EngineRenderer);
-	InterfaceManager->End();
-
 	delete(CurrentGame);
 	exit(0);
 }

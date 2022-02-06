@@ -444,7 +444,7 @@ void C_CollisionComponent::Update(const float deltaTime)
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner)
 {
 	CollisionType = collisionType;
-	Owner->GetLevel()->AddCollider(this);
+	//Owner->GetLevel()->AddCollider(this);
 }
 
 C_CollisionComponent::~C_CollisionComponent()

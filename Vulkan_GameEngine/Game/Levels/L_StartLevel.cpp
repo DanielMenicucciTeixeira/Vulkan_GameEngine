@@ -1,6 +1,5 @@
 #include "L_StartLevel.h"
 #include "Game.h"
-#include "SDL/SDLManager.h"
 #include "GO_Camera.h"
 
 #include <SDL.h>

@@ -6,7 +6,7 @@
 #include "Math/FVector2.h"
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
-#include "MouseHandler.h"
+#include "Event/MouseEventHandler.h"
 #include "Event/EventHandler.h"
 #include "Geometry/Ray.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
@@ -85,7 +85,7 @@ void GO_Pawn::StopTurning(O_Object* self, SDL_Event* event)
 
 void GO_Pawn::TurnCamera(O_Object* self, SDL_Event* event)
 {
-	IVector2 offset = MouseHandler::GetCursorOffset();
+	IVector2 offset = MouseEventHandler::GetCursorOffset();
 	dynamic_cast<GO_Pawn*>(self)->TurnCamera({(float)offset.X, (float)offset.Y});
 }
 
@@ -178,7 +178,7 @@ void GO_Pawn::ZoomCamera(float zoom)
 void GO_Pawn::Grab()
 {
 	S_CollisionData data;
-	Ray ray = MouseHandler::MousePositionToWorldRay();
+	Ray ray = MouseEventHandler::MousePositionToWorldRay();
 	if (C_CollisionComponent::RayCastSingleTarget(ray, data))
 	{
 		std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;

@@ -7,7 +7,6 @@
 #include "Graphics/TextureLoader.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Renderers/Renderer.h"
-#include "SDL/SDLTextureHandler.h"
 #include "LevelGraph.h"
 #include "CollisionHandler.h"
 
@@ -70,11 +69,14 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 
 	if (!textures[textureName]->Pixels)
 	{
+		//TODO: Solve SDL TextureHandler removal here.
+		/*
 		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
 		}
+		*/
 	}
 	
 	texture = textures[textureName];

@@ -26,6 +26,10 @@ public:
 	//Ray & Bounding box collision
 	static bool Collision(Ray& a, const S_BoxBounds b);
 
+	static bool Collision(Ray& a, const C_SphereCollider b);
+
+	static bool Collision(C_BoundingBox a, const C_SphereCollider b);
+
 	/*
 	//AABB Collision.  Returns points of collision if true.
 	static bool Collision(C_BoundingBox a, C_BoundingBox b);
@@ -36,6 +40,7 @@ public:
 	//Sphere Sphere Collision.  Returns points of collision if true.
 	static FVector3 * Collision(C_SphereCollider a, C_SphereCollider b);
 	*/
+
 	//Return collision data of last detection
 	static S_CollisionData GetCollisionData();
 	

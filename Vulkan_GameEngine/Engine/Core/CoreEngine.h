@@ -12,12 +12,13 @@ typedef uint32_t sdlEventType;
 typedef int32_t sdlKeycode;
 
 class SDLManager;
-class Window;
 class Renderer;
 class BaseGame;
 class L_Level;
+class Window;
 enum ERendererType;
 union SDL_Event;
+class FVector2;
 
 struct S_InputFunctionPointers;
 enum EInputSources;
@@ -43,6 +44,8 @@ public:
 	inline bool IsRunningEngine() const { return RunningEngine; }
 	inline void SetGame(BaseGame* game) { CurrentGame = game; }
 	inline BaseGame* GetGame() { return CurrentGame; }
+	inline Clock* GetClock() { return &EngineClock; };
+
 
 	inline void SetGameInterface(GameInterface* sceneManager) { gameInterface = sceneManager; };
 
@@ -56,6 +59,11 @@ public:
 	void CleanUp();
 
 	inline int GetCurrentScene() { return currentSceneNumber; };
+
+	Window* GetWindow() {return engineWindow;};
+
+	//Return window dimentions
+	FVector2 GetWindowSize();
 
 protected:
 	void HandleEvents();
@@ -71,8 +79,7 @@ protected:
 	void RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_Event> events);
 
 	Renderer* EngineRenderer;
-	SDLManager* InterfaceManager;
-	Window* EngineWindow;
+	Window* engineWindow;
 	BaseGame* CurrentGame;
 	L_Level* StartingLevel;
 
@@ -85,8 +92,7 @@ protected:
 
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(SDL_Event*)> EngineInputFunctions;
-	static std::unique_ptr<CoreEngine> Instance;
-	friend std::default_delete<CoreEngine>;
+
 
 private:
 	CoreEngine();
@@ -98,6 +104,9 @@ private:
 	int currentSceneNumber;
 
 	Clock EngineClock;
+
+	static std::unique_ptr<CoreEngine> Instance;
+	friend std::default_delete<CoreEngine>;
 };
 #endif
 

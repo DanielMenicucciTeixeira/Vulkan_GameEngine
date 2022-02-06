@@ -60,15 +60,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLEventHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLWindowManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Geometry\Box.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
@@ -111,7 +102,7 @@
     <ClCompile Include="Game\BilliardTable.cpp">
       <Filter>BilliardGame</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\Window.cpp">
+    <ClCompile Include="Engine\Core\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Core\Clock.cpp">
@@ -207,9 +198,6 @@
     <ClCompile Include="Game\GO_Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLTextureHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -243,7 +231,7 @@
     <ClCompile Include="Engine\Event\EventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MouseHandler.cpp">
+    <ClCompile Include="Engine\Event\MouseEventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Pawn.cpp">
@@ -278,15 +266,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\SDL\SDLEventHandler.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLWindowManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Geometry\Box.h">
       <Filter>Geometry</Filter>
     </ClInclude>
@@ -332,7 +311,7 @@
     <ClInclude Include="Game\BilliardTable.h">
       <Filter>BilliardGame</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\SDL\Window.h">
+    <ClInclude Include="Engine\Core\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -461,9 +440,6 @@
     <ClInclude Include="Game\GO_Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLTextureHandler.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\FX\LightSourceComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -494,7 +470,7 @@
     <ClInclude Include="Engine\Event\EventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MouseHandler.h">
+    <ClInclude Include="Engine\Event\MouseEventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Pawn.h">

@@ -1,6 +1,5 @@
 #include "Engine/Core/CoreEngine.h"
 #include "Game/Game01.h"
-#include "Engine/SDL/SDLManager.h"
 #include "Engine/Renderers/Renderer.h"
 #include "Engine/Math/FVector3.h"
 #include "Engine/Math/FMatrix4.h"
@@ -12,7 +11,6 @@
 #include <set>
 #include <glm/glm.hpp>
 #include "Game/SceneManager.h"
-#include "SDL/SDLManager.h"
 
 void printUp(SDL_Event* event) { printf("Key up!\n"); }
 void printDown(SDL_Event* event) { printf("Key down!\n"); }
@@ -27,7 +25,7 @@ int main(int argc, char* argv[])
 	//TODO: Add scene manager here
 	CoreEngine::GetInstance()->SetGameInterface(new SceneManager);
 
-	if (!CoreEngine::GetInstance()->Initialize(SDLManager::GetInstance()->GetDefaultWindowName(), VULKAN))
+	if (!CoreEngine::GetInstance()->Initialize("Window", VULKAN))
 	//{
 	//	printf("Failed to create Engine!");
 	//	return 0;

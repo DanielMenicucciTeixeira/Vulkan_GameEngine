@@ -27,8 +27,6 @@ public:
 	EventListener() = delete;
 	~EventListener();
 
-	static void Update();
-
 	static bool AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
 	static void RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
 	static bool AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event);

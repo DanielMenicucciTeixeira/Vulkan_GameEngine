@@ -41,6 +41,7 @@ void C_SphereCollider::Update(const float deltaTime)
 	C_CollisionComponent::Update(deltaTime);
 
 	CollisionSphere.position = GetComponentPosition() + GetOwner()->GetPosition();
+
 }
 
 //bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const

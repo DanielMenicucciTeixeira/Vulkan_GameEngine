@@ -74,7 +74,6 @@ public:
 	void LoadMaterial(S_Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
-	void ReloadLevelObjects();
 	bool LoadCamera(C_CameraComponent* camera);
 	inline const float& GetWorldSize() const { return WorldSize; }
 

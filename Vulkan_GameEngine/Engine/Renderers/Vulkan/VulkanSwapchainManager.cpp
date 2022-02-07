@@ -7,6 +7,7 @@
 #include "DebugLogger.h"
 #include "Graphics/TextureLoader.h"
 #include "LevelGraph.h"
+#include "CoreEngine.h"
 
 #include <vulkan/vulkan.h>
 #include <SDL_vulkan.h>
@@ -60,9 +61,8 @@ VkExtent2D VulkanSwapchainManager::ChooseSwapExtent(const VkSurfaceCapabilitiesK
     }
     else
     {
-        SDL_Window* window = Manager->GetWindow();
         int width, height;
-        SDL_Vulkan_GetDrawableSize(window, &width, &height);
+        SDL_Vulkan_GetDrawableSize(CoreEngine::GetInstance()->GetWindow()->GetSDLWindow(), &width, &height);
 
         VkExtent2D actualExtent = { static_cast<uint32_t>(width), static_cast<uint32_t>(height) };
 

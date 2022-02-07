@@ -23,11 +23,6 @@ void EventListener::HandleEvents()
 	while (SDL_PollEvent(&event))
 	{
 		key.first = event.type;
-		if (/*event.type == SDL_WINDOWEVENT && */event.window.event == SDL_WINDOWEVENT_RESIZED)
-		{
-			Game->GetRenderer()->FramebufferResizeCallback();
-			LevelGraph::GetInstance()->FrameBufferResizeCallback();
-		}
 
 		//If the event is keyboard or button realted, set key.second
 		switch (key.first)

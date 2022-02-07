@@ -60,6 +60,10 @@ public:
 	LevelGraph& operator=(const LevelGraph&) = delete;
 	LevelGraph& operator=(LevelGraph&&) = delete;
 
+
+	void Render();
+
+
 	inline const std::set<O_Object*>& GetGameObjectsByTag(std::string tag) const { return GameObjectsByTag[tag]; }
 	inline const std::set<O_Object*>& GetGameObjectsByClass(size_t classID) const { return GameObjectsByClass[classID]; }
 
@@ -89,6 +93,13 @@ public:
 
 
 	void CleanUp();
+
+
+	//Switch's the games pause state.
+	void Pause();
+
+	//Returns the games paused state.
+	inline bool GetPaused() { return isPaused;};
 
 protected:
 
@@ -120,6 +131,8 @@ protected:
 private:
 	LevelGraph();
 	~LevelGraph();
+
+	bool isPaused;
 
 	friend class L_Level;
 };

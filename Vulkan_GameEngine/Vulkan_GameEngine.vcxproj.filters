@@ -129,9 +129,6 @@
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Core\Level.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
@@ -264,6 +261,9 @@
     <ClCompile Include="Game\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Core\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Geometry\Box.h">
@@ -349,9 +349,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Objects\GameObjects\GameObject.h">
       <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Core\Game.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Core\Level.h">
       <Filter>Levels</Filter>
@@ -504,6 +501,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include "GameInterface.h"
+#include "Window.h"
 #include "Core/DebugLogger.h"
 #include "Clock.h"
 
@@ -15,7 +16,6 @@ class SDLManager;
 class Renderer;
 class BaseGame;
 class L_Level;
-class Window;
 enum ERendererType;
 union SDL_Event;
 class FVector2;
@@ -60,10 +60,11 @@ public:
 
 	inline int GetCurrentScene() { return currentSceneNumber; };
 
-	Window* GetWindow() {return engineWindow;};
 
 	//Return window dimentions
 	FVector2 GetWindowSize();
+
+	Window* GetWindow() { return engineWindow; };
 
 protected:
 	void HandleEvents();
@@ -71,12 +72,13 @@ protected:
 	void Render();
 	bool StartGame();
 	inline void StopEngine() { RunningEngine = false; }
-	inline void StopGame() { RunningGame = false; }
 
 	bool AddGameEvent(const char* eventName);
 	bool RemoveGameEvent(const char* eventName);
 	void AddInputsToGameEvent(const char* eventName, std::set<SDL_Event> events);
 	void RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_Event> events);
+
+
 
 	Renderer* EngineRenderer;
 	Window* engineWindow;
@@ -84,15 +86,7 @@ protected:
 	L_Level* StartingLevel;
 
 
-
-	//Frame cap?
-	unsigned int FramesPerSecond;
-	bool RunningEngine;
-	bool RunningGame;
-
-
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(SDL_Event*)> EngineInputFunctions;
-
 
 private:
 	CoreEngine();
@@ -103,10 +97,16 @@ private:
 
 	int currentSceneNumber;
 
+	//Frame cap?
+	unsigned int FramesPerSecond;
+	bool RunningEngine;
+
 	Clock EngineClock;
 
 	static std::unique_ptr<CoreEngine> Instance;
 	friend std::default_delete<CoreEngine>;
+
+
 };
 #endif
 

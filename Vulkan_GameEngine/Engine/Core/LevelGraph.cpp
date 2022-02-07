@@ -30,6 +30,13 @@ LevelGraph* LevelGraph::GetInstance()
 	return Instance.get();
 }
 
+void LevelGraph::Render()
+{
+	for (auto& mesh : StaticMehes) {
+		mesh->SetInFrustum(ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
+	}
+}
+
 void LevelGraph::AddObject(O_Object* gameObject)
 {
 	if (gameObject)
@@ -189,6 +196,12 @@ void LevelGraph::CleanUp()
 	}
 
 	RenderData.Clear();
+}
+
+void LevelGraph::Pause()
+{
+	if (isPaused) { isPaused = false; }
+	else { isPaused = true; }
 }
 
 void LevelGraph::LoadMesh()

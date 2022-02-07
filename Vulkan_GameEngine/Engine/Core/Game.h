@@ -45,10 +45,7 @@ public:
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(BaseGame*, SDL_Event*));
 	static void QuitEngine(BaseGame* self, SDL_Event* event);
-	Renderer* GetRenderer();
 
-	void SetPause(const bool& pause);
-	inline bool IsPaused() const  { return Paused; };
 	int Run();
 	
 	//Loaders
@@ -81,11 +78,8 @@ protected:
 
 	L_Level* CurrentLevel;
 	L_Level* NextLevel;
-	Renderer* GameRenderer;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(BaseGame*, SDL_Event*)> GameInputFunctions;
-
-	bool Paused;
 	bool ShouldStartNewLevel;
 };
 

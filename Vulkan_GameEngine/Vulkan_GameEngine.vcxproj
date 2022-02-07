@@ -224,6 +224,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
@@ -249,7 +250,6 @@
     <ClCompile Include="Engine\Core\Clock.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp" />
     <ClCompile Include="Engine\Physics\CollisionData.h" />
-    <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp" />
     <ClCompile Include="Engine\Geometry\Box.cpp" />
     <ClCompile Include="Engine\Geometry\Plane.cpp" />
@@ -296,6 +296,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h" />
+    <ClInclude Include="Engine\Core\Game.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
@@ -324,7 +325,6 @@
     <ClInclude Include="Engine\Objects\Components\Colliders\CollisionComponent.h" />
     <ClInclude Include="Engine\Objects\Components\Component.h" />
     <ClInclude Include="Engine\Core\EngineEvent.h" />
-    <ClInclude Include="Engine\Core\Game.h" />
     <ClInclude Include="Engine\Objects\GameObjects\GameObject.h" />
     <ClInclude Include="Engine\Geometry\Box.h" />
     <ClInclude Include="Engine\Geometry\Plane.h" />

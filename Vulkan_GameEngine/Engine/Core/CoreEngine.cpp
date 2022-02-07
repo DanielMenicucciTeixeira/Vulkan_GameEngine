@@ -1,5 +1,4 @@
 #include "CoreEngine.h"
-#include "Window.h"
 #include "Renderers/Vulkan/VulkanManager.h"
 #include "Renderers/OpenGL/OpelGLManager.h"
 #include "Clock.h"
@@ -7,6 +6,7 @@
 #include "Game.h"
 #include "Event/EventHandler.h"
 #include "Math/FVector2.h"
+#include "LevelGraph.h"
 #include <SDL.h>
 #include <glew.h>
 #include <SDL_opengl.h>
@@ -18,9 +18,9 @@ bool CoreEngine::StartGame()
 	if (!CurrentGame || !CurrentGame->Initialize(EngineRenderer))
 	{
 		DebugLogger::Error("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
-		return  RunningGame = false;
+		//return  RunningGame = false;
 	}
-	return RunningGame = true;
+	return true;
 }
 
 bool CoreEngine::AddGameEvent(const char* eventName)
@@ -42,7 +42,7 @@ void CoreEngine::RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_E
 {
 }
 
-CoreEngine::CoreEngine() : engineWindow(nullptr), RunningEngine(false), RunningGame(false), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr), gameInterface(nullptr), currentSceneNumber(0)
+CoreEngine::CoreEngine() : engineWindow(nullptr), RunningEngine(false), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr), gameInterface(nullptr), currentSceneNumber(0)
 {
 }
 
@@ -75,8 +75,20 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 		EngineRenderer = new OpenGLManager();
 	}
 
+	//Initalize Renderer
+	if (EngineRenderer->Initialize()) {
+		DebugLogger::FatalError("Renderer could not be initalized", "CoreEngine.cpp", __LINE__);
+		return RunningEngine = false;
+	}
+	
+	if (gameInterface) {
+		if (!gameInterface->OnCreate()) {
+			DebugLogger::FatalError("GameInterface could not be created", "CoreEngine.cpp", __LINE__);
+			return RunningEngine = false;
+		}
+	}
 
-	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
+
 
 	EngineClock.StartClock();
 
@@ -84,6 +96,7 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	EventListener::AddEvent("Quit Game");
 	EventListener::AddInputToEvent("Quit Game", SDL_KEYDOWN, SDLK_q);
 
+	DebugLogger::Info("Engine initilized successfully.", "Core/CoreEngine.cpp", __LINE__);
 	return RunningEngine = true;
 }
 
@@ -115,6 +128,12 @@ void CoreEngine::HandleEvents()
 	{
 		auto eventType = event.type;
 		int32_t keycode;
+
+		if (/*event.type == SDL_WINDOWEVENT &&*/ event.window.event == SDL_WINDOWEVENT_RESIZED)
+		{
+			EngineRenderer->FramebufferResizeCallback();
+			LevelGraph::GetInstance()->FrameBufferResizeCallback();
+		}
 
 		//If the event is key or button realted, set the keycode
 		switch (eventType)
@@ -152,6 +171,8 @@ void CoreEngine::Render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//if (CurrentGame) CurrentGame->Render();//must implement multiple windows to run game and engine simultaneously
 	SDL_GL_SwapWindow(EngineWindow->GetSDLWindow());*/
+
+	EngineRenderer->Render();
 }
 
 CoreEngine* CoreEngine::GetInstance()

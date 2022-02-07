@@ -12,7 +12,7 @@
 #include <iostream>
 #include <stdexcept>
 
-BaseGame::BaseGame() : Paused(false), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false)
+BaseGame::BaseGame() :  CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false)
 {
 	
 }
@@ -28,7 +28,6 @@ bool BaseGame::Initialize(Renderer* gameRenderer)
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	GameRenderer = gameRenderer;
 	CurrentLevel->Initialize(this);
 	EventListener::SetGameReference(this);
 	//TODO implement render choosing mechanic
@@ -48,11 +47,6 @@ void BaseGame::HandleEvents()
 	{
 		auto eventType = event.type;
 		int32_t keycode;
-		if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
-		{
-			GameRenderer->FramebufferResizeCallback();
-			LevelGraph::GetInstance()->FrameBufferResizeCallback();
-		}
 
 		//If the event is key or button realted, set the keycode
 		switch (eventType)
@@ -107,16 +101,6 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 void BaseGame::QuitEngine(BaseGame* self, SDL_Event* event)
 {
 	CoreEngine::GetInstance()->Quit(event);
-}
-
-Renderer* BaseGame::GetRenderer()
-{
-	return GameRenderer;
-}
-
-void BaseGame::SetPause(const bool& pause)
-{
-	Paused = pause;
 }
 
 void BaseGame::SetCurrentLevel()

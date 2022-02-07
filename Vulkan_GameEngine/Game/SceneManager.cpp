@@ -16,6 +16,8 @@ SceneManager::~SceneManager()
 
 bool SceneManager::OnCreate()
 {
+
+
 	if (CoreEngine::GetInstance()->GetCurrentScene() == 0) {
 		//currentScene = new StartScene();
 		//if (!currentScene->OnCreate()) {

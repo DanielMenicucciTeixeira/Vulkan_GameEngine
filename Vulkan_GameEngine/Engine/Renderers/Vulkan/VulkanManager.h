@@ -97,7 +97,6 @@ public:
 	virtual void CleanUp() override;
 
 	//Getters
-	inline SDL_Window* GetWindow() { return Window; }
 	inline VulkanDebugger* GetDebugger() { return Debugger; }
 	inline VulkanDevices* GetDevices() { return Devices; }
 	inline VulkanPipelineManager* GetGraphicsPipeline() { return GraphicsPipelineManager; }
@@ -112,9 +111,6 @@ public:
 	VkExtent2D* GetSwapchainExtent();
 	VkDescriptorSetLayout_T* GetDescriptorSetLayout();
 	VkRenderPass_T* GetRenderPass();
-
-	//Settters
-	inline void SetMainWindow(SDL_Window* window) { Window = window; }
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
 	unsigned int FindMemoryType(unsigned int typeFilter, VkMemoryPropertyFlags properties);
@@ -153,7 +149,6 @@ protected:
 	VulkanPipelineManager* GraphicsPipelineManager = nullptr;
 	VulkanSwapchainManager* SwapchainManager = nullptr;
 
-	SDL_Window* Window;
 	VkSurfaceKHR_T* Surface = nullptr;
 
 	VkInstance_T* Instance = nullptr;

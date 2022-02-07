@@ -75,25 +75,21 @@ public:
 	//Getters
 
 	inline L_Level* GetCurrentLevel() { return CurrentLevel; }
-	inline SDLManager* GetInterfaceManager();
 	float GetTimeSeconds();
 	float GetDeltaTimeSeconds();
 	float GetDeltaTimeMiliseconds();
 	float GetSleepTime();
-	inline float GetFramesPerSecond() { return FramesPerSecond; }
 
 protected:
 	void SetCurrentLevel();
 	void CleanUp();
 
-	Clock* GameClock;
 	L_Level* CurrentLevel;
 	L_Level* NextLevel;
 	Renderer* GameRenderer;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(BaseGame*, SDL_Event*)> GameInputFunctions;
 
-	unsigned int FramesPerSecond;
 	bool Paused;
 	bool ShouldStartNewLevel;
 };

@@ -497,7 +497,8 @@ SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSize
 
 void VulkanManager::CreateSurface()
 {
-    Window = SDLManager::GetInstance()->GetSDLWindowByName();
+    //TODO: Fix
+    //Window = SDLManager::GetInstance()->GetSDLWindowByName();
     if (SDL_Vulkan_CreateSurface(Window, Instance, &Surface) != SDL_TRUE)
     {
         throw std::runtime_error("Failed to create window surface!");

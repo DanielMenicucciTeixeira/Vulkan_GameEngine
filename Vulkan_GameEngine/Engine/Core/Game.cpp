@@ -12,7 +12,7 @@
 #include <iostream>
 #include <stdexcept>
 
-BaseGame::BaseGame() : Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
+BaseGame::BaseGame() : Paused(false), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false)
 {
 	
 }
@@ -28,7 +28,6 @@ bool BaseGame::Initialize(Renderer* gameRenderer)
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	GameClock = new Clock();
 	GameRenderer = gameRenderer;
 	CurrentLevel->Initialize(this);
 	EventListener::SetGameReference(this);
@@ -120,26 +119,6 @@ void BaseGame::SetPause(const bool& pause)
 	Paused = pause;
 }
 
-float BaseGame::GetTimeSeconds()
-{
-	return GameClock->GetTimeSeconds();
-}
-
-float BaseGame::GetDeltaTimeSeconds()
-{
-	return GameClock->GetDeltaTimeSeconds();
-}
-
-float BaseGame::GetDeltaTimeMiliseconds()
-{
-	return GameClock->GetDeltaTimeMiliSecods();
-}
-
-float BaseGame::GetSleepTime()
-{
-	return GameClock->GetSleepTime(FramesPerSecond);
-}
-
 void BaseGame::SetCurrentLevel()
 {
 	if (CurrentLevel)
@@ -161,7 +140,6 @@ void BaseGame::SetCurrentLevel()
 void BaseGame::CleanUp()
 {
 	//InterfaceManager->End();
-	if (GameClock) delete(GameClock);
 	if (CurrentLevel)
 	{
 		CurrentLevel->CleanUp();
@@ -173,8 +151,6 @@ void BaseGame::CleanUp()
 
 int BaseGame::Run()
 {
-	GameClock->StartClock();
-	
 	try
 	{
 		CurrentLevel->Start();
@@ -189,11 +165,8 @@ int BaseGame::Run()
 				SetCurrentLevel();
 			}
 			if (!CurrentLevel->CheckForCamera()) break;
-			GameClock->UpdateClock();
 			EventListener::HandleEvents();
-			Update(GameClock->GetDeltaTimeSeconds());
 			Render();
-			SDL_Delay(GameClock->GetSleepTime(FramesPerSecond));
 		}
 		CleanUp();
 		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);

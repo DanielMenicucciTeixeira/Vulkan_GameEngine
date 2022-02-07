@@ -19,6 +19,10 @@ struct S_Material;
 struct S_Texture;
 struct S_RenderData;
 
+
+/// <summary>
+/// Designed to load information involving a level (actual management should go to LevelGraph.
+/// </summary>
 class L_Level
 {
 public:

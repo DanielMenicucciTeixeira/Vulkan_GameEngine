@@ -410,13 +410,7 @@
     <ClInclude Include="Engine\Core\CoreEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Auxiliary\Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Core\DebugLogger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Auxiliary\SingletonCPP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Levels\L_StartLevel.h">

@@ -1,14 +1,12 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "../Auxiliary/Singleton.h"
-
 class SDLWindowManager;
 struct SDL_Window;
 typedef void* SDL_GLContext;
 enum ERendererType;
 
-class Window : public NoCopyClass<Window>
+class Window
 {
 public:
 	Window();

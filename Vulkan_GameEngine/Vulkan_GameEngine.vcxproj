@@ -304,9 +304,7 @@
     <ClInclude Include="Engine\FX\DirectionalLightComponent.h" />
     <ClInclude Include="Engine\FX\DirectionalLight.h" />
     <ClInclude Include="Engine\FX\LightSourceComponent.h" />
-    <ClInclude Include="Engine\Auxiliary\SingletonCPP.h" />
     <ClInclude Include="Engine\Core\DebugLogger.h" />
-    <ClInclude Include="Engine\Auxiliary\Singleton.h" />
     <ClInclude Include="Engine\Core\CoreEngine.h" />
     <ClInclude Include="Engine\Geometry\BoxBounds.h" />
     <ClInclude Include="Engine\Geometry\Simplex.h" />

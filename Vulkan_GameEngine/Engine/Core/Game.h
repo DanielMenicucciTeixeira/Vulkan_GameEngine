@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../Auxiliary/Singleton.h"
 #include "DebugLogger.h"
 
 #include <set>
@@ -75,10 +74,6 @@ public:
 	//Getters
 
 	inline L_Level* GetCurrentLevel() { return CurrentLevel; }
-	float GetTimeSeconds();
-	float GetDeltaTimeSeconds();
-	float GetDeltaTimeMiliseconds();
-	float GetSleepTime();
 
 protected:
 	void SetCurrentLevel();

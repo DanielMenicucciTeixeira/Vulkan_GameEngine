@@ -29,7 +29,7 @@ public:
 	L_Level(float worldSize = 100.0f);
 	virtual ~L_Level();
 
-	virtual bool Initialize(BaseGame* game);
+	virtual bool Initialize();
 	virtual void Start();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
@@ -86,7 +86,6 @@ protected:
 	bool FindAnyCamera();
 	bool ChangeCamera();
 	std::set<O_Object*> UnloadedObjects;
-	BaseGame* CurrentGame;
 	C_CameraComponent* NextCamera;
 
 	std::set<std::string> ModelPaths;

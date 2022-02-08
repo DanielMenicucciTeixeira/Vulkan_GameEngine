@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <set>
 
-class BaseGame;
 class O_Object;
 union SDL_Event;
 typedef uint32_t sdlEventType;
@@ -37,7 +36,6 @@ protected:
 	static bool AddInputToEvent(const char* event, sdlEventType type, sdlKeycode keyCode = 0);
 	static bool AddObjectToFunctionMap(inputFunction_t function, O_Object* object);
 	static void RemoveObjectToFunctionMap(inputFunction_t function, O_Object* object);
-	static void SetGameReference(BaseGame* game);
 	static void Initialize();
 	static void HandleEvents();
 	static void CallFunctions(inputKey key, SDL_Event* event);
@@ -53,8 +51,6 @@ protected:
 	static std::unordered_map<inputKey, functionMap_t, HASH_InputKey> InputMap;
 	static std::unordered_map<eventName_t, std::set<inputFunction_t>> EventMap;
 	static functionMap_t FunctionMap;
-	static BaseGame* Game;
-	friend BaseGame;
 	friend class CoreEngine;
 };
 #endif

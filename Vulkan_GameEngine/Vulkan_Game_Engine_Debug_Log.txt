@@ -1,3 +1,3 @@
 [WARNING]: Nothing to be rendered, no descriptor pool created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 388
 [WARNING]: Nothing to be rendered, no descriptor set created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 414
-[FATAL ERROR]: Renderer could not be initalized in: CoreEngine.cpp on line: 80
+[FATAL ERROR]: Renderer could not be initalized in: CoreEngine.cpp on line: 75

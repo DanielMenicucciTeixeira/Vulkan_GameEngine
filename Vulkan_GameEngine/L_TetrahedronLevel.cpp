@@ -28,7 +28,7 @@ L_TetrahedronLevel::L_TetrahedronLevel()
 	Name = "Tetrahedron Level";
 }
 
-bool L_TetrahedronLevel::Initialize(BaseGame* game)
+bool L_TetrahedronLevel::Initialize()
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
@@ -45,7 +45,7 @@ bool L_TetrahedronLevel::Initialize(BaseGame* game)
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Dice_Texture;
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
-	return L_Level::Initialize(game);
+	return L_Level::Initialize();
 }
 
 void L_TetrahedronLevel::Start()

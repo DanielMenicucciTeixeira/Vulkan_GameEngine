@@ -1,4 +1,4 @@
-#include "EventHandler.h"
+#include "EventListener.h"
 #include "../Core/CoreEngine.h"
 #include "../Engine/Core/Game.h"
 #include "../Objects/Object.h"
@@ -10,7 +10,6 @@
 #include <SDL.h>
 #include <string>
 
-BaseGame* EventListener::Game = nullptr;
 std::unordered_map<inputKey, std::set<eventName_t>, EventListener::HASH_InputKey> EventListener::EventsByInput;
 std::unordered_map<inputKey, functionMap_t, EventListener::HASH_InputKey> EventListener::InputMap;
 std::unordered_map<eventName_t, std::set<inputFunction_t>> EventListener::EventMap;
@@ -112,14 +111,13 @@ void EventListener::RemoveObjectToFunctionMap(inputFunction_t function, O_Object
 	}
 }
 
-void EventListener::SetGameReference(BaseGame* game)
-{
-	Game = game;
-}
-
 void EventListener::Initialize()
 {
 	MouseEventHandler::Initialize();
+}
+
+EventListener::~EventListener()
+{
 }
 
 bool EventListener::AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)

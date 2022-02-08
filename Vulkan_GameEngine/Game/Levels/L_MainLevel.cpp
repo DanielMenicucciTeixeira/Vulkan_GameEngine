@@ -23,7 +23,7 @@ L_MainLevel::L_MainLevel() : L_Level()
 	Name = "MainLevel";
 }
 
-bool L_MainLevel::Initialize(BaseGame* game)
+bool L_MainLevel::Initialize()
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
@@ -75,7 +75,7 @@ bool L_MainLevel::Initialize(BaseGame* game)
 	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureNameDifuse = "diceTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureDifuse = Dice_Texture;
 	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->ShaderName = "TextureShader";
-	return L_Level::Initialize(game);
+	return L_Level::Initialize();
 }
 
 void L_MainLevel::Render()

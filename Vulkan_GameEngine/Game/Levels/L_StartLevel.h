@@ -5,6 +5,7 @@ class L_StartLevel : public L_Level
 {
 public:
 	L_StartLevel();
+	virtual bool Initialize();
 	virtual void Start() override;
 	virtual void Update(float deltaTime) override;
 	virtual void Render() override;

@@ -12,7 +12,7 @@
 
 #include <algorithm>
 
-L_Level::L_Level(float worldSize) : CurrentGame(nullptr), NextCamera(nullptr), Name(""), WorldSize(worldSize)
+L_Level::L_Level(float worldSize) : NextCamera(nullptr), Name(""), WorldSize(worldSize)
 {
 	LevelGraph::GetInstance()->GenerateSpationPartition(worldSize);
 }
@@ -21,11 +21,9 @@ L_Level::~L_Level()
 {
 }
 
-bool L_Level::Initialize(BaseGame* game)
+bool L_Level::Initialize()
 {
-	if (!game) return false;
 	LoadModels();
-	CurrentGame = game;
 	LoadLevelObjects();
 	//CurrentGame->GetRenderer()->Initialize();
 	return true;

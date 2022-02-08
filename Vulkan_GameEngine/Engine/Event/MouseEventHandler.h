@@ -3,7 +3,6 @@
 
 
 class CoreEngine;
-class BaseGame;
 class IVector2;
 class FVector2;
 class Ray;
@@ -23,7 +22,6 @@ public:
 
 
 	static void SetEngineReference(CoreEngine* engine);
-	static void SetGameReference(BaseGame* game);
 	static void Initialize();
 
 	static const IVector2& GetPreviousCursorPosition();
@@ -34,7 +32,6 @@ public:
 
 protected:
 	static CoreEngine* Engine;
-	static BaseGame* Game;
 	static IVector2 CursorPosition, PreviousCursorPosition;
 	static void UpdateCursorPosition();
 	friend class EventListener;

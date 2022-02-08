@@ -14,7 +14,6 @@
 #include "MouseEventHandler.h"
 
 CoreEngine* MouseEventHandler::Engine;
-BaseGame* MouseEventHandler::Game;
 IVector2 MouseEventHandler::CursorPosition, MouseEventHandler::PreviousCursorPosition;
 
 MouseEventHandler::~MouseEventHandler()
@@ -24,11 +23,6 @@ MouseEventHandler::~MouseEventHandler()
 void MouseEventHandler::SetEngineReference(CoreEngine* engine)
 {
 	Engine = engine;
-}
-
-void MouseEventHandler::SetGameReference(BaseGame* game)
-{
-	Game = game;
 }
 
 void MouseEventHandler::Initialize()

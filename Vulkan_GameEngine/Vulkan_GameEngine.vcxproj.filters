@@ -225,7 +225,7 @@
     <ClCompile Include="Engine\Objects\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Event\EventHandler.cpp">
+    <ClCompile Include="Engine\Event\EventListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Event\MouseEventHandler.cpp">
@@ -458,7 +458,7 @@
     <ClInclude Include="Engine\Core\LevelGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Event\EventHandler.h">
+    <ClInclude Include="Engine\Event\EventListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Event\MouseEventHandler.h">

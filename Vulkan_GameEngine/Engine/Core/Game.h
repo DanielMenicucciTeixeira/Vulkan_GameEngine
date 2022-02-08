@@ -10,11 +10,9 @@
 #include <iostream>
 
 
-class Clock;
 class O_Object;
 class O_GameObject;
 class L_Level;
-class Renderer;
 class SDLManager;
 struct S_RenderData;
 
@@ -35,7 +33,7 @@ public:
 	BaseGame& operator=(const BaseGame&) = delete;
 	BaseGame& operator=(BaseGame&&) = delete;
 
-	virtual bool Initialize(Renderer* gameRenderer);
+	virtual bool Initialize();
 	virtual void HandleEvents();
 
 	//Using a pair of the SDL_Event type and keycode (uint32_t, int32_t respectively), map a function pointer to the GameInputFunctions map.
@@ -43,8 +41,6 @@ public:
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(BaseGame*, SDL_Event*));
 
-	int Run();
-	
 	//Loaders
 
 	template<class levelClass>
@@ -68,7 +64,6 @@ public:
 	inline L_Level* GetCurrentLevel() { return CurrentLevel; }
 
 protected:
-	void SetCurrentLevel();
 	void CleanUp();
 
 	L_Level* CurrentLevel;

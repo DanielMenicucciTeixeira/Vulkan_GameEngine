@@ -1,6 +1,7 @@
 #ifndef SCENEMANAGER_H
 #define SCENEMANAGER_H
 #include "../Engine/Core/CoreEngine.h"
+#include "../L_TetrahedronLevel.h"
 //#include "Scenes/StartScene.h"
 //#include "Scenes/GameScene.h"
 
@@ -16,6 +17,7 @@ public:
 	//virtual void Draw() override;
 
 private:
+	L_Level* currentLevel;
 	//Scene* currentScene;
 	int currentSceneNum;
 	void BuildScene();

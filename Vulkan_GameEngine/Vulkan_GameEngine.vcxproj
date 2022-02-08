@@ -228,7 +228,7 @@
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
-    <ClCompile Include="Engine\Event\EventHandler.cpp" />
+    <ClCompile Include="Engine\Event\EventListener.cpp" />
     <ClCompile Include="Engine\FX\DirectionalLightComponent.cpp" />
     <ClCompile Include="Engine\FX\DirectionalLight.cpp" />
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp" />
@@ -301,7 +301,7 @@
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
-    <ClInclude Include="Engine\Event\EventHandler.h" />
+    <ClInclude Include="Engine\Event\EventListener.h" />
     <ClInclude Include="Engine\FX\DirectionalLightComponent.h" />
     <ClInclude Include="Engine\FX\DirectionalLight.h" />
     <ClInclude Include="Engine\FX\LightSourceComponent.h" />

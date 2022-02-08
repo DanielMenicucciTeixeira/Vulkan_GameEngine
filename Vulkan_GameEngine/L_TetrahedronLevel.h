@@ -7,7 +7,7 @@ class L_TetrahedronLevel : public L_Level
 {
 public:
 	L_TetrahedronLevel();
-	virtual bool Initialize(BaseGame* game) override;
+	virtual bool Initialize() override;
 	virtual void Start() override;
 	virtual void Update(float deltaTime) override;
 	virtual void Render() override;

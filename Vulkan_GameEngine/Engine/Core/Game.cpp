@@ -1,11 +1,9 @@
 #include "Game.h"
 #include "Level.h"
-#include "Clock.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "Renderers/Renderer.h"
 #include "LevelGraph.h"
 #include "CoreEngine.h"
-#include "Event/EventHandler.h"
+#include "Event/EventListener.h"
 
 #include <SDL.h>
 
@@ -21,15 +19,14 @@ BaseGame::~BaseGame()
 {
 }
 
-bool BaseGame::Initialize(Renderer* gameRenderer)
+bool BaseGame::Initialize()
 {
 	if (!CurrentLevel)
 	{
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	CurrentLevel->Initialize(this);
-	EventListener::SetGameReference(this);
+	CurrentLevel->Initialize();
 	//TODO implement render choosing mechanic
 	/*
 	RenderData = new RenderInitializationData();
@@ -92,55 +89,12 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
-void BaseGame::SetCurrentLevel()
-{
-	if (CurrentLevel)
-	{
-		CurrentLevel->CleanUp();
-		delete(CurrentLevel);
-		CurrentLevel = nullptr;
-	}
-	if (!CurrentLevel->Initialize(this))
-	{
-		DebugLogger::FatalError("Failed to initialize level!", "Core/Game.cpp", __LINE__);
-		return;
-	}
-	CurrentLevel->Start();
-}
-
 void BaseGame::CleanUp()
 {
-	//InterfaceManager->End();
 	if (CurrentLevel)
 	{
 		CurrentLevel->CleanUp();
 		delete(CurrentLevel);
 		CurrentLevel = nullptr;
 	}
-}
-
-int BaseGame::Run()
-{
-	try
-	{
-		CurrentLevel->Start();
-		EventListener::Initialize();
-
-		int placeholder = 0;
-		//TODO:Placeholder
-		while (placeholder != 1)
-		{
-			if (!CurrentLevel->CheckForCamera()) break;
-			EventListener::HandleEvents();
-			//Render();
-		}
-		CleanUp();
-		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);
-	}
-	catch (const std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-		return EXIT_FAILURE;
-	}
-	return 0;
 }

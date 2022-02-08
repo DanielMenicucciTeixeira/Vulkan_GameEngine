@@ -1,8 +1,8 @@
 #include "SceneManager.h"
 
 
-//currentScene(nullptr),
-SceneManager::SceneManager() : GameInterface(),  currentSceneNum(0)
+
+SceneManager::SceneManager() : GameInterface(),  currentSceneNum(0), currentLevel(nullptr)
 {
 
 }
@@ -10,8 +10,8 @@ SceneManager::SceneManager() : GameInterface(),  currentSceneNum(0)
 
 SceneManager::~SceneManager()
 {
-	//delete currentScene;
-	//currentScene = nullptr;
+	delete currentLevel;
+	currentLevel = nullptr;
 }
 
 bool SceneManager::OnCreate()
@@ -19,11 +19,12 @@ bool SceneManager::OnCreate()
 
 
 	if (CoreEngine::GetInstance()->GetCurrentScene() == 0) {
-		//currentScene = new StartScene();
-		//if (!currentScene->OnCreate()) {
-		//	DebugManager::FatalError("Scene has failed on create", "Game1", __LINE__);
-		//	return false;
-		//}
+		currentLevel = new L_TetrahedronLevel();
+		if (!currentLevel->Initialize()) {
+			DebugLogger::FatalError("Scene has failed on create", "Game1", __LINE__);
+			return false;
+		}
+		currentLevel->Start();
 		return true;
 	}
 	
@@ -36,11 +37,14 @@ void SceneManager::Update(const float deltaTime_)
 	if (currentSceneNum != CoreEngine::GetInstance()->GetCurrentScene()) {
 		BuildScene();
 	}
-	//currentScene->Update(deltaTime_);
+	currentLevel->Update(deltaTime_);
 }
 
 void SceneManager::Render()
 {
+	//Taken from game Run()
+	//if (!CurrentLevel->CheckForCamera()) break;
+	currentLevel->Render();
 	//currentScene->Render();
 }
 

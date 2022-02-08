@@ -3,14 +3,19 @@
 #include "Levels/L_StartLevel.h"
 #include "L_TetrahedronLevel.h"
 #include <SDL.h>
-#include "Event/EventHandler.h"
+#include "Event/EventListener.h"
 #include "CoreEngine.h"
+#include <set>
+#include <unordered_map>
+#include <map>
+#include <string>
+#include <iostream>
 
-G_Game01::G_Game01() : BaseGame()
+G_Game01::G_Game01()
 {
 }
 
-bool G_Game01::Initialize(Renderer* gameRenderer)
+bool G_Game01::Initialize()
 {
 	/*SetGameInputFunction(SDL_QUIT, SDLK_UNKNOWN, BaseGame::QuitEngine);
 	SetGameInputFunction(SDL_KEYDOWN, SDLK_q, BaseGame::QuitGame);
@@ -21,8 +26,7 @@ bool G_Game01::Initialize(Renderer* gameRenderer)
 	EventListener::AddFunctionByEvent(nullptr, EndGame, "Quit Game");
 	
 	//CurrentLevel = new L_MainLevel();
-	CurrentLevel = new L_MainLevel();
-	return BaseGame::Initialize(gameRenderer);
+	return true;
 }
 
 void G_Game01::Update(float deltaTime_)
@@ -33,14 +37,9 @@ void G_Game01::Render()
 {
 }
 
-void G_Game01::LoadStartLevel(BaseGame* self, SDL_Event* event)
+void G_Game01::LoadLevel(int sceneNum_, SDL_Event* event)
 {
-	self->StartNewLevel<L_StartLevel>();
-}
-
-void G_Game01::LoadMainLevel(BaseGame* self, SDL_Event* event)
-{
-	self->StartNewLevel<L_MainLevel>();
+	CoreEngine::GetInstance()->SetCurrentScene(sceneNum_);
 }
 
 void G_Game01::EndGame(O_Object* object, SDL_Event* event)

@@ -4,7 +4,7 @@
 #include "Clock.h"
 #include "DebugLogger.h"
 #include "Game.h"
-#include "Event/EventHandler.h"
+#include "Event/EventListener.h"
 #include "Math/FVector2.h"
 #include "LevelGraph.h"
 #include <SDL.h>
@@ -15,11 +15,6 @@ std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
 bool CoreEngine::StartGame()
 {
-	if (!CurrentGame || !CurrentGame->Initialize(EngineRenderer))
-	{
-		DebugLogger::Error("Failed to load game!", "Core/CoreEngine.cpp", __LINE__);
-		//return  RunningGame = false;
-	}
 	return true;
 }
 
@@ -42,7 +37,7 @@ void CoreEngine::RemoveInputsFromGameEvent(const char* eventName, std::set<SDL_E
 {
 }
 
-CoreEngine::CoreEngine() : engineWindow(nullptr), RunningEngine(false), EngineRenderer(nullptr), FramesPerSecond(60), CurrentGame(nullptr), StartingLevel(nullptr), gameInterface(nullptr), currentSceneNumber(0)
+CoreEngine::CoreEngine() : engineWindow(nullptr), RunningEngine(false), EngineRenderer(nullptr), FramesPerSecond(60), StartingLevel(nullptr), gameInterface(nullptr), currentSceneNumber(0)
 {
 }
 
@@ -80,6 +75,8 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 		DebugLogger::FatalError("Renderer could not be initalized", "CoreEngine.cpp", __LINE__);
 		return RunningEngine = false;
 	}
+
+	EventListener::Initialize();
 	
 	if (gameInterface) {
 		if (!gameInterface->OnCreate()) {
@@ -163,15 +160,17 @@ void CoreEngine::HandleEvents()
 
 void CoreEngine::Update(const float deltaTime)
 {
+	gameInterface->Update(deltaTime);
 }
 
 void CoreEngine::Render()
 {
-	/*glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	if (!gameInterface) { gameInterface->Render(); }
 	//if (CurrentGame) CurrentGame->Render();//must implement multiple windows to run game and engine simultaneously
-	SDL_GL_SwapWindow(EngineWindow->GetSDLWindow());*/
-
+	SDL_GL_SwapWindow(engineWindow->GetSDLWindow());
+	
 	EngineRenderer->Render();
 }
 
@@ -200,6 +199,5 @@ void CoreEngine::SetEngineInputFunction(sdlEventType eventType, sdlKeycode keyco
 void CoreEngine::CleanUp()
 {
 	if (EngineRenderer) delete(EngineRenderer);
-	delete(CurrentGame);
 	exit(0);
 }

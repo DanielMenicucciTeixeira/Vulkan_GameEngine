@@ -11,6 +11,11 @@ L_StartLevel::L_StartLevel() : L_Level()
 	Name = "StartLevel";
 }
 
+bool L_StartLevel::Initialize()
+{
+	return false;
+}
+
 void L_StartLevel::Start()
 {
 

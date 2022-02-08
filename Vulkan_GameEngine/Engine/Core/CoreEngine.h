@@ -42,8 +42,6 @@ public:
 	static CoreEngine* GetInstance();
 	inline Renderer* GetRenderer() { return EngineRenderer; }
 	inline bool IsRunningEngine() const { return RunningEngine; }
-	inline void SetGame(BaseGame* game) { CurrentGame = game; }
-	inline BaseGame* GetGame() { return CurrentGame; }
 	inline Clock* GetClock() { return &EngineClock; };
 
 
@@ -59,6 +57,7 @@ public:
 	void CleanUp();
 
 	inline int GetCurrentScene() { return currentSceneNumber; };
+	inline void SetCurrentScene(int sceneNum_) { currentSceneNumber = sceneNum_; }
 
 
 	//Return window dimentions
@@ -82,7 +81,6 @@ protected:
 
 	Renderer* EngineRenderer;
 	Window* engineWindow;
-	BaseGame* CurrentGame;
 	L_Level* StartingLevel;
 
 

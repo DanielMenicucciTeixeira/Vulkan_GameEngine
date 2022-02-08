@@ -25,6 +25,14 @@ bool G_Game01::Initialize(Renderer* gameRenderer)
 	return BaseGame::Initialize(gameRenderer);
 }
 
+void G_Game01::Update(float deltaTime_)
+{
+}
+
+void G_Game01::Render()
+{
+}
+
 void G_Game01::LoadStartLevel(BaseGame* self, SDL_Event* event)
 {
 	self->StartNewLevel<L_StartLevel>();

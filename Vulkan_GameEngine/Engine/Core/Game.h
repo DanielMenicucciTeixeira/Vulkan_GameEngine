@@ -37,14 +37,11 @@ public:
 
 	virtual bool Initialize(Renderer* gameRenderer);
 	virtual void HandleEvents();
-	virtual void Update(const float deltaTime);
-	virtual void Render();
 
 	//Using a pair of the SDL_Event type and keycode (uint32_t, int32_t respectively), map a function pointer to the GameInputFunctions map.
 	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(BaseGame*, SDL_Event*));
-	static void QuitEngine(BaseGame* self, SDL_Event* event);
 
 	int Run();
 	
@@ -57,8 +54,6 @@ public:
 		auto nextLevel = new levelClass;
 		if (dynamic_cast<L_Level*>(nextLevel))
 		{
-			NextLevel = nextLevel;
-			ShouldStartNewLevel = true;
 			return true;
 		}
 		else
@@ -77,10 +72,8 @@ protected:
 	void CleanUp();
 
 	L_Level* CurrentLevel;
-	L_Level* NextLevel;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(BaseGame*, SDL_Event*)> GameInputFunctions;
-	bool ShouldStartNewLevel;
 };
 
 #endif

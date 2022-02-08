@@ -90,3 +90,11 @@ BilliardGame::BilliardGame() : BaseGame()
 	int debug = 0;
 	*/
 }
+
+void BilliardGame::Update(float deltaTime_)
+{
+}
+
+void BilliardGame::Render()
+{
+}

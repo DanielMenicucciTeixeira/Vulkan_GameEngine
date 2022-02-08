@@ -12,7 +12,7 @@
 #include <iostream>
 #include <stdexcept>
 
-BaseGame::BaseGame() :  CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false)
+BaseGame::BaseGame() :  CurrentLevel(nullptr)
 {
 	
 }
@@ -72,15 +72,9 @@ void BaseGame::HandleEvents()
 	}
 }
 
-void BaseGame::Update(const float deltaTime)
-{
-	if(CurrentLevel) CurrentLevel->Update(deltaTime);//Remove the extra check at every frame
-}
 
-void BaseGame::Render()
-{
-	if (CurrentLevel) CurrentLevel->Render();
-}
+//TODO: there was a note in update about removing an extra check at every frame
+
 
 void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void(*function)(BaseGame*, SDL_Event*))
 {
@@ -98,11 +92,6 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
-void BaseGame::QuitEngine(BaseGame* self, SDL_Event* event)
-{
-	CoreEngine::GetInstance()->Quit(event);
-}
-
 void BaseGame::SetCurrentLevel()
 {
 	if (CurrentLevel)
@@ -111,14 +100,12 @@ void BaseGame::SetCurrentLevel()
 		delete(CurrentLevel);
 		CurrentLevel = nullptr;
 	}
-	CurrentLevel = NextLevel;
 	if (!CurrentLevel->Initialize(this))
 	{
 		DebugLogger::FatalError("Failed to initialize level!", "Core/Game.cpp", __LINE__);
 		return;
 	}
 	CurrentLevel->Start();
-	ShouldStartNewLevel = false;
 }
 
 void BaseGame::CleanUp()
@@ -130,7 +117,6 @@ void BaseGame::CleanUp()
 		delete(CurrentLevel);
 		CurrentLevel = nullptr;
 	}
-	NextLevel = nullptr;
 }
 
 int BaseGame::Run()
@@ -144,13 +130,9 @@ int BaseGame::Run()
 		//TODO:Placeholder
 		while (placeholder != 1)
 		{
-			if (ShouldStartNewLevel)
-			{
-				SetCurrentLevel();
-			}
 			if (!CurrentLevel->CheckForCamera()) break;
 			EventListener::HandleEvents();
-			Render();
+			//Render();
 		}
 		CleanUp();
 		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);

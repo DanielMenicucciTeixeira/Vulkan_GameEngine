@@ -4,5 +4,9 @@ class BilliardGame : public BaseGame
 {
 public:
 	BilliardGame();
+
+	virtual void Update(float deltaTime_);
+	virtual void Render();
+
 };
 

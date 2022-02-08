@@ -7,6 +7,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Renderers/TextureHandler.h"
 
 //Static Re-declarations
 
@@ -229,14 +230,11 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	if (!textures[textureName]->Pixels)
 	{
-		//TODO: fix SDLTextureHandler Removal here
-		/*
-		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
 		}
-		*/
 	}
 
 	texture = textures[textureName];

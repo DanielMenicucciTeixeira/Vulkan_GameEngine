@@ -62,7 +62,7 @@ VkExtent2D VulkanSwapchainManager::ChooseSwapExtent(const VkSurfaceCapabilitiesK
     else
     {
         int width, height;
-        SDL_Vulkan_GetDrawableSize(CoreEngine::GetInstance()->GetWindow()->GetSDLWindow(), &width, &height);
+        SDL_Vulkan_GetDrawableSize(CoreEngine::GetInstance()->GetWindowSDL(), &width, &height);
 
         VkExtent2D actualExtent = { static_cast<uint32_t>(width), static_cast<uint32_t>(height) };
 

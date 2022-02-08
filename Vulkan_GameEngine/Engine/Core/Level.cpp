@@ -9,6 +9,7 @@
 #include "Renderers/Renderer.h"
 #include "LevelGraph.h"
 #include "CollisionHandler.h"
+#include "Renderers/TextureHandler.h"
 
 #include <algorithm>
 
@@ -66,15 +67,13 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 	}
 
 	if (!textures[textureName]->Pixels)
-	{
-		//TODO: Solve SDL TextureHandler removal here.
-		/*
-		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+	{	
+		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
 		}
-		*/
+		
 	}
 	
 	texture = textures[textureName];

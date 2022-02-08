@@ -12,8 +12,7 @@ O_GameObject::O_GameObject(L_Level* level, std::string name) : O_Object(name)
 	Level = level;
 	Components.clear();
 
-	//TODO: Error cannot instaniate abstract class
-	//Root = AddComponentOfClass<C_TransformComponent>();
+	Root = AddComponentOfClass<C_TransformComponent>();
 }
 
 O_GameObject::~O_GameObject()

@@ -22,14 +22,13 @@ int main(int argc, char* argv[])
 	std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
 
-	//TODO: Add scene manager here
 	CoreEngine::GetInstance()->SetGameInterface(new SceneManager);
 
 	if (!CoreEngine::GetInstance()->Initialize("Window", VULKAN))
-	//{
-	//	printf("Failed to create Engine!");
-	//	return 0;
-	//}
+	{
+		printf("Failed to create Engine!");
+		return 0;
+	}
 
 	//Key bindings
 
@@ -41,8 +40,6 @@ int main(int argc, char* argv[])
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_t, printEngine);
 
 	//Game start
-
-	CoreEngine::GetInstance()->SetGame(new G_Game01);
 	CoreEngine::GetInstance()->Run();
 
 	

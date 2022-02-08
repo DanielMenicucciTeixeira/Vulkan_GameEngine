@@ -499,9 +499,7 @@ SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSize
 
 void VulkanManager::CreateSurface()
 {
-    //TODO: Fix
-    //Window = SDLManager::GetInstance()->GetSDLWindowByName();
-    if (SDL_Vulkan_CreateSurface(CoreEngine::GetInstance()->GetWindow()->GetSDLWindow(), Instance, &Surface) != SDL_TRUE)
+    if (SDL_Vulkan_CreateSurface(CoreEngine::GetInstance()->GetWindowSDL(), Instance, &Surface) != SDL_TRUE)
     {
         throw std::runtime_error("Failed to create window surface!");
     }
@@ -642,9 +640,9 @@ std::vector<const char*> VulkanManager::GetSDLExetensions()
 {
     std::vector<const char*> sdlExtensions;
     uint32_t extensionCount;
-    if (SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindow()->GetSDLWindow(), &extensionCount, nullptr) == SDL_FALSE);
+    if (SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindowSDL(), &extensionCount, nullptr) == SDL_FALSE);
     sdlExtensions.resize(extensionCount);
-    SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindow()->GetSDLWindow(), &extensionCount, sdlExtensions.data());
+    SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindowSDL(), &extensionCount, sdlExtensions.data());
 
     return sdlExtensions;
 }

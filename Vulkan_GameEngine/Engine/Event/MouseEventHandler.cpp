@@ -27,12 +27,10 @@ void MouseEventHandler::SetEngineReference(CoreEngine* engine)
 
 void MouseEventHandler::Initialize()
 {
-	//TODO: Fix mouse get here
-	//SDL_Window* window = SDLManager::GetInstance()->GetSDLWindowByName();
+	SDL_Window* window = CoreEngine::GetInstance()->GetWindowSDL();
 	FVector2 size = Engine->GetWindowSize();
 
-	//TODO: fix window
-	//SDL_WarpMouseInWindow(window, size.x * 0.5f, size.y * 0.5f);
+	SDL_WarpMouseInWindow(window, size.X * 0.5f, size.Y * 0.5f);
 	int x, y;
 	SDL_GetMouseState(&x, &y);
 	y = size.Y - y;

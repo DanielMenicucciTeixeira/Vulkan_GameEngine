@@ -63,7 +63,8 @@ public:
 	//Return window dimentions
 	FVector2 GetWindowSize();
 
-	Window* GetWindow() { return engineWindow; };
+	//Returns window sdl
+	SDL_Window* GetWindowSDL() { return engineWindow->GetSDLWindow(); };
 
 protected:
 	void HandleEvents();

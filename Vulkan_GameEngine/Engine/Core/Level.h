@@ -1,8 +1,8 @@
 #ifndef O_LEVEL_H
 #define O_LEVEL_H
 
-#include "Objects/GameObjects/GameObject.h"
-#include "Math/FTransform.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
+#include "../Math/FTransform.h"
 #include "DebugLogger.h"
 #include <set>
 #include <vector>
@@ -19,13 +19,17 @@ struct S_Material;
 struct S_Texture;
 struct S_RenderData;
 
+
+/// <summary>
+/// Designed to load information involving a level (actual management should go to LevelGraph.
+/// </summary>
 class L_Level
 {
 public:
 	L_Level(float worldSize = 100.0f);
 	virtual ~L_Level();
 
-	virtual bool Initialize(BaseGame* game);
+	virtual bool Initialize();
 	virtual void Start();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
@@ -70,18 +74,18 @@ public:
 	void LoadMaterial(S_Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
-	void ReloadLevelObjects();
 	bool LoadCamera(C_CameraComponent* camera);
 	inline const float& GetWorldSize() const { return WorldSize; }
 
 protected:
+
+
 
 	std::string Name;
 
 	bool FindAnyCamera();
 	bool ChangeCamera();
 	std::set<O_Object*> UnloadedObjects;
-	BaseGame* CurrentGame;
 	C_CameraComponent* NextCamera;
 
 	std::set<std::string> ModelPaths;

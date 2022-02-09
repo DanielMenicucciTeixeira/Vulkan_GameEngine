@@ -1,15 +1,14 @@
 #ifndef LEVELGRAPH_H
 #define LEVELGRAPH_H
 
-#include "Objects/Object.h"
-
+#include "../Objects/Object.h"
 #include <memory>
 #include <unordered_map>
 #include <map>
 #include <set>
 #include <string>
-#include "Math/FMatrix4.h"
-#include "OctSpactilPartition.h"
+#include "../Math/FMatrix4.h"
+#include "OctSpatialPartition.h"
 
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
@@ -61,6 +60,10 @@ public:
 	LevelGraph& operator=(const LevelGraph&) = delete;
 	LevelGraph& operator=(LevelGraph&&) = delete;
 
+
+	void Render();
+
+
 	inline const std::set<O_Object*>& GetGameObjectsByTag(std::string tag) const { return GameObjectsByTag[tag]; }
 	inline const std::set<O_Object*>& GetGameObjectsByClass(size_t classID) const { return GameObjectsByClass[classID]; }
 
@@ -86,10 +89,17 @@ public:
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
-	std::set<OctSpactilPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
+	std::set<OctSpatialPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
 
 
 	void CleanUp();
+
+
+	//Switch's the games pause state.
+	void Pause();
+
+	//Returns the games paused state.
+	inline bool GetPaused() { return isPaused;};
 
 protected:
 
@@ -110,7 +120,7 @@ protected:
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
 	static C_CameraComponent* ActiveCamera;
-	static OctSpactilPartition* ColliderSpationPartition;
+	static OctSpatialPartition* ColliderSpationPartition;
 
 	void GenerateSpationPartition(float worldSize, unsigned int depth = 3);
 	
@@ -121,6 +131,8 @@ protected:
 private:
 	LevelGraph();
 	~LevelGraph();
+
+	bool isPaused;
 
 	friend class L_Level;
 };

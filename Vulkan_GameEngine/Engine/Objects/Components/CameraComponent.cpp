@@ -1,9 +1,10 @@
 #include "CameraComponent.h"
+#include "CoreEngine.h"
+#include "Math/FVector2.h"
 #include "Renderers/RenderObject.h"
-#include "SDL/SDLManager.h"
-#include "SDL/Window.h"
+#include "Core/Window.h"
 #include "Math/FQuaternion.h"
-#include "BoundingBox.h"
+#include "Colliders/BoundingBox.h"
 #include "Math/FTransform.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <SDL.h>
@@ -63,14 +64,17 @@ void C_CameraComponent::Start()
 	C_TransformComponent::Start();
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	//UCO->View = FMatrix4::GetViewMatrix(GetComponentAbsoluteRotation(), GetComponentAbsolutePosition());
-	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, SDLManager::GetInstance()->GetWindowByName()->GetHeight() / SDLManager::GetInstance()->GetWindowByName()->GetWidth(), FildOfView.NearPlane, FildOfView.FarPlane);
+	
+	FVector2 size = CoreEngine::GetInstance()->GetWindowSize();
+	//TODO: This seems wrong. shouldn't it be size.X and size.Y?
+	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, size.Y / size.X, FildOfView.NearPlane, FildOfView.FarPlane);
 	CalculateFrustum();
 }
 
 void C_CameraComponent::UpdateProjection()
 {
 	int w, h;
-	SDL_GetWindowSize(SDLManager::GetInstance()->GetSDLWindowByName(), &w, &h);
+	SDL_GetWindowSize(CoreEngine::GetInstance()->GetWindowSDL(), &w, &h);
 	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, float(w) / float(h), FildOfView.NearPlane, FildOfView.FarPlane);
 }
 

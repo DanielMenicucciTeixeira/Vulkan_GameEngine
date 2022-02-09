@@ -2,7 +2,7 @@
 #include "Renderers/RenderObject.h"
 #include "BilliardLevel.h"
 
-BilliardGame::BilliardGame() : BaseGame()
+BilliardGame::BilliardGame()
 {
 	/*
 	CurrentLevel = new L_BilliardLevel(this);
@@ -89,4 +89,12 @@ BilliardGame::BilliardGame() : BaseGame()
 	for (auto& mesh : Meshes) LoadMesh(mesh.second);
 	int debug = 0;
 	*/
+}
+
+void BilliardGame::Update(float deltaTime_)
+{
+}
+
+void BilliardGame::Render()
+{
 }

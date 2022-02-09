@@ -9,17 +9,17 @@
 struct SDL_Surface;
 struct S_Texture;
 
-class SDLTextureHandler
+class TextureHandler
 {
 public:
 	//----Deleted Constructors----\\
 
-	static SDLTextureHandler* GetInstance();
+	static TextureHandler* GetInstance();
 
-	SDLTextureHandler(const SDLTextureHandler&) = delete;
-	SDLTextureHandler(SDLTextureHandler&&) = delete;
-	SDLTextureHandler& operator=(const SDLTextureHandler&) = delete;
-	SDLTextureHandler& operator=(SDLTextureHandler&&) = delete;
+	TextureHandler(const TextureHandler&) = delete;
+	TextureHandler(TextureHandler&&) = delete;
+	TextureHandler& operator=(const TextureHandler&) = delete;
+	TextureHandler& operator=(TextureHandler&&) = delete;
 
 	//--------Functions--------\\
 	
@@ -30,11 +30,11 @@ public:
 	static bool LoadTexture(const std::string& textureName, const std::string& filePath, S_Texture* outTexture);
 
 private:
-	SDLTextureHandler();
-	~SDLTextureHandler();
+	TextureHandler();
+	~TextureHandler();
 
-	static std::unique_ptr<SDLTextureHandler> Instance;
-	friend std::default_delete<SDLTextureHandler>;
+	static std::unique_ptr<TextureHandler> Instance;
+	friend std::default_delete<TextureHandler>;
 	static std::vector<S_Texture*> Textures;
 	
 	std::set<SDL_Surface*> Surfaces;

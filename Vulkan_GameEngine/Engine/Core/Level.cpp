@@ -1,18 +1,19 @@
 #include "Level.h"
-#include "Objects/Components/CollisionComponent.h"
+#include "Objects/Components/Colliders/CollisionComponent.h"
 #include "Game.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
-#include "AssetLoader.h"
-#include "TextureLoader.h"
+#include "Graphics/AssetLoader.h"
+#include "Graphics/TextureLoader.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Renderers/Renderer.h"
-#include "SDL/SDLTextureHandler.h"
 #include "LevelGraph.h"
+#include "CollisionHandler.h"
+#include "Renderers/TextureHandler.h"
 
 #include <algorithm>
 
-L_Level::L_Level(float worldSize) : CurrentGame(nullptr), NextCamera(nullptr), Name(""), WorldSize(worldSize)
+L_Level::L_Level(float worldSize) : NextCamera(nullptr), Name(""), WorldSize(worldSize)
 {
 	LevelGraph::GetInstance()->GenerateSpationPartition(worldSize);
 }
@@ -21,19 +22,17 @@ L_Level::~L_Level()
 {
 }
 
-bool L_Level::Initialize(BaseGame* game)
+bool L_Level::Initialize()
 {
-	if (!game) return false;
 	LoadModels();
-	CurrentGame = game;
 	LoadLevelObjects();
-	CurrentGame->GetRenderer()->Initialize();
+	//CurrentGame->GetRenderer()->Initialize();
 	return true;
 }
 
 void L_Level::Start()
 {
-	ReloadLevelObjects();
+	LoadLevelObjects();
 	CheckForCamera();
 }
 
@@ -68,12 +67,13 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 	}
 
 	if (!textures[textureName]->Pixels)
-	{
-		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+	{	
+		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
 		}
+		
 	}
 	
 	texture = textures[textureName];
@@ -99,19 +99,13 @@ void L_Level::LoadLevelObjects()
 		LevelGraph::GetInstance()->AddObject(object);
 		gameObject->Start();
 	}
-	CurrentGame->GetRenderer()->UpdateWithNewObjects();
+	//TODO: Fix, Also would this not require you to reload every single mesh?
+	//CurrentGame->GetRenderer()->UpdateWithNewObjects();
 	if (UnloadedObjects.size() > 0)
 	{
 		UnloadedObjects.clear();
 		UnloadedObjects = std::set<O_Object*>();
 	}
-}
-
-void L_Level::ReloadLevelObjects()
-{
-	if (UnloadedObjects.empty()) return;
-	LoadLevelObjects();
-	CurrentGame->GetRenderer()->UpdateWithNewObjects();
 }
 
 bool L_Level::LoadCamera(C_CameraComponent* camera)
@@ -122,6 +116,7 @@ bool L_Level::LoadCamera(C_CameraComponent* camera)
 		return false;
 	}
 	LevelGraph::GetInstance()->SetActiveCamera(camera);
+	return true;
 }
 
 bool L_Level::FindAnyCamera()
@@ -180,17 +175,24 @@ bool L_Level::CheckForCamera()
 
 void L_Level::Update(const float deltaTime)
 {
-	ReloadLevelObjects();
+	LoadLevelObjects();
 	CheckCollisions();
+
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
-	if (!CurrentGame->IsPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
+
+
+	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
+
+	//check collision here
+	CollisionHandler::GetInstance()->Update(deltaTime);
+	
 }
 
 void L_Level::Render()
 {
-	for (auto& mesh : LevelGraph::GetInstance()->StaticMehes) mesh->SetInFrustum(LevelGraph::GetInstance()->ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
-	CurrentGame->GetRenderer()->Render();
+	LevelGraph::GetInstance()->Render();
+	//CurrentGame->GetRenderer()->Render();
 }
 
 void L_Level::CleanUp()

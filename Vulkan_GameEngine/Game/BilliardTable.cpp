@@ -1,5 +1,5 @@
 #include "BilliardTable.h"
-#include "Objects/Components/BoxCollision.h"
+#include "Objects/Components/Colliders/BoxCollider.h"
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/PhysicsComponent.h"
 #include "Geometry/Box.h"
@@ -13,10 +13,10 @@ GO_BilliardTable::GO_BilliardTable(L_Level* level, std::string name) : O_GameObj
 	Mesh->SetMaterialName("Wood");
 	Physics = AddComponentOfClass<C_PhysicsComponent>();
 	
-	BackWall = AddComponentOfClass<C_BoxCollision>();
-	FrontWall = AddComponentOfClass<C_BoxCollision>();
-	LeftWall = AddComponentOfClass<C_BoxCollision>();
-	RightWall = AddComponentOfClass<C_BoxCollision>();
+	BackWall = AddComponentOfClass<C_BoxCollider>();
+	FrontWall = AddComponentOfClass<C_BoxCollider>();
+	LeftWall = AddComponentOfClass<C_BoxCollider>();
+	RightWall = AddComponentOfClass<C_BoxCollider>();
 
 	BackWall->SetCollisionType(COLLISION);
 	FrontWall->SetCollisionType(COLLISION);

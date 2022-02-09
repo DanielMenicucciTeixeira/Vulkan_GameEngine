@@ -1,8 +1,8 @@
 #ifndef C_LIGHTSOURCECOMPONENT_H
 #define C_LIGHTSOURCECOMPONENT_H
 
-#include "Objects/Components/TransformComponent.h"
-#include "Math/FMatrix4.h"
+#include "../Objects/Components/TransformComponent.h"
+#include "../Math/FMatrix4.h"
 #include <vector>
 
 enum E_LightType

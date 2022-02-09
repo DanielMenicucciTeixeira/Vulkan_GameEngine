@@ -1,9 +1,9 @@
 #include "OpelGLManager.h"
+#include "CoreEngine.h"
 #include "OpenGLShaderManager.h"
 #include "LevelGraph.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
-#include "SDL/SDLManager.h"
 
 #include <SDL.h>
 #include <iostream>
@@ -153,13 +153,13 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 		}
 		glUseProgram(0);
 	}
-	SDL_GL_SwapWindow(SDLManager::GetInstance()->GetSDLWindowByName());
+	SDL_GL_SwapWindow(CoreEngine::GetInstance()->GetWindowSDL());
 }
 
 void OpenGLManager::FramebufferResizeCallback()
 {
 	int w, h;
-	SDL_GetWindowSize(SDLManager::GetInstance()->GetSDLWindowByName(), &w, &h);
+	SDL_GetWindowSize(CoreEngine::GetInstance()->GetWindowSDL(), &w, &h);
 	glViewport(0, 0, w, h);
 }
 

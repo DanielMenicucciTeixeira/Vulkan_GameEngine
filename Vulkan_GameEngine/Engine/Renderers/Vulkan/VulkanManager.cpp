@@ -1,5 +1,7 @@
 #include "VulkanManager.h"
 #include "LevelGraph.h"
+#include "CoreEngine.h"
+#include "Math/FVector2.h"
 
 //Basic includes
 #include <iostream>
@@ -16,7 +18,6 @@
 #include <vulkan/vulkan.h>
 
 //SDL includes
-#include "SDL/SDLManager.h"
 #include <SDL_vulkan.h>
 #include <SDL.h>
 
@@ -493,13 +494,12 @@ void VulkanManager::CleanUp()
 
 SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
 {
-	return Window;
+    return nullptr;
 }
 
 void VulkanManager::CreateSurface()
 {
-    Window = SDLManager::GetInstance()->GetSDLWindowByName();
-    if (SDL_Vulkan_CreateSurface(Window, Instance, &Surface) != SDL_TRUE)
+    if (SDL_Vulkan_CreateSurface(CoreEngine::GetInstance()->GetWindowSDL(), Instance, &Surface) != SDL_TRUE)
     {
         throw std::runtime_error("Failed to create window surface!");
     }
@@ -569,12 +569,17 @@ void VulkanManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
         
         int width = 0;
         int height = 0;
-        SDL_GetWindowSize(Window, &width, &height);
-        while (width == 0 || height == 0)
-        {
-            SDL_GetWindowSize(Window, &width, &height);
-            SDL_WaitEvent(nullptr);
-        }
+
+        FVector2 size = CoreEngine::GetInstance()->GetWindowSize();
+        width = size.X;
+        height = size.Y;
+
+        //SDL_GetWindowSize(CoreEngine::GetInstance()->GetWindowSize(), &width, &height);
+        //while (width == 0 || height == 0)
+        //{
+        //    SDL_GetWindowSize(CoreEngine::GetInstance()->GetWindowSize(), &width, &height);
+        //    SDL_WaitEvent(nullptr);
+        //}
 
         RecreateSwapchain();
     }
@@ -635,9 +640,9 @@ std::vector<const char*> VulkanManager::GetSDLExetensions()
 {
     std::vector<const char*> sdlExtensions;
     uint32_t extensionCount;
-    if (SDL_Vulkan_GetInstanceExtensions(Window, &extensionCount, nullptr) == SDL_FALSE);
+    if (SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindowSDL(), &extensionCount, nullptr) == SDL_FALSE);
     sdlExtensions.resize(extensionCount);
-    SDL_Vulkan_GetInstanceExtensions(Window, &extensionCount, sdlExtensions.data());
+    SDL_Vulkan_GetInstanceExtensions(CoreEngine::GetInstance()->GetWindowSDL(), &extensionCount, sdlExtensions.data());
 
     return sdlExtensions;
 }

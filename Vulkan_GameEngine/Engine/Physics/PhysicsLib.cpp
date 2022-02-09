@@ -1,10 +1,10 @@
 #include "PhysicsLib.h"
-#include "Objects/Components/PhysicsComponent.h"
-#include "Objects/GameObjects/GameObject.h"
-#include "Math/FTransform.h"
-#include "Math/FQuaternion.h"
-#include "Math/FVector3.h"
-#include "Math/FMatrix.h"
+#include "../Objects/Components/PhysicsComponent.h"
+#include "../Objects/GameObjects/GameObject.h"
+#include "../Math/FTransform.h"
+#include "../Math/FQuaternion.h"
+#include "../Math/FVector3.h"
+#include "../Math/FMatrix.h"
 
 #define _USE_MATH_DEFINES
 #include<math.h>

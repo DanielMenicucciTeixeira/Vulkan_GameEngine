@@ -1,6 +1,6 @@
 #include "Ray.h"
 
-#include "Math/FVector3.h"
+#include "../Math/FVector3.h"
 
 #include <stdexcept>
 
@@ -12,7 +12,7 @@ Ray::Ray()
 	Infinit = true;
 }
 
-Ray::Ray(const FVector3& start, const FVector3& direction, float length, bool infinit)
+Ray::Ray(const FVector3 start, const FVector3 direction, float length, bool infinit)
 {
 	Origin = new FVector3(start);
 	Direction = new FVector3(direction.GetNormal());//Direction should always be normalized

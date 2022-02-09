@@ -1,5 +1,4 @@
 #include "Window.h"
-#include "SDL/SDLWindowManager.h"
 #include "Renderers/Renderer.h"
 #include "DebugLogger.h"
 
@@ -10,26 +9,20 @@
 #include <unordered_map>
 #include <string>
 
-Window::Window() : SDLWindow(nullptr), Context(nullptr), WindowManager(nullptr), WindowName("")
+Window::Window() : SDLWindow(nullptr), Context(nullptr), WindowName("")
 {
 }
 
 Window::~Window()
 {
-	WindowManager->DeleteWindow(WindowName);
 	SDL_GL_DeleteContext(Context);
 	SDL_DestroyWindow(SDLWindow);
 	SDLWindow = nullptr;
 }
 
-bool Window::Initialize(SDLWindowManager* windowManager, const char* name, ERendererType rendererType, int width, int height, int positionX, int positionY)
+bool Window::Initialize(const char* name, ERendererType rendererType, int width, int height, int positionX, int positionY)
 {
-	if (!windowManager)
-	{
-		DebugLogger::FatalError("Failed to create Window!", "SLD/Window.cpp", __LINE__);
-		return false;
-	}
-	WindowManager = windowManager;
+
 
 	WindowName = name;
 	

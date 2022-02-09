@@ -1,7 +1,7 @@
 #ifndef APPLE_H
 #define APPLE_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 #include "string"
 class C_StaticMeshComponent;
 class C_MovementComponent;

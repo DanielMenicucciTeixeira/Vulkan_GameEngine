@@ -1,7 +1,7 @@
 #ifndef MESHCOLLISION_H
 #define MESHCOLLISION_H
 
-#include "CollisionComponent.h"
+#include "Colliders/CollisionComponent.h"
 #include "Math/FVector3.h"
 #include "Geometry/Simplex.h"
 

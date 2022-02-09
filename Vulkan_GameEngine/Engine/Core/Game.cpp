@@ -1,19 +1,16 @@
 #include "Game.h"
 #include "Level.h"
-#include "Clock.h"
-#include "SDL/SDLManager.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "Renderers/Renderer.h"
 #include "LevelGraph.h"
 #include "CoreEngine.h"
-#include "Event/EventHandler.h"
+#include "Event/EventListener.h"
 
 #include <SDL.h>
 
 #include <iostream>
 #include <stdexcept>
 
-BaseGame::BaseGame() : Running(false), Paused(false), GameClock(nullptr), GameRenderer(nullptr), CurrentLevel(nullptr), NextLevel(nullptr), ShouldStartNewLevel(false), FramesPerSecond(60)
+BaseGame::BaseGame() :  CurrentLevel(nullptr)
 {
 	
 }
@@ -22,18 +19,14 @@ BaseGame::~BaseGame()
 {
 }
 
-bool BaseGame::Initialize(Renderer* gameRenderer)
+bool BaseGame::Initialize()
 {
 	if (!CurrentLevel)
 	{
 		DebugLogger::FatalError("Failed to get valid level!", "Core/Game.cpp", __LINE__);
 		return false;
 	}
-	GameClock = new Clock();
-	Running = true;
-	GameRenderer = gameRenderer;
-	CurrentLevel->Initialize(this);
-	EventHandler::SetGameReference(this);
+	CurrentLevel->Initialize();
 	//TODO implement render choosing mechanic
 	/*
 	RenderData = new RenderInitializationData();
@@ -51,11 +44,6 @@ void BaseGame::HandleEvents()
 	{
 		auto eventType = event.type;
 		int32_t keycode;
-		if (event.type == SDL_WINDOWEVENT && event.window.event == SDL_WINDOWEVENT_RESIZED)
-		{
-			GameRenderer->FramebufferResizeCallback();
-			LevelGraph::GetInstance()->FrameBufferResizeCallback();
-		}
 
 		//If the event is key or button realted, set the keycode
 		switch (eventType)
@@ -81,15 +69,9 @@ void BaseGame::HandleEvents()
 	}
 }
 
-void BaseGame::Update(const float deltaTime)
-{
-	if(CurrentLevel) CurrentLevel->Update(deltaTime);//Remove the extra check at every frame
-}
 
-void BaseGame::Render()
-{
-	if (CurrentLevel) CurrentLevel->Render();
-}
+//TODO: there was a note in update about removing an extra check at every frame
+
 
 void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, void(*function)(BaseGame*, SDL_Event*))
 {
@@ -107,106 +89,12 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
-void BaseGame::QuitEngine(BaseGame* self, SDL_Event* event)
-{
-	self->SetRunning(false);
-	CoreEngine::GetInstance()->Quit(event);
-}
-
-Renderer* BaseGame::GetRenderer()
-{
-	return GameRenderer;
-}
-
-void BaseGame::SetPause(const bool& pause)
-{
-	Paused = pause;
-}
-
-inline SDLManager* BaseGame::GetInterfaceManager()
-{
-	return SDLManager::GetInstance();
-}
-
-float BaseGame::GetTimeSeconds()
-{
-	return GameClock->GetTimeSeconds();
-}
-
-float BaseGame::GetDeltaTimeSeconds()
-{
-	return GameClock->GetDeltaTimeSeconds();
-}
-
-float BaseGame::GetDeltaTimeMiliseconds()
-{
-	return GameClock->GetDeltaTimeMiliSecods();
-}
-
-float BaseGame::GetSleepTime()
-{
-	return GameClock->GetSleepTime(FramesPerSecond);
-}
-
-void BaseGame::SetCurrentLevel()
-{
-	if (CurrentLevel)
-	{
-		CurrentLevel->CleanUp();
-		delete(CurrentLevel);
-		CurrentLevel = nullptr;
-	}
-	CurrentLevel = NextLevel;
-	if (!CurrentLevel->Initialize(this))
-	{
-		DebugLogger::FatalError("Failed to initialize level!", "Core/Game.cpp", __LINE__);
-		SetRunning(false);
-		return;
-	}
-	CurrentLevel->Start();
-	ShouldStartNewLevel = false;
-}
-
 void BaseGame::CleanUp()
 {
-	//InterfaceManager->End();
-	if (GameClock) delete(GameClock);
 	if (CurrentLevel)
 	{
 		CurrentLevel->CleanUp();
 		delete(CurrentLevel);
 		CurrentLevel = nullptr;
-	}
-	NextLevel = nullptr;
-}
-
-int BaseGame::Run()
-{
-	GameClock->StartClock();
-	
-	try
-	{
-		CurrentLevel->Start();
-		EventHandler::Initialize();
-		while (Running)
-		{
-			if (ShouldStartNewLevel)
-			{
-				SetCurrentLevel();
-			}
-			if (!CurrentLevel->CheckForCamera()) break;
-			GameClock->UpdateClock();
-			EventHandler::HandleEvents();
-			Update(GameClock->GetDeltaTimeSeconds());
-			Render();
-			SDL_Delay(GameClock->GetSleepTime(FramesPerSecond));
-		}
-		CleanUp();
-		DebugLogger::Info("Game exited successfully!", "Core/Game.cpp", __LINE__);
-	}
-	catch (const std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-		return EXIT_FAILURE;
 	}
 }

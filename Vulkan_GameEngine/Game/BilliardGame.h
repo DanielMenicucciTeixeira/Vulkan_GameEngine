@@ -1,8 +1,12 @@
 #pragma once
-#include "Game.h"
-class BilliardGame : public BaseGame
+#include "../Engine/Core/Game.h"
+class BilliardGame
 {
 public:
 	BilliardGame();
+
+	virtual void Update(float deltaTime_);
+	virtual void Render();
+
 };
 

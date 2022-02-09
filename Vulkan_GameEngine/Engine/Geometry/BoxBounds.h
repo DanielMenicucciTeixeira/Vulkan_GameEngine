@@ -1,8 +1,8 @@
 #ifndef BOXBOUNDS_H
 #define BOXBOUNDS_H
 
-#include "Math/FMatrix4.h"
-#include "Math/FVector3.h"
+#include "../Math/FMatrix4.h"
+#include "../Math/FVector3.h"
 
 struct S_BoxBounds
 {

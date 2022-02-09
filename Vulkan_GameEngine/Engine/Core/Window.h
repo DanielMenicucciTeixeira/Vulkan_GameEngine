@@ -1,20 +1,18 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include "Auxiliary/Singleton.h"
-
 class SDLWindowManager;
 struct SDL_Window;
 typedef void* SDL_GLContext;
 enum ERendererType;
 
-class Window : public NoCopyClass<Window>
+class Window
 {
 public:
 	Window();
 	~Window();
 
-	bool Initialize(SDLWindowManager* windowManager, const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
+	bool Initialize(const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 
 	float GetWidth() const;
 	float GetHeight() const;
@@ -30,7 +28,6 @@ protected:
 	bool OnCreateVulkanWindow(const char* name, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 	bool OnCreateOpenGLWindow(const char* name, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
 
-	SDLWindowManager* WindowManager;
 	const char* WindowName;
 	SDL_Window* SDLWindow;
 	SDL_GLContext Context;

@@ -1,7 +1,6 @@
 #include "L_TetrahedronLevel.h"
 
 #include "Game.h"
-#include "SDL/SDLManager.h"
 #include "GO_Triangle.h"
 #include "Apple.h"
 #include "Renderers/RenderObject.h"
@@ -10,7 +9,7 @@
 #include "GO_Camera.h"
 #include "FX/LightSource.h"
 #include "FX/DirectionalLight.h"
-#include "AssetLoader.h"
+#include "Graphics/AssetLoader.h"
 #include "LevelGraph.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/StaticMeshComponent.h"
@@ -18,6 +17,7 @@
 #include "Pawn.h"
 #include "Tetrahedron.h"
 #include "Math/FQuaternion.h"
+#include "Objects/Components/PhysicsComponent.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -28,7 +28,7 @@ L_TetrahedronLevel::L_TetrahedronLevel()
 	Name = "Tetrahedron Level";
 }
 
-bool L_TetrahedronLevel::Initialize(BaseGame* game)
+bool L_TetrahedronLevel::Initialize()
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
@@ -45,7 +45,7 @@ bool L_TetrahedronLevel::Initialize(BaseGame* game)
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Dice_Texture;
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
-	return L_Level::Initialize(game);
+	return L_Level::Initialize();
 }
 
 void L_TetrahedronLevel::Start()
@@ -55,11 +55,17 @@ void L_TetrahedronLevel::Start()
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
 	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 
-	T1->GetMovement()->SetVelocity({ 1.0f, 0.0f, 0.0f });
-	T1->GetMovement()->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
+	{
+		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
+		phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+	}
 
-	T2->GetMovement()->SetVelocity({ -1.0f, 0.0f, 0.0f });
-	T2->GetMovement()->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
+	{
+		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
+		phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
 	sun->SetColour({ 1.0, 1.0, 1.0 });

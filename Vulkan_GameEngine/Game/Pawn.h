@@ -1,7 +1,7 @@
 #ifndef PAWN_H
 #define PAWN_H
-#include "Objects/GameObjects/GameObject.h"
-#include "Math/FVector3.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
+#include "../Engine/Math/FVector3.h"
 
 class C_CameraComponent;
 class C_MovementComponent;

@@ -2,12 +2,19 @@
 #define DEBUGLOGGER_H
 
 #include <string>
-#include "Auxiliary/Singleton.h"
 
 
-class DebugLogger : public StaticClass<DebugLogger>
+class DebugLogger
 {
 public:
+
+	DebugLogger(const DebugLogger&) = delete;
+	DebugLogger(DebugLogger&&) = delete;
+	DebugLogger& operator =(const DebugLogger&) = delete;
+	DebugLogger& operator =(DebugLogger&&) = delete;
+
+	DebugLogger() = delete;
+
 	enum class EDebugMessageType : unsigned short
 	{
 		NONE,

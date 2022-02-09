@@ -1,11 +1,11 @@
-#ifndef OCTSPACTILPARTITION_H
-#define OCTSPACTILPARTITION_H
+#ifndef OCTSPATIALPARTITION_H
+#define OCTSPATIALPARTITION_H
 
-#include "Math/FVector3.h"
-#include "Geometry/BoxBounds.h"
+#include "../Math/FVector3.h"
+#include "../Geometry/BoxBounds.h"
 #include <set>
 #include <iostream>
-#include "Objects/Components/CollisionComponent.h"
+#include "../Objects/Components/Colliders/CollisionComponent.h"
 
 constexpr unsigned int CHILDREN_NUMBER = 8;
 
@@ -24,7 +24,7 @@ enum class EOctChildren
 class C_CollisionComponent;
 class Ray;
 
-class OctSpactilPartition
+class OctSpatialPartition
 {
 public:
 	class OctNode
@@ -50,7 +50,7 @@ public:
 		inline void SetEmpty(bool isEmpty) { Empty = isEmpty; }
 
 	private:
-		friend OctSpactilPartition;
+		friend OctSpatialPartition;
 		S_BoxBounds* OctBounds;
 		OctNode* Parent;
 		OctNode* Children[CHILDREN_NUMBER];
@@ -61,15 +61,18 @@ public:
 		static unsigned int ChildrenCount;
 	};
 
-	OctSpactilPartition(float worldSize, unsigned int depth = 3);
+	OctSpatialPartition(float worldSize, unsigned int depth = 3);
 
-	~OctSpactilPartition();
+	~OctSpatialPartition();
 
 	inline void AddCollider(C_CollisionComponent* collider) { AddColliderToCell(collider, Root); }
 
 	std::set<OctNode*> GetActiveLeaves() const;
 	std::set<OctNode*> GetIntersectedLeaves(Ray& ray) const;
 	inline OctNode* GetRoot() { return Root; }
+
+	//Does collision detection on every node.
+	void Update(const float deltaTime_);
 
 protected:
 	OctNode* Root;

@@ -60,15 +60,6 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLEventHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLWindowManager.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Geometry\Box.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
@@ -111,7 +102,7 @@
     <ClCompile Include="Game\BilliardTable.cpp">
       <Filter>BilliardGame</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\Window.cpp">
+    <ClCompile Include="Engine\Core\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Core\Clock.cpp">
@@ -120,34 +111,31 @@
     <ClCompile Include="Engine\Objects\Components\CameraComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\CollisionComponent.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\StaticMeshComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\SphereCollision.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\BoxCollision.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\BoxCollider.cpp">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Core\Level.cpp">
       <Filter>Levels</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\AssetLoader.cpp">
+    <ClCompile Include="Engine\Graphics\AssetLoader.cpp">
       <Filter>Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\TextureLoader.cpp">
+    <ClCompile Include="Engine\Graphics\TextureLoader.cpp">
       <Filter>Renderers</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Objects\Components\TransformComponent.cpp">
@@ -162,7 +150,7 @@
     <ClCompile Include="Engine\Physics\PhysicsLib.cpp">
       <Filter>Physics</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\CollisionData.h">
+    <ClCompile Include="Engine\Physics\CollisionData.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanDebugger.cpp">
@@ -207,9 +195,6 @@
     <ClCompile Include="Game\GO_Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\SDL\SDLTextureHandler.cpp">
-      <Filter>SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -240,19 +225,19 @@
     <ClCompile Include="Engine\Objects\Object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Event\EventHandler.cpp">
+    <ClCompile Include="Engine\Event\EventListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MouseHandler.cpp">
+    <ClCompile Include="Engine\Event\MouseEventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\Pawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Objects\Components\BoundingBox.cpp">
+    <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OctSpactilPartition.cpp">
+    <ClCompile Include="Engine\Core\OctSpatialPartition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="L_TetrahedronLevel.cpp">
@@ -267,17 +252,23 @@
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Core\CollisionHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Physics\CollisionDetection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Core\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderers\TextureHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\SDL\SDLEventHandler.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLWindowManager.h">
-      <Filter>SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Geometry\Box.h">
       <Filter>Geometry</Filter>
     </ClInclude>
@@ -323,7 +314,7 @@
     <ClInclude Include="Game\BilliardTable.h">
       <Filter>BilliardGame</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\SDL\Window.h">
+    <ClInclude Include="Engine\Core\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -338,7 +329,7 @@
     <ClInclude Include="Engine\Objects\Components\CameraComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\CollisionComponent.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\CollisionComponent.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\Component.h">
@@ -347,13 +338,13 @@
     <ClInclude Include="Engine\Objects\Components\StaticMeshComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\SphereCollision.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\BoxCollision.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\BoxCollider.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Object.h">
@@ -362,16 +353,13 @@
     <ClInclude Include="Engine\Objects\GameObjects\GameObject.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Core\Level.h">
       <Filter>Levels</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\AssetLoader.h">
+    <ClInclude Include="Engine\Graphics\AssetLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Core\TextureLoader.h">
+    <ClInclude Include="Engine\Graphics\TextureLoader.h">
       <Filter>Renderers</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderers\Vertex.h">
@@ -422,13 +410,7 @@
     <ClInclude Include="Engine\Core\CoreEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Auxiliary\Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Core\DebugLogger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Auxiliary\SingletonCPP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Levels\L_StartLevel.h">
@@ -451,9 +433,6 @@
     </ClInclude>
     <ClInclude Include="Game\GO_Camera.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\SDL\SDLTextureHandler.h">
-      <Filter>SDL</Filter>
     </ClInclude>
     <ClInclude Include="Engine\FX\LightSourceComponent.h">
       <Filter>Header Files</Filter>
@@ -482,22 +461,22 @@
     <ClInclude Include="Engine\Core\LevelGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Event\EventHandler.h">
+    <ClInclude Include="Engine\Event\EventListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MouseHandler.h">
+    <ClInclude Include="Engine\Event\MouseEventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Pawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Objects\Components\BoundingBox.h">
+    <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Geometry\BoxBounds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OctSpactilPartition.h">
+    <ClInclude Include="Engine\Core\OctSpatialPartition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="L_TetrahedronLevel.h">
@@ -510,6 +489,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\CollisionHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Physics\CollisionDetection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\GameInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Core\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderers\TextureHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

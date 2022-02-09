@@ -1,6 +1,5 @@
 #include "L_StartLevel.h"
 #include "Game.h"
-#include "SDL/SDLManager.h"
 #include "GO_Camera.h"
 
 #include <SDL.h>
@@ -10,6 +9,11 @@
 L_StartLevel::L_StartLevel() : L_Level()
 {
 	Name = "StartLevel";
+}
+
+bool L_StartLevel::Initialize()
+{
+	return false;
 }
 
 void L_StartLevel::Start()

@@ -8,7 +8,7 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Game.h"
 
-L_BilliardLevel::L_BilliardLevel(BaseGame* game) : L_Level()
+L_BilliardLevel::L_BilliardLevel() : L_Level()
 {
 }
 

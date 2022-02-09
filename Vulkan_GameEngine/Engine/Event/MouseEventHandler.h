@@ -1,21 +1,27 @@
-#ifndef MOUSEHANDLER_H
-#define MOUSEHANDLER_H
+#ifndef MOUSEEVENTHANDLER_H
+#define MOUSEEVENTHANDLER_H
 
-#include "Auxiliary/Singleton.h"
 
 class CoreEngine;
-class BaseGame;
 class IVector2;
 class FVector2;
 class Ray;
 struct UniformCameraObject;
 union SDL_Event;
 
-class MouseHandler : public StaticClass<MouseHandler>
+class MouseEventHandler
 {
 public:
+	MouseEventHandler(const MouseEventHandler&) = delete;
+	MouseEventHandler(MouseEventHandler&&) = delete;
+	MouseEventHandler& operator =(const MouseEventHandler&) = delete;
+	MouseEventHandler& operator =(MouseEventHandler&&) = delete;
+
+	MouseEventHandler() = delete;
+	~MouseEventHandler();
+
+
 	static void SetEngineReference(CoreEngine* engine);
-	static void SetGameReference(BaseGame* game);
 	static void Initialize();
 
 	static const IVector2& GetPreviousCursorPosition();
@@ -26,10 +32,9 @@ public:
 
 protected:
 	static CoreEngine* Engine;
-	static BaseGame* Game;
 	static IVector2 CursorPosition, PreviousCursorPosition;
 	static void UpdateCursorPosition();
-	friend class EventHandler;
+	friend class EventListener;
 
 };
 #endif

@@ -1,33 +1,27 @@
-#include "EventHandler.h"
-#include "CoreEngine.h"
-#include "Game.h"
-#include "Objects/Object.h"
-#include "Renderers/Renderer.h"
-#include "LevelGraph.h"
-#include "MouseHandler.h"
-#include "DebugLogger.h"
+#include "EventListener.h"
+#include "../Core/CoreEngine.h"
+#include "../Engine/Core/Game.h"
+#include "../Objects/Object.h"
+#include "../Renderers/Renderer.h"
+#include "../Core/LevelGraph.h"
+#include "MouseEventHandler.h"
+#include "../Core/DebugLogger.h"
 
 #include <SDL.h>
 #include <string>
 
-BaseGame* EventHandler::Game = nullptr;
-std::unordered_map<inputKey, std::set<eventName_t>, EventHandler::HASH_InputKey> EventHandler::EventsByInput;
-std::unordered_map<inputKey, functionMap_t, EventHandler::HASH_InputKey> EventHandler::InputMap;
-std::unordered_map<eventName_t, std::set<inputFunction_t>> EventHandler::EventMap;
-functionMap_t EventHandler::FunctionMap;
+std::unordered_map<inputKey, std::set<eventName_t>, EventListener::HASH_InputKey> EventListener::EventsByInput;
+std::unordered_map<inputKey, functionMap_t, EventListener::HASH_InputKey> EventListener::InputMap;
+std::unordered_map<eventName_t, std::set<inputFunction_t>> EventListener::EventMap;
+functionMap_t EventListener::FunctionMap;
 
-void EventHandler::HandleEvents()
+void EventListener::HandleEvents()
 {
 	SDL_Event event;
 	inputKey key;
 	while (SDL_PollEvent(&event))
 	{
 		key.first = event.type;
-		if (/*event.type == SDL_WINDOWEVENT && */event.window.event == SDL_WINDOWEVENT_RESIZED)
-		{
-			Game->GetRenderer()->FramebufferResizeCallback();
-			LevelGraph::GetInstance()->FrameBufferResizeCallback();
-		}
 
 		//If the event is keyboard or button realted, set key.second
 		switch (key.first)
@@ -40,14 +34,15 @@ void EventHandler::HandleEvents()
 		case SDL_KEYDOWN:
 			key.second = event.key.keysym.sym;
 			break;
-		case SDL_MOUSEMOTION:
-		case SDL_MOUSEWHEEL:
-			MouseHandler::UpdateCursorPosition();
-			break;
 		case SDL_MOUSEBUTTONUP:
 		case SDL_MOUSEBUTTONDOWN:
-			MouseHandler::UpdateCursorPosition();
 			key.second = event.button.button;
+		case SDL_MOUSEMOTION:
+		case SDL_MOUSEWHEEL:
+			MouseEventHandler::UpdateCursorPosition();
+			break;
+
+
 			break;
 		default:
 			key.second = SDLK_UNKNOWN;
@@ -58,7 +53,7 @@ void EventHandler::HandleEvents()
 	}
 }
 
-void EventHandler::CallFunctions(inputKey key, SDL_Event* event)
+void EventListener::CallFunctions(inputKey key, SDL_Event* event)
 {
 	for (const auto& Event : EventsByInput[key])
 	{
@@ -74,16 +69,16 @@ void EventHandler::CallFunctions(inputKey key, SDL_Event* event)
 	}
 }
 
-void EventHandler::AddEvent(const char* event)
+void EventListener::AddEvent(const char* event)
 {
 	if (!EventMap.count(event)) EventMap[event] = std::set<inputFunction_t>();
 }
 
-bool EventHandler::AddInputToEvent(const char* event, sdlEventType type, sdlKeycode keyCode)
+bool EventListener::AddInputToEvent(const char* event, sdlEventType type, sdlKeycode keyCode)
 {
 	if (!EventMap.count(event))
 	{
-		DebugLogger::Error("No event found with name: " + std::string(event) + ".", "Event/EventHandler.cpp", __LINE__);
+		DebugLogger::Error("No event found with name: " + std::string(event) + ".", "Event/EventListener.cpp", __LINE__);
 		return false;
 	}
 	inputKey key(type, keyCode);
@@ -92,11 +87,11 @@ bool EventHandler::AddInputToEvent(const char* event, sdlEventType type, sdlKeyc
 	return true;
 }
 
-bool EventHandler::AddObjectToFunctionMap(inputFunction_t function, O_Object* object)
+bool EventListener::AddObjectToFunctionMap(inputFunction_t function, O_Object* object)
 {
 	if (!function)
 	{
-		DebugLogger::Error("Invalid function in EventHandler::AddObjectToFunctionMap", "Event/EventHandler.cpp", __LINE__);
+		DebugLogger::Error("Invalid function in EventListener::AddObjectToFunctionMap", "Event/EventListener.cpp", __LINE__);
 		return false;
 	}
 	else
@@ -107,7 +102,7 @@ bool EventHandler::AddObjectToFunctionMap(inputFunction_t function, O_Object* ob
 	}
 }
 
-void EventHandler::RemoveObjectToFunctionMap(inputFunction_t function, O_Object* object)
+void EventListener::RemoveObjectToFunctionMap(inputFunction_t function, O_Object* object)
 {
 	if (!object || !function || !!FunctionMap.count(function)) return;
 	else
@@ -116,22 +111,21 @@ void EventHandler::RemoveObjectToFunctionMap(inputFunction_t function, O_Object*
 	}
 }
 
-void EventHandler::SetGameReference(BaseGame* game)
+void EventListener::Initialize()
 {
-	Game = game;
+	MouseEventHandler::Initialize();
 }
 
-void EventHandler::Initialize()
+EventListener::~EventListener()
 {
-	MouseHandler::Initialize();
 }
 
-bool EventHandler::AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
+bool EventListener::AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
 {
 	if (!function)
 	{
 
-		DebugLogger::Error("Invalid function, no function added!", "Event/EventHandler.cpp", __LINE__);
+		DebugLogger::Error("Invalid function, no function added!", "Event/EventListener.cpp", __LINE__);
 		return false;
 	}
 	else
@@ -144,7 +138,7 @@ bool EventHandler::AddFunctionByInput(O_Object* object, inputFunction_t function
 	}
 }
 
-void EventHandler::RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
+void EventListener::RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
 {
 	if (!function || !object) return;
 	inputKey key(type, keyCode);
@@ -152,11 +146,11 @@ void EventHandler::RemoveObjectFromInput(O_Object* object, inputFunction_t funct
 	else InputMap[key][function].erase(object);
 }
 
-bool EventHandler::AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event)
+bool EventListener::AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event)
 {
 	if (!EventMap.count(event))
 	{
-		DebugLogger::Error("Undefined Event in EventHandler::AddFunctionByEvent", "Event/EventHandler.cpp", __LINE__);
+		DebugLogger::Error("Undefined Event in EventListener::AddFunctionByEvent", "Event/EventListener.cpp", __LINE__);
 		return false;
 	}
 	else
@@ -166,13 +160,13 @@ bool EventHandler::AddFunctionByEvent(O_Object* object, inputFunction_t function
 	}
 }
 
-void EventHandler::RemoveFunctionFromEvent(O_Object* object, inputFunction_t function, eventName_t event)
+void EventListener::RemoveFunctionFromEvent(O_Object* object, inputFunction_t function, eventName_t event)
 {
 	if (!object || !function || !FunctionMap.count(function)) return;
 	FunctionMap[function].erase(object);
 }
 
-size_t EventHandler::HASH_InputKey::operator()(inputKey const& key) const
+size_t EventListener::HASH_InputKey::operator()(inputKey const& key) const
 {
 	size_t result = (size_t(key.first) << 32) + size_t(key.second);
 	result *= 1231231557ull; // "random" uneven integer 

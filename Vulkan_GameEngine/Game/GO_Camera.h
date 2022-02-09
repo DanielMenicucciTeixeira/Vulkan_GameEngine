@@ -1,7 +1,7 @@
 #ifndef GO_CAMERA_H
 #define GO_CAMERA_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_CameraComponent;
 class C_MovementComponent;

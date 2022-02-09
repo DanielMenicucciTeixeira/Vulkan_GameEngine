@@ -1,10 +1,10 @@
 #ifndef BILLIARDTABLE_H
 #define BILLIARDTABLE_H
 
-#include "Objects/GameObjects/GameObject.h"
+#include "../Engine/Objects/GameObjects/GameObject.h"
 
 class C_PhysicsComponent;
-class C_BoxCollision;
+class C_BoxCollider;
 class C_StaticMeshComponent;
 struct S_CollisionData;
 class FVector3;
@@ -16,10 +16,10 @@ public:
 	C_PhysicsComponent* Physics;
 	C_StaticMeshComponent* Mesh;
 	
-	C_BoxCollision* BackWall;
-	C_BoxCollision* FrontWall;
-	C_BoxCollision* LeftWall;
-	C_BoxCollision* RightWall;
+	C_BoxCollider* BackWall;
+	C_BoxCollider* FrontWall;
+	C_BoxCollider* LeftWall;
+	C_BoxCollider* RightWall;
 
 	GO_BilliardTable(L_Level* level = nullptr, std::string name = "");
 };

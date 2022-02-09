@@ -2,6 +2,7 @@
 #define C_STATICMESHCOMPONENT_H
 
 #include "RenderableComponent.h"
+//#include "Objects/Object.h"
 #include <string>
 struct S_Mesh;
 struct S_Material;

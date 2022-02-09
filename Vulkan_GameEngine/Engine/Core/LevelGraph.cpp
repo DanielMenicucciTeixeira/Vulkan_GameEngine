@@ -4,10 +4,10 @@
 #include "Objects/GameObjects/GameObject.h"
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
-#include "SDL/SDLTextureHandler.h"
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
-#include "Objects/Components/CollisionComponent.h"
+#include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Renderers/TextureHandler.h"
 
 //Static Re-declarations
 
@@ -22,13 +22,20 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
-OctSpactilPartition*  LevelGraph::ColliderSpationPartition = new OctSpactilPartition(100.0f);
+OctSpatialPartition*  LevelGraph::ColliderSpationPartition = new OctSpatialPartition(100.0f);
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
 {
 	if (Instance.get() == nullptr) Instance.reset(new LevelGraph);
 	return Instance.get();
+}
+
+void LevelGraph::Render()
+{
+	for (auto& mesh : StaticMehes) {
+		mesh->SetInFrustum(ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
+	}
 }
 
 void LevelGraph::AddObject(O_Object* gameObject)
@@ -192,6 +199,12 @@ void LevelGraph::CleanUp()
 	RenderData.Clear();
 }
 
+void LevelGraph::Pause()
+{
+	if (isPaused) { isPaused = false; }
+	else { isPaused = true; }
+}
+
 void LevelGraph::LoadMesh()
 {
 }
@@ -217,7 +230,7 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	if (!textures[textureName]->Pixels)
 	{
-		if (!SDLTextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
@@ -231,10 +244,10 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 void LevelGraph::GenerateSpationPartition(float worldSize, unsigned int depth)
 {
 	if(ColliderSpationPartition) delete ColliderSpationPartition;
-	ColliderSpationPartition = new OctSpactilPartition(worldSize, depth);
+	ColliderSpationPartition = new OctSpatialPartition(worldSize, depth);
 }
 
-std::set<OctSpactilPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const
+std::set<OctSpatialPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const
 {
 	return ColliderSpationPartition->GetIntersectedLeaves(ray);
 }

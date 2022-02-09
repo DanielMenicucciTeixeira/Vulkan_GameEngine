@@ -6,6 +6,10 @@
 
 constexpr float MILLISECONDS_TO_SECONDS = 1000.0f;
 
+using namespace std::chrono;
+
+typedef high_resolution_clock Timer;
+
 class Clock
 {
 //Uses a define macro to prevent copying of this class
@@ -14,18 +18,23 @@ class Clock
 //---------------------------------------------------------------------------------------------
 protected:
 	//Actual time at which the clock has started (StartClock function was called).
-	std::chrono::time_point<std::chrono::steady_clock> StartTime;
+	time_point<std::chrono::steady_clock> StartTime;
 
 	//Current absolute time of each frame (update in UpdateClock function every frame).
-	std::chrono::time_point<std::chrono::steady_clock> CurrentTime;
+	time_point<std::chrono::steady_clock> CurrentTime;
 
 	//Absolute time at the last frame (update in UpdateClock function every frame).
-	std::chrono::time_point<std::chrono::steady_clock> PreviousTime;
+	time_point<std::chrono::steady_clock> PreviousTime;
+
+	unsigned int prevTicks, currentTicks;
 
 	//Get the delta time in milliseconds at a given instant, used to calculate time errors withing the same frame.
 	float GetInstantDeltaTimeMilliseconds() const;
 
 public:
+	Clock();
+	~Clock();
+
 
 	//Set the initial values for the clocks variables.
 	void StartClock();
@@ -42,6 +51,6 @@ public:
 	float GetDeltaTimeMiliSecods() const;
 	float GetTimeSeconds() const;
 
-	Clock();
+
 };
 #endif

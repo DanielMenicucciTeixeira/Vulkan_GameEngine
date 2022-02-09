@@ -1,5 +1,5 @@
 #include "Sphere.h"
-#include "Math/FVector3.h"
+#include "../Math/FVector3.h"
 
 Sphere::Sphere()
 {

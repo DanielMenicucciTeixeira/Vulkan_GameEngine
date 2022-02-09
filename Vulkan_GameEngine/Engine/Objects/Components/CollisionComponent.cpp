@@ -7,12 +7,12 @@
 #include "Math/FVector3.h"
 #include <cmath>
 #include <iostream>
-#include "BoxCollision.h"
+#include "BoxCollider.h"
 #include "BoundingBox.h"
 #include "Objects\GameObjects\GameObject.h"
 #include "Level.h"
 #include "LevelGraph.h"
-#include "CameraComponent.h"
+#include "../CameraComponent.h"
 
 bool C_CollisionComponent::IsCollidingWith(C_CollisionComponent* collider)
 {
@@ -196,7 +196,7 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, S_BoxBounds box,  S
 	return true;
 }
 
-bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
+/*bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
 {
 	float distance = (sphere0.position - sphere1.position).Length();
 	if (distance - (sphere0.radius + sphere1.radius) <= tolerance)
@@ -205,7 +205,7 @@ bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sp
 		return true;
 	}
 	else return false;
-}
+}*/
 
 bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data)
 {
@@ -305,7 +305,7 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 				{
 					data = tempData;
 					data.OtherCollisonComponent = collider;
-					data.OtherGameObject = collider->GetOwner();
+					//data.OtherGameObject = collider->GetOwner();
 					closest = ray.GetLenght();
 				}
 			}
@@ -313,7 +313,7 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 			{
 				data = tempData;
 				data.OtherCollisonComponent = collider;
-				data.OtherGameObject = collider->GetOwner();
+				//data.OtherGameObject = collider->GetOwner();
 				closest = ray.GetLenght();
 				firstHit = true;
 			}
@@ -360,11 +360,11 @@ void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*>
 				colliderVector[i]->AddOverlapedCollider(colliderVector[j]);
 				colliderVector[j]->AddOverlapedCollider(colliderVector[i]);
 
-				data.OtherGameObject = colliderVector[j]->GetOwner();
+				//data.OtherGameObject = colliderVector[j]->GetOwner();
 				data.OtherCollisonComponent = colliderVector[j];
 				colliderVector[i]->ChooseCollisionType(colliderVector[j], data);
 
-				data.OtherGameObject = colliderVector[i]->GetOwner();
+				//data.OtherGameObject = colliderVector[i]->GetOwner();
 				data.OtherCollisonComponent = colliderVector[i];
 				colliderVector[j]->ChooseCollisionType(colliderVector[i], data);
 			}
@@ -444,7 +444,7 @@ void C_CollisionComponent::Update(const float deltaTime)
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner)
 {
 	CollisionType = collisionType;
-	Owner->GetLevel()->AddCollider(this);
+	//Owner->GetLevel()->AddCollider(this);
 }
 
 C_CollisionComponent::~C_CollisionComponent()

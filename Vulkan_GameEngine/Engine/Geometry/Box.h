@@ -2,7 +2,7 @@
 #define BOX_H
 
 class Plane;
-#include "Math/FVector3.h"
+#include "../Math/FVector3.h"
 #include "Plane.h"
 
 class Box

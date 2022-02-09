@@ -24,6 +24,11 @@ enum ECollisionType
 	COLLISION
 };
 
+enum class ColliderType {
+	BoundingBox = 0,
+	Sphere = 1
+};
+
 class C_CollisionComponent : public C_TransformComponent
 {
 protected:
@@ -34,7 +39,6 @@ protected:
 	static bool RaySphereCollision(const Ray& ray, const Sphere& sphere, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoundingBoxCollision(Ray& ray, S_BoxBounds box, S_CollisionData& data);
-	//static bool SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance = 0.01f);
 	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
 	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
 	static bool BoundingBoxBoundingBoxCollision(const S_BoxBounds& box1, const S_BoxBounds& box2, S_CollisionData& data);
@@ -59,11 +63,14 @@ public:
 	inline void SetOverlapBeginFunction(static void (*overlapBeginFunction)(O_GameObject* self, const S_CollisionData& data)) { OverlapBeginFunction = overlapBeginFunction; }
 	inline void SetOverlapEndFunction(static void (*overlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider)) { OverlapEndFunction = overlapEndFunction; }
 
+	//Function type return
+	template<typename T>
+	T* GetCollider();
+
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
 	bool IsCollidingWith(C_CollisionComponent* collider);
 	inline void AddOverlapedCollider(C_CollisionComponent* collider) { OverlapedColliders.insert(collider); }
 	virtual bool Collide(const C_CollisionComponent* otherCollider, S_CollisionData& data) const;
-	virtual bool SpatialPartitionCheck(S_BoxBounds box);
 	static void CheckForCollisions(std::vector<C_CollisionComponent*> colliderSet);
 
 	virtual void Update(const float deltaTime) override;
@@ -85,6 +92,6 @@ public:
 private:
 	//bool CheckSimplexForOrigin(Simplex& simplex) const;
 
-	friend class OctSpactilPartition;
+	ColliderType colliderType;
 };
 #endif

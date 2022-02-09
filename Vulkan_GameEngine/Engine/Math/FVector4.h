@@ -14,7 +14,7 @@ public:
 	inline FVector4(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
 	
 	//FVector3 to Vector4 constructor
-	inline FVector4(FVector3 vec, float w_) { X = vec.X; Y = vec.Y; Z = vec.Z; W = w_; }
+	FVector4(FVector3 vec, float w_);
 
 	FVector4(const FVector3& vector);
 

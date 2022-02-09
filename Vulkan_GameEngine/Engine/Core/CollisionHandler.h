@@ -22,6 +22,8 @@ public:
 	//Use to do collision detection for all coliders
 	void Update(float deltaTime_);
 
+
+
 	
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
 

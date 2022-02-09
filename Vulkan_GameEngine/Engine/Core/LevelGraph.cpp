@@ -7,6 +7,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
+#include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
 
 //Static Re-declarations
@@ -129,7 +130,7 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 
 void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 {
-	ColliderSpationPartition->AddCollider(component);
+	//ColliderSpationPartition->AddCollider(component);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
@@ -238,11 +239,6 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	texture = textures[textureName];
 	return true;
-}
-
-std::set<OctSpatialPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const
-{
-	return ColliderSpationPartition->GetIntersectedLeaves(ray);
 }
 
 LevelGraph::LevelGraph()

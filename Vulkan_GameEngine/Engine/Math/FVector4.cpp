@@ -4,6 +4,14 @@
 #include <iostream>
 
 
+FVector4::FVector4(FVector3 vec, float w_)
+{
+	X = vec.X;
+	Y = vec.Y; 
+	Z = vec.Z; 
+	W = w_;
+}
+
 FVector4::FVector4(const FVector3& vector)
 {
 	X = vector.X; Y = vector.Y; Z = vector.Z; W = 1.0f;

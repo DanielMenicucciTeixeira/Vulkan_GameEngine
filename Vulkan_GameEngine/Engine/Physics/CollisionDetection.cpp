@@ -4,8 +4,6 @@
 #include "Objects/Components/Colliders/SphereCollider.h"
 #include "Geometry/Ray.h"
 #include "LevelGraph.h"
-#include "Geometry/BoxBounds.h"
-#include "Math/Math.h"
 
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 
@@ -28,15 +26,12 @@ bool CollisionDetection::RayObbIntersection(Ray& a, const C_BoundingBox & b)
 
 	FVector3 delta = worldPosition - a.GetOrigin();
 
-	//X axis
-	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
 
-	//TODO: this is not dot product, replace glm::dot's functionalty with something else
-	float deltaDot = delta * axis;
-	float directionDot = rayDirection * axis;
+
 
 	//X Axis
 	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
+	//TODO: this is not dot product, replace glm::dot's functionalty with something else
 	float deltaDot = delta * axis;
 	float directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -104,7 +99,7 @@ bool CollisionDetection::RayObbIntersection(Ray& a, const C_BoundingBox & b)
 	a.SetIntersectDistance(tMin);
 	return true;
 }
-bool CollisionDetection::RayObbIntersection(Ray& a, const S_BoxBounds& b)
+bool CollisionDetection::RaySimpleObbIntersection(Ray& a, const S_BoxBounds& b)
 {
 	FVector3 rayDirection = a.GetDirection().GetNormal();
 	FVector3 boxMin = b.Min;
@@ -119,15 +114,9 @@ bool CollisionDetection::RayObbIntersection(Ray& a, const S_BoxBounds& b)
 
 	FVector3 delta = worldPosition - a.GetOrigin();
 
-	//X axis
-	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
-
-	//TODO: this is not dot product, replace glm::dot's functionalty with something else
-	float deltaDot = delta * axis;
-	float directionDot = rayDirection * axis;
-
 	//X Axis
 	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
+	//TODO: this is not dot product, replace glm::dot's functionalty with something else
 	float deltaDot = delta * axis;
 	float directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -195,17 +184,25 @@ bool CollisionDetection::RayObbIntersection(Ray& a, const S_BoxBounds& b)
 	a.SetIntersectDistance(tMin);
 	return true;
 }
-bool CollisionDetection::SphereObbIntersection(Sphere& a, const S_BoxBounds& b)
+bool CollisionDetection::SphereSimpleObbIntersection(Sphere& a, const S_BoxBounds& b)
 {
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
 	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
 	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
 
-	float distance = sqrtf((x - a.position.X) * (x - a.position.X) +
-		(y - a.position.Y) * (y - a.position.Y) +
-		(z - a.position.Z) * (z - a.position.Z));
+	float distance = ((x - a.position.X) * (x - a.position.X) +
+					  (y - a.position.Y) * (y - a.position.Y) +
+				   	  (z - a.position.Z) * (z - a.position.Z));
 	
-	return distance < a.radius;
+	return distance < a.radius * a.radius;
+}
+bool CollisionDetection::SphereSphereIntersection(Sphere& a, Sphere& b)
+{
+	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
+					  (a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
+					  (a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
+
+	return distance < (a.radius + b.radius);
 }
 
 /*

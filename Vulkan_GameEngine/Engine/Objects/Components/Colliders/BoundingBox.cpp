@@ -57,9 +57,3 @@ FVector3 C_BoundingBox::GetMax()
 	temp = temp / temp.W;
 	return FVector3(temp.X, temp.Y, temp.Z);
 }
-
-bool C_BoundingBox::SpatialPartitionCheck(S_BoxBounds box)
-{
-	S_CollisionData data;
-	return false;
-}

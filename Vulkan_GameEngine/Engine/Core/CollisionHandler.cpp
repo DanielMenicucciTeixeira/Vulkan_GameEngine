@@ -61,7 +61,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 	}
 }
 */
-	return ;
+	return S_CollisionData();
 }
 
 std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere)

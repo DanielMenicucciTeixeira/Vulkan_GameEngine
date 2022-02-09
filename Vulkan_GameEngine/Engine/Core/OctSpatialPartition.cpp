@@ -137,7 +137,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 
 	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
-	if (CollisionDetection::RayObbIntersection(ray, cell->GetBoundingBox()))
+	if (CollisionDetection::RaySimpleObbIntersection(ray, cell->GetBoundingBox()))
 	{
 		if (cell->IsLeaf()) { 
 			for (auto coll : cell->GetColliders()) {
@@ -150,7 +150,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 
 void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 {
-	if (CollisionDetection::SphereObbIntersection(sphere, cell->GetBoundingBox()))
+	if (CollisionDetection::SphereSimpleObbIntersection(sphere, cell->GetBoundingBox()))
 	{
 		if (cell->IsLeaf()) {
 			for (auto coll : cell->GetColliders()) {
@@ -163,6 +163,8 @@ void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 
 void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)
 {
+	//TODO: Fix this
+	/*
 	if (collider && cell && collider->SpatialPartitionCheck(cell->GetBoundingBox()));
 	{
 		cell->SetEmpty(false);
@@ -172,4 +174,5 @@ void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctN
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) AddColliderToCell(collider, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
+	*/
 }

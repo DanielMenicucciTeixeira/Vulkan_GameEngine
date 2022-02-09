@@ -8,7 +8,6 @@
 #include <set>
 #include <string>
 #include "../Math/FMatrix4.h"
-#include "OctSpatialPartition.h"
 
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
@@ -89,11 +88,7 @@ public:
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
-	std::set<OctSpatialPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
-
-
 	void CleanUp();
-
 
 	//Switch's the games pause state.
 	void Pause();

@@ -36,7 +36,7 @@ public:
 
 	inline Ray& operator=(const Ray& ray);
 
-	bool IsColliding(C_BoundingBox* box);
+	bool IsColliding(const C_BoundingBox* box);
 
 	void SetIntersectDistance(float dis);
 };

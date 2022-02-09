@@ -191,7 +191,7 @@ bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, S_BoxBounds box,  S
 	}
 	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
 
-	ray.SetLenght(tMin);
+	ray.SetLength(tMin);
 	data.CollisionPoint = ray.GetOrigin() + (ray.GetDirection() * tMin);
 	return true;
 }
@@ -285,7 +285,7 @@ bool C_CollisionComponent::IsSeparatingPlane(const FVector3& RelativePosition, c
 			)
 		);
 }
-
+/*
 bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 {
 	bool hit = false;
@@ -296,17 +296,18 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 	for (const auto& partition : LevelGraph::GetInstance()->GetIntersectedLeaves(ray)) for (const auto& collider : partition->GetColliders())
 	{
 		auto box = dynamic_cast<C_BoundingBox*>(collider);
-		if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
+		//TODO: Get Rid of
+		//if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
 		if (hit)
 		{
 			if (firstHit)
 			{
-				if (ray.GetLenght() < closest)
+				if (ray.GetLength() < closest)
 				{
 					data = tempData;
 					data.OtherCollisonComponent = collider;
 					//data.OtherGameObject = collider->GetOwner();
-					closest = ray.GetLenght();
+					closest = ray.GetLength();
 				}
 			}
 			else
@@ -314,7 +315,7 @@ bool C_CollisionComponent::RayCastSingleTarget(Ray& ray, S_CollisionData& data)
 				data = tempData;
 				data.OtherCollisonComponent = collider;
 				//data.OtherGameObject = collider->GetOwner();
-				closest = ray.GetLenght();
+				closest = ray.GetLength();
 				firstHit = true;
 			}
 		}
@@ -338,7 +339,8 @@ bool C_CollisionComponent::RayCastMultiTarget(Ray& ray, std::vector<S_CollisionD
 	for (const auto& partition : LevelGraph::GetInstance()->GetIntersectedLeaves(ray)) for (const auto& collider : partition->GetColliders())
 	{
 		auto box = dynamic_cast<C_BoundingBox*>(collider);
-		if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
+		//TODO: Get rid of
+		//if (box) hit = RayBoundingBoxCollision(ray, box->GetBoxBounds(), tempData);
 		if (hit) outData.push_back(tempData);
 	}
 
@@ -346,7 +348,7 @@ bool C_CollisionComponent::RayCastMultiTarget(Ray& ray, std::vector<S_CollisionD
 
 	return outData.size() > size_t(0);
 }
-
+*/
 void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*> colliderVector)
 {
 	if (colliderVector.size() <= 0) return;
@@ -397,11 +399,6 @@ bool C_CollisionComponent::Collide(const C_CollisionComponent* otherCollider, S_
 	if (!otherCollider) return false;
 
 	return GJK(this, otherCollider);
-}
-
-bool C_CollisionComponent::SpatialPartitionCheck(S_BoxBounds box)
-{
-	return false;
 }
 
 void C_CollisionComponent::OnCollision(const S_CollisionData& data)
@@ -665,3 +662,12 @@ bool C_CollisionComponent::Tetrahedron(Simplex& points, FVector3& direction)
 //
 //	return true;
 //}
+
+
+template<typename T>
+T* C_CollisionComponent::GetCollider() {
+	switch (colliderType) {
+	case 0:
+		return dynamic_cast<C_BoundingBox>(this);
+	}
+}

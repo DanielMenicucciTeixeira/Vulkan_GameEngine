@@ -18,7 +18,6 @@ public:
 	virtual void Update(float deltaTime) override;
 	virtual FVector3 GetMin();
 	virtual FVector3 GetMax();
-	virtual bool SpatialPartitionCheck(S_BoxBounds box) override;
 	inline const FVector3& GetRelativeMin() const { return min; }
 	inline const FVector3& GetRelativeMax() const { return max; }
 	inline const FMatrix4& GetModelMatrix() const { return model; }

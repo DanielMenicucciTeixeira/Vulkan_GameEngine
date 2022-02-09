@@ -202,10 +202,13 @@ void L_Level::CleanUp()
 
 void L_Level::CheckCollisions()
 {
+	//TODO: Clear this
+	/*
 	for (const auto& partition : LevelGraph::ColliderSpationPartition->GetActiveLeaves())
 	{
 		C_CollisionComponent::CheckForCollisions(partition->GetColliders());
 	}
+	*/
 }
 
 void L_Level::AddCollider(C_CollisionComponent* collider)

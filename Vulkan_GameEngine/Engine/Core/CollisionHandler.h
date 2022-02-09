@@ -22,7 +22,13 @@ public:
 	//Use to do collision detection for all coliders
 	void Update(float deltaTime_);
 
+	
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
+
+	//Get all objects colliding with the sphere
+	std::vector<S_CollisionData> GetSphereCollision(Sphere& sphere);
+
+	//TODO:Tag filters?
 
 private:
 	CollisionHandler();

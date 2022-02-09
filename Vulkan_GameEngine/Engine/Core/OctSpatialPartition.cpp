@@ -96,6 +96,22 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Ray& ray)
 	return intersectionList;
 }
 
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Sphere& sphere)
+{
+	for (auto cell : intersectionList) {
+		cell = nullptr;
+	}
+	intersectionList.clear();
+
+	intersectionList.reserve(20);
+
+	//Not returning it imediatly can help in case's where it collides with two or more boxs.  
+	//Should this be allowed?
+	GetIntersectedLeaves(sphere, root);
+
+	return intersectionList;
+}
+
 void OctSpatialPartition::Update(const float deltaTime_)
 {
 	for (auto leaves : GetActiveLeaves()) {
@@ -119,10 +135,6 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 	//Check if cell is empty
 	if (cell->IsEmpty()) return;
 
-	
-	//Never used variable
-	S_CollisionData data;
-
 	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
 	if (CollisionDetection::RayObbIntersection(ray, cell->GetBoundingBox()))
@@ -133,6 +145,19 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 			}
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)));
+	}
+}
+
+void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
+{
+	if (CollisionDetection::SphereObbIntersection(sphere, cell->GetBoundingBox()))
+	{
+		if (cell->IsLeaf()) {
+			for (auto coll : cell->GetColliders()) {
+				intersectionList.push_back(coll);
+			}
+		}
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(sphere, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
 }
 

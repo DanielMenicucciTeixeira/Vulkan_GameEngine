@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CollisionData.h"
+#include "Math/Math.h"
 
 class C_BoundingBox;
 class C_BoxCollider;
@@ -8,6 +9,7 @@ class C_SphereCollider;
 class Ray;
 class S_BoxBounds;
 
+using namespace MATH;
 
 /// <summary>
 /// The role of this class is to facilatate collision detection
@@ -28,6 +30,9 @@ public:
 
 	//Ray & S_BoxBounds collision
 	static bool RayObbIntersection(Ray& a, const S_BoxBounds& b);
+
+	//Sphere & S_BoxBounds collision
+	static bool SphereObbIntersection(Sphere& a, const S_BoxBounds& b);
 
 	static bool Collision(Ray& a, const C_SphereCollider b);
 

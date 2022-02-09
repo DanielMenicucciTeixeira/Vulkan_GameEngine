@@ -71,6 +71,7 @@ public:
 
 	std::set<OctNode*> GetActiveLeaves() const;
 	std::vector<C_CollisionComponent*> GetCollision(Ray& ray);
+	std::vector<C_CollisionComponent*> GetCollision(Sphere& sphere);
 	inline OctNode* GetRoot() { return root; }
 
 	//Does collision detection on every node.
@@ -84,6 +85,7 @@ protected:
 private:
 	OctNode* root;
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell);
+	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell);
 	std::vector<C_CollisionComponent*> intersectionList;
 };
 #endif

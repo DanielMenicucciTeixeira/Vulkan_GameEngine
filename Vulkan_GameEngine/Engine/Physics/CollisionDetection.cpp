@@ -5,6 +5,7 @@
 #include "Geometry/Ray.h"
 #include "LevelGraph.h"
 #include "Geometry/BoxBounds.h"
+#include "Math/Math.h"
 
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 
@@ -194,6 +195,19 @@ bool CollisionDetection::RayObbIntersection(Ray& a, const S_BoxBounds& b)
 	a.SetIntersectDistance(tMin);
 	return true;
 }
+bool CollisionDetection::SphereObbIntersection(Sphere& a, const S_BoxBounds& b)
+{
+	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
+	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
+	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
+
+	float distance = sqrtf((x - a.position.X) * (x - a.position.X) +
+		(y - a.position.Y) * (y - a.position.Y) +
+		(z - a.position.Z) * (z - a.position.Z));
+	
+	return distance < a.radius;
+}
+
 /*
 bool CollisionDetection::Collision(C_BoundingBox a, C_BoundingBox b)
 {

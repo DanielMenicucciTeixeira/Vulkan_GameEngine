@@ -55,7 +55,6 @@ public:
 		else
 		{
 			DebugLogger::Error("Invalid Level class: " + std::string(typeid(levelClass).name()), "Core/Game.h", __LINE__);
-			return false;
 		}
 	}
 

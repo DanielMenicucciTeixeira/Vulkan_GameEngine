@@ -19,12 +19,17 @@ public:
 	virtual FVector3 GetMin();
 	virtual FVector3 GetMax();
 	virtual bool SpatialPartitionCheck(S_BoxBounds box) override;
-	inline const FVector3& GetRelativeMin() const { return BoxBounds.Min; }
-	inline const FVector3& GetRelativeMax() const { return BoxBounds.Max; }
-	inline const S_BoxBounds& GetBoxBounds() const { return BoxBounds; }
+	inline const FVector3& GetRelativeMin() const { return min; }
+	inline const FVector3& GetRelativeMax() const { return max; }
+	inline const FMatrix4& GetModelMatrix() const { return model; }
+	//inline const S_BoxBounds& GetBoxBounds() const { return BoxBounds; }
 
 protected:
-	S_BoxBounds BoxBounds;
+	FVector3 max = FVector3();
+	FVector3 min = FVector3();
+	FMatrix4 model = FMatrix4();
+
+	//S_BoxBounds BoxBounds;
 };
 #endif
 

@@ -22,7 +22,6 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
-OctSpatialPartition*  LevelGraph::ColliderSpationPartition = new OctSpatialPartition(100.0f);
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
@@ -239,12 +238,6 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	texture = textures[textureName];
 	return true;
-}
-
-void LevelGraph::GenerateSpationPartition(float worldSize, unsigned int depth)
-{
-	if(ColliderSpationPartition) delete ColliderSpationPartition;
-	ColliderSpationPartition = new OctSpatialPartition(worldSize, depth);
 }
 
 std::set<OctSpatialPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const

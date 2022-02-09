@@ -15,7 +15,7 @@
 
 L_Level::L_Level(float worldSize) : NextCamera(nullptr), Name(""), WorldSize(worldSize)
 {
-	LevelGraph::GetInstance()->GenerateSpationPartition(worldSize);
+	CollisionHandler::GetInstance()->OnCreate(worldSize);
 }
 
 L_Level::~L_Level()

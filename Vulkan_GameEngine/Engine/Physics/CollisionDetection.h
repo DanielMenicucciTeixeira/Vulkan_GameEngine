@@ -24,7 +24,10 @@ public:
 	~CollisionDetection();
 
 	//Ray & Bounding box collision
-	static bool Collision(Ray& a, const S_BoxBounds b);
+	static bool RayObbIntersection(Ray& a, const C_BoundingBox & b);
+
+	//Ray & S_BoxBounds collision
+	static bool RayObbIntersection(Ray& a, const S_BoxBounds& b);
 
 	static bool Collision(Ray& a, const C_SphereCollider b);
 

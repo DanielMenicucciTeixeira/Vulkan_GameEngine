@@ -3,6 +3,7 @@
 
 #include "../Objects/GameObjects/GameObject.h"
 #include "OctSpatialPartition.h"
+#include "Physics/CollisionData.h"
 #include <vector>
 #include <memory>
 
@@ -16,8 +17,12 @@ public:
 
 	static CollisionHandler* GetInstance();
 
+	void OnCreate(float worldSize, float depth = 3);
+
 	//Use to do collision detection for all coliders
 	void Update(float deltaTime_);
+
+	S_CollisionData GetCollisionSingleRay(Ray& ray);
 
 private:
 	CollisionHandler();

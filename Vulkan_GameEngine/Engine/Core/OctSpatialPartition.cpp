@@ -4,9 +4,9 @@
 #include "Objects/GameObjects/GameObject.h"
 #include <iostream>
 
-unsigned int OctSpatialPartition::OctNode::ChildrenCount = 0;
+unsigned int OctNode::ChildrenCount = 0;
 
-OctSpatialPartition::OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), Colliders(std::vector<C_CollisionComponent*>()), Empty(true)
+OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), Colliders(std::vector<C_CollisionComponent*>()), Empty(true)
 {
 	Size = size;
 	Parent = parent;
@@ -19,7 +19,7 @@ OctSpatialPartition::OctNode::OctNode(FVector3 position, float size, OctNode* pa
 	if (IsLeaf()) Colliders.reserve(10);
 }
 
-OctSpatialPartition::OctNode::~OctNode()
+OctNode::~OctNode()
 {
 	delete(OctBounds);
 	OctBounds = nullptr;
@@ -34,7 +34,7 @@ OctSpatialPartition::OctNode::~OctNode()
 	}
 }
 
-void OctSpatialPartition::OctNode::Octify(unsigned int depth)
+void OctNode::Octify(unsigned int depth)
 {
 	if (depth > 0 && this)
 	{
@@ -56,39 +56,44 @@ void OctSpatialPartition::OctNode::Octify(unsigned int depth)
 	}
 }
 
-const S_BoxBounds OctSpatialPartition::OctNode::GetBoundingBox() const
+const S_BoxBounds OctNode::GetBoundingBox() const
 {
 	return *OctBounds;
 }
 
-OctSpatialPartition::OctSpatialPartition(float worldSize, unsigned int depth) : Root(nullptr)
+OctSpatialPartition::OctSpatialPartition(float worldSize, unsigned int depth) : root(nullptr)
 {
 	OctNode::ChildrenCount = 0;
-	Root = new OctNode(FVector3(-(worldSize / 2.0f)), worldSize, nullptr);
-	Root->Octify(depth);
-	std::cout << "There are " << Root->GetChildrenCount() << " child nodes" << std::endl;
+	root = new OctNode(FVector3(-(worldSize / 2.0f)), worldSize, nullptr);
+	root->Octify(depth);
+	std::cout << "There are " << root->GetChildrenCount() << " child nodes" << std::endl;
 }
 
 OctSpatialPartition::~OctSpatialPartition()
 {
-	delete(Root);
-	Root = nullptr;
+	delete(root);
+	root = nullptr;
 }
 
-std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetActiveLeaves() const
+std::set<OctNode*> OctSpatialPartition::GetActiveLeaves() const
 {
 	std::set<OctNode*> returnSet = std::set<OctNode*>();
-	GetActiveLeaves(Root, returnSet);
+	GetActiveLeaves(root, returnSet);
 	return returnSet;
 }
 
-std::set<OctSpatialPartition::OctNode*> OctSpatialPartition::GetIntersectedLeaves(Ray& ray) const
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Ray& ray)
 {
-	std::set<OctNode*> returnSet = std::set<OctNode*>();
+	for (auto cell : intersectionList) {
+		cell = nullptr;
+	}
+	intersectionList.clear();
 
-	GetIntersectedLeaves(ray, Root, returnSet);
+	intersectionList.reserve(20);
 
-	return returnSet;
+	GetIntersectedLeaves(ray, root);
+
+	return intersectionList;
 }
 
 void OctSpatialPartition::Update(const float deltaTime_)
@@ -109,21 +114,26 @@ void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& out
 	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetActiveLeaves(cell->GetChild(static_cast<EOctChildren>(i)), outSet);
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::set<OctNode*>& outSet) const
+void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 {
 	//Check if cell is empty
 	if (cell->IsEmpty()) return;
 
+	
 	//Never used variable
 	S_CollisionData data;
 
 	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
-	//if (CollisionDetection::Collision(ray, cell->GetBoundingBox()))
-	//{
-	//	if (cell->IsLeaf()) outSet.insert(cell);
-	//	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)), outSet);
-	//}
+	if (CollisionDetection::RayObbIntersection(ray, cell->GetBoundingBox()))
+	{
+		if (cell->IsLeaf()) { 
+			for (auto coll : cell->GetColliders()) {
+				intersectionList.push_back(coll);
+			}
+		}
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)));
+	}
 }
 
 void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)

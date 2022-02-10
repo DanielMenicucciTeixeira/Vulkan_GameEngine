@@ -62,6 +62,7 @@ void VulkanManager::UpdateWithNewObjects()
 
 VkDevice_T* VulkanManager::GetLogicalDevice()
 {
+    auto check = Devices->GetLogicalDevice();
     return Devices->GetLogicalDevice();
 }
 

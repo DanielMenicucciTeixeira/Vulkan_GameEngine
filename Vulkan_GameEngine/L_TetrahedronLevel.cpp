@@ -32,18 +32,18 @@ bool L_TetrahedronLevel::Initialize()
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
-	auto Dice_Texture = new S_Texture();
-	Dice_Texture->Name = "DumbTexture";
-	Dice_Texture->Path = "./Assets/Textures/DumbTexture.png";
-	LevelGraph::GetInstance()->AddTexture(Dice_Texture);
-	LoadTexture(Dice_Texture, Dice_Texture->Name);
+	auto Tetrahedron_Texture = new S_Texture();
+	Tetrahedron_Texture->Name = "DumbTexture";
+	Tetrahedron_Texture->Path = "./Assets/Textures/DumbTexture.png";
+	LevelGraph::GetInstance()->AddTexture(Tetrahedron_Texture);
+	LoadTexture(Tetrahedron_Texture, Tetrahedron_Texture->Name);
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
 
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
-	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Dice_Texture;
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Tetrahedron_Texture;
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
 	return L_Level::Initialize();
 }

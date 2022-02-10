@@ -8,7 +8,7 @@
 GO_Tetrahedron::GO_Tetrahedron(L_Level* level, std::string name) : O_GameObject(level, name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("Tetrahedron");
+	Mesh->SetMeshName("tetrahedron");
 	Mesh->SetMaterialName("M_Tetrahedron");
 
 	Movement = AddComponentOfClass<C_MovementComponent>();

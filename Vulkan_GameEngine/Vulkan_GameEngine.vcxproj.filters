@@ -500,9 +500,6 @@
     <ClInclude Include="Engine\Physics\CollisionDetection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Core\GameInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>

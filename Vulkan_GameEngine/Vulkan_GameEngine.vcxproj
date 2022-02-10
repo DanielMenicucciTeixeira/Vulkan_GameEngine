@@ -297,7 +297,6 @@
     <ClCompile Include="Engine\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Github\Retribution\Retribution\Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Core\Game.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />

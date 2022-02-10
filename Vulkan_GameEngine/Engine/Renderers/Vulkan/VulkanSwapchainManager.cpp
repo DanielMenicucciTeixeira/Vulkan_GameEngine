@@ -305,6 +305,7 @@ void VulkanSwapchainManager::CreateUniformBuffers()
     for (size_t i = 0; i < Images.size(); i++)
     {
         Manager->CreateBuffer(cameraBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraData[i].Buffer, CameraData[i].Memory);
+        auto check = Manager->GetRenderData()->LightSources.empty();
         if (!Manager->GetRenderData()->LightSources.empty())
         {
             Manager->CreateBuffer(matrixBufferSize * Manager->GetRenderData()->LightSources.size(), VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, LightsData[i].Buffer, LightsData[i].Memory);
@@ -529,7 +530,7 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 {
     for (const auto& material : Manager->GetRenderData()->Materials)
     {
-        TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
+        //TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
         
         int textureWidth = material->TextureDifuse->Width;
         int textureHeight = material->TextureDifuse->Height;
@@ -553,7 +554,7 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
         memcpy(data, texturePixels, static_cast<size_t>(imageSize));
         vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
 
-        stbi_image_free(texturePixels);
+        //stbi_image_free(texturePixels);
         CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[material->TextureDifuse].TextureImage, TextureDataMap[material->TextureDifuse].TextureImageMemory);
 
         TransitionImageLayout(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);

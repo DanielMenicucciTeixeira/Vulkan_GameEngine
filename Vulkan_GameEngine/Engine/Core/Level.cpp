@@ -10,6 +10,7 @@
 #include "LevelGraph.h"
 #include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
+#include "CoreEngine.h"
 
 #include <algorithm>
 
@@ -100,7 +101,7 @@ void L_Level::LoadLevelObjects()
 		gameObject->Start();
 	}
 	//TODO: Fix, Also would this not require you to reload every single mesh?
-	//CurrentGame->GetRenderer()->UpdateWithNewObjects();
+	CoreEngine::GetInstance()->GetRenderer()->UpdateWithNewObjects();
 	if (UnloadedObjects.size() > 0)
 	{
 		UnloadedObjects.clear();

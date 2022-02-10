@@ -366,4 +366,6 @@ Vulkan_GameEngine.rar
 .paket/paket.exe
 paket-files/
 
+!/Vulkan_GameEngine/Assets/
 !/Vulkan_GameEngine/Assets/*
+!/Vulkan_GameEngine/Assets/**/*

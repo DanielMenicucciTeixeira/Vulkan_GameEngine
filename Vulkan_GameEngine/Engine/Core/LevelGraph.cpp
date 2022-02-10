@@ -7,6 +7,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
+#include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
 
 //Static Re-declarations
@@ -22,7 +23,6 @@ std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
-OctSpatialPartition*  LevelGraph::ColliderSpationPartition = new OctSpatialPartition(100.0f);
 //-----------------------
 
 LevelGraph* LevelGraph::GetInstance()
@@ -130,7 +130,7 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 
 void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 {
-	ColliderSpationPartition->AddCollider(component);
+	//ColliderSpationPartition->AddCollider(component);
 }
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
@@ -239,17 +239,6 @@ bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName
 
 	texture = textures[textureName];
 	return true;
-}
-
-void LevelGraph::GenerateSpationPartition(float worldSize, unsigned int depth)
-{
-	if(ColliderSpationPartition) delete ColliderSpationPartition;
-	ColliderSpationPartition = new OctSpatialPartition(worldSize, depth);
-}
-
-std::set<OctSpatialPartition::OctNode*> LevelGraph::GetIntersectedLeaves(Ray& ray) const
-{
-	return ColliderSpationPartition->GetIntersectedLeaves(ray);
 }
 
 LevelGraph::LevelGraph()

@@ -157,7 +157,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core;C:\Dev\VulkanProject\Vulkan_GameEngine\Engine;C:\Dev\VulkanProject\Vulkan_GameEngine\Game;C:\Dev\VulkanProject\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\stb-master;C:\GameDev\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game;C:\Dev\Vulkan_Engine\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\stb-master;C:\GameDev\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -282,6 +282,7 @@
     <ClCompile Include="L_TetrahedronLevel.cpp" />
     <ClCompile Include="Engine\Event\MouseEventHandler.cpp" />
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
+    <ClCompile Include="Engine\Math\Math.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp" />
@@ -363,6 +364,7 @@
     <ClInclude Include="L_TetrahedronLevel.h" />
     <ClInclude Include="Engine\Event\MouseEventHandler.h" />
     <ClInclude Include="Engine\Core\OctSpatialPartition.h" />
+    <ClInclude Include="Engine\Math\Math.h" />
     <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />

@@ -179,9 +179,12 @@ void GO_Pawn::Grab()
 {
 	S_CollisionData data;
 	Ray ray = MouseEventHandler::MousePositionToWorldRay();
+	//TODO: Fix this.
+	/*
 	if (C_CollisionComponent::RayCastSingleTarget(ray, data))
 	{
 		std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;
 	}
 	else std::cout << "No hit!" << std::endl;
+	*/
 }

@@ -1,6 +1,7 @@
 #include "Ray.h"
 
 #include "../Math/FVector3.h"
+#include "Physics/CollisionDetection.h"
 
 #include <stdexcept>
 
@@ -8,7 +9,7 @@ Ray::Ray()
 {
 	Origin = new FVector3();
 	Direction = new FVector3(0.0f, 0.0f, -1.0f);
-	Lenght = 0;
+	Length = 0;
 	Infinit = true;
 }
 
@@ -16,7 +17,7 @@ Ray::Ray(const FVector3 start, const FVector3 direction, float length, bool infi
 {
 	Origin = new FVector3(start);
 	Direction = new FVector3(direction.GetNormal());//Direction should always be normalized
-	Lenght = length;
+	Length = length;
 	Infinit = infinit;
 }
 
@@ -28,7 +29,7 @@ Ray::~Ray()
 
 FVector3 Ray::GetPositionAtLenght(float displacement) const
 {
-	if (Infinit || abs(displacement) <= Lenght)
+	if (Infinit || abs(displacement) <= Length)
 	{
 		return *Origin + (*Direction * displacement);
 	}
@@ -62,12 +63,18 @@ Ray& Ray::operator=(const Ray& ray)
 {
 	Origin = ray.Origin;
 	Direction = ray.Direction;
-	Lenght = ray.Lenght;
+	Length = ray.Length;
 	Infinit = ray.Infinit;
 	return *this;
 }
 
-bool Ray::IsColliding(C_BoundingBox* box)
+bool Ray::IsColliding(const C_BoundingBox* box)
 {
-	return true;
+	intersectDistance = -1;
+	return CollisionDetection::RayObbIntersection(*this, *box);
+}
+
+void Ray::SetIntersectDistance(float dis)
+{
+	intersectDistance = dis;
 }

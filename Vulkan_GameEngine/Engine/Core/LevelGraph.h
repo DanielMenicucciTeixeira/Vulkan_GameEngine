@@ -8,7 +8,6 @@
 #include <set>
 #include <string>
 #include "../Math/FMatrix4.h"
-#include "OctSpatialPartition.h"
 
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
@@ -89,11 +88,7 @@ public:
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
-	std::set<OctSpatialPartition::OctNode*> GetIntersectedLeaves(Ray& ray) const;
-
-
 	void CleanUp();
-
 
 	//Switch's the games pause state.
 	void Pause();
@@ -120,10 +115,7 @@ protected:
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
 	static C_CameraComponent* ActiveCamera;
-	static OctSpatialPartition* ColliderSpationPartition;
 
-	void GenerateSpationPartition(float worldSize, unsigned int depth = 3);
-	
 	S_RenderData RenderData;
 	std::set<C_StaticMeshComponent*> StaticMehes;
 	std::set<unsigned int> FreeLightSlots;

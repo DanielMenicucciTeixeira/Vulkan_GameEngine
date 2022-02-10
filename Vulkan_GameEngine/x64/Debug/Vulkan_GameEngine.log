@@ -1,381 +1,304 @@
 ﻿  Game.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
   CollisionDetection.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(14,19): warning C4099: 'S_BoxBounds': type name first seen using 'class' now seen using 'struct'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Physics\CollisionDetection.h(9): message : see declaration of 'S_BoxBounds'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\BoxBounds.h(8,1): warning C4099: 'S_BoxBounds': type name first seen using 'class' now seen using 'struct'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\BoxBounds.h(7): message : see declaration of 'S_BoxBounds'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   CollisionHandler.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CollisionHandler.cpp(26,54): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
   LevelGraph.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\LevelGraph.cpp(167,45): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\LevelGraph.cpp(167,45): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   EventListener.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
   DirectionalLightComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   DirectionalLight.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   LightSourceComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   DebugLogger.cpp
   CoreEngine.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(183,119): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(183,119): warning C4042: 'function': has bad storage class
   Simplex.cpp
   FVector2.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FVector2.cpp(31,12): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FVector2.cpp(32,12): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FVector2.cpp(146,73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FVector2.cpp(171,39): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FVector2.cpp(31,12): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FVector2.cpp(32,12): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FVector2.cpp(146,73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FVector2.cpp(171,39): warning C4305: '*=': truncation from 'double' to 'float'
   IVector2.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(37,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(38,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(127,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(135,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(139,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(164,39): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(165,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(166,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(37,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(38,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(127,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(135,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(139,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(164,39): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(165,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(166,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector2.cpp(173,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   IVector3.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(42,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(43,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(44,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(139,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(147,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(151,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,50): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,38): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,26): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(180,13): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(183,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(185,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 1 has type 'int'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(42,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(43,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(44,6): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(139,13): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(147,14): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(151,73): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,50): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,38): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(177,26): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(180,13): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(183,26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(185,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 1 has type 'int'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 2 has type 'int'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\IVector3.cpp(204,9): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
   BoundingBox.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   MeshCollision.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\MeshCollision.cpp(116,85): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\MeshCollision.cpp(116,85): warning C4244: 'argument': conversion from 'unsigned __int64' to 'float', possible loss of data
   Object.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   TextureHandler.cpp
   Apple.cpp
   BilliardBall.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardBall.cpp(34,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardBall.cpp(47,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardBall.cpp(34,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardBall.cpp(47,9): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
   Compiling...
   BilliardGame.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
   BilliardTable.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   BoxCollider.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   CameraComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   Clock.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Clock.cpp(22,36): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Clock.cpp(28,25): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Clock.cpp(22,36): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Clock.cpp(28,25): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
   CollisionComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.cpp(45,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.cpp(53,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.cpp(336,8): warning C4101: 'closest': unreferenced local variable
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.cpp(45,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.cpp(53,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   CollisionData.h
   GameObject.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   Box.cpp
   Plane.cpp
   Ray.cpp
   Sphere.cpp
   BilliardLevel.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
   FMatrix.cpp
   FMatrix4.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(100,42): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(553,42): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(653,45): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(100,42): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(553,42): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(653,45): warning C4305: '*=': truncation from 'double' to 'float'
   FQuaternion.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(16,38): warning C4305: '*=': truncation from 'double' to 'float'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(35,40): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(45,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(46,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(47,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(48,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(93,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(95,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(123,36): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(16,38): warning C4305: '*=': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(35,40): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(45,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(46,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(47,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(48,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(93,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(95,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FQuaternion.cpp(123,36): warning C4305: 'initializing': truncation from 'double' to 'float'
   FTransform.cpp
   FVector3.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FVector3.cpp(163,73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FVector3.cpp(163,73): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   FVector4.cpp
   AssetLoader.cpp
   Generating Code...
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(234): warning C4717: 'FMatrix4::operator*=': recursive on all control paths, function will cause runtime stack overflow
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Math\FMatrix4.cpp(234): warning C4717: 'FMatrix4::operator*=': recursive on all control paths, function will cause runtime stack overflow
   Compiling...
   MovementComponent.cpp
   Level.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
   PhysicsBody.cpp
   PhysicsComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,126): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,138): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,126): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,83): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(28,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,138): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\PhysicsComponent.cpp(29,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   PhysicsLib.cpp
   L_StartLevel.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
   L_MainLevel.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(137,34): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(137,34): warning C4305: 'argument': truncation from 'double' to 'float'
   Game01.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
   OpelGLManager.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(109,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(148,83): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(109,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(148,83): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
   GO_Triangle.cpp
   OpenGLShaderManager.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpenGLShaderManager.cpp(97,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpenGLShaderManager.cpp(97,42): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpenGLShaderManager.cpp(97,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpenGLShaderManager.cpp(97,42): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
   GO_Camera.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   LightSource.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   Pawn.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   SceneManager.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
   L_TetrahedronLevel.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
   MouseEventHandler.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(33,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(33,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(36,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(65,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(64,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(73,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(72,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(96,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(95,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(104,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(103,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(127,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(124,15): warning C4101: 'h': unreferenced local variable
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(124,12): warning C4101: 'w': unreferenced local variable
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(33,54): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(33,39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(36,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(65,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(64,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(73,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(72,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(96,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(95,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(104,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(103,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(127,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(124,15): warning C4101: 'h': unreferenced local variable
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Event\MouseEventHandler.cpp(124,12): warning C4101: 'w': unreferenced local variable
   OctSpatialPartition.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Physics\CollisionDetection.h(9,18): warning C4099: 'S_BoxBounds': type name first seen using 'struct' now seen using 'class'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(14): message : see declaration of 'S_BoxBounds'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.cpp(131,82): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Math.cpp
   Tetrahedron.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-  Source.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   Generating Code...
   Compiling...
+  Source.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   SphereCollider.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   StaticMeshComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
   TextureLoader.cpp
   TransformComponent.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
   VulkanDebugger.cpp
   VulkanDevices.cpp
   VulkanManager.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(472,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(574,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(575,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(643,124): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(472,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(574,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(575,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(643,124): warning C4390: ';': empty controlled statement found; is this the intent?
   VulkanPipelineManager.cpp
   VulkanSwapchainManager.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(58,116): warning C4042: 'collisionFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(59,122): warning C4042: 'overlapBeginFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(60,126): warning C4042: 'overlapEndFunction': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(44,39): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(766,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(766,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Window.cpp
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Window.cpp(60,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
-C:\Dev\VulkanProject\Vulkan_GameEngine\Engine\Core\Window.cpp(67,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Window.cpp(60,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Window.cpp(67,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
   Generating Code...
-  Vulkan_GameEngine.vcxproj -> C:\Dev\VulkanProject\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe
+  Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

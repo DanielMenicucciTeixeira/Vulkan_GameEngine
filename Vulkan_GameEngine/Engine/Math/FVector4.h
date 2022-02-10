@@ -12,6 +12,9 @@ public:
 
 	//Constructor using initial values for each component.
 	inline FVector4(float x, float y, float z, float w) { X = x; Y = y; Z = z; W = w; }
+	
+	//FVector3 to Vector4 constructor
+	FVector4(FVector3 vec, float w_);
 
 	FVector4(const FVector3& vector);
 

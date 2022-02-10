@@ -16,25 +16,29 @@ public:
 private:
 	FVector3* Origin;
 	FVector3* Direction;
-	float Lenght;
+	float Length;
 	bool Infinit;
+
+	float intersectDistance;
 
 public:
 	FVector3 GetPositionAtLenght(float displacement) const;
 
 	FVector3 GetOrigin() const;
 	FVector3 GetDirection() const;
-	inline float GetLenght() const { return Lenght; }
+	inline float GetLength() const { return Length; }
 	inline bool IsInfinit() const { return Infinit; }
 
 	void SetOrigin(const FVector3& position);
 	void SetDirection(const FVector3& direction);
-	inline void SetLenght(float lenght) { Lenght = lenght; }
+	inline void SetLength(float length) { Length = length; }
 	inline void SetInfinit(bool infinit) { Infinit = infinit; }
 
 	inline Ray& operator=(const Ray& ray);
 
-	bool IsColliding(C_BoundingBox* box);
+	bool IsColliding(const C_BoundingBox* box);
+
+	void SetIntersectDistance(float dis);
 };
 
 #endif

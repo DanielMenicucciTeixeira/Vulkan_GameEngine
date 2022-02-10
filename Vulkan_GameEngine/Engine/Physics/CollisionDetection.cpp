@@ -4,7 +4,6 @@
 #include "Objects/Components/Colliders/SphereCollider.h"
 #include "Geometry/Ray.h"
 #include "LevelGraph.h"
-#include "Geometry/BoxBounds.h"
 
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 
@@ -12,23 +11,27 @@ S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 CollisionDetection::~CollisionDetection()
 {
 }
-
-bool CollisionDetection::Collision(Ray& a, const S_BoxBounds b)
+bool CollisionDetection::RayObbIntersection(Ray& a, const C_BoundingBox & b)
 {
-	FVector3 rayOrigin = a.GetOrigin();
 	FVector3 rayDirection = a.GetDirection().GetNormal();
-	FVector3 boxMin = b.Min;
-	FVector3 boxMax = b.Max;
-	FMatrix4 modelMatrix = b.Model;
+	FVector3 boxMin = b.GetRelativeMin();
+	FVector3 boxMax = b.GetRelativeMax();
+	FMatrix4 modelMatrix = b.GetModelMatrix();
 
-	float tMin = 10; //= LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
-	float tMax = 10; //= LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
+	//TODO: fix all commented issues in this.
+	float tMin = 10;// CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().x;
+	float tMax = 10; //CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().y;
 
 	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
-	FVector3 delta = worldPosition - rayOrigin;
+
+	FVector3 delta = worldPosition - a.GetOrigin();
+
+
+
 
 	//X Axis
 	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
+	//TODO: this is not dot product, replace glm::dot's functionalty with something else
 	float deltaDot = delta * axis;
 	float directionDot = rayDirection * axis;
 	if (fabs(directionDot) > 0.0001f)
@@ -93,11 +96,115 @@ bool CollisionDetection::Collision(Ray& a, const S_BoxBounds b)
 	}
 	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
 
-	a.SetLenght(tMin);
-	collisionData.CollisionPoint = a.GetOrigin() + (a.GetDirection() * tMin);
+	a.SetIntersectDistance(tMin);
 	return true;
-	return false;
 }
+bool CollisionDetection::RaySimpleObbIntersection(Ray& a, const S_BoxBounds& b)
+{
+	FVector3 rayDirection = a.GetDirection().GetNormal();
+	FVector3 boxMin = b.Min;
+	FVector3 boxMax = b.Max;
+	FMatrix4 modelMatrix = b.Model;
+
+	//TODO: fix all commented issues in this.
+	float tMin = 10;// CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().x;
+	float tMax = 10; //CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().y;
+
+	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
+
+	FVector3 delta = worldPosition - a.GetOrigin();
+
+	//X Axis
+	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
+	//TODO: this is not dot product, replace glm::dot's functionalty with something else
+	float deltaDot = delta * axis;
+	float directionDot = rayDirection * axis;
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.X) / directionDot;
+		float t2 = (deltaDot + boxMax.X) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.X > 0.0f || -deltaDot + boxMax.X < 0.0f) return false;
+
+	//Y Axis
+	axis = FVector3(modelMatrix[1].X, modelMatrix[1].Y, modelMatrix[1].Z);
+	deltaDot = delta * axis;
+	directionDot = rayDirection * axis;
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.Y) / directionDot;
+		float t2 = (deltaDot + boxMax.Y) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.Y > 0.0f || -deltaDot + boxMax.Y < 0.0f) return false;
+
+	//Z Axis
+	axis = FVector3(modelMatrix[2].X, modelMatrix[2].Y, modelMatrix[2].Z);
+	deltaDot = delta * axis;
+	directionDot = rayDirection * axis;
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.Z) / directionDot;
+		float t2 = (deltaDot + boxMax.Z) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
+
+	a.SetIntersectDistance(tMin);
+	return true;
+}
+bool CollisionDetection::SphereSimpleObbIntersection(Sphere& a, const S_BoxBounds& b)
+{
+	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
+	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
+	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
+
+	float distance = ((x - a.position.X) * (x - a.position.X) +
+					  (y - a.position.Y) * (y - a.position.Y) +
+				   	  (z - a.position.Z) * (z - a.position.Z));
+	
+	return distance < a.radius * a.radius;
+}
+bool CollisionDetection::SphereSphereIntersection(Sphere& a, Sphere& b)
+{
+	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
+					  (a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
+					  (a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
+
+	return distance < (a.radius + b.radius);
+}
+
 /*
 bool CollisionDetection::Collision(C_BoundingBox a, C_BoundingBox b)
 {

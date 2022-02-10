@@ -365,3 +365,5 @@ Vulkan_GameEngine.rar
 # Paket dependency manager
 .paket/paket.exe
 paket-files/
+
+!/Assets/*

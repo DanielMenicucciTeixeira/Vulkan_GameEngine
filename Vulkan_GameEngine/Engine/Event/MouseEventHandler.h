@@ -20,8 +20,6 @@ public:
 	MouseEventHandler() = delete;
 	~MouseEventHandler();
 
-
-	static void SetEngineReference(CoreEngine* engine);
 	static void Initialize();
 
 	static const IVector2& GetPreviousCursorPosition();

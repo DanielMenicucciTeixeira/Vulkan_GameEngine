@@ -1,2 +1,4 @@
 [WARNING]: Nothing to be rendered, no descriptor pool created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 388
 [WARNING]: Nothing to be rendered, no descriptor set created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 414
+[WARNING]: DumbTexturewas not nullptr, it will be overriden in: SDL/TextureHandler.cpp on line: 31
+[ERROR]: Failed to open model file at: Assets/Models/Tetrahedron.obj in: Core/MeshLoader.cpp on line: 72

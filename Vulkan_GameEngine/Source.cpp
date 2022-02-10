@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 {
 	std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files
 	printf("------------------------------------------------------------------------------------------\n\n");
-	system("pause");
+
 	CoreEngine::GetInstance()->SetGameInterface(new SceneManager);
 
 	if (!CoreEngine::GetInstance()->Initialize("Window", VULKAN))

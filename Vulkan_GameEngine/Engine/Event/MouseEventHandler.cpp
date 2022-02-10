@@ -20,14 +20,10 @@ MouseEventHandler::~MouseEventHandler()
 {
 }
 
-void MouseEventHandler::SetEngineReference(CoreEngine* engine)
-{
-	Engine = engine;
-}
-
 void MouseEventHandler::Initialize()
 {
-	SDL_Window* window = CoreEngine::GetInstance()->GetWindowSDL();
+	Engine = CoreEngine::GetInstance();
+	SDL_Window* window = Engine->GetWindowSDL();
 	FVector2 size = Engine->GetWindowSize();
 
 	SDL_WarpMouseInWindow(window, size.X * 0.5f, size.Y * 0.5f);

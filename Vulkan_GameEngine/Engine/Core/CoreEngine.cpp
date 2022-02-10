@@ -71,14 +71,16 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	}
 
 	//Initalize Renderer
-	if (EngineRenderer->Initialize()) {
+	if (!EngineRenderer->Initialize()) 
+	{
 		DebugLogger::FatalError("Renderer could not be initalized", "CoreEngine.cpp", __LINE__);
 		return RunningEngine = false;
 	}
 
 	EventListener::Initialize();
 	
-	if (gameInterface) {
+	if (gameInterface) 
+	{
 		if (!gameInterface->OnCreate()) {
 			DebugLogger::FatalError("GameInterface could not be created", "CoreEngine.cpp", __LINE__);
 			return RunningEngine = false;
@@ -126,7 +128,7 @@ void CoreEngine::HandleEvents()
 		auto eventType = event.type;
 		int32_t keycode;
 
-		if (/*event.type == SDL_WINDOWEVENT &&*/ event.window.event == SDL_WINDOWEVENT_RESIZED)
+		if (event.window.event == SDL_WINDOWEVENT_RESIZED)
 		{
 			EngineRenderer->FramebufferResizeCallback();
 			LevelGraph::GetInstance()->FrameBufferResizeCallback();

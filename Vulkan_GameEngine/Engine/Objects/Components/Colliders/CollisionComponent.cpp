@@ -111,101 +111,6 @@ bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVect
 
 }
 
-bool C_CollisionComponent::RayBoundingBoxCollision(Ray& ray, S_BoxBounds box,  S_CollisionData& data)
-{
-	FVector3 rayOrigin = ray.GetOrigin();
-	FVector3 rayDirection = ray.GetDirection().GetNormal();
-	FVector3 boxMin = box.Min;
-	FVector3 boxMax = box.Max;
-	FMatrix4 modelMatrix = box.Model;
-
-	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
-	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
-
-	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
-	FVector3 delta = worldPosition - rayOrigin;
-
-	//X Axis
-	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
-	float deltaDot = delta * axis;
-	float directionDot = rayDirection * axis;
-	if (fabs(directionDot) > 0.0001f)
-	{
-		float t1 = (deltaDot + boxMin.X) / directionDot;
-		float t2 = (deltaDot + boxMax.X) / directionDot;
-
-		if (t1 > t2)
-		{
-			float w = t1;
-			t1 = t2;
-			t2 = w;
-		}
-
-		if (t2 < tMax) tMax = t2;
-		if (t1 > tMin) tMin = t1;
-		if (tMax < tMin) return false;
-	}
-	else if (-deltaDot + boxMin.X > 0.0f || -deltaDot + boxMax.X < 0.0f) return false;
-
-	//Y Axis
-	axis = FVector3(modelMatrix[1].X, modelMatrix[1].Y, modelMatrix[1].Z);
-	deltaDot = delta * axis;
-	directionDot = rayDirection * axis;
-	if (fabs(directionDot) > 0.0001f)
-	{
-		float t1 = (deltaDot + boxMin.Y) / directionDot;
-		float t2 = (deltaDot + boxMax.Y) / directionDot;
-
-		if (t1 > t2)
-		{
-			float w = t1;
-			t1 = t2;
-			t2 = w;
-		}
-
-		if (t2 < tMax) tMax = t2;
-		if (t1 > tMin) tMin = t1;
-		if (tMax < tMin) return false;
-	}
-	else if (-deltaDot + boxMin.Y > 0.0f || -deltaDot + boxMax.Y < 0.0f) return false;
-
-	//Z Axis
-	axis = FVector3(modelMatrix[2].X, modelMatrix[2].Y, modelMatrix[2].Z);
-	deltaDot = delta * axis;
-	directionDot = rayDirection * axis;
-	if (fabs(directionDot) > 0.0001f)
-	{
-		float t1 = (deltaDot + boxMin.Z) / directionDot;
-		float t2 = (deltaDot + boxMax.Z) / directionDot;
-
-		if (t1 > t2)
-		{
-			float w = t1;
-			t1 = t2;
-			t2 = w;
-		}
-
-		if (t2 < tMax) tMax = t2;
-		if (t1 > tMin) tMin = t1;
-		if (tMax < tMin) return false;
-	}
-	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
-
-	ray.SetLength(tMin);
-	data.CollisionPoint = ray.GetOrigin() + (ray.GetDirection() * tMin);
-	return true;
-}
-
-/*bool C_CollisionComponent::SphereSphereCollision(const Sphere& sphere0, const Sphere& sphere1, S_CollisionData& data, float tolerance)
-{
-	float distance = (sphere0.position - sphere1.position).Length();
-	if (distance - (sphere0.radius + sphere1.radius) <= tolerance)
-	{
-		data.CollisionPoint = ((sphere0.position - sphere1.position).GetNormal() * sphere1.radius) + sphere1.position;
-		return true;
-	}
-	else return false;
-}*/
 
 bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data)
 {
@@ -384,8 +289,10 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 		{
 		case OVERLAP:
 			OnOverlapBegin(data);
+			break;
 		case COLLISION:
 			OnCollision(data);
+			break;
 		default:
 			break;
 		}
@@ -441,6 +348,8 @@ void C_CollisionComponent::Update(const float deltaTime)
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner)
 {
 	CollisionType = collisionType;
+
+	//TODO: Collider must be added to partition throught the handler
 	//Owner->GetLevel()->AddCollider(this);
 }
 
@@ -662,12 +571,3 @@ bool C_CollisionComponent::Tetrahedron(Simplex& points, FVector3& direction)
 //
 //	return true;
 //}
-
-
-template<typename T>
-T* C_CollisionComponent::GetCollider() {
-	switch (colliderType) {
-	case 0:
-		return dynamic_cast<C_BoundingBox>(this);
-	}
-}

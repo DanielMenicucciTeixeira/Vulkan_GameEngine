@@ -38,7 +38,6 @@ protected:
 
 	static bool RaySphereCollision(const Ray& ray, const Sphere& sphere, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
-	static bool RayBoundingBoxCollision(Ray& ray, S_BoxBounds box, S_CollisionData& data);
 	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
 	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
 	static bool BoundingBoxBoundingBoxCollision(const S_BoxBounds& box1, const S_BoxBounds& box2, S_CollisionData& data);
@@ -54,8 +53,6 @@ protected:
 	static bool IsSeparatingPlane(const FVector3& RelativePosition, const FVector3& Plane, const S_BoxBounds& box1, const FVector3 box1Axis[3], const S_BoxBounds& box2, const FVector3 box2Axis[3]);
 
 public:
-	static bool RayCastSingleTarget(Ray& ray, S_CollisionData& data);
-	static bool RayCastMultiTarget(Ray& ray, std::vector<S_CollisionData>& outData);
 
 	inline ECollisionType GetCollisionType() { return CollisionType; }
 	inline void SetCollisionType(ECollisionType type) { CollisionType = type; }
@@ -63,9 +60,7 @@ public:
 	inline void SetOverlapBeginFunction(static void (*overlapBeginFunction)(O_GameObject* self, const S_CollisionData& data)) { OverlapBeginFunction = overlapBeginFunction; }
 	inline void SetOverlapEndFunction(static void (*overlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider)) { OverlapEndFunction = overlapEndFunction; }
 
-	//Function type return
-	template<typename T>
-	T* GetCollider();
+	inline ColliderType GetColliderType() { return colliderType; };
 
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
 	bool IsCollidingWith(C_CollisionComponent* collider);

@@ -52,7 +52,6 @@ public:
 	//The maped function must be of static void type and have a self reference to the engine and an SDL_Event as it's only parameters.
 	//Use SDLK_UNKNOWN for the keycode of non key or button functions. USE SDL_BUTTON or SDL_CONTROLLERBUTTON for keycode when applicable.
 	void SetEngineInputFunction(sdlEventType eventType, sdlKeycode keycode, static void(*function)(SDL_Event*));
-	inline static void LoadGame(SDL_Event* event) { GetInstance()->StartGame(); }
 	inline static void Quit(SDL_Event* event) { GetInstance()->StopEngine(); }
 	void CleanUp();
 
@@ -70,7 +69,6 @@ protected:
 	void HandleEvents();
 	void Update(const float deltaTime);
 	void Render();
-	bool StartGame();
 	inline void StopEngine() { RunningEngine = false; }
 
 	bool AddGameEvent(const char* eventName);

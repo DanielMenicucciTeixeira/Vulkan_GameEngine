@@ -137,7 +137,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 
 	//TODO: Linker error? why does this happen when calling Collision
 	//Collision detection
-	if (CollisionDetection::RaySimpleObbIntersection(ray, cell->GetBoundingBox()))
+	if (CollisionDetection::RayAABBIntersection(ray, cell->GetBoundingBox()))
 	{
 		if (cell->IsLeaf()) { 
 			for (auto coll : cell->GetColliders()) {
@@ -150,7 +150,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 
 void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 {
-	if (CollisionDetection::SphereSimpleObbIntersection(sphere, cell->GetBoundingBox()))
+	if (CollisionDetection::SphereAABBIntersection(sphere, cell->GetBoundingBox()))
 	{
 		if (cell->IsLeaf()) {
 			for (auto coll : cell->GetColliders()) {

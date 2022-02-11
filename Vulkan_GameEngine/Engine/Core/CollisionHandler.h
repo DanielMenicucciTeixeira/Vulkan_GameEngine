@@ -1,11 +1,12 @@
 #ifndef COLLISIONHANDLER_H
 #define COLLISIONHANDLER_H
 
-#include "../Objects/GameObjects/GameObject.h"
 #include "OctSpatialPartition.h"
 #include "Physics/CollisionData.h"
 #include <vector>
 #include <memory>
+
+class C_CollisionComponent;
 
 class CollisionHandler
 {
@@ -35,6 +36,8 @@ public:
 private:
 	CollisionHandler();
 	~CollisionHandler();
+
+
 
 	static std::unique_ptr<CollisionHandler> collisionInstance;
 	friend std::default_delete<CollisionHandler>;

@@ -13,11 +13,6 @@
 
 std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
-bool CoreEngine::StartGame()
-{
-	return true;
-}
-
 bool CoreEngine::AddGameEvent(const char* eventName)
 {
 	

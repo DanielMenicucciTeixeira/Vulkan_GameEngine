@@ -68,12 +68,6 @@ Ray& Ray::operator=(const Ray& ray)
 	return *this;
 }
 
-bool Ray::IsColliding(const C_BoundingBox* box)
-{
-	intersectDistance = -1;
-	return CollisionDetection::RayObbIntersection(*this, *box);
-}
-
 void Ray::SetIntersectDistance(float dis)
 {
 	intersectDistance = dis;

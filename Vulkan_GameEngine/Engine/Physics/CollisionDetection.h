@@ -26,17 +26,21 @@ public:
 	CollisionDetection() = delete;
 	~CollisionDetection();
 
-	//Ray & Bounding box collision
-	static bool RayObbIntersection(Ray& a, const C_BoundingBox & b);
 
-	//Ray & S_BoxBounds collision
-	static bool RaySimpleObbIntersection(Ray& a, const S_BoxBounds& b);
+	//Ray & BoundingBox single collision
+	static bool RayAABBIntersection(Ray& a, const S_BoxBounds b);
 
-	//Sphere & S_BoxBounds collision
-	static bool SphereSimpleObbIntersection(Sphere& a, const S_BoxBounds& b);
+	//TODO: Ray & Sphere single collision
 
-	//Sphere & Sphere Collision
-	static bool SphereSphereIntersection(Sphere& a, Sphere& b);
+	//TODO: Ray & BoundingBox multi collision
+
+	//TODO: Ray & Sphere multi collision
+
+	//Sphere & BoundingBox collision
+	static bool SphereAABBIntersection(Sphere& a, const S_BoxBounds b);
+
+	//Sphere & Sphere collision
+	static bool SphereSphereIntersection(Sphere& a, Sphere b);
 
 	/*
 	//AABB Collision.  Returns points of collision if true.

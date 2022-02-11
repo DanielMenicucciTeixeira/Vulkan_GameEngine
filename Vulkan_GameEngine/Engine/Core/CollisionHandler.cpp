@@ -1,4 +1,10 @@
 #include "CollisionHandler.h"
+#include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Objects/Components/Colliders/BoundingBox.h"
+#include "Objects/Components/Colliders/SphereCollider.h"
+#include "Geometry/Ray.h"
+#include "Physics/CollisionDetection.h"
+
 
 std::unique_ptr<CollisionHandler> CollisionHandler::collisionInstance = nullptr;
 std::vector<O_GameObject*> CollisionHandler::prevCollisions = std::vector<O_GameObject*>();
@@ -33,25 +39,35 @@ void CollisionHandler::Update(float deltaTime_)
 
 S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 {
+	S_CollisionData currentData;
 	float shortestDistance = FLT_MAX;
+	bool isCollideing = false;
 	for (auto coll : scenePartition->GetCollision(ray)) {
-		//TODO::Add in collision detection here
+		switch (coll->GetColliderType())
+		{
+		case ColliderType::BoundingBox:
+			isCollideing = CollisionDetection::RayAABBIntersection(ray, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
+			break;
+
+		case ColliderType::Sphere:
+			//TODO: Add in ray sphere collision.
+			//isCollideing = CollisionDetection::Ray
+			break;
+		}
+
+		if (isCollideing) {
+			if (shortestDistance > ray.GetIntersectDistance()) {
+				currentData = CollisionDetection::GetCollisionData();
+				shortestDistance = ray.GetIntersectDistance();
+			}
+		}
 	}
 
 	//Theory
 	// 
-	// using enum to remind collider what type it is.
-	// cast to type. Could use similar system to component casting?
-	// function selection. This could be done with a switch?
-	//
 	// For collision detection with other colliders
 	// could just return using the get?
-	// 
-	// 
-	// also use case for Detection is for when you want to compare two colliders and you have them.
-	// handler is used for seeing if there are any colliders that are colliding in a scene. (like an explosion)
 	//
-
 
 	//Attempt to make it actually check the objects in the section?
 /*if (ray.IsColliding(&obj->)) {
@@ -61,14 +77,30 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 	}
 }
 */
-	return S_CollisionData();
+	return currentData;
 }
 
 std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere)
 {
-
+	std::vector<S_CollisionData> currentData;
+	currentData.reserve(10);
+	float shortestDistance = FLT_MAX;
+	bool isCollideing = false;
 	for (auto coll : scenePartition->GetCollision(sphere)) {
 		//TODO: Collision Detection here
+		switch (coll->GetColliderType())
+		{
+		case ColliderType::BoundingBox:
+			isCollideing = CollisionDetection::SphereAABBIntersection(sphere, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
+			break;
+
+		case ColliderType::Sphere:
+			isCollideing = CollisionDetection::SphereSphereIntersection(sphere, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
+		}
+
+		if (isCollideing) {
+			currentData.push_back(CollisionDetection::GetCollisionData());
+		}
 	}
 
 	return std::vector<S_CollisionData>();

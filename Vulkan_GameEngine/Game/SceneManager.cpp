@@ -32,26 +32,29 @@ bool SceneManager::OnCreate()
 	return false;
 }
 
+void SceneManager::PreUpdate(const float deltaTime_)
+{
+	currentLevel->PreUpdate(deltaTime_);
+}
+
 void SceneManager::Update(const float deltaTime_)
 {
-	if (currentSceneNum != CoreEngine::GetInstance()->GetCurrentScene()) {
+	if (currentSceneNum != CoreEngine::GetInstance()->GetCurrentScene())
+	{
 		BuildScene();
 	}
 	currentLevel->Update(deltaTime_);
 }
 
-void SceneManager::Render()
+void SceneManager::PostUpdate(const float deltaTime_)
 {
-	//Taken from game Run()
-	//if (!CurrentLevel->CheckForCamera()) break;
-	currentLevel->Render();
-	//currentScene->Render();
+	currentLevel->PostUpdate(deltaTime_);
 }
 
-//void SceneManager::Draw()
-//{
-	//currentScene->Draw();
-//}
+void SceneManager::Render()
+{
+	currentLevel->Render();
+}
 
 void SceneManager::BuildScene()
 {

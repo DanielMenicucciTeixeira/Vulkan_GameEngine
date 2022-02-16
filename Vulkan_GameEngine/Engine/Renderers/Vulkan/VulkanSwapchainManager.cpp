@@ -363,12 +363,25 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     lightsLayoutBinding.pImmutableSamplers = nullptr;
 
-    VkDescriptorSetLayoutBinding materialLayoutBinding{};
+    /*VkDescriptorSetLayoutBinding materialLayoutBinding{};
     materialLayoutBinding.binding = 5;
     materialLayoutBinding.descriptorCount = 1;
     materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    materialLayoutBinding.pImmutableSamplers = nullptr;
+    materialLayoutBinding.pImmutableSamplers = nullptr;*/
+
+    std::vector<VkDescriptorSetLayoutBinding> materialDescriptorSets;
+    materialDescriptorSets.reserve(Manager->GetRenderData()->Materials.size());
+    int bidingCount = 5;
+    for (const auto& material : Manager->GetRenderData()->Materials)
+    {
+        VkDescriptorSetLayoutBinding materialLayoutBinding{};
+        materialLayoutBinding.binding = bidingCount;
+        materialLayoutBinding.descriptorCount = 1;
+        materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        materialLayoutBinding.pImmutableSamplers = nullptr;
+    }
 
     std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
@@ -400,7 +413,6 @@ void VulkanSwapchainManager::CreateDescriptorPool()
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes = poolSizes.data();
     poolInfo.maxSets = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
-    //if (poolInfo.maxSets < 1) poolInfo.maxSets = 1;
 
     if (vkCreateDescriptorPool(Manager->GetLogicalDevice(), &poolInfo, nullptr, &DescriptorPool) != VK_SUCCESS)
     {

@@ -174,20 +174,34 @@ bool L_Level::CheckForCamera()
 	return true;
 }
 
-void L_Level::Update(const float deltaTime)
+void L_Level::PreUpdate(const float deltaTime)
 {
 	LoadLevelObjects();
 	CheckCollisions();
 
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
 
+	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->PreUpdate(deltaTime);
+	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->PreUpdate(deltaTime);
+}
+
+void L_Level::Update(const float deltaTime)
+{
+	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
 
 	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
 
 	//check collision here
 	CollisionHandler::GetInstance()->Update(deltaTime);
-	
+}
+
+void L_Level::PostUpdate(const float deltaTime)
+{
+	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
+
+	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->PostUpdate(deltaTime);
+	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->PostUpdate(deltaTime);
 }
 
 void L_Level::Render()

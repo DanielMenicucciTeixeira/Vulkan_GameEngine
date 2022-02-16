@@ -31,7 +31,9 @@ public:
 
 	virtual bool Initialize();
 	virtual void Start();
+	virtual void PreUpdate(const float deltaTime);
 	virtual void Update(const float deltaTime);
+	virtual void PostUpdate(const float deltaTime);
 	virtual void Render();
 	virtual void CleanUp();
 	virtual void CheckCollisions();

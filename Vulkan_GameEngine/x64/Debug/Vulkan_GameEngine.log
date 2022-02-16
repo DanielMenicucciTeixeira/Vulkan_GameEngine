@@ -1,5 +1,6 @@
-﻿  CoreEngine.cpp
+﻿  VulkanSwapchainManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(185,119): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(779,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

@@ -38,15 +38,6 @@ public:
 struct S_Material
 {
 public:
-	/*struct S_Data
-	{
-		float Opacity = 1.0f;
-		float Shininess = 32.0f;
-		alignas(FVector4) FVector4 Ambient = FVector4(1.0f);
-		alignas(FVector4) FVector4 Diffuse = FVector4(1.0f);
-		alignas(FVector4) FVector4 Specular = FVector4(1.0f);
-	};*/
-	
 
 	//[#]X--------------Y---------------Z-----------W
 	//[0]Ambient.X------Ambient.Y-------Ambient.Z---0

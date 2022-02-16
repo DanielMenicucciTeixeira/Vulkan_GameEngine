@@ -51,7 +51,7 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 
 	engineWindow = new Window();
 
-	if (!engineWindow->Initialize(name, renderType))
+	if (!engineWindow->Initialize(name, renderType, width, height, positionX, positionY))
 	{
 		CleanUp();
 		DebugLogger::FatalError("Window failed to initialize", "CoreEngine", __LINE__);
@@ -81,7 +81,8 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 	
 	if (gameInterface) 
 	{
-		if (!gameInterface->OnCreate()) {
+		if (!gameInterface->OnCreate())
+		{
 			DebugLogger::FatalError("GameInterface could not be created", "CoreEngine.cpp", __LINE__);
 			return RunningEngine = false;
 		}
@@ -105,10 +106,12 @@ void CoreEngine::Run()
 	while (RunningEngine)
 	{
 		EngineClock.UpdateClock();
-
+		auto deltaTime = EngineClock.GetDeltaTimeSeconds();
+		PreUpdate(deltaTime);
 		HandleEvents();
-		Update(EngineClock.GetDeltaTimeSeconds());
-		Render(); 
+		Update(deltaTime);
+		Render();
+		PostUpdate(deltaTime);
 		SDL_Delay(EngineClock.GetSleepTime(FramesPerSecond));
 	}
 	CleanUp();
@@ -160,19 +163,24 @@ void CoreEngine::HandleEvents()
 	}
 }
 
+void CoreEngine::PreUpdate(const float deltaTime)
+{
+	gameInterface->PreUpdate(deltaTime);
+}
+
 void CoreEngine::Update(const float deltaTime)
 {
 	gameInterface->Update(deltaTime);
 }
 
+void CoreEngine::PostUpdate(const float deltaTime)
+{
+	gameInterface->PostUpdate(deltaTime);
+}
+
 void CoreEngine::Render()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	if (!gameInterface) { gameInterface->Render(); }
-	//if (CurrentGame) CurrentGame->Render();//must implement multiple windows to run game and engine simultaneously
-	SDL_GL_SwapWindow(engineWindow->GetSDLWindow());
-	
+	if (gameInterface) { gameInterface->Render(); }	
 	EngineRenderer->Render();
 }
 

@@ -14,7 +14,9 @@ public:
 	virtual ~O_Object() {}
 
 	virtual void Start() {};
+	virtual void PreUpdate(const float deltaTime) {};
 	virtual void Update(const float deltaTime) {};
+	virtual void PostUpdate(const float deltaTime) {};
 	bool UpdateWhenPaused = false;
 
 	///Tag Functions

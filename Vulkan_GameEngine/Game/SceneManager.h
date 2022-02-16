@@ -12,7 +12,9 @@ public:
 	SceneManager();
 	virtual ~SceneManager();
 	virtual bool OnCreate() override;
+	virtual void PreUpdate(const float deltaTime_) override;
 	virtual void Update(const float deltaTime_) override;
+	virtual void PostUpdate(const float deltaTime_) override;
 	virtual void Render() override;
 	//virtual void Draw() override;
 

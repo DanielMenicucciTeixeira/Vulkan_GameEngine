@@ -106,6 +106,9 @@ public:
 	FVector3 GetRotatedVector(const FQuaternion& rotation) const;
 	inline FVector3 GetRotatedVector(const FQuaternion*& rotation) const { return GetRotatedVector(*rotation); }
 
+	//Returns the dot product of vector
+	inline float GetDotProduct(FVector3 b) { return X * b.X + Y + b.Y + Z * b.Z; }
+
 	//Utility to populate vector
 	inline void Load(float x, float y, float z);
 

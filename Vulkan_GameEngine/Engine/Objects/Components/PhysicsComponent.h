@@ -45,6 +45,7 @@ public:
 	void Update(const float deltaTime) override;
 
 	//Add Functions
+
 	void AddAcceleration(FVector3 acceleration_);
 	void AddVelocity(FVector3 velocity_);
 	void AddAngularAcceleration(FVector3 angularAcceleration_);

@@ -27,7 +27,7 @@ Ray::~Ray()
 	if (Direction) delete(Direction);
 }
 
-FVector3 Ray::GetPositionAtLenght(float displacement) const
+FVector3 Ray::GetPositionAtLength(float displacement) const
 {
 	if (Infinit || abs(displacement) <= Length)
 	{

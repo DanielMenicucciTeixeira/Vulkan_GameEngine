@@ -22,7 +22,7 @@ private:
 	float intersectDistance;
 
 public:
-	FVector3 GetPositionAtLenght(float displacement) const;
+	FVector3 GetPositionAtLength(float displacement) const;
 
 	FVector3 GetOrigin() const;
 	FVector3 GetDirection() const;

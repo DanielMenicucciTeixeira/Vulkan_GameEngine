@@ -22,13 +22,16 @@ void C_PhysicsComponent::Update(const float deltaTime)
 	//If owner has movement as well translate them accordingly.
 	for (C_MovementComponent * c : Owner->GetComponentsOfClass<C_MovementComponent>()) {
 		c->Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
-
 		c->Rotate((
 			Owner->GetRotation() +
 			FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
 			FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
 			).GetNormal());
 	}
+
+	//c->Translsate(
+
+	//SingleComponent
 	velocity = velocityBuffer + (accelerationBuffer * deltaTime);
 	acceleration = accelerationBuffer;
 	angularAcceleration = angularAccelerationBuffer;

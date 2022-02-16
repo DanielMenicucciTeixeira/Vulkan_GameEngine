@@ -12,7 +12,7 @@ CollisionDetection::~CollisionDetection()
 {
 }
 
-bool CollisionDetection::RayAABBIntersection(Ray& a, const S_BoxBounds b)
+bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 {
 	FVector3 rayDirection = a.GetDirection().GetNormal();
 	FVector3 boxMin = b.Min;
@@ -97,7 +97,32 @@ bool CollisionDetection::RayAABBIntersection(Ray& a, const S_BoxBounds b)
 	a.SetIntersectDistance(tMin);
 	return true;
 }
-bool CollisionDetection::SphereAABBIntersection(Sphere& a, const S_BoxBounds b)
+bool CollisionDetection::RaySphereIntersection(Ray a, Sphere b)
+{
+	FVector3 l = b.position - a.GetOrigin();
+	float tca = l.GetDotProduct(a.GetDirection());
+	if (tca < 0) { return false; }
+
+	float d2 = l.GetDotProduct(l) - tca * tca;
+	float radius2 = b.radius * b.radius;
+	if (d2 > radius2) { return false; }
+
+	float thc = sqrt(radius2 - d2);
+	float t0 = tca - thc;
+	float t1 = tca + thc;
+
+	if (t0 > t1) { std::swap(t0, t1); } 
+
+	if (t0 < 0) {
+		t0 = t1; // if t0 is negative, let's use t1 instead 
+		if (t0 < 0) return false; // both t0 and t1 are negative 
+	}
+
+	a.SetIntersectDistance(t0);
+
+	return true;
+}
+bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
 	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
@@ -110,13 +135,33 @@ bool CollisionDetection::SphereAABBIntersection(Sphere& a, const S_BoxBounds b)
 	return distance < a.radius * a.radius;
 }
 
-bool CollisionDetection::SphereSphereIntersection(Sphere& a, Sphere b)
+bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
 {
 	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
 					  (a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
 					  (a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
 
 	return distance < (a.radius + b.radius);
+}
+
+bool CollisionDetection::AABBIntersection(S_BoxBounds a, S_BoxBounds b)
+{
+	FVector3 aTransformPos = FVector3(a.Model[3].X, a.Model[3].Y, a.Model[3].Z);
+	FVector3 bTransformPos = FVector3(b.Model[3].X, b.Model[3].Y, b.Model[3].Z);
+
+	FVector3 minCorner = a.Min + aTransformPos;
+	FVector3 maxCorner = a.Max + aTransformPos;
+
+	FVector3 otherMinCorner = b.Min + bTransformPos;
+	FVector3 otherMaxCorner = b.Max + bTransformPos;
+
+	if (minCorner.X <= otherMaxCorner.X && maxCorner.X >= otherMinCorner.X &&
+		minCorner.Y <= otherMaxCorner.Y && maxCorner.Y >= otherMinCorner.Y &&
+		minCorner.Z <= otherMaxCorner.Z && maxCorner.Z >= otherMinCorner.Z) {
+		return true;
+	}
+
+	return false;
 }
 
 /*

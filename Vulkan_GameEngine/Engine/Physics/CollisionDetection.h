@@ -27,24 +27,23 @@ public:
 	~CollisionDetection();
 
 
-	//Ray & BoundingBox single collision
-	static bool RayAABBIntersection(Ray& a, const S_BoxBounds b);
+	//Ray & BoundingBox collision
+	static bool RayAABBIntersection(Ray a, const S_BoxBounds b);
 
-	//TODO: Ray & Sphere single collision
-
-	//TODO: Ray & BoundingBox multi collision
-
-	//TODO: Ray & Sphere multi collision
+	//Ray & Sphere collision, Geometry based
+	static bool RaySphereIntersection(Ray a, Sphere b);
 
 	//Sphere & BoundingBox collision
-	static bool SphereAABBIntersection(Sphere& a, const S_BoxBounds b);
+	static bool SphereAABBIntersection(Sphere a, const S_BoxBounds b);
 
 	//Sphere & Sphere collision
-	static bool SphereSphereIntersection(Sphere& a, Sphere b);
+	static bool SphereIntersection(Sphere a, Sphere b);
+
+	//AABB & AABB Collision.
+	static bool AABBIntersection(S_BoxBounds a, S_BoxBounds b);
 
 	/*
-	//AABB Collision.  Returns points of collision if true.
-	static bool Collision(C_BoundingBox a, C_BoundingBox b);
+
 
 	//Box Box Collision.  Returns points of collision if true.
 	static bool Collision(C_BoxCollider a, C_BoxCollider b);

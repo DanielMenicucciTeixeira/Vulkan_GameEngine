@@ -11,7 +11,6 @@
 class Ray;
 class Sphere;
 class Box;
-struct S_BoxBounds;
 class FVector3;
 class Plane;
 class C_BoundingBox;
@@ -36,11 +35,9 @@ protected:
 	ECollisionType CollisionType;
 	FVector3 CollisionMeshCenter;
 
-	static bool RaySphereCollision(const Ray& ray, const Sphere& sphere, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
 	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
-	static bool BoundingBoxBoundingBoxCollision(const S_BoxBounds& box1, const S_BoxBounds& box2, S_CollisionData& data);
 
 	virtual void OnCollision(const S_CollisionData& data);
 	virtual void OnOverlapBegin(const S_CollisionData& data);
@@ -49,8 +46,6 @@ protected:
 	void (*CollisionFunction)(O_GameObject* self, const S_CollisionData& data);
 	void (*OverlapBeginFunction)(O_GameObject* self, const S_CollisionData& data);
 	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
-
-	static bool IsSeparatingPlane(const FVector3& RelativePosition, const FVector3& Plane, const S_BoxBounds& box1, const FVector3 box1Axis[3], const S_BoxBounds& box2, const FVector3 box2Axis[3]);
 
 public:
 

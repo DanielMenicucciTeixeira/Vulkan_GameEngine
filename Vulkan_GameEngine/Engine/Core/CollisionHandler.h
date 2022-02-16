@@ -25,11 +25,17 @@ public:
 
 
 
-	
+	//Get closest collider
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
+
+	//Get all colliders
+	std::vector<S_CollisionData> GetCollisionMuliRay(Ray& ray);
 
 	//Get all objects colliding with the sphere
 	std::vector<S_CollisionData> GetSphereCollision(Sphere& sphere);
+
+	//Get all colliders colliding with the bounding box
+	std::vector<S_CollisionData> GetAABBCollision(S_BoxBounds bounds);
 
 	//TODO:Tag filters?
 

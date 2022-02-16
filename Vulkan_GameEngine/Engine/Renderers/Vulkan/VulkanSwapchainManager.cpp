@@ -342,22 +342,22 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
     modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
 
-    VkDescriptorSetLayoutBinding samplerLayoutBinding{};
+    /*VkDescriptorSetLayoutBinding samplerLayoutBinding{};
     samplerLayoutBinding.binding = 2;
     samplerLayoutBinding.descriptorCount = 1;
     samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
     samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    samplerLayoutBinding.pImmutableSamplers = nullptr;
+    samplerLayoutBinding.pImmutableSamplers = nullptr;*/
 
     VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
-    numberOfLightsLayoutBinding.binding = 3;
+    numberOfLightsLayoutBinding.binding = 2;
     numberOfLightsLayoutBinding.descriptorCount = 1;
     numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
 
     VkDescriptorSetLayoutBinding lightsLayoutBinding{};
-    lightsLayoutBinding.binding = 4;
+    lightsLayoutBinding.binding = 3;
     lightsLayoutBinding.descriptorCount = 1;
     lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;

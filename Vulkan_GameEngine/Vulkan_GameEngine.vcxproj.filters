@@ -273,7 +273,7 @@
     <ClCompile Include="Engine\Core\GameInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Renderers\Material.cpp">
+    <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -521,7 +521,10 @@
     <ClInclude Include="Engine\Math\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Renderers\Material.h">
+    <ClInclude Include="Engine\Renderers\Materials\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

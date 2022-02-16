@@ -1,16 +1,21 @@
 #include "Level.h"
-#include "Objects/Components/Colliders/CollisionComponent.h"
+
+#include "CoreEngine.h"
 #include "Game.h"
-#include "Renderers/RenderObject.h"
-#include "Renderers/RenderInitializationData.h"
-#include "Graphics/AssetLoader.h"
-#include "Graphics/TextureLoader.h"
-#include "Objects/Components/CameraComponent.h"
-#include "Renderers/Renderer.h"
 #include "LevelGraph.h"
 #include "CollisionHandler.h"
+
+#include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Objects/Components/CameraComponent.h"
+
+#include "Renderers/RenderObject.h"
+#include "Renderers/RenderInitializationData.h"
+#include "Renderers/Renderer.h"
 #include "Renderers/TextureHandler.h"
-#include "CoreEngine.h"
+#include "Renderers/Material.h"
+
+#include "Graphics/AssetLoader.h"
+#include "Graphics/TextureLoader.h"
 
 #include <algorithm>
 
@@ -46,16 +51,16 @@ void L_Level::LoadModels()
 }
 void L_Level::LoadMaterialLibrary()
 {
-	std::set<S_Material*> materialSet = std::set<S_Material*>();
+	std::set<Material*> materialSet = std::set<Material*>();
 	for (const auto& path : MaterialPaths) AssetLoader::LoadMaterialLibrary(path, materialSet);
 	for (const auto& material : materialSet) LevelGraph::GetInstance()->AddMaterial(material);
 	MaterialPaths.clear();
 }
-void L_Level::LoadMaterial(S_Material* material)
+void L_Level::LoadMaterial(Material* material)
 {
 	LevelGraph::GetInstance()->AddMaterial(material);
-	if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
-	if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
+	//if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
+	//if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
 }
 
 bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)

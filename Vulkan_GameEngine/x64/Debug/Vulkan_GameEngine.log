@@ -1,6 +1,159 @@
-﻿  VulkanSwapchainManager.cpp
+﻿  Game.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+  LevelGraph.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\LevelGraph.cpp(168,45): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  DirectionalLight.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+  LightSourceComponent.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+  CoreEngine.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(193,119): warning C4042: 'function': has bad storage class
+  Apple.cpp
+  BilliardGame.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+  GameObject.cpp
+  BilliardLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardLevel.cpp(26,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\BilliardLevel.cpp(68,135): warning C4305: 'argument': truncation from 'double' to 'float'
+  Level.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\OctSpatialPartition.h(41,38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  L_StartLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+  L_MainLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(67,61): error C2039: 'TextureNameDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(68,61): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(69,59): error C2248: 'Material::ShaderName': cannot access protected member declared in class 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(98): message : see declaration of 'Material::ShaderName'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(71,61): error C2039: 'TextureNameDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(72,61): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(73,59): error C2248: 'Material::ShaderName': cannot access protected member declared in class 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(98): message : see declaration of 'Material::ShaderName'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(75,62): error C2039: 'TextureNameDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(76,62): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(77,60): error C2248: 'Material::ShaderName': cannot access protected member declared in class 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(98): message : see declaration of 'Material::ShaderName'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(137,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  Game01.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+  OpelGLManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(109,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(128,65): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(128,86): error C2198: 'PFNGLBUFFERDATAPROC': too few arguments for call
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(134,54): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(134,68): error C2660: 'glBindTexture': function does not take 1 arguments
+C:\GameDev\OpenGL\include\glew.h(853,23): message : see declaration of 'glBindTexture'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(148,83): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  GO_Triangle.cpp
+  LightSource.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+  SceneManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+  L_TetrahedronLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\L_TetrahedronLevel.cpp(45,62): error C2039: 'TextureNameDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\L_TetrahedronLevel.cpp(46,62): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\L_TetrahedronLevel.cpp(47,60): error C2248: 'Material::ShaderName': cannot access protected member declared in class 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(98): message : see declaration of 'Material::ShaderName'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\StaticMeshComponent.h(8): message : see declaration of 'Material'
+  Source.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  StaticMeshComponent.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(62,116): warning C4042: 'collisionFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(63,122): warning C4042: 'overlapBeginFunction': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\Colliders\CollisionComponent.h(64,126): warning C4042: 'overlapEndFunction': has bad storage class
+  Generating Code...
+  Compiling...
+  VulkanSwapchainManager.cpp
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(317,36): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(318,188): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(318,228): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(318,243): error C2660: 'VulkanManager::CreateBuffer': function does not take 3 arguments
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.h(117,7): message : see declaration of 'VulkanManager::CreateBuffer'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(386,175): error C2065: 'materialLayoutBinding': undeclared identifier
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(468,64): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(474,66): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(475,64): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(547,38): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(548,39): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(549,78): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(570,224): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(570,278): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(570,311): error C2660: 'VulkanSwapchainManager::CreateImage': function does not take 6 arguments
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(223,30): message : see declaration of 'VulkanSwapchainManager::CreateImage'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(572,56): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(573,67): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(573,169): error C2660: 'VulkanSwapchainManager::CopyBufferToImage': function does not take 3 arguments
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.h(87,7): message : see declaration of 'VulkanSwapchainManager::CopyBufferToImage'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(574,56): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(579,34): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(579,109): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(580,55): error C2039: 'TextureDifuse': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(779,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(791,73): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(791,143): error C2660: 'vkMapMemory': function does not take 5 arguments
+C:\GameDev\Vulkan\include\vulkan\vulkan_core.h(3328,32): message : see declaration of 'vkMapMemory'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(793,75): error C2039: 'Data': is not a member of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Material.h(90): message : see declaration of 'Material'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(793,106): error C2660: 'vkUnmapMemory': function does not take 1 arguments
+C:\GameDev\Vulkan\include\vulkan\vulkan_core.h(3336,28): message : see declaration of 'vkUnmapMemory'
+  Generating Code...

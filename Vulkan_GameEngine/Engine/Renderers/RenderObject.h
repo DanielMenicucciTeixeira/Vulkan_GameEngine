@@ -17,6 +17,7 @@ public:
 	int Channels = 0;
 	uint8_t BytesPerPixel = 0;
 	void* Pixels = nullptr;
+	size_t ImageSize = 0;
 
 	std::string Path = "";
 	std::string Name = "";

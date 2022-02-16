@@ -16,20 +16,17 @@ layout (location = 2) in vec3 Normal;
 layout (location = 3) in vec3 FragPosition;
 layout (location = 4) in vec3 CameraPosition;
 
-
-layout (binding = 2) uniform sampler2D TextureDifuse;
-
-layout (binding = 3, std140) uniform UniformNumberOfLights
+layout (binding = 2, std140) uniform UniformNumberOfLights
 {
 	int Number;
 } NumberOfLights;
 
-layout (binding = 4, std140) uniform UniformLights 
+layout (binding = 3, std140) uniform UniformLights 
 {
 	mat4 InfoMatrix[30];
 } Lights;
 
-layout (binding = 5) uniform UniformMaterial
+layout (binding = 4) uniform UniformMaterial
 {
 	//			x				y				z			w
 	// [0]	Ambient.X		Ambient.Y		Ambient.Z		0
@@ -38,6 +35,8 @@ layout (binding = 5) uniform UniformMaterial
 	// [3]	Shinines		Opacity			0				0
 	mat4 Data;
 } Material;
+
+layout (binding = 5) uniform sampler2D TextureDifuse;
 
 layout(location = 0) out vec4 FragColour;
 

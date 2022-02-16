@@ -1,5 +1,6 @@
 #include "AssetLoader.h"
 #include "Renderers/RenderObject.h"
+#include "Renderers/Materials/StandardMaterial.h"
 #include "DebugLogger.h"
 
 #define TINYOBJLOADER_IMPLEMENTATION
@@ -168,7 +169,7 @@ bool AssetLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet
     return loaded;
 }
 
-bool AssetLoader::LoadMaterial(std::string materialPath, S_Material* outMaterial)
+bool AssetLoader::LoadMaterial(std::string materialPath, Material* outMaterial)
 {
     std::ifstream materialFile(materialPath.c_str(), std::ios::in);
     if (!materialFile)
@@ -185,7 +186,7 @@ bool AssetLoader::LoadMaterial(std::string materialPath, S_Material* outMaterial
     return loaded;
 }
 
-bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<S_Material*>& outMaterialSet)
+bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<Material*>& outMaterialSet)
 {
     std::ifstream materialFile(materialPath.c_str(), std::ios::in);
     if (!materialFile)
@@ -196,16 +197,16 @@ bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<S_Mater
 
     std::string line;
     bool loaded = false;
-    S_Material* material = nullptr;
+    M_StandardMaterial* material = nullptr;
     while (std::getline(materialFile, line))
     {
         //MeshName
         if (line.substr(0, 7) == "newmtl ")
         {
             loaded = true;
-            material = new S_Material();
+            material = new M_StandardMaterial();
             outMaterialSet.insert(material);
-            material->Name = "M_" + line.substr(7);
+            material->SetMaterialName("M_" + line.substr(7));
         }
 
         //Ambient Data
@@ -214,39 +215,39 @@ bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<S_Mater
             std::stringstream values(line.substr(4));
             float x, y, z;
             values >> x >> y >> z;
-            material->Data[0] = FVector4(x, y, z, 0);
+            material->ReflectionData.Value[0] = FVector4(x, y, z, 0);
         }
 
-        //Diffuse Data
+        //Diffuse ReflectionData
         else if (line.substr(0, 4) == "\tKd ")
         {
             std::stringstream values(line.substr(4));
             float x, y, z;
             values >> x >> y >> z;
-            material->Data[1] = FVector4(x, y, z, 0);
+            material->ReflectionData.Value[1] = FVector4(x, y, z, 0);
         }
 
-        //Specular Data
+        //Specular ReflectionData
         else if (line.substr(0, 4) == "\tKs ")
         {
             std::stringstream values(line.substr(4));
             float x, y, z;
             values >> x >> y >> z;
-            material->Data[2] = FVector4(x, y, z, 0);
+            material->ReflectionData.Value[2] = FVector4(x, y, z, 0);
         }
 
-        //Shininess Data
+        //Shininess ReflectionData
         else if (line.substr(0, 4) == "\tNs ")
         {
             std::stringstream values(line.substr(4));
-            values >> material->Data[3][0];
+            values >> material->ReflectionData.Value[3][0];
         }
 
-        //Opacity Data
+        //Opacity ReflectionData
         else if (line.substr(0, 3) == "\td ")
         {
             std::stringstream values(line.substr(3));
-            values >> material->Data[3][1];
+            values >> material->ReflectionData.Value[3][1];
         }
     }
     return loaded;

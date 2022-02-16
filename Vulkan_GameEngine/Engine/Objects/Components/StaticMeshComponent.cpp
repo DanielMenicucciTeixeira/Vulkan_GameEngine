@@ -15,14 +15,14 @@ void C_StaticMeshComponent::Start()
 	Box->SetComponentTransform(*Transform);
 }
 
-S_Texture* C_StaticMeshComponent::GetTextureDifuse() const
+/*S_Texture* C_StaticMeshComponent::GetTextureDifuse() const
 {
 	return Material->TextureDifuse;
-}
-S_Texture* C_StaticMeshComponent::GetTextureSpecular() const
+}*/
+/*S_Texture* C_StaticMeshComponent::GetTextureSpecular() const
 {
 	return Material->TextureSpecular;
-}
+}*/
 
 void C_StaticMeshComponent::SetInFrustum(bool inFrustum)
 {

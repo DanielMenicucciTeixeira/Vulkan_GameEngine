@@ -12,12 +12,6 @@
 #include "LevelGraph.h"
 #include "../CameraComponent.h"
 
-bool C_CollisionComponent::IsCollidingWith(C_CollisionComponent* collider)
-{
-	if (OverlapedColliders.count(collider)) return true;
-	return false;
-}
-
 
 bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision)
 {
@@ -103,30 +97,6 @@ bool C_CollisionComponent::SphereBoxCollision(const Sphere& sphere, const Box& b
 	return false;
 }
 
-void C_CollisionComponent::CheckForCollisions(std::vector<C_CollisionComponent*> colliderVector)
-{
-	if (colliderVector.size() <= 0) return;
-	S_CollisionData data;
-	for (int i = 0; i < colliderVector.size(); i++)
-	{
-		for (int j = i+1; j < colliderVector.size(); j++)
-		{
-			if (colliderVector[i]->Collide(colliderVector[j], data))
-			{
-				colliderVector[i]->AddOverlapedCollider(colliderVector[j]);
-				colliderVector[j]->AddOverlapedCollider(colliderVector[i]);
-
-				//data.OtherGameObject = colliderVector[j]->GetOwner();
-				data.OtherCollisonComponent = colliderVector[j];
-				colliderVector[i]->ChooseCollisionType(colliderVector[j], data);
-
-				//data.OtherGameObject = colliderVector[i]->GetOwner();
-				data.OtherCollisonComponent = colliderVector[i];
-				colliderVector[j]->ChooseCollisionType(colliderVector[i], data);
-			}
-		}
-	}
-}
 
 void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data)
 {
@@ -147,14 +117,6 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 		}
 	}
 	else OnOverlapBegin(data);
-}
-
-
-bool C_CollisionComponent::Collide(const C_CollisionComponent* otherCollider, S_CollisionData& data) const
-{
-	if (!otherCollider) return false;
-
-	return GJK(this, otherCollider);
 }
 
 void C_CollisionComponent::OnCollision(const S_CollisionData& data)
@@ -184,11 +146,13 @@ void C_CollisionComponent::Update(const float deltaTime)
 
 	for (const auto& collider : OverlapedColliders)
 	{
+		/*
 		if (!Collide(collider, data))
 		{
 			OnOverlapEnd(collider);
 			collidersToRemove.insert(collider);
 		}
+		*/
 	}
 
 	for (const auto& collider : collidersToRemove) OverlapedColliders.erase(collider);

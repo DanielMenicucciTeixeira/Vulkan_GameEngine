@@ -1,7 +1,7 @@
 #include "CollisionDetection.h"
-#include "Objects/Components/Colliders/BoundingBox.h"
-#include "Objects/Components/Colliders/BoxCollider.h"
-#include "Objects/Components/Colliders/SphereCollider.h"
+#include "Geometry/BoxBounds.h"
+#include "Geometry/Box.h"
+#include "Geometry/Sphere.h"
 #include "Geometry/Ray.h"
 #include "LevelGraph.h"
 
@@ -122,6 +122,50 @@ bool CollisionDetection::RaySphereIntersection(Ray a, Sphere b)
 
 	return true;
 }
+bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
+{
+	int i = 0;
+	FVector3 interssection[6];
+	for (auto &plane : b.box)
+	{
+		if(plane.InterssectionPoint(a, interssection[i]) &&
+		   interssection[i].X <= b.GetExtent().X && interssection[i].X >= 0 &&
+		   interssection[i].Y <= b.GetExtent().Y && interssection[i].Y >= 0 &&
+		   interssection[i].Z <= b.GetExtent().Z && interssection[i].Z >= 0) 
+		{
+			i++;
+			if (i >= 2) break;
+		}
+	}
+
+
+	if (i == 0) return false;
+	/*
+	if (stopAtFirstCollision)
+	{
+		FVector3 closestPoint = interssection[0];
+		for (int j = 1; j <= i; j++)
+		{
+			if ((a.GetOrigin() - interssection[j]).Length() < (a.GetOrigin() - closestPoint).Length())
+			{
+				closestPoint = interssection[j];
+			}
+		}
+		collisionPoints[0] = closestPoint;
+	}
+	else
+	{
+		for (int j = 0; j <= i; j++)
+		{
+			collisionPoints[j] = interssection[j];
+		}
+	}
+	a.SetIntersectDistance(collisionPoints[0])
+	*/
+
+	//TODO: Finish this
+	return true;
+}
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
@@ -133,6 +177,12 @@ bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 				   	  (z - a.position.Z) * (z - a.position.Z));
 	
 	return distance < a.radius * a.radius;
+}
+
+bool CollisionDetection::SphereOBBIntersection(Sphere a, Box b)
+{
+	//TODO: Finish
+	return false;
 }
 
 bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
@@ -164,40 +214,18 @@ bool CollisionDetection::AABBIntersection(S_BoxBounds a, S_BoxBounds b)
 	return false;
 }
 
-/*
-bool CollisionDetection::Collision(C_BoundingBox a, C_BoundingBox b)
+bool CollisionDetection::AABBOBBIntersection(S_BoxBounds a, Box b)
 {
-	FVector3 minCorner = a.GetMin() + a.GetComponentAbsolutePosition();
-	FVector3 maxCorner = a.GetMax() + a.GetComponentAbsolutePosition();
-
-	FVector3 otherMinCorner = b.GetMin() + b.GetComponentAbsolutePosition();
-	FVector3 otherMaxCorner = b.GetMax() + b.GetComponentAbsolutePosition();
-
-	if (minCorner.X <= otherMaxCorner.X && maxCorner.X >= otherMinCorner.X &&
-		minCorner.Y <= otherMaxCorner.Y && maxCorner.Y >= otherMinCorner.Y &&
-		minCorner.Z <= otherMaxCorner.Z && maxCorner.Z >= otherMinCorner.Z) {
-		return true;
-	}
-
+	//TODO: Finish this
 	return false;
 }
 
-bool CollisionDetection::Collision(C_BoxCollider a, C_BoxCollider b)
+bool CollisionDetection::OBBIntersection(Box a, Box b)
 {
-
+	//TODO: Fill in
 	return false;
 }
 
-FVector3 * CollisionDetection::Collision(C_SphereCollider a, C_SphereCollider b)
-{
-	float distance = (a.GetCollisionSphere().position - b.GetCollisionSphere().position).Length();
-	if (distance - (a.GetRadius() + b.GetRadius()) <= 0.01f)
-	{
-		return new FVector3(((a.GetCollisionSphere().position - b.GetCollisionSphere().position).GetNormal() * b.GetRadius()) + b.GetCollisionSphere().position);
-	}
-	else return nullptr;
-}
-*/
 S_CollisionData CollisionDetection::GetCollisionData()
 {
 	return collisionData;

@@ -74,6 +74,7 @@ public:
 	std::vector<S_CollisionData> GetCollision(Ray& ray, bool getAll);
 	std::vector<S_CollisionData> GetCollision(Sphere& sphere);
 	std::vector<S_CollisionData> GetCollision(S_BoxBounds& bounds);
+	std::vector<S_CollisionData> GetCollision(Box& box);
 	inline OctNode* GetRoot() { return root; }
 
 	//Does collision detection on every node.
@@ -89,6 +90,7 @@ private:
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell, bool getAll);
 	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell);
 	void GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cell);
+	void GetIntersectedLeaves(Box& box, OctNode* cell);
 	std::vector<S_CollisionData> intersectionList;
 };
 #endif

@@ -4,6 +4,8 @@
 #include "Objects/GameObjects/GameObject.h"
 #include "Objects/Components/Colliders/BoundingBox.h"
 #include "Objects/Components/Colliders/SphereCollider.h"
+#include "Objects/Components/Colliders/BoxCollider.h"
+#include "Geometry/Box.h"
 #include <iostream>
 
 unsigned int OctNode::ChildrenCount = 0;
@@ -112,9 +114,18 @@ std::vector<S_CollisionData> OctSpatialPartition::GetCollision(S_BoxBounds& boun
 
 	intersectionList.reserve(20);
 
-	//Not returning it imediatly can help in case's where it collides with two or more boxs.  
-	//Should this be allowed?
 	GetIntersectedLeaves(bounds, root);
+
+	return intersectionList;
+}
+
+std::vector<S_CollisionData> OctSpatialPartition::GetCollision(Box& box)
+{
+	intersectionList.clear();
+
+	intersectionList.reserve(20);
+
+	GetIntersectedLeaves(box, root);
 
 	return intersectionList;
 }
@@ -158,6 +169,10 @@ void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, bool get
 				case ColliderType::Sphere:
 					isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
 					break;
+
+				case ColliderType::Box:
+					isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+					break;
 				}
 
 				if (isCollideing) {
@@ -192,6 +207,10 @@ void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 				case ColliderType::Sphere:
 					isCollideing = CollisionDetection::SphereIntersection(sphere, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
 					break;
+
+				case ColliderType::Box:
+					isCollideing = CollisionDetection::SphereOBBIntersection(sphere, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+					break;
 				}
 
 				if (isCollideing) {
@@ -220,6 +239,10 @@ void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cel
 				case ColliderType::Sphere:
 					isCollideing = CollisionDetection::SphereAABBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), bounds);
 					break;
+
+				case ColliderType::Box:
+					isCollideing = CollisionDetection::AABBOBBIntersection(bounds, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+					break;
 				}
 
 				if (isCollideing) {
@@ -231,6 +254,40 @@ void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cel
 	}
 }
 
+void OctSpatialPartition::GetIntersectedLeaves(Box& box, OctNode* cell)
+{
+	bool isCollideing = false;
+	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), box))
+	{
+		//TODO: Finish detection here
+		if (cell->IsLeaf()) {
+			for (auto coll : cell->GetColliders()) {
+				switch (coll->GetColliderType())
+				{
+				case ColliderType::BoundingBox:
+					isCollideing = CollisionDetection::AABBOBBIntersection(static_cast<C_BoundingBox*>(coll)->GetBoxBounds(), box);
+					break;
+
+				case ColliderType::Sphere:
+					isCollideing = CollisionDetection::SphereOBBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), box);
+					break;
+
+				case ColliderType::Box:
+					isCollideing = CollisionDetection::OBBIntersection(box, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+					break;
+				}
+
+				if (isCollideing) {
+					intersectionList.push_back(CollisionDetection::GetCollisionData());
+				}
+			}
+		}
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(box, cell->GetChild(static_cast<EOctChildren>(i)));
+	}
+}
+
+
+//TODO: could you create sub versions of them that would take in the specific types?  this would remove the need for the switch and cast.
 void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)
 {
 	bool isCollideing = false;
@@ -242,6 +299,10 @@ void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctN
 
 	case ColliderType::Sphere:
 		isCollideing = CollisionDetection::SphereAABBIntersection(static_cast<C_SphereCollider*>(collider)->GetCollisionSphere(), cell->GetBoundingBox());
+		break;
+
+	case ColliderType::Box:
+		isCollideing = CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), static_cast<C_BoxCollider*>(collider)->GetCollisionBox());
 		break;
 	}
 

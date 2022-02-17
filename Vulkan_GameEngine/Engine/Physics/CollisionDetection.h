@@ -4,11 +4,12 @@
 #include "Geometry/BoxBounds.h"
 #include "Math/Math.h"
 
-class C_BoundingBox;
-class C_BoxCollider;
-class C_SphereCollider;
+
+
 class Ray;
+class S_BoxBounds;
 class Sphere;
+class Box;
 
 using namespace MATH;
 
@@ -26,6 +27,7 @@ public:
 	CollisionDetection() = delete;
 	~CollisionDetection();
 
+	//Ray
 
 	//Ray & BoundingBox collision
 	static bool RayAABBIntersection(Ray a, const S_BoxBounds b);
@@ -33,24 +35,36 @@ public:
 	//Ray & Sphere collision, Geometry based
 	static bool RaySphereIntersection(Ray a, Sphere b);
 
-	//Sphere & BoundingBox collision
-	static bool SphereAABBIntersection(Sphere a, const S_BoxBounds b);
+	//Ray & Box collision
+	static bool RayOBBIntersection(Ray a, Box b);
+
+	//Sphere
 
 	//Sphere & Sphere collision
 	static bool SphereIntersection(Sphere a, Sphere b);
 
-	//AABB & AABB Collision.
+	//Sphere & BoundingBox collision
+	static bool SphereAABBIntersection(Sphere a, const S_BoxBounds b);
+
+	//Sphere & Box collision
+	static bool SphereOBBIntersection(Sphere a, Box b);
+
+	//AABB
+
+	//AABB & AABB collision.
 	static bool AABBIntersection(S_BoxBounds a, S_BoxBounds b);
 
-	/*
+	//AABB & Box collision
+	static bool AABBOBBIntersection(S_BoxBounds a, Box b);
+
+	//Box
+
+	//Box & Box collision
+	static bool OBBIntersection(Box a, Box b);
 
 
-	//Box Box Collision.  Returns points of collision if true.
-	static bool Collision(C_BoxCollider a, C_BoxCollider b);
 
-	//Sphere Sphere Collision.  Returns points of collision if true.
-	static FVector3 * Collision(C_SphereCollider a, C_SphereCollider b);
-	*/
+
 
 	//Return collision data of last detection
 	static S_CollisionData GetCollisionData();

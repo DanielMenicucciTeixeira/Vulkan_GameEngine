@@ -119,6 +119,25 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 	else OnOverlapBegin(data);
 }
 
+void C_CollisionComponent::SetComponentPosition(const FVector3& position)
+{
+	//Do the static check here as well?
+	Transform->SetPosition(position);
+	//TODO:Do check to see if in same collider here.
+	///Theory
+	///
+	/// have a pointer to keep track of where what partiton you are in.
+	/// what do we do about the time in between the two?
+	/// 
+	/// Call function in coll handler that takes in the colliders shape and the cell pointer.
+	/// 
+	/// will have to make three new functions for spatial part to take in the collider types.
+	/// 
+	/// if the cells don't match up then remove the pointer from the list and add it to the new one, also change the pointer adress
+	/// in the collider to the new one. (could this be done in the function by changing it?  would that work?)
+	/// 
+}
+
 void C_CollisionComponent::OnCollision(const S_CollisionData& data)
 {
 	if(CollisionFunction) CollisionFunction(Owner, data);
@@ -140,22 +159,6 @@ void C_CollisionComponent::OnOverlapEnd(C_CollisionComponent* otherCollider)
 void C_CollisionComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
-	S_CollisionData data;
-
-	std::set<C_CollisionComponent*> collidersToRemove;
-
-	for (const auto& collider : OverlapedColliders)
-	{
-		/*
-		if (!Collide(collider, data))
-		{
-			OnOverlapEnd(collider);
-			collidersToRemove.insert(collider);
-		}
-		*/
-	}
-
-	for (const auto& collider : collidersToRemove) OverlapedColliders.erase(collider);
 }
 
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner)

@@ -41,7 +41,8 @@ public:
 	inline ColliderType GetColliderType() { return colliderType; };
 
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
-	inline void AddOverlapedCollider(C_CollisionComponent* collider) { OverlapedColliders.insert(collider); }
+
+	virtual void SetComponentPosition(const FVector3& position) override;
 
 	virtual void Update(const float deltaTime) override;
 
@@ -61,7 +62,6 @@ public:
 	static bool Tetrahedron(Simplex& points, FVector3& direction);
 
 protected:
-	std::set<C_CollisionComponent*> OverlapedColliders;
 	ECollisionType CollisionType;
 	FVector3 CollisionMeshCenter;
 

@@ -5,7 +5,7 @@
 //#include "Objects/Object.h"
 #include <string>
 struct S_Mesh;
-class Material;
+class MaterialClass;
 struct S_Texture;
 struct FTransform;
 class FMatrix4;
@@ -24,13 +24,13 @@ public:
 	inline S_Mesh* GetMesh() const { return Mesh; }
 	//S_Texture* GetTextureDifuse() const;
 	//S_Texture* GetTextureSpecular() const;
-	inline Material* GetMaterial() const { return Material; }
+	inline MaterialClass* GetMaterial() const { return Material; }
 	inline const std::string& GetMeshName() const { return MeshName; }
 	inline const std::string& GetMaterialName() const { return MaterialName; }
 
 	///Setters
 	inline void SetMesh(S_Mesh* mesh) { Mesh = mesh; }
-	inline void SetMaterial(Material* material) { Material = material; }
+	inline void SetMaterial(MaterialClass* material) { Material = material; }
 	inline void SetMeshName(const std::string& name) { MeshName = name; }
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 	inline const bool* IsInFrustum() const { return &InFrustum; }
@@ -46,7 +46,7 @@ protected:
 	S_Mesh* Mesh = nullptr;
 	std::string MeshName;
 
-	Material* Material = nullptr;
+	MaterialClass* Material = nullptr;
 	std::string MaterialName;
 
 	bool InFrustum = true;

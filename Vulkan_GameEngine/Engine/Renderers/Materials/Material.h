@@ -70,28 +70,11 @@ enum class E_ShaderStage
 	VK_CALLABLE_BIT_NV = VK_CALLABLE_BIT_KHR,
 };
 
-template <typename T>
-struct ShaderVariable
-{
-	ShaderVariable(T value, E_ShaderVariableType type, E_ShaderStage stage)
-	{
-		Value = value;
-		Type = type;
-		Stage = stage;
-	}
-
-	ShaderVariable() {}
-
-	E_ShaderStage Stage;
-	E_ShaderVariableType Type;
-	T Value;
-};
-
 struct ShaderVariableInfo
 {
-	ShaderVariableInfo();
+	ShaderVariableInfo() {}
 
-	ShaderVariableInfo(E_ShaderStage stage, E_ShaderVariableType type, size_t size) :
+	ShaderVariableInfo(E_ShaderStage stage, E_ShaderVariableType type, size_t size = 0) :
 		Stage{ stage }, Type{ type }, VariableSize{ size } {}
 
 	E_ShaderStage Stage;
@@ -99,11 +82,27 @@ struct ShaderVariableInfo
 	size_t VariableSize;
 };
 
-class Material
+template <typename T>
+struct ShaderVariable
+{
+	ShaderVariable(T value, E_ShaderVariableType type, E_ShaderStage stage) : Value(value), Info(stage, type) {}
+
+	ShaderVariable() {}
+
+	T Value;
+	ShaderVariableInfo Info;
+
+	bool operator== (const ShaderVariable<T>& other)
+	{
+		return Value == other.Value && Info.Stage == other.Info.Stage && Info.Type == other.Info.Type;
+	}
+};
+
+class MaterialClass
 {
 public:
-	Material() {}
-	virtual ~Material() {}
+	MaterialClass() {}
+	virtual ~MaterialClass() {}
 
 protected:
 	std::string MaterialName;
@@ -115,7 +114,7 @@ public:
 	inline std::string GetShaderName() { return ShaderName; }
 
 	virtual std::vector<void*> GetShaderVariablesData() = 0;
-	virtual std::vector<ShaderVariableInfo> GetShaderVariableInfo() = 0;
+	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() = 0;
 };
 
 #endif

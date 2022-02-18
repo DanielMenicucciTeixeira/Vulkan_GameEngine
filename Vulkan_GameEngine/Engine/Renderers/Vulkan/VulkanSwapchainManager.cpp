@@ -4,6 +4,7 @@
 #include "Math/FVector3.h"
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
+#include "Renderers/Materials/Material.h"
 #include "DebugLogger.h"
 #include "Graphics/TextureLoader.h"
 #include "LevelGraph.h"
@@ -312,10 +313,13 @@ void VulkanSwapchainManager::CreateUniformBuffers()
             Manager->CreateBuffer(intBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, NumberOfLightsData[i].Buffer, NumberOfLightsData[i].Memory);
         }
 
-        for (const auto& material : Manager->GetRenderData()->Materials)
+        for (const auto& material : Manager->GetRenderData()->InstancesByMaterial)
         {
-            MaterialMap[&material->Data].resize(Images.size());
-            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[&material->Data][i].Buffer, MaterialMap[&material->Data][i].Memory);
+            for (const auto& instance : material.second)
+            {
+                MaterialMap[&material->Data].resize(Images.size());
+                Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[&material->Data][i].Buffer, MaterialMap[&material->Data][i].Memory);
+            }
         }
 
         for (const auto& model : Manager->GetRenderData()->Models)
@@ -326,14 +330,18 @@ void VulkanSwapchainManager::CreateUniformBuffers()
     }
 }
 
-void VulkanSwapchainManager::CreateDescriptorSetLayout()
+void VulkanSwapchainManager::CreateDescriptorSetLayout(MaterialClass* material)
 {
+    std::vector<VkDescriptorSetLayoutBinding> bindings;
+    bindings.reserve(material->GetShaderVariablesInfo().size() + 4);
+
     VkDescriptorSetLayoutBinding cameraLayoutBinding{};
     cameraLayoutBinding.binding = 0;
     cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
     cameraLayoutBinding.descriptorCount = 1;
     cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
     cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(cameraLayoutBinding);
 
     VkDescriptorSetLayoutBinding modelLayoutBinding{};
     modelLayoutBinding.binding = 1;
@@ -341,6 +349,23 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     modelLayoutBinding.descriptorCount = 1;
     modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
     modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(modelLayoutBinding);
+
+    VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
+    numberOfLightsLayoutBinding.binding = 2;
+    numberOfLightsLayoutBinding.descriptorCount = 1;
+    numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
+    bindings.push_back(numberOfLightsLayoutBinding);
+
+    VkDescriptorSetLayoutBinding lightsLayoutBinding{};
+    lightsLayoutBinding.binding = 3;
+    lightsLayoutBinding.descriptorCount = 1;
+    lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    lightsLayoutBinding.pImmutableSamplers = nullptr;
+    bindings.push_back(lightsLayoutBinding);
 
     /*VkDescriptorSetLayoutBinding samplerLayoutBinding{};
     samplerLayoutBinding.binding = 2;
@@ -349,20 +374,6 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     samplerLayoutBinding.pImmutableSamplers = nullptr;*/
 
-    VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
-    numberOfLightsLayoutBinding.binding = 2;
-    numberOfLightsLayoutBinding.descriptorCount = 1;
-    numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
-
-    VkDescriptorSetLayoutBinding lightsLayoutBinding{};
-    lightsLayoutBinding.binding = 3;
-    lightsLayoutBinding.descriptorCount = 1;
-    lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    lightsLayoutBinding.pImmutableSamplers = nullptr;
-
     /*VkDescriptorSetLayoutBinding materialLayoutBinding{};
     materialLayoutBinding.binding = 5;
     materialLayoutBinding.descriptorCount = 1;
@@ -370,20 +381,21 @@ void VulkanSwapchainManager::CreateDescriptorSetLayout()
     materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
     materialLayoutBinding.pImmutableSamplers = nullptr;*/
 
-    std::vector<VkDescriptorSetLayoutBinding> materialDescriptorSets;
-    materialDescriptorSets.reserve(Manager->GetRenderData()->Materials.size());
-    int bidingCount = 5;
-    for (const auto& material : Manager->GetRenderData()->Materials)
+    int bidingCount = 4;
+    for (const auto& info : material->GetShaderVariablesInfo())
     {
         VkDescriptorSetLayoutBinding materialLayoutBinding{};
         materialLayoutBinding.binding = bidingCount;
         materialLayoutBinding.descriptorCount = 1;
-        materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        materialLayoutBinding.descriptorType = static_cast<VkDescriptorType>(info.Type);
+        materialLayoutBinding.stageFlags = static_cast<VkShaderStageFlags>(info.Stage);
         materialLayoutBinding.pImmutableSamplers = nullptr;
+
+        bindings.push_back(materialLayoutBinding);
+        bidingCount++;
     }
 
-    std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
+    //std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
     VkDescriptorSetLayoutCreateInfo layoutInfo{};
     layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
     layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());

@@ -15,7 +15,7 @@
 std::unique_ptr<LevelGraph> LevelGraph::Instance = nullptr;
 
 std::unordered_map<std::string, S_Texture*> LevelGraph::TexturesByName;
-std::unordered_map<std::string, Material*> LevelGraph::MaterialsByName;
+std::unordered_map<std::string, MaterialClass*> LevelGraph::MaterialsByName;
 std::unordered_map<std::string, S_Mesh*> LevelGraph::MeshesByName;
 
 C_CameraComponent* LevelGraph::ActiveCamera;
@@ -112,7 +112,7 @@ void LevelGraph::AddMesh(S_Mesh* mesh)
 
 void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderName())) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()] = std::set<Material*>();
+	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderName())) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()] = std::set<MaterialClass*>();
 	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()].insert(meshComponent->GetMaterial());
 
 	if (!RenderData.MeshesByMaterial.count(meshComponent->GetMaterial())) RenderData.MeshesByMaterial[meshComponent->GetMaterial()] = std::set<S_Mesh*>();
@@ -147,7 +147,7 @@ void LevelGraph::AddTexture(S_Texture* texture)
 	RenderData.Textures.insert(texture);
 }
 
-void LevelGraph::AddMaterial(Material* material)
+void LevelGraph::AddMaterial(MaterialClass* material)
 {
 	MaterialsByName[material->GetMaterialName()] = material;
 	RenderData.Materials.insert(material);
@@ -214,7 +214,7 @@ void LevelGraph::LoadModel()
 {
 }
 
-void LevelGraph::LoadMaterial(Material* material)
+void LevelGraph::LoadMaterial(MaterialClass* material)
 {
 	//if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
 	//if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);

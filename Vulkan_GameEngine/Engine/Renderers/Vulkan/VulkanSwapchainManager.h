@@ -71,7 +71,7 @@ public:
 	void CreateDepthResources();
 	void CreateFramebuffers();
 	void CreateUniformBuffers();
-	void CreateDescriptorSetLayout();
+	void CreateDescriptorSetLayout(MaterialClass* material);
 	void CreateDescriptorPool();
 	void CreateDescriptorSets();
 	void CreateTextureImage();
@@ -113,7 +113,7 @@ protected:
 	VkImageView_T* DepthImageView = nullptr;
 
 	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> ModelMap;
-	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> MaterialMap;
+	//std::unordered_map<Material*, std::vector<S_BufferData>> MaterialMap;
 	std::vector<S_BufferData> CameraData;
 	std::vector<S_BufferData> LightsData;
 	std::vector<S_BufferData> NumberOfLightsData;
@@ -125,8 +125,6 @@ protected:
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 
 	VulkanManager* Manager = nullptr;
-
-	const std::string TEXTURE_PATH = "Textures/viking_room.png";
 };
 #endif
 

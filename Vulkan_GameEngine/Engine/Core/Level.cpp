@@ -12,7 +12,7 @@
 #include "Renderers/RenderInitializationData.h"
 #include "Renderers/Renderer.h"
 #include "Renderers/TextureHandler.h"
-#include "Renderers/Material.h"
+#include "Renderers/Materials/Material.h"
 
 #include "Graphics/AssetLoader.h"
 #include "Graphics/TextureLoader.h"
@@ -51,12 +51,12 @@ void L_Level::LoadModels()
 }
 void L_Level::LoadMaterialLibrary()
 {
-	std::set<Material*> materialSet = std::set<Material*>();
+	std::set<MaterialClass*> materialSet = std::set<MaterialClass*>();
 	for (const auto& path : MaterialPaths) AssetLoader::LoadMaterialLibrary(path, materialSet);
 	for (const auto& material : materialSet) LevelGraph::GetInstance()->AddMaterial(material);
 	MaterialPaths.clear();
 }
-void L_Level::LoadMaterial(Material* material)
+void L_Level::LoadMaterial(MaterialClass* material)
 {
 	LevelGraph::GetInstance()->AddMaterial(material);
 	//if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);

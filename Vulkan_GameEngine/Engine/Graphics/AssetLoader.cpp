@@ -169,7 +169,7 @@ bool AssetLoader::LoadModel(std::string modelPath, std::set<S_Mesh*>& outMeshSet
     return loaded;
 }
 
-bool AssetLoader::LoadMaterial(std::string materialPath, Material* outMaterial)
+bool AssetLoader::LoadMaterial(std::string materialPath, MaterialClass* outMaterial)
 {
     std::ifstream materialFile(materialPath.c_str(), std::ios::in);
     if (!materialFile)
@@ -186,7 +186,7 @@ bool AssetLoader::LoadMaterial(std::string materialPath, Material* outMaterial)
     return loaded;
 }
 
-bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<Material*>& outMaterialSet)
+bool AssetLoader::LoadMaterialLibrary(std::string materialPath, std::set<MaterialClass*>& outMaterialSet)
 {
     std::ifstream materialFile(materialPath.c_str(), std::ios::in);
     if (!materialFile)

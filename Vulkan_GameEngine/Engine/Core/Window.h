@@ -12,7 +12,7 @@ public:
 	Window();
 	~Window();
 
-	bool Initialize(const char* name, ERendererType renderType, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
+	bool Initialize(const char* name, ERendererType renderType, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
 
 	float GetWidth() const;
 	float GetHeight() const;
@@ -25,8 +25,8 @@ protected:
 	void SetPreAttributes();
 	void SetPostAttributes();
 
-	bool OnCreateVulkanWindow(const char* name, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
-	bool OnCreateOpenGLWindow(const char* name, int width = -1, int height = -1, int positionX = -1, int positionY = -1);
+	bool OnCreateVulkanWindow(const char* name, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
+	bool OnCreateOpenGLWindow(const char* name, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
 
 	const char* WindowName;
 	SDL_Window* SDLWindow;

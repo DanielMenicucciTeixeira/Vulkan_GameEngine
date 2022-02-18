@@ -3,6 +3,7 @@
 #include "Geometry/Box.h"
 #include "Geometry/Sphere.h"
 #include "Geometry/Ray.h"
+#include "Objects/Components/CameraComponent.h"
 #include "LevelGraph.h"
 
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
@@ -19,9 +20,8 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 	FVector3 boxMax = b.Max;
 	FMatrix4 modelMatrix = b.Model;
 
-	//TODO: fix all commented issues in this.
-	float tMin = 10;// CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().x;
-	float tMax = 10; //CoreEngine::GetInstance()->GetCamera()->GetClippingPlanes().y;
+	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
+	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
 
 	FVector3 worldPosition(modelMatrix[3].X, modelMatrix[3].Y, modelMatrix[3].Z);
 
@@ -29,9 +29,10 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 
 	//X Axis
 	FVector3 axis(modelMatrix[0].X, modelMatrix[0].Y, modelMatrix[0].Z);
-	//TODO: this is not dot product, replace glm::dot's functionalty with something else
-	float deltaDot = delta * axis;
-	float directionDot = rayDirection * axis;
+
+	float deltaDot = delta.GetDotProduct(axis);
+	float directionDot = rayDirection.GetDotProduct(axis);
+
 	if (fabs(directionDot) > 0.0001f)
 	{
 		float t1 = (deltaDot + boxMin.X) / directionDot;
@@ -52,8 +53,9 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 
 	//Y Axis
 	axis = FVector3(modelMatrix[1].X, modelMatrix[1].Y, modelMatrix[1].Z);
-	deltaDot = delta * axis;
-	directionDot = rayDirection * axis;
+	deltaDot = delta.GetDotProduct(axis);
+	directionDot = rayDirection.GetDotProduct(axis);
+
 	if (fabs(directionDot) > 0.0001f)
 	{
 		float t1 = (deltaDot + boxMin.Y) / directionDot;
@@ -74,8 +76,9 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 
 	//Z Axis
 	axis = FVector3(modelMatrix[2].X, modelMatrix[2].Y, modelMatrix[2].Z);
-	deltaDot = delta * axis;
-	directionDot = rayDirection * axis;
+	deltaDot = delta.GetDotProduct(axis);
+	directionDot = rayDirection.GetDotProduct(axis);
+
 	if (fabs(directionDot) > 0.0001f)
 	{
 		float t1 = (deltaDot + boxMin.Z) / directionDot;

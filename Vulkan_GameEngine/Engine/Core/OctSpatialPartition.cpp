@@ -86,19 +86,26 @@ std::set<OctNode*> OctSpatialPartition::GetActiveLeaves() const
 	return returnSet;
 }
 
-std::vector<S_CollisionData> OctSpatialPartition::GetCollision(Ray& ray, bool getAll)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Ray& ray)
 {
+	for (auto inter : intersectionList) {
+		inter = nullptr;
+	}
+
 	intersectionList.clear();
 
 	intersectionList.reserve(20);
 
-	GetIntersectedLeaves(ray, root, getAll);
+	GetIntersectedLeaves(ray, root);
 
 	return intersectionList;
 }
 
-std::vector<S_CollisionData> OctSpatialPartition::GetCollision(Sphere& sphere)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Sphere& sphere)
 {
+	for (auto inter : intersectionList) {
+		inter = nullptr;
+	}
 	intersectionList.clear();
 
 	intersectionList.reserve(20);
@@ -108,8 +115,11 @@ std::vector<S_CollisionData> OctSpatialPartition::GetCollision(Sphere& sphere)
 	return intersectionList;
 }
 
-std::vector<S_CollisionData> OctSpatialPartition::GetCollision(S_BoxBounds& bounds)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_BoxBounds& bounds)
 {
+	for (auto inter : intersectionList) {
+		inter = nullptr;
+	}
 	intersectionList.clear();
 
 	intersectionList.reserve(20);
@@ -119,8 +129,11 @@ std::vector<S_CollisionData> OctSpatialPartition::GetCollision(S_BoxBounds& boun
 	return intersectionList;
 }
 
-std::vector<S_CollisionData> OctSpatialPartition::GetCollision(Box& box)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Box& box)
 {
+	for (auto inter : intersectionList) {
+		inter = nullptr;
+	}
 	intersectionList.clear();
 
 	intersectionList.reserve(20);
@@ -148,74 +161,29 @@ void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& out
 	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetActiveLeaves(cell->GetChild(static_cast<EOctChildren>(i)), outSet);
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, bool getAll)
+void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell)
 {
 	//Check if cell is empty
 	if (cell->IsEmpty()) return;
 
-	//Collision detection
 	if (CollisionDetection::RayAABBIntersection(ray, cell->GetBoundingBox()))
 	{
-		float shortestDistance = FLT_MAX;
-		bool isCollideing = false;
 		if (cell->IsLeaf()) { 
 			for (auto coll : cell->GetColliders()) {
-				switch (coll->GetColliderType())
-				{
-				case ColliderType::BoundingBox:
-					isCollideing = CollisionDetection::RayAABBIntersection(ray, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
-					break;
-
-				case ColliderType::Sphere:
-					isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
-					break;
-
-				case ColliderType::Box:
-					isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
-					break;
-				}
-
-				if (isCollideing) {
-					if (getAll) {
-						intersectionList.push_back(CollisionDetection::GetCollisionData());
-					}
-					else if (shortestDistance > ray.GetIntersectDistance()) {
-						intersectionList[0] = CollisionDetection::GetCollisionData();
-						shortestDistance = ray.GetIntersectDistance();
-					}
-				}
+				intersectionList.push_back(coll);
 			}
 		}
-		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)), getAll);
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(ray, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
 }
 
 void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 {
-	bool isCollideing = false;
 	if (CollisionDetection::SphereAABBIntersection(sphere, cell->GetBoundingBox()))
 	{
-		//TODO: Finish detection here
 		if (cell->IsLeaf()) {
 			for (auto coll : cell->GetColliders()) {
-				switch (coll->GetColliderType())
-				{
-				case ColliderType::BoundingBox:
-					isCollideing = CollisionDetection::SphereAABBIntersection(sphere, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
-					break;
-
-				case ColliderType::Sphere:
-					isCollideing = CollisionDetection::SphereIntersection(sphere, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
-					break;
-
-				case ColliderType::Box:
-					isCollideing = CollisionDetection::SphereOBBIntersection(sphere, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
-					break;
-				}
-
-				if (isCollideing) {
-					intersectionList.push_back(CollisionDetection::GetCollisionData());
-				}
+				intersectionList.push_back(coll);
 			}
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(sphere, cell->GetChild(static_cast<EOctChildren>(i)));
@@ -224,30 +192,11 @@ void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell)
 
 void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cell)
 {
-	bool isCollideing = false;
 	if (CollisionDetection::AABBIntersection(bounds, cell->GetBoundingBox()))
 	{
-		//TODO: Finish detection here
 		if (cell->IsLeaf()) {
 			for (auto coll : cell->GetColliders()) {
-				switch (coll->GetColliderType())
-				{
-				case ColliderType::BoundingBox:
-					isCollideing = CollisionDetection::AABBIntersection(bounds, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
-					break;
-
-				case ColliderType::Sphere:
-					isCollideing = CollisionDetection::SphereAABBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), bounds);
-					break;
-
-				case ColliderType::Box:
-					isCollideing = CollisionDetection::AABBOBBIntersection(bounds, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
-					break;
-				}
-
-				if (isCollideing) {
-					intersectionList.push_back(CollisionDetection::GetCollisionData());
-				}
+				intersectionList.push_back(coll);
 			}
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(bounds, cell->GetChild(static_cast<EOctChildren>(i)));
@@ -256,30 +205,11 @@ void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cel
 
 void OctSpatialPartition::GetIntersectedLeaves(Box& box, OctNode* cell)
 {
-	bool isCollideing = false;
 	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), box))
 	{
-		//TODO: Finish detection here
 		if (cell->IsLeaf()) {
 			for (auto coll : cell->GetColliders()) {
-				switch (coll->GetColliderType())
-				{
-				case ColliderType::BoundingBox:
-					isCollideing = CollisionDetection::AABBOBBIntersection(static_cast<C_BoundingBox*>(coll)->GetBoxBounds(), box);
-					break;
-
-				case ColliderType::Sphere:
-					isCollideing = CollisionDetection::SphereOBBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), box);
-					break;
-
-				case ColliderType::Box:
-					isCollideing = CollisionDetection::OBBIntersection(box, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
-					break;
-				}
-
-				if (isCollideing) {
-					intersectionList.push_back(CollisionDetection::GetCollisionData());
-				}
+				intersectionList.push_back(coll);
 			}
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(box, cell->GetChild(static_cast<EOctChildren>(i)));

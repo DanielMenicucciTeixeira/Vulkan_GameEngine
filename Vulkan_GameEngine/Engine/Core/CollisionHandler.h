@@ -37,6 +37,9 @@ public:
 	//Get all colliders colliding with the bounding box
 	std::vector<S_CollisionData> GetAABBCollision(S_BoxBounds bounds);
 
+	//Get all colliders colliding with the box
+	std::vector<S_CollisionData> GetOBBCollision(Box box);
+
 	//TODO:Tag filters?
 
 private:

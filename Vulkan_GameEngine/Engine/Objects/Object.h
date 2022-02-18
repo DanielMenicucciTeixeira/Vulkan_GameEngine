@@ -19,10 +19,10 @@ public:
 
 	///Tag Functions
 	inline const std::set<std::string>& GetTags() const { return Tags; }
-	virtual bool HasTag(std::string tag) const;
-	virtual void AddTag(const std::string& tag);
-	virtual void RemoveTag(const std::string& tag);
-	virtual void RemoveAllTags();
+	bool HasTag(std::string tag) const;
+	void AddTag(const std::string& tag);
+	void RemoveTag(const std::string& tag);
+	void RemoveAllTags();
 	inline L_Level* GetLevel() const { return Level; }
 	inline const std::string GetName() const { return Name; }
 

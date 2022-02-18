@@ -6,7 +6,6 @@
 #include <set>
 #include <iostream>
 #include "../Objects/Components/Colliders/CollisionComponent.h"
-#include "Physics/CollisionData.h"
 
 constexpr unsigned int CHILDREN_NUMBER = 8;
 
@@ -71,10 +70,10 @@ public:
 
 	std::set<OctNode*> GetActiveLeaves() const;
 	//the bool is if you want to get all of the collisions not just the shortest.
-	std::vector<S_CollisionData> GetCollision(Ray& ray, bool getAll);
-	std::vector<S_CollisionData> GetCollision(Sphere& sphere);
-	std::vector<S_CollisionData> GetCollision(S_BoxBounds& bounds);
-	std::vector<S_CollisionData> GetCollision(Box& box);
+	std::vector<C_CollisionComponent*> GetCollision(Ray& ray);
+	std::vector<C_CollisionComponent*> GetCollision(Sphere& sphere);
+	std::vector<C_CollisionComponent*> GetCollision(S_BoxBounds& bounds);
+	std::vector<C_CollisionComponent*> GetCollision(Box& box);
 	inline OctNode* GetRoot() { return root; }
 
 	//Does collision detection on every node.
@@ -87,10 +86,10 @@ protected:
 
 private:
 	OctNode* root;
-	void GetIntersectedLeaves(Ray& ray, OctNode* cell, bool getAll);
+	void GetIntersectedLeaves(Ray& ray, OctNode* cell);
 	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell);
 	void GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cell);
 	void GetIntersectedLeaves(Box& box, OctNode* cell);
-	std::vector<S_CollisionData> intersectionList;
+	std::vector<C_CollisionComponent*> intersectionList;
 };
 #endif

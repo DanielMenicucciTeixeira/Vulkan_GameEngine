@@ -2,7 +2,7 @@
 #include "Math/FVector3.h"
 #include "Math/FQuaternion.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "Objects/Components/TransformComponent.h"
+#include "CollisionHandler.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
 C_MovementComponent::C_MovementComponent(O_GameObject* owner) : O_Component(owner)

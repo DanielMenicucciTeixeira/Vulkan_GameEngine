@@ -79,6 +79,24 @@ OctSpatialPartition::~OctSpatialPartition()
 	root = nullptr;
 }
 
+void OctSpatialPartition::AddCollider(C_CollisionComponent* collider)
+{
+	switch (collider->GetColliderType())
+	{
+	case ColliderType::BoundingBox:
+		AddColliderToCell(static_cast<C_BoundingBox*>(collider), root);
+		break;
+
+	case ColliderType::Sphere:
+		AddColliderToCell(static_cast<C_SphereCollider*>(collider), root);
+		break;
+
+	case ColliderType::Box:
+		AddColliderToCell(static_cast<C_BoxCollider*>(collider), root);
+		break;
+	}
+}
+
 std::set<OctNode*> OctSpatialPartition::GetActiveLeaves() const
 {
 	std::set<OctNode*> returnSet = std::set<OctNode*>();
@@ -217,33 +235,35 @@ void OctSpatialPartition::GetIntersectedLeaves(Box& box, OctNode* cell)
 	}
 }
 
-
-//TODO: could you create sub versions of them that would take in the specific types?  this would remove the need for the switch and cast.
-void OctSpatialPartition::AddColliderToCell(C_CollisionComponent* collider, OctNode* cell)
+void OctSpatialPartition::AddColliderToCell(C_BoundingBox* collider, OctNode* cell)
 {
-	bool isCollideing = false;
-	switch (collider->GetColliderType())
-	{
-	case ColliderType::BoundingBox:
-		isCollideing = CollisionDetection::AABBIntersection(cell->GetBoundingBox(), static_cast<C_BoundingBox*>(collider)->GetBoxBounds());
-		break;
-
-	case ColliderType::Sphere:
-		isCollideing = CollisionDetection::SphereAABBIntersection(static_cast<C_SphereCollider*>(collider)->GetCollisionSphere(), cell->GetBoundingBox());
-		break;
-
-	case ColliderType::Box:
-		isCollideing = CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), static_cast<C_BoxCollider*>(collider)->GetCollisionBox());
-		break;
-	}
-
-	if (isCollideing)
-	{
+	if (CollisionDetection::AABBIntersection(collider->GetBoxBounds(), cell->GetBoundingBox())) {
 		if (cell->IsLeaf())
 		{
 			cell->AddCollider(collider);
 		}
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) AddColliderToCell(collider, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
-	
+}
+
+void OctSpatialPartition::AddColliderToCell(C_SphereCollider* collider, OctNode* cell)
+{
+	if (CollisionDetection::SphereAABBIntersection(collider->GetCollisionSphere(), cell->GetBoundingBox())) {
+		if (cell->IsLeaf())
+		{
+			cell->AddCollider(collider);
+		}
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) AddColliderToCell(collider, cell->GetChild(static_cast<EOctChildren>(i)));
+	}
+}
+
+void OctSpatialPartition::AddColliderToCell(C_BoxCollider* collider, OctNode* cell)
+{
+	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), collider->GetCollisionBox())) {
+		if (cell->IsLeaf())
+		{
+			cell->AddCollider(collider);
+		}
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) AddColliderToCell(collider, cell->GetChild(static_cast<EOctChildren>(i)));
+	}
 }

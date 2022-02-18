@@ -21,8 +21,11 @@ enum class EOctChildren
 	OCT_RTF
 };
 
-class C_CollisionComponent;
 class Ray;
+
+class C_BoundingBox;
+class C_SphereCollider;
+class C_BoxCollider;
 
 class OctNode
 {
@@ -65,14 +68,15 @@ public:
 
 	~OctSpatialPartition();
 
-	inline void AddCollider(C_CollisionComponent* collider) { AddColliderToCell(collider, root); }
+	void AddCollider(C_CollisionComponent* collider);
 
 	std::set<OctNode*> GetActiveLeaves() const;
-	//the bool is if you want to get all of the collisions not just the shortest.
+
 	std::vector<C_CollisionComponent*> GetCollision(Ray& ray);
 	std::vector<C_CollisionComponent*> GetCollision(Sphere& sphere);
 	std::vector<C_CollisionComponent*> GetCollision(S_BoxBounds& bounds);
 	std::vector<C_CollisionComponent*> GetCollision(Box& box);
+
 	inline OctNode* GetRoot() { return root; }
 
 	//Does collision detection on every node.
@@ -81,14 +85,19 @@ public:
 
 protected:
 	void GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const;
-	void AddColliderToCell(C_CollisionComponent* collider, OctNode* cell);
 
 private:
 	OctNode* root;
+	std::vector<C_CollisionComponent*> intersectionList;
+
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell);
 	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell);
 	void GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cell);
 	void GetIntersectedLeaves(Box& box, OctNode* cell);
-	std::vector<C_CollisionComponent*> intersectionList;
+
+
+	void AddColliderToCell(C_BoundingBox* collider, OctNode* cell);
+	void AddColliderToCell(C_SphereCollider* collider, OctNode* cell);
+	void AddColliderToCell(C_BoxCollider* collider, OctNode* cell);
 };
 #endif

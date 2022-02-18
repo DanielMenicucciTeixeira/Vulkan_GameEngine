@@ -31,25 +31,7 @@ enum class ColliderType {
 
 class C_CollisionComponent : public C_TransformComponent
 {
-protected:
-	std::set<C_CollisionComponent*> OverlapedColliders;
-	ECollisionType CollisionType;
-	FVector3 CollisionMeshCenter;
-
-	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
-	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
-	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
-
-	virtual void OnCollision(const S_CollisionData& data);
-	virtual void OnOverlapBegin(const S_CollisionData& data);
-	virtual void OnOverlapEnd(C_CollisionComponent* otherCollider);
-
-	void (*CollisionFunction)(O_GameObject* self, const S_CollisionData& data);
-	void (*OverlapBeginFunction)(O_GameObject* self, const S_CollisionData& data);
-	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
-
 public:
-
 	inline ECollisionType GetCollisionType() { return CollisionType; }
 	inline void SetCollisionType(ECollisionType type) { CollisionType = type; }
 	inline void SetCollisionFunction(static void (*collisionFunction)(O_GameObject* self, const S_CollisionData& data)) { CollisionFunction = collisionFunction; }
@@ -77,6 +59,23 @@ public:
 	static bool Line(Simplex& points, FVector3& direction);
 	static bool Triangle(Simplex& points, FVector3& direction);
 	static bool Tetrahedron(Simplex& points, FVector3& direction);
+
+protected:
+	std::set<C_CollisionComponent*> OverlapedColliders;
+	ECollisionType CollisionType;
+	FVector3 CollisionMeshCenter;
+
+	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
+	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
+	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
+
+	virtual void OnCollision(const S_CollisionData& data);
+	virtual void OnOverlapBegin(const S_CollisionData& data);
+	virtual void OnOverlapEnd(C_CollisionComponent* otherCollider);
+
+	void (*CollisionFunction)(O_GameObject* self, const S_CollisionData& data);
+	void (*OverlapBeginFunction)(O_GameObject* self, const S_CollisionData& data);
+	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
 
 private:
 	//bool CheckSimplexForOrigin(Simplex& simplex) const;

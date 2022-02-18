@@ -63,6 +63,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 		if (isCollideing) {
 			if (shortestDistance > ray.GetIntersectDistance()) {
 				data = CollisionDetection::GetCollisionData();
+				data.OtherCollisonComponent = coll;
 				shortestDistance = ray.GetIntersectDistance();
 			}
 		}
@@ -92,9 +93,12 @@ std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
 			isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}
-	}
-	if (isCollideing) {
-		data.push_back(CollisionDetection::GetCollisionData());
+
+		if (isCollideing) {
+			S_CollisionData d = CollisionDetection::GetCollisionData();
+			d.OtherCollisonComponent = coll;
+			data.push_back(d);
+		}
 	}
 	return data;
 }
@@ -123,7 +127,9 @@ std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere
 		}
 
 		if (isCollideing) {
-			data.push_back(CollisionDetection::GetCollisionData());
+			S_CollisionData d = CollisionDetection::GetCollisionData();
+			d.OtherCollisonComponent = coll;
+			data.push_back(d);
 		}
 	}
 	return data;
@@ -154,7 +160,9 @@ std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(S_BoxBounds boun
 		}
 
 		if (isCollideing) {
-			data.push_back(CollisionDetection::GetCollisionData());
+			S_CollisionData d = CollisionDetection::GetCollisionData();
+			d.OtherCollisonComponent = coll;
+			data.push_back(d);
 		}
 	}
 	return data;
@@ -185,7 +193,9 @@ std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(Box box)
 		}
 
 		if (isCollideing) {
-			data.push_back(CollisionDetection::GetCollisionData());
+			S_CollisionData d = CollisionDetection::GetCollisionData();
+			d.OtherCollisonComponent = coll;
+			data.push_back(d);
 		}
 	}
 	return data;

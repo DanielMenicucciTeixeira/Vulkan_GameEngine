@@ -98,6 +98,8 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const S_BoxBounds b)
 	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
 
 	a.SetIntersectDistance(tMin);
+	collisionData.CollisionPoint = a.GetOrigin() + tMin;
+
 	return true;
 }
 bool CollisionDetection::RaySphereIntersection(Ray a, Sphere b)
@@ -114,19 +116,24 @@ bool CollisionDetection::RaySphereIntersection(Ray a, Sphere b)
 	float t0 = tca - thc;
 	float t1 = tca + thc;
 
-	if (t0 > t1) { std::swap(t0, t1); } 
+
+	if (t0 > t1) { std::swap(t0, t1); }
 
 	if (t0 < 0) {
 		t0 = t1; // if t0 is negative, let's use t1 instead 
 		if (t0 < 0) return false; // both t0 and t1 are negative 
 	}
 
+	
+
 	a.SetIntersectDistance(t0);
+	collisionData.CollisionPoint = a.GetOrigin() + t0;
 
 	return true;
 }
 bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 {
+	//TODO: Finish this
 	int i = 0;
 	FVector3 interssection[6];
 	for (auto &plane : b.box)
@@ -166,7 +173,7 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 	a.SetIntersectDistance(collisionPoints[0])
 	*/
 
-	//TODO: Finish this
+
 	return true;
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
@@ -184,7 +191,22 @@ bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 
 bool CollisionDetection::SphereOBBIntersection(Sphere a, Box b)
 {
-	//TODO: Finish
+	if(
+			(a.position.X - a.radius <= b.GetPosition().X + b.GetExtent().X && a.position.X + a.radius >= b.GetPosition().X)
+			&& (a.position.Y - a.radius <= b.GetPosition().Y + b.GetExtent().Y && a.position.Y + a.radius >= b.GetPosition().Y)
+			&& (a.position.Z - a.radius <= b.GetPosition().Z + b.GetExtent().Z && a.position.Z + a.radius >= b.GetPosition().Z)
+			)
+	{
+		for (const auto& plane : b.box)
+		{
+			float distance = (a.position - plane.GetRandomPointInPlane()) * plane.GetPlaneNormal();
+			if (distance < a.radius)
+			{
+				collisionData.CollisionPoint = (plane.GetPlaneNormal() * a.radius) + a.position;
+				return true;
+			}
+		}
+	}
 	return false;
 }
 

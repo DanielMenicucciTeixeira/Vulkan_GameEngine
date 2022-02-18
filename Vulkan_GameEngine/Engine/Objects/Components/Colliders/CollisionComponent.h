@@ -66,7 +66,7 @@ public:
 	C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType = NO_COLLISION);
 	virtual ~C_CollisionComponent();
 
-	inline virtual  FVector3 GetCollisionMeshCenter() const { return CollisionMeshCenter; }
+	inline virtual FVector3 GetCollisionMeshCenter() const { return CollisionMeshCenter; }
 	virtual FVector3 GetFurthestPoint(const FVector3& direction) const;
 	static bool GJK(const C_CollisionComponent* colliderA, const C_CollisionComponent* colliderB);
 

@@ -4,6 +4,7 @@
 #include "Physics/PhysicsLib.h"
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
+#include "Objects/Components/TransformComponent.h"
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -28,8 +29,6 @@ void C_PhysicsComponent::Update(const float deltaTime)
 			FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
 			).GetNormal());
 	}
-
-	//c->Translsate(
 
 	//SingleComponent
 	velocity = velocityBuffer + (accelerationBuffer * deltaTime);
@@ -97,6 +96,11 @@ FVector3 C_PhysicsComponent::GetAngularAcceleration()
 FVector3 C_PhysicsComponent::GetAngularVelocity()
 {
 	return angularVelocity;
+}
+
+bool C_PhysicsComponent::IsStatic()
+{
+	return Owner->GetRoot()->GetIsStatic();
 }
 
 void C_PhysicsComponent::CalculateAngularInertia()

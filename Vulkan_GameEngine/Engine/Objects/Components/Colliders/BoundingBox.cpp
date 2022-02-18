@@ -2,6 +2,7 @@
 #include "Renderers/RenderObject.h"
 #include "Math/FTransform.h"
 #include "Objects/GameObjects/GameObject.h"
+#include "Core/CollisionHandler.h"
 
 C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type)
 {
@@ -37,6 +38,14 @@ void C_BoundingBox::Start()
 
 void C_BoundingBox::Update(float deltaTime)
 {
+	//TODO:Move this to post update
+	if (!GetIsStatic()) {
+		for (auto& coll : CollisionHandler::GetInstance()->GetAABBCollision(boxBounds)) {
+			//TODO:Collision Response here.
+		}
+	}
+
+
 	C_CollisionComponent::Update(deltaTime);
 	boxBounds.Model = GetComponentModelMatrix();
 }

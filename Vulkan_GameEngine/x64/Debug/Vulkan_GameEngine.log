@@ -2,4 +2,40 @@
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(177,119): warning C4042: 'function': has bad storage class
+  Window.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Window.cpp(60,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Window.cpp(67,9): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  EventListener.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+  CollisionData.h
+  OpelGLManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(104,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(143,83): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+  VulkanDebugger.cpp
+  VulkanDevices.cpp
+  VulkanManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(473,112): warning C4267: 'argument': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(570,21): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(571,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanManager.cpp(639,124): warning C4390: ';': empty controlled statement found; is this the intent?
+  VulkanPipelineManager.cpp
+  VulkanSwapchainManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(767,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  L_MainLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game\Levels\L_MainLevel.cpp(137,34): warning C4305: 'argument': truncation from 'double' to 'float'
+  L_TetrahedronLevel.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+  Source.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Generating Code...
   Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

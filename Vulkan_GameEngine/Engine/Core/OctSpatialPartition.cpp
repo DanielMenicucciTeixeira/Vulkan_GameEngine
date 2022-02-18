@@ -145,13 +145,13 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Box& box)
 
 void OctSpatialPartition::Update(const float deltaTime_)
 {
-	for (auto leaves : GetActiveLeaves()) {
-		for (int i = 0; i < leaves->GetColliderCount(); i++) {
-			for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
+	//for (auto leaves : GetActiveLeaves()) {
+		//for (int i = 0; i < leaves->GetColliderCount(); i++) {
+		//	for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
 				//if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
-			}
-		}
-	}
+		//	}
+		//}
+	//}
 }
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const
@@ -212,6 +212,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Box& box, OctNode* cell)
 				intersectionList.push_back(coll);
 			}
 		}
+
 		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(box, cell->GetChild(static_cast<EOctChildren>(i)));
 	}
 }

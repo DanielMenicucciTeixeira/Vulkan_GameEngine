@@ -64,5 +64,7 @@ public:
 	FVector3 GetVelocity();
 	FVector3 GetAngularAcceleration();
 	FVector3 GetAngularVelocity();
+
+	bool IsStatic();
 };
 #endif

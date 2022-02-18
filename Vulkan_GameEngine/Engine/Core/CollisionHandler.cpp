@@ -44,39 +44,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 	S_CollisionData data;
 	float shortestDistance = FLT_MAX;
 	bool isCollideing = false;
-	for(auto coll : scenePartition->GetCollision(ray))
-	switch (coll->GetColliderType())
-	{
-	case ColliderType::BoundingBox:
-		isCollideing = CollisionDetection::RayAABBIntersection(ray, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
-		break;
-
-	case ColliderType::Sphere:
-		isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
-		break;
-
-	case ColliderType::Box:
-		isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
-		break;
-	}
-
-	if (isCollideing) {
-		if (shortestDistance > ray.GetIntersectDistance()) {
-			data = CollisionDetection::GetCollisionData();
-			shortestDistance = ray.GetIntersectDistance();
-		}
-	}
-	return data;
-}
-
-std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
-{
-	std::vector<S_CollisionData> data;
-	
-	data.reserve(20);
-
-	bool isCollideing = false;
-	for (auto coll : scenePartition->GetCollision(ray))
+	for (auto coll : scenePartition->GetCollision(ray)) {
 		switch (coll->GetColliderType())
 		{
 		case ColliderType::BoundingBox:
@@ -92,6 +60,39 @@ std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
 			break;
 		}
 
+		if (isCollideing) {
+			if (shortestDistance > ray.GetIntersectDistance()) {
+				data = CollisionDetection::GetCollisionData();
+				shortestDistance = ray.GetIntersectDistance();
+			}
+		}
+	}
+	return data;
+}
+
+std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
+{
+	std::vector<S_CollisionData> data;
+	
+	data.reserve(20);
+
+	bool isCollideing = false;
+	for (auto coll : scenePartition->GetCollision(ray)) {
+		switch (coll->GetColliderType())
+		{
+		case ColliderType::BoundingBox:
+			isCollideing = CollisionDetection::RayAABBIntersection(ray, static_cast<C_BoundingBox*>(coll)->GetBoxBounds());
+			break;
+
+		case ColliderType::Sphere:
+			isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
+			break;
+
+		case ColliderType::Box:
+			isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+			break;
+		}
+	}
 	if (isCollideing) {
 		data.push_back(CollisionDetection::GetCollisionData());
 	}

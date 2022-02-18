@@ -38,7 +38,6 @@ public:
 
 	inline void AddCollider(C_CollisionComponent* element) { Colliders.push_back(element); }
 
-	inline int GetColliderCount() const { return Colliders.size(); }
 	inline std::vector<C_CollisionComponent*> GetColliders() { return Colliders; }
 	inline static const unsigned int& GetChildrenCount() { return ChildrenCount; };
 	inline bool IsLeaf() const { return Children[0] == nullptr; }

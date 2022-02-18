@@ -66,8 +66,8 @@ void C_CameraComponent::Start()
 	//UCO->View = FMatrix4::GetViewMatrix(GetComponentAbsoluteRotation(), GetComponentAbsolutePosition());
 	
 	FVector2 size = CoreEngine::GetInstance()->GetWindowSize();
-	//TODO:Fliped X and Y so if projection breaks this is probably it
-	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, size.X / size.Y, FildOfView.NearPlane, FildOfView.FarPlane);
+
+	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, size.Y/ size.X, FildOfView.NearPlane, FildOfView.FarPlane);
 	CalculateFrustum();
 }
 

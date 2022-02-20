@@ -178,6 +178,7 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
+	//TODO://Add in point of collision
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
 	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
 	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
@@ -191,6 +192,7 @@ bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 
 bool CollisionDetection::SphereOBBIntersection(Sphere a, Box b)
 {
+	//TODO://Add in point of collision
 	if(
 			(a.position.X - a.radius <= b.GetPosition().X + b.GetExtent().X && a.position.X + a.radius >= b.GetPosition().X)
 			&& (a.position.Y - a.radius <= b.GetPosition().Y + b.GetExtent().Y && a.position.Y + a.radius >= b.GetPosition().Y)
@@ -212,6 +214,7 @@ bool CollisionDetection::SphereOBBIntersection(Sphere a, Box b)
 
 bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
 {
+	//TODO://Add in point of collision
 	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
 					  (a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
 					  (a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
@@ -221,6 +224,7 @@ bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
 
 bool CollisionDetection::AABBIntersection(S_BoxBounds a, S_BoxBounds b)
 {
+	//TODO://Add in point of collision
 	FVector3 aTransformPos = FVector3(a.Model[3].X, a.Model[3].Y, a.Model[3].Z);
 	FVector3 bTransformPos = FVector3(b.Model[3].X, b.Model[3].Y, b.Model[3].Z);
 

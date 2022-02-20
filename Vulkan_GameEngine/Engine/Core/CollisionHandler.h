@@ -42,6 +42,10 @@ public:
 
 	//TODO:Tag filters?
 
+	//Functions to check to see if a collider is still in the same partition.
+	void AABBSpatialCheck(C_BoundingBox* collider);
+
+
 private:
 	CollisionHandler();
 	~CollisionHandler();

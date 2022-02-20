@@ -15,6 +15,7 @@ class FVector3;
 class Plane;
 class C_BoundingBox;
 class O_GameObject;
+class OctNode;
 
 enum ECollisionType
 {
@@ -42,7 +43,8 @@ public:
 
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
 
-	virtual void SetComponentPosition(const FVector3& position) override;
+	void SetCurrentNode(OctNode* node);
+	OctNode* GetCurrentNode();
 
 	virtual void Update(const float deltaTime) override;
 
@@ -81,5 +83,7 @@ private:
 	//bool CheckSimplexForOrigin(Simplex& simplex) const;
 
 	ColliderType colliderType;
+
+	OctNode* CurrentNode;
 };
 #endif

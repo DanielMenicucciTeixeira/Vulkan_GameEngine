@@ -77,6 +77,11 @@ public:
 	std::vector<C_CollisionComponent*> GetCollision(S_BoxBounds& bounds);
 	std::vector<C_CollisionComponent*> GetCollision(Box& box);
 
+	//TODO: make these work better with multiple collisions
+
+	//Check to see if the collider is still in the same bounding box
+	void UpdateColliderNode(C_BoundingBox* collider);
+
 	inline OctNode* GetRoot() { return root; }
 
 	//Does collision detection on every node.
@@ -90,14 +95,24 @@ private:
 	OctNode* root;
 	std::vector<C_CollisionComponent*> intersectionList;
 
-	void GetIntersectedLeaves(Ray& ray, OctNode* cell);
-	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell);
-	void GetIntersectedLeaves(S_BoxBounds& bounds, OctNode* cell);
-	void GetIntersectedLeaves(Box& box, OctNode* cell);
+	//Functions to get which cell/s the are being collided with
+	std::vector<OctNode*> GetCollidingNodes(Ray& ray);
+	std::vector<OctNode*> GetCollidingNodes(S_BoxBounds bounds);
+	std::vector<OctNode*> GetCollidingNodes(Sphere& sphere);
+	std::vector<OctNode*> GetCollidingNodes(Box& box);
+
+	//Query functions for GetCollidingNodes
+	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> nodes);
+	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell, std::vector<OctNode*> nodes);
+	void GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell, std::vector<OctNode*> nodes);
+	void GetIntersectedLeaves(Box& box, OctNode* cell, std::vector<OctNode*> nodes);
 
 
 	void AddColliderToCell(C_BoundingBox* collider, OctNode* cell);
 	void AddColliderToCell(C_SphereCollider* collider, OctNode* cell);
 	void AddColliderToCell(C_BoxCollider* collider, OctNode* cell);
+
+
+
 };
 #endif

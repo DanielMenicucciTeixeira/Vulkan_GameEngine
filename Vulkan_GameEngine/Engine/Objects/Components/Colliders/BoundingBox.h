@@ -21,7 +21,9 @@ public:
 	inline const FVector3& GetRelativeMin() const { return boxBounds.Min; }
 	inline const FVector3& GetRelativeMax() const { return boxBounds.Max; }
 	inline const FMatrix4& GetModelMatrix() const { return boxBounds.Model; }
-	inline const S_BoxBounds GetBoxBounds() const { return boxBounds; }
+	inline S_BoxBounds GetBoxBounds() const { return boxBounds; }
+
+	virtual void SetComponentPosition(const FVector3& position) override;
 
 protected:
 

@@ -10,6 +10,7 @@
 #include "Objects\GameObjects\GameObject.h"
 #include "Level.h"
 #include "LevelGraph.h"
+#include "OctSpatialPartition.h"
 #include "../CameraComponent.h"
 
 
@@ -119,10 +120,10 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 	else OnOverlapBegin(data);
 }
 
-void C_CollisionComponent::SetComponentPosition(const FVector3& position)
-{
+//void C_CollisionComponent::SetComponentPosition(const FVector3& position)
+//{
 	//Do the static check here as well?
-	Transform->SetPosition(position);
+//	Transform->SetPosition(position);
 	//TODO:Do check to see if in same collider here.
 	///Theory
 	///
@@ -136,6 +137,16 @@ void C_CollisionComponent::SetComponentPosition(const FVector3& position)
 	/// if the cells don't match up then remove the pointer from the list and add it to the new one, also change the pointer adress
 	/// in the collider to the new one. (could this be done in the function by changing it?  would that work?)
 	/// 
+//}
+
+void C_CollisionComponent::SetCurrentNode(OctNode* node)
+{
+	CurrentNode = node;
+}
+
+OctNode* C_CollisionComponent::GetCurrentNode()
+{
+	return CurrentNode;
 }
 
 void C_CollisionComponent::OnCollision(const S_CollisionData& data)
@@ -171,6 +182,7 @@ C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType c
 
 C_CollisionComponent::~C_CollisionComponent()
 {
+	CurrentNode = nullptr;
 }
 
 FVector3 C_CollisionComponent::GetFurthestPoint(const FVector3& direction) const

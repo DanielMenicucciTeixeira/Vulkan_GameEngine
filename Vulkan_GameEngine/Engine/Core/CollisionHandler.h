@@ -44,6 +44,8 @@ public:
 
 	//Functions to check to see if a collider is still in the same partition.
 	void AABBSpatialCheck(C_BoundingBox* collider);
+	void SphereSpatialCheck(C_SphereCollider* collider);
+	void OBBSpatialCheck(C_BoxCollider* collider);
 
 
 private:

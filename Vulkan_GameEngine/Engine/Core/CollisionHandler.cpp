@@ -17,6 +17,16 @@ void CollisionHandler::AABBSpatialCheck(C_BoundingBox* collider)
 	scenePartition->UpdateColliderNode(collider);
 }
 
+void CollisionHandler::SphereSpatialCheck(C_SphereCollider* collider)
+{
+	scenePartition->UpdateColliderNode(collider);
+}
+
+void CollisionHandler::OBBSpatialCheck(C_BoxCollider* collider)
+{
+	scenePartition->UpdateColliderNode(collider);
+}
+
 CollisionHandler::CollisionHandler() {
 	prevCollisions.reserve(10);
 }

@@ -60,6 +60,11 @@ void OctNode::Octify(unsigned int depth)
 	}
 }
 
+void OctNode::RemoveCollider(C_CollisionComponent* element)
+{
+	Colliders.erase(std::find(Colliders.begin(), Colliders.end(), element));
+}
+
 S_BoxBounds OctNode::GetBoundingBox() const
 {
 	return *OctBounds;
@@ -183,10 +188,36 @@ void OctSpatialPartition::UpdateColliderNode(C_BoundingBox* collider)
 {
 	OctNode* cell = GetCollidingNodes(collider->GetBoxBounds())[0];
 	if (cell != collider->GetCurrentNode()) {
-		//TODO: Remove collider from current node and set the new current node
-
+		//TODO:Test this to see if it works.
+		collider->GetCurrentNode()->RemoveCollider(collider);
+		cell->AddCollider(collider);
 		collider->SetCurrentNode(cell);
 	}
+	cell = nullptr;
+}
+
+void OctSpatialPartition::UpdateColliderNode(C_SphereCollider* collider)
+{
+	OctNode* cell = GetCollidingNodes(collider->GetCollisionSphere())[0];
+	if (cell != collider->GetCurrentNode()) {
+		//TODO:Test this to see if it works.
+		collider->GetCurrentNode()->RemoveCollider(collider);
+		cell->AddCollider(collider);
+		collider->SetCurrentNode(cell);
+	}
+	cell = nullptr;
+}
+
+void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
+{
+	OctNode* cell = GetCollidingNodes(collider->GetCollisionBox())[0];
+	if (cell != collider->GetCurrentNode()) {
+		//TODO:Test this to see if it works.
+		collider->GetCurrentNode()->RemoveCollider(collider);
+		cell->AddCollider(collider);
+		collider->SetCurrentNode(cell);
+	}
+	cell = nullptr;
 }
 
 void OctSpatialPartition::Update(const float deltaTime_)
@@ -225,7 +256,7 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_BoxBounds bounds)
 	return nodes;
 }
 
-std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Sphere& sphere)
+std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Sphere sphere)
 {
 	std::vector<OctNode*> nodes;
 	nodes.reserve(8);
@@ -234,7 +265,7 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Sphere& sphere)
 	return nodes;
 }
 
-std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Box& box)
+std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Box box)
 {
 	std::vector<OctNode*> nodes;
 	nodes.reserve(8);

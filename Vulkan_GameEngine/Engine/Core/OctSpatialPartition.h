@@ -40,6 +40,7 @@ public:
 	inline OctNode* GetChild(EOctChildren childPostion) const { return Children[static_cast<int>(childPostion)]; }
 
 	inline void AddCollider(C_CollisionComponent* element) { Colliders.push_back(element); }
+	void RemoveCollider(C_CollisionComponent* element);
 
 	inline std::vector<C_CollisionComponent*> GetColliders() { return Colliders; }
 	inline static const unsigned int& GetChildrenCount() { return ChildrenCount; };
@@ -52,7 +53,7 @@ private:
 	S_BoxBounds* OctBounds;
 	OctNode* Parent;
 	OctNode* Children[CHILDREN_NUMBER];
-	std::vector<C_CollisionComponent*> Colliders;
+	std::vector <C_CollisionComponent*> Colliders;
 	float Size;
 	bool Empty;
 
@@ -81,6 +82,8 @@ public:
 
 	//Check to see if the collider is still in the same bounding box
 	void UpdateColliderNode(C_BoundingBox* collider);
+	void UpdateColliderNode(C_SphereCollider* collider);
+	void UpdateColliderNode(C_BoxCollider* collider);
 
 	inline OctNode* GetRoot() { return root; }
 
@@ -98,8 +101,8 @@ private:
 	//Functions to get which cell/s the are being collided with
 	std::vector<OctNode*> GetCollidingNodes(Ray& ray);
 	std::vector<OctNode*> GetCollidingNodes(S_BoxBounds bounds);
-	std::vector<OctNode*> GetCollidingNodes(Sphere& sphere);
-	std::vector<OctNode*> GetCollidingNodes(Box& box);
+	std::vector<OctNode*> GetCollidingNodes(Sphere sphere);
+	std::vector<OctNode*> GetCollidingNodes(Box box);
 
 	//Query functions for GetCollidingNodes
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> nodes);

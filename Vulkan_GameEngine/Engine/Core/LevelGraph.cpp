@@ -175,6 +175,7 @@ void LevelGraph::AddLight(FMatrix4*& matrix, unsigned int& index)
 	}
 }
 
+//TODO: This needs to get called somewhere.
 void LevelGraph::CleanUp()
 {
 	if (!GameObjectsByName.empty())

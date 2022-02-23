@@ -194,12 +194,3 @@ void L_Level::Render()
 	//CurrentGame->GetRenderer()->Render();
 }
 
-void L_Level::CleanUp()
-{
-	LevelGraph::GetInstance()->CleanUp();
-}
-
-void L_Level::AddCollider(C_CollisionComponent* collider)
-{
-	LevelGraph::GetInstance()->AddCollisionComponent(collider);
-}

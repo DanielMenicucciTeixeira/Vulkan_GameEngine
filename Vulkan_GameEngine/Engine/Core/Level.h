@@ -33,8 +33,7 @@ public:
 	virtual void Start();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
-	virtual void CleanUp();
-	void AddCollider(C_CollisionComponent* collider);
+
 	bool CheckForCamera();
 	inline void SetCamera(C_CameraComponent* camera) { NextCamera = camera;}
 

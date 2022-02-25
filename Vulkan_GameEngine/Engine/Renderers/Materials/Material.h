@@ -91,6 +91,8 @@ struct ShaderVariable
 	T Value;
 	ShaderVariableInfo Info;
 
+	inline void operator= (const T& value) { Value = value; }
+
 	bool operator== (const ShaderVariable<T>& other)
 	{
 		return Value == other.Value && Info.Stage == other.Info.Stage && Info.Type == other.Info.Type;

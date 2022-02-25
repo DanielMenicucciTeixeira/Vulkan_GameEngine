@@ -18,6 +18,7 @@
 #include "Tetrahedron.h"
 #include "Math/FQuaternion.h"
 #include "Objects/Components/PhysicsComponent.h"
+#include "Renderers/Materials/StandardMaterial.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -42,9 +43,9 @@ bool L_TetrahedronLevel::Initialize()
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
 
-	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
+	/*LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Tetrahedron_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";*/
 	return L_Level::Initialize();
 }
 

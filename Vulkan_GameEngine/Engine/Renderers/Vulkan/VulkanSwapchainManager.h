@@ -110,9 +110,9 @@ protected:
 	VkShaderStageFlagBits GetVulkanShaderStageFlag(E_ShaderStage stage) const;
 	VkDescriptorType GetVulkanDescriptorType(E_ShaderVariableType type) const;
 	
-	std::vector<VkWriteDescriptorSet> CreateDescriptorWritesFromMaterial(Material* material);
+	std::vector<VkWriteDescriptorSet> CreateDescriptorWritesFromMaterial(Material* material, int currentImage);
 	VkWriteDescriptorSet CreateCombinedImageSamplerWrite(ShaderVariableInfo info, void* data);
-	VkWriteDescriptorSet CreateUniformBufferWrite(ShaderVariableInfo info, void* data);
+	VkWriteDescriptorSet CreateUniformBufferWrite(Material* material, int currentImage, ShaderVariableInfo info, void* data);
 
 	//Variables
 

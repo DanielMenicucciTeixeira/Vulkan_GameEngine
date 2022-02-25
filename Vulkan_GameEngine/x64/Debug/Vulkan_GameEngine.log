@@ -1,17 +1,56 @@
-﻿  L_TetrahedronLevel.cpp
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
+﻿  OpelGLManager.cpp
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(109,55): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\OpenGL\OpelGLManager.cpp(150,83): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
   VulkanSwapchainManager.cpp
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(15,34): warning C4150: deletion of pointer to incomplete type 'FTransform'; no destructor called
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Objects\Components\TransformComponent.h(6): message : see declaration of 'FTransform'
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(552,83): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(829,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(548,100): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(553,94): warning C4267: '=': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp(830,71): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   Generating Code...
-CoreEngine.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl OpenGLManager::~OpenGLManager(void)" (??1OpenGLManager@@UEAA@XZ) referenced in function "public: virtual void * __cdecl OpenGLManager::`scalar deleting destructor'(unsigned int)" (??_GOpenGLManager@@UEAAPEAXI@Z)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual bool __cdecl OpenGLManager::Initialize(void)" (?Initialize@OpenGLManager@@UEAA_NXZ)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl OpenGLManager::UpdateWithNewObjects(void)" (?UpdateWithNewObjects@OpenGLManager@@UEAAXXZ)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl OpenGLManager::CleanUp(void)" (?CleanUp@OpenGLManager@@UEAAXXZ)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual struct SDL_Window * __cdecl OpenGLManager::CreateWindow(char const *,float,float,float,float)" (?CreateWindow@OpenGLManager@@UEAAPEAUSDL_Window@@PEBDMMMM@Z)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl OpenGLManager::Render(struct SDL_Window * *,unsigned int,unsigned int)" (?Render@OpenGLManager@@UEAAXPEAPEAUSDL_Window@@II@Z)
-CoreEngine.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl OpenGLManager::FramebufferResizeCallback(void)" (?FramebufferResizeCallback@OpenGLManager@@UEAAXXZ)
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe : fatal error LNK1120: 7 unresolved externals
+Window.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+TransformComponent.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+SphereCollider.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Math.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+OctSpatialPartition.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+GO_Camera.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+PhysicsLib.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+PhysicsComponent.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+PhysicsBody.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+MovementComponent.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+FVector4.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FVector3.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FTransform.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FQuaternion.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FMatrix4.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FMatrix.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Sphere.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Ray.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Plane.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Box.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+CollisionData.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+CollisionComponent.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Clock.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+BoxCollider.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+BilliardTable.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+BilliardBall.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Apple.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+TextureHandler.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Object.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+MeshCollision.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+BoundingBox.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+IVector3.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+IVector2.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+FVector2.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+Simplex.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+CoreEngine.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+DebugLogger.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+LightSourceComponent.obj : warning LNK4204: '' is missing debugging information for referencing module; linking object as if no debug info
+DirectionalLightComponent.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+EventListener.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+CollisionHandler.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+CollisionDetection.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+GameInterface.obj : warning LNK4204: 'C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\vc142.pdb' is missing debugging information for referencing module; linking object as if no debug info
+  Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

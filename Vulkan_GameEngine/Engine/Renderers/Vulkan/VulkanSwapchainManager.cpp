@@ -313,18 +313,19 @@ void VulkanSwapchainManager::CreateUniformBuffers()
             Manager->CreateBuffer(intBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, NumberOfLightsData[i].Buffer, NumberOfLightsData[i].Memory);
         }
 
-        for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
+       for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
         {
             for (const auto& material : shader.second)
             {
                 MaterialMap[material].resize(Images.size());
-                const auto& data = material->GetShaderVariablesData();
+                for (auto& image : MaterialMap[material]) image = std::vector<S_BufferData>();
+                /*const auto& data = material->GetShaderVariablesData();
                 const auto& info = material->GetShaderVariablesInfo();
                 for (int j = 0; j < data.size(); j++)
                 {
                     if (info[j].Type != E_ShaderVariableType::UNIFORM_BUFFER) continue;
                     Manager->CreateBuffer(info[j].VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[material][i][j].Buffer, MaterialMap[material][i][j].Memory);
-                }
+                }*/
             }
         }
 
@@ -473,20 +474,20 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         throw std::runtime_error("failed to allocate descriptor sets!");
                     }
 
-                    for (size_t i = 0; i < Images.size(); i++)
+                    for (size_t currentImage = 0; currentImage < Images.size(); currentImage++)
                     {
                         VkDescriptorBufferInfo cameraInfo{};
-                        cameraInfo.buffer = CameraData[i].Buffer;
+                        cameraInfo.buffer = CameraData[currentImage].Buffer;
                         cameraInfo.offset = 0;
                         cameraInfo.range = sizeof(UniformCameraObject);
 
                         VkDescriptorBufferInfo lightsInfo{};
-                        lightsInfo.buffer = LightsData[i].Buffer;
+                        lightsInfo.buffer = LightsData[currentImage].Buffer;
                         lightsInfo.offset = 0;
                         lightsInfo.range = sizeof(FMatrix4) * Manager->GetRenderData()->LightSources.size();
 
                         VkDescriptorBufferInfo numberOfLightsInfo{};
-                        numberOfLightsInfo.buffer = NumberOfLightsData[i].Buffer;
+                        numberOfLightsInfo.buffer = NumberOfLightsData[currentImage].Buffer;
                         numberOfLightsInfo.offset = 0;
                         numberOfLightsInfo.range = sizeof(int);
 
@@ -501,7 +502,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         imageInfo.sampler = TextureDataMap[material.first->TextureDifuse].TextureSampler;*/
 
                         VkDescriptorBufferInfo modelInfo{};
-                        modelInfo.buffer = ModelMap[model][i].Buffer;
+                        modelInfo.buffer = ModelMap[model][currentImage].Buffer;
                         modelInfo.offset = 0;
                         modelInfo.range = sizeof(FMatrix4);
 
@@ -510,7 +511,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[0].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[0].dstSet = DescriptorSetsMap[model][currentImage];
                         descriptorWrites[0].dstBinding = 0;
                         descriptorWrites[0].dstArrayElement = 0;
                         descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -519,7 +520,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[1].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[1].dstSet = DescriptorSetsMap[model][currentImage];
                         descriptorWrites[1].dstBinding = 1;
                         descriptorWrites[1].dstArrayElement = 0;
                         descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -528,7 +529,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[2].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[2].dstSet = DescriptorSetsMap[model][currentImage];
                         descriptorWrites[2].dstBinding = 2;
                         descriptorWrites[2].dstArrayElement = 0;
                         descriptorWrites[2].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -537,19 +538,19 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[3].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[3].dstSet = DescriptorSetsMap[model][currentImage];
                         descriptorWrites[3].dstBinding = 3;
                         descriptorWrites[3].dstArrayElement = 0;
                         descriptorWrites[3].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
                         descriptorWrites[3].descriptorCount = 1;
                         descriptorWrites[3].pBufferInfo = &lightsInfo;
 
-                        auto tempVector = CreateDescriptorWritesFromMaterial(material);
+                        auto tempVector = CreateDescriptorWritesFromMaterial(material, currentImage);
                         
-                        for (int j = 0; j < tempVector.size(); j++)
+                        for (int i = 0; i < tempVector.size(); i++)
                         {
-                            tempVector[j].dstSet = DescriptorSetsMap[model][i];
-                            tempVector[j].dstBinding = i + descriptorWrites.size();
+                            tempVector[i].dstSet = DescriptorSetsMap[model][currentImage];
+                            tempVector[i].dstBinding = currentImage + descriptorWrites.size();
                         }
 
                         descriptorWrites.insert(descriptorWrites.end(), tempVector.begin(), tempVector.end());
@@ -914,7 +915,7 @@ VkDescriptorType VulkanSwapchainManager::GetVulkanDescriptorType(E_ShaderVariabl
     }
 }
 
-std::vector<VkWriteDescriptorSet> VulkanSwapchainManager::CreateDescriptorWritesFromMaterial(Material* material)
+std::vector<VkWriteDescriptorSet> VulkanSwapchainManager::CreateDescriptorWritesFromMaterial(Material* material, int currentImage)
 {
     std::vector<VkWriteDescriptorSet> returnVector;
     auto variableInfos = material->GetShaderVariablesInfo();
@@ -934,7 +935,7 @@ std::vector<VkWriteDescriptorSet> VulkanSwapchainManager::CreateDescriptorWrites
         case E_ShaderVariableType::UNIFORM_TEXEL_BUFFER:
         case E_ShaderVariableType::STORAGE_TEXEL_BUFFER:
         case E_ShaderVariableType::UNIFORM_BUFFER:
-            returnVector.push_back(CreateUniformBufferWrite(variableInfos[i], variableDatas[i]));
+            returnVector.push_back(CreateUniformBufferWrite(material, currentImage, variableInfos[i], variableDatas[i]));
             break;
         case E_ShaderVariableType::STORAGE_BUFFER:
         case E_ShaderVariableType::UNIFORM_BUFFER_DYNAMIC:
@@ -967,9 +968,13 @@ VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite(Sha
     return descriptorWrite;
 }
 
-VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(ShaderVariableInfo info, void* data)
+VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(Material* material, int currentImage, ShaderVariableInfo info, void* data)
 {
+    MaterialMap[material][currentImage].push_back(S_BufferData());
+    Manager->CreateBuffer(info.VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, (*MaterialMap[material][currentImage].end()).Buffer, (*MaterialMap[material][currentImage].end()).Memory);
+
     VkDescriptorBufferInfo* uniformBufferInfo = new VkDescriptorBufferInfo();
+    uniformBufferInfo->buffer = (*MaterialMap[material][currentImage].end()).Buffer;
     uniformBufferInfo->offset = 0;
     uniformBufferInfo->range = info.VariableSize;
 

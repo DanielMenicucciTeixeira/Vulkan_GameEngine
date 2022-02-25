@@ -117,7 +117,7 @@ protected:
 	static std::map<std::string, O_Object*> GameObjectsByName;
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
-	static C_CameraComponent* ActiveCamera;
+    C_CameraComponent* ActiveCamera;
 
 	S_RenderData RenderData;
 	std::set<C_StaticMeshComponent*> StaticMehes;

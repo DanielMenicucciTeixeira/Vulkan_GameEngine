@@ -270,10 +270,13 @@
     <ClCompile Include="Engine\Math\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Core\GameInterface.cpp">
+    <ClCompile Include="Engine\Audio\AudioHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp">
+    <ClCompile Include="Engine\Audio\AudioSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Audio\BackgroundSound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -521,10 +524,13 @@
     <ClInclude Include="Engine\Math\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Renderers\Materials\Material.h">
+    <ClInclude Include="Engine\Audio\AudioHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h">
+    <ClInclude Include="Engine\Audio\AudioSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Audio\BackgroundSound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

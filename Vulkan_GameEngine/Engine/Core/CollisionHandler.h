@@ -1,11 +1,12 @@
 #ifndef COLLISIONHANDLER_H
 #define COLLISIONHANDLER_H
 
-#include "../Objects/GameObjects/GameObject.h"
 #include "OctSpatialPartition.h"
 #include "Physics/CollisionData.h"
 #include <vector>
 #include <memory>
+
+class C_CollisionComponent;
 
 class CollisionHandler
 {
@@ -24,17 +25,34 @@ public:
 
 
 
-	
+	//Get closest collider
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
+
+	//Get all colliders
+	std::vector<S_CollisionData> GetCollisionMuliRay(Ray& ray);
 
 	//Get all objects colliding with the sphere
 	std::vector<S_CollisionData> GetSphereCollision(Sphere& sphere);
 
+	//Get all colliders colliding with the bounding box
+	std::vector<S_CollisionData> GetAABBCollision(S_BoxBounds bounds);
+
+	//Get all colliders colliding with the box
+	std::vector<S_CollisionData> GetOBBCollision(Box box);
+
 	//TODO:Tag filters?
+
+	//Functions to check to see if a collider is still in the same partition.
+	void AABBSpatialCheck(C_BoundingBox* collider);
+	void SphereSpatialCheck(C_SphereCollider* collider);
+	void OBBSpatialCheck(C_BoxCollider* collider);
+
 
 private:
 	CollisionHandler();
 	~CollisionHandler();
+
+
 
 	static std::unique_ptr<CollisionHandler> collisionInstance;
 	friend std::default_delete<CollisionHandler>;

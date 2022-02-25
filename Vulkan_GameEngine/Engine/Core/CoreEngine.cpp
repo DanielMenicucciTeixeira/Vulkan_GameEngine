@@ -13,11 +13,6 @@
 
 std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
-bool CoreEngine::StartGame()
-{
-	return true;
-}
-
 bool CoreEngine::AddGameEvent(const char* eventName)
 {
 	
@@ -68,6 +63,7 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 		break;
 	default:
 		EngineRenderer = new OpenGLManager();
+		break;
 	}
 
 	//Initalize Renderer
@@ -181,7 +177,6 @@ void CoreEngine::PostUpdate(const float deltaTime)
 void CoreEngine::Render()
 {
 	if (gameInterface) { gameInterface->Render(); }	
-	EngineRenderer->Render();
 }
 
 CoreEngine* CoreEngine::GetInstance()

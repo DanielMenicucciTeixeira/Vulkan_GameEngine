@@ -30,7 +30,6 @@ public:
 	virtual bool Initialize() override;
 	virtual void UpdateWithNewObjects() override;
 	virtual  void CleanUp() override;
-	virtual SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) override;
 	virtual void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) override;
 
 	virtual void FramebufferResizeCallback() override;

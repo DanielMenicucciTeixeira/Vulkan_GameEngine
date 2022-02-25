@@ -2,11 +2,13 @@
 #include "BoxCollider.h"
 #include "Geometry/Box.h"
 #include "Objects/GameObjects/GameObject.h"
+#include "CollisionHandler.h"
 
 void C_SphereCollider::SetComponentPosition(const FVector3& position)
 {
 	C_TransformComponent::SetComponentPosition(position);
 	CollisionSphere.position = GetComponentAbsolutePosition();
+	CollisionHandler::GetInstance()->SphereSpatialCheck(this);
 }
 
 void C_SphereCollider::SetComponentScale(const FVector3& scale)

@@ -18,7 +18,6 @@ std::unordered_map<std::string, S_Texture*> LevelGraph::TexturesByName;
 std::unordered_map<std::string, Material*> LevelGraph::MaterialsByName;
 std::unordered_map<std::string, S_Mesh*> LevelGraph::MeshesByName;
 
-C_CameraComponent* LevelGraph::ActiveCamera;
 std::set<O_Object*> LevelGraph::UnloadedObjects;
 std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
@@ -177,6 +176,7 @@ void LevelGraph::AddLight(FMatrix4*& matrix, unsigned int& index)
 	}
 }
 
+//TODO: This needs to get called somewhere.
 void LevelGraph::CleanUp()
 {
 	if (!GameObjectsByName.empty())

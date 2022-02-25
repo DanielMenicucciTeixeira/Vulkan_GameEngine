@@ -89,12 +89,3 @@ void BaseGame::SetGameInputFunction(sdlEventType eventType, sdlKeycode keycode, 
 	GameInputFunctions[std::make_pair(eventType, keycode)] = function;
 }
 
-void BaseGame::CleanUp()
-{
-	if (CurrentLevel)
-	{
-		CurrentLevel->CleanUp();
-		delete(CurrentLevel);
-		CurrentLevel = nullptr;
-	}
-}

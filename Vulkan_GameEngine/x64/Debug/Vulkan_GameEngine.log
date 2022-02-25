@@ -1,5 +1,1 @@
-﻿  CoreEngine.cpp
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(185,119): warning C4042: 'function': has bad storage class
-  Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe
+﻿  Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

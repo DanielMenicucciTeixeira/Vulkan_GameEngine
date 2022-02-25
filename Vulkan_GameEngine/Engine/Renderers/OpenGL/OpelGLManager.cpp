@@ -71,11 +71,6 @@ void OpenGLManager::CleanUp()
 	if (ShaderManager) delete(ShaderManager);
 }
 
-SDL_Window* OpenGLManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
-{
-	return nullptr;
-}
-
 void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindows, unsigned int arrayOffset)
 {
 

@@ -34,7 +34,6 @@ int main(int argc, char* argv[])
 
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_QUIT, SDLK_UNKNOWN, CoreEngine::Quit);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_q, CoreEngine::Quit);
-	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_g, CoreEngine::LoadGame);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_r, printDown);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYUP, SDLK_r, printUp);
 	CoreEngine::GetInstance()->SetEngineInputFunction(SDL_KEYDOWN, SDLK_t, printEngine);

@@ -13,11 +13,6 @@
 
 std::unique_ptr<CoreEngine> CoreEngine::Instance = nullptr;
 
-bool CoreEngine::StartGame()
-{
-	return true;
-}
-
 bool CoreEngine::AddGameEvent(const char* eventName)
 {
 	
@@ -68,6 +63,7 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 		break;
 	default:
 		EngineRenderer = new OpenGLManager();
+		break;
 	}
 
 	//Initalize Renderer
@@ -167,11 +163,7 @@ void CoreEngine::Update(const float deltaTime)
 
 void CoreEngine::Render()
 {
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	if (!gameInterface) { gameInterface->Render(); }
-	//if (CurrentGame) CurrentGame->Render();//must implement multiple windows to run game and engine simultaneously
-	SDL_GL_SwapWindow(engineWindow->GetSDLWindow());
+	if (gameInterface) { gameInterface->Render(); }
 	
 	EngineRenderer->Render();
 }

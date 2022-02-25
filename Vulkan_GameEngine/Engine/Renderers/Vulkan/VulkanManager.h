@@ -135,7 +135,6 @@ public:
 	void EndSingleTimeCommands(VkCommandBuffer_T* commandBuffer);
 
 protected:
-	SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) override;
 	void CreateSurface();
 
 	//appVersion must be an array of 3 unsigned int values, if a smaller array is passed, program might crash or appVersion might have unpredicted values

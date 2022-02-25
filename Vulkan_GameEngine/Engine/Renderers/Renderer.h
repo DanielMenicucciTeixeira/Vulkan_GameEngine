@@ -19,8 +19,6 @@ public:
 	virtual bool Initialize() = 0;
 	virtual  void CleanUp() = 0;
 
-	//TODO: Get Rid of this
-	virtual SDL_Window* CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) = 0;
 	virtual void Render(SDL_Window** windowArray = nullptr, unsigned int numberOfWindows = 1, unsigned int arrayOffset = 0) = 0;
 	virtual void UpdateWithNewObjects() = 0;
 

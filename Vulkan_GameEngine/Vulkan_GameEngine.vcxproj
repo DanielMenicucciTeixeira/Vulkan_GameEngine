@@ -157,14 +157,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game;C:\Dev\Vulkan_Engine\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\stb-master;C:\GameDev\tinyobjloader-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine;C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Game;C:\Dev\Vulkan_Engine\Vulkan_GameEngine;C:\GameDev\Vulkan\include;C:\GameDev\SDL2_image-2.0.5\include;C:\GameDev\stb-master;C:\GameDev\tinyobjloader-master;C:\GameDev\FMOD\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\GameDev\SDL\lib\x64;C:\GameDev\OpenGL\lib\x64;C:\GameDev\Vulkan\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;glew32.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\GameDev\SDL\lib\x64;C:\GameDev\OpenGL\lib\x64;C:\GameDev\Vulkan\lib;C:\GameDev\FMOD\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>vulkan-1.lib;Opengl32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2test.lib;glew32.lib;glew32s.lib;fmod_vc.lib;fmodL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Vulkan|x64'">
@@ -224,6 +224,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Audio\AudioHandler.cpp" />
+    <ClCompile Include="Engine\Audio\AudioSource.cpp" />
+    <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
     <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
@@ -297,6 +300,9 @@
     <ClCompile Include="Engine\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Audio\AudioHandler.h" />
+    <ClInclude Include="Engine\Audio\AudioSource.h" />
+    <ClInclude Include="Engine\Audio\BackgroundSound.h" />
     <ClInclude Include="Engine\Core\Game.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />

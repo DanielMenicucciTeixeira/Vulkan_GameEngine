@@ -27,7 +27,7 @@ Ray::~Ray()
 	if (Direction) delete(Direction);
 }
 
-FVector3 Ray::GetPositionAtLenght(float displacement) const
+FVector3 Ray::GetPositionAtLength(float displacement) const
 {
 	if (Infinit || abs(displacement) <= Length)
 	{
@@ -66,12 +66,6 @@ Ray& Ray::operator=(const Ray& ray)
 	Length = ray.Length;
 	Infinit = ray.Infinit;
 	return *this;
-}
-
-bool Ray::IsColliding(const C_BoundingBox* box)
-{
-	intersectDistance = -1;
-	return CollisionDetection::RayObbIntersection(*this, *box);
 }
 
 void Ray::SetIntersectDistance(float dis)

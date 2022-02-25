@@ -493,11 +493,6 @@ void VulkanManager::CleanUp()
     vkDestroyInstance(Instance, nullptr);
 }
 
-SDL_Window* VulkanManager::CreateWindow(const char* windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY)
-{
-    return nullptr;
-}
-
 void VulkanManager::CreateSurface()
 {
     if (SDL_Vulkan_CreateSurface(CoreEngine::GetInstance()->GetWindowSDL(), Instance, &Surface) != SDL_TRUE)

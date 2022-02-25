@@ -63,8 +63,6 @@ public:
 	inline L_Level* GetCurrentLevel() { return CurrentLevel; }
 
 protected:
-	void CleanUp();
-
 	L_Level* CurrentLevel;
 
 	std::map<std::pair<sdlEventType, sdlKeycode>, void(*)(BaseGame*, SDL_Event*)> GameInputFunctions;

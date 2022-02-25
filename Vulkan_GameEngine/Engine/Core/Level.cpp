@@ -27,7 +27,6 @@ bool L_Level::Initialize()
 {
 	LoadModels();
 	LoadLevelObjects();
-	//CurrentGame->GetRenderer()->Initialize();
 	return true;
 }
 
@@ -177,10 +176,8 @@ bool L_Level::CheckForCamera()
 void L_Level::Update(const float deltaTime)
 {
 	LoadLevelObjects();
-	CheckCollisions();
 
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
-
 
 	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
@@ -196,23 +193,3 @@ void L_Level::Render()
 	//CurrentGame->GetRenderer()->Render();
 }
 
-void L_Level::CleanUp()
-{
-	LevelGraph::GetInstance()->CleanUp();
-}
-
-void L_Level::CheckCollisions()
-{
-	//TODO: Clear this
-	/*
-	for (const auto& partition : LevelGraph::ColliderSpationPartition->GetActiveLeaves())
-	{
-		C_CollisionComponent::CheckForCollisions(partition->GetColliders());
-	}
-	*/
-}
-
-void L_Level::AddCollider(C_CollisionComponent* collider)
-{
-	LevelGraph::GetInstance()->AddCollisionComponent(collider);
-}

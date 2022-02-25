@@ -33,9 +33,7 @@ public:
 	virtual void Start();
 	virtual void Update(const float deltaTime);
 	virtual void Render();
-	virtual void CleanUp();
-	virtual void CheckCollisions();
-	virtual void AddCollider(C_CollisionComponent* collider);
+
 	bool CheckForCamera();
 	inline void SetCamera(C_CameraComponent* camera) { NextCamera = camera;}
 
@@ -78,8 +76,6 @@ public:
 	inline const float& GetWorldSize() const { return WorldSize; }
 
 protected:
-
-
 
 	std::string Name;
 

@@ -6,9 +6,10 @@
 #include "Math/FMatrix4.h"
 #include "Objects/GameObjects/GameObject.h"
 
-C_TransformComponent::C_TransformComponent(O_GameObject* owner) : O_Component(owner)
+C_TransformComponent::C_TransformComponent(O_GameObject* owner, bool isStatic) : O_Component(owner)
 {
 	if(!Transform) Transform = new FTransform();
+	IsStatic = isStatic;
 }
 
 FTransform C_TransformComponent::GetComponentTransform() const

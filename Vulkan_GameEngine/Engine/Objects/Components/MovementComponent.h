@@ -2,8 +2,8 @@
 #define C_MOVEMENTCOMPONENT_H
 
 #include "Component.h"
+#include "Math/FVector3.h"
 
-class FVector3;
 class FQuaternion;
 
 
@@ -15,6 +15,8 @@ class C_MovementComponent : public O_Component
 protected:
 	bool AlwaysFaceForward;
 
+	FVector3 Velocity;
+	FVector3 Buffer_Velocity;
 
 
 public:

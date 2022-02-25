@@ -27,7 +27,6 @@ bool L_Level::Initialize()
 {
 	LoadModels();
 	LoadLevelObjects();
-	//CurrentGame->GetRenderer()->Initialize();
 	return true;
 }
 

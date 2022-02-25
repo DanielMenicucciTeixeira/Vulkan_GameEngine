@@ -258,7 +258,7 @@ void VulkanManager::CreateCommandBuffers()
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
             for (const auto& shader : RenderData->MaterialsByShader)
             {
-                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderName()].first);
+                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first);
                 for (const auto& material : shader.second)
                 {
                     for (const auto& mesh : RenderData->MeshesByMaterial[material])
@@ -269,7 +269,7 @@ void VulkanManager::CreateCommandBuffers()
                         {
                             if (*RenderData->Models[model])
                             {
-                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderName()].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
+                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
                                 vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
                             }
                         }
@@ -452,8 +452,8 @@ void VulkanManager::CleanUp()
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, CommandBuffers.size(), CommandBuffers.data());
     for (const auto& shader : RenderData->MaterialsByShader)
     {
-        vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderName()].first, nullptr);
-        vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderName()].second, nullptr);
+        vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first, nullptr);
+        vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, nullptr);
     }    
     for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);

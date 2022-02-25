@@ -2,7 +2,9 @@
 
 M_StandardMaterial::M_StandardMaterial()
 {
-	ShaderName = "TextureShader";
+	Shader.Name = "TextureShader";
+	Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::VERTEX_BIT, "TextureShaderVert"));
+	Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::FRAGMENT_BIT, "TextureShaderFrag"));
 	MaterialName = "StandardMaterial";
 
 	ReflectionData.Info.Stage = E_ShaderStage::FRAGMENT_BIT;

@@ -9,6 +9,7 @@
 #include <iostream>
 
 #define DEFAULT_SHADER_PATH "Engine/Shaders/"
+#define DEFAULT_SHADER_EXT ".spv"
 
 VulkanPipelineManager::VulkanPipelineManager(VulkanManager* manager)
 {
@@ -38,25 +39,21 @@ void VulkanPipelineManager::CreateGraphicsPipelines()
     {
         Material* material = *shader.second.begin();
         //Create Shader Modules and Info
-        std::unordered_map<E_ShaderStage, VkShaderModule> shaderModulesMap;
+        std::vector<VkShaderModule> shaderModules;
         std::vector<VkPipelineShaderStageCreateInfo> shaderStages;
-        shaderStages.reserve(material->GetShaderVariablesInfo().size());
 
-        for (const auto& info : material->GetShaderVariablesInfo())
+        for (const auto& file : material->GetShaderInfo().ShaderFiles)
         {
-            if (!shaderModulesMap.count(info.Stage))
-            {
-                std::string filePath = DEFAULT_SHADER_PATH + material->GetShaderName() + GetShaderBitString(info.Stage);
-                shaderModulesMap[info.Stage] = CreateShaderModule(ReadFile(filePath));
+            std::string filePath = DEFAULT_SHADER_PATH + file.second + DEFAULT_SHADER_EXT;
+            shaderModules.push_back(CreateShaderModule(ReadFile(filePath)));
 
-                VkPipelineShaderStageCreateInfo shaderStageInfo{};
-                shaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-                shaderStageInfo.stage = GetVulkanShaderStageFlag(info.Stage);
-                shaderStageInfo.module = shaderModulesMap[info.Stage];
-                shaderStageInfo.pName = "main";
+            VkPipelineShaderStageCreateInfo shaderStageInfo{};
+            shaderStageInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+            shaderStageInfo.stage = GetVulkanShaderStageFlag(file.first);
+            shaderStageInfo.module = *(shaderModules.end()-1);
+            shaderStageInfo.pName = "main";
 
-                shaderStages.push_back(shaderStageInfo);
-            }
+            shaderStages.push_back(shaderStageInfo);
         }
         //----------------------------------------------------------------------------
 
@@ -69,8 +66,8 @@ void VulkanPipelineManager::CreateGraphicsPipelines()
         pipelineLayoutInfo.pushConstantRangeCount = 0; // Optional
         pipelineLayoutInfo.pPushConstantRanges = nullptr; // Optional
 
-        PipelinesMap[material->GetShaderName()] = std::pair<VkPipeline, VkPipelineLayout>();//TODO see if I can get rid of this line
-        if (vkCreatePipelineLayout(Manager->GetLogicalDevice(), &pipelineLayoutInfo, nullptr, &PipelinesMap[material->GetShaderName()].second) != VK_SUCCESS)
+        PipelinesMap[material->GetShaderInfo().Name] = std::pair<VkPipeline, VkPipelineLayout>();//TODO see if I can get rid of this line
+        if (vkCreatePipelineLayout(Manager->GetLogicalDevice(), &pipelineLayoutInfo, nullptr, &PipelinesMap[material->GetShaderInfo().Name].second) != VK_SUCCESS)
         {
             throw std::runtime_error("failed to create pipeline layout!");
         }
@@ -175,7 +172,7 @@ void VulkanPipelineManager::CreateGraphicsPipelines()
         pipelineInfo.pDepthStencilState = nullptr; // Optional
         pipelineInfo.pColorBlendState = &colorBlending;
         pipelineInfo.pDynamicState = nullptr; // Optional
-        pipelineInfo.layout = PipelinesMap[material->GetShaderName()].second;
+        pipelineInfo.layout = PipelinesMap[material->GetShaderInfo().Name].second;
         pipelineInfo.renderPass = Manager->GetRenderPass();
         pipelineInfo.subpass = 0;
         pipelineInfo.basePipelineHandle = VK_NULL_HANDLE; // Optional
@@ -183,14 +180,12 @@ void VulkanPipelineManager::CreateGraphicsPipelines()
         pipelineInfo.pDepthStencilState = &depthStencil;
         pipelineInfo.pDynamicState = &dynamicState;
 
-        if (vkCreateGraphicsPipelines(Manager->GetLogicalDevice(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &PipelinesMap[material->GetShaderName()].first) != VK_SUCCESS)
+        if (vkCreateGraphicsPipelines(Manager->GetLogicalDevice(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &PipelinesMap[material->GetShaderInfo().Name].first) != VK_SUCCESS)
         {
             throw std::runtime_error("failed to create graphics pipeline!");
         }
 
-        for (auto& module : shaderModulesMap)
-            if (shaderModulesMap.count(module.first))
-                vkDestroyShaderModule(Manager->GetLogicalDevice(), module.second, nullptr);
+        for (auto& module : shaderModules) vkDestroyShaderModule(Manager->GetLogicalDevice(), module, nullptr);
         //vkDestroyShaderModule(Manager->GetLogicalDevice(), fragShaderModule, nullptr);
         //vkDestroyShaderModule(Manager->GetLogicalDevice(), vertShaderModule, nullptr);
     }
@@ -263,28 +258,28 @@ VkShaderModule_T* VulkanPipelineManager::CreateShaderModule(const std::vector<ch
     return shaderModule;
 }
 
-std::string VulkanPipelineManager::GetShaderBitString(E_ShaderStage stage) const
-{
-    switch (stage)
-    {
-    case E_ShaderStage::VERTEX_BIT:
-        return ".vert";
-    case E_ShaderStage::TESSELLATION_CONTROL_BIT:
-        return ".tcon";
-    case E_ShaderStage::TESSELLATION_EVALUATION_BIT:
-        return ".teva";
-    case E_ShaderStage::GEOMETRY_BIT:
-        return ".geo";
-    case E_ShaderStage::FRAGMENT_BIT:
-        return ".frag";
-    case E_ShaderStage::COMPUTE_BIT:
-        return ".cmp";
-    case E_ShaderStage::ALL_GRAPHICS:
-        return ".all";
-    default:
-        return ".vert";
-    }
-}
+//std::string VulkanPipelineManager::GetShaderBitString(E_ShaderStage stage) const
+//{
+//    switch (stage)
+//    {
+//    case E_ShaderStage::VERTEX_BIT:
+//        return "Vert";
+//    case E_ShaderStage::TESSELLATION_CONTROL_BIT:
+//        return "Tcon";
+//    case E_ShaderStage::TESSELLATION_EVALUATION_BIT:
+//        return "Teva";
+//    case E_ShaderStage::GEOMETRY_BIT:
+//        return "Geo";
+//    case E_ShaderStage::FRAGMENT_BIT:
+//        return "Frag";
+//    case E_ShaderStage::COMPUTE_BIT:
+//        return "Cmp";
+//    case E_ShaderStage::ALL_GRAPHICS:
+//        return "All";
+//    default:
+//        return "Vert";
+//    }
+//}
 
 VkShaderStageFlagBits VulkanPipelineManager::GetVulkanShaderStageFlag(E_ShaderStage stage) const
 {

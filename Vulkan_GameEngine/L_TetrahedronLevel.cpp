@@ -20,10 +20,6 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Renderers/Materials/StandardMaterial.h"
 
-#include <SDL.h>
-#include <glew.h>
-#include <SDL_opengl.h>
-
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
 	Name = "Tetrahedron Level";
@@ -31,19 +27,21 @@ L_TetrahedronLevel::L_TetrahedronLevel()
 
 bool L_TetrahedronLevel::Initialize()
 {
-	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
+	printf("\n\n---------------------------------------Tetrahedron Initialized!----------------------------------------\n\n");
 
-	auto Tetrahedron_Texture = new S_Texture();
-	Tetrahedron_Texture->Name = "DumbTexture";
-	Tetrahedron_Texture->Path = "C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Assets/Textures/DumbTexture.png";
-	LoadTexture(Tetrahedron_Texture, Tetrahedron_Texture->Name);
+	S_Texture* tetrahedron_Texture = new S_Texture();
+	tetrahedron_Texture->Name = "DumbTexture";
+	tetrahedron_Texture->Path = "Assets/Textures/DumbTexture.png";
+	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
+	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
 
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
-	standardMaterial->DiffuseTexture = Tetrahedron_Texture;
+	standardMaterial->DiffuseTexture = tetrahedron_Texture;
+	standardMaterial->SpecularTexture = tetrahedron_Texture;
 
 	/*LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Tetrahedron_Texture;

@@ -112,8 +112,8 @@ void LevelGraph::AddMesh(S_Mesh* mesh)
 
 void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderName())) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()] = std::set<Material*>();
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()].insert(meshComponent->GetMaterial());
+	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderInfo().Name)) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name] = std::set<Material*>();
+	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].insert(meshComponent->GetMaterial());
 
 	if (!RenderData.MeshesByMaterial.count(meshComponent->GetMaterial())) RenderData.MeshesByMaterial[meshComponent->GetMaterial()] = std::set<S_Mesh*>();
 	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].insert(meshComponent->GetMesh());
@@ -136,7 +136,7 @@ void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderName()].erase(meshComponent->GetMaterial());
+	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].erase(meshComponent->GetMaterial());
 	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].erase(meshComponent->GetMesh());
 	RenderData.InstancesByMesh[meshComponent->GetMesh()].erase(meshComponent->GetModelMatrix());
 }

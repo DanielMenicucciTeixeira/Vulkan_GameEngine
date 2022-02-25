@@ -99,6 +99,12 @@ struct ShaderVariable
 	}
 };
 
+struct S_ShaderInfo
+{
+	std::string Name;
+	std::vector<std::pair<E_ShaderStage, std::string>> ShaderFiles;
+};
+
 class Material
 {
 public:
@@ -107,12 +113,12 @@ public:
 
 protected:
 	std::string MaterialName;
-	std::string ShaderName;
+	S_ShaderInfo Shader;
 
 public:
 	inline const std::string& GetMaterialName() const { return MaterialName; }
 	inline void SetMaterialName(std::string name) { MaterialName = name; }
-	inline const std::string& GetShaderName() const { return ShaderName; }
+	inline const S_ShaderInfo& GetShaderInfo() const { return Shader; }
 
 	virtual std::vector<void*> GetShaderVariablesData() const = 0;
 	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() const = 0;

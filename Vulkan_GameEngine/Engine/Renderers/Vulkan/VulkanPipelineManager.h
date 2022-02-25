@@ -41,7 +41,7 @@ protected:
 	//VkPipeline_T* Pipeline = nullptr;
 	VulkanManager* Manager = nullptr;
 
-	std::string GetShaderBitString(E_ShaderStage stage) const;
+	//std::string GetShaderBitString(E_ShaderStage stage) const;
 	VkShaderStageFlagBits GetVulkanShaderStageFlag(E_ShaderStage stage) const;
 };
 #endif

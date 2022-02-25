@@ -18,6 +18,9 @@
 #include<array>
 #include<chrono>
 
+#include<stdexcept>
+#include<iostream>
+
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
@@ -550,9 +553,13 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         for (int i = 0; i < tempVector.size(); i++)
                         {
                             tempVector[i].dstSet = DescriptorSetsMap[model][currentImage];
-                            tempVector[i].dstBinding = currentImage + descriptorWrites.size();
+                            tempVector[i].dstBinding = i + descriptorWrites.size();
                         }
 
+                        //Counter starting on how many descriptors were pre-defined,
+                        //used to delete some pointers latter on to avoid memory leak
+                        int descriptorCounter = descriptorWrites.size();
+                        
                         descriptorWrites.insert(descriptorWrites.end(), tempVector.begin(), tempVector.end());
 
                         /*descriptorWrites[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
@@ -572,11 +579,11 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         descriptorWrites[5].pBufferInfo = &materialInfo;*/
 
                         vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
-                        
-                        for (const auto& write : descriptorWrites)
+                        int test = 0;
+                        for (descriptorCounter; descriptorCounter < descriptorWrites.size(); descriptorCounter++)
                         {
-                            if (write.pBufferInfo) delete(write.pBufferInfo);
-                            if (write.pImageInfo) delete(write.pImageInfo);
+                            if (descriptorWrites[descriptorCounter].pBufferInfo) delete(descriptorWrites[descriptorCounter].pBufferInfo);
+                            if (descriptorWrites[descriptorCounter].pImageInfo) delete(descriptorWrites[descriptorCounter].pImageInfo);
                         }
                     }
                 }
@@ -840,12 +847,12 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     {
         void* materialData;
         const auto& info = material->GetShaderVariablesInfo();
-        for (int i = 0; i < info.size(); i++)
+        /*for (int i = 0; i < info.size(); i++)
         {
             vkMapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory, 0, sizeof(FMatrix4), 0, &materialData);
             memcpy(materialData, material, info[i].VariableSize);
             vkUnmapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory);
-        }
+        }*/
     }
 
     for (const auto& model : Manager->GetRenderData()->Models)
@@ -958,7 +965,7 @@ VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite(Sha
     imageInfo->imageView = TextureDataMap[(S_Texture*)data].TextureImageView;
     imageInfo->sampler = TextureDataMap[(S_Texture*)data].TextureSampler;
 
-    VkWriteDescriptorSet descriptorWrite;
+    VkWriteDescriptorSet descriptorWrite = {};
     descriptorWrite.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
     descriptorWrite.dstArrayElement = 0;
     descriptorWrite.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
@@ -971,14 +978,15 @@ VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite(Sha
 VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(Material* material, int currentImage, ShaderVariableInfo info, void* data)
 {
     MaterialMap[material][currentImage].push_back(S_BufferData());
-    Manager->CreateBuffer(info.VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, (*MaterialMap[material][currentImage].end()).Buffer, (*MaterialMap[material][currentImage].end()).Memory);
+    void* test = &MaterialMap[material][currentImage].back();
+    Manager->CreateBuffer(info.VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, (MaterialMap[material][currentImage].back()).Buffer, (MaterialMap[material][currentImage].back()).Memory);
 
     VkDescriptorBufferInfo* uniformBufferInfo = new VkDescriptorBufferInfo();
-    uniformBufferInfo->buffer = (*MaterialMap[material][currentImage].end()).Buffer;
+    uniformBufferInfo->buffer = (MaterialMap[material][currentImage].back()).Buffer;
     uniformBufferInfo->offset = 0;
     uniformBufferInfo->range = info.VariableSize;
 
-    VkWriteDescriptorSet uniformBufferWrite;
+    VkWriteDescriptorSet uniformBufferWrite = {};
     uniformBufferWrite.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
     uniformBufferWrite.dstArrayElement = 0;
     uniformBufferWrite.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;

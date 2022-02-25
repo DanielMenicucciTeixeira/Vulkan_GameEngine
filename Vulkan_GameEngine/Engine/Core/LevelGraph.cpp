@@ -15,7 +15,7 @@
 std::unique_ptr<LevelGraph> LevelGraph::Instance = nullptr;
 
 std::unordered_map<std::string, S_Texture*> LevelGraph::TexturesByName;
-std::unordered_map<std::string, S_Material*> LevelGraph::MaterialsByName;
+std::unordered_map<std::string, Material*> LevelGraph::MaterialsByName;
 std::unordered_map<std::string, S_Mesh*> LevelGraph::MeshesByName;
 
 std::set<O_Object*> LevelGraph::UnloadedObjects;
@@ -32,7 +32,8 @@ LevelGraph* LevelGraph::GetInstance()
 
 void LevelGraph::Render()
 {
-	for (auto& mesh : StaticMehes) {
+	for (auto& mesh : StaticMehes)
+	{
 		mesh->SetInFrustum(ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
 	}
 }
@@ -110,8 +111,8 @@ void LevelGraph::AddMesh(S_Mesh* mesh)
 
 void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->ShaderName)) RenderData.MaterialsByShader[meshComponent->GetMaterial()->ShaderName] = std::set<S_Material*>();
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->ShaderName].insert(meshComponent->GetMaterial());
+	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderInfo().Name)) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name] = std::set<Material*>();
+	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].insert(meshComponent->GetMaterial());
 
 	if (!RenderData.MeshesByMaterial.count(meshComponent->GetMaterial())) RenderData.MeshesByMaterial[meshComponent->GetMaterial()] = std::set<S_Mesh*>();
 	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].insert(meshComponent->GetMesh());
@@ -121,8 +122,8 @@ void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 
 	RenderData.Models[meshComponent->GetModelMatrix()] = meshComponent->IsInFrustum();
 	RenderData.Materials.insert(meshComponent->GetMaterial());
-	if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
-	if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
+	//if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
+	//if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
 	RenderData.Meshes.insert(meshComponent->GetMesh());
 	StaticMehes.insert(meshComponent);
 }
@@ -134,7 +135,7 @@ void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->ShaderName].erase(meshComponent->GetMaterial());
+	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].erase(meshComponent->GetMaterial());
 	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].erase(meshComponent->GetMesh());
 	RenderData.InstancesByMesh[meshComponent->GetMesh()].erase(meshComponent->GetModelMatrix());
 }
@@ -145,9 +146,9 @@ void LevelGraph::AddTexture(S_Texture* texture)
 	RenderData.Textures.insert(texture);
 }
 
-void LevelGraph::AddMaterial(S_Material* material)
+void LevelGraph::AddMaterial(Material* material)
 {
-	MaterialsByName[material->Name] = material;
+	MaterialsByName[material->GetMaterialName()] = material;
 	RenderData.Materials.insert(material);
 	LoadMaterial(material);
 }
@@ -213,10 +214,10 @@ void LevelGraph::LoadModel()
 {
 }
 
-void LevelGraph::LoadMaterial(S_Material* material)
+void LevelGraph::LoadMaterial(Material* material)
 {
-	if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
-	if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
+	//if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);
+	//if (material->TextureNameSpecular != "") LoadTexture(material->TextureSpecular, material->TextureNameSpecular);
 }
 
 bool LevelGraph::LoadTexture(S_Texture*& texture, const std::string& textureName)

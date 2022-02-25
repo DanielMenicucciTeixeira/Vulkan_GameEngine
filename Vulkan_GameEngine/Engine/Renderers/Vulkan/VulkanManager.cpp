@@ -2,6 +2,7 @@
 #include "LevelGraph.h"
 #include "CoreEngine.h"
 #include "Math/FVector2.h"
+#include "Renderers/Materials/Material.h"
 
 //Basic includes
 #include <iostream>
@@ -55,7 +56,7 @@ void VulkanManager::UpdateWithNewObjects()
 {
     CreateVertexBuffers();
     CreateIndexBuffers();
-    SwapchainManager->CreateDescriptorSetLayout();
+    SwapchainManager->CreateDescriptorSetLayouts();
     SwapchainManager->CreateTextureImage();
     RecreateSwapchain();
 }
@@ -81,9 +82,9 @@ VkExtent2D* VulkanManager::GetSwapchainExtent()
     return SwapchainManager->GetExtent();
 }
 
-VkDescriptorSetLayout_T* VulkanManager::GetDescriptorSetLayout()
+std::unordered_map<std::string, VkDescriptorSetLayout_T*> VulkanManager::GetDescriptorSetLayoutsByShader()
 {
-    return SwapchainManager->GetDescriptorSetLayout();
+    return SwapchainManager->GetDescriptorLayoutsByShader();
 }
 
 VkRenderPass_T* VulkanManager::GetRenderPass()
@@ -175,7 +176,7 @@ void VulkanManager::RecreateSwapchain()
     SwapchainManager->CreateSwapChain();
     SwapchainManager->CreateImageViews();
     SwapchainManager->CreateRenderPass();
-    GraphicsPipelineManager->CreateGraphicsPipeline();
+    GraphicsPipelineManager->CreateGraphicsPipelines();
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
     SwapchainManager->CreateUniformBuffers();
@@ -257,7 +258,7 @@ void VulkanManager::CreateCommandBuffers()
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
             for (const auto& shader : RenderData->MaterialsByShader)
             {
-                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
+                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first);
                 for (const auto& material : shader.second)
                 {
                     for (const auto& mesh : RenderData->MeshesByMaterial[material])
@@ -268,7 +269,7 @@ void VulkanManager::CreateCommandBuffers()
                         {
                             if (*RenderData->Models[model])
                             {
-                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
+                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
                                 vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
                             }
                         }
@@ -280,28 +281,6 @@ void VulkanManager::CreateCommandBuffers()
         {
             throw std::runtime_error("failed to record command buffer!");
         }
-        /*
-            for (const auto& mesh : RenderData->MeshToMaterialMap)
-            {
-                vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[mesh.first]->VertexBuffer, offsets);
-                vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh.first]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
-                for (const auto& material : mesh.second)
-                {
-                    vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipeline());
-                    for (const auto& model : RenderData->MaterialToModelMap[material])
-                    {
-                        vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelineLayout(), 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
-                        vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh.first->Indices.size()), 1, 0, 0, 0);
-                    }
-                }
-            }
-        vkCmdEndRenderPass(CommandBuffers[i]);
-
-        if (vkEndCommandBuffer(CommandBuffers[i]) != VK_SUCCESS)
-        {
-            throw std::runtime_error("failed to record command buffer!");
-        }
-        */
     }
 }
 
@@ -447,8 +426,8 @@ bool VulkanManager::Initialize()
     SwapchainManager->CreateSwapChain();
     SwapchainManager->CreateImageViews();
     SwapchainManager->CreateRenderPass();
-    SwapchainManager->CreateDescriptorSetLayout();
-    GraphicsPipelineManager->CreateGraphicsPipeline();
+    SwapchainManager->CreateDescriptorSetLayouts();
+    GraphicsPipelineManager->CreateGraphicsPipelines();
     CreateCommandPool();
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
@@ -471,8 +450,11 @@ void VulkanManager::CleanUp()
 
     SwapchainManager->FinalCleanUp();
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, CommandBuffers.size(), CommandBuffers.data());
-    vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipeline(), nullptr);
-    vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelineLayout(), nullptr);
+    for (const auto& shader : RenderData->MaterialsByShader)
+    {
+        vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first, nullptr);
+        vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, nullptr);
+    }    
     for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& fence : InFlightFences) vkDestroyFence(Devices->GetLogicalDevice(), fence, nullptr);

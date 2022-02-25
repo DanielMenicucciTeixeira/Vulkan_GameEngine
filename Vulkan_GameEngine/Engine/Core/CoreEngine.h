@@ -66,8 +66,11 @@ public:
 	SDL_Window* GetWindowSDL() { return engineWindow->GetSDLWindow(); };
 
 protected:
+
 	void HandleEvents();
+	void PreUpdate(const float deltaTime);
 	void Update(const float deltaTime);
+	void PostUpdate(const float deltaTime);
 	void Render();
 	inline void StopEngine() { RunningEngine = false; }
 

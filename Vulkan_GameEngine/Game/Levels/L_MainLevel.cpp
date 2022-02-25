@@ -64,7 +64,7 @@ bool L_MainLevel::Initialize()
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 	
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->TextureNameDifuse = "Apple_Body";
+	/*LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->TextureNameDifuse = "Apple_Body";
 	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->TextureDifuse = Apple_Body_Texture;
 	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->ShaderName = "TextureShader";
 	
@@ -74,7 +74,7 @@ bool L_MainLevel::Initialize()
 
 	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureNameDifuse = "diceTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureDifuse = Dice_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->ShaderName = "TextureShader";
+	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->ShaderName = "TextureShader";*/
 	return L_Level::Initialize();
 }
 

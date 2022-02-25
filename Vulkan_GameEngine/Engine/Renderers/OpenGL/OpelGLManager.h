@@ -6,6 +6,9 @@
 #include <unordered_map>
 #include <glew.h>
 
+class Material;
+struct ShaderVariableInfo;
+
 class OpenGLShaderManager;
 struct S_RenderData;
 struct S_Mesh;
@@ -41,6 +44,10 @@ protected:
 	std::vector<float> Lights;
 	S_RenderData* RenderData;
 
+	//Binds UniformBuffers and TextureSamplers from Material variables
+	void HandleMaterial(Material* material, int currentBinding, const unsigned int& program);
+	void BindTextureFromMaterial(ShaderVariableInfo info, void* data, const unsigned int& program);
+	void BindUniformBufferFromMaterial(ShaderVariableInfo info, void* data, int currentBinding, const unsigned int& program);
 };
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam);

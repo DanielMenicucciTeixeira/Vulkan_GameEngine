@@ -22,8 +22,6 @@ Window::~Window()
 
 bool Window::Initialize(const char* name, ERendererType rendererType, int width, int height, int positionX, int positionY)
 {
-
-
 	WindowName = name;
 	
 	switch (rendererType)
@@ -57,14 +55,14 @@ float Window::GetHeight() const
 {
 	int w, h;
 	SDL_GetWindowSize(SDLWindow, &w, &h);
-	return w;
+	return h;
 }
 
 float Window::GetWidth() const
 {
 	int w, h;
 	SDL_GetWindowSize(SDLWindow, &w, &h);
-	return h;
+	return w;
 }
 
 bool Window::OnCreateVulkanWindow(const char* name, int width, int height, int positionX, int positionY)

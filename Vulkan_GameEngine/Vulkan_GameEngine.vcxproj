@@ -228,6 +228,7 @@
     <ClCompile Include="Engine\Audio\AudioSource.cpp" />
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
     <ClCompile Include="Engine\Core\Game.cpp" />
+    <ClCompile Include="Engine\Core\GameInterface.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
@@ -244,6 +245,7 @@
     <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp" />
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp" />
     <ClCompile Include="Engine\Objects\Object.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\TextureHandler.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
@@ -321,6 +323,8 @@
     <ClInclude Include="Engine\Math\IVector3.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h" />
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h" />
+    <ClInclude Include="Engine\Renderers\Materials\Material.h" />
+    <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h" />
     <ClInclude Include="Engine\Renderers\TextureHandler.h" />
     <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />

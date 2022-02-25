@@ -109,7 +109,7 @@ public:
 	VkPhysicalDevice_T* GetPhysicalDevice();
 	SwapchainSupportDetails GetSwapchainSupportDetails();
 	VkExtent2D* GetSwapchainExtent();
-	VkDescriptorSetLayout_T* GetDescriptorSetLayout();
+	std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorSetLayoutsByShader();
 	VkRenderPass_T* GetRenderPass();
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
@@ -154,8 +154,6 @@ protected:
 	QueueStruct* Queues = nullptr;
 
 	bool FramebufferResized = false;
-	//std::vector<Vertex> Vertices;
-	//std::vector<unsigned int> Indices;
 
 	std::unordered_map<S_Mesh*, S_MeshData*> MeshDataMap;
 

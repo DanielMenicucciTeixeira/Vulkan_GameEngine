@@ -15,7 +15,7 @@ class BaseGame;
 class C_CameraComponent;
 class FMatrix4;
 struct S_Mesh;
-struct S_Material;
+class Material;
 struct S_Texture;
 struct S_RenderData;
 
@@ -31,7 +31,9 @@ public:
 
 	virtual bool Initialize();
 	virtual void Start();
+	virtual void PreUpdate(const float deltaTime);
 	virtual void Update(const float deltaTime);
+	virtual void PostUpdate(const float deltaTime);
 	virtual void Render();
 
 	bool CheckForCamera();
@@ -69,7 +71,7 @@ public:
 
 	void LoadModels();
 	void LoadMaterialLibrary();
-	void LoadMaterial(S_Material* material);
+	void LoadMaterial(Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
 	bool LoadCamera(C_CameraComponent* camera);

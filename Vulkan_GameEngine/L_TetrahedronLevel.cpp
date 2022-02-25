@@ -18,10 +18,7 @@
 #include "Tetrahedron.h"
 #include "Math/FQuaternion.h"
 #include "Objects/Components/PhysicsComponent.h"
-
-#include <SDL.h>
-#include <glew.h>
-#include <SDL_opengl.h>
+#include "Renderers/Materials/StandardMaterial.h"
 
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
@@ -30,21 +27,25 @@ L_TetrahedronLevel::L_TetrahedronLevel()
 
 bool L_TetrahedronLevel::Initialize()
 {
-	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
+	printf("\n\n---------------------------------------Tetrahedron Initialized!----------------------------------------\n\n");
 
-	auto Tetrahedron_Texture = new S_Texture();
-	Tetrahedron_Texture->Name = "DumbTexture";
-	Tetrahedron_Texture->Path = "./Assets/Textures/DumbTexture.png";
-	LevelGraph::GetInstance()->AddTexture(Tetrahedron_Texture);
-	LoadTexture(Tetrahedron_Texture, Tetrahedron_Texture->Name);
+	S_Texture* tetrahedron_Texture = new S_Texture();
+	tetrahedron_Texture->Name = "DumbTexture";
+	tetrahedron_Texture->Path = "Assets/Textures/DumbTexture.png";
+	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
+	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
 
-	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
+	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
+	standardMaterial->DiffuseTexture = tetrahedron_Texture;
+	standardMaterial->SpecularTexture = tetrahedron_Texture;
+
+	/*LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Tetrahedron_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";
+	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->ShaderName = "TextureShader";*/
 	return L_Level::Initialize();
 }
 

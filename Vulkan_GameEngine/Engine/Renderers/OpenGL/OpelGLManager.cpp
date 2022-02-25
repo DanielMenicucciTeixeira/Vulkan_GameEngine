@@ -115,7 +115,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 
 		for (const auto& material : shader.second)
 		{
-			GLuint materialBinding = 5, materialIndex, materialBuffer;
+			/*GLuint materialBinding = 5, materialIndex, materialBuffer;
 			materialIndex = glGetUniformBlockIndex(program, "UniformMaterial");
 			glUniformBlockBinding(program, materialIndex, materialBinding);
 			glGenBuffers(1, &materialBuffer);
@@ -126,7 +126,9 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 			const auto& difuseLocation = glGetUniformLocation(program, "TextureDifuse");
 			glUniform1i(difuseLocation, 0);
 			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);
+			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);*/
+
+			HandleMaterial(material, 5, program);
 
 			glBindBuffer(GL_UNIFORM_BUFFER, modelBuffer);
 			for (const auto& mesh : RenderData->MeshesByMaterial[material])
@@ -205,6 +207,46 @@ void OpenGLManager::GenerateBuffers(S_Mesh* mesh)
 	//Free Arrays and Buffers
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+void OpenGLManager::HandleMaterial(Material* material, int currentBinding, const unsigned int& program)
+{
+	const auto& info = material->GetShaderVariablesInfo();
+	const auto& data = material->GetShaderVariablesData();
+	for (int i = 0; i < info.size(); i++)
+	{
+		switch (info[i].Type)
+		{
+		case E_ShaderVariableType::UNIFORM_BUFFER:
+			BindUniformBufferFromMaterial(info[i], data[i], currentBinding, program);
+			currentBinding++;
+			break;
+		case E_ShaderVariableType::COMBINED_IMAGE_SAMPLER:
+			BindTextureFromMaterial(info[i], data[i], program);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void OpenGLManager::BindTextureFromMaterial(ShaderVariableInfo info, void* data, const unsigned int& program)
+{
+	const auto& difuseLocation = glGetUniformLocation(program, "TextureDifuse");
+	glUniform1i(difuseLocation, 0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, TextureMap[(S_Texture*)data]);
+}
+
+void OpenGLManager::BindUniformBufferFromMaterial(ShaderVariableInfo info, void* data, int currentBinding, const unsigned int& program)
+{
+	GLuint uniformBinding = currentBinding, uniformIndex, uniformBuffer;
+	uniformIndex = glGetUniformBlockIndex(program, "UniformMaterial");
+	glUniformBlockBinding(program, uniformIndex, uniformBinding);
+	glGenBuffers(1, &uniformBuffer);
+	glBindBuffer(GL_UNIFORM_BUFFER, uniformBuffer);
+	glBufferData(GL_UNIFORM_BUFFER, info.VariableSize, data, GL_DYNAMIC_DRAW);
+	glBindBufferBase(GL_UNIFORM_BUFFER, uniformBinding, uniformBuffer);
 }
 
 void GLAPIENTRY MessageCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)

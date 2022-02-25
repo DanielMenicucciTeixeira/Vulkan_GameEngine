@@ -51,12 +51,12 @@ void L_Level::LoadModels()
 }
 void L_Level::LoadMaterialLibrary()
 {
-	std::set<MaterialClass*> materialSet = std::set<MaterialClass*>();
+	std::set<Material*> materialSet = std::set<Material*>();
 	for (const auto& path : MaterialPaths) AssetLoader::LoadMaterialLibrary(path, materialSet);
 	for (const auto& material : materialSet) LevelGraph::GetInstance()->AddMaterial(material);
 	MaterialPaths.clear();
 }
-void L_Level::LoadMaterial(MaterialClass* material)
+void L_Level::LoadMaterial(Material* material)
 {
 	LevelGraph::GetInstance()->AddMaterial(material);
 	//if (material->TextureNameDifuse != "") LoadTexture(material->TextureDifuse, material->TextureNameDifuse);

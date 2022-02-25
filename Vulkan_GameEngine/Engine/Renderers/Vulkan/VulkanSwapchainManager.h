@@ -7,11 +7,17 @@
 
 class VulkanManager;
 class FMatrix4;
+class Material;
 
 enum VkPresentModeKHR;
 enum VkFormat;
 enum VkImageTiling;
 enum VkImageLayout;
+enum VkShaderStageFlagBits;
+enum VkDescriptorType;
+
+enum class E_ShaderStage;
+enum class E_ShaderVariableType;
 
 struct VkSurfaceFormatKHR;
 struct VkExtent2D;
@@ -26,10 +32,12 @@ struct VkBuffer_T;
 struct VkDescriptorSetLayout_T;
 struct VkDescriptorPool_T;
 struct VkDescriptorSet_T;
+struct VkWriteDescriptorSet;
 struct VkSampler_T;
 struct UniformBufferObject;
 struct UniformCameraObject;
 struct S_Texture;
+struct ShaderVariableInfo;
 
 typedef unsigned int VkFlags;
 typedef VkFlags VkImageAspectFlags;
@@ -71,7 +79,7 @@ public:
 	void CreateDepthResources();
 	void CreateFramebuffers();
 	void CreateUniformBuffers();
-	void CreateDescriptorSetLayout(MaterialClass* material);
+	void CreateDescriptorSetLayouts();
 	void CreateDescriptorPool();
 	void CreateDescriptorSets();
 	void CreateTextureImage();
@@ -86,18 +94,28 @@ public:
 	bool HasStencilComponent(VkFormat format);
 	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height);
 
-	inline VkExtent2D* GetExtent() { return Extent; }
-	inline VkRenderPass_T* GetRenderPass() { return RenderPass; }
-	inline std::vector<VkFramebuffer_T*> GetFramebuffers() { return Framebuffers; }
-	inline std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() { return DescriptorSetsMap; }
-	inline std::vector<VkImage_T*> GetImages() { return Images; }
-	inline VkSwapchainKHR_T* GetSwapchain() { return Swapchain; }
-	inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
+	inline VkExtent2D* GetExtent() const { return Extent; }
+	inline VkRenderPass_T* GetRenderPass() const { return RenderPass; }
+	inline std::vector<VkFramebuffer_T*> GetFramebuffers() const { return Framebuffers; }
+	inline std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() const { return DescriptorSetsMap; }
+	inline std::vector<VkImage_T*> GetImages() const { return Images; }
+	inline VkSwapchainKHR_T* GetSwapchain() const { return Swapchain; }
+	inline std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorLayoutsByShader() const { return DescriptorLayoutsByShader; }
+	//inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
 	void UpdateBuffers(unsigned int currentImageIndex);
 
-//Variables
+
 protected:
+	VkShaderStageFlagBits GetVulkanShaderStageFlag(E_ShaderStage stage) const;
+	VkDescriptorType GetVulkanDescriptorType(E_ShaderVariableType type) const;
+	
+	std::vector<VkWriteDescriptorSet> CreateDescriptorWritesFromMaterial(Material* material);
+	VkWriteDescriptorSet CreateCombinedImageSamplerWrite(ShaderVariableInfo info, void* data);
+	VkWriteDescriptorSet CreateUniformBufferWrite(ShaderVariableInfo info, void* data);
+
+	//Variables
+
 	VkSwapchainKHR_T* Swapchain = nullptr;
 
 	std::vector<VkImage_T*> Images;
@@ -113,15 +131,15 @@ protected:
 	VkImageView_T* DepthImageView = nullptr;
 
 	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> ModelMap;
-	//std::unordered_map<Material*, std::vector<S_BufferData>> MaterialMap;
+	std::unordered_map<Material*, std::vector<std::vector<S_BufferData>>> MaterialMap;
 	std::vector<S_BufferData> CameraData;
 	std::vector<S_BufferData> LightsData;
 	std::vector<S_BufferData> NumberOfLightsData;
 
 	VkDescriptorPool_T* DescriptorPool = nullptr;
 	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
-	VkDescriptorSetLayout_T* DescriptorSetLayout;
-
+	//VkDescriptorSetLayout_T* DescriptorSetLayout;
+	std::unordered_map<std::string, VkDescriptorSetLayout_T*> DescriptorLayoutsByShader;
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 
 	VulkanManager* Manager = nullptr;

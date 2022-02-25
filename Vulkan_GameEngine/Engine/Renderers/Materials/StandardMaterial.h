@@ -3,7 +3,7 @@
 
 #include "Material.h"
 
-class M_StandardMaterial : public MaterialClass
+class M_StandardMaterial : public Material
 {
 public:
 	M_StandardMaterial();
@@ -13,8 +13,8 @@ public:
 	ShaderVariable<S_Texture*> DiffuseTexture;
 	ShaderVariable<S_Texture*> SpecularTexture;
 
-	virtual std::vector<void*> GetShaderVariablesData() override;
-	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() override;
+	virtual std::vector<void*> GetShaderVariablesData() const override;
+	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() const override;
 };
 
 #endif

@@ -306,19 +306,25 @@ void VulkanSwapchainManager::CreateUniformBuffers()
     for (size_t i = 0; i < Images.size(); i++)
     {
         Manager->CreateBuffer(cameraBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraData[i].Buffer, CameraData[i].Memory);
-        auto check = Manager->GetRenderData()->LightSources.empty();
+        
         if (!Manager->GetRenderData()->LightSources.empty())
         {
             Manager->CreateBuffer(matrixBufferSize * Manager->GetRenderData()->LightSources.size(), VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, LightsData[i].Buffer, LightsData[i].Memory);
             Manager->CreateBuffer(intBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, NumberOfLightsData[i].Buffer, NumberOfLightsData[i].Memory);
         }
 
-        for (const auto& material : Manager->GetRenderData()->InstancesByMaterial)
+        for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
         {
-            for (const auto& instance : material.second)
+            for (const auto& material : shader.second)
             {
-                MaterialMap[&material->Data].resize(Images.size());
-                Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[&material->Data][i].Buffer, MaterialMap[&material->Data][i].Memory);
+                MaterialMap[material].resize(Images.size());
+                const auto& data = material->GetShaderVariablesData();
+                const auto& info = material->GetShaderVariablesInfo();
+                for (int j = 0; j < data.size(); j++)
+                {
+                    if (info[j].Type != E_ShaderVariableType::UNIFORM_BUFFER) continue;
+                    Manager->CreateBuffer(info[j].VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[material][i][j].Buffer, MaterialMap[material][i][j].Memory);
+                }
             }
         }
 
@@ -330,80 +336,85 @@ void VulkanSwapchainManager::CreateUniformBuffers()
     }
 }
 
-void VulkanSwapchainManager::CreateDescriptorSetLayout(MaterialClass* material)
+void VulkanSwapchainManager::CreateDescriptorSetLayouts()
 {
-    std::vector<VkDescriptorSetLayoutBinding> bindings;
-    bindings.reserve(material->GetShaderVariablesInfo().size() + 4);
-
-    VkDescriptorSetLayoutBinding cameraLayoutBinding{};
-    cameraLayoutBinding.binding = 0;
-    cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    cameraLayoutBinding.descriptorCount = 1;
-    cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-    cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
-    bindings.push_back(cameraLayoutBinding);
-
-    VkDescriptorSetLayoutBinding modelLayoutBinding{};
-    modelLayoutBinding.binding = 1;
-    modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    modelLayoutBinding.descriptorCount = 1;
-    modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-    modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
-    bindings.push_back(modelLayoutBinding);
-
-    VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
-    numberOfLightsLayoutBinding.binding = 2;
-    numberOfLightsLayoutBinding.descriptorCount = 1;
-    numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
-    bindings.push_back(numberOfLightsLayoutBinding);
-
-    VkDescriptorSetLayoutBinding lightsLayoutBinding{};
-    lightsLayoutBinding.binding = 3;
-    lightsLayoutBinding.descriptorCount = 1;
-    lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    lightsLayoutBinding.pImmutableSamplers = nullptr;
-    bindings.push_back(lightsLayoutBinding);
-
-    /*VkDescriptorSetLayoutBinding samplerLayoutBinding{};
-    samplerLayoutBinding.binding = 2;
-    samplerLayoutBinding.descriptorCount = 1;
-    samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    samplerLayoutBinding.pImmutableSamplers = nullptr;*/
-
-    /*VkDescriptorSetLayoutBinding materialLayoutBinding{};
-    materialLayoutBinding.binding = 5;
-    materialLayoutBinding.descriptorCount = 1;
-    materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-    materialLayoutBinding.pImmutableSamplers = nullptr;*/
-
-    int bidingCount = 4;
-    for (const auto& info : material->GetShaderVariablesInfo())
+    for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
     {
-        VkDescriptorSetLayoutBinding materialLayoutBinding{};
-        materialLayoutBinding.binding = bidingCount;
+        Material* material = (*shader.second.begin());
+        std::vector<VkDescriptorSetLayoutBinding> bindings;
+        bindings.reserve(material->GetShaderVariablesInfo().size() + 4);
+
+        VkDescriptorSetLayoutBinding cameraLayoutBinding{};
+        cameraLayoutBinding.binding = 0;
+        cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        cameraLayoutBinding.descriptorCount = 1;
+        cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+        cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
+        bindings.push_back(cameraLayoutBinding);
+
+        VkDescriptorSetLayoutBinding modelLayoutBinding{};
+        modelLayoutBinding.binding = 1;
+        modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        modelLayoutBinding.descriptorCount = 1;
+        modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+        modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
+        bindings.push_back(modelLayoutBinding);
+
+        VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
+        numberOfLightsLayoutBinding.binding = 2;
+        numberOfLightsLayoutBinding.descriptorCount = 1;
+        numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
+        bindings.push_back(numberOfLightsLayoutBinding);
+
+        VkDescriptorSetLayoutBinding lightsLayoutBinding{};
+        lightsLayoutBinding.binding = 3;
+        lightsLayoutBinding.descriptorCount = 1;
+        lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        lightsLayoutBinding.pImmutableSamplers = nullptr;
+        bindings.push_back(lightsLayoutBinding);
+
+        /*VkDescriptorSetLayoutBinding samplerLayoutBinding{};
+        samplerLayoutBinding.binding = 2;
+        samplerLayoutBinding.descriptorCount = 1;
+        samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        samplerLayoutBinding.pImmutableSamplers = nullptr;*/
+
+        /*VkDescriptorSetLayoutBinding materialLayoutBinding{};
+        materialLayoutBinding.binding = 5;
         materialLayoutBinding.descriptorCount = 1;
-        materialLayoutBinding.descriptorType = static_cast<VkDescriptorType>(info.Type);
-        materialLayoutBinding.stageFlags = static_cast<VkShaderStageFlags>(info.Stage);
-        materialLayoutBinding.pImmutableSamplers = nullptr;
+        materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+        materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+        materialLayoutBinding.pImmutableSamplers = nullptr;*/
 
-        bindings.push_back(materialLayoutBinding);
-        bidingCount++;
-    }
+        int bidingCount = 4;
+        for (const auto& info : material->GetShaderVariablesInfo())
+        {
+            VkDescriptorSetLayoutBinding materialLayoutBinding{};
+            materialLayoutBinding.binding = bidingCount;
+            materialLayoutBinding.descriptorCount = 1;
+            materialLayoutBinding.descriptorType = GetVulkanDescriptorType(info.Type);
+            materialLayoutBinding.stageFlags = GetVulkanShaderStageFlag(info.Stage);
+            materialLayoutBinding.pImmutableSamplers = nullptr;
 
-    //std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
-    VkDescriptorSetLayoutCreateInfo layoutInfo{};
-    layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
-    layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
-    layoutInfo.pBindings = bindings.data();
+            bindings.push_back(materialLayoutBinding);
+            bidingCount++;
+        }
 
-    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorSetLayout) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create descriptor set layout!");
+        //std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
+        VkDescriptorSetLayoutCreateInfo layoutInfo{};
+        layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+        layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+        layoutInfo.pBindings = bindings.data();
+
+        DescriptorLayoutsByShader[shader.first] = VkDescriptorSetLayout();//TODO see if I can get rid of this line
+        if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorLayoutsByShader[shader.first]) != VK_SUCCESS)
+        {
+            throw std::runtime_error("failed to create descriptor set layout!");
+        }
     }
 }
 
@@ -440,111 +451,134 @@ void VulkanSwapchainManager::CreateDescriptorSets()
         return;
     }
 
-    for (const auto& model : Manager->GetRenderData()->Models)
+    for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
     {
-        std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorSetLayout);
+        std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorLayoutsByShader[shader.first]);
 
-        VkDescriptorSetAllocateInfo allocInfo{};
-        allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
-        allocInfo.descriptorPool = DescriptorPool;
-        allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
-        allocInfo.pSetLayouts = layouts.data();
-
-        DescriptorSetsMap[model.first].resize(Images.size());
-        if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model.first].data()) != VK_SUCCESS)
+        for (const auto& material : shader.second)
         {
-            throw std::runtime_error("failed to allocate descriptor sets!");
-        }
-    }
-
-    for (size_t i = 0; i < Images.size(); i++)
-    {
-        VkDescriptorBufferInfo cameraInfo{};
-        cameraInfo.buffer = CameraData[i].Buffer;
-        cameraInfo.offset = 0;
-        cameraInfo.range = sizeof(UniformCameraObject);
-
-        VkDescriptorBufferInfo lightsInfo{};
-        lightsInfo.buffer = LightsData[i].Buffer;
-        lightsInfo.offset = 0;
-        lightsInfo.range = sizeof(FMatrix4) * Manager->GetRenderData()->LightSources.size();
-
-        VkDescriptorBufferInfo numberOfLightsInfo{};
-        numberOfLightsInfo.buffer = NumberOfLightsData[i].Buffer;
-        numberOfLightsInfo.offset = 0;
-        numberOfLightsInfo.range = sizeof(int);
-
-        for (const auto& material : Manager->GetRenderData()->MeshesByMaterial)
-        {
-            VkDescriptorBufferInfo materialInfo{};
-            materialInfo.buffer = MaterialMap[&material.first->Data][i].Buffer;
-            materialInfo.offset = 0;
-            materialInfo.range = sizeof(FMatrix4);
-
-            VkDescriptorImageInfo imageInfo{};
-            imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-            imageInfo.imageView = TextureDataMap[material.first->TextureDifuse].TextureImageView;
-            imageInfo.sampler = TextureDataMap[material.first->TextureDifuse].TextureSampler;
-
-            
-            for (const auto& mesh : material.second) for (const auto& model : Manager->GetRenderData()->InstancesByMesh[mesh])
+            for (const auto& mesh : Manager->GetRenderData()->MeshesByMaterial[material])
             {
-                VkDescriptorBufferInfo modelInfo{};
-                modelInfo.buffer = ModelMap[model][i].Buffer;
-                modelInfo.offset = 0;
-                modelInfo.range = sizeof(FMatrix4);
+                for (const auto& model : Manager->GetRenderData()->InstancesByMesh[mesh])
+                {
+                    VkDescriptorSetAllocateInfo allocInfo{};
+                    allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+                    allocInfo.descriptorPool = DescriptorPool;
+                    allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
+                    allocInfo.pSetLayouts = layouts.data();
 
-                std::array<VkWriteDescriptorSet, 6> descriptorWrites{};
+                    DescriptorSetsMap[model].resize(Images.size());
+                    if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model].data()) != VK_SUCCESS)
+                    {
+                        throw std::runtime_error("failed to allocate descriptor sets!");
+                    }
 
-                descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[0].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[0].dstBinding = 0;
-                descriptorWrites[0].dstArrayElement = 0;
-                descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                descriptorWrites[0].descriptorCount = 1;
-                descriptorWrites[0].pBufferInfo = &cameraInfo;
+                    for (size_t i = 0; i < Images.size(); i++)
+                    {
+                        VkDescriptorBufferInfo cameraInfo{};
+                        cameraInfo.buffer = CameraData[i].Buffer;
+                        cameraInfo.offset = 0;
+                        cameraInfo.range = sizeof(UniformCameraObject);
 
-                descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[1].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[1].dstBinding = 1;
-                descriptorWrites[1].dstArrayElement = 0;
-                descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                descriptorWrites[1].descriptorCount = 1;
-                descriptorWrites[1].pBufferInfo = &modelInfo;
+                        VkDescriptorBufferInfo lightsInfo{};
+                        lightsInfo.buffer = LightsData[i].Buffer;
+                        lightsInfo.offset = 0;
+                        lightsInfo.range = sizeof(FMatrix4) * Manager->GetRenderData()->LightSources.size();
 
-                descriptorWrites[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[2].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[2].dstBinding = 2;
-                descriptorWrites[2].dstArrayElement = 0;
-                descriptorWrites[2].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-                descriptorWrites[2].descriptorCount = 1;
-                descriptorWrites[2].pImageInfo = &imageInfo;
+                        VkDescriptorBufferInfo numberOfLightsInfo{};
+                        numberOfLightsInfo.buffer = NumberOfLightsData[i].Buffer;
+                        numberOfLightsInfo.offset = 0;
+                        numberOfLightsInfo.range = sizeof(int);
 
-                descriptorWrites[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[3].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[3].dstBinding = 3;
-                descriptorWrites[3].dstArrayElement = 0;
-                descriptorWrites[3].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                descriptorWrites[3].descriptorCount = 1;
-                descriptorWrites[3].pBufferInfo = &numberOfLightsInfo;
+                        /*VkDescriptorBufferInfo materialInfo{};
+                        materialInfo.buffer = MaterialMap[&material.first->Data][i].Buffer;
+                        materialInfo.offset = 0;
+                        materialInfo.range = sizeof(FMatrix4);*/
 
-                descriptorWrites[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[4].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[4].dstBinding = 4;
-                descriptorWrites[4].dstArrayElement = 0;
-                descriptorWrites[4].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                descriptorWrites[4].descriptorCount = 1;
-                descriptorWrites[4].pBufferInfo = &lightsInfo;
+                        /*VkDescriptorImageInfo imageInfo{};
+                        imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+                        imageInfo.imageView = TextureDataMap[material.first->TextureDifuse].TextureImageView;
+                        imageInfo.sampler = TextureDataMap[material.first->TextureDifuse].TextureSampler;*/
 
-                descriptorWrites[5].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                descriptorWrites[5].dstSet = DescriptorSetsMap[model][i];
-                descriptorWrites[5].dstBinding = 5;
-                descriptorWrites[5].dstArrayElement = 0;
-                descriptorWrites[5].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                descriptorWrites[5].descriptorCount = 1;
-                descriptorWrites[5].pBufferInfo = &materialInfo;
+                        VkDescriptorBufferInfo modelInfo{};
+                        modelInfo.buffer = ModelMap[model][i].Buffer;
+                        modelInfo.offset = 0;
+                        modelInfo.range = sizeof(FMatrix4);
 
-                vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
+                        std::vector<VkWriteDescriptorSet> descriptorWrites;
+                        descriptorWrites.reserve(material->GetShaderVariablesInfo().size());
+
+                        descriptorWrites.push_back(VkWriteDescriptorSet());
+                        descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[0].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[0].dstBinding = 0;
+                        descriptorWrites[0].dstArrayElement = 0;
+                        descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                        descriptorWrites[0].descriptorCount = 1;
+                        descriptorWrites[0].pBufferInfo = &cameraInfo;
+
+                        descriptorWrites.push_back(VkWriteDescriptorSet());
+                        descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[1].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[1].dstBinding = 1;
+                        descriptorWrites[1].dstArrayElement = 0;
+                        descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                        descriptorWrites[1].descriptorCount = 1;
+                        descriptorWrites[1].pBufferInfo = &modelInfo;
+
+                        descriptorWrites.push_back(VkWriteDescriptorSet());
+                        descriptorWrites[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[2].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[2].dstBinding = 2;
+                        descriptorWrites[2].dstArrayElement = 0;
+                        descriptorWrites[2].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                        descriptorWrites[2].descriptorCount = 1;
+                        descriptorWrites[2].pBufferInfo = &numberOfLightsInfo;
+
+                        descriptorWrites.push_back(VkWriteDescriptorSet());
+                        descriptorWrites[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[3].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[3].dstBinding = 3;
+                        descriptorWrites[3].dstArrayElement = 0;
+                        descriptorWrites[3].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                        descriptorWrites[3].descriptorCount = 1;
+                        descriptorWrites[3].pBufferInfo = &lightsInfo;
+
+                        auto tempVector = CreateDescriptorWritesFromMaterial(material);
+                        
+                        for (int j = 0; j < tempVector.size(); j++)
+                        {
+                            tempVector[j].dstSet = DescriptorSetsMap[model][i];
+                            tempVector[j].dstBinding = i + descriptorWrites.size();
+                        }
+
+                        descriptorWrites.insert(descriptorWrites.end(), tempVector.begin(), tempVector.end());
+
+                        /*descriptorWrites[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[4].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[4].dstBinding = 4;
+                        descriptorWrites[4].dstArrayElement = 0;
+                        descriptorWrites[4].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+                        descriptorWrites[4].descriptorCount = 1;
+                        descriptorWrites[4].pImageInfo = &imageInfo;*/
+
+                        /*descriptorWrites[5].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                        descriptorWrites[5].dstSet = DescriptorSetsMap[model][i];
+                        descriptorWrites[5].dstBinding = 5;
+                        descriptorWrites[5].dstArrayElement = 0;
+                        descriptorWrites[5].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                        descriptorWrites[5].descriptorCount = 1;
+                        descriptorWrites[5].pBufferInfo = &materialInfo;*/
+
+                        vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
+                        
+                        for (const auto& write : descriptorWrites)
+                        {
+                            if (write.pBufferInfo) delete(write.pBufferInfo);
+                            if (write.pImageInfo) delete(write.pImageInfo);
+                        }
+                    }
+                }
             }
         }
     }
@@ -552,13 +586,13 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
 void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
 {
-    for (const auto& material : Manager->GetRenderData()->Materials)
+    for (const auto& texture : Manager->GetRenderData()->Textures)
     {
         //TextureLoader::LoadTexture(material->TextureDifuse->Path, material->TextureDifuse);
         
-        int textureWidth = material->TextureDifuse->Width;
-        int textureHeight = material->TextureDifuse->Height;
-        unsigned char* texturePixels = static_cast<unsigned char*>(material->TextureDifuse->Pixels);
+        int textureWidth = texture->Width;
+        int textureHeight = texture->Height;
+        unsigned char* texturePixels = static_cast<unsigned char*>(texture->Pixels);
         //void* texturePixels = texture.first->TextureDifuse->Pixels;//TODO this may break Vulakn!!!
 
 
@@ -578,18 +612,17 @@ void VulkanSwapchainManager::CreateTextureImage()//TODO remove depricated code
         memcpy(data, texturePixels, static_cast<size_t>(imageSize));
         vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
 
-        //stbi_image_free(texturePixels);
-        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[material->TextureDifuse].TextureImage, TextureDataMap[material->TextureDifuse].TextureImageMemory);
+        CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, TextureDataMap[texture].TextureImage, TextureDataMap[texture].TextureImageMemory);
 
-        TransitionImageLayout(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
-        CopyBufferToImage(stagingBuffer, TextureDataMap[material->TextureDifuse].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
-        TransitionImageLayout(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+        TransitionImageLayout(TextureDataMap[texture].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+        CopyBufferToImage(stagingBuffer, TextureDataMap[texture].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight));
+        TransitionImageLayout(TextureDataMap[texture].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 
         vkDestroyBuffer(Manager->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Manager->GetLogicalDevice(), stagingBufferMemory, nullptr);
 
-        TextureDataMap[material->TextureDifuse].TextureImageView = CreateImageView(TextureDataMap[material->TextureDifuse].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
-        CreateTextureSampler(TextureDataMap[material->TextureDifuse].TextureSampler);
+        TextureDataMap[texture].TextureImageView = CreateImageView(TextureDataMap[texture].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
+        CreateTextureSampler(TextureDataMap[texture].TextureSampler);
     }
 }
 
@@ -654,7 +687,12 @@ void VulkanSwapchainManager::FinalCleanUp()
         vkDestroyImage(Manager->GetLogicalDevice(), textureData.second.TextureImage, nullptr);
         vkFreeMemory(Manager->GetLogicalDevice(), textureData.second.TextureImageMemory, nullptr);
     }
-    vkDestroyDescriptorSetLayout(Manager->GetLogicalDevice(), DescriptorSetLayout, nullptr);
+
+    for (const auto& descriptorLayout : DescriptorLayoutsByShader)
+    {
+        vkDestroyDescriptorSetLayout(Manager->GetLogicalDevice(), descriptorLayout.second, nullptr);
+    }
+    
 }
 
 VkFormat VulkanSwapchainManager::FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features)
@@ -800,9 +838,13 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     for (const auto& material : Manager->GetRenderData()->Materials)
     {
         void* materialData;
-        vkMapMemory(Manager->GetLogicalDevice(), MaterialMap[&material->Data][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &materialData);
-        memcpy(materialData, material, sizeof(FMatrix4));
-        vkUnmapMemory(Manager->GetLogicalDevice(), MaterialMap[&material->Data][currentImageIndex].Memory);
+        const auto& info = material->GetShaderVariablesInfo();
+        for (int i = 0; i < info.size(); i++)
+        {
+            vkMapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory, 0, sizeof(FMatrix4), 0, &materialData);
+            memcpy(materialData, material, info[i].VariableSize);
+            vkUnmapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory);
+        }
     }
 
     for (const auto& model : Manager->GetRenderData()->Models)
@@ -812,4 +854,131 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
         memcpy(modelData, model.first, sizeof(FMatrix4));
         vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model.first][currentImageIndex].Memory);
     }
+}
+
+VkShaderStageFlagBits VulkanSwapchainManager::GetVulkanShaderStageFlag(E_ShaderStage stage) const
+{
+    switch (stage)
+    {
+    case E_ShaderStage::VERTEX_BIT:
+        return VK_SHADER_STAGE_VERTEX_BIT;
+    case E_ShaderStage::TESSELLATION_CONTROL_BIT:
+        return VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT;
+    case E_ShaderStage::TESSELLATION_EVALUATION_BIT:
+        return VK_SHADER_STAGE_TESSELLATION_EVALUATION_BIT;
+    case E_ShaderStage::GEOMETRY_BIT:
+        return VK_SHADER_STAGE_GEOMETRY_BIT;
+    case E_ShaderStage::FRAGMENT_BIT:
+        return  VK_SHADER_STAGE_FRAGMENT_BIT;
+    case E_ShaderStage::COMPUTE_BIT:
+        return VK_SHADER_STAGE_COMPUTE_BIT;
+    case E_ShaderStage::ALL_GRAPHICS:
+        return  VK_SHADER_STAGE_ALL_GRAPHICS;
+    default:
+        return VK_SHADER_STAGE_VERTEX_BIT;
+    }
+}
+
+VkDescriptorType VulkanSwapchainManager::GetVulkanDescriptorType(E_ShaderVariableType type) const
+{
+    switch (type)
+    {
+    case E_ShaderVariableType::SAMPLER:
+        return VK_DESCRIPTOR_TYPE_SAMPLER;
+    case E_ShaderVariableType::COMBINED_IMAGE_SAMPLER:
+        return VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    case E_ShaderVariableType::SAMPLED_IMAGE:
+        return VK_DESCRIPTOR_TYPE_SAMPLED_IMAGE;
+    case E_ShaderVariableType::STORAGE_IMAGE:
+        return VK_DESCRIPTOR_TYPE_STORAGE_IMAGE;
+    case E_ShaderVariableType::UNIFORM_TEXEL_BUFFER:
+        return VK_DESCRIPTOR_TYPE_UNIFORM_TEXEL_BUFFER;
+    case E_ShaderVariableType::STORAGE_TEXEL_BUFFER:
+        return VK_DESCRIPTOR_TYPE_STORAGE_TEXEL_BUFFER;
+    case E_ShaderVariableType::UNIFORM_BUFFER:
+        return VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    case E_ShaderVariableType::STORAGE_BUFFER:
+        return VK_DESCRIPTOR_TYPE_STORAGE_BUFFER;
+    case E_ShaderVariableType::UNIFORM_BUFFER_DYNAMIC:
+        return VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER_DYNAMIC;
+    case E_ShaderVariableType::STORAGE_BUFFER_DYNAMIC:
+        return VK_DESCRIPTOR_TYPE_STORAGE_BUFFER_DYNAMIC;
+    case E_ShaderVariableType::INPUT_ATTACHMENT:
+        return VK_DESCRIPTOR_TYPE_INPUT_ATTACHMENT;
+    case E_ShaderVariableType::INLINE_UNIFORM_BLOCK_EXT:
+        return VK_DESCRIPTOR_TYPE_INLINE_UNIFORM_BLOCK_EXT;
+    case E_ShaderVariableType::ACCELERATION_STRUCTURE_KHR:
+        return VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_KHR;
+    default:
+        return VK_DESCRIPTOR_TYPE_MAX_ENUM;
+    }
+}
+
+std::vector<VkWriteDescriptorSet> VulkanSwapchainManager::CreateDescriptorWritesFromMaterial(Material* material)
+{
+    std::vector<VkWriteDescriptorSet> returnVector;
+    auto variableInfos = material->GetShaderVariablesInfo();
+    auto variableDatas = material->GetShaderVariablesData();
+    returnVector.reserve(variableInfos.size());
+
+    for (int i = 0; i < material->GetShaderVariablesInfo().size(); i++)
+    {
+        switch (variableInfos[i].Type)
+        {
+        case E_ShaderVariableType::SAMPLER:
+        case E_ShaderVariableType::COMBINED_IMAGE_SAMPLER:
+            returnVector.push_back(CreateCombinedImageSamplerWrite(variableInfos[i], variableDatas[i]));
+            break;
+        case E_ShaderVariableType::SAMPLED_IMAGE:
+        case E_ShaderVariableType::STORAGE_IMAGE:
+        case E_ShaderVariableType::UNIFORM_TEXEL_BUFFER:
+        case E_ShaderVariableType::STORAGE_TEXEL_BUFFER:
+        case E_ShaderVariableType::UNIFORM_BUFFER:
+            returnVector.push_back(CreateUniformBufferWrite(variableInfos[i], variableDatas[i]));
+            break;
+        case E_ShaderVariableType::STORAGE_BUFFER:
+        case E_ShaderVariableType::UNIFORM_BUFFER_DYNAMIC:
+        case E_ShaderVariableType::STORAGE_BUFFER_DYNAMIC:
+        case E_ShaderVariableType::INPUT_ATTACHMENT:
+        case E_ShaderVariableType::INLINE_UNIFORM_BLOCK_EXT:
+        case E_ShaderVariableType::ACCELERATION_STRUCTURE_KHR:
+        default:
+            break;
+        }
+    }
+
+    return returnVector;
+}
+
+VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite(ShaderVariableInfo info, void* data)
+{
+    VkDescriptorImageInfo* imageInfo = new VkDescriptorImageInfo();
+    imageInfo->imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    imageInfo->imageView = TextureDataMap[(S_Texture*)data].TextureImageView;
+    imageInfo->sampler = TextureDataMap[(S_Texture*)data].TextureSampler;
+
+    VkWriteDescriptorSet descriptorWrite;
+    descriptorWrite.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    descriptorWrite.dstArrayElement = 0;
+    descriptorWrite.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    descriptorWrite.descriptorCount = 1;
+    descriptorWrite.pImageInfo = imageInfo;
+
+    return descriptorWrite;
+}
+
+VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(ShaderVariableInfo info, void* data)
+{
+    VkDescriptorBufferInfo* uniformBufferInfo = new VkDescriptorBufferInfo();
+    uniformBufferInfo->offset = 0;
+    uniformBufferInfo->range = info.VariableSize;
+
+    VkWriteDescriptorSet uniformBufferWrite;
+    uniformBufferWrite.sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+    uniformBufferWrite.dstArrayElement = 0;
+    uniformBufferWrite.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    uniformBufferWrite.descriptorCount = 1;
+    uniformBufferWrite.pBufferInfo = uniformBufferInfo;
+
+    return uniformBufferWrite;
 }

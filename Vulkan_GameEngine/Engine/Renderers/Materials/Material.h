@@ -75,7 +75,7 @@ struct ShaderVariableInfo
 	ShaderVariableInfo() {}
 
 	ShaderVariableInfo(E_ShaderStage stage, E_ShaderVariableType type, size_t size = 0) :
-		Stage{ stage }, Type{ type }, VariableSize{ size } {}
+		Stage(stage ), Type(type), VariableSize(size) {}
 
 	E_ShaderStage Stage;
 	E_ShaderVariableType Type;
@@ -85,8 +85,7 @@ struct ShaderVariableInfo
 template <typename T>
 struct ShaderVariable
 {
-	ShaderVariable(T value, E_ShaderVariableType type, E_ShaderStage stage) : Value(value), Info(stage, type) {}
-
+	ShaderVariable(T value, E_ShaderVariableType type, E_ShaderStage stage, size_t size = 0) : Value(value), Info(stage, type, size) {}
 	ShaderVariable() {}
 
 	T Value;
@@ -98,23 +97,23 @@ struct ShaderVariable
 	}
 };
 
-class MaterialClass
+class Material
 {
 public:
-	MaterialClass() {}
-	virtual ~MaterialClass() {}
+	Material() {}
+	virtual ~Material() {}
 
 protected:
 	std::string MaterialName;
 	std::string ShaderName;
 
 public:
-	inline std::string GetMaterialName() { return MaterialName; }
+	inline const std::string& GetMaterialName() const { return MaterialName; }
 	inline void SetMaterialName(std::string name) { MaterialName = name; }
-	inline std::string GetShaderName() { return ShaderName; }
+	inline const std::string& GetShaderName() const { return ShaderName; }
 
-	virtual std::vector<void*> GetShaderVariablesData() = 0;
-	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() = 0;
+	virtual std::vector<void*> GetShaderVariablesData() const = 0;
+	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() const = 0;
 };
 
 #endif

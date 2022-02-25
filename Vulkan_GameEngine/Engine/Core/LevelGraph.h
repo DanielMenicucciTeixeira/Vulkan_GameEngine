@@ -14,6 +14,7 @@ typedef unsigned int ShaderID;
 typedef std::string ObjectName;
 
 class O_Object;
+class Material;
 class C_RenderableComponent;
 class C_StaticMeshComponent;
 class C_CameraComponent;
@@ -28,23 +29,21 @@ struct S_RenderData
 {
 	UniformCameraObject* Camera;
 
-	std::unordered_map<std::string, std::set<MaterialClass*>> MaterialsByShader;
-	//std::unordered_map<Material*, std::set<S_Mesh*>> MeshesByMaterial;
+	std::unordered_map<std::string, std::set<Material*>> MaterialsByShader;
+	std::unordered_map<Material*, std::set<S_Mesh*>> MeshesByMaterial;
 	std::unordered_map<S_Mesh*, std::set<FMatrix4*>> InstancesByMesh;
-	std::unordered_map<MaterialClass*, std::vector<void*>> InstancesByMaterial;
 
 	std::unordered_map<FMatrix4*, const bool*> Models;
 	std::set<S_Texture*> Textures;
 	std::set<S_Mesh*> Meshes;
-	std::set<MaterialClass*> Materials;
+	std::set<Material*> Materials;
 	std::vector<FMatrix4> LightSources;
 
 	void Clear()
 	{
 		Camera = nullptr;
 		MaterialsByShader.clear();
-		//MeshesByMaterial.clear();
-		InstancesByMaterial.clear();
+		MeshesByMaterial.clear();
 		InstancesByMesh.clear();
 		Models.clear();
 		Materials.clear();
@@ -81,12 +80,12 @@ public:
 	void AddCollisionComponent(C_CollisionComponent* component);
 	void RemoveMeshComponent(C_StaticMeshComponent* meshComponent);
 	void AddTexture(S_Texture* texture);
-	void AddMaterial(MaterialClass* material);
+	void AddMaterial(Material* material);
 	void AddLight(FMatrix4*& matrix, unsigned int& index);
 	void RemoveLight(unsigned int index);
 
 	inline std::unordered_map<std::string, S_Mesh*>& GetMeshes() const { return MeshesByName; }
-	inline std::unordered_map<std::string, MaterialClass*>& GetMaterials() const { return MaterialsByName; }
+	inline std::unordered_map<std::string, Material*>& GetMaterials() const { return MaterialsByName; }
 	inline std::unordered_map<std::string, S_Texture*>& GetTextures() const { return TexturesByName; }
 	inline std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
@@ -104,14 +103,14 @@ protected:
 
 	void LoadMesh();
 	void LoadModel();
-	void LoadMaterial(MaterialClass* material);
+	void LoadMaterial(Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 
 	static std::unique_ptr<LevelGraph> Instance;
 	friend std::default_delete<LevelGraph>;
 	
 	static std::unordered_map<std::string, S_Texture*> TexturesByName;
-	static std::unordered_map<std::string, MaterialClass*> MaterialsByName;
+	static std::unordered_map<std::string, Material*> MaterialsByName;
 	static std::unordered_map<std::string, S_Mesh*> MeshesByName;
 	
 	static std::set<O_Object*> UnloadedObjects;
@@ -132,6 +131,5 @@ private:
 
 	friend class L_Level;
 };
-
 #endif
 

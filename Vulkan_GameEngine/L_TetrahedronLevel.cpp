@@ -1,6 +1,6 @@
 #include "L_TetrahedronLevel.h"
 
-#include "Game.h"
+
 #include "GO_Triangle.h"
 #include "Apple.h"
 #include "Renderers/RenderObject.h"

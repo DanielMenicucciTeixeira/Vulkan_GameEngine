@@ -84,10 +84,10 @@ public:
 	void AddLight(FMatrix4*& matrix, unsigned int& index);
 	void RemoveLight(unsigned int index);
 
-	inline std::unordered_map<std::string, S_Mesh*>& GetMeshes() const { return MeshesByName; }
-	inline std::unordered_map<std::string, Material*>& GetMaterials() const { return MaterialsByName; }
-	inline std::unordered_map<std::string, S_Texture*>& GetTextures() const { return TexturesByName; }
-	inline std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
+	inline std::unordered_map<std::string, S_Mesh*>& GetMeshes() { return MeshesByName; }
+	inline std::unordered_map<std::string, Material*>& GetMaterials() { return MaterialsByName; }
+	inline std::unordered_map<std::string, S_Texture*>& GetTextures() { return TexturesByName; }
+	inline const std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
@@ -109,12 +109,12 @@ protected:
 	static std::unique_ptr<LevelGraph> Instance;
 	friend std::default_delete<LevelGraph>;
 	
-	static std::unordered_map<std::string, S_Texture*> TexturesByName;
-	static std::unordered_map<std::string, Material*> MaterialsByName;
-	static std::unordered_map<std::string, S_Mesh*> MeshesByName;
+	std::unordered_map<std::string, S_Texture*> TexturesByName;
+    std::unordered_map<std::string, Material*> MaterialsByName;
+	std::unordered_map<std::string, S_Mesh*> MeshesByName;
 	
 	static std::set<O_Object*> UnloadedObjects;
-	static std::map<std::string, O_Object*> GameObjectsByName;
+	std::map<std::string, O_Object*> GameObjectsByName;
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
     C_CameraComponent* ActiveCamera;

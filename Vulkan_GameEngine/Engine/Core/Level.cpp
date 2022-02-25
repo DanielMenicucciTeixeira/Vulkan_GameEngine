@@ -1,7 +1,6 @@
 #include "Level.h"
 
 #include "CoreEngine.h"
-#include "Game.h"
 #include "LevelGraph.h"
 #include "CollisionHandler.h"
 

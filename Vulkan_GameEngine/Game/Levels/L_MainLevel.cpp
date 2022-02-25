@@ -1,5 +1,4 @@
 #include "L_MainLevel.h"
-#include "Game.h"
 #include "GO_Triangle.h"
 #include "Apple.h"
 #include "Renderers/RenderObject.h"

@@ -33,7 +33,7 @@ public:
 	CoreEngine& operator=(const CoreEngine&) = delete;
 	CoreEngine& operator=(CoreEngine&&) = delete;
 
-	bool Initialize(const char* name, ERendererType renderType, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
+	bool Initialize(const char* name, ERendererType renderType, int width = 800, int height = 600, int positionX = 100, int positionY = 100);
 	void Run();
 
 	inline void Exit() { RunningEngine = false; };

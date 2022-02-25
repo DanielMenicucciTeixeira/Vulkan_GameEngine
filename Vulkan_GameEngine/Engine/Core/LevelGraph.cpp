@@ -14,12 +14,7 @@
 
 std::unique_ptr<LevelGraph> LevelGraph::Instance = nullptr;
 
-std::unordered_map<std::string, S_Texture*> LevelGraph::TexturesByName;
-std::unordered_map<std::string, Material*> LevelGraph::MaterialsByName;
-std::unordered_map<std::string, S_Mesh*> LevelGraph::MeshesByName;
-
 std::set<O_Object*> LevelGraph::UnloadedObjects;
-std::map<std::string, O_Object*> LevelGraph::GameObjectsByName;
 std::map<std::string, std::set<O_Object*>> LevelGraph::GameObjectsByTag;
 std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
 //-----------------------

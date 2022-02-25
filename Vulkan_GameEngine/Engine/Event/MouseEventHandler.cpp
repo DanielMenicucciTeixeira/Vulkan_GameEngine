@@ -1,5 +1,4 @@
 #include "MouseEventHandler.h"
-#include "Engine/Core/Game.h"
 #include "Engine/Core/CoreEngine.h"
 #include "Engine/Math/IVector2.h"
 #include "Engine/Math/FVector2.h"

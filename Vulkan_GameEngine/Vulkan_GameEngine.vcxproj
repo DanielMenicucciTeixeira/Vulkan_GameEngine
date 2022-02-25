@@ -227,7 +227,6 @@
     <ClCompile Include="Engine\Audio\AudioHandler.cpp" />
     <ClCompile Include="Engine\Audio\AudioSource.cpp" />
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
-    <ClCompile Include="Engine\Core\Game.cpp" />
     <ClCompile Include="Engine\Core\GameInterface.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
@@ -305,7 +304,6 @@
     <ClInclude Include="Engine\Audio\AudioHandler.h" />
     <ClInclude Include="Engine\Audio\AudioSource.h" />
     <ClInclude Include="Engine\Audio\BackgroundSound.h" />
-    <ClInclude Include="Engine\Core\Game.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />

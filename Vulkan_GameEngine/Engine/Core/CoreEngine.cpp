@@ -3,7 +3,6 @@
 #include "Renderers/OpenGL/OpelGLManager.h"
 #include "Clock.h"
 #include "DebugLogger.h"
-#include "Game.h"
 #include "Event/EventListener.h"
 #include "Math/FVector2.h"
 #include "LevelGraph.h"

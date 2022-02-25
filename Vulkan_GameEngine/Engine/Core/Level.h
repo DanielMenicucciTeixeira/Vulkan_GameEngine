@@ -11,7 +11,6 @@
 
 class LevelGraph;
 class C_CollisionComponent;
-class BaseGame;
 class C_CameraComponent;
 class FMatrix4;
 struct S_Mesh;
@@ -47,6 +46,8 @@ public:
 		if (!dynamic_cast<O_GameObject*>(gameObject))
 		{
 			DebugLogger::Error("Invalid GameObject class: " + std::string(typeid(gameObject).name()), "Core/Level.h", __LINE__);
+			delete(gameObject);
+			gameObject = nullptr;
 			return nullptr;
 		}
 		dynamic_cast<O_GameObject*>(gameObject)->SetTransform(transform);

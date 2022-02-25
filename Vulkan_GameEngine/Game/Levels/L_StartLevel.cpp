@@ -1,7 +1,7 @@
 #include "L_StartLevel.h"
-#include "Game.h"
 #include "GO_Camera.h"
 
+#include <iostream>
 #include <SDL.h>
 #include <glew.h>
 #include <SDL_opengl.h>

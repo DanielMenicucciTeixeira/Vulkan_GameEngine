@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_billiard_table_8h" kind="file" language="C++">
+    <compoundname>BilliardTable.h</compoundname>
+    <includes refid="_game_object_8h" local="yes">../Engine/Objects/GameObjects/GameObject.h</includes>
+    <includedby refid="_billiard_ball_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</includedby>
+    <includedby refid="_billiard_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</includedby>
+    <includedby refid="_billiard_table_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.h</label>
+        <link refid="_billiard_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>set</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</label>
+        <link refid="_billiard_ball_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</label>
+        <link refid="_billiard_level_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</label>
+        <link refid="_billiard_table_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.h</label>
+        <link refid="_billiard_table_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_o___billiard_table" prot="public">GO_BilliardTable</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BILLIARDTABLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BILLIARDTABLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Engine/Objects/GameObjects/GameObject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l___level" kindref="compound">L_Level</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_g_o___billiard_table" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_o___billiard_table" kindref="compound">GO_BilliardTable</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16" refid="class_g_o___billiard_table_1a15b4318d0a33205d84229b78ebd1c68d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref>*<sp/><ref refid="class_g_o___billiard_table_1a15b4318d0a33205d84229b78ebd1c68d" kindref="member">Physics</ref>;</highlight></codeline>
+<codeline lineno="17" refid="class_g_o___billiard_table_1a20e1ece9400c73ac4bb1bdb5beca557f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>*<sp/><ref refid="class_g_o___billiard_table_1a20e1ece9400c73ac4bb1bdb5beca557f" kindref="member">Mesh</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="19" refid="class_g_o___billiard_table_1ab3cc828310655e9b8e37f4bbf150cd15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/><ref refid="class_g_o___billiard_table_1ab3cc828310655e9b8e37f4bbf150cd15" kindref="member">BackWall</ref>;</highlight></codeline>
+<codeline lineno="20" refid="class_g_o___billiard_table_1a53d3f6842fa2ec016fa00bf616d234ab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/><ref refid="class_g_o___billiard_table_1a53d3f6842fa2ec016fa00bf616d234ab" kindref="member">FrontWall</ref>;</highlight></codeline>
+<codeline lineno="21" refid="class_g_o___billiard_table_1a1ad172e646cdc3e622e6f721a4343266" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/><ref refid="class_g_o___billiard_table_1a1ad172e646cdc3e622e6f721a4343266" kindref="member">LeftWall</ref>;</highlight></codeline>
+<codeline lineno="22" refid="class_g_o___billiard_table_1a7487c0bfc5cf7759d2c90789d8455487" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/><ref refid="class_g_o___billiard_table_1a7487c0bfc5cf7759d2c90789d8455487" kindref="member">RightWall</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___billiard_table_1a93e24dcbb5c4a69c89d0a81157553f78" kindref="member">GO_BilliardTable</ref>(<ref refid="class_l___level" kindref="compound">L_Level</ref>*<sp/>level<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>std::string<sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.h"/>
+  </compounddef>
+</doxygen>

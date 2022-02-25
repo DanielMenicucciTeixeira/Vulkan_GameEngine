@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_directional_light_8cpp" kind="file" language="C++">
+    <compoundname>DirectionalLight.cpp</compoundname>
+    <includes refid="_directional_light_8h" local="yes">DirectionalLight.h</includes>
+    <includes refid="_light_source_component_8h" local="yes">LightSourceComponent.h</includes>
+    <includes refid="_directional_light_component_8h" local="yes">DirectionalLightComponent.h</includes>
+    <includes refid="_level_8h" local="yes">Level.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+      </node>
+      <node id="17">
+        <label>DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Level.h</label>
+        <link refid="_level_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp</label>
+        <link refid="_directional_light_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DirectionalLight.h</label>
+        <link refid="_directional_light_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>DirectionalLightComponent.h</label>
+        <link refid="_directional_light_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../FX/LightSource.h</label>
+        <link refid="_light_source_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LightSourceComponent.h</label>
+        <link refid="_light_source_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="12">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="7">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../Objects/Components/TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>set</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="18">
+        <label>unordered_map</label>
+      </node>
+      <node id="13">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_directional_light_8h" kindref="compound">DirectionalLight.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_light_source_component_8h" kindref="compound">LightSourceComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_directional_light_component_8h" kindref="compound">DirectionalLightComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_light_source_component_8h" kindref="compound">LightSourceComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_8h" kindref="compound">Level.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_g_o___directional_light_1a186c8a07619bce59c3b9c78fc407eb8d" refkind="member"><highlight class="normal"><ref refid="class_g_o___directional_light_1a186c8a07619bce59c3b9c78fc407eb8d" kindref="member">GO_DirectionalLight::GO_DirectionalLight</ref>(<ref refid="class_l___level" kindref="compound">L_Level</ref>*<sp/>level,<sp/>std::string<sp/>name)<sp/>:<sp/><ref refid="class_g_o___light_source" kindref="compound">GO_LightSource</ref>(level,<sp/>name)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___game_object_1a2e414b2ad82c97845066560bf9372476" kindref="member">SetRoot</ref>(AddComponentOfClass&lt;C_DirectionalLightComponent&gt;());</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___game_object_1a452c0a2eba83b6e32cabb72175d9c5e0" kindref="member">RemoveComponent</ref>(<ref refid="class_g_o___light_source_1a2288392165aebbc64faffeff30325cb1" kindref="member">Light</ref>);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___light_source_1a2288392165aebbc64faffeff30325cb1" kindref="member">Light</ref><sp/>=<sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___directional_light_component" kindref="compound">C_DirectionalLightComponent</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="class_o___game_object_1a7c4d4f37ddf2bbcc7b9177720f24626f" kindref="member">Root</ref>);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp"/>
+  </compounddef>
+</doxygen>

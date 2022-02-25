@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_collision_component_8h" kind="file" language="C++">
+    <compoundname>CollisionComponent.h</compoundname>
+    <includes refid="_transform_component_8h" local="yes">../TransformComponent.h</includes>
+    <includes local="no">set</includes>
+    <includes local="no">vector</includes>
+    <includes refid="_collision_data_8h" local="yes">Physics/CollisionData.h</includes>
+    <includes refid="_simplex_8h" local="yes">Geometry/Simplex.h</includes>
+    <includedby refid="_collision_handler_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</includedby>
+    <includedby refid="_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</includedby>
+    <includedby refid="_level_graph_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</includedby>
+    <includedby refid="_oct_spatial_partition_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.h</includedby>
+    <includedby refid="_bounding_box_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</includedby>
+    <includedby refid="_box_collider_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.h</includedby>
+    <includedby refid="_collision_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</includedby>
+    <includedby refid="_sphere_collider_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.h</includedby>
+    <includedby refid="_mesh_collision_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.h</includedby>
+    <includedby refid="_pawn_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="9">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="11">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</label>
+        <link refid="_oct_spatial_partition_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</label>
+        <link refid="_box_collider_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.cpp</label>
+        <link refid="_sphere_collider_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.h</label>
+        <link refid="_sphere_collider_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp</label>
+        <link refid="_mesh_collision_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.h</label>
+        <link refid="_mesh_collision_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</label>
+        <link refid="_movement_component_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</label>
+        <link refid="_billiard_ball_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</label>
+        <link refid="_billiard_table_8cpp"/>
+      </node>
+      <node id="23">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+      </node>
+      <node id="22">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</label>
+        <link refid="_tetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_c___collision_component" prot="public">C_CollisionComponent</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ECollisionType</name>
+        <enumvalue id="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acf5d7dd131a91e32ed8f8a26f8156046" prot="public">
+          <name>NO_COLLISION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acb2f0de53b7bc584fc5838a34911189c" prot="public">
+          <name>OVERLAP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7ad5384d1822c72da119100438c5051831" prot="public">
+          <name>COLLISION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h" line="20" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h" bodystart="21" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="enum" id="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ColliderType</name>
+        <enumvalue id="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" prot="public">
+          <name>BoundingBox</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" prot="public">
+          <name>Sphere</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" prot="public">
+          <name>Box</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h" line="27" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h" bodystart="27" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COLLISIONCOMPONENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLLISIONCOMPONENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../TransformComponent.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_data_8h" kindref="compound">Physics/CollisionData.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_simplex_8h" kindref="compound">Geometry/Simplex.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_ray" kindref="compound">Ray</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sphere" kindref="compound">Sphere</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_box" kindref="compound">Box</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_plane" kindref="compound">Plane</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_oct_node" kindref="compound">OctNode</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22" refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acf5d7dd131a91e32ed8f8a26f8156046" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acf5d7dd131a91e32ed8f8a26f8156046" kindref="member">NO_COLLISION</ref>,</highlight></codeline>
+<codeline lineno="23" refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acb2f0de53b7bc584fc5838a34911189c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acb2f0de53b7bc584fc5838a34911189c" kindref="member">OVERLAP</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7ad5384d1822c72da119100438c5051831" kindref="member">COLLISION</ref></highlight></codeline>
+<codeline lineno="25" refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7ad5384d1822c72da119100438c5051831" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395" kindref="member">ColliderType</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">BoundingBox</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sphere" kindref="compound">Sphere</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_box" kindref="compound">Box</ref><sp/>=<sp/>2</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_c___collision_component" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component" kindref="compound">C_TransformComponent</ref></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36" refid="class_c___collision_component_1af89b807cb2ad8b7c2ec23743a14cc19b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref><sp/><ref refid="class_c___collision_component_1af89b807cb2ad8b7c2ec23743a14cc19b" kindref="member">GetCollisionType</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ac530b17a7829153c647f641b0187a6c6" kindref="member">CollisionType</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="37" refid="class_c___collision_component_1a7054fec55a2c11aac05592fff100f726" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a7054fec55a2c11aac05592fff100f726" kindref="member">SetCollisionType</ref>(<ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref><sp/>type)<sp/>{<sp/><ref refid="class_c___collision_component_1ac530b17a7829153c647f641b0187a6c6" kindref="member">CollisionType</ref><sp/>=<sp/>type;<sp/>}</highlight></codeline>
+<codeline lineno="38" refid="class_c___collision_component_1a8653dc333836ffc3a94373379376df09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a8653dc333836ffc3a94373379376df09" kindref="member">SetCollisionFunction</ref>(</highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*collisionFunction)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data))<sp/>{<sp/><ref refid="class_c___collision_component_1a5f3f4dec04a178378c5a6842c9d51c25" kindref="member">CollisionFunction</ref><sp/>=<sp/>collisionFunction;<sp/>}</highlight></codeline>
+<codeline lineno="39" refid="class_c___collision_component_1a2d82554fbe842e80107f6beefe5371cc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a2d82554fbe842e80107f6beefe5371cc" kindref="member">SetOverlapBeginFunction</ref>(</highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*overlapBeginFunction)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data))<sp/>{<sp/><ref refid="class_c___collision_component_1a2eb843b8e065c00876459c87526ac53b" kindref="member">OverlapBeginFunction</ref><sp/>=<sp/>overlapBeginFunction;<sp/>}</highlight></codeline>
+<codeline lineno="40" refid="class_c___collision_component_1a9224986aab2e2319f81c83a709ad22bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a9224986aab2e2319f81c83a709ad22bf" kindref="member">SetOverlapEndFunction</ref>(</highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*overlapEndFunction)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>otherCollider))<sp/>{<sp/><ref refid="class_c___collision_component_1a37c98ee178467d0bcc8fe7378469fdf2" kindref="member">OverlapEndFunction</ref><sp/>=<sp/>overlapEndFunction;<sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="class_c___collision_component_1a8201f447e3b0482dafe381c72058e10e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395" kindref="member">ColliderType</ref><sp/><ref refid="class_c___collision_component_1a8201f447e3b0482dafe381c72058e10e" kindref="member">GetColliderType</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>colliderType;<sp/>};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ab92a83c9102a87e4185f768086b45d72" kindref="member">ChooseCollisionType</ref>(<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>otherCollider,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(<ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>node);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/><ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ad72cdb3fe415cf6501891f8e7e3e2012" kindref="member">Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___collision_component_1a2c0c9437717671f0cf61509ba57266db" kindref="member">C_CollisionComponent</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner,<sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref><sp/>collisionType<sp/>=<sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acf5d7dd131a91e32ed8f8a26f8156046" kindref="member">NO_COLLISION</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a2d9c33250a4968f6f771c82981412eb9" kindref="member">~C_CollisionComponent</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="class_c___collision_component_1a34e1a1bbd959999f8974347840fa4f1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___collision_component_1a34e1a1bbd959999f8974347840fa4f1c" kindref="member">GetCollisionMeshCenter</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___collision_component_1ad09340f2a3f2df22791f2617b243d375" kindref="member">GetFurthestPoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a7779ded8a8ce109ee8280c3de5e7e423" kindref="member">GJK</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>colliderA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>colliderB);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Returns<sp/>the<sp/>difference<sp/>between<sp/>the<sp/>furthest<sp/>point<sp/>in<sp/>direction<sp/>in<sp/>meshA<sp/>and<sp/>the<sp/>furthest<sp/>point<sp/>in<sp/>-direction<sp/>in<sp/>meshB.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___collision_component_1ab97c4fe3de97119d12d1123dfa1c29fe" kindref="member">GetFurthestMinkDiffPoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>colliderA,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>colliderB,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a2cd37af746842efd82c53a14e383304e" kindref="member">NextSimplex</ref>(<ref refid="struct_simplex" kindref="compound">Simplex</ref>&amp;<sp/>points,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1aad982218222f251241c99ffa2d9f6955" kindref="member">SameDirection</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>pointToOrigin);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ae636df1241a094fa65930311563b2514" kindref="member">Line</ref>(<ref refid="struct_simplex" kindref="compound">Simplex</ref>&amp;<sp/>points,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1aa44bbe17764337d41b2e5cdc048e35ae" kindref="member">Triangle</ref>(<ref refid="struct_simplex" kindref="compound">Simplex</ref>&amp;<sp/>points,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a5dc92e84613a4e3ab2670b84ee659f8c" kindref="member">Tetrahedron</ref>(<ref refid="struct_simplex" kindref="compound">Simplex</ref>&amp;<sp/>points,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="67" refid="class_c___collision_component_1ac530b17a7829153c647f641b0187a6c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref><sp/><ref refid="class_c___collision_component_1ac530b17a7829153c647f641b0187a6c6" kindref="member">CollisionType</ref>;</highlight></codeline>
+<codeline lineno="68" refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a9067fbcd8d85b74cfa1f0212a3a17d1b" kindref="member">RayBoxCollision</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_box" kindref="compound">Box</ref>&amp;<sp/>box,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>collisionPoints[2],<sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>stopAtFirstCollision<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a7c1ba14fd9b8b451ae43b30f4dafe24b" kindref="member">SpherePlaneCollision</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_plane" kindref="compound">Plane</ref>&amp;<sp/>plane,<sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a214abff60004c1da0e53ce2ff60db634" kindref="member">SphereBoxCollision</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_box" kindref="compound">Box</ref>&amp;<sp/>box,<sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ae1b9be4a52f1f78e91d8be98f21f6afa" kindref="member">OnCollision</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1a4607fe01f4dc9fb983ae32b1ea9c59d3" kindref="member">OnOverlapBegin</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component_1ade429f9c73c3d78defd4521ef5ddacd4" kindref="member">OnOverlapEnd</ref>(<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>otherCollider);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="class_c___collision_component_1a5f3f4dec04a178378c5a6842c9d51c25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="class_c___collision_component_1a5f3f4dec04a178378c5a6842c9d51c25" kindref="member">CollisionFunction</ref>)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="79" refid="class_c___collision_component_1a2eb843b8e065c00876459c87526ac53b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="class_c___collision_component_1a2eb843b8e065c00876459c87526ac53b" kindref="member">OverlapBeginFunction</ref>)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>&amp;<sp/>data);</highlight></codeline>
+<codeline lineno="80" refid="class_c___collision_component_1a37c98ee178467d0bcc8fe7378469fdf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>(*<ref refid="class_c___collision_component_1a37c98ee178467d0bcc8fe7378469fdf2" kindref="member">OverlapEndFunction</ref>)(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>self,<sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>otherCollider);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//bool<sp/>CheckSimplexForOrigin(Simplex&amp;<sp/>simplex)<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395" kindref="member">ColliderType</ref><sp/>colliderType;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>CurrentNode;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h"/>
+  </compounddef>
+</doxygen>

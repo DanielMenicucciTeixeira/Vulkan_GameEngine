@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_145e7554b93945cb25c3855501f16ee9" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders</compoundname>
+    <innerfile refid="_bounding_box_8cpp">BoundingBox.cpp</innerfile>
+    <innerfile refid="_bounding_box_8h">BoundingBox.h</innerfile>
+    <innerfile refid="_box_collider_8cpp">BoxCollider.cpp</innerfile>
+    <innerfile refid="_box_collider_8h">BoxCollider.h</innerfile>
+    <innerfile refid="_collision_component_8cpp">CollisionComponent.cpp</innerfile>
+    <innerfile refid="_collision_component_8h">CollisionComponent.h</innerfile>
+    <innerfile refid="_sphere_collider_8cpp">SphereCollider.cpp</innerfile>
+    <innerfile refid="_sphere_collider_8h">SphereCollider.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/"/>
+  </compounddef>
+</doxygen>

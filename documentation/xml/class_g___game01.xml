@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_g___game01" kind="class" language="C++" prot="public">
+    <compoundname>G_Game01</compoundname>
+    <includes refid="_game01_8h" local="no">Game01.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g___game01_1a9afd952dd17b5760d55505f29dfab861" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>G_Game01::G_Game01</definition>
+        <argsstring>()</argsstring>
+        <name>G_Game01</name>
+        <qualifiedname>G_Game01::G_Game01</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g___game01_1a1d67a02faaf9957bfca43402803939cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool G_Game01::Initialize</definition>
+        <argsstring>()</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>G_Game01::Initialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="10" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="18" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g___game01_1a1d4fe921201a9f30f4279d6ca43c2b9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void G_Game01::Update</definition>
+        <argsstring>(float deltaTime_)</argsstring>
+        <name>Update</name>
+        <qualifiedname>G_Game01::Update</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="11" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g___game01_1a80aea6ec5abf82ec4a44b63449cb83a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void G_Game01::Render</definition>
+        <argsstring>()</argsstring>
+        <name>Render</name>
+        <qualifiedname>G_Game01::Render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="12" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="36" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g___game01_1ad424e51eb1780d05fd7ea260f3102013" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void G_Game01::LoadLevel</definition>
+        <argsstring>(int sceneNum, SDL_Event *event)</argsstring>
+        <name>LoadLevel</name>
+        <qualifiedname>G_Game01::LoadLevel</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>sceneNum</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="13" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g___game01_1aa82be610e55804429994dc2f95c46745" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void G_Game01::EndGame</definition>
+        <argsstring>(O_Object *object, SDL_Event *event)</argsstring>
+        <name>EndGame</name>
+        <qualifiedname>G_Game01::EndGame</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="15" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g___game01_1a827680c9e7e65765a7500fde4649d762" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void G_Game01::QuitApplication</definition>
+        <argsstring>(O_Object *object, SDL_Event *event)</argsstring>
+        <name>QuitApplication</name>
+        <qualifiedname>G_Game01::QuitApplication</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="16" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp" bodystart="50" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" line="6" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.h" bodystart="7" bodyend="17"/>
+    <listofallmembers>
+      <member refid="class_g___game01_1aa82be610e55804429994dc2f95c46745" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>EndGame</name></member>
+      <member refid="class_g___game01_1a9afd952dd17b5760d55505f29dfab861" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>G_Game01</name></member>
+      <member refid="class_g___game01_1a1d67a02faaf9957bfca43402803939cc" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>Initialize</name></member>
+      <member refid="class_g___game01_1ad424e51eb1780d05fd7ea260f3102013" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>LoadLevel</name></member>
+      <member refid="class_g___game01_1a827680c9e7e65765a7500fde4649d762" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>QuitApplication</name></member>
+      <member refid="class_g___game01_1a80aea6ec5abf82ec4a44b63449cb83a9" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>Render</name></member>
+      <member refid="class_g___game01_1a1d4fe921201a9f30f4279d6ca43c2b9d" prot="public" virt="non-virtual"><scope>G_Game01</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

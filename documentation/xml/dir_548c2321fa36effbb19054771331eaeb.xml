@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_548c2321fa36effbb19054771331eaeb" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects</compoundname>
+    <innerfile refid="_game_object_8cpp">GameObject.cpp</innerfile>
+    <innerfile refid="_game_object_8h">GameObject.h</innerfile>
+    <innerfile refid="_physics_body_8cpp">PhysicsBody.cpp</innerfile>
+    <innerfile refid="_physics_body_8h">PhysicsBody.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/"/>
+  </compounddef>
+</doxygen>

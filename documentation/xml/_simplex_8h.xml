@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_simplex_8h" kind="file" language="C++">
+    <compoundname>Simplex.h</compoundname>
+    <includes refid="_f_vector3_8h" local="yes">../Math/FVector3.h</includes>
+    <includes refid="_f_vector4_8h" local="yes">../Math/FVector4.h</includes>
+    <includes refid="_f_matrix_8h" local="yes">../Math/FMatrix.h</includes>
+    <includes local="no">array</includes>
+    <includedby refid="_collision_component_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h</includedby>
+    <includedby refid="_mesh_collision_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.h</includedby>
+    <includedby refid="_source_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Source.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="2">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="3">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</label>
+        <link refid="_oct_spatial_partition_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</label>
+        <link refid="_box_collider_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.cpp</label>
+        <link refid="_sphere_collider_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.h</label>
+        <link refid="_sphere_collider_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp</label>
+        <link refid="_mesh_collision_8cpp"/>
+      </node>
+      <node id="21">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.h</label>
+        <link refid="_mesh_collision_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</label>
+        <link refid="_movement_component_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</label>
+        <link refid="_billiard_ball_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</label>
+        <link refid="_billiard_table_8cpp"/>
+      </node>
+      <node id="24">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+      </node>
+      <node id="25">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Source.cpp</label>
+        <link refid="_source_8cpp"/>
+      </node>
+      <node id="23">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</label>
+        <link refid="_tetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_simplex" prot="public">Simplex</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SIMPLEX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SIMPLEX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FVector3.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FVector4.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FMatrix.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="struct_simplex" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_simplex" kindref="compound">Simplex</ref><sp/></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>std::array&lt;FVector3,<sp/>4&gt;<sp/>Vertices;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>Size;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16" refid="struct_simplex_1a6111f5657ca04b243a5823b645b70bc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_simplex_1a6111f5657ca04b243a5823b645b70bc6" kindref="member">Simplex</ref>()<sp/>:<sp/>Vertices()<sp/>,<sp/>Size(0)<sp/>{}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="struct_simplex_1a12c4022fed644a01764792fc52747028" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_simplex" kindref="compound">Simplex</ref>&amp;<sp/><ref refid="struct_simplex_1a12c4022fed644a01764792fc52747028" kindref="member">operator=</ref>(std::initializer_list&lt;FVector3&gt;<sp/>list)<sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>v<sp/>=<sp/>list.begin();<sp/>v<sp/>!=<sp/>list.end();<sp/>v++)<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vertices[std::distance(list.begin(),<sp/>v)]<sp/>=<sp/>*v;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Size<sp/>=<sp/>list.<ref refid="struct_simplex_1aeede2b943bcd3d7ab16da0a2715113da" kindref="member">size</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="struct_simplex_1abe760a4ce661261784808e388bb58c18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_simplex_1abe760a4ce661261784808e388bb58c18" kindref="member">PushFront</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>point)<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vertices<sp/>=<sp/>{<sp/>point,<sp/>Vertices[0],<sp/>Vertices[1],<sp/>Vertices[2]<sp/>};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Size<sp/>=<sp/>std::min(Size<sp/>+<sp/>1,<sp/>4u);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="struct_simplex_1a3488afcce336f8c552e86e1bc4071542" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/><ref refid="struct_simplex_1a3488afcce336f8c552e86e1bc4071542" kindref="member">operator[]</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>index)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Vertices[index];<sp/>}</highlight></codeline>
+<codeline lineno="36" refid="struct_simplex_1aeede2b943bcd3d7ab16da0a2715113da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><ref refid="struct_simplex_1aeede2b943bcd3d7ab16da0a2715113da" kindref="member">size</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Size;<sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="struct_simplex_1ad5161ef4f875383b9880f2401cefe71a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="struct_simplex_1ad5161ef4f875383b9880f2401cefe71a" kindref="member">begin</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Vertices.begin();<sp/>}</highlight></codeline>
+<codeline lineno="39" refid="struct_simplex_1ae3a1f652ec439b823610f75846ae8067" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="struct_simplex_1ae3a1f652ec439b823610f75846ae8067" kindref="member">end</ref>()</highlight><highlight class="keyword"><sp/><sp/><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Vertices.end()<sp/>-<sp/>(4<sp/>-<sp/>Size);<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h"/>
+  </compounddef>
+</doxygen>

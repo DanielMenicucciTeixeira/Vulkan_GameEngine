@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_texture_handler_8cpp" kind="file" language="C++">
+    <compoundname>TextureHandler.cpp</compoundname>
+    <includes refid="_texture_handler_8h" local="yes">TextureHandler.h</includes>
+    <includes refid="_render_object_8h" local="yes">Renderers/RenderObject.h</includes>
+    <includes refid="_debug_logger_8h" local="yes">DebugLogger.h</includes>
+    <includes local="no">SDL.h</includes>
+    <includes local="no">SDL_image.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">vector</includes>
+    <incdepgraph>
+      <node id="14">
+        <label>DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="10">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="7">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp</label>
+        <link refid="_texture_handler_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>TextureHandler.h</label>
+        <link refid="_texture_handler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>SDL.h</label>
+      </node>
+      <node id="13">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="16">
+        <label>iostream</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>set</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_texture_handler_8h" kindref="compound">TextureHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_render_object_8h" kindref="compound">Renderers/RenderObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_debug_logger_8h" kindref="compound">DebugLogger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL_image.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">std::unique_ptr&lt;TextureHandler&gt;<sp/>TextureHandler::Instance<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">std::vector&lt;S_Texture*&gt;<sp/>TextureHandler::Textures<sp/>=<sp/>std::vector&lt;S_Texture*&gt;();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="class_texture_handler_1a266aec84de0bbef772d264f580052219" kindref="member">TextureHandler::TextureHandler</ref>()</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Textures.reserve(10);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_texture_handler_1a58202ef524eb41d09e4b2d99093a3b58" refkind="member"><highlight class="normal"><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref>*<sp/><ref refid="class_texture_handler_1a58202ef524eb41d09e4b2d99093a3b58" kindref="member">TextureHandler::GetInstance</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Instance.get()<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>Instance.reset(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Instance.get();</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">TextureHandler::~TextureHandler()</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_texture_handler_1a9a1de44743fe607b903101cc3d61f166" kindref="member">CleanUp</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="class_texture_handler_1a4a3f6b52cdcbb3b075fd9451412cecf7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_texture_handler_1a4a3f6b52cdcbb3b075fd9451412cecf7" kindref="member">TextureHandler::LoadTexture</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>textureName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>filePath,<sp/><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*<sp/>outTexture)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(outTexture)<sp/><ref refid="class_debug_logger_1a55a028ea9f947a742efd70d6de7f9425" kindref="member">DebugLogger::Warning</ref>(textureName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;was<sp/>not<sp/>nullptr,<sp/>it<sp/>will<sp/>be<sp/>overriden&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;SDL/TextureHandler.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>outTexture<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Surface*<sp/>surface<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>surface<sp/>=<sp/>IMG_Load(filePath.c_str());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(surface<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>surface<sp/>for<sp/>texture:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>textureName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>at:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>filePath<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.\nSDL_image<sp/>Error:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(IMG_GetError())<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;SDL/TextureHandler.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*SDL_Surface*<sp/>convertedSurface<sp/>=<sp/>new<sp/>SDL_Surface();</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/>int<sp/>test<sp/>=<sp/>SDL_ConvertPixels(surface-&gt;w,<sp/>surface-&gt;h,<sp/>surface-&gt;format-&gt;format,<sp/>surface-&gt;pixels,<sp/>surface-&gt;format-&gt;BytesPerPixel,<sp/>SDL_PIXELFORMAT_RGBA8888,<sp/>outTexture-&gt;Pixels,<sp/>4);</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(test<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(SDL_GetError());</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(&quot;\n&quot;);</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DebugLogger::Error(&quot;Failed<sp/>to<sp/>convert<sp/>pixel<sp/>format<sp/>for:<sp/>&quot;<sp/>+<sp/>textureName<sp/>+<sp/>&quot;<sp/>at:<sp/>&quot;<sp/>+<sp/>filePath<sp/>+<sp/>&quot;.\nSDL_image<sp/>Error:<sp/>&quot;<sp/>+<sp/>std::string(IMG_GetError())<sp/>+<sp/>&quot;\n&quot;,<sp/>&quot;SDL/TextureHandler.cpp&quot;,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//return<sp/>false;</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a2bd2d7d0109589590d682e284289efaa" kindref="member">Height</ref><sp/>=<sp/>surface-&gt;h;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a127a69d6408ebd417cf198099a1030ce" kindref="member">Width</ref><sp/>=<sp/>surface-&gt;w;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a143ee132d3ec47d1df45960607c0cd86" kindref="member">BytesPerPixel</ref><sp/>=<sp/>surface-&gt;format-&gt;BytesPerPixel;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a23c72f796dcf35c571d3dfef4681ae48" kindref="member">Pixels</ref><sp/>=<sp/>surface-&gt;pixels;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a41177ccaf52c3aea6579c6dab46df2da" kindref="member">Name</ref><sp/>=<sp/>textureName;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>outTexture-&gt;<ref refid="struct_s___texture_1a3588d14f8279d5597a4ddbd382ab2765" kindref="member">Path</ref><sp/>=<sp/>filePath;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Texture<sp/>Format<sp/>of<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>outTexture-&gt;<ref refid="struct_s___texture_1a41177ccaf52c3aea6579c6dab46df2da" kindref="member">Name</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>SDL_GetPixelFormatName(surface-&gt;format-&gt;format)<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_texture_handler_1a58202ef524eb41d09e4b2d99093a3b58" kindref="member">GetInstance</ref>()-&gt;Surfaces.insert(surface);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="class_texture_handler_1a9a1de44743fe607b903101cc3d61f166" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_texture_handler_1a9a1de44743fe607b903101cc3d61f166" kindref="member">TextureHandler::CleanUp</ref>()</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>surface<sp/>:<sp/>Surfaces)<sp/>SDL_FreeSurface(surface);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_texture_handler_1a560d5c68adc0544c2695f82a03e85f86" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*<sp/><ref refid="class_texture_handler_1a560d5c68adc0544c2695f82a03e85f86" kindref="member">TextureHandler::GetTextureData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>textureName)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="70"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>texture<sp/>:<sp/>Textures)<sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(texture-&gt;Name<sp/>==<sp/>textureName)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>texture;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a55a028ea9f947a742efd70d6de7f9425" kindref="member">DebugLogger::Warning</ref>(</highlight><highlight class="stringliteral">&quot;Texture<sp/>not<sp/>found!<sp/>Texture<sp/>name:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>textureName,<sp/></highlight><highlight class="stringliteral">&quot;SDL/TextureHandler.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp"/>
+  </compounddef>
+</doxygen>

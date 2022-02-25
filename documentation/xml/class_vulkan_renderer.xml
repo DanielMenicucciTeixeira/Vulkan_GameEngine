@@ -1,0 +1,2077 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_vulkan_renderer" kind="class" language="C++" prot="public">
+    <compoundname>VulkanRenderer</compoundname>
+    <basecompoundref refid="class_renderer" prot="public" virt="non-virtual">Renderer</basecompoundref>
+    <includes refid="_vulkan_renderer_8h" local="no">VulkanRenderer.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_vulkan_renderer_1a9f1bd036eebb9bd2d96e8cc8512d591b" prot="protected" static="no" mutable="no">
+        <type>VkInstance_T *</type>
+        <definition>VkInstance_T* VulkanRenderer::Instance</definition>
+        <argsstring></argsstring>
+        <name>Instance</name>
+        <qualifiedname>VulkanRenderer::Instance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="168" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1af1481e3d0f9f5f6bec36fcf6bb0818fe" prot="protected" static="no" mutable="no">
+        <type>VkPhysicalDevice_T *</type>
+        <definition>VkPhysicalDevice_T* VulkanRenderer::PhysicalDevice</definition>
+        <argsstring></argsstring>
+        <name>PhysicalDevice</name>
+        <qualifiedname>VulkanRenderer::PhysicalDevice</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="169" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ab94b780bda1492819006c0ab36fcd93e" prot="protected" static="no" mutable="no">
+        <type>VkDevice_T *</type>
+        <definition>VkDevice_T* VulkanRenderer::LogicalDevice</definition>
+        <argsstring></argsstring>
+        <name>LogicalDevice</name>
+        <qualifiedname>VulkanRenderer::LogicalDevice</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="170" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a929e4030de3e2114a12b7d2b55e2a5a9" prot="protected" static="no" mutable="no">
+        <type>const unsigned int</type>
+        <definition>const unsigned int VulkanRenderer::MAX_FRAMES_IN_FLIGHT</definition>
+        <argsstring></argsstring>
+        <name>MAX_FRAMES_IN_FLIGHT</name>
+        <qualifiedname>VulkanRenderer::MAX_FRAMES_IN_FLIGHT</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="171" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a8fad8533b5d1c72cf67c99c04315aa5a" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::EnableValidationLayers</definition>
+        <argsstring></argsstring>
+        <name>EnableValidationLayers</name>
+        <qualifiedname>VulkanRenderer::EnableValidationLayers</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="181" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ad4f717f4a2c16fc6232ac51a72242678" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; const char * &gt;</type>
+        <definition>std::vector&lt;const char*&gt; VulkanRenderer::ValidationLayerNames</definition>
+        <argsstring></argsstring>
+        <name>ValidationLayerNames</name>
+        <qualifiedname>VulkanRenderer::ValidationLayerNames</qualifiedname>
+        <initializer>=
+	{
+		&quot;VK_LAYER_KHRONOS_validation&quot;
+	}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="183" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a3526e95262e033f98a14dc57f334fc93" prot="protected" static="no" mutable="no">
+        <type>VGE_SDLManager *</type>
+        <definition>VGE_SDLManager* VulkanRenderer::SDLManager</definition>
+        <argsstring></argsstring>
+        <name>SDLManager</name>
+        <qualifiedname>VulkanRenderer::SDLManager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="189" column="16" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a482ad7d57a50d8f37a75ce8b3d87addf" prot="protected" static="no" mutable="no">
+        <type>VkDebugUtilsMessengerEXT_T *</type>
+        <definition>VkDebugUtilsMessengerEXT_T* VulkanRenderer::DebugMessenger</definition>
+        <argsstring></argsstring>
+        <name>DebugMessenger</name>
+        <qualifiedname>VulkanRenderer::DebugMessenger</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="200" column="28" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ae7bd509b429f05d522613d08d85790d1" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_queue_struct" kindref="compound">QueueStruct</ref></type>
+        <definition>QueueStruct VulkanRenderer::Queues</definition>
+        <argsstring></argsstring>
+        <name>Queues</name>
+        <qualifiedname>VulkanRenderer::Queues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="209" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a58313e6f2324d8d8fa7ae5696300fa48" prot="protected" static="no" mutable="no">
+        <type>VkSurfaceKHR_T *</type>
+        <definition>VkSurfaceKHR_T* VulkanRenderer::Surface</definition>
+        <argsstring></argsstring>
+        <name>Surface</name>
+        <qualifiedname>VulkanRenderer::Surface</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="219" column="16" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ac84f0ccfcb5646f07fd5a1c0dc3be6ae" prot="protected" static="no" mutable="no">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window* VulkanRenderer::Window</definition>
+        <argsstring></argsstring>
+        <name>Window</name>
+        <qualifiedname>VulkanRenderer::Window</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="220" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a0e7b08136d8e54f064ebd04433c856c5" prot="protected" static="no" mutable="no">
+        <type>VkSwapchainKHR_T *</type>
+        <definition>VkSwapchainKHR_T* VulkanRenderer::SwapChain</definition>
+        <argsstring></argsstring>
+        <name>SwapChain</name>
+        <qualifiedname>VulkanRenderer::SwapChain</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="240" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a03b3efe9367a335c51f4e8ccdf1d68f2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; const char * &gt;</type>
+        <definition>std::vector&lt;const char*&gt; VulkanRenderer::DeviceExtensions</definition>
+        <argsstring></argsstring>
+        <name>DeviceExtensions</name>
+        <qualifiedname>VulkanRenderer::DeviceExtensions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="241" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a396ebfa5c1962c08a552afa4e45422b6" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkImage_T * &gt;</type>
+        <definition>std::vector&lt;VkImage_T*&gt; VulkanRenderer::SwapChainImages</definition>
+        <argsstring></argsstring>
+        <name>SwapChainImages</name>
+        <qualifiedname>VulkanRenderer::SwapChainImages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="242" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ab1e74f6d4aa40f8cf8d895fe743c75fc" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkFramebuffer_T * &gt;</type>
+        <definition>std::vector&lt;VkFramebuffer_T*&gt; VulkanRenderer::SwapChainFramebuffers</definition>
+        <argsstring></argsstring>
+        <name>SwapChainFramebuffers</name>
+        <qualifiedname>VulkanRenderer::SwapChainFramebuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="243" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a1f45febc6820565503ce2ed07886dd65" prot="protected" static="no" mutable="no">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanRenderer::SwapChainImageFormat</definition>
+        <argsstring></argsstring>
+        <name>SwapChainImageFormat</name>
+        <qualifiedname>VulkanRenderer::SwapChainImageFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="244" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1aab12598732d3fef562e7e7e9775f2b97" prot="protected" static="no" mutable="no">
+        <type>VkExtent2D *</type>
+        <definition>VkExtent2D* VulkanRenderer::SwapChainExtent</definition>
+        <argsstring></argsstring>
+        <name>SwapChainExtent</name>
+        <qualifiedname>VulkanRenderer::SwapChainExtent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="245" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a9731e818f02b403b3a82f83561cf2062" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkImageView_T * &gt;</type>
+        <definition>std::vector&lt;VkImageView_T*&gt; VulkanRenderer::SwapChainImageViews</definition>
+        <argsstring></argsstring>
+        <name>SwapChainImageViews</name>
+        <qualifiedname>VulkanRenderer::SwapChainImageViews</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="246" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a5dd7349516665b3299a99191698d96a1" prot="protected" static="no" mutable="no">
+        <type>VkDescriptorSetLayout_T *</type>
+        <definition>VkDescriptorSetLayout_T* VulkanRenderer::DescriptorSetLayout</definition>
+        <argsstring></argsstring>
+        <name>DescriptorSetLayout</name>
+        <qualifiedname>VulkanRenderer::DescriptorSetLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="256" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1acf17347168bee82a3dcc753d5bb50af0" prot="protected" static="no" mutable="no">
+        <type>VkPipelineLayout_T *</type>
+        <definition>VkPipelineLayout_T* VulkanRenderer::PipelineLayout</definition>
+        <argsstring></argsstring>
+        <name>PipelineLayout</name>
+        <qualifiedname>VulkanRenderer::PipelineLayout</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="257" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a42bfa5926d9e1d7998f02f6becc27c02" prot="protected" static="no" mutable="no">
+        <type>VkRenderPass_T *</type>
+        <definition>VkRenderPass_T* VulkanRenderer::RenderPass</definition>
+        <argsstring></argsstring>
+        <name>RenderPass</name>
+        <qualifiedname>VulkanRenderer::RenderPass</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="258" column="16" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a2e3fa2465ef2c2dc1d7b1b242340ed05" prot="protected" static="no" mutable="no">
+        <type>VkPipeline_T *</type>
+        <definition>VkPipeline_T* VulkanRenderer::GraphicsPipeline</definition>
+        <argsstring></argsstring>
+        <name>GraphicsPipeline</name>
+        <qualifiedname>VulkanRenderer::GraphicsPipeline</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="259" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a89485667c8f0edc91cbc1db315ff5824" prot="protected" static="no" mutable="no">
+        <type>VkCommandPool_T *</type>
+        <definition>VkCommandPool_T* VulkanRenderer::CommandPool</definition>
+        <argsstring></argsstring>
+        <name>CommandPool</name>
+        <qualifiedname>VulkanRenderer::CommandPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="289" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a08492b7d853c48bda5d163883d804a9d" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkCommandBuffer_T * &gt;</type>
+        <definition>std::vector&lt;VkCommandBuffer_T*&gt; VulkanRenderer::CommandBuffers</definition>
+        <argsstring></argsstring>
+        <name>CommandBuffers</name>
+        <qualifiedname>VulkanRenderer::CommandBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="290" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ae491011283a9545e5f848cfa012663fa" prot="protected" static="no" mutable="no">
+        <type>VkBuffer_T *</type>
+        <definition>VkBuffer_T* VulkanRenderer::VertexBuffer</definition>
+        <argsstring></argsstring>
+        <name>VertexBuffer</name>
+        <qualifiedname>VulkanRenderer::VertexBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="292" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a793f6480c6c70f22e530064061efab2e" prot="protected" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* VulkanRenderer::VertexBufferMemory</definition>
+        <argsstring></argsstring>
+        <name>VertexBufferMemory</name>
+        <qualifiedname>VulkanRenderer::VertexBufferMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="293" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1aa28b87ded901f8164fa186baa9550150" prot="protected" static="no" mutable="no">
+        <type>VkBuffer_T *</type>
+        <definition>VkBuffer_T* VulkanRenderer::IndexBuffer</definition>
+        <argsstring></argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>VulkanRenderer::IndexBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="295" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a5d551006f6fc0b9eb86805545391a96d" prot="protected" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* VulkanRenderer::IndexBufferMemory</definition>
+        <argsstring></argsstring>
+        <name>IndexBufferMemory</name>
+        <qualifiedname>VulkanRenderer::IndexBufferMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="296" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a088b179ef981d1913e3dbe8d7a5e2c58" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkBuffer_T * &gt;</type>
+        <definition>std::vector&lt;VkBuffer_T*&gt; VulkanRenderer::UniformBuffers</definition>
+        <argsstring></argsstring>
+        <name>UniformBuffers</name>
+        <qualifiedname>VulkanRenderer::UniformBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="298" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1aaaee01b00bfa699f0e76811acafacb57" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkDeviceMemory_T * &gt;</type>
+        <definition>std::vector&lt;VkDeviceMemory_T*&gt; VulkanRenderer::UniformBuffersMemory</definition>
+        <argsstring></argsstring>
+        <name>UniformBuffersMemory</name>
+        <qualifiedname>VulkanRenderer::UniformBuffersMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="299" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a1fd8f51feaed53e9b7c2b3b80f5081bf" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::FramebufferResized</definition>
+        <argsstring></argsstring>
+        <name>FramebufferResized</name>
+        <qualifiedname>VulkanRenderer::FramebufferResized</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="301" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a68163a3cac5d1ecb79533f04c0516a2a" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkSemaphore_T * &gt;</type>
+        <definition>std::vector&lt;VkSemaphore_T*&gt; VulkanRenderer::ImageAvailableSemaphores</definition>
+        <argsstring></argsstring>
+        <name>ImageAvailableSemaphores</name>
+        <qualifiedname>VulkanRenderer::ImageAvailableSemaphores</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="310" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a093538346155b7d762565f55306b8398" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkSemaphore_T * &gt;</type>
+        <definition>std::vector&lt;VkSemaphore_T*&gt; VulkanRenderer::RenderFinishedSemaphores</definition>
+        <argsstring></argsstring>
+        <name>RenderFinishedSemaphores</name>
+        <qualifiedname>VulkanRenderer::RenderFinishedSemaphores</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="311" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a6aa0458a0e1e89e7a65ba8897defdea4" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkFence_T * &gt;</type>
+        <definition>std::vector&lt;VkFence_T*&gt; VulkanRenderer::InFlightFences</definition>
+        <argsstring></argsstring>
+        <name>InFlightFences</name>
+        <qualifiedname>VulkanRenderer::InFlightFences</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="312" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a5e82d2d36e586ff6ba3658375a2b744b" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkFence_T * &gt;</type>
+        <definition>std::vector&lt;VkFence_T*&gt; VulkanRenderer::ImagesInFlight</definition>
+        <argsstring></argsstring>
+        <name>ImagesInFlight</name>
+        <qualifiedname>VulkanRenderer::ImagesInFlight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="313" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ad4b1a1d42531e0d37018f5cd04365db8" prot="protected" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t VulkanRenderer::CurrentFrame</definition>
+        <argsstring></argsstring>
+        <name>CurrentFrame</name>
+        <qualifiedname>VulkanRenderer::CurrentFrame</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="314" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="314" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a90ec637836292e1403a870800072716c" prot="protected" static="no" mutable="no">
+        <type>VkDescriptorPool_T *</type>
+        <definition>VkDescriptorPool_T* VulkanRenderer::DescriptorPool</definition>
+        <argsstring></argsstring>
+        <name>DescriptorPool</name>
+        <qualifiedname>VulkanRenderer::DescriptorPool</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="338" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a21da9311dda520c2cf6c2014e34c5dff" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkDescriptorSet_T * &gt;</type>
+        <definition>std::vector&lt;VkDescriptorSet_T*&gt; VulkanRenderer::DescriptorSets</definition>
+        <argsstring></argsstring>
+        <name>DescriptorSets</name>
+        <qualifiedname>VulkanRenderer::DescriptorSets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="339" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a7e826fe4dc5febcf0417d5a477b162d3" prot="protected" static="no" mutable="no">
+        <type>VkImage_T *</type>
+        <definition>VkImage_T* VulkanRenderer::TextureImage</definition>
+        <argsstring></argsstring>
+        <name>TextureImage</name>
+        <qualifiedname>VulkanRenderer::TextureImage</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="340" column="11" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a55dedbbb6f2836d4c2b09464ddbda1d5" prot="protected" static="no" mutable="no">
+        <type>VkImageView_T *</type>
+        <definition>VkImageView_T* VulkanRenderer::TextureImageView</definition>
+        <argsstring></argsstring>
+        <name>TextureImageView</name>
+        <qualifiedname>VulkanRenderer::TextureImageView</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="341" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a1c6a5eb4cb7bfc2dd0b5039995719331" prot="protected" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* VulkanRenderer::TextureImageMemory</definition>
+        <argsstring></argsstring>
+        <name>TextureImageMemory</name>
+        <qualifiedname>VulkanRenderer::TextureImageMemory</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="342" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1ad4cd8fb0a2dcaeaf9e5fba93c5a34209" prot="protected" static="no" mutable="no">
+        <type>VkSampler_T *</type>
+        <definition>VkSampler_T* VulkanRenderer::TextureSampler</definition>
+        <argsstring></argsstring>
+        <name>TextureSampler</name>
+        <qualifiedname>VulkanRenderer::TextureSampler</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="343" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a761518526442951cde32bac9a992aa85" prot="protected" static="no" mutable="no">
+        <type>VkImage_T *</type>
+        <definition>VkImage_T* VulkanRenderer::DepthImage</definition>
+        <argsstring></argsstring>
+        <name>DepthImage</name>
+        <qualifiedname>VulkanRenderer::DepthImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="344" column="11" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a9656767a9d374a7c05bc37dc37002a06" prot="protected" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* VulkanRenderer::DepthImageMemory</definition>
+        <argsstring></argsstring>
+        <name>DepthImageMemory</name>
+        <qualifiedname>VulkanRenderer::DepthImageMemory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="345" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1afc22fdf02bae5261782729828b7e13c6" prot="protected" static="no" mutable="no">
+        <type>VkImageView_T *</type>
+        <definition>VkImageView_T* VulkanRenderer::DepthImageView</definition>
+        <argsstring></argsstring>
+        <name>DepthImageView</name>
+        <qualifiedname>VulkanRenderer::DepthImageView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="346" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a603050e34126f9be91dff7c3810776c0" prot="protected" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string VulkanRenderer::MODEL_PATH</definition>
+        <argsstring></argsstring>
+        <name>MODEL_PATH</name>
+        <qualifiedname>VulkanRenderer::MODEL_PATH</qualifiedname>
+        <initializer>= &quot;Models/viking_room.obj&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="349" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a23e4f02649ccbb6ef6ae9699a8fa2e80" prot="protected" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string VulkanRenderer::TEXTURE_PATH</definition>
+        <argsstring></argsstring>
+        <name>TEXTURE_PATH</name>
+        <qualifiedname>VulkanRenderer::TEXTURE_PATH</qualifiedname>
+        <initializer>= &quot;Textures/viking_room.png&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="350" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1a11fad42b69d92aa388129f5e0ff69d1a" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_vertex" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>std::vector&lt;Vertex&gt; VulkanRenderer::Vertices</definition>
+        <argsstring></argsstring>
+        <name>Vertices</name>
+        <qualifiedname>VulkanRenderer::Vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="351" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_renderer_1aa35df30304dfa46c24befa95dca12a2a" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt;unsigned int&gt; VulkanRenderer::Indices</definition>
+        <argsstring></argsstring>
+        <name>Indices</name>
+        <qualifiedname>VulkanRenderer::Indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="352" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vulkan_renderer_1abc8ed9b20063867618e2175a8f74933d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanRenderer::VulkanRenderer</definition>
+        <argsstring>(VGE_SDLManager *sdlManager=nullptr)</argsstring>
+        <name>VulkanRenderer</name>
+        <qualifiedname>VulkanRenderer::VulkanRenderer</qualifiedname>
+        <param>
+          <type>VGE_SDLManager *</type>
+          <declname>sdlManager</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="139" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a0d816e99ef4265a38912e5e5352402f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanRenderer::~VulkanRenderer</definition>
+        <argsstring>()</argsstring>
+        <name>~VulkanRenderer</name>
+        <qualifiedname>VulkanRenderer::~VulkanRenderer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="143" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ad131953f01e0a81804257172d481f7ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::Run</definition>
+        <argsstring>() override</argsstring>
+        <name>Run</name>
+        <qualifiedname>VulkanRenderer::Run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="148" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="37" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ae83c73b9542f9715f806604d10421c6a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VGE_SDLManager *</type>
+        <definition>VGE_SDLManager * VulkanRenderer::GetSDLManager</definition>
+        <argsstring>()</argsstring>
+        <name>GetSDLManager</name>
+        <qualifiedname>VulkanRenderer::GetSDLManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="150" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aca937c97d159021900ff9ee525d84472" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::SetSDLManager</definition>
+        <argsstring>(VGE_SDLManager *sdlManager)</argsstring>
+        <name>SetSDLManager</name>
+        <qualifiedname>VulkanRenderer::SetSDLManager</qualifiedname>
+        <param>
+          <type>VGE_SDLManager *</type>
+          <declname>sdlManager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="151" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="151" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ac8bb0c98f672f640f91ea0c48b9036bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window * VulkanRenderer::GetWindow</definition>
+        <argsstring>()</argsstring>
+        <name>GetWindow</name>
+        <qualifiedname>VulkanRenderer::GetWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="152" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a9c8e656f0f3739e0b1c2c26160fc9d37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkSurfaceKHR_T *</type>
+        <definition>VkSurfaceKHR_T * VulkanRenderer::GetSurface</definition>
+        <argsstring>()</argsstring>
+        <name>GetSurface</name>
+        <qualifiedname>VulkanRenderer::GetSurface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="153" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="153" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ae3e0c60837f269920a03e94919f1cf65" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::FramebufferResizeCallback</definition>
+        <argsstring>() override</argsstring>
+        <name>FramebufferResizeCallback</name>
+        <qualifiedname>VulkanRenderer::FramebufferResizeCallback</qualifiedname>
+        <reimplements refid="class_renderer_1ae8ad442674378b1f531c62b005d70c2f">FramebufferResizeCallback</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="285" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1153" bodyend="1156"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_vulkan_renderer_1aa43c22ff47894a33ae1922c4fdc51058" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::Initialize</definition>
+        <argsstring>() override</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>VulkanRenderer::Initialize</qualifiedname>
+        <reimplements refid="class_renderer_1a9db42ad45cf8ab6e78c0951ebed955c7">Initialize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="156" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="44" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a86f3a92b02fdb782bff78ec655602dca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::MainLoop</definition>
+        <argsstring>()</argsstring>
+        <name>MainLoop</name>
+        <qualifiedname>VulkanRenderer::MainLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="157" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="89" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a90e060690cf62cdbf58ae02dfab40983" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CleanUp</definition>
+        <argsstring>() override</argsstring>
+        <name>CleanUp</name>
+        <qualifiedname>VulkanRenderer::CleanUp</qualifiedname>
+        <reimplements refid="class_renderer_1a2269363ca9383bf319d341099bc4c9e4">CleanUp</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="158" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="99" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a53099b00d830344d152876872f5c67c1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window * VulkanRenderer::CreateWindow</definition>
+        <argsstring>(const char *windowName, float windowSizeX, float windowSizeY, float windowPositionX, float windowPositionY) override</argsstring>
+        <name>CreateWindow</name>
+        <qualifiedname>VulkanRenderer::CreateWindow</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>windowName</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>windowSizeX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>windowSizeY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>windowPositionX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>windowPositionY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="159" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aaf395b798d5db7288a000c61ad34ac8c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateInstance</definition>
+        <argsstring>(const char *applicationName=&quot;App Name&quot;, const char *engineName=&quot;Engine Name&quot;)</argsstring>
+        <name>CreateInstance</name>
+        <qualifiedname>VulkanRenderer::CreateInstance</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>applicationName</declname>
+          <defval>&quot;App Name&quot;</defval>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>engineName</declname>
+          <defval>&quot;Engine Name&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="161" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="128" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a4f06ca15d6bf0f3f9bc136246a282d8d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::PickPhysicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>PickPhysicalDevice</name>
+        <qualifiedname>VulkanRenderer::PickPhysicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="162" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="174" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a5a39a018a7efa1390e7f5aa79e059991" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::IsPhysicalDeviceSuitable</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>IsPhysicalDeviceSuitable</name>
+        <qualifiedname>VulkanRenderer::IsPhysicalDeviceSuitable</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="163" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="203" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a44d431822480747f4caeae2fc8c4ebef" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateLogicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>CreateLogicalDevice</name>
+        <qualifiedname>VulkanRenderer::CreateLogicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="164" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="220" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ae43b96ed1050e49ede7bee0e4f5bc4b8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::CheckValidationLayerSupport</definition>
+        <argsstring>()</argsstring>
+        <name>CheckValidationLayerSupport</name>
+        <qualifiedname>VulkanRenderer::CheckValidationLayerSupport</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="176" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="273" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a681fc37a6acf01cae3e9bb93d02cdbb2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkResult</type>
+        <definition>VkResult VulkanRenderer::CreateDebugUtilsMessengerEXT</definition>
+        <argsstring>(VkInstance_T *&amp;instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT_T **pDebugMessenger)</argsstring>
+        <name>CreateDebugUtilsMessengerEXT</name>
+        <qualifiedname>VulkanRenderer::CreateDebugUtilsMessengerEXT</qualifiedname>
+        <param>
+          <type>VkInstance_T *&amp;</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>const VkDebugUtilsMessengerCreateInfoEXT *</type>
+          <declname>pCreateInfo</declname>
+        </param>
+        <param>
+          <type>const VkAllocationCallbacks *</type>
+          <declname>pAllocator</declname>
+        </param>
+        <param>
+          <type>VkDebugUtilsMessengerEXT_T **</type>
+          <declname>pDebugMessenger</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="177" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="305" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aa7b8ac951fd9e206f134a71b9fb57c50" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::SetUpDebugMessenger</definition>
+        <argsstring>()</argsstring>
+        <name>SetUpDebugMessenger</name>
+        <qualifiedname>VulkanRenderer::SetUpDebugMessenger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="194" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="320" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a8000d76f00321651fd52f6a76a2b2737" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::PopulateDebugMessengerCreateInfo</definition>
+        <argsstring>(VkDebugUtilsMessengerCreateInfoEXT &amp;createInfo)</argsstring>
+        <name>PopulateDebugMessengerCreateInfo</name>
+        <qualifiedname>VulkanRenderer::PopulateDebugMessengerCreateInfo</qualifiedname>
+        <param>
+          <type>VkDebugUtilsMessengerCreateInfoEXT &amp;</type>
+          <declname>createInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="195" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="340" bodyend="347"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a41457a1df4ca7de65af73ecccb3d256b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::DestroyDebugUtilsMessengerEXT</definition>
+        <argsstring>(VkInstance_T *instance, const VkAllocationCallbacks *pAllocator)</argsstring>
+        <name>DestroyDebugUtilsMessengerEXT</name>
+        <qualifiedname>VulkanRenderer::DestroyDebugUtilsMessengerEXT</qualifiedname>
+        <param>
+          <type>VkInstance_T *</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>const VkAllocationCallbacks *</type>
+          <declname>pAllocator</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="196" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="349" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aa7119d6c81d102e4c9903f7d241fca6d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_queue_family_indices" kindref="compound">QueueFamilyIndices</ref></type>
+        <definition>QueueFamilyIndices VulkanRenderer::FindQueueFamilies</definition>
+        <argsstring>(VkPhysicalDevice_T *physicalDevice)</argsstring>
+        <name>FindQueueFamilies</name>
+        <qualifiedname>VulkanRenderer::FindQueueFamilies</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>physicalDevice</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="205" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="360" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aa6a2a86b91a0b9a8f4b799e7f512e39d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateSurface</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSurface</name>
+        <qualifiedname>VulkanRenderer::CreateSurface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="214" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="392" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a8a1079dfe304174c5b11c959bd60eb22" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::SetWindow</definition>
+        <argsstring>(SDL_Window *window)</argsstring>
+        <name>SetWindow</name>
+        <qualifiedname>VulkanRenderer::SetWindow</qualifiedname>
+        <param>
+          <type>SDL_Window *</type>
+          <declname>window</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="215" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="400" bodyend="404"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a0578514331364e68deca1d37a05f84e0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::CheckDeviceExtensionSupport</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>CheckDeviceExtensionSupport</name>
+        <qualifiedname>VulkanRenderer::CheckDeviceExtensionSupport</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="225" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="408" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a60c7b1683e2f296452b807289aec7023" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_swapchain_support_details" kindref="compound">SwapchainSupportDetails</ref></type>
+        <definition>SwapchainSupportDetails VulkanRenderer::QuerySwapChainSupport</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>QuerySwapChainSupport</name>
+        <qualifiedname>VulkanRenderer::QuerySwapChainSupport</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="226" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="423" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aeaef89ca0dd49e90182d104430412a4e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkSurfaceFormatKHR</type>
+        <definition>VkSurfaceFormatKHR VulkanRenderer::ChooseSwapSurfaceFormat</definition>
+        <argsstring>(const std::vector&lt; VkSurfaceFormatKHR &gt; availableFormats)</argsstring>
+        <name>ChooseSwapSurfaceFormat</name>
+        <qualifiedname>VulkanRenderer::ChooseSwapSurfaceFormat</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkSurfaceFormatKHR &gt;</type>
+          <declname>availableFormats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="228" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="449" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a8ef069eafe993ad8dcff1d2b336fea36" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkPresentModeKHR</type>
+        <definition>VkPresentModeKHR VulkanRenderer::ChooseSwapPresentMode</definition>
+        <argsstring>(const std::vector&lt; VkPresentModeKHR &gt; &amp;availablePresentModes)</argsstring>
+        <name>ChooseSwapPresentMode</name>
+        <qualifiedname>VulkanRenderer::ChooseSwapPresentMode</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkPresentModeKHR &gt; &amp;</type>
+          <declname>availablePresentModes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="229" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="462" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a1431956db260d157c99f0ef870a1fc53" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkExtent2D</type>
+        <definition>VkExtent2D VulkanRenderer::ChooseSwapExtent</definition>
+        <argsstring>(const VkSurfaceCapabilitiesKHR *capabilities)</argsstring>
+        <name>ChooseSwapExtent</name>
+        <qualifiedname>VulkanRenderer::ChooseSwapExtent</qualifiedname>
+        <param>
+          <type>const VkSurfaceCapabilitiesKHR *</type>
+          <declname>capabilities</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="230" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="472" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aeb6c4d150a18207fdef4ee0ecfe1c7e2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateSwapChain</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSwapChain</name>
+        <qualifiedname>VulkanRenderer::CreateSwapChain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="232" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="493" bodyend="547"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ac504071c8b88a48f1d14fb3d50e64c7b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::RecreateSwapChain</definition>
+        <argsstring>()</argsstring>
+        <name>RecreateSwapChain</name>
+        <qualifiedname>VulkanRenderer::RecreateSwapChain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="233" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="549" bodyend="574"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a72559bcf1389dced82df0a5aab5b10cf" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateImageViews</definition>
+        <argsstring>()</argsstring>
+        <name>CreateImageViews</name>
+        <qualifiedname>VulkanRenderer::CreateImageViews</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="234" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="576" bodyend="583"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aab85e65b6fae7c31efd893c3967ad7ef" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkImageView_T *</type>
+        <definition>VkImageView_T * VulkanRenderer::CreateImageView</definition>
+        <argsstring>(VkImage_T *image, VkFormat format, VkImageAspectFlags aspectFlags)</argsstring>
+        <name>CreateImageView</name>
+        <qualifiedname>VulkanRenderer::CreateImageView</qualifiedname>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" kindref="member">VkImageAspectFlags</ref></type>
+          <declname>aspectFlags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="235" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="585" bodyend="605"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a1c56d565844ab62f6da069ccceaff973" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CleanUpSwapChain</definition>
+        <argsstring>()</argsstring>
+        <name>CleanUpSwapChain</name>
+        <qualifiedname>VulkanRenderer::CleanUpSwapChain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="236" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="607" bodyend="622"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a4e191872c39fb793536b3a635d08f0db" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateGraphicsPipeline</definition>
+        <argsstring>()</argsstring>
+        <name>CreateGraphicsPipeline</name>
+        <qualifiedname>VulkanRenderer::CreateGraphicsPipeline</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="251" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="626" bodyend="782"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a6256bdc4a670eb2425a6e28962f13da4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateRenderPass</definition>
+        <argsstring>()</argsstring>
+        <name>CreateRenderPass</name>
+        <qualifiedname>VulkanRenderer::CreateRenderPass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="252" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="784" bodyend="842"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a34d617b44ad3a4be4feac8917a572280" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkShaderModule_T *</type>
+        <definition>VkShaderModule_T * VulkanRenderer::CreateShaderModule</definition>
+        <argsstring>(const std::vector&lt; char &gt; &amp;code)</argsstring>
+        <name>CreateShaderModule</name>
+        <qualifiedname>VulkanRenderer::CreateShaderModule</qualifiedname>
+        <param>
+          <type>const std::vector&lt; char &gt; &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="265" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="864" bodyend="878"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a42c04d82c50716168280f8354b6aa54a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateBuffer</definition>
+        <argsstring>(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer_T *&amp;buffer, VkDeviceMemory_T *&amp;bufferMemory)</argsstring>
+        <name>CreateBuffer</name>
+        <qualifiedname>VulkanRenderer::CreateBuffer</qualifiedname>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" kindref="member">VkDeviceSize</ref></type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1ab221f627433dcae79b6a004fc42b50a9" kindref="member">VkBufferUsageFlags</ref></type>
+          <declname>usage</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref></type>
+          <declname>properties</declname>
+        </param>
+        <param>
+          <type>VkBuffer_T *&amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>VkDeviceMemory_T *&amp;</type>
+          <declname>bufferMemory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="270" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="882" bodyend="909"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aa019f81dedc6a1dbad21e83f7f7e40e4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateFramebuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateFramebuffers</name>
+        <qualifiedname>VulkanRenderer::CreateFramebuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="271" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="911" bodyend="933"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a9db8136d623dfe2387498b8e64084afc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateVertexBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateVertexBuffers</name>
+        <qualifiedname>VulkanRenderer::CreateVertexBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="272" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="935" bodyend="953"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a40a4311d864f1caab3cfc02617263564" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateIndexBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>CreateIndexBuffer</name>
+        <qualifiedname>VulkanRenderer::CreateIndexBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="273" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="955" bodyend="974"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a42650894ca08c0d2491c612ef90dabca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateUniformBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateUniformBuffers</name>
+        <qualifiedname>VulkanRenderer::CreateUniformBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="274" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="976" bodyend="987"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a57ad62086fe479f168fa1ffd6b58e4d6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateCommandPool</definition>
+        <argsstring>()</argsstring>
+        <name>CreateCommandPool</name>
+        <qualifiedname>VulkanRenderer::CreateCommandPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="275" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="989" bodyend="1002"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a2b2ae7f89d20bb03007c5e8cba54450c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateCommandBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateCommandBuffers</name>
+        <qualifiedname>VulkanRenderer::CreateCommandBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="276" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1004" bodyend="1060"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a4f3fddf8489a142969604beee4e2ba02" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkCommandBuffer_T *</type>
+        <definition>VkCommandBuffer VulkanRenderer::BeginSingleTimeCommands</definition>
+        <argsstring>()</argsstring>
+        <name>BeginSingleTimeCommands</name>
+        <qualifiedname>VulkanRenderer::BeginSingleTimeCommands</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="277" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1062" bodyend="1088"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a5521fe3118bc17b3a0e40a33248f3cd9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::EndSingleTimeCommands</definition>
+        <argsstring>(VkCommandBuffer_T *commandBuffer)</argsstring>
+        <name>EndSingleTimeCommands</name>
+        <qualifiedname>VulkanRenderer::EndSingleTimeCommands</qualifiedname>
+        <param>
+          <type>VkCommandBuffer_T *</type>
+          <declname>commandBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="278" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1090" bodyend="1103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ac52220627e0cf42c81f16fa8331863b7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CopyBuffer</definition>
+        <argsstring>(VkBuffer_T *srcBuffer, VkBuffer_T *dstBuffer, VkDeviceSize size)</argsstring>
+        <name>CopyBuffer</name>
+        <qualifiedname>VulkanRenderer::CopyBuffer</qualifiedname>
+        <param>
+          <type>VkBuffer_T *</type>
+          <declname>srcBuffer</declname>
+        </param>
+        <param>
+          <type>VkBuffer_T *</type>
+          <declname>dstBuffer</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" kindref="member">VkDeviceSize</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="280" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1105" bodyend="1115"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1abe9c0273e7dd404121f9c8fb7d76faec" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int VulkanRenderer::FindMemoryType</definition>
+        <argsstring>(unsigned int typeFilter, VkMemoryPropertyFlags properties)</argsstring>
+        <name>FindMemoryType</name>
+        <qualifiedname>VulkanRenderer::FindMemoryType</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>typeFilter</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref></type>
+          <declname>properties</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="281" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1117" bodyend="1131"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a1375a54bd3d5f0a58e93624b5ade7c90" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::UpdateUniformBuffer</definition>
+        <argsstring>(unsigned int currentImageIndex)</argsstring>
+        <name>UpdateUniformBuffer</name>
+        <qualifiedname>VulkanRenderer::UpdateUniformBuffer</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>currentImageIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="282" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1133" bodyend="1151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ae7de81fb196883f599da5c830985fbac" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateSyncObjects</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSyncObjects</name>
+        <qualifiedname>VulkanRenderer::CreateSyncObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="306" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1161" bodyend="1187"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a0a3e46121f1fe3ef584bd4c3ab59962e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::Render</definition>
+        <argsstring>(SDL_Window **windowArray=nullptr, unsigned int numberOfWindows=1, unsigned int arrayOffset=0) override</argsstring>
+        <name>Render</name>
+        <qualifiedname>VulkanRenderer::Render</qualifiedname>
+        <reimplements refid="class_renderer_1ac0de484282496e9d832112534e81ffc1">Render</reimplements>
+        <param>
+          <type>SDL_Window **</type>
+          <declname>windowArray</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberOfWindows</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>arrayOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="320" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1191" bodyend="1259"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a6e87b2d78d3b388f0d499845246eea81" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateDescriptorSetLayout</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorSetLayout</name>
+        <qualifiedname>VulkanRenderer::CreateDescriptorSetLayout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="322" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1261" bodyend="1287"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1abb3941e44bfd564b176afed482cbac38" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateDescriptorPool</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorPool</name>
+        <qualifiedname>VulkanRenderer::CreateDescriptorPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="323" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1289" bodyend="1307"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a83aecfc9db0274ac1b4f997d2c91c530" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateDescriptorSets</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorSets</name>
+        <qualifiedname>VulkanRenderer::CreateDescriptorSets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="324" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1309" bodyend="1358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a591f0b2d09d734586500903ff59ade9c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateTextureImage</definition>
+        <argsstring>()</argsstring>
+        <name>CreateTextureImage</name>
+        <qualifiedname>VulkanRenderer::CreateTextureImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="325" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1360" bodyend="1390"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aee283834978625f9b9c69bf2fb72aa4e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateTextureImageView</definition>
+        <argsstring>()</argsstring>
+        <name>CreateTextureImageView</name>
+        <qualifiedname>VulkanRenderer::CreateTextureImageView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="326" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1392" bodyend="1395"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a7e1acafb743a63682ac5b3864cccb00f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateImage</definition>
+        <argsstring>(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T *&amp;image, VkDeviceMemory_T *&amp;imageMemory)</argsstring>
+        <name>CreateImage</name>
+        <qualifiedname>VulkanRenderer::CreateImage</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>VkImageTiling</type>
+          <declname>tiling</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" kindref="member">VkImageUsageFlags</ref></type>
+          <declname>usage</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref></type>
+          <declname>properties</declname>
+        </param>
+        <param>
+          <type>VkImage_T *&amp;</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkDeviceMemory_T *&amp;</type>
+          <declname>imageMemory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="327" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1397" bodyend="1433"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1aa573d2ab022bd3263b10c2fc53007d89" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::TransitionImageLayout</definition>
+        <argsstring>(VkImage_T *image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)</argsstring>
+        <name>TransitionImageLayout</name>
+        <qualifiedname>VulkanRenderer::TransitionImageLayout</qualifiedname>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>VkImageLayout</type>
+          <declname>oldLayout</declname>
+        </param>
+        <param>
+          <type>VkImageLayout</type>
+          <declname>newLayout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="328" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1435" bodyend="1500"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1ab74f349ccab83735ea51b5e1456013bd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CopyBufferToImage</definition>
+        <argsstring>(VkBuffer_T *buffer, VkImage_T *image, unsigned int width, unsigned int height)</argsstring>
+        <name>CopyBufferToImage</name>
+        <qualifiedname>VulkanRenderer::CopyBufferToImage</qualifiedname>
+        <param>
+          <type>VkBuffer_T *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="329" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1502" bodyend="1522"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a5e1fb50c654f1cee24c7786b939dc8dd" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateTextureSampler</definition>
+        <argsstring>()</argsstring>
+        <name>CreateTextureSampler</name>
+        <qualifiedname>VulkanRenderer::CreateTextureSampler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="330" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1524" bodyend="1548"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a660660e9dcf36dcadd1e338c078a4a3e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::CreateDepthResources</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDepthResources</name>
+        <qualifiedname>VulkanRenderer::CreateDepthResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="331" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1550" bodyend="1557"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a53a9eaa6262890b3d74016cb625f3705" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanRenderer::FindSupportedFormat</definition>
+        <argsstring>(const std::vector&lt; VkFormat &gt; &amp;candidates, VkImageTiling tiling, VkFormatFeatureFlags features)</argsstring>
+        <name>FindSupportedFormat</name>
+        <qualifiedname>VulkanRenderer::FindSupportedFormat</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkFormat &gt; &amp;</type>
+          <declname>candidates</declname>
+        </param>
+        <param>
+          <type>VkImageTiling</type>
+          <declname>tiling</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" kindref="member">VkFormatFeatureFlags</ref></type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="332" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1559" bodyend="1577"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a5fc174a63a78b24ce7299518cfd5d37f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanRenderer::FindDepthFormat</definition>
+        <argsstring>()</argsstring>
+        <name>FindDepthFormat</name>
+        <qualifiedname>VulkanRenderer::FindDepthFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="333" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1579" bodyend="1582"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1a1ebe1b9462ab28d5ca30a560770998e3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanRenderer::HasStencilComponent</definition>
+        <argsstring>(VkFormat format)</argsstring>
+        <name>HasStencilComponent</name>
+        <qualifiedname>VulkanRenderer::HasStencilComponent</qualifiedname>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="334" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1584" bodyend="1587"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_renderer_1acee28fbd6d1c75f49744e9b526db48d6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanRenderer::LoadModel</definition>
+        <argsstring>()</argsstring>
+        <name>LoadModel</name>
+        <qualifiedname>VulkanRenderer::LoadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="348" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="1589" bodyend="1634"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="class_vulkan_renderer_1a829ab1bd862fc6c6038ee4280437a418" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; char &gt;</type>
+        <definition>std::vector&lt; char &gt; VulkanRenderer::ReadFile</definition>
+        <argsstring>(const std::string &amp;filename)</argsstring>
+        <name>ReadFile</name>
+        <qualifiedname>VulkanRenderer::ReadFile</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="264" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp" bodystart="846" bodyend="862"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="1">
+        <label>VulkanRenderer</label>
+        <link refid="class_vulkan_renderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>QueueStruct</label>
+        <link refid="struct_queue_struct"/>
+      </node>
+      <node id="2">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="1">
+        <label>VulkanRenderer</label>
+        <link refid="class_vulkan_renderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Queues</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="135" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" bodystart="136" bodyend="353"/>
+    <listofallmembers>
+      <member refid="class_vulkan_renderer_1a4f3fddf8489a142969604beee4e2ba02" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>BeginSingleTimeCommands</name></member>
+      <member refid="class_vulkan_renderer_1a0578514331364e68deca1d37a05f84e0" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CheckDeviceExtensionSupport</name></member>
+      <member refid="class_vulkan_renderer_1ae43b96ed1050e49ede7bee0e4f5bc4b8" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CheckValidationLayerSupport</name></member>
+      <member refid="class_vulkan_renderer_1a1431956db260d157c99f0ef870a1fc53" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ChooseSwapExtent</name></member>
+      <member refid="class_vulkan_renderer_1a8ef069eafe993ad8dcff1d2b336fea36" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ChooseSwapPresentMode</name></member>
+      <member refid="class_vulkan_renderer_1aeaef89ca0dd49e90182d104430412a4e" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ChooseSwapSurfaceFormat</name></member>
+      <member refid="class_vulkan_renderer_1a90e060690cf62cdbf58ae02dfab40983" prot="protected" virt="virtual"><scope>VulkanRenderer</scope><name>CleanUp</name></member>
+      <member refid="class_vulkan_renderer_1a1c56d565844ab62f6da069ccceaff973" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CleanUpSwapChain</name></member>
+      <member refid="class_vulkan_renderer_1a08492b7d853c48bda5d163883d804a9d" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CommandBuffers</name></member>
+      <member refid="class_vulkan_renderer_1a89485667c8f0edc91cbc1db315ff5824" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CommandPool</name></member>
+      <member refid="class_vulkan_renderer_1ac52220627e0cf42c81f16fa8331863b7" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CopyBuffer</name></member>
+      <member refid="class_vulkan_renderer_1ab74f349ccab83735ea51b5e1456013bd" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CopyBufferToImage</name></member>
+      <member refid="class_vulkan_renderer_1a42c04d82c50716168280f8354b6aa54a" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateBuffer</name></member>
+      <member refid="class_vulkan_renderer_1a2b2ae7f89d20bb03007c5e8cba54450c" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateCommandBuffers</name></member>
+      <member refid="class_vulkan_renderer_1a57ad62086fe479f168fa1ffd6b58e4d6" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateCommandPool</name></member>
+      <member refid="class_vulkan_renderer_1a681fc37a6acf01cae3e9bb93d02cdbb2" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateDebugUtilsMessengerEXT</name></member>
+      <member refid="class_vulkan_renderer_1a660660e9dcf36dcadd1e338c078a4a3e" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateDepthResources</name></member>
+      <member refid="class_vulkan_renderer_1abb3941e44bfd564b176afed482cbac38" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateDescriptorPool</name></member>
+      <member refid="class_vulkan_renderer_1a6e87b2d78d3b388f0d499845246eea81" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateDescriptorSetLayout</name></member>
+      <member refid="class_vulkan_renderer_1a83aecfc9db0274ac1b4f997d2c91c530" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateDescriptorSets</name></member>
+      <member refid="class_vulkan_renderer_1aa019f81dedc6a1dbad21e83f7f7e40e4" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateFramebuffers</name></member>
+      <member refid="class_vulkan_renderer_1a4e191872c39fb793536b3a635d08f0db" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateGraphicsPipeline</name></member>
+      <member refid="class_vulkan_renderer_1a7e1acafb743a63682ac5b3864cccb00f" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateImage</name></member>
+      <member refid="class_vulkan_renderer_1aab85e65b6fae7c31efd893c3967ad7ef" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateImageView</name></member>
+      <member refid="class_vulkan_renderer_1a72559bcf1389dced82df0a5aab5b10cf" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateImageViews</name></member>
+      <member refid="class_vulkan_renderer_1a40a4311d864f1caab3cfc02617263564" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateIndexBuffer</name></member>
+      <member refid="class_vulkan_renderer_1aaf395b798d5db7288a000c61ad34ac8c" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateInstance</name></member>
+      <member refid="class_vulkan_renderer_1a44d431822480747f4caeae2fc8c4ebef" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateLogicalDevice</name></member>
+      <member refid="class_vulkan_renderer_1a6256bdc4a670eb2425a6e28962f13da4" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateRenderPass</name></member>
+      <member refid="class_vulkan_renderer_1a34d617b44ad3a4be4feac8917a572280" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateShaderModule</name></member>
+      <member refid="class_vulkan_renderer_1aa6a2a86b91a0b9a8f4b799e7f512e39d" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateSurface</name></member>
+      <member refid="class_vulkan_renderer_1aeb6c4d150a18207fdef4ee0ecfe1c7e2" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateSwapChain</name></member>
+      <member refid="class_vulkan_renderer_1ae7de81fb196883f599da5c830985fbac" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateSyncObjects</name></member>
+      <member refid="class_vulkan_renderer_1a591f0b2d09d734586500903ff59ade9c" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateTextureImage</name></member>
+      <member refid="class_vulkan_renderer_1aee283834978625f9b9c69bf2fb72aa4e" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateTextureImageView</name></member>
+      <member refid="class_vulkan_renderer_1a5e1fb50c654f1cee24c7786b939dc8dd" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateTextureSampler</name></member>
+      <member refid="class_vulkan_renderer_1a42650894ca08c0d2491c612ef90dabca" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateUniformBuffers</name></member>
+      <member refid="class_vulkan_renderer_1a9db8136d623dfe2387498b8e64084afc" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateVertexBuffers</name></member>
+      <member refid="class_vulkan_renderer_1a53099b00d830344d152876872f5c67c1" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CreateWindow</name></member>
+      <member refid="class_vulkan_renderer_1ad4b1a1d42531e0d37018f5cd04365db8" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>CurrentFrame</name></member>
+      <member refid="class_vulkan_renderer_1a482ad7d57a50d8f37a75ce8b3d87addf" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DebugMessenger</name></member>
+      <member refid="class_vulkan_renderer_1a761518526442951cde32bac9a992aa85" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DepthImage</name></member>
+      <member refid="class_vulkan_renderer_1a9656767a9d374a7c05bc37dc37002a06" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DepthImageMemory</name></member>
+      <member refid="class_vulkan_renderer_1afc22fdf02bae5261782729828b7e13c6" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DepthImageView</name></member>
+      <member refid="class_vulkan_renderer_1a90ec637836292e1403a870800072716c" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DescriptorPool</name></member>
+      <member refid="class_vulkan_renderer_1a5dd7349516665b3299a99191698d96a1" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DescriptorSetLayout</name></member>
+      <member refid="class_vulkan_renderer_1a21da9311dda520c2cf6c2014e34c5dff" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DescriptorSets</name></member>
+      <member refid="class_vulkan_renderer_1a41457a1df4ca7de65af73ecccb3d256b" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DestroyDebugUtilsMessengerEXT</name></member>
+      <member refid="class_vulkan_renderer_1a03b3efe9367a335c51f4e8ccdf1d68f2" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>DeviceExtensions</name></member>
+      <member refid="class_vulkan_renderer_1a8fad8533b5d1c72cf67c99c04315aa5a" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>EnableValidationLayers</name></member>
+      <member refid="class_vulkan_renderer_1a5521fe3118bc17b3a0e40a33248f3cd9" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>EndSingleTimeCommands</name></member>
+      <member refid="class_vulkan_renderer_1a5fc174a63a78b24ce7299518cfd5d37f" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>FindDepthFormat</name></member>
+      <member refid="class_vulkan_renderer_1abe9c0273e7dd404121f9c8fb7d76faec" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>FindMemoryType</name></member>
+      <member refid="class_vulkan_renderer_1aa7119d6c81d102e4c9903f7d241fca6d" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>FindQueueFamilies</name></member>
+      <member refid="class_vulkan_renderer_1a53a9eaa6262890b3d74016cb625f3705" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>FindSupportedFormat</name></member>
+      <member refid="class_vulkan_renderer_1ae3e0c60837f269920a03e94919f1cf65" prot="public" virt="virtual"><scope>VulkanRenderer</scope><name>FramebufferResizeCallback</name></member>
+      <member refid="class_vulkan_renderer_1a1fd8f51feaed53e9b7c2b3b80f5081bf" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>FramebufferResized</name></member>
+      <member refid="class_vulkan_renderer_1ae83c73b9542f9715f806604d10421c6a" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>GetSDLManager</name></member>
+      <member refid="class_vulkan_renderer_1a9c8e656f0f3739e0b1c2c26160fc9d37" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>GetSurface</name></member>
+      <member refid="class_renderer_1a9cffd0afde81ae36546420ba75c66d60" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>GetType</name></member>
+      <member refid="class_vulkan_renderer_1ac8bb0c98f672f640f91ea0c48b9036bf" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>GetWindow</name></member>
+      <member refid="class_vulkan_renderer_1a2e3fa2465ef2c2dc1d7b1b242340ed05" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>GraphicsPipeline</name></member>
+      <member refid="class_vulkan_renderer_1a1ebe1b9462ab28d5ca30a560770998e3" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>HasStencilComponent</name></member>
+      <member refid="class_vulkan_renderer_1a68163a3cac5d1ecb79533f04c0516a2a" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ImageAvailableSemaphores</name></member>
+      <member refid="class_vulkan_renderer_1a5e82d2d36e586ff6ba3658375a2b744b" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ImagesInFlight</name></member>
+      <member refid="class_vulkan_renderer_1aa28b87ded901f8164fa186baa9550150" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>IndexBuffer</name></member>
+      <member refid="class_vulkan_renderer_1a5d551006f6fc0b9eb86805545391a96d" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>IndexBufferMemory</name></member>
+      <member refid="class_vulkan_renderer_1aa35df30304dfa46c24befa95dca12a2a" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Indices</name></member>
+      <member refid="class_vulkan_renderer_1a6aa0458a0e1e89e7a65ba8897defdea4" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>InFlightFences</name></member>
+      <member refid="class_vulkan_renderer_1aa43c22ff47894a33ae1922c4fdc51058" prot="protected" virt="virtual"><scope>VulkanRenderer</scope><name>Initialize</name></member>
+      <member refid="class_vulkan_renderer_1a9f1bd036eebb9bd2d96e8cc8512d591b" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Instance</name></member>
+      <member refid="class_vulkan_renderer_1a5a39a018a7efa1390e7f5aa79e059991" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>IsPhysicalDeviceSuitable</name></member>
+      <member refid="class_vulkan_renderer_1acee28fbd6d1c75f49744e9b526db48d6" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>LoadModel</name></member>
+      <member refid="class_vulkan_renderer_1ab94b780bda1492819006c0ab36fcd93e" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>LogicalDevice</name></member>
+      <member refid="class_vulkan_renderer_1a86f3a92b02fdb782bff78ec655602dca" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>MainLoop</name></member>
+      <member refid="class_vulkan_renderer_1a929e4030de3e2114a12b7d2b55e2a5a9" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>MAX_FRAMES_IN_FLIGHT</name></member>
+      <member refid="class_vulkan_renderer_1a603050e34126f9be91dff7c3810776c0" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>MODEL_PATH</name></member>
+      <member refid="class_vulkan_renderer_1af1481e3d0f9f5f6bec36fcf6bb0818fe" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>PhysicalDevice</name></member>
+      <member refid="class_vulkan_renderer_1a4f06ca15d6bf0f3f9bc136246a282d8d" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>PickPhysicalDevice</name></member>
+      <member refid="class_vulkan_renderer_1acf17347168bee82a3dcc753d5bb50af0" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>PipelineLayout</name></member>
+      <member refid="class_vulkan_renderer_1a8000d76f00321651fd52f6a76a2b2737" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>PopulateDebugMessengerCreateInfo</name></member>
+      <member refid="class_vulkan_renderer_1a60c7b1683e2f296452b807289aec7023" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>QuerySwapChainSupport</name></member>
+      <member refid="class_vulkan_renderer_1ae7bd509b429f05d522613d08d85790d1" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Queues</name></member>
+      <member refid="class_vulkan_renderer_1a829ab1bd862fc6c6038ee4280437a418" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ReadFile</name></member>
+      <member refid="class_vulkan_renderer_1ac504071c8b88a48f1d14fb3d50e64c7b" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>RecreateSwapChain</name></member>
+      <member refid="class_vulkan_renderer_1a0a3e46121f1fe3ef584bd4c3ab59962e" prot="protected" virt="virtual"><scope>VulkanRenderer</scope><name>Render</name></member>
+      <member refid="class_renderer_1a7ebf46f54dab9905f79b80f7fddb76a6" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>Renderer</name></member>
+      <member refid="class_vulkan_renderer_1a093538346155b7d762565f55306b8398" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>RenderFinishedSemaphores</name></member>
+      <member refid="class_vulkan_renderer_1a42bfa5926d9e1d7998f02f6becc27c02" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>RenderPass</name></member>
+      <member refid="class_vulkan_renderer_1ad131953f01e0a81804257172d481f7ce" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>Run</name></member>
+      <member refid="class_vulkan_renderer_1a3526e95262e033f98a14dc57f334fc93" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SDLManager</name></member>
+      <member refid="class_vulkan_renderer_1aca937c97d159021900ff9ee525d84472" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>SetSDLManager</name></member>
+      <member refid="class_vulkan_renderer_1aa7b8ac951fd9e206f134a71b9fb57c50" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SetUpDebugMessenger</name></member>
+      <member refid="class_vulkan_renderer_1a8a1079dfe304174c5b11c959bd60eb22" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SetWindow</name></member>
+      <member refid="class_vulkan_renderer_1a58313e6f2324d8d8fa7ae5696300fa48" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Surface</name></member>
+      <member refid="class_vulkan_renderer_1a0e7b08136d8e54f064ebd04433c856c5" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChain</name></member>
+      <member refid="class_vulkan_renderer_1aab12598732d3fef562e7e7e9775f2b97" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChainExtent</name></member>
+      <member refid="class_vulkan_renderer_1ab1e74f6d4aa40f8cf8d895fe743c75fc" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChainFramebuffers</name></member>
+      <member refid="class_vulkan_renderer_1a1f45febc6820565503ce2ed07886dd65" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChainImageFormat</name></member>
+      <member refid="class_vulkan_renderer_1a396ebfa5c1962c08a552afa4e45422b6" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChainImages</name></member>
+      <member refid="class_vulkan_renderer_1a9731e818f02b403b3a82f83561cf2062" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>SwapChainImageViews</name></member>
+      <member refid="class_vulkan_renderer_1a23e4f02649ccbb6ef6ae9699a8fa2e80" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TEXTURE_PATH</name></member>
+      <member refid="class_vulkan_renderer_1a7e826fe4dc5febcf0417d5a477b162d3" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TextureImage</name></member>
+      <member refid="class_vulkan_renderer_1a1c6a5eb4cb7bfc2dd0b5039995719331" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TextureImageMemory</name></member>
+      <member refid="class_vulkan_renderer_1a55dedbbb6f2836d4c2b09464ddbda1d5" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TextureImageView</name></member>
+      <member refid="class_vulkan_renderer_1ad4cd8fb0a2dcaeaf9e5fba93c5a34209" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TextureSampler</name></member>
+      <member refid="class_vulkan_renderer_1aa573d2ab022bd3263b10c2fc53007d89" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>TransitionImageLayout</name></member>
+      <member refid="class_renderer_1a32cee2c0cf19d5fb1ef6d0f116adaac8" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Type</name></member>
+      <member refid="class_vulkan_renderer_1a088b179ef981d1913e3dbe8d7a5e2c58" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>UniformBuffers</name></member>
+      <member refid="class_vulkan_renderer_1aaaee01b00bfa699f0e76811acafacb57" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>UniformBuffersMemory</name></member>
+      <member refid="class_vulkan_renderer_1a1375a54bd3d5f0a58e93624b5ade7c90" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>UpdateUniformBuffer</name></member>
+      <member refid="class_renderer_1adc8e97d9f0d8633baeb281def24a5d4a" prot="public" virt="pure-virtual"><scope>VulkanRenderer</scope><name>UpdateWithNewObjects</name></member>
+      <member refid="class_vulkan_renderer_1ad4f717f4a2c16fc6232ac51a72242678" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>ValidationLayerNames</name></member>
+      <member refid="class_vulkan_renderer_1ae491011283a9545e5f848cfa012663fa" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>VertexBuffer</name></member>
+      <member refid="class_vulkan_renderer_1a793f6480c6c70f22e530064061efab2e" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>VertexBufferMemory</name></member>
+      <member refid="class_vulkan_renderer_1a11fad42b69d92aa388129f5e0ff69d1a" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Vertices</name></member>
+      <member refid="class_vulkan_renderer_1abc8ed9b20063867618e2175a8f74933d" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>VulkanRenderer</name></member>
+      <member refid="class_vulkan_renderer_1ac84f0ccfcb5646f07fd5a1c0dc3be6ae" prot="protected" virt="non-virtual"><scope>VulkanRenderer</scope><name>Window</name></member>
+      <member refid="class_renderer_1aba42b60392775e4a492c4d14d4fff29f" prot="public" virt="virtual"><scope>VulkanRenderer</scope><name>~Renderer</name></member>
+      <member refid="class_vulkan_renderer_1a0d816e99ef4265a38912e5e5352402f2" prot="public" virt="non-virtual"><scope>VulkanRenderer</scope><name>~VulkanRenderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

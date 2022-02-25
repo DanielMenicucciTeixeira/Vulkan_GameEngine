@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_scene_manager" kind="class" language="C++" prot="public">
+    <compoundname>SceneManager</compoundname>
+    <basecompoundref refid="class_game_interface" prot="public" virt="non-virtual">GameInterface</basecompoundref>
+    <includes refid="_scene_manager_8h" local="no">SceneManager.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_scene_manager_1a27d0c6d553313f8db6d78e932b8125e6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_l___level" kindref="compound">L_Level</ref> *</type>
+        <definition>L_Level* SceneManager::currentLevel</definition>
+        <argsstring></argsstring>
+        <name>currentLevel</name>
+        <qualifiedname>SceneManager::currentLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="22" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_scene_manager_1ae637be61504dfe512f0ebbce4a93cfba" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int SceneManager::currentSceneNum</definition>
+        <argsstring></argsstring>
+        <name>currentSceneNum</name>
+        <qualifiedname>SceneManager::currentSceneNum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="24" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_scene_manager_1a52085e6737c23b491c228e86781af808" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SceneManager::SceneManager</definition>
+        <argsstring>()</argsstring>
+        <name>SceneManager</name>
+        <qualifiedname>SceneManager::SceneManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="12" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1a2bb376a85d29e85f47753e26c7539229" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>SceneManager::~SceneManager</definition>
+        <argsstring>()</argsstring>
+        <name>~SceneManager</name>
+        <qualifiedname>SceneManager::~SceneManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="13" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1abcd63724ac33ffeae6a703322fd06cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool SceneManager::OnCreate</definition>
+        <argsstring>() override</argsstring>
+        <name>OnCreate</name>
+        <qualifiedname>SceneManager::OnCreate</qualifiedname>
+        <reimplements refid="class_game_interface_1af0fc08145456610f2b6d0db245d641de">OnCreate</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="14" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="17" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1a69b504b68478fd3a053c046eb00ccd0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SceneManager::PreUpdate</definition>
+        <argsstring>(const float deltaTime_) override</argsstring>
+        <name>PreUpdate</name>
+        <qualifiedname>SceneManager::PreUpdate</qualifiedname>
+        <reimplements refid="class_game_interface_1a2f31f2954e0bf0b4afb14f31ad0af705">PreUpdate</reimplements>
+        <param>
+          <type>const float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="15" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1a6f0e9fe2af6a2b26ebf7d804566eaeaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SceneManager::Update</definition>
+        <argsstring>(const float deltaTime_) override</argsstring>
+        <name>Update</name>
+        <qualifiedname>SceneManager::Update</qualifiedname>
+        <reimplements refid="class_game_interface_1a1bfc6884b48521a2ed177736678300ee">Update</reimplements>
+        <param>
+          <type>const float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="16" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1a1a151535236db3112a7a3ede3b9fb772" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SceneManager::PostUpdate</definition>
+        <argsstring>(const float deltaTime_) override</argsstring>
+        <name>PostUpdate</name>
+        <qualifiedname>SceneManager::PostUpdate</qualifiedname>
+        <reimplements refid="class_game_interface_1a29a1e2d25fe2e05a59d9b7690c561487">PostUpdate</reimplements>
+        <param>
+          <type>const float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="17" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_scene_manager_1a4109a47aea9931ea1e633bfbf3d5a8c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void SceneManager::Render</definition>
+        <argsstring>() override</argsstring>
+        <name>Render</name>
+        <qualifiedname>SceneManager::Render</qualifiedname>
+        <reimplements refid="class_game_interface_1ad0e94d2f82af2935583d4dba7aa5e3ac">Render</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="18" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="54" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_scene_manager_1ac37dda5e549dbee259c119b28482c54d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SceneManager::BuildScene</definition>
+        <argsstring>()</argsstring>
+        <name>BuildScene</name>
+        <qualifiedname>SceneManager::BuildScene</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="25" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp" bodystart="59" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GameInterface</label>
+        <link refid="class_game_interface"/>
+      </node>
+      <node id="1">
+        <label>SceneManager</label>
+        <link refid="class_scene_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>GameInterface</label>
+        <link refid="class_game_interface"/>
+      </node>
+      <node id="1">
+        <label>SceneManager</label>
+        <link refid="class_scene_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h" bodystart="10" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_scene_manager_1ac37dda5e549dbee259c119b28482c54d" prot="private" virt="non-virtual"><scope>SceneManager</scope><name>BuildScene</name></member>
+      <member refid="class_scene_manager_1a27d0c6d553313f8db6d78e932b8125e6" prot="private" virt="non-virtual"><scope>SceneManager</scope><name>currentLevel</name></member>
+      <member refid="class_scene_manager_1ae637be61504dfe512f0ebbce4a93cfba" prot="private" virt="non-virtual"><scope>SceneManager</scope><name>currentSceneNum</name></member>
+      <member refid="class_game_interface_1a8bd70d2f762b3be158a3fc5c18e8ac2d" prot="public" virt="non-virtual"><scope>SceneManager</scope><name>GameInterface</name></member>
+      <member refid="class_scene_manager_1abcd63724ac33ffeae6a703322fd06cfe" prot="public" virt="virtual"><scope>SceneManager</scope><name>OnCreate</name></member>
+      <member refid="class_scene_manager_1a1a151535236db3112a7a3ede3b9fb772" prot="public" virt="virtual"><scope>SceneManager</scope><name>PostUpdate</name></member>
+      <member refid="class_scene_manager_1a69b504b68478fd3a053c046eb00ccd0d" prot="public" virt="virtual"><scope>SceneManager</scope><name>PreUpdate</name></member>
+      <member refid="class_scene_manager_1a4109a47aea9931ea1e633bfbf3d5a8c1" prot="public" virt="virtual"><scope>SceneManager</scope><name>Render</name></member>
+      <member refid="class_scene_manager_1a52085e6737c23b491c228e86781af808" prot="public" virt="non-virtual"><scope>SceneManager</scope><name>SceneManager</name></member>
+      <member refid="class_scene_manager_1a6f0e9fe2af6a2b26ebf7d804566eaeaa" prot="public" virt="virtual"><scope>SceneManager</scope><name>Update</name></member>
+      <member refid="class_game_interface_1a745d0cfe7938d89f21d0f2cf61cbfb9c" prot="public" virt="virtual"><scope>SceneManager</scope><name>~GameInterface</name></member>
+      <member refid="class_scene_manager_1a2bb376a85d29e85f47753e26c7539229" prot="public" virt="virtual"><scope>SceneManager</scope><name>~SceneManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

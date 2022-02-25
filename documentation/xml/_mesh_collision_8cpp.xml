@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_mesh_collision_8cpp" kind="file" language="C++">
+    <compoundname>MeshCollision.cpp</compoundname>
+    <includes refid="_mesh_collision_8h" local="yes">MeshCollision.h</includes>
+    <includes refid="_render_object_8h" local="yes">Renderers/RenderObject.h</includes>
+    <includes refid="_f_matrix4_8h" local="yes">Math/FMatrix4.h</includes>
+    <includes refid="_f_transform_8h" local="yes">Math/FTransform.h</includes>
+    <includes refid="_static_mesh_component_8h" local="yes">StaticMeshComponent.h</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="18">
+        <label>Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="11">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="13">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="3">
+        <label>Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp</label>
+        <link refid="_mesh_collision_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeshCollision.h</label>
+        <link refid="_mesh_collision_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>RenderableComponent.h</label>
+        <link refid="_renderable_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>StaticMeshComponent.h</label>
+        <link refid="_static_mesh_component_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="24">
+        <label>algorithm</label>
+      </node>
+      <node id="15">
+        <label>array</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_mesh_collision_8h" kindref="compound">MeshCollision.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_render_object_8h" kindref="compound">Renderers/RenderObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_matrix4_8h" kindref="compound">Math/FMatrix4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_transform_8h" kindref="compound">Math/FTransform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_static_mesh_component_8h" kindref="compound">StaticMeshComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//bool<sp/>C_MeshCollision::CheckSimplexForOrigin(Simplex3D&amp;<sp/>simplex)<sp/>const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FMatrix4<sp/>matrices[5];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>matrices[0]<sp/>=<sp/>FMatrix4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>(</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>FVector4(simplex.GetVertexAtIndex(0).X,<sp/>simplex.GetVertexAtIndex(0).Y,<sp/>simplex.GetVertexAtIndex(0).Z,<sp/>1.0f),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>FVector4(simplex.GetVertexAtIndex(1).X,<sp/>simplex.GetVertexAtIndex(1).Y,<sp/>simplex.GetVertexAtIndex(1).Z,<sp/>1.0f),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>FVector4(simplex.GetVertexAtIndex(2).X,<sp/>simplex.GetVertexAtIndex(2).Y,<sp/>simplex.GetVertexAtIndex(2).Z,<sp/>1.0f),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>FVector4(simplex.GetVertexAtIndex(3).X,<sp/>simplex.GetVertexAtIndex(3).Y,<sp/>simplex.GetVertexAtIndex(3).Z,<sp/>1.0f)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>int<sp/>determinatCheckIndex;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>float<sp/>matrixDet<sp/>=<sp/>matrices[0].Det();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>int<sp/>detSign<sp/>=<sp/>abs(matrixDet)<sp/>/<sp/>matrixDet;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(determinatCheckIndex<sp/>=<sp/>1;<sp/>determinatCheckIndex<sp/>&lt;<sp/>4;<sp/>determinatCheckIndex++)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>matrices[determinatCheckIndex]<sp/>=<sp/>matrices[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>matrices[determinatCheckIndex][determinatCheckIndex<sp/>-1]<sp/>=<sp/>FVector4(0.0f);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>matrixDet<sp/>=<sp/>matrices[determinatCheckIndex].Det();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((abs(matrixDet)<sp/>/<sp/>matrixDet)<sp/>!=<sp/>detSign)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>simplex.SetVertexAtIndex(determinatCheckIndex,<sp/>simplex.GetVertexAtIndex(4));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>true;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_c___mesh_collision_1afeb760c3625a4c3c7e385f4c635cb3e9" refkind="member"><highlight class="normal"><ref refid="class_c___mesh_collision_1afeb760c3625a4c3c7e385f4c635cb3e9" kindref="member">C_MeshCollision::C_MeshCollision</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner)<sp/>:<sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>(owner)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_c___mesh_collision_1a72bd66e67625ba099f6afe9c67afd9a7" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___mesh_collision_1a72bd66e67625ba099f6afe9c67afd9a7" kindref="member">C_MeshCollision::GetFurthestPoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>direction)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="45"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref><sp/>tempMesh<sp/>=<sp/>*<ref refid="class_c___mesh_collision_1a990addb20b123af6ea00a127539af259" kindref="member">CollisionMesh</ref>-&gt;<ref refid="class_c___static_mesh_component_1a577fd94f13e70078934bd9af553e47d5" kindref="member">GetMesh</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//The<sp/>point<sp/>in<sp/>meshA<sp/>furthest<sp/>in<sp/>the<sp/>calculated<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=<sp/>0;<sp/>i<sp/>&lt;<sp/>tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>.size();<sp/>i++)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>[i].Position<sp/>=<sp/><ref refid="class_c___mesh_collision_1adf0003488fb7be37da4594e95d85282e" kindref="member">GetCollisionMesh</ref>()-&gt;<ref refid="class_c___transform_component_1a6fd6d757a29f761c218bdd72e420c25b" kindref="member">GetComponentAbsoluteTransform</ref>().<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>()<sp/>*<sp/><ref refid="class_f_vector4" kindref="compound">FVector4</ref>(tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>[i].Position);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>point<sp/>=<sp/>tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>[0].Position;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>currentDotProduct<sp/>=<sp/>tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>[0].Position<sp/>*<sp/>direction;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tempDotProduct;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>vertex<sp/>:<sp/>tempMesh.<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tempDotProduct<sp/>=<sp/>vertex.Position<sp/>*<sp/>direction;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(currentDotProduct<sp/>&lt;<sp/>tempDotProduct)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point<sp/>=<sp/>vertex.Position;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentDotProduct<sp/>=<sp/>tempDotProduct;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_c___mesh_collision_1a64a8f6a72c6ab147250066b8eb7b021f" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___mesh_collision_1a64a8f6a72c6ab147250066b8eb7b021f" kindref="member">C_MeshCollision::GetCollisionMeshCenter</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="70"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___mesh_collision_1a990addb20b123af6ea00a127539af259" kindref="member">CollisionMesh</ref>-&gt;<ref refid="class_c___transform_component_1aa7ca714bffc22909ed72c8ff9d5be326" kindref="member">GetComponentTransform</ref>().<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>()<sp/>*<sp/><ref refid="class_f_vector4" kindref="compound">FVector4</ref>(<ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//FVector3<sp/>C_MeshCollision::GetFurthestMinkDiffPoint(const<sp/>C_MeshCollision*<sp/>meshA,<sp/>const<sp/>C_MeshCollision*<sp/>meshB,<sp/>FVector3<sp/>direction)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//The<sp/>point<sp/>in<sp/>meshA<sp/>furthest<sp/>in<sp/>the<sp/>calculated<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>pointA<sp/>=<sp/>meshA-&gt;GetCollisionMesh()-&gt;Vertices[0].Position;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>float<sp/>currentDotProduct<sp/>=<sp/>meshA-&gt;GetCollisionMesh()-&gt;Vertices[0].Position<sp/>*<sp/>direction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(const<sp/>auto&amp;<sp/>vertex<sp/>:<sp/>meshA-&gt;GetCollisionMesh()-&gt;Vertices)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>float<sp/>tempDotProduct<sp/>=<sp/>vertex.Position<sp/>*<sp/>direction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(currentDotProduct<sp/>&lt;<sp/>tempDotProduct)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pointA<sp/>=<sp/>vertex.Position;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentDotProduct<sp/>=<sp/>tempDotProduct;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//The<sp/>point<sp/>in<sp/>meshB<sp/>furthest<sp/>in<sp/>the<sp/>opposit<sp/>of<sp/>the<sp/>calculated<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>pointB<sp/>=<sp/>meshB-&gt;GetCollisionMesh()-&gt;Vertices[0].Position;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>currentDotProduct<sp/>=<sp/>meshB-&gt;GetCollisionMesh()-&gt;Vertices[0].Position<sp/>*<sp/>direction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(const<sp/>auto&amp;<sp/>vertex<sp/>:<sp/>meshB-&gt;GetCollisionMesh()-&gt;Vertices)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>float<sp/>tempDotProduct<sp/>=<sp/>vertex.Position<sp/>*<sp/>direction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(currentDotProduct<sp/>&gt;<sp/>tempDotProduct)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pointB<sp/>=<sp/>vertex.Position;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentDotProduct<sp/>=<sp/>tempDotProduct;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>pointA<sp/>-<sp/>pointB;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="class_c___mesh_collision_1ab5ee8a3aff6c552f2177fc02b143c1d8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___mesh_collision_1ab5ee8a3aff6c552f2177fc02b143c1d8" kindref="member">C_MeshCollision::SetCollisionMesh</ref>(<ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>*<sp/>mesh)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mesh)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___mesh_collision_1a990addb20b123af6ea00a127539af259" kindref="member">CollisionMesh</ref><sp/>=<sp/>mesh;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref><sp/>=<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(0.0f);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>vertex<sp/>:<sp/><ref refid="class_c___mesh_collision_1a990addb20b123af6ea00a127539af259" kindref="member">CollisionMesh</ref>-&gt;<ref refid="class_c___static_mesh_component_1a577fd94f13e70078934bd9af553e47d5" kindref="member">GetMesh</ref>()-&gt;<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref><sp/>+=<sp/>vertex.Position;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref><sp/>=<sp/><ref refid="class_c___collision_component_1a0bc30c1f6d0d7dd1f82706ad87aa1f7b" kindref="member">CollisionMeshCenter</ref><sp/>/<sp/><ref refid="class_c___mesh_collision_1a990addb20b123af6ea00a127539af259" kindref="member">CollisionMesh</ref>-&gt;<ref refid="class_c___static_mesh_component_1a577fd94f13e70078934bd9af553e47d5" kindref="member">GetMesh</ref>()-&gt;<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>.size();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//bool<sp/>C_MeshCollision::Collide(C_CollisionComponent*<sp/>otherCollider,<sp/>S_CollisionData&amp;<sp/>data)<sp/>const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>const<sp/>auto&amp;<sp/>collider<sp/>=<sp/>dynamic_cast&lt;C_MeshCollision*&gt;(otherCollider);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(!collider)<sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>Simplex3D<sp/>simplex;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//First<sp/>Simplex<sp/>Vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>direction<sp/>=<sp/>collider-&gt;GetCollisionMeshCenter()<sp/>-<sp/>CollisionMeshCenter;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>simplex.PushFront(GetFurthestMinkDiffPoint(this,<sp/>collider,<sp/>direction));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//Second<sp/>Simplex<sp/>Vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>direction<sp/>=<sp/>simplex.GetVertexAtIndex(0)<sp/>*<sp/>-1.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>simplex.PushFront(GetFurthestMinkDiffPoint(this,<sp/>collider,<sp/>direction));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(simplex.GetVertexAtIndex(0)<sp/>*<sp/>direction<sp/>&lt;<sp/>0)<sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//Third<sp/>Simplex<sp/>Vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>direction<sp/>=<sp/>(simplex.GetVertexAtIndex(1)<sp/>-<sp/>simplex.GetVertexAtIndex(0)).CrossProduct(simplex.GetVertexAtIndex(0)<sp/>*<sp/>-1.0f).CrossProduct(simplex.GetVertexAtIndex(1)<sp/>-<sp/>simplex.GetVertexAtIndex(0));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>simplex.PushFront(GetFurthestMinkDiffPoint(this,<sp/>collider,<sp/>direction));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(simplex.GetVertexAtIndex(0)<sp/>*<sp/>direction<sp/>&lt;<sp/>0)<sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//Fourth<sp/>Simplex<sp/>Vertex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>pointA<sp/>=<sp/>simplex.GetVertexAtIndex(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>pointB<sp/>=<sp/>simplex.GetVertexAtIndex(1);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>pointC<sp/>=<sp/>simplex.GetVertexAtIndex(2);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>lineAB<sp/>=<sp/>pointB<sp/>-<sp/>pointA;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>lineAC<sp/>=<sp/>pointC<sp/>-<sp/>pointA;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>lineABC<sp/>=<sp/>lineAB.CrossProduct(lineAC);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>FVector3<sp/>lineAO<sp/>=<sp/>pointA<sp/>*<sp/>-1.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(lineABC.CrossProduct(lineAC)<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(lineAC<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)<sp/>direction<sp/>=<sp/>lineAC.CrossProduct(lineAO).CrossProduct(lineAC);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>if<sp/>(lineAB<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)<sp/>direction<sp/>=<sp/>lineAB.CrossProduct(lineAO).CrossProduct(lineAB);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>direction<sp/>=<sp/>lineAO;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>else<sp/>if<sp/>(lineAB.CrossProduct(lineABC)<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(lineAB<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)<sp/>direction<sp/>=<sp/>lineAB.CrossProduct(lineAO).CrossProduct(lineAB);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>else<sp/>direction<sp/>=<sp/>lineAO;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>else<sp/>if<sp/>(lineABC<sp/>*<sp/>lineAO<sp/>&gt;=<sp/>0)<sp/>direction<sp/>=<sp/>lineABC;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>else<sp/>direction<sp/>=<sp/>lineABC<sp/>*<sp/>-1.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>simplex.PushFront(GetFurthestMinkDiffPoint(this,<sp/>collider,<sp/>direction));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(simplex.GetVertexAtIndex(0)<sp/>*<sp/>direction<sp/>&lt;<sp/>0)<sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>CheckSimplexForOrigin(simplex);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>/*FVector3<sp/>pointA,<sp/>pointB,<sp/>pointC;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>do</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>pointA<sp/>=<sp/>simplex.GetVertexAtIndex(0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>pointB<sp/>=<sp/>simplex.GetVertexAtIndex(1);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>pointC<sp/>=<sp/>simplex.GetVertexAtIndex(2);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>direction<sp/>=<sp/>(pointB<sp/>-<sp/>pointA).CrossProduct(pointC<sp/>-<sp/>pointA);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>FVector3<sp/>centerToOrigin<sp/>=<sp/>(pointA<sp/>+<sp/>pointB<sp/>+<sp/>pointC)<sp/>/<sp/>-3.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>((direction<sp/>*<sp/>centerToOrigin)<sp/>&lt;<sp/>((direction<sp/>*<sp/>-1.0f)<sp/>*<sp/>centerToOrigin))<sp/>direction<sp/>=<sp/>direction<sp/>*<sp/>-1.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>simplex.SetVertexAtIndex(3,<sp/>GetFurthestMinkDiffPoint(this,<sp/>collider,<sp/>direction));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>while<sp/>(!CheckSimplexForOrigin(simplex));*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp"/>
+  </compounddef>
+</doxygen>

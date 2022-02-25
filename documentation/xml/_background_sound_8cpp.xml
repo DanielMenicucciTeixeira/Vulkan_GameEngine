@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_background_sound_8cpp" kind="file" language="C++">
+    <compoundname>BackgroundSound.cpp</compoundname>
+    <includes refid="_background_sound_8h" local="yes">BackgroundSound.h</includes>
+    <includes refid="_camera_component_8h" local="yes">../Objects/Components/CameraComponent.h</includes>
+    <includes refid="_audio_handler_8h" local="yes">AudioHandler.h</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>AudioHandler.h</label>
+        <link refid="_audio_handler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>AudioSource.h</label>
+        <link refid="_audio_source_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/BackgroundSound.cpp</label>
+        <link refid="_background_sound_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BackgroundSound.h</label>
+        <link refid="_background_sound_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Geometry/Plane.h</label>
+        <link refid="_plane_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="10">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="4">
+        <label>../Objects/Components/CameraComponent.h</label>
+        <link refid="_camera_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>fmod.hpp</label>
+      </node>
+      <node id="16">
+        <label>glm/glm.hpp</label>
+      </node>
+      <node id="13">
+        <label>map</label>
+      </node>
+      <node id="14">
+        <label>memory</label>
+      </node>
+      <node id="8">
+        <label>set</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_background_sound_8h" kindref="compound">BackgroundSound.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Objects/Components/CameraComponent.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_audio_handler_8h" kindref="compound">AudioHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="class_background_sound_1a1d1f360ebe6fa21cf93a6c5d32949d8a" refkind="member"><highlight class="normal"><ref refid="class_background_sound_1a1d1f360ebe6fa21cf93a6c5d32949d8a" kindref="member">BackgroundSound::BackgroundSound</ref>(<ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/>camera_)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>camera<sp/>=<sp/>camera_;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_background_sound_1ac75d314e07188cab05e5dc05e1c59fe2" refkind="member"><highlight class="normal"><ref refid="class_background_sound_1ac75d314e07188cab05e5dc05e1c59fe2" kindref="member">BackgroundSound::~BackgroundSound</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_background_sound_1ab4a38f1e6a73d99aec8d71d3f1d5d036" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_background_sound_1ab4a38f1e6a73d99aec8d71d3f1d5d036" kindref="member">BackgroundSound::OnCreate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>loop_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is3D_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>stream_)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>channelID<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>fileName<sp/>=<sp/>name_;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;LoadSound(name_,<sp/>loop_,<sp/>is3D_,<sp/>stream_);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_background_sound_1a18c91364440880121e95190d755f765c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_background_sound_1a18c91364440880121e95190d755f765c" kindref="member">BackgroundSound::Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="class_background_sound_1ab30273d574bbbe4de21b30fefbb95ccc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_background_sound_1ab30273d574bbbe4de21b30fefbb95ccc" kindref="member">BackgroundSound::PlaySound</ref>()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>pos<sp/>=<sp/>camera-&gt;<ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>channelID<sp/>=<sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;PlaySound(fileName,<sp/>glm::vec3(pos.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref>,pos.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref>,pos.<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref>));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_background_sound_1ae154fdd8ac0c4019c80cfba689ca7d07" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_background_sound_1ae154fdd8ac0c4019c80cfba689ca7d07" kindref="member">BackgroundSound::IsPlaying</ref>()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;IsPlaying(channelID);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/BackgroundSound.cpp"/>
+  </compounddef>
+</doxygen>

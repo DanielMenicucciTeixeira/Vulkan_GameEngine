@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_s___mesh" kind="struct" language="C++" prot="public">
+    <compoundname>S_Mesh</compoundname>
+    <includes refid="_render_object_8h" local="no">RenderObject.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s___mesh_1a16f118864b072ec99be39cb7eefd2982" prot="public" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short S_Mesh::MeshID</definition>
+        <argsstring></argsstring>
+        <name>MeshID</name>
+        <qualifiedname>S_Mesh::MeshID</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="29" column="16" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref> &gt;</type>
+        <definition>std::vector&lt;S_Vertex&gt; S_Mesh::Vertices</definition>
+        <argsstring></argsstring>
+        <name>Vertices</name>
+        <qualifiedname>S_Mesh::Vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="30" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___mesh_1a965cdf4efb3b687a86945969fcfcfa85" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned int &gt;</type>
+        <definition>std::vector&lt;unsigned int&gt; S_Mesh::Indices</definition>
+        <argsstring></argsstring>
+        <name>Indices</name>
+        <qualifiedname>S_Mesh::Indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="31" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___mesh_1a4abc00eb7ca72a162812379a6173e8a4" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string S_Mesh::Path</definition>
+        <argsstring></argsstring>
+        <name>Path</name>
+        <qualifiedname>S_Mesh::Path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="33" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___mesh_1ae8a92a2949d30b3e14b3ebd86873cb80" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string S_Mesh::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>S_Mesh::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="34" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_s___mesh_1a13a790b7a4170edfb5763cb94a07ad10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>S_Mesh::~S_Mesh</definition>
+        <argsstring>()</argsstring>
+        <name>~S_Mesh</name>
+        <qualifiedname>S_Mesh::~S_Mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="36" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" line="26" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h" bodystart="27" bodyend="37"/>
+    <listofallmembers>
+      <member refid="struct_s___mesh_1a965cdf4efb3b687a86945969fcfcfa85" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>Indices</name></member>
+      <member refid="struct_s___mesh_1a16f118864b072ec99be39cb7eefd2982" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>MeshID</name></member>
+      <member refid="struct_s___mesh_1ae8a92a2949d30b3e14b3ebd86873cb80" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>Name</name></member>
+      <member refid="struct_s___mesh_1a4abc00eb7ca72a162812379a6173e8a4" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>Path</name></member>
+      <member refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>Vertices</name></member>
+      <member refid="struct_s___mesh_1a13a790b7a4170edfb5763cb94a07ad10" prot="public" virt="non-virtual"><scope>S_Mesh</scope><name>~S_Mesh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

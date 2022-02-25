@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_static_mesh_component_8cpp" kind="file" language="C++">
+    <compoundname>StaticMeshComponent.cpp</compoundname>
+    <includes refid="_static_mesh_component_8h" local="yes">StaticMeshComponent.h</includes>
+    <includes refid="_game_object_8h" local="yes">Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_render_object_8h" local="yes">Renderers/RenderObject.h</includes>
+    <includes refid="_f_matrix4_8h" local="yes">Math/FMatrix4.h</includes>
+    <includes refid="_f_transform_8h" local="yes">Math/FTransform.h</includes>
+    <includes refid="_f_quaternion_8h" local="yes">Math/FQuaternion.h</includes>
+    <includes refid="_level_graph_8h" local="yes">LevelGraph.h</includes>
+    <includes refid="_bounding_box_8h" local="yes">Objects/Components/Colliders/BoundingBox.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="14">
+        <label>Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="16">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="15">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="26">
+        <label>Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>RenderableComponent.h</label>
+        <link refid="_renderable_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>StaticMeshComponent.h</label>
+        <link refid="_static_mesh_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="31">
+        <label>array</label>
+      </node>
+      <node id="33">
+        <label>iostream</label>
+      </node>
+      <node id="24">
+        <label>map</label>
+      </node>
+      <node id="22">
+        <label>memory</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="23">
+        <label>unordered_map</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_static_mesh_component_8h" kindref="compound">StaticMeshComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game_object_8h" kindref="compound">Objects/GameObjects/GameObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_render_object_8h" kindref="compound">Renderers/RenderObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_matrix4_8h" kindref="compound">Math/FMatrix4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_transform_8h" kindref="compound">Math/FTransform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_quaternion_8h" kindref="compound">Math/FQuaternion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_graph_8h" kindref="compound">LevelGraph.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bounding_box_8h" kindref="compound">Objects/Components/Colliders/BoundingBox.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_c___static_mesh_component_1aa06ce38041e5faef4f9fbdcd2afc6c24" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___static_mesh_component_1aa06ce38041e5faef4f9fbdcd2afc6c24" kindref="member">C_StaticMeshComponent::Start</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_box" kindref="compound">Box</ref>-&gt;GetDimensionsFromMesh(<ref refid="class_c___static_mesh_component_1a514c3b7960701617272e291f40c39918" kindref="member">Mesh</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_box" kindref="compound">Box</ref>-&gt;SetComponentTransform(*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">/*S_Texture*<sp/>C_StaticMeshComponent::GetTextureDifuse()<sp/>const</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/>return<sp/>Material-&gt;TextureDifuse;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*S_Texture*<sp/>C_StaticMeshComponent::GetTextureSpecular()<sp/>const</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/>return<sp/>Material-&gt;TextureSpecular;</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="class_c___static_mesh_component_1a1670de2a79d4ab5ccac1d46d36e5a88e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___static_mesh_component_1a1670de2a79d4ab5ccac1d46d36e5a88e" kindref="member">C_StaticMeshComponent::SetInFrustum</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inFrustum)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(inFrustum<sp/>!=<sp/>InFrustum)<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;InFrustum<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>inFrustum<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component_1a453f27e21cbdb05257e745e6952077c9" kindref="member">InFrustum</ref><sp/>=<sp/>inFrustum;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="class_c___static_mesh_component_1addc6152b8859d60b093f8929c3740d91" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___static_mesh_component_1addc6152b8859d60b093f8929c3740d91" kindref="member">C_StaticMeshComponent::UpdateModelMatrix</ref>()</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//*ModelMatrix<sp/>=<sp/>(Owner-&gt;GetTransform()<sp/>+<sp/>Transform).GetModelMatrix();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="class_c___static_mesh_component_1a35b9bdf139b6800e7b84238411ee511f" kindref="member">ModelMatrix</ref><sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1af77de2425b5a909281b229335ec03b2d" kindref="member">GetTransform</ref>().<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>()<sp/>*<sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>(<ref refid="class_c___transform_component_1af55be14e486babdfe7fbb6ed643f2205" kindref="member">GetComponentPosition</ref>(),<sp/><ref refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" kindref="member">GetComponentRotation</ref>(),<sp/><ref refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" kindref="member">GetComponentScale</ref>()).<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//*ModelMatrix<sp/>=<sp/>FTransform(GetComponentPosition(),<sp/>GetComponentRotation(),<sp/>GetComponentScale()).GetModelMatrix()<sp/>*<sp/>Owner-&gt;GetTransform().GetModelMatrix();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_c___static_mesh_component_1ab750f1f4d9b0e222b2c627a7b0469dc3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___static_mesh_component_1ab750f1f4d9b0e222b2c627a7b0469dc3" kindref="member">C_StaticMeshComponent::Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component_1addc6152b8859d60b093f8929c3740d91" kindref="member">UpdateModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="class_c___static_mesh_component_1a5a6fac76b45216d07f9621aa04ed172f" refkind="member"><highlight class="normal"><ref refid="class_c___static_mesh_component_1a5a6fac76b45216d07f9621aa04ed172f" kindref="member">C_StaticMeshComponent::C_StaticMeshComponent</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner)<sp/>:<sp/><ref refid="class_c___renderable_component" kindref="compound">C_RenderableComponent</ref>(owner)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component_1a35b9bdf139b6800e7b84238411ee511f" kindref="member">ModelMatrix</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component_1addc6152b8859d60b093f8929c3740d91" kindref="member">UpdateModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_box" kindref="compound">Box</ref><sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a763b6519ed06ea6b48368d8364a9d838" kindref="member">AddComponentOfClass</ref>&lt;<ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>&gt;();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="class_c___static_mesh_component_1a756b004c1fd9ee2bb485b89a85325c16" refkind="member"><highlight class="normal"><ref refid="class_c___static_mesh_component_1a756b004c1fd9ee2bb485b89a85325c16" kindref="member">C_StaticMeshComponent::~C_StaticMeshComponent</ref>()</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1a8db7fe0e00ee7163bf9a0a47fa5c173f" kindref="member">RemoveMeshComponent</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_box" kindref="compound">Box</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c___static_mesh_component_1a35b9bdf139b6800e7b84238411ee511f" kindref="member">ModelMatrix</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="class_c___static_mesh_component_1a35b9bdf139b6800e7b84238411ee511f" kindref="member">ModelMatrix</ref>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp"/>
+  </compounddef>
+</doxygen>

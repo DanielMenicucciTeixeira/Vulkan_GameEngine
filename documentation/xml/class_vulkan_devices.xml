@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_vulkan_devices" kind="class" language="C++" prot="public">
+    <compoundname>VulkanDevices</compoundname>
+    <includes refid="_vulkan_devices_8h" local="no">VulkanDevices.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_vulkan_devices_1a702fbf0f5ba780810087d4d4aeb8ffd1" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+        <definition>VulkanManager* VulkanDevices::Manager</definition>
+        <argsstring></argsstring>
+        <name>Manager</name>
+        <qualifiedname>VulkanDevices::Manager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="35" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_devices_1aaa3dd5f4dbcda8803405e3c6744d8fd8" prot="protected" static="no" mutable="no">
+        <type>VkPhysicalDevice_T *</type>
+        <definition>VkPhysicalDevice_T* VulkanDevices::Physical</definition>
+        <argsstring></argsstring>
+        <name>Physical</name>
+        <qualifiedname>VulkanDevices::Physical</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="36" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_devices_1a148f327d2d513ac826ec44b506454753" prot="protected" static="no" mutable="no">
+        <type>VkDevice_T *</type>
+        <definition>VkDevice_T* VulkanDevices::Logical</definition>
+        <argsstring></argsstring>
+        <name>Logical</name>
+        <qualifiedname>VulkanDevices::Logical</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="37" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_devices_1a738ea5949f4d3df60859d883793e16ce" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; const char * &gt;</type>
+        <definition>std::vector&lt;const char*&gt; VulkanDevices::DeviceExtensions</definition>
+        <argsstring></argsstring>
+        <name>DeviceExtensions</name>
+        <qualifiedname>VulkanDevices::DeviceExtensions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="38" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vulkan_devices_1a8d2d709919520e15b3036a132c2c22a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanDevices::VulkanDevices</definition>
+        <argsstring>(VulkanManager *manager)</argsstring>
+        <name>VulkanDevices</name>
+        <qualifiedname>VulkanDevices::VulkanDevices</qualifiedname>
+        <param>
+          <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="21" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1a6a98a71e998c29b4a70a97b7c16a4ce2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanDevices::PickPhysicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>PickPhysicalDevice</name>
+        <qualifiedname>VulkanDevices::PickPhysicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="23" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="19" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1a58c35829e873822483cec42a3cce705b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanDevices::IsPhysicalDeviceSuitable</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>IsPhysicalDeviceSuitable</name>
+        <qualifiedname>VulkanDevices::IsPhysicalDeviceSuitable</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="24" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="48" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1a327bd53739253fd181710c7cd14d9810" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanDevices::CreateLogicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>CreateLogicalDevice</name>
+        <qualifiedname>VulkanDevices::CreateLogicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="25" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="65" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1a863c71c74a3cbab440b1ab0cf0493fcf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkPhysicalDevice_T *</type>
+        <definition>VkPhysicalDevice_T * VulkanDevices::GetPhysicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>GetPhysicalDevice</name>
+        <qualifiedname>VulkanDevices::GetPhysicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="27" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1a12fd12084e54444b3ede729a25e6e9d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkDevice_T *</type>
+        <definition>VkDevice_T * VulkanDevices::GetLogicalDevice</definition>
+        <argsstring>()</argsstring>
+        <name>GetLogicalDevice</name>
+        <qualifiedname>VulkanDevices::GetLogicalDevice</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="28" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1ae1089e44f5fc6f5c75a59aff9ec2f7d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_swapchain_support_details" kindref="compound">SwapchainSupportDetails</ref></type>
+        <definition>SwapchainSupportDetails VulkanDevices::GetSwapchainSupportDetails</definition>
+        <argsstring>()</argsstring>
+        <name>GetSwapchainSupportDetails</name>
+        <qualifiedname>VulkanDevices::GetSwapchainSupportDetails</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="29" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="131" bodyend="138"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_vulkan_devices_1a6fc6d154747d2a55d2048df7942fd904" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_swapchain_support_details" kindref="compound">SwapchainSupportDetails</ref></type>
+        <definition>SwapchainSupportDetails VulkanDevices::QuerySwapChainSupport</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>QuerySwapChainSupport</name>
+        <qualifiedname>VulkanDevices::QuerySwapChainSupport</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="32" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="140" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_devices_1aeb77f1475703de9bfca96247a751ce00" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanDevices::CheckDeviceExtensionSupport</definition>
+        <argsstring>(VkPhysicalDevice_T *device)</argsstring>
+        <name>CheckDeviceExtensionSupport</name>
+        <qualifiedname>VulkanDevices::CheckDeviceExtensionSupport</qualifiedname>
+        <param>
+          <type>VkPhysicalDevice_T *</type>
+          <declname>device</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="33" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp" bodystart="116" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="7">
+        <label>QueueStruct</label>
+        <link refid="struct_queue_struct"/>
+      </node>
+      <node id="3">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="8">
+        <label>S_RenderData</label>
+        <link refid="struct_s___render_data"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>VulkanDebugger</label>
+        <link refid="class_vulkan_debugger"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VulkanDevices</label>
+        <link refid="class_vulkan_devices"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>VulkanManager</label>
+        <link refid="class_vulkan_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Debugger</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>Devices</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>GraphicsPipelineManager</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>SwapchainManager</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Queues</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>RenderData</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VulkanPipelineManager</label>
+        <link refid="class_vulkan_pipeline_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>VulkanSwapchainManager</label>
+        <link refid="class_vulkan_swapchain_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" line="18" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.h" bodystart="19" bodyend="39"/>
+    <listofallmembers>
+      <member refid="class_vulkan_devices_1aeb77f1475703de9bfca96247a751ce00" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>CheckDeviceExtensionSupport</name></member>
+      <member refid="class_vulkan_devices_1a327bd53739253fd181710c7cd14d9810" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>CreateLogicalDevice</name></member>
+      <member refid="class_vulkan_devices_1a738ea5949f4d3df60859d883793e16ce" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>DeviceExtensions</name></member>
+      <member refid="class_vulkan_devices_1a12fd12084e54444b3ede729a25e6e9d0" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>GetLogicalDevice</name></member>
+      <member refid="class_vulkan_devices_1a863c71c74a3cbab440b1ab0cf0493fcf" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>GetPhysicalDevice</name></member>
+      <member refid="class_vulkan_devices_1ae1089e44f5fc6f5c75a59aff9ec2f7d2" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>GetSwapchainSupportDetails</name></member>
+      <member refid="class_vulkan_devices_1a58c35829e873822483cec42a3cce705b" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>IsPhysicalDeviceSuitable</name></member>
+      <member refid="class_vulkan_devices_1a148f327d2d513ac826ec44b506454753" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>Logical</name></member>
+      <member refid="class_vulkan_devices_1a702fbf0f5ba780810087d4d4aeb8ffd1" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>Manager</name></member>
+      <member refid="class_vulkan_devices_1aaa3dd5f4dbcda8803405e3c6744d8fd8" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>Physical</name></member>
+      <member refid="class_vulkan_devices_1a6a98a71e998c29b4a70a97b7c16a4ce2" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>PickPhysicalDevice</name></member>
+      <member refid="class_vulkan_devices_1a6fc6d154747d2a55d2048df7942fd904" prot="protected" virt="non-virtual"><scope>VulkanDevices</scope><name>QuerySwapChainSupport</name></member>
+      <member refid="class_vulkan_devices_1a8d2d709919520e15b3036a132c2c22a2" prot="public" virt="non-virtual"><scope>VulkanDevices</scope><name>VulkanDevices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

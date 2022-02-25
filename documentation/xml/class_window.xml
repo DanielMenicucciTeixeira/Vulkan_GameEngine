@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_window" kind="class" language="C++" prot="public">
+    <compoundname>Window</compoundname>
+    <includes refid="_window_8h" local="no">Window.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_window_1abbf4ed8ecc1705f603a8b962b24adc29" prot="protected" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* Window::WindowName</definition>
+        <argsstring></argsstring>
+        <name>WindowName</name>
+        <qualifiedname>Window::WindowName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="31" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_window_1ad17a7007895651ffb0643189e9082177" prot="protected" static="no" mutable="no">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window* Window::SDLWindow</definition>
+        <argsstring></argsstring>
+        <name>SDLWindow</name>
+        <qualifiedname>Window::SDLWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="32" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_window_1afff3f6787a2bc690e092251c13b42612" prot="protected" static="no" mutable="no">
+        <type><ref refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" kindref="member">SDL_GLContext</ref></type>
+        <definition>SDL_GLContext Window::Context</definition>
+        <argsstring></argsstring>
+        <name>Context</name>
+        <qualifiedname>Window::Context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="33" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_window_1a74e6087da23d3c24e9fac0245e5ec92c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Window::Window</definition>
+        <argsstring>()</argsstring>
+        <name>Window</name>
+        <qualifiedname>Window::Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="12" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a245d821e6016fa1f6970ccbbedd635f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Window::~Window</definition>
+        <argsstring>()</argsstring>
+        <name>~Window</name>
+        <qualifiedname>Window::~Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="13" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a5745e7ac464a66f43dae1ffa5931cb7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::Initialize</definition>
+        <argsstring>(const char *name, ERendererType renderType, int width=800, int height=600, int positionX=800, int positionY=600)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>Window::Initialize</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="_renderer_8h_1ab3631679e12986a42ced57267776c459" kindref="member">ERendererType</ref></type>
+          <declname>renderType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>600</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionX</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionY</declname>
+          <defval>600</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="15" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="23" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1ab1fa2f0fd49648beb1467b906a8ca27a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Window::GetWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>GetWidth</name>
+        <qualifiedname>Window::GetWidth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="17" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="61" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1aea56dcf795a28ec79eebe2dad31867b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Window::GetHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>GetHeight</name>
+        <qualifiedname>Window::GetHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="18" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a899701a0e9d9075756f4094a84d799f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * Window::GetName</definition>
+        <argsstring>() const</argsstring>
+        <name>GetName</name>
+        <qualifiedname>Window::GetName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="19" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a56ac488e08cd5afac7ab3936a5318482" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>SDL_Window *</type>
+        <definition>SDL_Window * Window::GetSDLWindow</definition>
+        <argsstring>() const</argsstring>
+        <name>GetSDLWindow</name>
+        <qualifiedname>Window::GetSDLWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="20" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a6bf4504e7dd7d311d4788229e4cb0e65" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" kindref="member">SDL_GLContext</ref></type>
+        <definition>SDL_GLContext Window::GetContext</definition>
+        <argsstring>() const</argsstring>
+        <name>GetContext</name>
+        <qualifiedname>Window::GetContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="21" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_window_1a4140f53a75ecdbbc3d9abe2598241b67" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Window::SetPreAttributes</definition>
+        <argsstring>()</argsstring>
+        <name>SetPreAttributes</name>
+        <qualifiedname>Window::SetPreAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="25" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a84b358a605b61111a5cc396bac46a2a7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Window::SetPostAttributes</definition>
+        <argsstring>()</argsstring>
+        <name>SetPostAttributes</name>
+        <qualifiedname>Window::SetPostAttributes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="26" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1a7e6e76b7438e489441e8df246ec307ee" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::OnCreateVulkanWindow</definition>
+        <argsstring>(const char *name, int width=800, int height=600, int positionX=800, int positionY=600)</argsstring>
+        <name>OnCreateVulkanWindow</name>
+        <qualifiedname>Window::OnCreateVulkanWindow</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>600</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionX</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionY</declname>
+          <defval>600</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="28" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="68" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_window_1aba106982545a06c7eeb5ccbd9607cca5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Window::OnCreateOpenGLWindow</definition>
+        <argsstring>(const char *name, int width=800, int height=600, int positionX=800, int positionY=600)</argsstring>
+        <name>OnCreateOpenGLWindow</name>
+        <qualifiedname>Window::OnCreateOpenGLWindow</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>600</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionX</declname>
+          <defval>800</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>positionY</declname>
+          <defval>600</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="29" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp" bodystart="79" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="10" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_window_1afff3f6787a2bc690e092251c13b42612" prot="protected" virt="non-virtual"><scope>Window</scope><name>Context</name></member>
+      <member refid="class_window_1a6bf4504e7dd7d311d4788229e4cb0e65" prot="public" virt="non-virtual"><scope>Window</scope><name>GetContext</name></member>
+      <member refid="class_window_1aea56dcf795a28ec79eebe2dad31867b0" prot="public" virt="non-virtual"><scope>Window</scope><name>GetHeight</name></member>
+      <member refid="class_window_1a899701a0e9d9075756f4094a84d799f0" prot="public" virt="non-virtual"><scope>Window</scope><name>GetName</name></member>
+      <member refid="class_window_1a56ac488e08cd5afac7ab3936a5318482" prot="public" virt="non-virtual"><scope>Window</scope><name>GetSDLWindow</name></member>
+      <member refid="class_window_1ab1fa2f0fd49648beb1467b906a8ca27a" prot="public" virt="non-virtual"><scope>Window</scope><name>GetWidth</name></member>
+      <member refid="class_window_1a5745e7ac464a66f43dae1ffa5931cb7a" prot="public" virt="non-virtual"><scope>Window</scope><name>Initialize</name></member>
+      <member refid="class_window_1aba106982545a06c7eeb5ccbd9607cca5" prot="protected" virt="non-virtual"><scope>Window</scope><name>OnCreateOpenGLWindow</name></member>
+      <member refid="class_window_1a7e6e76b7438e489441e8df246ec307ee" prot="protected" virt="non-virtual"><scope>Window</scope><name>OnCreateVulkanWindow</name></member>
+      <member refid="class_window_1ad17a7007895651ffb0643189e9082177" prot="protected" virt="non-virtual"><scope>Window</scope><name>SDLWindow</name></member>
+      <member refid="class_window_1a84b358a605b61111a5cc396bac46a2a7" prot="protected" virt="non-virtual"><scope>Window</scope><name>SetPostAttributes</name></member>
+      <member refid="class_window_1a4140f53a75ecdbbc3d9abe2598241b67" prot="protected" virt="non-virtual"><scope>Window</scope><name>SetPreAttributes</name></member>
+      <member refid="class_window_1a74e6087da23d3c24e9fac0245e5ec92c" prot="public" virt="non-virtual"><scope>Window</scope><name>Window</name></member>
+      <member refid="class_window_1abbf4ed8ecc1705f603a8b962b24adc29" prot="protected" virt="non-virtual"><scope>Window</scope><name>WindowName</name></member>
+      <member refid="class_window_1a245d821e6016fa1f6970ccbbedd635f6" prot="public" virt="non-virtual"><scope>Window</scope><name>~Window</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

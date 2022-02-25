@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_audio_source_8cpp" kind="file" language="C++">
+    <compoundname>AudioSource.cpp</compoundname>
+    <includes refid="_audio_source_8h" local="yes">AudioSource.h</includes>
+    <includes refid="_audio_handler_8h" local="yes">AudioHandler.h</includes>
+    <includes refid="_game_object_8h" local="yes">../Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>AudioHandler.h</label>
+        <link refid="_audio_handler_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioSource.cpp</label>
+        <link refid="_audio_source_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>AudioSource.h</label>
+        <link refid="_audio_source_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>BackgroundSound.h</label>
+        <link refid="_background_sound_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="3">
+        <label>../Objects/Components/Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>fmod.hpp</label>
+      </node>
+      <node id="11">
+        <label>glm/glm.hpp</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="9">
+        <label>memory</label>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_audio_source_8h" kindref="compound">AudioSource.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_audio_handler_8h" kindref="compound">AudioHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Objects/GameObjects/GameObject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_audio_source_1acd92e7283a502ebec65a4507a969bbee" refkind="member"><highlight class="normal"><ref refid="class_audio_source_1acd92e7283a502ebec65a4507a969bbee" kindref="member">AudioSource::AudioSource</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>parent_)<sp/>:<sp/><ref refid="class_o___component" kindref="compound">O_Component</ref>(parent_)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref><sp/>=<sp/>parent_;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_audio_source_1a4d4b2be34ec676bf01d1ca1784f79a07" refkind="member"><highlight class="normal"><ref refid="class_audio_source_1a4d4b2be34ec676bf01d1ca1784f79a07" kindref="member">AudioSource::~AudioSource</ref>()</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_audio_source_1a0d90a2ff3e7230c7c6e5a059535f63cf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_audio_source_1a0d90a2ff3e7230c7c6e5a059535f63cf" kindref="member">AudioSource::OnCreate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>name_,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>loop_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is3D_,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>stream_)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>channelID<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>fileName<sp/>=<sp/>name_;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;LoadSound(name_,<sp/>loop_,<sp/>is3D_,<sp/>stream_);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//TODO:<sp/>make<sp/>easy<sp/>way<sp/>for<sp/>glm<sp/>and<sp/>FVector<sp/>to<sp/>translate.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_audio_source_1ada22907252b0938c98a203a63572e24d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_audio_source_1ada22907252b0938c98a203a63572e24d" kindref="member">AudioSource::Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>pos<sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1acecc5cb8fdc72e9035273265d9b6b125" kindref="member">GetPosition</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;UpdateChannelPositionVelocity(channelID,<sp/>glm::vec3(pos.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref>,<sp/>pos.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref>,pos.<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref>));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_audio_source_1a3c24e8626bcd651786b93d567e764c76" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_audio_source_1a3c24e8626bcd651786b93d567e764c76" kindref="member">AudioSource::PlaySound</ref>()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>pos<sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1acecc5cb8fdc72e9035273265d9b6b125" kindref="member">GetPosition</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>channelID<sp/>=<sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;PlaySound(fileName,<sp/>glm::vec3(pos.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref>,<sp/>pos.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref>,<sp/>pos.<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref>));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="class_audio_source_1af97226c9825df69fde31255c91630cb5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_audio_source_1af97226c9825df69fde31255c91630cb5" kindref="member">AudioSource::IsPlaying</ref>()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" kindref="member">AudioHandler::GetInstance</ref>()-&gt;IsPlaying(channelID);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="48"><highlight class="comment">void<sp/>AudioSource::Draw()</highlight></codeline>
+<codeline lineno="49"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="50"><highlight class="comment">}</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">bool<sp/>AudioSource::FindContainingPoint()</highlight></codeline>
+<codeline lineno="53"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>return<sp/>false;</highlight></codeline>
+<codeline lineno="55"><highlight class="comment">}</highlight></codeline>
+<codeline lineno="56"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioSource.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_vulkan_swapchain_manager" kind="class" language="C++" prot="public">
+    <compoundname>VulkanSwapchainManager</compoundname>
+    <includes refid="_vulkan_swapchain_manager_8h" local="no">VulkanSwapchainManager.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1acd645defc4a72233211f8366fb8239e9" prot="protected" static="no" mutable="no">
+        <type>VkSwapchainKHR_T *</type>
+        <definition>VkSwapchainKHR_T* VulkanSwapchainManager::Swapchain</definition>
+        <argsstring></argsstring>
+        <name>Swapchain</name>
+        <qualifiedname>VulkanSwapchainManager::Swapchain</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="119" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a832b418d1979b268ac3404b667d0e270" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkImage_T * &gt;</type>
+        <definition>std::vector&lt;VkImage_T*&gt; VulkanSwapchainManager::Images</definition>
+        <argsstring></argsstring>
+        <name>Images</name>
+        <qualifiedname>VulkanSwapchainManager::Images</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="121" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1aac1688c5f1edc455f33391a7174478e3" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkFramebuffer_T * &gt;</type>
+        <definition>std::vector&lt;VkFramebuffer_T*&gt; VulkanSwapchainManager::Framebuffers</definition>
+        <argsstring></argsstring>
+        <name>Framebuffers</name>
+        <qualifiedname>VulkanSwapchainManager::Framebuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="122" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1afc7bd364fb3e3a41bca4f62f4f675fef" prot="protected" static="no" mutable="no">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanSwapchainManager::ImageFormat</definition>
+        <argsstring></argsstring>
+        <name>ImageFormat</name>
+        <qualifiedname>VulkanSwapchainManager::ImageFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="123" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1ab7ad479a7f5095e062a008fc46832ce6" prot="protected" static="no" mutable="no">
+        <type>VkExtent2D *</type>
+        <definition>VkExtent2D* VulkanSwapchainManager::Extent</definition>
+        <argsstring></argsstring>
+        <name>Extent</name>
+        <qualifiedname>VulkanSwapchainManager::Extent</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="124" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a5b2ce79658a0417f60b23668fd6632db" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; VkImageView_T * &gt;</type>
+        <definition>std::vector&lt;VkImageView_T*&gt; VulkanSwapchainManager::ImageViews</definition>
+        <argsstring></argsstring>
+        <name>ImageViews</name>
+        <qualifiedname>VulkanSwapchainManager::ImageViews</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="125" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1ab3dd5f27e0862acff6bd7636db6f606b" prot="protected" static="no" mutable="no">
+        <type>VkRenderPass_T *</type>
+        <definition>VkRenderPass_T* VulkanSwapchainManager::RenderPass</definition>
+        <argsstring></argsstring>
+        <name>RenderPass</name>
+        <qualifiedname>VulkanSwapchainManager::RenderPass</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="127" column="16" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a76393f92d2691518b0ad387dced8f024" prot="protected" static="no" mutable="no">
+        <type>VkImage_T *</type>
+        <definition>VkImage_T* VulkanSwapchainManager::DepthImage</definition>
+        <argsstring></argsstring>
+        <name>DepthImage</name>
+        <qualifiedname>VulkanSwapchainManager::DepthImage</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="129" column="11" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1aefd057eddafaeadc6fdce0f5150228f0" prot="protected" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* VulkanSwapchainManager::DepthImageMemory</definition>
+        <argsstring></argsstring>
+        <name>DepthImageMemory</name>
+        <qualifiedname>VulkanSwapchainManager::DepthImageMemory</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="130" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a4e48a3506a6fd06444dbeeed5d50fdb4" prot="protected" static="no" mutable="no">
+        <type>VkImageView_T *</type>
+        <definition>VkImageView_T* VulkanSwapchainManager::DepthImageView</definition>
+        <argsstring></argsstring>
+        <name>DepthImageView</name>
+        <qualifiedname>VulkanSwapchainManager::DepthImageView</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="131" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1aac741b9efcd880d77d01027c15eefa89" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *, std::vector&lt; <ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref> &gt; &gt;</type>
+        <definition>std::unordered_map&lt;FMatrix4*, std::vector&lt;S_BufferData&gt; &gt; VulkanSwapchainManager::ModelMap</definition>
+        <argsstring></argsstring>
+        <name>ModelMap</name>
+        <qualifiedname>VulkanSwapchainManager::ModelMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="133" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a864db93bf880909b5150dc139d627ad2" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="class_material" kindref="compound">Material</ref> *, std::vector&lt; std::vector&lt; <ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref> &gt; &gt; &gt;</type>
+        <definition>std::unordered_map&lt;Material*, std::vector&lt;std::vector&lt;S_BufferData&gt; &gt; &gt; VulkanSwapchainManager::MaterialMap</definition>
+        <argsstring></argsstring>
+        <name>MaterialMap</name>
+        <qualifiedname>VulkanSwapchainManager::MaterialMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="134" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a07bd99f3e1316c2a5299db42bd905da1" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref> &gt;</type>
+        <definition>std::vector&lt;S_BufferData&gt; VulkanSwapchainManager::CameraData</definition>
+        <argsstring></argsstring>
+        <name>CameraData</name>
+        <qualifiedname>VulkanSwapchainManager::CameraData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="135" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a4568ca8f75fee05e3847e8aef63a43a2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref> &gt;</type>
+        <definition>std::vector&lt;S_BufferData&gt; VulkanSwapchainManager::LightsData</definition>
+        <argsstring></argsstring>
+        <name>LightsData</name>
+        <qualifiedname>VulkanSwapchainManager::LightsData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="136" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1af7517a5155ee97425118ac63e2b7d32b" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref> &gt;</type>
+        <definition>std::vector&lt;S_BufferData&gt; VulkanSwapchainManager::NumberOfLightsData</definition>
+        <argsstring></argsstring>
+        <name>NumberOfLightsData</name>
+        <qualifiedname>VulkanSwapchainManager::NumberOfLightsData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="137" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1aa16c2004dd1b2ef28666ebce88766951" prot="protected" static="no" mutable="no">
+        <type>VkDescriptorPool_T *</type>
+        <definition>VkDescriptorPool_T* VulkanSwapchainManager::DescriptorPool</definition>
+        <argsstring></argsstring>
+        <name>DescriptorPool</name>
+        <qualifiedname>VulkanSwapchainManager::DescriptorPool</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="139" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a385330f2ef9e616a3d84b8dd5e67fd48" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *, std::vector&lt; VkDescriptorSet_T * &gt; &gt;</type>
+        <definition>std::unordered_map&lt;FMatrix4*, std::vector&lt;VkDescriptorSet_T*&gt; &gt; VulkanSwapchainManager::DescriptorSetsMap</definition>
+        <argsstring></argsstring>
+        <name>DescriptorSetsMap</name>
+        <qualifiedname>VulkanSwapchainManager::DescriptorSetsMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="140" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a019773dcdc0c9d6561fbcd85eea2f2eb" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt;</type>
+        <definition>std::unordered_map&lt;std::string, VkDescriptorSetLayout_T*&gt; VulkanSwapchainManager::DescriptorLayoutsByShader</definition>
+        <argsstring></argsstring>
+        <name>DescriptorLayoutsByShader</name>
+        <qualifiedname>VulkanSwapchainManager::DescriptorLayoutsByShader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="142" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1ad60d8fac8797493d6c82ac4ba5a151ec" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *, <ref refid="struct_s___texture_data" kindref="compound">S_TextureData</ref> &gt;</type>
+        <definition>std::unordered_map&lt;S_Texture*, S_TextureData&gt; VulkanSwapchainManager::TextureDataMap</definition>
+        <argsstring></argsstring>
+        <name>TextureDataMap</name>
+        <qualifiedname>VulkanSwapchainManager::TextureDataMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="143" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_swapchain_manager_1a00c82010251f25a3b7260cb1b2b895c2" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+        <definition>VulkanManager* VulkanSwapchainManager::Manager</definition>
+        <argsstring></argsstring>
+        <name>Manager</name>
+        <qualifiedname>VulkanSwapchainManager::Manager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="145" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a1ce48cd4916564abbb4144f5f4c75bc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanSwapchainManager::VulkanSwapchainManager</definition>
+        <argsstring>(VulkanManager *manager)</argsstring>
+        <name>VulkanSwapchainManager</name>
+        <qualifiedname>VulkanSwapchainManager::VulkanSwapchainManager</qualifiedname>
+        <param>
+          <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="65" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a6eaa08f7cec249594bc9af51047b5e47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanSwapchainManager::~VulkanSwapchainManager</definition>
+        <argsstring>()</argsstring>
+        <name>~VulkanSwapchainManager</name>
+        <qualifiedname>VulkanSwapchainManager::~VulkanSwapchainManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="66" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a8fd8ee951a81ad8a5068bb1ab63a757f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkSurfaceFormatKHR</type>
+        <definition>VkSurfaceFormatKHR VulkanSwapchainManager::ChooseSwapSurfaceFormat</definition>
+        <argsstring>(const std::vector&lt; VkSurfaceFormatKHR &gt; availableFormats)</argsstring>
+        <name>ChooseSwapSurfaceFormat</name>
+        <qualifiedname>VulkanSwapchainManager::ChooseSwapSurfaceFormat</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkSurfaceFormatKHR &gt;</type>
+          <declname>availableFormats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="69" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="37" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a031a63761f0e337103cdc0c5dc05284a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkPresentModeKHR</type>
+        <definition>VkPresentModeKHR VulkanSwapchainManager::ChooseSwapPresentMode</definition>
+        <argsstring>(const std::vector&lt; VkPresentModeKHR &gt; &amp;availablePresentModes)</argsstring>
+        <name>ChooseSwapPresentMode</name>
+        <qualifiedname>VulkanSwapchainManager::ChooseSwapPresentMode</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkPresentModeKHR &gt; &amp;</type>
+          <declname>availablePresentModes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="70" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="50" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ace75c40a88a0cb7222ed09bf6aa42d77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkExtent2D</type>
+        <definition>VkExtent2D VulkanSwapchainManager::ChooseSwapExtent</definition>
+        <argsstring>(const VkSurfaceCapabilitiesKHR *capabilities)</argsstring>
+        <name>ChooseSwapExtent</name>
+        <qualifiedname>VulkanSwapchainManager::ChooseSwapExtent</qualifiedname>
+        <param>
+          <type>const VkSurfaceCapabilitiesKHR *</type>
+          <declname>capabilities</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="71" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="60" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a7723137432b6d07f111510dd4fab6f4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateSwapChain</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSwapChain</name>
+        <qualifiedname>VulkanSwapchainManager::CreateSwapChain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="73" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="80" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ad073c1e97745d57d28a1b8d5d66a1e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateImageViews</definition>
+        <argsstring>()</argsstring>
+        <name>CreateImageViews</name>
+        <qualifiedname>VulkanSwapchainManager::CreateImageViews</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="75" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="136" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a14c9c0d5e0fdd52f0d4a1ae3e4688a9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkImageView_T *</type>
+        <definition>VkImageView_T * VulkanSwapchainManager::CreateImageView</definition>
+        <argsstring>(VkImage_T *image, VkFormat format, VkImageAspectFlags aspectFlags)</argsstring>
+        <name>CreateImageView</name>
+        <qualifiedname>VulkanSwapchainManager::CreateImageView</qualifiedname>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" kindref="member">VkImageAspectFlags</ref></type>
+          <declname>aspectFlags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="76" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="145" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a9687d1e5b5289269e183c3d8f0674c4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateRenderPass</definition>
+        <argsstring>()</argsstring>
+        <name>CreateRenderPass</name>
+        <qualifiedname>VulkanSwapchainManager::CreateRenderPass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="77" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="167" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ac805e3c32dd1a7f47a19e33afdf9f0af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateImage</definition>
+        <argsstring>(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T *&amp;image, VkDeviceMemory_T *&amp;imageMemory)</argsstring>
+        <name>CreateImage</name>
+        <qualifiedname>VulkanSwapchainManager::CreateImage</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>VkImageTiling</type>
+          <declname>tiling</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" kindref="member">VkImageUsageFlags</ref></type>
+          <declname>usage</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref></type>
+          <declname>properties</declname>
+        </param>
+        <param>
+          <type>VkImage_T *&amp;</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkDeviceMemory_T *&amp;</type>
+          <declname>imageMemory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="78" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="227" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a7b354080d3cfbb054fdc9772db643b56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateDepthResources</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDepthResources</name>
+        <qualifiedname>VulkanSwapchainManager::CreateDepthResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="79" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="265" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a0f5362626d30524092d3c1f2cd89ce1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateFramebuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateFramebuffers</name>
+        <qualifiedname>VulkanSwapchainManager::CreateFramebuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="80" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="274" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a22df6a1996a2afc5b3cee779ded2c7d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateUniformBuffers</definition>
+        <argsstring>()</argsstring>
+        <name>CreateUniformBuffers</name>
+        <qualifiedname>VulkanSwapchainManager::CreateUniformBuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="81" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="298" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a1fb4d08af0053fd690cdf10b2aeaa4c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateDescriptorSetLayouts</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorSetLayouts</name>
+        <qualifiedname>VulkanSwapchainManager::CreateDescriptorSetLayouts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="82" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="343" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a78317ec976a8be58656dda76310d24c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateDescriptorPool</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorPool</name>
+        <qualifiedname>VulkanSwapchainManager::CreateDescriptorPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="83" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="425" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a5f87eaa2ed9df4c246df5b0136c647eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateDescriptorSets</definition>
+        <argsstring>()</argsstring>
+        <name>CreateDescriptorSets</name>
+        <qualifiedname>VulkanSwapchainManager::CreateDescriptorSets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="84" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="450" bodyend="593"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a8065f8027198ed42a4b6213f4ee0e418" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateTextureImage</definition>
+        <argsstring>()</argsstring>
+        <name>CreateTextureImage</name>
+        <qualifiedname>VulkanSwapchainManager::CreateTextureImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="85" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="595" bodyend="635"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1aa3ee47b6718a426803cabd199e6be1f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CreateTextureSampler</definition>
+        <argsstring>(VkSampler_T *&amp;sampler)</argsstring>
+        <name>CreateTextureSampler</name>
+        <qualifiedname>VulkanSwapchainManager::CreateTextureSampler</qualifiedname>
+        <param>
+          <type>VkSampler_T *&amp;</type>
+          <declname>sampler</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="86" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="637" bodyend="661"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a65efa17d731847cee0f6c85607f37faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::RecreationCleanUp</definition>
+        <argsstring>()</argsstring>
+        <name>RecreationCleanUp</name>
+        <qualifiedname>VulkanSwapchainManager::RecreationCleanUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="88" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="663" bodyend="686"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1aa8ce875c0b30d7706b7ecd18094c2e59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::FinalCleanUp</definition>
+        <argsstring>()</argsstring>
+        <name>FinalCleanUp</name>
+        <qualifiedname>VulkanSwapchainManager::FinalCleanUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="89" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="688" bodyend="704"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a8e13115e202a8e3f5e67e2cfa6010bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanSwapchainManager::FindSupportedFormat</definition>
+        <argsstring>(const std::vector&lt; VkFormat &gt; &amp;candidates, VkImageTiling tiling, VkFormatFeatureFlags features)</argsstring>
+        <name>FindSupportedFormat</name>
+        <qualifiedname>VulkanSwapchainManager::FindSupportedFormat</qualifiedname>
+        <param>
+          <type>const std::vector&lt; VkFormat &gt; &amp;</type>
+          <declname>candidates</declname>
+        </param>
+        <param>
+          <type>VkImageTiling</type>
+          <declname>tiling</declname>
+        </param>
+        <param>
+          <type><ref refid="_vulkan_renderer_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" kindref="member">VkFormatFeatureFlags</ref></type>
+          <declname>features</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="91" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="706" bodyend="724"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a66c6909cc00edc58f87f94cb258aef96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkFormat</type>
+        <definition>VkFormat VulkanSwapchainManager::FindDepthFormat</definition>
+        <argsstring>()</argsstring>
+        <name>FindDepthFormat</name>
+        <qualifiedname>VulkanSwapchainManager::FindDepthFormat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="92" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="726" bodyend="730"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1acd8bb5022376987fc6e376d204458225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::TransitionImageLayout</definition>
+        <argsstring>(VkImage_T *image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)</argsstring>
+        <name>TransitionImageLayout</name>
+        <qualifiedname>VulkanSwapchainManager::TransitionImageLayout</qualifiedname>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>VkImageLayout</type>
+          <declname>oldLayout</declname>
+        </param>
+        <param>
+          <type>VkImageLayout</type>
+          <declname>newLayout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="93" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="732" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ad4f23eb999d9a8f90870852fa8d97dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool VulkanSwapchainManager::HasStencilComponent</definition>
+        <argsstring>(VkFormat format)</argsstring>
+        <name>HasStencilComponent</name>
+        <qualifiedname>VulkanSwapchainManager::HasStencilComponent</qualifiedname>
+        <param>
+          <type>VkFormat</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="94" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="799" bodyend="802"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ae88c46b746790210aa06147c3df1eb1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::CopyBufferToImage</definition>
+        <argsstring>(VkBuffer_T *buffer, VkImage_T *image, unsigned int width, unsigned int height)</argsstring>
+        <name>CopyBufferToImage</name>
+        <qualifiedname>VulkanSwapchainManager::CopyBufferToImage</qualifiedname>
+        <param>
+          <type>VkBuffer_T *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>VkImage_T *</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="95" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="804" bodyend="824"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a4c610260ff5d865b331a4f7a5ec503c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkExtent2D *</type>
+        <definition>VkExtent2D * VulkanSwapchainManager::GetExtent</definition>
+        <argsstring>() const</argsstring>
+        <name>GetExtent</name>
+        <qualifiedname>VulkanSwapchainManager::GetExtent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="97" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a10d461a65cf265a985826ffa2ee3cc45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkRenderPass_T *</type>
+        <definition>VkRenderPass_T * VulkanSwapchainManager::GetRenderPass</definition>
+        <argsstring>() const</argsstring>
+        <name>GetRenderPass</name>
+        <qualifiedname>VulkanSwapchainManager::GetRenderPass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="98" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a8124d82d5088cd3aa3bcfb2fe509ec81" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; VkFramebuffer_T * &gt;</type>
+        <definition>std::vector&lt; VkFramebuffer_T * &gt; VulkanSwapchainManager::GetFramebuffers</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFramebuffers</name>
+        <qualifiedname>VulkanSwapchainManager::GetFramebuffers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="99" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1af842a4c57909121a978f28d1e2fae1b0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; <ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *, std::vector&lt; VkDescriptorSet_T * &gt; &gt;</type>
+        <definition>std::unordered_map&lt; FMatrix4 *, std::vector&lt; VkDescriptorSet_T * &gt; &gt; VulkanSwapchainManager::GetDescriptorSetsMap</definition>
+        <argsstring>() const</argsstring>
+        <name>GetDescriptorSetsMap</name>
+        <qualifiedname>VulkanSwapchainManager::GetDescriptorSetsMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="100" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a6d261ab435d653af4d137083441739ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; VkImage_T * &gt;</type>
+        <definition>std::vector&lt; VkImage_T * &gt; VulkanSwapchainManager::GetImages</definition>
+        <argsstring>() const</argsstring>
+        <name>GetImages</name>
+        <qualifiedname>VulkanSwapchainManager::GetImages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="101" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a1ce838552d74fb2652ef65f9830dac26" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkSwapchainKHR_T *</type>
+        <definition>VkSwapchainKHR_T * VulkanSwapchainManager::GetSwapchain</definition>
+        <argsstring>() const</argsstring>
+        <name>GetSwapchain</name>
+        <qualifiedname>VulkanSwapchainManager::GetSwapchain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="102" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1af1be918f69f619b5acda0809329e57d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt;</type>
+        <definition>std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt; VulkanSwapchainManager::GetDescriptorLayoutsByShader</definition>
+        <argsstring>() const</argsstring>
+        <name>GetDescriptorLayoutsByShader</name>
+        <qualifiedname>VulkanSwapchainManager::GetDescriptorLayoutsByShader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="103" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a0498973d310eb7ed7f3f37fad78c279e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanSwapchainManager::UpdateBuffers</definition>
+        <argsstring>(unsigned int currentImageIndex)</argsstring>
+        <name>UpdateBuffers</name>
+        <qualifiedname>VulkanSwapchainManager::UpdateBuffers</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>currentImageIndex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="106" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="826" bodyend="865"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1ab86ff194e02a4d2e68eef1555b3334db" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>VkShaderStageFlagBits</type>
+        <definition>VkShaderStageFlagBits VulkanSwapchainManager::GetVulkanShaderStageFlag</definition>
+        <argsstring>(E_ShaderStage stage) const</argsstring>
+        <name>GetVulkanShaderStageFlag</name>
+        <qualifiedname>VulkanSwapchainManager::GetVulkanShaderStageFlag</qualifiedname>
+        <param>
+          <type><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref></type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="110" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="867" bodyend="888"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a6e4b42e7924470dc7148e559339a00db" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>VkDescriptorType</type>
+        <definition>VkDescriptorType VulkanSwapchainManager::GetVulkanDescriptorType</definition>
+        <argsstring>(E_ShaderVariableType type) const</argsstring>
+        <name>GetVulkanDescriptorType</name>
+        <qualifiedname>VulkanSwapchainManager::GetVulkanDescriptorType</qualifiedname>
+        <param>
+          <type><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="111" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="890" bodyend="923"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a095dac47c778274379064eea014ea600" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; VkWriteDescriptorSet &gt;</type>
+        <definition>std::vector&lt; VkWriteDescriptorSet &gt; VulkanSwapchainManager::CreateDescriptorWritesFromMaterial</definition>
+        <argsstring>(Material *material, int currentImage)</argsstring>
+        <name>CreateDescriptorWritesFromMaterial</name>
+        <qualifiedname>VulkanSwapchainManager::CreateDescriptorWritesFromMaterial</qualifiedname>
+        <param>
+          <type><ref refid="class_material" kindref="compound">Material</ref> *</type>
+          <declname>material</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentImage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="113" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="925" bodyend="959"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a7c89e8240cc56e10f786f5a76844ce56" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkWriteDescriptorSet</type>
+        <definition>VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite</definition>
+        <argsstring>(ShaderVariableInfo info, void *data)</argsstring>
+        <name>CreateCombinedImageSamplerWrite</name>
+        <qualifiedname>VulkanSwapchainManager::CreateCombinedImageSamplerWrite</qualifiedname>
+        <param>
+          <type><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="114" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="961" bodyend="976"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_swapchain_manager_1a230d765c0fb7fe1777a0bafeca1e1586" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkWriteDescriptorSet</type>
+        <definition>VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite</definition>
+        <argsstring>(Material *material, int currentImage, ShaderVariableInfo info, void *data)</argsstring>
+        <name>CreateUniformBufferWrite</name>
+        <qualifiedname>VulkanSwapchainManager::CreateUniformBufferWrite</qualifiedname>
+        <param>
+          <type><ref refid="class_material" kindref="compound">Material</ref> *</type>
+          <declname>material</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentImage</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="115" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp" bodystart="978" bodyend="997"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="7">
+        <label>QueueStruct</label>
+        <link refid="struct_queue_struct"/>
+      </node>
+      <node id="3">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="8">
+        <label>S_RenderData</label>
+        <link refid="struct_s___render_data"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>VulkanDebugger</label>
+        <link refid="class_vulkan_debugger"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VulkanDevices</label>
+        <link refid="class_vulkan_devices"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>VulkanManager</label>
+        <link refid="class_vulkan_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Debugger</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Devices</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>GraphicsPipelineManager</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>SwapchainManager</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Queues</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>RenderData</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>VulkanPipelineManager</label>
+        <link refid="class_vulkan_pipeline_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VulkanSwapchainManager</label>
+        <link refid="class_vulkan_swapchain_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="62" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="63" bodyend="146"/>
+    <listofallmembers>
+      <member refid="class_vulkan_swapchain_manager_1a07bd99f3e1316c2a5299db42bd905da1" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CameraData</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ace75c40a88a0cb7222ed09bf6aa42d77" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ChooseSwapExtent</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a031a63761f0e337103cdc0c5dc05284a" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ChooseSwapPresentMode</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a8fd8ee951a81ad8a5068bb1ab63a757f" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ChooseSwapSurfaceFormat</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ae88c46b746790210aa06147c3df1eb1c" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CopyBufferToImage</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a7c89e8240cc56e10f786f5a76844ce56" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateCombinedImageSamplerWrite</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a7b354080d3cfbb054fdc9772db643b56" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateDepthResources</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a78317ec976a8be58656dda76310d24c4" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateDescriptorPool</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a1fb4d08af0053fd690cdf10b2aeaa4c4" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateDescriptorSetLayouts</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a5f87eaa2ed9df4c246df5b0136c647eb" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateDescriptorSets</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a095dac47c778274379064eea014ea600" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateDescriptorWritesFromMaterial</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a0f5362626d30524092d3c1f2cd89ce1c" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateFramebuffers</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ac805e3c32dd1a7f47a19e33afdf9f0af" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateImage</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a14c9c0d5e0fdd52f0d4a1ae3e4688a9e" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateImageView</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ad073c1e97745d57d28a1b8d5d66a1e0b" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateImageViews</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a9687d1e5b5289269e183c3d8f0674c4c" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateRenderPass</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a7723137432b6d07f111510dd4fab6f4e" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateSwapChain</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a8065f8027198ed42a4b6213f4ee0e418" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateTextureImage</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aa3ee47b6718a426803cabd199e6be1f9" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateTextureSampler</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a22df6a1996a2afc5b3cee779ded2c7d6" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateUniformBuffers</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a230d765c0fb7fe1777a0bafeca1e1586" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>CreateUniformBufferWrite</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a76393f92d2691518b0ad387dced8f024" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DepthImage</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aefd057eddafaeadc6fdce0f5150228f0" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DepthImageMemory</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a4e48a3506a6fd06444dbeeed5d50fdb4" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DepthImageView</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a019773dcdc0c9d6561fbcd85eea2f2eb" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DescriptorLayoutsByShader</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aa16c2004dd1b2ef28666ebce88766951" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DescriptorPool</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a385330f2ef9e616a3d84b8dd5e67fd48" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>DescriptorSetsMap</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ab7ad479a7f5095e062a008fc46832ce6" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>Extent</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aa8ce875c0b30d7706b7ecd18094c2e59" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>FinalCleanUp</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a66c6909cc00edc58f87f94cb258aef96" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>FindDepthFormat</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a8e13115e202a8e3f5e67e2cfa6010bc9" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>FindSupportedFormat</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aac1688c5f1edc455f33391a7174478e3" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>Framebuffers</name></member>
+      <member refid="class_vulkan_swapchain_manager_1af1be918f69f619b5acda0809329e57d1" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetDescriptorLayoutsByShader</name></member>
+      <member refid="class_vulkan_swapchain_manager_1af842a4c57909121a978f28d1e2fae1b0" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetDescriptorSetsMap</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a4c610260ff5d865b331a4f7a5ec503c8" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetExtent</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a8124d82d5088cd3aa3bcfb2fe509ec81" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetFramebuffers</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a6d261ab435d653af4d137083441739ba" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetImages</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a10d461a65cf265a985826ffa2ee3cc45" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetRenderPass</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a1ce838552d74fb2652ef65f9830dac26" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetSwapchain</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a6e4b42e7924470dc7148e559339a00db" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetVulkanDescriptorType</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ab86ff194e02a4d2e68eef1555b3334db" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>GetVulkanShaderStageFlag</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ad4f23eb999d9a8f90870852fa8d97dea" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>HasStencilComponent</name></member>
+      <member refid="class_vulkan_swapchain_manager_1afc7bd364fb3e3a41bca4f62f4f675fef" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ImageFormat</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a832b418d1979b268ac3404b667d0e270" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>Images</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a5b2ce79658a0417f60b23668fd6632db" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ImageViews</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a4568ca8f75fee05e3847e8aef63a43a2" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>LightsData</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a00c82010251f25a3b7260cb1b2b895c2" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>Manager</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a864db93bf880909b5150dc139d627ad2" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>MaterialMap</name></member>
+      <member refid="class_vulkan_swapchain_manager_1aac741b9efcd880d77d01027c15eefa89" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>ModelMap</name></member>
+      <member refid="class_vulkan_swapchain_manager_1af7517a5155ee97425118ac63e2b7d32b" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>NumberOfLightsData</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a65efa17d731847cee0f6c85607f37faa" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>RecreationCleanUp</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ab3dd5f27e0862acff6bd7636db6f606b" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>RenderPass</name></member>
+      <member refid="class_vulkan_swapchain_manager_1acd645defc4a72233211f8366fb8239e9" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>Swapchain</name></member>
+      <member refid="class_vulkan_swapchain_manager_1ad60d8fac8797493d6c82ac4ba5a151ec" prot="protected" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>TextureDataMap</name></member>
+      <member refid="class_vulkan_swapchain_manager_1acd8bb5022376987fc6e376d204458225" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>TransitionImageLayout</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a0498973d310eb7ed7f3f37fad78c279e" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>UpdateBuffers</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a1ce48cd4916564abbb4144f5f4c75bc8" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>VulkanSwapchainManager</name></member>
+      <member refid="class_vulkan_swapchain_manager_1a6eaa08f7cec249594bc9af51047b5e47" prot="public" virt="non-virtual"><scope>VulkanSwapchainManager</scope><name>~VulkanSwapchainManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

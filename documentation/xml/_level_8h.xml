@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_level_8h" kind="file" language="C++">
+    <compoundname>Level.h</compoundname>
+    <includes local="yes">../Engine/Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_f_transform_8h" local="yes">../Math/FTransform.h</includes>
+    <includes refid="_debug_logger_8h" local="yes">DebugLogger.h</includes>
+    <includes local="no">set</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">string</includes>
+    <includedby refid="_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</includedby>
+    <includedby refid="_directional_light_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp</includedby>
+    <includedby refid="_light_source_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSource.cpp</includedby>
+    <includedby refid="_light_source_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</includedby>
+    <includedby refid="_collision_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</includedby>
+    <includedby refid="_game_object_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</includedby>
+    <includedby refid="_apple_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Apple.cpp</includedby>
+    <includedby refid="_billiard_level_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.h</includedby>
+    <includedby refid="_g_o___triangle_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/GO_Triangle.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+      </node>
+      <node id="4">
+        <label>DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.h</label>
+        <link refid="_level_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="6">
+        <label>set</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>unordered_map</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.h</label>
+        <link refid="_level_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp</label>
+        <link refid="_directional_light_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSource.cpp</label>
+        <link refid="_light_source_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</label>
+        <link refid="_light_source_component_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</label>
+        <link refid="_game_object_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Apple.cpp</label>
+        <link refid="_apple_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardGame.cpp</label>
+        <link refid="_billiard_game_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</label>
+        <link refid="_billiard_level_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.h</label>
+        <link refid="_billiard_level_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/GO_Triangle.cpp</label>
+        <link refid="_g_o___triangle_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_l___level" prot="public">L_Level</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>O_LEVEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>O_LEVEL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Engine/Objects/GameObjects/GameObject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FTransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_debug_logger_8h" kindref="compound">DebugLogger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_material" kindref="compound">Material</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_l___level" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l___level" kindref="compound">L_Level</ref></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_l___level_1a924d84c7628b6b86ae392628767d980d" kindref="member">L_Level</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>worldSize<sp/>=<sp/>100.0f);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1ac0e7d6311fcf114a0f23ee9c0a1216aa" kindref="member">~L_Level</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a8f3551ff46035df641777d81291fb383" kindref="member">Initialize</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a69e2e0b9d9ae1157de30fdc2456877dd" kindref="member">Start</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1af5edb17c2937fb86cebdf5558894605b" kindref="member">PreUpdate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a3849744f2dd3308bd522b01c5c4b6e09" kindref="member">Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a6e517c278d6d3cf173824f16ea5dc7e8" kindref="member">PostUpdate</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1af9dc6c276022ffb9890fe4aa2186bd70" kindref="member">Render</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a18dd350931ff42e0e18af13cba7fa106" kindref="member">CheckForCamera</ref>();</highlight></codeline>
+<codeline lineno="39" refid="class_l___level_1a06504427f7c296c1f8ea11a7db25ba70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a06504427f7c296c1f8ea11a7db25ba70" kindref="member">SetCamera</ref>(<ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/>camera)<sp/>{<sp/><ref refid="class_l___level_1ac78099f07f66c44abc61dd60d097db18" kindref="member">NextCamera</ref><sp/>=<sp/>camera;}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">Class&gt;</highlight></codeline>
+<codeline lineno="42" refid="class_l___level_1a76a596a09acf908023eb7b2dab0d3609" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>objectClass*<sp/><ref refid="class_l___level_1a76a596a09acf908023eb7b2dab0d3609" kindref="member">SpawnGameObjectOfClass</ref>(<ref refid="struct_f_transform" kindref="compound">FTransform</ref><sp/>transform<sp/>=<sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>(),<sp/>std::string<sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_assert</highlight><highlight class="normal">(std::is_base_of&lt;O_GameObject,<sp/>objectClass&gt;::value,<sp/></highlight><highlight class="stringliteral">&quot;objectClass<sp/>must<sp/>derive<sp/>from<sp/>O_GameObject!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>objectClass*<sp/>gameObject<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>objectClass(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>name);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(gameObject))</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Invalid<sp/>GameObject<sp/>class:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>std::string(</highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(gameObject).name()),<sp/></highlight><highlight class="stringliteral">&quot;Core/Level.h&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(gameObject);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gameObject<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(gameObject)-&gt;SetTransform(transform);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_l___level_1a122b50e4b3bfc94ef69011dfdf4a7dc4" kindref="member">UnloadedObjects</ref>.insert(gameObject);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gameObject;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">Class&gt;</highlight></codeline>
+<codeline lineno="59" refid="class_l___level_1a850ec23bbc62ec385d29b7aeac30b067" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;objectClass*&gt;<sp/><ref refid="class_l___level_1a850ec23bbc62ec385d29b7aeac30b067" kindref="member">GetAllObjectsOfClass</ref>()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_assert</highlight><highlight class="normal">(std::is_base_of&lt;O_Object,<sp/>objectClass&gt;::value,<sp/></highlight><highlight class="stringliteral">&quot;objectClass<sp/>must<sp/>derive<sp/>from<sp/>O_Object!&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::set&lt;objectClass*&gt;<sp/>result;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>:<sp/><ref refid="class_l___level_1a850ec23bbc62ec385d29b7aeac30b067" kindref="member">GetAllObjectsOfClass</ref>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal">objectClass*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">))<sp/>result.insert(</highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal">objectClass*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Loaders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a185b54dffdc08e7c8faa1436348dbf3b" kindref="member">LoadModels</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a7727df8e8a304cac037aad6581da99be" kindref="member">LoadMaterialLibrary</ref>();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a39f90b40f2ffdc496aec50dc2e651375" kindref="member">LoadMaterial</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a0ca7d69e16ccff05d0fc2d8fb789737c" kindref="member">LoadTexture</ref>(<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*&amp;<sp/>texture,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>textureName);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a57ea36bbb596a733a5930c9fb4b54c60" kindref="member">LoadLevelObjects</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a373d813971794f37048e2b4145fe1719" kindref="member">LoadCamera</ref>(<ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/>camera);</highlight></codeline>
+<codeline lineno="79" refid="class_l___level_1a0315cf212e03b1093d45fda58814a8a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">&amp;<sp/><ref refid="class_l___level_1a0315cf212e03b1093d45fda58814a8a4" kindref="member">GetWorldSize</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a82413d684e905280aa1c3ce82f6b996a" kindref="member">WorldSize</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="class_l___level_1ae0fdfcfc6b6adf2b1f95ace1539ab59f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="class_l___level_1ae0fdfcfc6b6adf2b1f95ace1539ab59f" kindref="member">Name</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1ab2b2400335b263e1d699b57357a14c66" kindref="member">FindAnyCamera</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a71360d6005881ce304ed7e6d262de6cf" kindref="member">ChangeCamera</ref>();</highlight></codeline>
+<codeline lineno="87" refid="class_l___level_1a122b50e4b3bfc94ef69011dfdf4a7dc4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;O_Object*&gt;<sp/><ref refid="class_l___level_1a122b50e4b3bfc94ef69011dfdf4a7dc4" kindref="member">UnloadedObjects</ref>;</highlight></codeline>
+<codeline lineno="88" refid="class_l___level_1ac78099f07f66c44abc61dd60d097db18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/><ref refid="class_l___level_1ac78099f07f66c44abc61dd60d097db18" kindref="member">NextCamera</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="class_l___level_1a1a6d144e24d789ad449aca8a48267c1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;std::string&gt;<sp/><ref refid="class_l___level_1a1a6d144e24d789ad449aca8a48267c1a" kindref="member">ModelPaths</ref>;</highlight></codeline>
+<codeline lineno="91" refid="class_l___level_1ac1105128e96ceff471fe510dc6bfe057" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;std::string&gt;<sp/><ref refid="class_l___level_1ac1105128e96ceff471fe510dc6bfe057" kindref="member">MaterialPaths</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="class_l___level_1a82413d684e905280aa1c3ce82f6b996a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_l___level_1a82413d684e905280aa1c3ce82f6b996a" kindref="member">WorldSize</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_directional_light_8h" kind="file" language="C++">
+    <compoundname>DirectionalLight.h</compoundname>
+    <includes refid="_light_source_8h" local="yes">../FX/LightSource.h</includes>
+    <includedby refid="_directional_light_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp</includedby>
+    <includedby refid="_l___main_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</includedby>
+    <includedby refid="_l___tetrahedron_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.h</label>
+        <link refid="_directional_light_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../FX/LightSource.h</label>
+        <link refid="_light_source_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.cpp</label>
+        <link refid="_directional_light_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.h</label>
+        <link refid="_directional_light_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</label>
+        <link refid="_l___main_level_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_o___directional_light" prot="public">GO_DirectionalLight</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>GO_DIRECTIONALLIGHT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GO_DIRECTIONALLIGHT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../FX/LightSource.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_g_o___directional_light" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_o___directional_light" kindref="compound">GO_DirectionalLight</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_g_o___light_source" kindref="compound">GO_LightSource</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___directional_light_1a186c8a07619bce59c3b9c78fc407eb8d" kindref="member">GO_DirectionalLight</ref>(<ref refid="class_l___level" kindref="compound">L_Level</ref>*<sp/>level,<sp/>std::string<sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="10" refid="class_g_o___directional_light_1a75fca7686bdc968aef8a4cb95b55d34a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___directional_light_1a75fca7686bdc968aef8a4cb95b55d34a" kindref="member">SetLightType</ref>(<ref refid="_light_source_component_8h_1a5320577d08b67bf924bfd9569ae59d35" kindref="member">E_LightType</ref><sp/>type)<sp/><sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLight.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_pawn_8cpp" kind="file" language="C++">
+    <compoundname>Pawn.cpp</compoundname>
+    <includes refid="_pawn_8h" local="yes">Pawn.h</includes>
+    <includes refid="_camera_component_8h" local="yes">Objects/Components/CameraComponent.h</includes>
+    <includes refid="_movement_component_8h" local="yes">Objects/Components/MovementComponent.h</includes>
+    <includes refid="_static_mesh_component_8h" local="yes">Objects/Components/StaticMeshComponent.h</includes>
+    <includes refid="_i_vector2_8h" local="yes">Math/IVector2.h</includes>
+    <includes refid="_f_vector2_8h" local="yes">Math/FVector2.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <includes refid="_f_quaternion_8h" local="yes">Math/FQuaternion.h</includes>
+    <includes refid="_mouse_event_handler_8h" local="yes">Event/MouseEventHandler.h</includes>
+    <includes refid="_event_listener_8h" local="yes">Event/EventListener.h</includes>
+    <includes refid="_ray_8h" local="yes">Geometry/Ray.h</includes>
+    <includes refid="_collision_component_8h" local="yes">Objects/Components/Colliders/CollisionComponent.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">SDL.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Event/EventListener.h</label>
+        <link refid="_event_listener_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Event/MouseEventHandler.h</label>
+        <link refid="_mouse_event_handler_8h"/>
+      </node>
+      <node id="13">
+        <label>Geometry/Plane.h</label>
+        <link refid="_plane_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Geometry/Ray.h</label>
+        <link refid="_ray_8h"/>
+      </node>
+      <node id="28">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="20">
+        <label>Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Math/FVector2.h</label>
+        <link refid="_f_vector2_8h"/>
+      </node>
+      <node id="9">
+        <label>../Engine/Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="14">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="18">
+        <label>Math/IVector2.h</label>
+        <link refid="_i_vector2_8h"/>
+      </node>
+      <node id="10">
+        <label>Objects/Components/CameraComponent.h</label>
+        <link refid="_camera_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Objects/Components/MovementComponent.h</label>
+        <link refid="_movement_component_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>RenderableComponent.h</label>
+        <link refid="_renderable_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Objects/Components/StaticMeshComponent.h</label>
+        <link refid="_static_mesh_component_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Pawn.h</label>
+        <link refid="_pawn_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>SDL.h</label>
+      </node>
+      <node id="30">
+        <label>array</label>
+      </node>
+      <node id="31">
+        <label>iostream</label>
+      </node>
+      <node id="23">
+        <label>map</label>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="24">
+        <label>unordered_map</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_pawn_8h" kindref="compound">Pawn.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_camera_component_8h" kindref="compound">Objects/Components/CameraComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_movement_component_8h" kindref="compound">Objects/Components/MovementComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_static_mesh_component_8h" kindref="compound">Objects/Components/StaticMeshComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_i_vector2_8h" kindref="compound">Math/IVector2.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector2_8h" kindref="compound">Math/FVector2.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_quaternion_8h" kindref="compound">Math/FQuaternion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_mouse_event_handler_8h" kindref="compound">Event/MouseEventHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_event_listener_8h" kindref="compound">Event/EventListener.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_ray_8h" kindref="compound">Geometry/Ray.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_component_8h" kindref="compound">Objects/Components/Colliders/CollisionComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_i_vector2_8h" kindref="compound">Math/IVector2.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_g_o___pawn_1af319ac40a82ebc6fca627f2132f5f686" refkind="member"><highlight class="normal"><ref refid="class_g_o___pawn_1af319ac40a82ebc6fca627f2132f5f686" kindref="member">GO_Pawn::GO_Pawn</ref>(<ref refid="class_l___level" kindref="compound">L_Level</ref>*<sp/>level,<sp/>std::string<sp/>name)<sp/>:<sp/><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>(level,<sp/>name)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*Mesh<sp/>=<sp/>AddComponentOfClass&lt;C_StaticMeshComponent&gt;();</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/>Mesh-&gt;SetMeshName(&quot;Box001&quot;);</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/>Mesh-&gt;SetMaterialName(&quot;M_diceTexture&quot;);</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/>Mesh-&gt;SetComponentScale({<sp/>0.3f,<sp/>0.3f,<sp/>0.3f<sp/>});</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/>Mesh-&gt;SetComponentPosition({<sp/>0.0f,<sp/>0.0,<sp/>0.0<sp/>});*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" kindref="member">Camera</ref><sp/>=<sp/>AddComponentOfClass&lt;C_CameraComponent&gt;();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" kindref="member">Camera</ref>-&gt;<ref refid="class_c___transform_component_1aa9d5ee105ac143d71d72c01916d40671" kindref="member">SetComponentPosition</ref>({<sp/>0.0f,<sp/>0.0f,<sp/>5.0f<sp/>});</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1ae8b383cef7d40617dcb704d336fab497" kindref="member">Movement</ref><sp/>=<sp/>AddComponentOfClass&lt;C_MovementComponent&gt;();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">MoveForward</ref>,<sp/>SDL_KEYDOWN,<sp/>SDLK_w);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" kindref="member">MoveBackwards</ref>,<sp/>SDL_KEYDOWN,<sp/>SDLK_s);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">StopMoving</ref>,<sp/>SDL_KEYUP,<sp/>SDLK_w);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">StopMoving</ref>,<sp/>SDL_KEYUP,<sp/>SDLK_s);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" kindref="member">TurnRight</ref>,<sp/>SDL_KEYDOWN,<sp/>SDLK_d);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" kindref="member">TurnLeft</ref>,<sp/>SDL_KEYDOWN,<sp/>SDLK_a);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">StopTurning</ref>,<sp/>SDL_KEYUP,<sp/>SDLK_d);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">StopTurning</ref>,<sp/>SDL_KEYUP,<sp/>SDLK_a);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//EventListener::AddFunctionByInput(this,<sp/>TurnCamera,<sp/>SDL_MOUSEMOTION,<sp/>SDLK_UNKNOWN);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">Grab</ref>,<sp/>SDL_MOUSEBUTTONDOWN,<sp/>SDL_BUTTON_LEFT);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" kindref="member">PrintFrustum</ref>,<sp/>SDL_KEYUP,<sp/>SDLK_c);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="class_g_o___pawn_1adb66a176e0313c387f8c45b6216fda6d" refkind="member"><highlight class="normal"><ref refid="class_g_o___pawn_1adb66a176e0313c387f8c45b6216fda6d" kindref="member">GO_Pawn::~GO_Pawn</ref>()</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_g_o___pawn_1ae4647d217de8c40c35230c0f3ae7c4bf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ae4647d217de8c40c35230c0f3ae7c4bf" kindref="member">GO_Pawn::Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___game_object_1ac8207fd90a3674463f77f69d57bb3a49" kindref="member">O_GameObject::Update</ref>(deltaTime);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">GO_Pawn::MoveForward</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">MoveForward</ref>(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" kindref="member">GO_Pawn::MoveBackwards</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">MoveForward</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="class_g_o___pawn_1ae5698a179f30119b1f4bf474544782b7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">GO_Pawn::StopMoving</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">StopMoving</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" kindref="member">GO_Pawn::TurnRight</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" kindref="member">Turn</ref>(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" kindref="member">GO_Pawn::TurnLeft</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" kindref="member">Turn</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="class_g_o___pawn_1a33495262054a77642aab8f039624fb7b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">GO_Pawn::StopTurning</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">StopTurning</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" kindref="member">GO_Pawn::TurnCamera</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_i_vector2" kindref="compound">IVector2</ref><sp/>offset<sp/>=<sp/><ref refid="class_mouse_event_handler_1a1c3ff861920008642a7403a309ad8998" kindref="member">MouseEventHandler::GetCursorOffset</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" kindref="member">TurnCamera</ref>({(float)offset.<ref refid="class_i_vector2_1ad7a8142d65cc58bf4da9dd10ad8d9845" kindref="member">X</ref>,<sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)offset.<ref refid="class_i_vector2_1a55c7ce04311435f90055b7d0bcb8e52a" kindref="member">Y</ref>});</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" kindref="member">GO_Pawn::ZoomCamera</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" kindref="member">GO_Pawn::PrintFrustum</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" kindref="member">Camera</ref>-&gt;<ref refid="class_c___camera_component_1ad83cfba383c54b47761975fa4cb33973" kindref="member">PrintFrustum</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="class_g_o___pawn_1a1e04ac110257cbbaab0db2a1c7a06ac0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">GO_Pawn::Grab</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">dynamic_cast&lt;</highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(self)-&gt;<ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">Grab</ref>();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="class_g_o___pawn_1a5c51f102d8390e80f889515a4eb1e759" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">GO_Pawn::MoveForward</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>backwards)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(backwards)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Movement-&gt;SetVelocity(GetRotation().GetForwardVector()<sp/>*<sp/>-Speed);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Movement-&gt;SetVelocity(GetRotation().GetForwardVector()<sp/>*<sp/>Speed);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">GO_Pawn::StopMoving</ref>()</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Movement-&gt;SetVelocity(FVector3(0.0f));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124" refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" kindref="member">GO_Pawn::Turn</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>left)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(left)<sp/>{<sp/></highlight><highlight class="comment">//Movement-&gt;SetAngularVelocity(FVector3(0.0f,<sp/>1.0f,<sp/>0.0f));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight><highlight class="comment">//Movement-&gt;SetAngularVelocity(FVector3(0.0f,<sp/>-1.0f,<sp/>0.0f));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">GO_Pawn::StopTurning</ref>()</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Movement-&gt;SetAngularVelocity(FVector3(0.0f,<sp/>0.0f,<sp/>0.0f));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Velocity<sp/>function<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="class_g_o___pawn_1a91663cdd98d64f3d4027b07763b4de14" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" kindref="member">GO_Pawn::TurnCamera</ref>(<ref refid="class_f_vector2" kindref="compound">FVector2</ref><sp/>offset)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">{<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>rotation<sp/>=<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(offset.<ref refid="class_f_vector2_1a1ec9ae56c36cbf0f4cdb0861d623a1b0" kindref="member">Y</ref><sp/>*<sp/>-<ref refid="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" kindref="member">CameraTurnSpeed</ref>,<sp/>offset.<ref refid="class_f_vector2_1a4149790b0bcdb391bc575cd008df9bdb" kindref="member">X</ref><sp/>*<sp/>-<ref refid="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" kindref="member">CameraTurnSpeed</ref>,<sp/>0.0f);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rotation<sp/>!=<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>())</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>&gt;<sp/>360.0f)<sp/>rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>=<sp/>rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>-<sp/>360.0f;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>&lt;<sp/>-360.0f)<sp/>rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>=<sp/>rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>+<sp/>360.0f;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>&gt;<sp/>360.0f)<sp/>rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>=<sp/>rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>-<sp/>360.0f;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>&lt;<sp/>-360.0f)<sp/>rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>=<sp/>rotation.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>+<sp/>360.0f;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" kindref="member">CameraRotation</ref><sp/>=<sp/><ref refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" kindref="member">CameraRotation</ref><sp/>+<sp/>rotation;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rotation.X<sp/>&gt;=<sp/>60.0f)<sp/>rotation.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>=<sp/>60.0f;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rotation.X<sp/>&lt;=<sp/>-60.0f)<sp/>rotation.X<sp/>=<sp/>-60.0f;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rotation.Y<sp/>&gt;=<sp/>60.0f)<sp/>rotation.Y<sp/>=<sp/>60.0f;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rotation.Y<sp/>&lt;=<sp/>-60.0f)<sp/>rotation.Y<sp/>=<sp/>-60.0f;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//FQuaternion<sp/>result<sp/>=<sp/>Camera-&gt;GetComponentRotation()<sp/>*<sp/>FQuaternion(rotation.GetNormal(),<sp/>rotation.Length()<sp/>/<sp/>2.0<sp/>*<sp/>M_PI,<sp/>true,<sp/>true);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*result.Normalize();</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotation<sp/>=<sp/>result.GetEulerAngle();</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"></highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(rotation.X<sp/>&gt;=<sp/>90.0f)<sp/>rotation.X<sp/>=<sp/>90.0f;</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(rotation.X<sp/>&lt;=<sp/>-90.0f)<sp/>rotation.X<sp/>=<sp/>-90.0f;</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(rotation.Y<sp/>&gt;=<sp/>90.0f)<sp/>rotation.Y<sp/>=<sp/>90.0f;</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(rotation.Y<sp/>&lt;=<sp/>-90.0f)<sp/>rotation.Y<sp/>=<sp/>-90.0f;</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"></highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>result<sp/>=<sp/>FQuaternion(rotation,<sp/>true);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/>result<sp/>=<sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>(<ref refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" kindref="member">CameraRotation</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" kindref="member">Camera</ref>-&gt;<ref refid="class_c___transform_component_1a192e4a45635fa0cfcdd992fb7bf3d657" kindref="member">SetComponentRotation</ref>(result.<ref refid="class_f_vector4_1a4e3b0480798077659fa6e240cfa6e09c" kindref="member">GetNormal</ref>());</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173" refid="class_g_o___pawn_1acf795adf91ab4d48a4247122c496d911" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" kindref="member">GO_Pawn::ZoomCamera</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>zoom)</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">GO_Pawn::Grab</ref>()</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>data;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_ray" kindref="compound">Ray</ref><sp/>ray<sp/>=<sp/><ref refid="class_mouse_event_handler_1a0b31e50672533c43b16c4cbc85085af3" kindref="member">MouseEventHandler::MousePositionToWorldRay</ref>();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>Fix<sp/>this.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/><sp/><sp/><sp/>if<sp/>(C_CollisionComponent::RayCastSingleTarget(ray,<sp/>data))</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/>data.OtherCollisonComponent-&gt;GetOwner()-&gt;GetName()<sp/>&lt;&lt;<sp/>&quot;<sp/>was<sp/>hit!&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/><sp/><sp/><sp/>else<sp/>std::cout<sp/>&lt;&lt;<sp/>&quot;No<sp/>hit!&quot;<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp"/>
+  </compounddef>
+</doxygen>

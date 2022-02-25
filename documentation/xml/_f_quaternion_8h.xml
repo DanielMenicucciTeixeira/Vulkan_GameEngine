@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_f_quaternion_8h" kind="file" language="C++">
+    <compoundname>FQuaternion.h</compoundname>
+    <includes refid="_f_vector4_8h" local="yes">FVector4.h</includes>
+    <includedby refid="_directional_light_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLightComponent.cpp</includedby>
+    <includedby refid="_f_matrix4_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp</includedby>
+    <includedby refid="_f_quaternion_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp</includedby>
+    <includedby refid="_f_transform_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FTransform.cpp</includedby>
+    <includedby refid="_f_vector3_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FVector3.cpp</includedby>
+    <includedby refid="_i_vector3_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp</includedby>
+    <includedby refid="_camera_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</includedby>
+    <includedby refid="_movement_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</includedby>
+    <includedby refid="_physics_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.cpp</includedby>
+    <includedby refid="_static_mesh_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</includedby>
+    <includedby refid="_transform_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/TransformComponent.cpp</includedby>
+    <includedby refid="_game_object_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</includedby>
+    <includedby refid="_physics_lib_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</includedby>
+    <includedby refid="_apple_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Apple.cpp</includedby>
+    <includedby refid="_billiard_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</includedby>
+    <includedby refid="_g_o___triangle_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/GO_Triangle.cpp</includedby>
+    <includedby refid="_l___main_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</includedby>
+    <includedby refid="_pawn_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</includedby>
+    <includedby refid="_l___tetrahedron_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</includedby>
+    <includedby refid="_tetrahedron_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/DirectionalLightComponent.cpp</label>
+        <link refid="_directional_light_component_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp</label>
+        <link refid="_f_matrix4_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp</label>
+        <link refid="_f_quaternion_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FTransform.cpp</label>
+        <link refid="_f_transform_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FVector3.cpp</label>
+        <link refid="_f_vector3_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp</label>
+        <link refid="_i_vector3_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</label>
+        <link refid="_movement_component_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.cpp</label>
+        <link refid="_physics_component_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/TransformComponent.cpp</label>
+        <link refid="_transform_component_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</label>
+        <link refid="_game_object_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</label>
+        <link refid="_physics_lib_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Apple.cpp</label>
+        <link refid="_apple_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</label>
+        <link refid="_billiard_level_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/GO_Triangle.cpp</label>
+        <link refid="_g_o___triangle_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</label>
+        <link refid="_l___main_level_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+      <node id="21">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</label>
+        <link refid="_tetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_f_quaternion" prot="public">FQuaternion</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>FQUATERNION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FQUATERNION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector4_8h" kindref="compound">FVector4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_f_quaternion" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_f_vector4" kindref="compound">FVector4</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" kindref="member">FQuaternion</ref>()<sp/>{<sp/><ref refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" kindref="member">X</ref><sp/>=<sp/><ref refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" kindref="member">Y</ref><sp/>=<sp/><ref refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" kindref="member">Z</ref><sp/>=<sp/>0;<sp/><ref refid="class_f_vector4_1a001090eab2a652cb0397ffc677f1553f" kindref="member">W</ref><sp/>=<sp/>1;<sp/><ref refid="class_f_vector4_1a4a1b0daae57b363a41ebd26bf21e3345" kindref="member">Normalize</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="13" refid="class_f_quaternion_1abcccf32587f1cc28ed6a649607ab90f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1abcccf32587f1cc28ed6a649607ab90f8" kindref="member">FQuaternion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector4" kindref="compound">FVector4</ref>&amp;<sp/>vector)<sp/>:<sp/><ref refid="class_f_vector4" kindref="compound">FVector4</ref>(vector)<sp/>{<sp/><ref refid="class_f_vector4_1a4a1b0daae57b363a41ebd26bf21e3345" kindref="member">Normalize</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="14" refid="class_f_quaternion_1ae2bf8e8fd3806c04a3199e92f1f598e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1ae2bf8e8fd3806c04a3199e92f1f598e6" kindref="member">FQuaternion</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>z,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w)<sp/>{<sp/><ref refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" kindref="member">X</ref><sp/>=<sp/>x;<sp/><ref refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" kindref="member">Y</ref><sp/>=<sp/>y;<sp/><ref refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" kindref="member">Z</ref><sp/>=<sp/>z;<sp/><ref refid="class_f_vector4_1a001090eab2a652cb0397ffc677f1553f" kindref="member">W</ref><sp/>=<sp/>w;}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" kindref="member">FQuaternion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>axis,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isRotation<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inRadians<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" kindref="member">FQuaternion</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>euler,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inRadians<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Overloaded<sp/>Operators</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1afaf2b364534bed4d384643c9708339ce" kindref="member">operator* </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>quaternion)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1afaf2b364534bed4d384643c9708339ce" kindref="member">operator* </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">&amp;<sp/>scalar)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1af0a0c5e331436b8dcee8501c08215ad2" kindref="member">MultiplyRotation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">&amp;<sp/>scalar)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1ae55da3b1365b30cb218a2c9a71c4a756" kindref="member">operator= </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>Quaternion);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_f_quaternion_1a3cd36012317764bcc542973e684bd654" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1a3cd36012317764bcc542973e684bd654" kindref="member">GetConjugated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" kindref="member">FQuaternion</ref>(-<ref refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" kindref="member">X</ref>,<sp/>-<ref refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" kindref="member">Y</ref>,<sp/>-<ref refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" kindref="member">Z</ref>,<sp/><ref refid="class_f_vector4_1a001090eab2a652cb0397ffc677f1553f" kindref="member">W</ref>);<sp/>}</highlight></codeline>
+<codeline lineno="26" refid="class_f_quaternion_1aa87f15a6bcc85cdd5b689dc7a2669b01" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1aa87f15a6bcc85cdd5b689dc7a2669b01" kindref="member">Conjugate</ref>()<sp/>{<sp/><ref refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" kindref="member">X</ref><sp/>=<sp/>-<ref refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" kindref="member">X</ref>;<sp/><ref refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" kindref="member">Y</ref><sp/>=<sp/>-<ref refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" kindref="member">Y</ref>;<sp/><ref refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" kindref="member">Z</ref><sp/>=<sp/>-<ref refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" kindref="member">Z</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="27" refid="class_f_quaternion_1aa30fd5c8c4c86a82ec52f5fb3629cd0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1aa30fd5c8c4c86a82ec52f5fb3629cd0b" kindref="member">GetInverse</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" kindref="member">FQuaternion</ref>(<ref refid="class_f_quaternion_1a3cd36012317764bcc542973e684bd654" kindref="member">GetConjugated</ref>()/<ref refid="class_f_vector4_1a4ff174c7c7f43dde8afd399f24342c07" kindref="member">Length</ref>()).GetNormal();<sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1ae6f95ca3871f6179cb8b41e1905366c9" kindref="member">Invert</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_quaternion_1a0c69996b44cc9a334cc1fdb76d78977f" kindref="member">GetEulerAngle</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_quaternion_1aa93d031afd2297f1179d44b2d9c81005" kindref="member">GetRotatedVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>vector,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>quaternion);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_f_quaternion_1af115e8afca1fb0257876881645c41609" kindref="member">SLerp</ref>(<ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/>quaternion0,<sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/>quaternion1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>t);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion_1a304807bc26642438e6492d334ca4a6e9" kindref="member">DotProduct</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>quaternion0,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>quaternion1);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_quaternion_1abc2667c7824fe333dfe20723e723915f" kindref="member">GetUpVector</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_quaternion_1ab7ff0894e5a730df032299ca7c619bbc" kindref="member">GetForwardVector</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_quaternion_1add03b08051448814911ba91daaab5a12" kindref="member">GetRightVector</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion_1a3e837db732462e4b357c43643eadc7bd" kindref="member">~FQuaternion</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>!FQUATERNION_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,865 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_i_vector3" kind="class" language="C++" prot="public">
+    <compoundname>IVector3</compoundname>
+    <includes refid="_i_vector3_8h" local="no">IVector3.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_i_vector3_1a37a98a539596d80e880397bbed675ba7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int IVector3::X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <qualifiedname>IVector3::X</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="11" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_i_vector3_1a38a6b53e8648c7363ed25b15f5093304" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int IVector3::Y</definition>
+        <argsstring></argsstring>
+        <name>Y</name>
+        <qualifiedname>IVector3::Y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="11" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_i_vector3_1a608303f8ad7ecdc2dc5597caf450e224" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int IVector3::Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <qualifiedname>IVector3::Z</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="11" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_i_vector3_1a4e0dfff4ebfb6d1f5078db1ccf7e30f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::IVector3</definition>
+        <argsstring>(int x, int y, int z)</argsstring>
+        <name>IVector3</name>
+        <qualifiedname>IVector3::IVector3</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+<para>Constructors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="16" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ae5addfb490a789fc9449cffd1f3bc31d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::IVector3</definition>
+        <argsstring>(int value)</argsstring>
+        <name>IVector3</name>
+        <qualifiedname>IVector3::IVector3</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="19" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="20" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a0d40e7d3758ce819466c708c1242f84a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::IVector3</definition>
+        <argsstring>(const IVector3 &amp;vector)</argsstring>
+        <name>IVector3</name>
+        <qualifiedname>IVector3::IVector3</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="22" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1afc55e49530e522aa556d90bb822ffb65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::IVector3</definition>
+        <argsstring>(int values[3])</argsstring>
+        <name>IVector3</name>
+        <qualifiedname>IVector3::IVector3</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>values</declname>
+          <array>[3]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="25" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="32" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ad01bf3592ffc2ce890aa3bb12e60195f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::IVector3</definition>
+        <argsstring>()</argsstring>
+        <name>IVector3</name>
+        <qualifiedname>IVector3::IVector3</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="40" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a3cbe840c3535681918e9496a0504baa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::~IVector3</definition>
+        <argsstring>()</argsstring>
+        <name>~IVector3</name>
+        <qualifiedname>IVector3::~IVector3</qualifiedname>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Destructors. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="32" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a1b794443e4abdccf950f55642afeade9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator+</definition>
+        <argsstring>(const IVector3 &amp;vector) const</argsstring>
+        <name>operator+</name>
+        <qualifiedname>IVector3::operator+</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+<para>Operators. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="36" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="56" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a31dbc17e85cf0b290921d1424653e177" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator+</definition>
+        <argsstring>(const IVector3 *&amp;vector) const</argsstring>
+        <name>operator+</name>
+        <qualifiedname>IVector3::operator+</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="37" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a175eea13c1c671883af134b04b74456f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator-</definition>
+        <argsstring>(const IVector3 &amp;vector) const</argsstring>
+        <name>operator-</name>
+        <qualifiedname>IVector3::operator-</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="39" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="89" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a0b395b272069023080cde019ae9d26b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator-</definition>
+        <argsstring>(const IVector3 *&amp;vector) const</argsstring>
+        <name>operator-</name>
+        <qualifiedname>IVector3::operator-</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="40" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ad43cc94827ff6b7cad9afe40db47f3ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator*</definition>
+        <argsstring>(int multiplier) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>IVector3::operator*</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>multiplier</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="42" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="102" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a119698c4f09e50b2dade005eecfa3524" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::operator/</definition>
+        <argsstring>(int divisor) const</argsstring>
+        <name>operator/</name>
+        <qualifiedname>IVector3::operator/</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>divisor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="44" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="108" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ac0d843319d5c871afbabb06ae72eca48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IVector3::operator*</definition>
+        <argsstring>(const IVector3 &amp;vector) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>IVector3::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="46" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a33f84fd423f625d460d0eb133e74efc0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int IVector3::operator*</definition>
+        <argsstring>(const IVector3 *&amp;vector) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>IVector3::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="47" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ac96b863e45f117fd856ea345c9623f13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator=</definition>
+        <argsstring>(const IVector3 &amp;vector)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IVector3::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="49" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="120" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a0d4ec2188dc71d9ded6739defd63ec6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator=</definition>
+        <argsstring>(IVector3 *vector)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IVector3::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref> *</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="50" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a7f76b03635d70eb8e5862ce4e78aeb15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator=</definition>
+        <argsstring>(int values[3])</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IVector3::operator=</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>values</declname>
+          <array>[3]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="52" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="127" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a939938c1e60176e5b5155c7993db6831" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator+=</definition>
+        <argsstring>(const IVector3 &amp;vector)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>IVector3::operator+=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="54" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="68" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ae43409899a3cb0598bb8f93a48a9a2d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator+=</definition>
+        <argsstring>(const IVector3 *&amp;vector)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>IVector3::operator+=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="55" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a1e1fc32327c4a503ff774e3681ce916e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator-=</definition>
+        <argsstring>(const IVector3 &amp;vector)</argsstring>
+        <name>operator-=</name>
+        <qualifiedname>IVector3::operator-=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="57" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="76" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ad0e23771a5b21f7e75322b7b3ac263e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::operator-=</definition>
+        <argsstring>(const IVector3 *&amp;vector)</argsstring>
+        <name>operator-=</name>
+        <qualifiedname>IVector3::operator-=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="58" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a0cc69a06d4da4961d9baeed39ce371fa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IVector3::operator==</definition>
+        <argsstring>(const IVector3 &amp;vector) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>IVector3::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="60" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ad78b761873f6ad218159383677193893" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IVector3::operator==</definition>
+        <argsstring>(const IVector3 *&amp;vector) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>IVector3::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="61" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a0ddd9b8fcdde2382d9f68a5fc7fb2876" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IVector3::operator!=</definition>
+        <argsstring>(const IVector3 &amp;vector) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>IVector3::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="63" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a5ec18d4fb005a1ea3e80e028e5cd03d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IVector3::operator!=</definition>
+        <argsstring>(const IVector3 *&amp;vector) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>IVector3::operator!=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="64" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a757d873606430b7c7cedab5d7b5a9ab7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int</type>
+        <definition>const int IVector3::operator[]</definition>
+        <argsstring>(unsigned int index) const</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>IVector3::operator[]</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+<para>The next 4 operators make sure the <ref refid="class_i_vector3" kindref="compound">IVector3</ref> class can be used as an values by APIs such as Open-GL and Vulkan. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="67" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a7f65af9f4864e013c0b37b6ab6b2f8b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int &amp;</type>
+        <definition>int &amp; IVector3::operator[]</definition>
+        <argsstring>(unsigned int index)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>IVector3::operator[]</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="68" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a16ef53d116ddd26143505ad229cfb5a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::operator const int *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator const int *</name>
+        <qualifiedname>IVector3::operator const int *</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="70" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a5d2ea45bb81e2ac814943761a1c689f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IVector3::operator int *</definition>
+        <argsstring>()</argsstring>
+        <name>operator int *</name>
+        <qualifiedname>IVector3::operator int *</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="71" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a3caf0bf02266e2bffb6d9a2d94f26990" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IVector3::Length</definition>
+        <argsstring>() const</argsstring>
+        <name>Length</name>
+        <qualifiedname>IVector3::Length</qualifiedname>
+        <briefdescription>
+<para>Functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><hruler/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="78" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="137" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a76a0b31947822341fcd4fe3dcb0cc0fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int IVector3::GetAngle</definition>
+        <argsstring>(const IVector3 &amp;vector, bool inRadians=false)</argsstring>
+        <name>GetAngle</name>
+        <qualifiedname>IVector3::GetAngle</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inRadians</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="81" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="143" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1afe61989ae7c7f9f1273084924f105f9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int IVector3::GetAngle</definition>
+        <argsstring>(const IVector3 *&amp;vector, bool inRadians=false)</argsstring>
+        <name>GetAngle</name>
+        <qualifiedname>IVector3::GetAngle</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inRadians</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="82" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ad6afcab9904b39a1fa99150f4eb8522f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::CrossProduct</definition>
+        <argsstring>(const IVector3 &amp;vector)</argsstring>
+        <name>CrossProduct</name>
+        <qualifiedname>IVector3::CrossProduct</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="85" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="156" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a49ded5458631a1e123ddbcc97ff92b0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::CrossProduct</definition>
+        <argsstring>(const IVector3 *&amp;vector)</argsstring>
+        <name>CrossProduct</name>
+        <qualifiedname>IVector3::CrossProduct</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector3" kindref="compound">IVector3</ref> *&amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="86" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a993cc1d5c2b9375684bf3c74de0f5c9e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::GetNormal</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNormal</name>
+        <qualifiedname>IVector3::GetNormal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="89" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="162" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a050b906d0c2d30d7981a28790d05a4bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::Normalize</definition>
+        <argsstring>()</argsstring>
+        <name>Normalize</name>
+        <qualifiedname>IVector3::Normalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="92" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="169" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1aba676ea1012f72d0e95edbfb80fc197c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::Rotate</definition>
+        <argsstring>(const FQuaternion &amp;rotation)</argsstring>
+        <name>Rotate</name>
+        <qualifiedname>IVector3::Rotate</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="95" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="174" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1abecff87e1876020428705ef974a97ee3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::Rotate</definition>
+        <argsstring>(const FQuaternion *&amp;rotation)</argsstring>
+        <name>Rotate</name>
+        <qualifiedname>IVector3::Rotate</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> *&amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="96" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a03a98a91df5361634b68454e2490a34e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::GetRotatedVector</definition>
+        <argsstring>(const FQuaternion &amp;rotation) const</argsstring>
+        <name>GetRotatedVector</name>
+        <qualifiedname>IVector3::GetRotatedVector</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="99" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="188" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a656869199ac223c280ad49d1ca13abef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_i_vector3" kindref="compound">IVector3</ref></type>
+        <definition>IVector3 IVector3::GetRotatedVector</definition>
+        <argsstring>(const FQuaternion *&amp;rotation) const</argsstring>
+        <name>GetRotatedVector</name>
+        <qualifiedname>IVector3::GetRotatedVector</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> *&amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="100" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1a5b14b2665c382a01e4360e2ec1cc15c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::Load</definition>
+        <argsstring>(int x, int y, int z)</argsstring>
+        <name>Load</name>
+        <qualifiedname>IVector3::Load</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="103" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="195" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="class_i_vector3_1ab65f839a27256f425f98edf5eecea452" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IVector3::Print</definition>
+        <argsstring>()</argsstring>
+        <name>Print</name>
+        <qualifiedname>IVector3::Print</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="105" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.cpp" bodystart="202" bodyend="205"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" line="7" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector3.h" bodystart="8" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_i_vector3_1ad6afcab9904b39a1fa99150f4eb8522f" prot="public" virt="non-virtual"><scope>IVector3</scope><name>CrossProduct</name></member>
+      <member refid="class_i_vector3_1a49ded5458631a1e123ddbcc97ff92b0b" prot="public" virt="non-virtual"><scope>IVector3</scope><name>CrossProduct</name></member>
+      <member refid="class_i_vector3_1a76a0b31947822341fcd4fe3dcb0cc0fd" prot="public" virt="non-virtual"><scope>IVector3</scope><name>GetAngle</name></member>
+      <member refid="class_i_vector3_1afe61989ae7c7f9f1273084924f105f9d" prot="public" virt="non-virtual"><scope>IVector3</scope><name>GetAngle</name></member>
+      <member refid="class_i_vector3_1a993cc1d5c2b9375684bf3c74de0f5c9e" prot="public" virt="non-virtual"><scope>IVector3</scope><name>GetNormal</name></member>
+      <member refid="class_i_vector3_1a03a98a91df5361634b68454e2490a34e" prot="public" virt="non-virtual"><scope>IVector3</scope><name>GetRotatedVector</name></member>
+      <member refid="class_i_vector3_1a656869199ac223c280ad49d1ca13abef" prot="public" virt="non-virtual"><scope>IVector3</scope><name>GetRotatedVector</name></member>
+      <member refid="class_i_vector3_1a4e0dfff4ebfb6d1f5078db1ccf7e30f7" prot="public" virt="non-virtual"><scope>IVector3</scope><name>IVector3</name></member>
+      <member refid="class_i_vector3_1ae5addfb490a789fc9449cffd1f3bc31d" prot="public" virt="non-virtual"><scope>IVector3</scope><name>IVector3</name></member>
+      <member refid="class_i_vector3_1a0d40e7d3758ce819466c708c1242f84a" prot="public" virt="non-virtual"><scope>IVector3</scope><name>IVector3</name></member>
+      <member refid="class_i_vector3_1afc55e49530e522aa556d90bb822ffb65" prot="public" virt="non-virtual"><scope>IVector3</scope><name>IVector3</name></member>
+      <member refid="class_i_vector3_1ad01bf3592ffc2ce890aa3bb12e60195f" prot="public" virt="non-virtual"><scope>IVector3</scope><name>IVector3</name></member>
+      <member refid="class_i_vector3_1a3caf0bf02266e2bffb6d9a2d94f26990" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Length</name></member>
+      <member refid="class_i_vector3_1a5b14b2665c382a01e4360e2ec1cc15c7" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Load</name></member>
+      <member refid="class_i_vector3_1a050b906d0c2d30d7981a28790d05a4bb" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Normalize</name></member>
+      <member refid="class_i_vector3_1a16ef53d116ddd26143505ad229cfb5a3" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator const int *</name></member>
+      <member refid="class_i_vector3_1a5d2ea45bb81e2ac814943761a1c689f2" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator int *</name></member>
+      <member refid="class_i_vector3_1a0ddd9b8fcdde2382d9f68a5fc7fb2876" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator!=</name></member>
+      <member refid="class_i_vector3_1a5ec18d4fb005a1ea3e80e028e5cd03d0" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator!=</name></member>
+      <member refid="class_i_vector3_1ad43cc94827ff6b7cad9afe40db47f3ac" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator*</name></member>
+      <member refid="class_i_vector3_1ac0d843319d5c871afbabb06ae72eca48" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator*</name></member>
+      <member refid="class_i_vector3_1a33f84fd423f625d460d0eb133e74efc0" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator*</name></member>
+      <member refid="class_i_vector3_1a1b794443e4abdccf950f55642afeade9" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator+</name></member>
+      <member refid="class_i_vector3_1a31dbc17e85cf0b290921d1424653e177" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator+</name></member>
+      <member refid="class_i_vector3_1a939938c1e60176e5b5155c7993db6831" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator+=</name></member>
+      <member refid="class_i_vector3_1ae43409899a3cb0598bb8f93a48a9a2d2" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator+=</name></member>
+      <member refid="class_i_vector3_1a175eea13c1c671883af134b04b74456f" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator-</name></member>
+      <member refid="class_i_vector3_1a0b395b272069023080cde019ae9d26b2" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator-</name></member>
+      <member refid="class_i_vector3_1a1e1fc32327c4a503ff774e3681ce916e" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator-=</name></member>
+      <member refid="class_i_vector3_1ad0e23771a5b21f7e75322b7b3ac263e7" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator-=</name></member>
+      <member refid="class_i_vector3_1a119698c4f09e50b2dade005eecfa3524" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator/</name></member>
+      <member refid="class_i_vector3_1ac96b863e45f117fd856ea345c9623f13" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator=</name></member>
+      <member refid="class_i_vector3_1a0d4ec2188dc71d9ded6739defd63ec6d" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator=</name></member>
+      <member refid="class_i_vector3_1a7f76b03635d70eb8e5862ce4e78aeb15" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator=</name></member>
+      <member refid="class_i_vector3_1a0cc69a06d4da4961d9baeed39ce371fa" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator==</name></member>
+      <member refid="class_i_vector3_1ad78b761873f6ad218159383677193893" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator==</name></member>
+      <member refid="class_i_vector3_1a757d873606430b7c7cedab5d7b5a9ab7" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator[]</name></member>
+      <member refid="class_i_vector3_1a7f65af9f4864e013c0b37b6ab6b2f8b9" prot="public" virt="non-virtual"><scope>IVector3</scope><name>operator[]</name></member>
+      <member refid="class_i_vector3_1ab65f839a27256f425f98edf5eecea452" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Print</name></member>
+      <member refid="class_i_vector3_1aba676ea1012f72d0e95edbfb80fc197c" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Rotate</name></member>
+      <member refid="class_i_vector3_1abecff87e1876020428705ef974a97ee3" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Rotate</name></member>
+      <member refid="class_i_vector3_1a37a98a539596d80e880397bbed675ba7" prot="public" virt="non-virtual"><scope>IVector3</scope><name>X</name></member>
+      <member refid="class_i_vector3_1a38a6b53e8648c7363ed25b15f5093304" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Y</name></member>
+      <member refid="class_i_vector3_1a608303f8ad7ecdc2dc5597caf450e224" prot="public" virt="non-virtual"><scope>IVector3</scope><name>Z</name></member>
+      <member refid="class_i_vector3_1a3cbe840c3535681918e9496a0504baa2" prot="public" virt="non-virtual"><scope>IVector3</scope><name>~IVector3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

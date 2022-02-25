@@ -1,0 +1,1004 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_level_graph" kind="class" language="C++" prot="public">
+    <compoundname>LevelGraph</compoundname>
+    <includes refid="_level_graph_8h" local="no">LevelGraph.h</includes>
+      <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="class_level_graph_1a9f729df7d4529f8e35f526bdf069ba63" prot="protected" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; LevelGraph &gt; LevelGraph::Instance</definition>
+        <argsstring></argsstring>
+        <name>Instance</name>
+        <qualifiedname>LevelGraph::Instance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="109" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1acb97a1682d9ff9226b66e11cb1b14fc6" prot="protected" static="yes" mutable="no">
+        <type>std::set&lt; <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt;</type>
+        <definition>std::set&lt; O_Object * &gt; LevelGraph::UnloadedObjects</definition>
+        <argsstring></argsstring>
+        <name>UnloadedObjects</name>
+        <qualifiedname>LevelGraph::UnloadedObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="116" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1ac8695cb3441ce3d00b9eaafc68f71d78" prot="protected" static="yes" mutable="no">
+        <type>std::map&lt; std::string, std::set&lt; <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt; &gt;</type>
+        <definition>std::map&lt; std::string, std::set&lt; O_Object * &gt; &gt; LevelGraph::GameObjectsByTag</definition>
+        <argsstring></argsstring>
+        <name>GameObjectsByTag</name>
+        <qualifiedname>LevelGraph::GameObjectsByTag</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="118" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1acd3785f1775d984fd931cd5078454601" prot="protected" static="yes" mutable="no">
+        <type>std::map&lt; size_t, std::set&lt; <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt; &gt;</type>
+        <definition>std::map&lt; size_t, std::set&lt; O_Object * &gt; &gt; LevelGraph::GameObjectsByClass</definition>
+        <argsstring></argsstring>
+        <name>GameObjectsByClass</name>
+        <qualifiedname>LevelGraph::GameObjectsByClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="119" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_level_graph_1a03d37b92658f820445427a41cfbff9f7" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> * &gt;</type>
+        <definition>std::unordered_map&lt;std::string, S_Texture*&gt; LevelGraph::TexturesByName</definition>
+        <argsstring></argsstring>
+        <name>TexturesByName</name>
+        <qualifiedname>LevelGraph::TexturesByName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="112" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1acb914c443cb398e020fc6ae8b2aa2644" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="class_material" kindref="compound">Material</ref> * &gt;</type>
+        <definition>std::unordered_map&lt;std::string, Material*&gt; LevelGraph::MaterialsByName</definition>
+        <argsstring></argsstring>
+        <name>MaterialsByName</name>
+        <qualifiedname>LevelGraph::MaterialsByName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="113" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1aac5e543ece52fc35fd469174381e2a11" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref> * &gt;</type>
+        <definition>std::unordered_map&lt;std::string, S_Mesh*&gt; LevelGraph::MeshesByName</definition>
+        <argsstring></argsstring>
+        <name>MeshesByName</name>
+        <qualifiedname>LevelGraph::MeshesByName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="114" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1afe92e4a6d32cb1eda091ea70fb703d57" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt;</type>
+        <definition>std::map&lt;std::string, O_Object*&gt; LevelGraph::GameObjectsByName</definition>
+        <argsstring></argsstring>
+        <name>GameObjectsByName</name>
+        <qualifiedname>LevelGraph::GameObjectsByName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="117" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1a8b521d5f3e67390747b4fb4c81486284" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref> *</type>
+        <definition>C_CameraComponent* LevelGraph::ActiveCamera</definition>
+        <argsstring></argsstring>
+        <name>ActiveCamera</name>
+        <qualifiedname>LevelGraph::ActiveCamera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="120" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1aa9a5939d278626b478e0da882d460005" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref></type>
+        <definition>S_RenderData LevelGraph::RenderData</definition>
+        <argsstring></argsstring>
+        <name>RenderData</name>
+        <qualifiedname>LevelGraph::RenderData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="122" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1a5e36438e3ec23d29f7ba0f6ff2507830" prot="protected" static="no" mutable="no">
+        <type>std::set&lt; <ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref> * &gt;</type>
+        <definition>std::set&lt;C_StaticMeshComponent*&gt; LevelGraph::StaticMehes</definition>
+        <argsstring></argsstring>
+        <name>StaticMehes</name>
+        <qualifiedname>LevelGraph::StaticMehes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="123" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_level_graph_1a4efb1596cee003f56d5a796a68a54445" prot="protected" static="no" mutable="no">
+        <type>std::set&lt; unsigned int &gt;</type>
+        <definition>std::set&lt;unsigned int&gt; LevelGraph::FreeLightSlots</definition>
+        <argsstring></argsstring>
+        <name>FreeLightSlots</name>
+        <qualifiedname>LevelGraph::FreeLightSlots</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="124" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_level_graph_1ab06081bf235e808f342e5dd90be7a8f5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool LevelGraph::isPaused</definition>
+        <argsstring></argsstring>
+        <name>isPaused</name>
+        <qualifiedname>LevelGraph::isPaused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="130" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_level_graph_1adc8a49499f319365c01bb0ea629520bf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class L_Level</definition>
+        <argsstring></argsstring>
+        <name>L_Level</name>
+        <qualifiedname>LevelGraph::L_Level</qualifiedname>
+        <param>
+          <type><ref refid="class_l___level" kindref="compound">L_Level</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="132" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_level_graph" kindref="compound">LevelGraph</ref> *</type>
+        <definition>LevelGraph * LevelGraph::GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>LevelGraph::GetInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="58" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="22" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_level_graph_1a12b3603db389769fac6fd684dac95fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelGraph::LevelGraph</definition>
+        <argsstring>(const LevelGraph &amp;)=delete</argsstring>
+        <name>LevelGraph</name>
+        <qualifiedname>LevelGraph::LevelGraph</qualifiedname>
+        <param>
+          <type>const <ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="60" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ae88ebc6cfec7c22ae3742441916bd58a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelGraph::LevelGraph</definition>
+        <argsstring>(LevelGraph &amp;&amp;)=delete</argsstring>
+        <name>LevelGraph</name>
+        <qualifiedname>LevelGraph::LevelGraph</qualifiedname>
+        <param>
+          <type><ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="61" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1afe784719fcbb673f6ca710f10aa32d45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;</type>
+        <definition>LevelGraph &amp; LevelGraph::operator=</definition>
+        <argsstring>(const LevelGraph &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>LevelGraph::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="62" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a72a4c05ebda4728065fa239729ad5669" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;</type>
+        <definition>LevelGraph &amp; LevelGraph::operator=</definition>
+        <argsstring>(LevelGraph &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>LevelGraph::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_level_graph" kindref="compound">LevelGraph</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="63" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a19847506cd821792fde4f02a896e6648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::Render</definition>
+        <argsstring>()</argsstring>
+        <name>Render</name>
+        <qualifiedname>LevelGraph::Render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="66" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="28" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ab4ed671fdc5a383c379eb1fa0bcd0f21" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::set&lt; <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt; &amp;</type>
+        <definition>const std::set&lt; O_Object * &gt; &amp; LevelGraph::GetGameObjectsByTag</definition>
+        <argsstring>(std::string tag) const</argsstring>
+        <name>GetGameObjectsByTag</name>
+        <qualifiedname>LevelGraph::GetGameObjectsByTag</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="69" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ae7ac8f0530f721f99bec90a3c894adfc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::set&lt; <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt; &amp;</type>
+        <definition>const std::set&lt; O_Object * &gt; &amp; LevelGraph::GetGameObjectsByClass</definition>
+        <argsstring>(size_t classID) const</argsstring>
+        <name>GetGameObjectsByClass</name>
+        <qualifiedname>LevelGraph::GetGameObjectsByClass</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>classID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="70" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a7bdc5367cfe11eb4c9abe421bb76640d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddObject</definition>
+        <argsstring>(O_Object *gameObject)</argsstring>
+        <name>AddObject</name>
+        <qualifiedname>LevelGraph::AddObject</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>gameObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="72" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="36" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a265ee8df873fcbb03fa4c6ef3ea02550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::RemoveObjectFromTagList</definition>
+        <argsstring>(O_Object *gameObject, std::string tag)</argsstring>
+        <name>RemoveObjectFromTagList</name>
+        <qualifiedname>LevelGraph::RemoveObjectFromTagList</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>gameObject</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="73" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ab9a4a64ca6ff4160fda42b521014f372" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddObjectToTagList</definition>
+        <argsstring>(O_Object *gameObject, std::string tag)</argsstring>
+        <name>AddObjectToTagList</name>
+        <qualifiedname>LevelGraph::AddObjectToTagList</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>gameObject</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="74" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="83" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a3d9ca586b2930f995477ea1ed042ee8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::SetActiveCamera</definition>
+        <argsstring>(C_CameraComponent *camera)</argsstring>
+        <name>SetActiveCamera</name>
+        <qualifiedname>LevelGraph::SetActiveCamera</qualifiedname>
+        <param>
+          <type><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref> *</type>
+          <declname>camera</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="75" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="89" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1acc60de5dc70d05741104ad08c3332561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::FrameBufferResizeCallback</definition>
+        <argsstring>()</argsstring>
+        <name>FrameBufferResizeCallback</name>
+        <qualifiedname>LevelGraph::FrameBufferResizeCallback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="76" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ae96c62572f74a05b8bf9f5b3c8fe77d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddMesh</definition>
+        <argsstring>(S_Mesh *mesh)</argsstring>
+        <name>AddMesh</name>
+        <qualifiedname>LevelGraph::AddMesh</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref> *</type>
+          <declname>mesh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="78" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="101" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a98b7e374a919e409326bb129182b6a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddMeshComponent</definition>
+        <argsstring>(C_StaticMeshComponent *meshComponent)</argsstring>
+        <name>AddMeshComponent</name>
+        <qualifiedname>LevelGraph::AddMeshComponent</qualifiedname>
+        <param>
+          <type><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref> *</type>
+          <declname>meshComponent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="79" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="107" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a7e56003ca0d074a7dbea3f7abbca66ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddCollisionComponent</definition>
+        <argsstring>(C_CollisionComponent *component)</argsstring>
+        <name>AddCollisionComponent</name>
+        <qualifiedname>LevelGraph::AddCollisionComponent</qualifiedname>
+        <param>
+          <type><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref> *</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="80" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="126" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a8db7fe0e00ee7163bf9a0a47fa5c173f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::RemoveMeshComponent</definition>
+        <argsstring>(C_StaticMeshComponent *meshComponent)</argsstring>
+        <name>RemoveMeshComponent</name>
+        <qualifiedname>LevelGraph::RemoveMeshComponent</qualifiedname>
+        <param>
+          <type><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref> *</type>
+          <declname>meshComponent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="81" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="131" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a8c7a0e1176876920437c57f222b4a2ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddTexture</definition>
+        <argsstring>(S_Texture *texture)</argsstring>
+        <name>AddTexture</name>
+        <qualifiedname>LevelGraph::AddTexture</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="82" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="138" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aaae8d0f385eb65df65e67e7154088567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddMaterial</definition>
+        <argsstring>(Material *material)</argsstring>
+        <name>AddMaterial</name>
+        <qualifiedname>LevelGraph::AddMaterial</qualifiedname>
+        <param>
+          <type><ref refid="class_material" kindref="compound">Material</ref> *</type>
+          <declname>material</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="83" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="144" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aebea7a15f3ec2fbb65699af75473f5bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::AddLight</definition>
+        <argsstring>(FMatrix4 *&amp;matrix, unsigned int &amp;index)</argsstring>
+        <name>AddLight</name>
+        <qualifiedname>LevelGraph::AddLight</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *&amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>unsigned int &amp;</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="84" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="157" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a6c0ca934f13e744f747af71d9b188e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::RemoveLight</definition>
+        <argsstring>(unsigned int index)</argsstring>
+        <name>RemoveLight</name>
+        <qualifiedname>LevelGraph::RemoveLight</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="85" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="151" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a2675274a949132de30931bce11e51ba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; std::string, <ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref> * &gt; &amp;</type>
+        <definition>std::unordered_map&lt; std::string, S_Mesh * &gt; &amp; LevelGraph::GetMeshes</definition>
+        <argsstring>()</argsstring>
+        <name>GetMeshes</name>
+        <qualifiedname>LevelGraph::GetMeshes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="87" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aac022dce1a6415884be6824e226b071d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; std::string, <ref refid="class_material" kindref="compound">Material</ref> * &gt; &amp;</type>
+        <definition>std::unordered_map&lt; std::string, Material * &gt; &amp; LevelGraph::GetMaterials</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaterials</name>
+        <qualifiedname>LevelGraph::GetMaterials</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="88" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a710422a8b9a753bd3ae78faf059c5071" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; std::string, <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> * &gt; &amp;</type>
+        <definition>std::unordered_map&lt; std::string, S_Texture * &gt; &amp; LevelGraph::GetTextures</definition>
+        <argsstring>()</argsstring>
+        <name>GetTextures</name>
+        <qualifiedname>LevelGraph::GetTextures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="89" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ac8bf87ee0218b2865484984d684c9ba3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::map&lt; std::string, <ref refid="class_o___object" kindref="compound">O_Object</ref> * &gt; &amp;</type>
+        <definition>const std::map&lt; std::string, O_Object * &gt; &amp; LevelGraph::GetObjects</definition>
+        <argsstring>() const</argsstring>
+        <name>GetObjects</name>
+        <qualifiedname>LevelGraph::GetObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="90" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1a704cdf7da2d406c8f14d14788a461791" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref> *</type>
+        <definition>S_RenderData * LevelGraph::GetRenderData</definition>
+        <argsstring>()</argsstring>
+        <name>GetRenderData</name>
+        <qualifiedname>LevelGraph::GetRenderData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="91" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aff627e213cfddab2a02fba146f5c4b14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref> *</type>
+        <definition>C_CameraComponent * LevelGraph::GetActiveCamera</definition>
+        <argsstring>()</argsstring>
+        <name>GetActiveCamera</name>
+        <qualifiedname>LevelGraph::GetActiveCamera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="92" column="26" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aea686db8b6b044ffff5481f8c6a31807" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::CleanUp</definition>
+        <argsstring>()</argsstring>
+        <name>CleanUp</name>
+        <qualifiedname>LevelGraph::CleanUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="94" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="175" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aefbaaca82f8cc9be88db9d4e01af3b00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::Pause</definition>
+        <argsstring>()</argsstring>
+        <name>Pause</name>
+        <qualifiedname>LevelGraph::Pause</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="97" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="198" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ae4d4fdfdd7ad5d91e7e6e38eed8ced02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LevelGraph::GetPaused</definition>
+        <argsstring>()</argsstring>
+        <name>GetPaused</name>
+        <qualifiedname>LevelGraph::GetPaused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="100" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_level_graph_1a2d9610fa80d11237f8974112d9674e79" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::LoadMesh</definition>
+        <argsstring>()</argsstring>
+        <name>LoadMesh</name>
+        <qualifiedname>LevelGraph::LoadMesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="104" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="204" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ac4e714a3c2f0d9ed96402e8723962bca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::LoadModel</definition>
+        <argsstring>()</argsstring>
+        <name>LoadModel</name>
+        <qualifiedname>LevelGraph::LoadModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="105" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="208" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ae9e66ebd5954dc22693a303be1a03ca8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void LevelGraph::LoadMaterial</definition>
+        <argsstring>(Material *material)</argsstring>
+        <name>LoadMaterial</name>
+        <qualifiedname>LevelGraph::LoadMaterial</qualifiedname>
+        <param>
+          <type><ref refid="class_material" kindref="compound">Material</ref> *</type>
+          <declname>material</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="106" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="212" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1aee522fefa0b22fa7259d6f803c9b0958" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LevelGraph::LoadTexture</definition>
+        <argsstring>(S_Texture *&amp;texture, const std::string &amp;textureName)</argsstring>
+        <name>LoadTexture</name>
+        <qualifiedname>LevelGraph::LoadTexture</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *&amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>textureName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="107" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="218" bodyend="238"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_level_graph_1ae6873bd7e9cd9c29d0acbce1ef64f7a8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelGraph::LevelGraph</definition>
+        <argsstring>()</argsstring>
+        <name>LevelGraph</name>
+        <qualifiedname>LevelGraph::LevelGraph</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="127" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="240" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_level_graph_1ad1dba9cf546e4f6ae4ed659183c5c9e3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LevelGraph::~LevelGraph</definition>
+        <argsstring>()</argsstring>
+        <name>~LevelGraph</name>
+        <qualifiedname>LevelGraph::~LevelGraph</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="128" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp" bodystart="246" bodyend="249"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>C_CameraComponent</label>
+        <link refid="class_c___camera_component"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>UCO</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>FildOfView</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Frustum</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C_TransformComponent</label>
+        <link refid="class_c___transform_component"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Transform</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FTransform</label>
+        <link refid="struct_f_transform"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Position</edgelabel>
+          <edgelabel>Scale</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FVector3</label>
+        <link refid="class_f_vector3"/>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="6">
+        <label>L_Level</label>
+        <link refid="class_l___level"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>NextCamera</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>LevelGraph</label>
+        <link refid="class_level_graph"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ActiveCamera</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>RenderData</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>O_Component</label>
+        <link refid="class_o___component"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Root</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Level</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Plane</label>
+        <link refid="class_plane"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>S_FieldOfView</label>
+        <link refid="struct_s___field_of_view"/>
+      </node>
+      <node id="16">
+        <label>S_RenderData</label>
+        <link refid="struct_s___render_data"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="55" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="56" bodyend="133"/>
+    <listofallmembers>
+      <member refid="class_level_graph_1a8b521d5f3e67390747b4fb4c81486284" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>ActiveCamera</name></member>
+      <member refid="class_level_graph_1a7e56003ca0d074a7dbea3f7abbca66ca" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddCollisionComponent</name></member>
+      <member refid="class_level_graph_1aebea7a15f3ec2fbb65699af75473f5bc" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddLight</name></member>
+      <member refid="class_level_graph_1aaae8d0f385eb65df65e67e7154088567" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddMaterial</name></member>
+      <member refid="class_level_graph_1ae96c62572f74a05b8bf9f5b3c8fe77d5" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddMesh</name></member>
+      <member refid="class_level_graph_1a98b7e374a919e409326bb129182b6a4d" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddMeshComponent</name></member>
+      <member refid="class_level_graph_1a7bdc5367cfe11eb4c9abe421bb76640d" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddObject</name></member>
+      <member refid="class_level_graph_1ab9a4a64ca6ff4160fda42b521014f372" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddObjectToTagList</name></member>
+      <member refid="class_level_graph_1a8c7a0e1176876920437c57f222b4a2ba" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>AddTexture</name></member>
+      <member refid="class_level_graph_1aea686db8b6b044ffff5481f8c6a31807" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>CleanUp</name></member>
+      <member refid="class_level_graph_1acc60de5dc70d05741104ad08c3332561" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>FrameBufferResizeCallback</name></member>
+      <member refid="class_level_graph_1a4efb1596cee003f56d5a796a68a54445" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>FreeLightSlots</name></member>
+      <member refid="class_level_graph_1acd3785f1775d984fd931cd5078454601" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>GameObjectsByClass</name></member>
+      <member refid="class_level_graph_1afe92e4a6d32cb1eda091ea70fb703d57" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>GameObjectsByName</name></member>
+      <member refid="class_level_graph_1ac8695cb3441ce3d00b9eaafc68f71d78" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>GameObjectsByTag</name></member>
+      <member refid="class_level_graph_1aff627e213cfddab2a02fba146f5c4b14" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetActiveCamera</name></member>
+      <member refid="class_level_graph_1ae7ac8f0530f721f99bec90a3c894adfc" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetGameObjectsByClass</name></member>
+      <member refid="class_level_graph_1ab4ed671fdc5a383c379eb1fa0bcd0f21" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetGameObjectsByTag</name></member>
+      <member refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetInstance</name></member>
+      <member refid="class_level_graph_1aac022dce1a6415884be6824e226b071d" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetMaterials</name></member>
+      <member refid="class_level_graph_1a2675274a949132de30931bce11e51ba9" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetMeshes</name></member>
+      <member refid="class_level_graph_1ac8bf87ee0218b2865484984d684c9ba3" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetObjects</name></member>
+      <member refid="class_level_graph_1ae4d4fdfdd7ad5d91e7e6e38eed8ced02" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetPaused</name></member>
+      <member refid="class_level_graph_1a704cdf7da2d406c8f14d14788a461791" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetRenderData</name></member>
+      <member refid="class_level_graph_1a710422a8b9a753bd3ae78faf059c5071" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>GetTextures</name></member>
+      <member refid="class_level_graph_1a9f729df7d4529f8e35f526bdf069ba63" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>Instance</name></member>
+      <member refid="class_level_graph_1ab06081bf235e808f342e5dd90be7a8f5" prot="private" virt="non-virtual"><scope>LevelGraph</scope><name>isPaused</name></member>
+      <member refid="class_level_graph_1adc8a49499f319365c01bb0ea629520bf" prot="private" virt="non-virtual"><scope>LevelGraph</scope><name>L_Level</name></member>
+      <member refid="class_level_graph_1a12b3603db389769fac6fd684dac95fbd" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>LevelGraph</name></member>
+      <member refid="class_level_graph_1ae88ebc6cfec7c22ae3742441916bd58a" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>LevelGraph</name></member>
+      <member refid="class_level_graph_1ae6873bd7e9cd9c29d0acbce1ef64f7a8" prot="private" virt="non-virtual"><scope>LevelGraph</scope><name>LevelGraph</name></member>
+      <member refid="class_level_graph_1ae9e66ebd5954dc22693a303be1a03ca8" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>LoadMaterial</name></member>
+      <member refid="class_level_graph_1a2d9610fa80d11237f8974112d9674e79" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>LoadMesh</name></member>
+      <member refid="class_level_graph_1ac4e714a3c2f0d9ed96402e8723962bca" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>LoadModel</name></member>
+      <member refid="class_level_graph_1aee522fefa0b22fa7259d6f803c9b0958" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>LoadTexture</name></member>
+      <member refid="class_level_graph_1acb914c443cb398e020fc6ae8b2aa2644" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>MaterialsByName</name></member>
+      <member refid="class_level_graph_1aac5e543ece52fc35fd469174381e2a11" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>MeshesByName</name></member>
+      <member refid="class_level_graph_1afe784719fcbb673f6ca710f10aa32d45" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>operator=</name></member>
+      <member refid="class_level_graph_1a72a4c05ebda4728065fa239729ad5669" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>operator=</name></member>
+      <member refid="class_level_graph_1aefbaaca82f8cc9be88db9d4e01af3b00" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>Pause</name></member>
+      <member refid="class_level_graph_1a6c0ca934f13e744f747af71d9b188e5c" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>RemoveLight</name></member>
+      <member refid="class_level_graph_1a8db7fe0e00ee7163bf9a0a47fa5c173f" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>RemoveMeshComponent</name></member>
+      <member refid="class_level_graph_1a265ee8df873fcbb03fa4c6ef3ea02550" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>RemoveObjectFromTagList</name></member>
+      <member refid="class_level_graph_1a19847506cd821792fde4f02a896e6648" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>Render</name></member>
+      <member refid="class_level_graph_1aa9a5939d278626b478e0da882d460005" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>RenderData</name></member>
+      <member refid="class_level_graph_1a3d9ca586b2930f995477ea1ed042ee8e" prot="public" virt="non-virtual"><scope>LevelGraph</scope><name>SetActiveCamera</name></member>
+      <member refid="class_level_graph_1a5e36438e3ec23d29f7ba0f6ff2507830" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>StaticMehes</name></member>
+      <member refid="class_level_graph_1a03d37b92658f820445427a41cfbff9f7" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>TexturesByName</name></member>
+      <member refid="class_level_graph_1acb97a1682d9ff9226b66e11cb1b14fc6" prot="protected" virt="non-virtual"><scope>LevelGraph</scope><name>UnloadedObjects</name></member>
+      <member refid="class_level_graph_1ad1dba9cf546e4f6ae4ed659183c5c9e3" prot="private" virt="non-virtual"><scope>LevelGraph</scope><name>~LevelGraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

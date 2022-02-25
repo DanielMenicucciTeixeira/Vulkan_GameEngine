@@ -1,0 +1,820 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_g_o___pawn" kind="class" language="C++" prot="public">
+    <compoundname>GO_Pawn</compoundname>
+    <basecompoundref refid="class_o___game_object" prot="public" virt="non-virtual">O_GameObject</basecompoundref>
+    <includes refid="_pawn_8h" local="no">Pawn.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref> *</type>
+        <definition>C_CameraComponent* GO_Pawn::Camera</definition>
+        <argsstring></argsstring>
+        <name>Camera</name>
+        <qualifiedname>GO_Pawn::Camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="16" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___pawn_1ae8b383cef7d40617dcb704d336fab497" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___movement_component" kindref="compound">C_MovementComponent</ref> *</type>
+        <definition>C_MovementComponent* GO_Pawn::Movement</definition>
+        <argsstring></argsstring>
+        <name>Movement</name>
+        <qualifiedname>GO_Pawn::Movement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="17" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___pawn_1a66870c08fffff97ca1c686944c797dfb" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref> *</type>
+        <definition>C_StaticMeshComponent* GO_Pawn::Mesh</definition>
+        <argsstring></argsstring>
+        <name>Mesh</name>
+        <qualifiedname>GO_Pawn::Mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="18" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_o___pawn_1ac69ff506cce9a79221b4578c95694421" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GO_Pawn::Speed</definition>
+        <argsstring></argsstring>
+        <name>Speed</name>
+        <qualifiedname>GO_Pawn::Speed</qualifiedname>
+        <initializer>= 10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="43" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GO_Pawn::CameraTurnSpeed</definition>
+        <argsstring></argsstring>
+        <name>CameraTurnSpeed</name>
+        <qualifiedname>GO_Pawn::CameraTurnSpeed</qualifiedname>
+        <initializer>= 0.005f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="44" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___pawn_1af6d90da2536c1975a750476df7deb6ae" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GO_Pawn::CameraZoomSpeed</definition>
+        <argsstring></argsstring>
+        <name>CameraZoomSpeed</name>
+        <qualifiedname>GO_Pawn::CameraZoomSpeed</qualifiedname>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="45" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 GO_Pawn::CameraRotation</definition>
+        <argsstring></argsstring>
+        <name>CameraRotation</name>
+        <qualifiedname>GO_Pawn::CameraRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="46" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_o___pawn_1af319ac40a82ebc6fca627f2132f5f686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GO_Pawn::GO_Pawn</definition>
+        <argsstring>(L_Level *level=nullptr, std::string name=&quot;&quot;)</argsstring>
+        <name>GO_Pawn</name>
+        <qualifiedname>GO_Pawn::GO_Pawn</qualifiedname>
+        <param>
+          <type><ref refid="class_l___level" kindref="compound">L_Level</ref> *</type>
+          <declname>level</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="14" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="18" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1adb66a176e0313c387f8c45b6216fda6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>GO_Pawn::~GO_Pawn</definition>
+        <argsstring>()</argsstring>
+        <name>~GO_Pawn</name>
+        <qualifiedname>GO_Pawn::~GO_Pawn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="15" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1af386491d312528456f7e6ad6d7001e39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::SetSpeed</definition>
+        <argsstring>(float speed)</argsstring>
+        <name>SetSpeed</name>
+        <qualifiedname>GO_Pawn::SetSpeed</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="19" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1ae4647d217de8c40c35230c0f3ae7c4bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::Update</definition>
+        <argsstring>(float deltaTime) override</argsstring>
+        <name>Update</name>
+        <qualifiedname>GO_Pawn::Update</qualifiedname>
+        <reimplements refid="class_o___game_object_1ac8207fd90a3674463f77f69d57bb3a49">Update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="21" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a5c51f102d8390e80f889515a4eb1e759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::MoveForward</definition>
+        <argsstring>(bool backwards)</argsstring>
+        <name>MoveForward</name>
+        <qualifiedname>GO_Pawn::MoveForward</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>backwards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="34" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="106" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::StopMoving</definition>
+        <argsstring>()</argsstring>
+        <name>StopMoving</name>
+        <qualifiedname>GO_Pawn::StopMoving</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="35" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="118" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::Turn</definition>
+        <argsstring>(bool left)</argsstring>
+        <name>Turn</name>
+        <qualifiedname>GO_Pawn::Turn</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>left</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="36" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="124" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::StopTurning</definition>
+        <argsstring>()</argsstring>
+        <name>StopTurning</name>
+        <qualifiedname>GO_Pawn::StopTurning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="37" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="135" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a91663cdd98d64f3d4027b07763b4de14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::TurnCamera</definition>
+        <argsstring>(FVector2 offset)</argsstring>
+        <name>TurnCamera</name>
+        <qualifiedname>GO_Pawn::TurnCamera</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector2" kindref="compound">FVector2</ref></type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="38" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="141" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1acf795adf91ab4d48a4247122c496d911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::ZoomCamera</definition>
+        <argsstring>(float zoom)</argsstring>
+        <name>ZoomCamera</name>
+        <qualifiedname>GO_Pawn::ZoomCamera</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="39" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::Grab</definition>
+        <argsstring>()</argsstring>
+        <name>Grab</name>
+        <qualifiedname>GO_Pawn::Grab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="40" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="178" bodyend="190"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::MoveForward</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>MoveForward</name>
+        <qualifiedname>GO_Pawn::MoveForward</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="23" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="56" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::MoveBackwards</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>MoveBackwards</name>
+        <qualifiedname>GO_Pawn::MoveBackwards</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="24" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1ae5698a179f30119b1f4bf474544782b7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::StopMoving</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>StopMoving</name>
+        <qualifiedname>GO_Pawn::StopMoving</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="25" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::TurnRight</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>TurnRight</name>
+        <qualifiedname>GO_Pawn::TurnRight</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="26" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="71" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::TurnLeft</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>TurnLeft</name>
+        <qualifiedname>GO_Pawn::TurnLeft</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="27" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a33495262054a77642aab8f039624fb7b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::StopTurning</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>StopTurning</name>
+        <qualifiedname>GO_Pawn::StopTurning</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="28" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::TurnCamera</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>TurnCamera</name>
+        <qualifiedname>GO_Pawn::TurnCamera</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="29" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::ZoomCamera</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>ZoomCamera</name>
+        <qualifiedname>GO_Pawn::ZoomCamera</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="30" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::PrintFrustum</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>PrintFrustum</name>
+        <qualifiedname>GO_Pawn::PrintFrustum</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="31" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___pawn_1a1e04ac110257cbbaab0db2a1c7a06ac0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_Pawn::Grab</definition>
+        <argsstring>(O_Object *self, SDL_Event *event)</argsstring>
+        <name>Grab</name>
+        <qualifiedname>GO_Pawn::Grab</qualifiedname>
+        <param>
+          <type><ref refid="class_o___object" kindref="compound">O_Object</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>SDL_Event *</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="32" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp" bodystart="101" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GO_Pawn</label>
+        <link refid="class_g_o___pawn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>C_BoundingBox</label>
+        <link refid="class_c___bounding_box"/>
+        <childnode refid="20" relation="public-inheritance">
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>boxBounds</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C_CameraComponent</label>
+        <link refid="class_c___camera_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>UCO</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>FildOfView</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Frustum</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>C_CollisionComponent</label>
+        <link refid="class_c___collision_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>CollisionMeshCenter</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>C_MovementComponent</label>
+        <link refid="class_c___movement_component"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Buffer_Velocity</edgelabel>
+          <edgelabel>Velocity</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>C_RenderableComponent</label>
+        <link refid="class_c___renderable_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>C_StaticMeshComponent</label>
+        <link refid="class_c___static_mesh_component"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>ModelMatrix</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>Box</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>Mesh</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>Material</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C_TransformComponent</label>
+        <link refid="class_c___transform_component"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Transform</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FTransform</label>
+        <link refid="struct_f_transform"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Position</edgelabel>
+          <edgelabel>Scale</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FVector3</label>
+        <link refid="class_f_vector3"/>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="1">
+        <label>GO_Pawn</label>
+        <link refid="class_g_o___pawn"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>Movement</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Mesh</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>CameraRotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>L_Level</label>
+        <link refid="class_l___level"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>NextCamera</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Material</label>
+        <link refid="class_material"/>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>O_Component</label>
+        <link refid="class_o___component"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Root</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Level</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Plane</label>
+        <link refid="class_plane"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>S_BoxBounds</label>
+        <link refid="struct_s___box_bounds"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Max</edgelabel>
+          <edgelabel>Min</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Model</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>S_FieldOfView</label>
+        <link refid="struct_s___field_of_view"/>
+      </node>
+      <node id="22">
+        <label>S_Mesh</label>
+        <link refid="struct_s___mesh"/>
+      </node>
+      <node id="24">
+        <label>S_ShaderInfo</label>
+        <link refid="struct_s___shader_info"/>
+      </node>
+      <node id="12">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" line="11" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h" bodystart="12" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_o___game_object_1a763b6519ed06ea6b48368d8364a9d838" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>AddComponentOfClass</name></member>
+      <member refid="class_o___object_1a386ef90c3a4c35cc71e0e16ff0256ca0" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>AddTag</name></member>
+      <member refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Camera</name></member>
+      <member refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>CameraRotation</name></member>
+      <member refid="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>CameraTurnSpeed</name></member>
+      <member refid="class_g_o___pawn_1af6d90da2536c1975a750476df7deb6ae" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>CameraZoomSpeed</name></member>
+      <member refid="class_o___game_object_1a75d2a54065dfb7ca929c2c778110b48a" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Components</name></member>
+      <member refid="class_o___game_object_1aa0e81a176914398672c4115e99fc549f" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetComponentsOfClass</name></member>
+      <member refid="class_o___object_1ab966495c10fffdaf27823580a7beb0ba" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetLevel</name></member>
+      <member refid="class_o___object_1aea776c0459d191d18d05ba5ba0d59386" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetName</name></member>
+      <member refid="class_o___game_object_1acecc5cb8fdc72e9035273265d9b6b125" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetPosition</name></member>
+      <member refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetRoot</name></member>
+      <member refid="class_o___game_object_1ab23ccac87e42423daacec6ff31b29597" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetRotation</name></member>
+      <member refid="class_o___game_object_1a945cd80a318cd411e5514d5a147321e2" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetScale</name></member>
+      <member refid="class_o___object_1ac1bb49ba3efbafdbad4afbc54543aa95" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetTags</name></member>
+      <member refid="class_o___game_object_1af77de2425b5a909281b229335ec03b2d" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetTransform</name></member>
+      <member refid="class_o___game_object_1af58a2531c3e3eead8ef66e629e8981d0" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GetTransformReference</name></member>
+      <member refid="class_g_o___pawn_1af319ac40a82ebc6fca627f2132f5f686" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>GO_Pawn</name></member>
+      <member refid="class_g_o___pawn_1a1e04ac110257cbbaab0db2a1c7a06ac0" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Grab</name></member>
+      <member refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Grab</name></member>
+      <member refid="class_o___object_1aaad44b4c4e3849154aa227a7c3e15f31" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>HasTag</name></member>
+      <member refid="class_o___object_1acc0fcf838a1ecd02e60985d6415e915e" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Level</name></member>
+      <member refid="class_g_o___pawn_1a66870c08fffff97ca1c686944c797dfb" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Mesh</name></member>
+      <member refid="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>MoveBackwards</name></member>
+      <member refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>MoveForward</name></member>
+      <member refid="class_g_o___pawn_1a5c51f102d8390e80f889515a4eb1e759" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>MoveForward</name></member>
+      <member refid="class_g_o___pawn_1ae8b383cef7d40617dcb704d336fab497" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Movement</name></member>
+      <member refid="class_o___object_1adf9354dec12f995b3125794625fe39b4" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Name</name></member>
+      <member refid="class_o___game_object_1a684d8ee962349d2f85e3fce89fdafa9f" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>O_GameObject</name></member>
+      <member refid="class_o___object_1ac70b91cab5714c4a51f4b9cecacd1e3a" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>O_Object</name></member>
+      <member refid="class_o___object_1a606afbc6e8e44df437a959fe784c0f67" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>PostUpdate</name></member>
+      <member refid="class_o___object_1a466a129cff2f490445d0f28253a152b4" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>PreUpdate</name></member>
+      <member refid="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>PrintFrustum</name></member>
+      <member refid="class_o___object_1a84410867319c8e8c510898b8e29a2a0d" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>RemoveAllTags</name></member>
+      <member refid="class_o___game_object_1a452c0a2eba83b6e32cabb72175d9c5e0" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>RemoveComponent</name></member>
+      <member refid="class_o___object_1ab178ecbeb59ab3f18fbabca885ca7888" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>RemoveTag</name></member>
+      <member refid="class_o___game_object_1a7c4d4f37ddf2bbcc7b9177720f24626f" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Root</name></member>
+      <member refid="class_o___game_object_1a2db1d0c11817a6d9df10f72a499fdefa" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetPosition</name></member>
+      <member refid="class_o___game_object_1a2e414b2ad82c97845066560bf9372476" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetRoot</name></member>
+      <member refid="class_o___game_object_1adec6c4d343677e8b6af258df61ce86ca" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetRotation</name></member>
+      <member refid="class_o___game_object_1a725a24138a6b88547b3d21d84624bbaf" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetScale</name></member>
+      <member refid="class_g_o___pawn_1af386491d312528456f7e6ad6d7001e39" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetSpeed</name></member>
+      <member refid="class_o___game_object_1aa7bc411003680ca3f511cc5e71748897" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>SetTransform</name></member>
+      <member refid="class_g_o___pawn_1ac69ff506cce9a79221b4578c95694421" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Speed</name></member>
+      <member refid="class_o___game_object_1a7b115555e70224e0f59f806fefbb1c8a" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>Start</name></member>
+      <member refid="class_g_o___pawn_1ae5698a179f30119b1f4bf474544782b7" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>StopMoving</name></member>
+      <member refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>StopMoving</name></member>
+      <member refid="class_g_o___pawn_1a33495262054a77642aab8f039624fb7b" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>StopTurning</name></member>
+      <member refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>StopTurning</name></member>
+      <member refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" prot="protected" virt="non-virtual"><scope>GO_Pawn</scope><name>Tags</name></member>
+      <member refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>Turn</name></member>
+      <member refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>TurnCamera</name></member>
+      <member refid="class_g_o___pawn_1a91663cdd98d64f3d4027b07763b4de14" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>TurnCamera</name></member>
+      <member refid="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>TurnLeft</name></member>
+      <member refid="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>TurnRight</name></member>
+      <member refid="class_g_o___pawn_1ae4647d217de8c40c35230c0f3ae7c4bf" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>Update</name></member>
+      <member refid="class_o___object_1af8a2446ed4cdca839847256249eda1dd" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>UpdateWhenPaused</name></member>
+      <member refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>ZoomCamera</name></member>
+      <member refid="class_g_o___pawn_1acf795adf91ab4d48a4247122c496d911" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>ZoomCamera</name></member>
+      <member refid="class_g_o___pawn_1adb66a176e0313c387f8c45b6216fda6d" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>~GO_Pawn</name></member>
+      <member refid="class_o___game_object_1a8cc7a8c952428f475661aa82f2026d8e" prot="public" virt="non-virtual"><scope>GO_Pawn</scope><name>~O_GameObject</name></member>
+      <member refid="class_o___object_1af81a5b6b0c098a17de5dad71cf5a722e" prot="public" virt="virtual"><scope>GO_Pawn</scope><name>~O_Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,27 @@
+var class_c___light_source_component =
+[
+    [ "C_LightSourceComponent", "class_c___light_source_component.html#a02b893a0d5405d9707edf1498c89db99", null ],
+    [ "~C_LightSourceComponent", "class_c___light_source_component.html#a60242ec2e92e7dbf172965ac4a424a47", null ],
+    [ "GetAmbientIntensity", "class_c___light_source_component.html#a7834787dfe83593e1cc8e72b4557042d", null ],
+    [ "GetAmbientMultiplier", "class_c___light_source_component.html#ae566b0faca79b86dfd4421d13691aa8a", null ],
+    [ "GetColour", "class_c___light_source_component.html#ab316240c29c9e83f456cc0789371a7aa", null ],
+    [ "GetDiffuseIntensity", "class_c___light_source_component.html#ac0065a73630e86176dd255e5f02a5234", null ],
+    [ "GetDiffuseMultiplier", "class_c___light_source_component.html#a0fd2ab8ee3325bebd9f16315cf4e54a4", null ],
+    [ "GetIntensity", "class_c___light_source_component.html#a12993919733a44425aefce0a18f1c534", null ],
+    [ "GetLightInfo", "class_c___light_source_component.html#a3f988483bef9bac264f771a0134ba139", null ],
+    [ "GetLightType", "class_c___light_source_component.html#a676ce5347e66975a206c76d5ff881e89", null ],
+    [ "GetSpecularIntensity", "class_c___light_source_component.html#aeaccdf0530f9ca60919ee0946907964b", null ],
+    [ "GetSpecularMultiplier", "class_c___light_source_component.html#ad57f09778d364bd11c12e78d001fe9d6", null ],
+    [ "IsOn", "class_c___light_source_component.html#a74ba6974ee384b167630a6f0fe5a8046", null ],
+    [ "SetAmbientMultiplier", "class_c___light_source_component.html#a9a29507cc93365d61ae97bf8e5cd7418", null ],
+    [ "SetColour", "class_c___light_source_component.html#a950dfcd3fbbcb30ae23b9ab1cdf98a4e", null ],
+    [ "SetDiffuseMultiplier", "class_c___light_source_component.html#a4a00089a3dce20ef1b73dd8ddfd0c748", null ],
+    [ "SetIntensity", "class_c___light_source_component.html#a2759d1899bd33d99d470463b45703b0c", null ],
+    [ "SetLightType", "class_c___light_source_component.html#a406d65b2b9a5d03bdf3eb0cce6350abb", null ],
+    [ "SetSpecularMultiplier", "class_c___light_source_component.html#acf673e171a040dd1e9c43634de475876", null ],
+    [ "SetTurnedOn", "class_c___light_source_component.html#a4aaade6340289682067cca06a75ac64a", null ],
+    [ "Update", "class_c___light_source_component.html#aeaef7bb6588a7f19b9804d5be61e6cb5", null ],
+    [ "Intensity", "class_c___light_source_component.html#a4508a0f1a93099437beeb7c86b1ca198", null ],
+    [ "LightIndex", "class_c___light_source_component.html#afd12def655cc8ee7b48b61aac52a6484", null ],
+    [ "LightInfo", "class_c___light_source_component.html#aacc050b478b7d15480e64a52281501e0", null ]
+];

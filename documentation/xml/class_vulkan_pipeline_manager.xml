@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_vulkan_pipeline_manager" kind="class" language="C++" prot="public">
+    <compoundname>VulkanPipelineManager</compoundname>
+    <includes refid="_vulkan_pipeline_manager_8h" local="no">VulkanPipelineManager.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_vulkan_pipeline_manager_1ad73408e2fa77eb77fd81b2dbb3c00b59" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::pair&lt; VkPipeline_T *, VkPipelineLayout_T * &gt; &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::pair&lt;VkPipeline_T*, VkPipelineLayout_T*&gt; &gt; VulkanPipelineManager::PipelinesMap</definition>
+        <argsstring></argsstring>
+        <name>PipelinesMap</name>
+        <qualifiedname>VulkanPipelineManager::PipelinesMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="40" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_vulkan_pipeline_manager_1a607413ef907f26e9b979384b11b2c4a3" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+        <definition>VulkanManager* VulkanPipelineManager::Manager</definition>
+        <argsstring></argsstring>
+        <name>Manager</name>
+        <qualifiedname>VulkanPipelineManager::Manager</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="42" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1a6bc255b6a64d51fc02c0e3b2d52367b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VulkanPipelineManager::VulkanPipelineManager</definition>
+        <argsstring>(VulkanManager *manager)</argsstring>
+        <name>VulkanPipelineManager</name>
+        <qualifiedname>VulkanPipelineManager::VulkanPipelineManager</qualifiedname>
+        <param>
+          <type><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref> *</type>
+          <declname>manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="25" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1ac1475be6f80a0b250b86e03b58a063d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VulkanPipelineManager::CreateGraphicsPipelines</definition>
+        <argsstring>()</argsstring>
+        <name>CreateGraphicsPipelines</name>
+        <qualifiedname>VulkanPipelineManager::CreateGraphicsPipelines</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="27" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="19" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1ad45ea7559aba44bf31bedc59072de077" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_map&lt; std::string, std::pair&lt; VkPipeline_T *, VkPipelineLayout_T * &gt; &gt;</type>
+        <definition>std::unordered_map&lt; std::string, std::pair&lt; VkPipeline_T *, VkPipelineLayout_T * &gt; &gt; VulkanPipelineManager::GetPipelinesMap</definition>
+        <argsstring>()</argsstring>
+        <name>GetPipelinesMap</name>
+        <qualifiedname>VulkanPipelineManager::GetPipelinesMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="31" column="27" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1ae38eee85dd107c787343306dc2a2f95d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkVertexInputBindingDescription</type>
+        <definition>VkVertexInputBindingDescription VulkanPipelineManager::GetBindingDescription</definition>
+        <argsstring>()</argsstring>
+        <name>GetBindingDescription</name>
+        <qualifiedname>VulkanPipelineManager::GetBindingDescription</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="28" column="40" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="195" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1a408b6fe9ac464ac25ca871b6be9e9a2c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::array&lt; VkVertexInputAttributeDescription, 3 &gt;</type>
+        <definition>std::array&lt; VkVertexInputAttributeDescription, 3 &gt; VulkanPipelineManager::GetAttributeDescriptions</definition>
+        <argsstring>()</argsstring>
+        <name>GetAttributeDescriptions</name>
+        <qualifiedname>VulkanPipelineManager::GetAttributeDescriptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="29" column="19" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="205" bodyend="225"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1a3b98582f25da4a82a77f8ab63b7fe48d" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; char &gt;</type>
+        <definition>std::vector&lt; char &gt; VulkanPipelineManager::ReadFile</definition>
+        <argsstring>(const std::string &amp;filename)</argsstring>
+        <name>ReadFile</name>
+        <qualifiedname>VulkanPipelineManager::ReadFile</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="36" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="227" bodyend="243"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1ae29f332d108220511aa2884bfc8f3c7d" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkShaderModule_T *</type>
+        <definition>VkShaderModule_T * VulkanPipelineManager::CreateShaderModule</definition>
+        <argsstring>(const std::vector&lt; char &gt; &amp;code)</argsstring>
+        <name>CreateShaderModule</name>
+        <qualifiedname>VulkanPipelineManager::CreateShaderModule</qualifiedname>
+        <param>
+          <type>const std::vector&lt; char &gt; &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="37" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="245" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="class_vulkan_pipeline_manager_1a6d0f317440f27e782b785e692f7ac688" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>VkShaderStageFlagBits</type>
+        <definition>VkShaderStageFlagBits VulkanPipelineManager::GetVulkanShaderStageFlag</definition>
+        <argsstring>(E_ShaderStage stage) const</argsstring>
+        <name>GetVulkanShaderStageFlag</name>
+        <qualifiedname>VulkanPipelineManager::GetVulkanShaderStageFlag</qualifiedname>
+        <param>
+          <type><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref></type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="45" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp" bodystart="284" bodyend="305"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="7">
+        <label>QueueStruct</label>
+        <link refid="struct_queue_struct"/>
+      </node>
+      <node id="3">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="8">
+        <label>S_RenderData</label>
+        <link refid="struct_s___render_data"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>VulkanDebugger</label>
+        <link refid="class_vulkan_debugger"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>VulkanDevices</label>
+        <link refid="class_vulkan_devices"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>VulkanManager</label>
+        <link refid="class_vulkan_manager"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Debugger</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Devices</edgelabel>
+        </childnode>
+        <childnode refid="1" relation="usage">
+          <edgelabel>GraphicsPipelineManager</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>SwapchainManager</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Queues</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>RenderData</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>VulkanPipelineManager</label>
+        <link refid="class_vulkan_pipeline_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>VulkanSwapchainManager</label>
+        <link refid="class_vulkan_swapchain_manager"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Manager</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" line="22" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h" bodystart="23" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_vulkan_pipeline_manager_1ac1475be6f80a0b250b86e03b58a063d5" prot="public" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>CreateGraphicsPipelines</name></member>
+      <member refid="class_vulkan_pipeline_manager_1ae29f332d108220511aa2884bfc8f3c7d" prot="protected" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>CreateShaderModule</name></member>
+      <member refid="class_vulkan_pipeline_manager_1a408b6fe9ac464ac25ca871b6be9e9a2c" prot="public" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>GetAttributeDescriptions</name></member>
+      <member refid="class_vulkan_pipeline_manager_1ae38eee85dd107c787343306dc2a2f95d" prot="public" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>GetBindingDescription</name></member>
+      <member refid="class_vulkan_pipeline_manager_1ad45ea7559aba44bf31bedc59072de077" prot="public" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>GetPipelinesMap</name></member>
+      <member refid="class_vulkan_pipeline_manager_1a6d0f317440f27e782b785e692f7ac688" prot="protected" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>GetVulkanShaderStageFlag</name></member>
+      <member refid="class_vulkan_pipeline_manager_1a607413ef907f26e9b979384b11b2c4a3" prot="protected" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>Manager</name></member>
+      <member refid="class_vulkan_pipeline_manager_1ad73408e2fa77eb77fd81b2dbb3c00b59" prot="protected" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>PipelinesMap</name></member>
+      <member refid="class_vulkan_pipeline_manager_1a3b98582f25da4a82a77f8ab63b7fe48d" prot="protected" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>ReadFile</name></member>
+      <member refid="class_vulkan_pipeline_manager_1a6bc255b6a64d51fc02c0e3b2d52367b7" prot="public" virt="non-virtual"><scope>VulkanPipelineManager</scope><name>VulkanPipelineManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

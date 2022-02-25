@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_bounding_box_8h" kind="file" language="C++">
+    <compoundname>BoundingBox.h</compoundname>
+    <includes refid="_collision_component_8h" local="yes">CollisionComponent.h</includes>
+    <includes refid="_box_bounds_8h" local="yes">Geometry/BoxBounds.h</includes>
+    <includes local="no">set</includes>
+    <includedby refid="_collision_handler_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</includedby>
+    <includedby refid="_oct_spatial_partition_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</includedby>
+    <includedby refid="_camera_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</includedby>
+    <includedby refid="_bounding_box_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</includedby>
+    <includedby refid="_static_mesh_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</includedby>
+    <incdepgraph>
+      <node id="15">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="16">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="12">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="6">
+        <label>set</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</label>
+        <link refid="_oct_spatial_partition_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_c___bounding_box" prot="public">C_BoundingBox</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BOUNDINGBOX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BOUNDINGBOX_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_component_8h" kindref="compound">CollisionComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_bounds_8h" kindref="compound">Geometry/BoxBounds.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_c___bounding_box" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___bounding_box_1a50f7b4d918ae5783de445b7254772814" kindref="member">C_BoundingBox</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner,<sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7" kindref="member">ECollisionType</ref><sp/>type<sp/>=<sp/><ref refid="_collision_component_8h_1a8af6ffb5b5b0c4129c3d80f3972015a7acf5d7dd131a91e32ed8f8a26f8156046" kindref="member">NO_COLLISION</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a5fbb1ab2e0612b531bdbb6ef76277283" kindref="member">~C_BoundingBox</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a04a42a2119fb0e2cf9ecf8dc35e729aa" kindref="member">GetDimensionsFromMesh</ref>(<ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>*<sp/>mesh);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a32c57d6f8581c0b32d66dbaec72b2278" kindref="member">Start</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a665505514c020a6be0e47fb3a7786157" kindref="member">Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___bounding_box_1abe23fc81764ed78dde724baf5d5612ee" kindref="member">GetMin</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___bounding_box_1adb80e0353102b4f791614da98101e96a" kindref="member">GetMax</ref>();</highlight></codeline>
+<codeline lineno="21" refid="class_c___bounding_box_1a71979df65dc1071ef797f7d251c4163c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/><ref refid="class_c___bounding_box_1a71979df65dc1071ef797f7d251c4163c" kindref="member">GetRelativeMin</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" kindref="member">boxBounds</ref>.<ref refid="struct_s___box_bounds_1a31bacd04007c374d0416bcc3db4700d3" kindref="member">Min</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="22" refid="class_c___bounding_box_1aa05fd8361d8a5535568efc92c977b4aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/><ref refid="class_c___bounding_box_1aa05fd8361d8a5535568efc92c977b4aa" kindref="member">GetRelativeMax</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" kindref="member">boxBounds</ref>.<ref refid="struct_s___box_bounds_1a35e3516aca8aac0252b4598f97b3c3eb" kindref="member">Max</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="23" refid="class_c___bounding_box_1a18cf31352862641c0031451c51b9f789" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>&amp;<sp/><ref refid="class_c___bounding_box_1a18cf31352862641c0031451c51b9f789" kindref="member">GetModelMatrix</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" kindref="member">boxBounds</ref>.<ref refid="struct_s___box_bounds_1a6494f47ba3c18fc50fe6bcd6302c9b68" kindref="member">Model</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="24" refid="class_c___bounding_box_1acd5ca67fa659c99865dd5f3f5777ae55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/><ref refid="class_c___bounding_box_1acd5ca67fa659c99865dd5f3f5777ae55" kindref="member">GetBoxBounds</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" kindref="member">boxBounds</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___bounding_box_1a8988fd76374315719b89801c7ae9a449" kindref="member">SetComponentPosition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>position)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/><ref refid="class_c___bounding_box_1a21281ef2d5757a2ccde31bb663278bbc" kindref="member">boxBounds</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h"/>
+  </compounddef>
+</doxygen>

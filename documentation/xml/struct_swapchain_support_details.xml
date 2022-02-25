@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_swapchain_support_details" kind="struct" language="C++" prot="public">
+    <compoundname>SwapchainSupportDetails</compoundname>
+    <includes refid="_vulkan_manager_8h" local="no">VulkanManager.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_swapchain_support_details_1ac96f1dd51f5b6c42495d886a7485be3b" prot="public" static="no" mutable="no">
+        <type>VkSurfaceCapabilitiesKHR *</type>
+        <definition>VkSurfaceCapabilitiesKHR * SwapchainSupportDetails::Capabilities</definition>
+        <argsstring></argsstring>
+        <name>Capabilities</name>
+        <qualifiedname>SwapchainSupportDetails::Capabilities</qualifiedname>
+        <initializer>= <ref refid="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" kindref="member">InitializeCapabilities</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="70" column="26" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_swapchain_support_details_1ad80967c39fd3f3c09041d0aa7657b3a1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; VkSurfaceFormatKHR &gt;</type>
+        <definition>std::vector&lt; VkSurfaceFormatKHR &gt; SwapchainSupportDetails::Formats</definition>
+        <argsstring></argsstring>
+        <name>Formats</name>
+        <qualifiedname>SwapchainSupportDetails::Formats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="71" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_swapchain_support_details_1a783cb0b46c795c2ad9ebf50713cf24a9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; VkPresentModeKHR &gt;</type>
+        <definition>std::vector&lt; VkPresentModeKHR &gt; SwapchainSupportDetails::PresentationModes</definition>
+        <argsstring></argsstring>
+        <name>PresentationModes</name>
+        <qualifiedname>SwapchainSupportDetails::PresentationModes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="72" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkSurfaceCapabilitiesKHR *</type>
+        <definition>VkSurfaceCapabilitiesKHR * SwapchainSupportDetails::InitializeCapabilities</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeCapabilities</name>
+        <qualifiedname>SwapchainSupportDetails::InitializeCapabilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="75" column="26" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp" bodystart="672" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>VkSurfaceCapabilitiesKHR *</type>
+        <definition>VkSurfaceCapabilitiesKHR * SwapchainSupportDetails::InitializeCapabilities</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeCapabilities</name>
+        <qualifiedname>SwapchainSupportDetails::InitializeCapabilities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.h" line="130" column="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="68" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="69" bodyend="76"/>
+    <listofallmembers>
+      <member refid="struct_swapchain_support_details_1ac96f1dd51f5b6c42495d886a7485be3b" prot="public" virt="non-virtual"><scope>SwapchainSupportDetails</scope><name>Capabilities</name></member>
+      <member refid="struct_swapchain_support_details_1ad80967c39fd3f3c09041d0aa7657b3a1" prot="public" virt="non-virtual"><scope>SwapchainSupportDetails</scope><name>Formats</name></member>
+      <member refid="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" prot="public" virt="non-virtual"><scope>SwapchainSupportDetails</scope><name>InitializeCapabilities</name></member>
+      <member refid="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" prot="public" virt="non-virtual"><scope>SwapchainSupportDetails</scope><name>InitializeCapabilities</name></member>
+      <member refid="struct_swapchain_support_details_1a783cb0b46c795c2ad9ebf50713cf24a9" prot="public" virt="non-virtual"><scope>SwapchainSupportDetails</scope><name>PresentationModes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

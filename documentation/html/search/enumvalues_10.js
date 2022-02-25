@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['vertex_5fbit_0',['VERTEX_BIT',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4faf5442e5bd0e96ed07b9e48f3c5771654',1,'Material.h']]],
+  ['vk_5fany_5fhit_5fbit_5fkhr_1',['VK_ANY_HIT_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa716042bfa35449cf71cc086a5056bd2e',1,'Material.h']]],
+  ['vk_5fany_5fhit_5fbit_5fnv_2',['VK_ANY_HIT_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa56dd4eac9e5d773ec617c3ae589c7286',1,'Material.h']]],
+  ['vk_5fcallable_5fbit_5fkhr_3',['VK_CALLABLE_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa13a435b99e31291aee76c9971c1586ad',1,'Material.h']]],
+  ['vk_5fcallable_5fbit_5fnv_4',['VK_CALLABLE_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa1a8855d3d1d8081de45c99ebdf013394',1,'Material.h']]],
+  ['vk_5fclosest_5fhit_5fbit_5fkhr_5',['VK_CLOSEST_HIT_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa7a059a5b0400d56b7771efd2c9f0f535',1,'Material.h']]],
+  ['vk_5fclosest_5fhit_5fbit_5fnv_6',['VK_CLOSEST_HIT_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4faa3b9c4c200207ca190c3904f46ba7fce',1,'Material.h']]],
+  ['vk_5fintersection_5fbit_5fkhr_7',['VK_INTERSECTION_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa172249c935d0a1882abddb796e76e00d',1,'Material.h']]],
+  ['vk_5fintersection_5fbit_5fnv_8',['VK_INTERSECTION_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa6f929faebdcfa3366e5045967a0e4967',1,'Material.h']]],
+  ['vk_5fmesh_5fbit_5fnv_9',['VK_MESH_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fac8b4984db70159e0fa57abd9939dacc1',1,'Material.h']]],
+  ['vk_5fmiss_5fbit_5fkhr_10',['VK_MISS_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa34c1ffba9fdfba3af54792c259d83a75',1,'Material.h']]],
+  ['vk_5fmiss_5fbit_5fnv_11',['VK_MISS_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa5780844d1e5718b918cc966e3eac2a37',1,'Material.h']]],
+  ['vk_5fraygen_5fbit_5fkhr_12',['VK_RAYGEN_BIT_KHR',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4faccfb4d8f415cd788f5a8f78b006bda2a',1,'Material.h']]],
+  ['vk_5fraygen_5fbit_5fnv_13',['VK_RAYGEN_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa300d86ea4d760c9a4038853c695d1989',1,'Material.h']]],
+  ['vk_5fsubpass_5fshading_5fbit_5fhuawei_14',['VK_SUBPASS_SHADING_BIT_HUAWEI',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa278f9f94652a6a85ebbc80f89551020b',1,'Material.h']]],
+  ['vk_5ftask_5fbit_5fnv_15',['VK_TASK_BIT_NV',['../_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa22a97687fef5d6a49dc50c047f98951f',1,'Material.h']]],
+  ['vulkan_16',['VULKAN',['../_renderer_8h.html#ab3631679e12986a42ced57267776c459a7ab1655e224e3b992000513d4ed1154c',1,'Renderer.h']]]
+];

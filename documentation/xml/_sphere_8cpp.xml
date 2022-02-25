@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_sphere_8cpp" kind="file" language="C++">
+    <compoundname>Sphere.cpp</compoundname>
+    <includes refid="_sphere_8h" local="yes">Sphere.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">../Math/FVector3.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.cpp</label>
+        <link refid="_sphere_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Sphere.h</label>
+        <link refid="_sphere_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sphere_8h" kindref="compound">Sphere.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FVector3.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="class_sphere_1a890a63ff583cb88e7ec4e840b4ef5eb9" refkind="member"><highlight class="normal"><ref refid="class_sphere_1a890a63ff583cb88e7ec4e840b4ef5eb9" kindref="member">Sphere::Sphere</ref>()</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sphere_1a4eb6f93f37ac009d4a1a08c2f20b2257" kindref="member">position</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(0.0f);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sphere_1ae6f42f0da6679a2f0b4a22681ccccf38" kindref="member">radius</ref><sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_sphere_1aa43bd8ad77f4a64f7232722329010724" refkind="member"><highlight class="normal"><ref refid="class_sphere_1a890a63ff583cb88e7ec4e840b4ef5eb9" kindref="member">Sphere::Sphere</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>Position,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Radius)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sphere_1a4eb6f93f37ac009d4a1a08c2f20b2257" kindref="member">position</ref><sp/>=<sp/>Position;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sphere_1ae6f42f0da6679a2f0b4a22681ccccf38" kindref="member">radius</ref><sp/>=<sp/>Radius;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.cpp"/>
+  </compounddef>
+</doxygen>

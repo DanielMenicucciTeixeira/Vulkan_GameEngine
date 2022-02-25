@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_open_g_l_shader_manager_8cpp" kind="file" language="C++">
+    <compoundname>OpenGLShaderManager.cpp</compoundname>
+    <includes refid="_open_g_l_shader_manager_8h" local="yes">OpenGLShaderManager.h</includes>
+    <includes local="yes">../Engine/Core/DebugLogger.h</includes>
+    <includes local="no">glew.h</includes>
+    <includes local="no">fstream</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>../Engine/Core/DebugLogger.h</label>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpenGLShaderManager.cpp</label>
+        <link refid="_open_g_l_shader_manager_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OpenGLShaderManager.h</label>
+        <link refid="_open_g_l_shader_manager_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>fstream</label>
+      </node>
+      <node id="7">
+        <label>glew.h</label>
+      </node>
+      <node id="4">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>unordered_map</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_open_g_l_shader_manager_8h" kindref="compound">OpenGLShaderManager.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Engine/Core/DebugLogger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;glew.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_open_g_l_shader_manager_1a7bde861eb7cb5ce7b4efa1ef7341993f" refkind="member"><highlight class="normal"><ref refid="class_open_g_l_shader_manager_1a7bde861eb7cb5ce7b4efa1ef7341993f" kindref="member">OpenGLShaderManager::OpenGLShaderManager</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_open_g_l_shader_manager_1a6947610e81bde8798e54c6a30260552f" refkind="member"><highlight class="normal"><ref refid="class_open_g_l_shader_manager_1a6947610e81bde8798e54c6a30260552f" kindref="member">OpenGLShaderManager::~OpenGLShaderManager</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_shader_manager_1a90ebcf4cf4564b78726621daf1a16923" kindref="member">CleanUp</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_open_g_l_shader_manager_1a6fb65fb8a7d16be2fefb2f7dc8724f5f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager_1a6fb65fb8a7d16be2fefb2f7dc8724f5f" kindref="member">OpenGLShaderManager::CreateShaderProgram</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>shaderName,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>vertexShaderPath,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>fragmentShaderPath)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>vertexShaderCode<sp/>=<sp/><ref refid="class_open_g_l_shader_manager_1adc981decf8de2aa7072318f32498971a" kindref="member">ReadShader</ref>(vertexShaderPath);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>fragmentShaderCode<sp/>=<sp/><ref refid="class_open_g_l_shader_manager_1adc981decf8de2aa7072318f32498971a" kindref="member">ReadShader</ref>(fragmentShaderPath);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vertexShaderCode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>||<sp/>fragmentShaderCode<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>GLuint<sp/>vertexShader<sp/>=<sp/><ref refid="class_open_g_l_shader_manager_1a9d23b07654c5c10f67eb416afbef3e7c" kindref="member">CreateShader</ref>(GL_VERTEX_SHADER,<sp/>vertexShaderCode,<sp/>shaderName);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>GLuint<sp/>fragmentShader<sp/>=<sp/><ref refid="class_open_g_l_shader_manager_1a9d23b07654c5c10f67eb416afbef3e7c" kindref="member">CreateShader</ref>(GL_FRAGMENT_SHADER,<sp/>fragmentShaderCode,<sp/>shaderName);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(vertexShader<sp/>==<sp/>0<sp/>||<sp/>fragmentShader<sp/>==<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>GLint<sp/>linkResult<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>GLuint<sp/>program<sp/>=<sp/>glCreateProgram();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>glAttachShader(program,<sp/>vertexShader);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>glAttachShader(program,<sp/>fragmentShader);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>glLinkProgram(program);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>glGetProgramiv(program,<sp/>GL_LINK_STATUS,<sp/>&amp;linkResult);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!linkResult)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLint<sp/>infoLogLength<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGetShaderiv(program,<sp/>GL_INFO_LOG_LENGTH,<sp/>&amp;infoLogLength);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(infoLogLength<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;char&gt;<sp/>programLog(infoLogLength);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGetShaderInfoLog(program,<sp/>infoLogLength,<sp/>NULL,<sp/>&amp;programLog[0]);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>programString(programLog.begin(),<sp/>programLog.end());</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>to<sp/>link<sp/>shader:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>shaderName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.\nError:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>programString,<sp/></highlight><highlight class="stringliteral">&quot;Renderers/OpenGL/OpenGLShaderManager.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>to<sp/>link<sp/>shader:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>shaderName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.<sp/>Failed<sp/>to<sp/>recover<sp/>info<sp/>log.&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Renderers/OpenGL/OpenGLShaderManager.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glDeleteShader(vertexShader);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glDeleteShader(fragmentShader);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glDeleteProgram(program);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>[shaderName]<sp/>=<sp/>program;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>glDeleteShader(vertexShader);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>glDeleteShader(fragmentShader);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_open_g_l_shader_manager_1aad4274d965d9f28a2d3b5cb3c8020c59" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager_1aad4274d965d9f28a2d3b5cb3c8020c59" kindref="member">OpenGLShaderManager::GetShader</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>shaderName)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>.find(shaderName)<sp/>!=<sp/><ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>.end())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>[shaderName];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="class_open_g_l_shader_manager_1a90ebcf4cf4564b78726621daf1a16923" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager_1a90ebcf4cf4564b78726621daf1a16923" kindref="member">OpenGLShaderManager::CleanUp</ref>()</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>.size()<sp/>&gt;<sp/>0)<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>program<sp/>:<sp/><ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>)<sp/>glDeleteProgram(program.second);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_shader_manager_1a4be83beaf735609b26635a4a9d151d3b" kindref="member">Programs</ref>.clear();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="class_open_g_l_shader_manager_1adc981decf8de2aa7072318f32498971a" refkind="member"><highlight class="normal">std::string<sp/><ref refid="class_open_g_l_shader_manager_1adc981decf8de2aa7072318f32498971a" kindref="member">OpenGLShaderManager::ReadShader</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>filePath)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>shaderCode<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ifstream<sp/>file;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>file.exceptions(std::ifstream::badbit);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.open(filePath);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>tempStream;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tempStream<sp/>&lt;&lt;<sp/>file.rdbuf();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>file.close();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shaderCode<sp/>=<sp/>tempStream.str();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(std::ifstream::failure<sp/>error)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>read<sp/>shader<sp/>at:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>filePath,<sp/></highlight><highlight class="stringliteral">&quot;Renderers/OpenGL/OpenGLShaderManager.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>shaderCode;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="class_open_g_l_shader_manager_1a9d23b07654c5c10f67eb416afbef3e7c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager_1a9d23b07654c5c10f67eb416afbef3e7c" kindref="member">OpenGLShaderManager::CreateShader</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>shaderType,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>source,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>shaderName)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>GLint<sp/>compileResult<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>GLuint<sp/>shader<sp/>=<sp/>glCreateShader(shaderType);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>shaderCode<sp/>=<sp/>source.c_str();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>shaderCodeSize<sp/>=<sp/>source.size();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>glShaderSource(shader,<sp/>1,<sp/>&amp;shaderCode,<sp/>&amp;shaderCodeSize);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>glCompileShader(shader);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>glGetShaderiv(shader,<sp/>GL_COMPILE_STATUS,<sp/>&amp;compileResult);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!compileResult)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLint<sp/>infoLogLength<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGetShaderiv(shader,<sp/>GL_INFO_LOG_LENGTH,<sp/>&amp;infoLogLength);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;char&gt;<sp/>shaderLog(infoLogLength);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGetShaderInfoLog(shader,<sp/>infoLogLength,<sp/>NULL,<sp/>&amp;shaderLog[0]);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>shaderString(shaderLog.begin(),<sp/>shaderLog.end());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a080eef140c878bc0f4db4905cff24598" kindref="member">DebugLogger::Error</ref>(</highlight><highlight class="stringliteral">&quot;Error<sp/>compiling<sp/>shader:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>shaderName<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;.\nError:<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/>shaderString,<sp/></highlight><highlight class="stringliteral">&quot;Renderers/OpenGL/OpenGLShaderManager.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>shader;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpenGLShaderManager.cpp"/>
+  </compounddef>
+</doxygen>

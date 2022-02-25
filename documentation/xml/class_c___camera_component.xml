@@ -1,0 +1,452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_c___camera_component" kind="class" language="C++" prot="public">
+    <compoundname>C_CameraComponent</compoundname>
+    <basecompoundref refid="class_c___transform_component" prot="public" virt="non-virtual">C_TransformComponent</basecompoundref>
+    <includes refid="_camera_component_8h" local="no">CameraComponent.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_c___camera_component_1a8390efa0389a64d5cda36d145ed54632" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref> *</type>
+        <definition>UniformCameraObject* C_CameraComponent::UCO</definition>
+        <argsstring></argsstring>
+        <name>UCO</name>
+        <qualifiedname>C_CameraComponent::UCO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="21" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c___camera_component_1a87084a19de49834f81e9b030620f1038" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_s___field_of_view" kindref="compound">S_FieldOfView</ref></type>
+        <definition>S_FieldOfView C_CameraComponent::FildOfView</definition>
+        <argsstring></argsstring>
+        <name>FildOfView</name>
+        <qualifiedname>C_CameraComponent::FildOfView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="22" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_c___camera_component_1aa4e98456816b484c6093113b5ceebc0b" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_plane" kindref="compound">Plane</ref></type>
+        <definition>Plane C_CameraComponent::Frustum[6]</definition>
+        <argsstring>[6]</argsstring>
+        <name>Frustum</name>
+        <qualifiedname>C_CameraComponent::Frustum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="23" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_c___camera_component_1ae32fd0c1336f4b429daaa16dc8cde469" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void C_CameraComponent::CalculateFrustum</definition>
+        <argsstring>()</argsstring>
+        <name>CalculateFrustum</name>
+        <qualifiedname>C_CameraComponent::CalculateFrustum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="24" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="12" bodyend="52"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_c___camera_component_1a6c26e9e29054354edc8afee92497a1da" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void C_CameraComponent::Update</definition>
+        <argsstring>(const float deltaTime) override</argsstring>
+        <name>Update</name>
+        <qualifiedname>C_CameraComponent::Update</qualifiedname>
+        <reimplements refid="class_o___object_1a640a13e8dc5229329cef12ae8056e919">Update</reimplements>
+        <param>
+          <type>const float</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="27" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1adc4d5ab8a17a5fc3f7a5636276c9fdd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void C_CameraComponent::Start</definition>
+        <argsstring>() override</argsstring>
+        <name>Start</name>
+        <qualifiedname>C_CameraComponent::Start</qualifiedname>
+        <reimplements refid="class_o___object_1aecaf9f30a1c4e5af1c6b9c9b569fa784">Start</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="28" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="62" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1ae26a0497341cf67e6d7791bef622c4e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void C_CameraComponent::UpdateProjection</definition>
+        <argsstring>()</argsstring>
+        <name>UpdateProjection</name>
+        <qualifiedname>C_CameraComponent::UpdateProjection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="29" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="74" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a93e1a8db0f12eb7af83d3ecc2c248962" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>C_CameraComponent::C_CameraComponent</definition>
+        <argsstring>(O_GameObject *owner)</argsstring>
+        <name>C_CameraComponent</name>
+        <qualifiedname>C_CameraComponent::C_CameraComponent</qualifiedname>
+        <param>
+          <type><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="30" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a82c0a85eb739cc8c06f8870f67f94098" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>C_CameraComponent::~C_CameraComponent</definition>
+        <argsstring>()</argsstring>
+        <name>~C_CameraComponent</name>
+        <qualifiedname>C_CameraComponent::~C_CameraComponent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="31" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="86" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a0fb5b5c56b4b6d012459bbd7960ccbfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 C_CameraComponent::GetViewMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>GetViewMatrix</name>
+        <qualifiedname>C_CameraComponent::GetViewMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="33" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="91" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1aa98c9c283c538e22617c32adf82305b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 C_CameraComponent::GetProjectionMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>GetProjectionMatrix</name>
+        <qualifiedname>C_CameraComponent::GetProjectionMatrix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="34" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="96" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a0a843e9ddd85b822aa93dc84c51a962a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref> *</type>
+        <definition>UniformCameraObject * C_CameraComponent::GetUCO</definition>
+        <argsstring>()</argsstring>
+        <name>GetUCO</name>
+        <qualifiedname>C_CameraComponent::GetUCO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="35" column="28" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a9a7aa35e7dfbea61d6cc9b5c8778cdbf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const float &amp;</type>
+        <definition>const float &amp; C_CameraComponent::GetNearPlane</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNearPlane</name>
+        <qualifiedname>C_CameraComponent::GetNearPlane</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="36" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a9bc6adfc009b74336bcfe85e4e5a9c9e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const float &amp;</type>
+        <definition>const float &amp; C_CameraComponent::GetFarPlane</definition>
+        <argsstring>() const</argsstring>
+        <name>GetFarPlane</name>
+        <qualifiedname>C_CameraComponent::GetFarPlane</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="37" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1a5542cabed7392c0dbe045d6208b10614" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool C_CameraComponent::FrustumCheck</definition>
+        <argsstring>(C_BoundingBox *meshBox)</argsstring>
+        <name>FrustumCheck</name>
+        <qualifiedname>C_CameraComponent::FrustumCheck</qualifiedname>
+        <param>
+          <type><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref> *</type>
+          <declname>meshBox</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="39" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="101" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_c___camera_component_1ad83cfba383c54b47761975fa4cb33973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void C_CameraComponent::PrintFrustum</definition>
+        <argsstring>()</argsstring>
+        <name>PrintFrustum</name>
+        <qualifiedname>C_CameraComponent::PrintFrustum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="40" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp" bodystart="143" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>C_CameraComponent</label>
+        <link refid="class_c___camera_component"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C_TransformComponent</label>
+        <link refid="class_c___transform_component"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Component</label>
+        <link refid="class_o___component"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>C_CameraComponent</label>
+        <link refid="class_c___camera_component"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>UCO</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>FildOfView</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>Frustum</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C_TransformComponent</label>
+        <link refid="class_c___transform_component"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Transform</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FTransform</label>
+        <link refid="struct_f_transform"/>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Position</edgelabel>
+          <edgelabel>Scale</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FVector3</label>
+        <link refid="class_f_vector3"/>
+      </node>
+      <node id="10">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="5">
+        <label>L_Level</label>
+        <link refid="class_l___level"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>NextCamera</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Component</label>
+        <link refid="class_o___component"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Root</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Level</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Plane</label>
+        <link refid="class_plane"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>S_FieldOfView</label>
+        <link refid="struct_s___field_of_view"/>
+      </node>
+      <node id="11">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" line="18" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.h" bodystart="19" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_o___object_1a386ef90c3a4c35cc71e0e16ff0256ca0" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>AddTag</name></member>
+      <member refid="class_c___camera_component_1a93e1a8db0f12eb7af83d3ecc2c248962" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>C_CameraComponent</name></member>
+      <member refid="class_c___transform_component_1a9df9b5d83d87e2c24cc33ad4620fad38" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>C_TransformComponent</name></member>
+      <member refid="class_c___camera_component_1ae32fd0c1336f4b429daaa16dc8cde469" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>CalculateFrustum</name></member>
+      <member refid="class_c___camera_component_1a87084a19de49834f81e9b030620f1038" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>FildOfView</name></member>
+      <member refid="class_c___camera_component_1aa4e98456816b484c6093113b5ceebc0b" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Frustum</name></member>
+      <member refid="class_c___camera_component_1a5542cabed7392c0dbe045d6208b10614" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>FrustumCheck</name></member>
+      <member refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentAbsolutePosition</name></member>
+      <member refid="class_c___transform_component_1afe080dbcf3911bd6d89d8265e3da744b" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentAbsoluteRotation</name></member>
+      <member refid="class_c___transform_component_1a8e4718fb5e3f4f1079af9918b5e709ef" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentAbsoluteScale</name></member>
+      <member refid="class_c___transform_component_1a6fd6d757a29f761c218bdd72e420c25b" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentAbsoluteTransform</name></member>
+      <member refid="class_c___transform_component_1a25e69bb1fbb5bbf46a08d120f91fabca" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentModelMatrix</name></member>
+      <member refid="class_c___transform_component_1af55be14e486babdfe7fbb6ed643f2205" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentPosition</name></member>
+      <member refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentRotation</name></member>
+      <member refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentScale</name></member>
+      <member refid="class_c___transform_component_1aa7ca714bffc22909ed72c8ff9d5be326" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentTransform</name></member>
+      <member refid="class_c___transform_component_1a29ac9b602bb4059860a8805bd7ef9936" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetComponentTransformReference</name></member>
+      <member refid="class_c___camera_component_1a9bc6adfc009b74336bcfe85e4e5a9c9e" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetFarPlane</name></member>
+      <member refid="class_c___transform_component_1a4e2e502d0406b4f096ceeb29f3800c09" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetIsStatic</name></member>
+      <member refid="class_o___object_1ab966495c10fffdaf27823580a7beb0ba" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetLevel</name></member>
+      <member refid="class_o___object_1aea776c0459d191d18d05ba5ba0d59386" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetName</name></member>
+      <member refid="class_c___camera_component_1a9a7aa35e7dfbea61d6cc9b5c8778cdbf" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetNearPlane</name></member>
+      <member refid="class_o___component_1a1c41248880dad7961e94e9b539598354" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetOwner</name></member>
+      <member refid="class_c___camera_component_1aa98c9c283c538e22617c32adf82305b0" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetProjectionMatrix</name></member>
+      <member refid="class_o___object_1ac1bb49ba3efbafdbad4afbc54543aa95" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetTags</name></member>
+      <member refid="class_c___camera_component_1a0a843e9ddd85b822aa93dc84c51a962a" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetUCO</name></member>
+      <member refid="class_c___camera_component_1a0fb5b5c56b4b6d012459bbd7960ccbfe" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>GetViewMatrix</name></member>
+      <member refid="class_o___object_1aaad44b4c4e3849154aa227a7c3e15f31" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>HasTag</name></member>
+      <member refid="class_o___object_1acc0fcf838a1ecd02e60985d6415e915e" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Level</name></member>
+      <member refid="class_o___object_1adf9354dec12f995b3125794625fe39b4" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Name</name></member>
+      <member refid="class_o___component_1ab15f4083bbe28c39ce97845a732bf121" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>O_Component</name></member>
+      <member refid="class_o___object_1ac70b91cab5714c4a51f4b9cecacd1e3a" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>O_Object</name></member>
+      <member refid="class_o___component_1ad6c797345730809059d368357b92ebf5" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Owner</name></member>
+      <member refid="class_o___object_1a606afbc6e8e44df437a959fe784c0f67" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>PostUpdate</name></member>
+      <member refid="class_o___object_1a466a129cff2f490445d0f28253a152b4" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>PreUpdate</name></member>
+      <member refid="class_c___camera_component_1ad83cfba383c54b47761975fa4cb33973" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>PrintFrustum</name></member>
+      <member refid="class_o___object_1a84410867319c8e8c510898b8e29a2a0d" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>RemoveAllTags</name></member>
+      <member refid="class_o___object_1ab178ecbeb59ab3f18fbabca885ca7888" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>RemoveTag</name></member>
+      <member refid="class_c___transform_component_1aa9d5ee105ac143d71d72c01916d40671" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>SetComponentPosition</name></member>
+      <member refid="class_c___transform_component_1a192e4a45635fa0cfcdd992fb7bf3d657" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>SetComponentRotation</name></member>
+      <member refid="class_c___transform_component_1afe3327409fed00d0a2358c80ac643447" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>SetComponentScale</name></member>
+      <member refid="class_c___transform_component_1ae1e262db4b4e2953a58af0885bd4b691" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>SetComponentTransform</name></member>
+      <member refid="class_o___component_1ae88d1df4fe6405d66521d8e79b2f6e35" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>SetOwner</name></member>
+      <member refid="class_c___transform_component_1a496e329c63316db2c00b0d6496cac519" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>SetUseAbsolutes</name></member>
+      <member refid="class_c___camera_component_1adc4d5ab8a17a5fc3f7a5636276c9fdd1" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>Start</name></member>
+      <member refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Tags</name></member>
+      <member refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>Transform</name></member>
+      <member refid="class_c___camera_component_1a8390efa0389a64d5cda36d145ed54632" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>UCO</name></member>
+      <member refid="class_c___camera_component_1a6c26e9e29054354edc8afee92497a1da" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>Update</name></member>
+      <member refid="class_c___camera_component_1ae26a0497341cf67e6d7791bef622c4e1" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>UpdateProjection</name></member>
+      <member refid="class_o___object_1af8a2446ed4cdca839847256249eda1dd" prot="public" virt="non-virtual"><scope>C_CameraComponent</scope><name>UpdateWhenPaused</name></member>
+      <member refid="class_c___transform_component_1a046613b09072b3f1907e835d1c00c0ff" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>UseAbsolutePosition</name></member>
+      <member refid="class_c___transform_component_1a413fcaae234f4fd26b9eee7f56c0c953" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>UseAbsoluteRotation</name></member>
+      <member refid="class_c___transform_component_1a0df9455d1063699285b7e9e63568b8a3" prot="protected" virt="non-virtual"><scope>C_CameraComponent</scope><name>UseAbsoluteScale</name></member>
+      <member refid="class_c___camera_component_1a82c0a85eb739cc8c06f8870f67f94098" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>~C_CameraComponent</name></member>
+      <member refid="class_c___transform_component_1a8856fbac0622ac9a6b765430b71c86d6" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>~C_TransformComponent</name></member>
+      <member refid="class_o___component_1ad5b48d7c3296ff95c14a8e82f281296a" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>~O_Component</name></member>
+      <member refid="class_o___object_1af81a5b6b0c098a17de5dad71cf5a722e" prot="public" virt="virtual"><scope>C_CameraComponent</scope><name>~O_Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

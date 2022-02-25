@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_vulkan_debugger_8h" kind="file" language="C++">
+    <compoundname>VulkanDebugger.h</compoundname>
+    <includes local="no">vector</includes>
+    <includedby refid="_vulkan_debugger_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.cpp</includedby>
+    <includedby refid="_vulkan_devices_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp</includedby>
+    <includedby refid="_vulkan_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.h</label>
+        <link refid="_vulkan_debugger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.cpp</label>
+        <link refid="_vulkan_debugger_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.h</label>
+        <link refid="_vulkan_debugger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp</label>
+        <link refid="_vulkan_devices_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_vulkan_debugger" prot="public">VulkanDebugger</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VULKANDEBUGGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VULKANDEBUGGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkResult;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDebugUtilsMessengerCreateInfoEXT;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkInstance_T;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkAllocationCallbacks;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDebugUtilsMessengerEXT_T;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDebugUtilsMessengerCreateInfoEXT;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_vulkan_debugger" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_debugger" kindref="compound">VulkanDebugger</ref></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_debugger_1a8307ab7216c85b6ff28ceb47dc691bb6" kindref="member">VulkanDebugger</ref>(<ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/>manager);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1a446351dd565a1bcf59f2fc36cc1074a7" kindref="member">CheckValidationLayerSupport</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>VkResult<sp/><ref refid="class_vulkan_debugger_1ad28066e503667b1019a3a448f90c67f3" kindref="member">CreateDebugUtilsMessengerEXT</ref>(VkInstance_T*<sp/>instance,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VkDebugUtilsMessengerCreateInfoEXT*<sp/>pCreateInfo,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VkAllocationCallbacks*<sp/>pAllocator,<sp/>VkDebugUtilsMessengerEXT_T**<sp/>pDebugMessenger);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1ac200ef5c2e68323f4a77b6a5913a3a08" kindref="member">PopulateDebugMessengerCreateInfo</ref>(VkDebugUtilsMessengerCreateInfoEXT&amp;<sp/>createInfo);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1a2754c2f4f3ebae63ff891056b3939349" kindref="member">SetUpDebugMessenger</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1aee5853fc65cbd5b57f4a37324ba62743" kindref="member">DestroyDebugUtilsMessengerEXT</ref>(VkInstance_T*<sp/>instance,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VkAllocationCallbacks*<sp/>pAllocator);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27" refid="class_vulkan_debugger_1ac4671367305d770c7f8588d5096f4fea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1ac4671367305d770c7f8588d5096f4fea" kindref="member">IsEnabled</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1a918533a23830f598be6cc20fcd7076e3" kindref="member">Enabled</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;const<sp/>char*&gt;*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1af54895386d8ccbe0ff47347858e96312" kindref="member">GetValidationLayerNames</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31" refid="class_vulkan_debugger_1a03849c5248fa36f0eab59bc1f58825ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/><ref refid="class_vulkan_debugger_1a03849c5248fa36f0eab59bc1f58825ba" kindref="member">Manager</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32" refid="class_vulkan_debugger_1a918533a23830f598be6cc20fcd7076e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger_1a918533a23830f598be6cc20fcd7076e3" kindref="member">Enabled</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33" refid="class_vulkan_debugger_1a2a8488f0ad526d8c031be47e2c3f50d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDebugUtilsMessengerEXT_T*<sp/><ref refid="class_vulkan_debugger_1a2a8488f0ad526d8c031be47e2c3f50d7" kindref="member">DebugMessenger</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="class_vulkan_debugger_1aaa2f7ca5ebcb72855b6510353939400d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;const<sp/>char*&gt;<sp/><ref refid="class_vulkan_debugger_1aaa2f7ca5ebcb72855b6510353939400d" kindref="member">ValidationLayerNames</ref><sp/>=</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;VK_LAYER_KHRONOS_validation&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.h"/>
+  </compounddef>
+</doxygen>

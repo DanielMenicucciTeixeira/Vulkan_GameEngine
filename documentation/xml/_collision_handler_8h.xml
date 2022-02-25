@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_collision_handler_8h" kind="file" language="C++">
+    <compoundname>CollisionHandler.h</compoundname>
+    <includes refid="_oct_spatial_partition_8h" local="yes">OctSpatialPartition.h</includes>
+    <includes refid="_collision_data_8h" local="yes">Physics/CollisionData.h</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="_collision_handler_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</includedby>
+    <includedby refid="_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</includedby>
+    <includedby refid="_level_graph_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</includedby>
+    <includedby refid="_bounding_box_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</includedby>
+    <includedby refid="_box_collider_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</includedby>
+    <includedby refid="_sphere_collider_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.cpp</includedby>
+    <includedby refid="_movement_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="5">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="6">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="9">
+        <label>../Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="19">
+        <label>memory</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</label>
+        <link refid="_box_collider_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.cpp</label>
+        <link refid="_sphere_collider_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</label>
+        <link refid="_movement_component_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_collision_handler" prot="public">CollisionHandler</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COLLISIONHANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COLLISIONHANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_oct_spatial_partition_8h" kindref="compound">OctSpatialPartition.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_data_8h" kindref="compound">Physics/CollisionData.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_collision_handler" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14" refid="class_collision_handler_1ab00650c66dfbbac6f058c3f0571f7d2f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler_1ab00650c66dfbbac6f058c3f0571f7d2f" kindref="member">CollisionHandler</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15" refid="class_collision_handler_1a54142938d76646f86819fcfef826a829" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler_1a54142938d76646f86819fcfef826a829" kindref="member">CollisionHandler</ref>(<ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16" refid="class_collision_handler_1a016d8b57229ec7e51c31204537462a0f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;<sp/><ref refid="class_collision_handler_1a016d8b57229ec7e51c31204537462a0f" kindref="member">operator =</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17" refid="class_collision_handler_1a12868f95ec530fb7437bcdd4056e9911" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;<sp/><ref refid="class_collision_handler_1a016d8b57229ec7e51c31204537462a0f" kindref="member">operator =</ref>(<ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>*<sp/><ref refid="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" kindref="member">GetInstance</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a5a05fea01278fe4217b91e0e6c27eda4" kindref="member">OnCreate</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>worldSize,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>depth<sp/>=<sp/>3);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Use<sp/>to<sp/>do<sp/>collision<sp/>detection<sp/>for<sp/>all<sp/>coliders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a59b3c50fa4547584a57ca915372e5ac3" kindref="member">Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>closest<sp/>collider</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/><ref refid="class_collision_handler_1a5e1d2e0ad785d79131d8bf9235850e6f" kindref="member">GetCollisionSingleRay</ref>(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>all<sp/>colliders</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a7fd1f55029bca9ff4e2dace308f4b38e" kindref="member">GetCollisionMuliRay</ref>(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>all<sp/>objects<sp/>colliding<sp/>with<sp/>the<sp/>sphere</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a8c4f864b8ed50a3629045534f78f6431" kindref="member">GetSphereCollision</ref>(<ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>all<sp/>colliders<sp/>colliding<sp/>with<sp/>the<sp/>bounding<sp/>box</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a3a072baf8473728649f3d81e1c41870c" kindref="member">GetAABBCollision</ref>(<ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/>bounds);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Get<sp/>all<sp/>colliders<sp/>colliding<sp/>with<sp/>the<sp/>box</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1ae4c8b076bd79d64813d198d835361dce" kindref="member">GetOBBCollision</ref>(<ref refid="class_box" kindref="compound">Box</ref><sp/>box);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:Tag<sp/>filters?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Functions<sp/>to<sp/>check<sp/>to<sp/>see<sp/>if<sp/>a<sp/>collider<sp/>is<sp/>still<sp/>in<sp/>the<sp/>same<sp/>partition.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a65e0965d19c38831137f724e83fa8283" kindref="member">AABBSpatialCheck</ref>(<ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*<sp/>collider);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a8d598c1b8ab18a12fa1f098b1390dc5d" kindref="member">SphereSpatialCheck</ref>(<ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*<sp/>collider);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" kindref="member">OBBSpatialCheck</ref>(<ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/>collider);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler" kindref="compound">~CollisionHandler</ref>();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;CollisionHandler&gt;<sp/>collisionInstance;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::default_delete&lt;CollisionHandler&gt;;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;O_GameObject*&gt;<sp/>prevCollisions;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition" kindref="compound">OctSpatialPartition</ref>*<sp/>scenePartition;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>!COLLISIONHANDLER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h"/>
+  </compounddef>
+</doxygen>

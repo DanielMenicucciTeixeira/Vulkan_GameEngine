@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_vulkan_pipeline_manager_8h" kind="file" language="C++">
+    <compoundname>VulkanPipelineManager.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">set</includes>
+    <includes local="no">string</includes>
+    <includes local="no">array</includes>
+    <includes local="no">unordered_map</includes>
+    <includedby refid="_vulkan_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</includedby>
+    <includedby refid="_vulkan_pipeline_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h</label>
+        <link refid="_vulkan_pipeline_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>set</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>unordered_map</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</label>
+        <link refid="_vulkan_pipeline_manager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h</label>
+        <link refid="_vulkan_pipeline_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_vulkan_pipeline_manager" prot="public">VulkanPipelineManager</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VULKANPIPELINEMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VULKANPIPELINEMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_material" kindref="compound">Material</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkShaderStageFlagBits;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkShaderModule_T;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkVertexInputBindingDescription;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkVertexInputAttributeDescription;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkPipelineLayout_T;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkPipeline_T;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="class_vulkan_pipeline_manager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_pipeline_manager" kindref="compound">VulkanPipelineManager</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_pipeline_manager_1a6bc255b6a64d51fc02c0e3b2d52367b7" kindref="member">VulkanPipelineManager</ref>(<ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/>manager);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_pipeline_manager_1ac1475be6f80a0b250b86e03b58a063d5" kindref="member">CreateGraphicsPipelines</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>VkVertexInputBindingDescription<sp/><ref refid="class_vulkan_pipeline_manager_1ae38eee85dd107c787343306dc2a2f95d" kindref="member">GetBindingDescription</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::array&lt;VkVertexInputAttributeDescription,<sp/>3&gt;<sp/><ref refid="class_vulkan_pipeline_manager_1a408b6fe9ac464ac25ca871b6be9e9a2c" kindref="member">GetAttributeDescriptions</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_vulkan_pipeline_manager_1ad45ea7559aba44bf31bedc59072de077" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;std::string,<sp/>std::pair&lt;VkPipeline_T*,<sp/>VkPipelineLayout_T*&gt;&gt;<sp/><ref refid="class_vulkan_pipeline_manager_1ad45ea7559aba44bf31bedc59072de077" kindref="member">GetPipelinesMap</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_pipeline_manager_1ad73408e2fa77eb77fd81b2dbb3c00b59" kindref="member">PipelinesMap</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//inline<sp/>VkPipelineLayout_T*<sp/>GetPipelineLayout()<sp/>{<sp/>return<sp/>PipelineLayout;<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;char&gt;<sp/><ref refid="class_vulkan_pipeline_manager_1a3b98582f25da4a82a77f8ab63b7fe48d" kindref="member">ReadFile</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>filename);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>VkShaderModule_T*<sp/><ref refid="class_vulkan_pipeline_manager_1ae29f332d108220511aa2884bfc8f3c7d" kindref="member">CreateShaderModule</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;char&gt;&amp;<sp/>code);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VkPipelineLayout_T*<sp/>PipelineLayout<sp/>=<sp/>nullptr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_vulkan_pipeline_manager_1ad73408e2fa77eb77fd81b2dbb3c00b59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map<sp/>&lt;std::string,<sp/>std::pair&lt;VkPipeline_T*,<sp/>VkPipelineLayout_T*&gt;&gt;<sp/><ref refid="class_vulkan_pipeline_manager_1ad73408e2fa77eb77fd81b2dbb3c00b59" kindref="member">PipelinesMap</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VkPipeline_T*<sp/>Pipeline<sp/>=<sp/>nullptr;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="class_vulkan_pipeline_manager_1a607413ef907f26e9b979384b11b2c4a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/><ref refid="class_vulkan_pipeline_manager_1a607413ef907f26e9b979384b11b2c4a3" kindref="member">Manager</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//std::string<sp/>GetShaderBitString(E_ShaderStage<sp/>stage)<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>VkShaderStageFlagBits<sp/><ref refid="class_vulkan_pipeline_manager_1a6d0f317440f27e782b785e692f7ac688" kindref="member">GetVulkanShaderStageFlag</ref>(<ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref><sp/>stage)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.h"/>
+  </compounddef>
+</doxygen>

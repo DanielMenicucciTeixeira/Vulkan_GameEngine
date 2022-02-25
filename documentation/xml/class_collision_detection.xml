@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_collision_detection" kind="class" language="C++" prot="public">
+    <compoundname>CollisionDetection</compoundname>
+    <includes refid="_collision_detection_8h" local="no">CollisionDetection.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_collision_detection_1a230b19dbee612cf219f472fe39ec0c8f" prot="private" static="yes" mutable="no">
+        <type><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref></type>
+        <definition>S_CollisionData CollisionDetection::collisionData</definition>
+        <argsstring></argsstring>
+        <name>collisionData</name>
+        <qualifiedname>CollisionDetection::collisionData</qualifiedname>
+        <initializer>= <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="73" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_collision_detection_1a33b6fc78cf2fc48fb6a8a1856471a848" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionDetection::CollisionDetection</definition>
+        <argsstring>(const CollisionDetection &amp;)=delete</argsstring>
+        <name>CollisionDetection</name>
+        <qualifiedname>CollisionDetection::CollisionDetection</qualifiedname>
+        <param>
+          <type>const <ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="22" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1af9219846e543f9479bef4edb932e3ab9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionDetection::CollisionDetection</definition>
+        <argsstring>(CollisionDetection &amp;&amp;)=delete</argsstring>
+        <name>CollisionDetection</name>
+        <qualifiedname>CollisionDetection::CollisionDetection</qualifiedname>
+        <param>
+          <type><ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="23" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a0339567fdbe6bbbe6cc9f0076a7074a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;</type>
+        <definition>CollisionDetection &amp; CollisionDetection::operator=</definition>
+        <argsstring>(const CollisionDetection &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>CollisionDetection::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="24" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1ac02cd78fd7508e6b96b1bd5dc0472828" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;</type>
+        <definition>CollisionDetection &amp; CollisionDetection::operator=</definition>
+        <argsstring>(CollisionDetection &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>CollisionDetection::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_collision_detection" kindref="compound">CollisionDetection</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="25" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1ada5b142245092d98f626fc020c408136" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionDetection::CollisionDetection</definition>
+        <argsstring>()=delete</argsstring>
+        <name>CollisionDetection</name>
+        <qualifiedname>CollisionDetection::CollisionDetection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="27" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a02163f314ae4c76cfda1a3e214ff9b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionDetection::~CollisionDetection</definition>
+        <argsstring>()</argsstring>
+        <name>~CollisionDetection</name>
+        <qualifiedname>CollisionDetection::~CollisionDetection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_collision_detection_1a9bb42241d83ea2c517fc2e4fe52f4e50" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::RayAABBIntersection</definition>
+        <argsstring>(Ray a, const S_BoxBounds b)</argsstring>
+        <name>RayAABBIntersection</name>
+        <qualifiedname>CollisionDetection::RayAABBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_ray" kindref="compound">Ray</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="33" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="16" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1aa5307ed3a1236cd2917caab7f6b222ff" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::RaySphereIntersection</definition>
+        <argsstring>(Ray a, Sphere b)</argsstring>
+        <name>RaySphereIntersection</name>
+        <qualifiedname>CollisionDetection::RaySphereIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_ray" kindref="compound">Ray</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="36" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="105" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a580407c59cb10d3aca31854d9a6abe66" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::RayOBBIntersection</definition>
+        <argsstring>(Ray a, Box b)</argsstring>
+        <name>RayOBBIntersection</name>
+        <qualifiedname>CollisionDetection::RayOBBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_ray" kindref="compound">Ray</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="39" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="134" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a0549e8c76a2e6d5eec0bdcbaea73d327" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::SphereIntersection</definition>
+        <argsstring>(Sphere a, Sphere b)</argsstring>
+        <name>SphereIntersection</name>
+        <qualifiedname>CollisionDetection::SphereIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="44" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="215" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::SphereAABBIntersection</definition>
+        <argsstring>(Sphere a, const S_BoxBounds b)</argsstring>
+        <name>SphereAABBIntersection</name>
+        <qualifiedname>CollisionDetection::SphereAABBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="47" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="179" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a11d8843cccbc47dd20a7cb3461931254" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::SphereOBBIntersection</definition>
+        <argsstring>(Sphere a, Box b)</argsstring>
+        <name>SphereOBBIntersection</name>
+        <qualifiedname>CollisionDetection::SphereOBBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="50" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="193" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a07986f1a23e3e6f9a304e729fdfa1133" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::AABBIntersection</definition>
+        <argsstring>(S_BoxBounds a, S_BoxBounds b)</argsstring>
+        <name>AABBIntersection</name>
+        <qualifiedname>CollisionDetection::AABBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="55" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="225" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::AABBOBBIntersection</definition>
+        <argsstring>(S_BoxBounds a, Box b)</argsstring>
+        <name>AABBOBBIntersection</name>
+        <qualifiedname>CollisionDetection::AABBOBBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="58" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="246" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a2b97235db6e30ad5aa2a8e3e6f269243" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CollisionDetection::OBBIntersection</definition>
+        <argsstring>(Box a, Box b)</argsstring>
+        <name>OBBIntersection</name>
+        <qualifiedname>CollisionDetection::OBBIntersection</qualifiedname>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="63" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="252" bodyend="256"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref></type>
+        <definition>S_CollisionData CollisionDetection::GetCollisionData</definition>
+        <argsstring>()</argsstring>
+        <name>GetCollisionData</name>
+        <qualifiedname>CollisionDetection::GetCollisionData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="70" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp" bodystart="258" bodyend="261"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The role of this class is to facilatate collision detection </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" line="19" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.h" bodystart="20" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_collision_detection_1a07986f1a23e3e6f9a304e729fdfa1133" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>AABBIntersection</name></member>
+      <member refid="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>AABBOBBIntersection</name></member>
+      <member refid="class_collision_detection_1a230b19dbee612cf219f472fe39ec0c8f" prot="private" virt="non-virtual"><scope>CollisionDetection</scope><name>collisionData</name></member>
+      <member refid="class_collision_detection_1a33b6fc78cf2fc48fb6a8a1856471a848" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>CollisionDetection</name></member>
+      <member refid="class_collision_detection_1af9219846e543f9479bef4edb932e3ab9" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>CollisionDetection</name></member>
+      <member refid="class_collision_detection_1ada5b142245092d98f626fc020c408136" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>CollisionDetection</name></member>
+      <member refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>GetCollisionData</name></member>
+      <member refid="class_collision_detection_1a2b97235db6e30ad5aa2a8e3e6f269243" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>OBBIntersection</name></member>
+      <member refid="class_collision_detection_1a0339567fdbe6bbbe6cc9f0076a7074a9" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>operator=</name></member>
+      <member refid="class_collision_detection_1ac02cd78fd7508e6b96b1bd5dc0472828" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>operator=</name></member>
+      <member refid="class_collision_detection_1a9bb42241d83ea2c517fc2e4fe52f4e50" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>RayAABBIntersection</name></member>
+      <member refid="class_collision_detection_1a580407c59cb10d3aca31854d9a6abe66" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>RayOBBIntersection</name></member>
+      <member refid="class_collision_detection_1aa5307ed3a1236cd2917caab7f6b222ff" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>RaySphereIntersection</name></member>
+      <member refid="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>SphereAABBIntersection</name></member>
+      <member refid="class_collision_detection_1a0549e8c76a2e6d5eec0bdcbaea73d327" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>SphereIntersection</name></member>
+      <member refid="class_collision_detection_1a11d8843cccbc47dd20a7cb3461931254" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>SphereOBBIntersection</name></member>
+      <member refid="class_collision_detection_1a02163f314ae4c76cfda1a3e214ff9b68" prot="public" virt="non-virtual"><scope>CollisionDetection</scope><name>~CollisionDetection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

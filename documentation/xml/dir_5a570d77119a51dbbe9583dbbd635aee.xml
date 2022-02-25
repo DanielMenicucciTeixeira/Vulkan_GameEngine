@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_5a570d77119a51dbbe9583dbbd635aee" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers</compoundname>
+    <innerdir refid="dir_c17988c5fea54ca829cc69f63be58838">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials</innerdir>
+    <innerdir refid="dir_ccba734e9be8dd7e4e63b29879d834e6">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL</innerdir>
+    <innerdir refid="dir_f1cfd5faa12f70aa7fe8f9821101501f">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan</innerdir>
+    <innerfile refid="_renderer_8h">Renderer.h</innerfile>
+    <innerfile refid="_render_initialization_data_8h">RenderInitializationData.h</innerfile>
+    <innerfile refid="_render_object_8h">RenderObject.h</innerfile>
+    <innerfile refid="_texture_handler_8cpp">TextureHandler.cpp</innerfile>
+    <innerfile refid="_texture_handler_8h">TextureHandler.h</innerfile>
+    <innerfile refid="_uniform_buffer_object_8h">UniformBufferObject.h</innerfile>
+    <innerfile refid="_vertex_8h">Vertex.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/"/>
+  </compounddef>
+</doxygen>

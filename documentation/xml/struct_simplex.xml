@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_simplex" kind="struct" language="C++" prot="public">
+    <compoundname>Simplex</compoundname>
+    <includes refid="_simplex_8h" local="no">Simplex.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_simplex_1a066b020a00cab9cc87e387caafb5c40e" prot="private" static="no" mutable="no">
+        <type>std::array&lt; <ref refid="class_f_vector3" kindref="compound">FVector3</ref>, 4 &gt;</type>
+        <definition>std::array&lt;FVector3, 4&gt; Simplex::Vertices</definition>
+        <argsstring></argsstring>
+        <name>Vertices</name>
+        <qualifiedname>Simplex::Vertices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="12" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_simplex_1acdf28b2a62b985cb0647750bab588bae" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned Simplex::Size</definition>
+        <argsstring></argsstring>
+        <name>Size</name>
+        <qualifiedname>Simplex::Size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="13" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_simplex_1a6111f5657ca04b243a5823b645b70bc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Simplex::Simplex</definition>
+        <argsstring>()</argsstring>
+        <name>Simplex</name>
+        <qualifiedname>Simplex::Simplex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="16" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1a12c4022fed644a01764792fc52747028" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="struct_simplex" kindref="compound">Simplex</ref> &amp;</type>
+        <definition>Simplex &amp; Simplex::operator=</definition>
+        <argsstring>(std::initializer_list&lt; FVector3 &gt; list)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Simplex::operator=</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &gt;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="18" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="18" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1abe760a4ce661261784808e388bb58c18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Simplex::PushFront</definition>
+        <argsstring>(FVector3 point)</argsstring>
+        <name>PushFront</name>
+        <qualifiedname>Simplex::PushFront</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="29" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1a3488afcce336f8c552e86e1bc4071542" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+        <definition>FVector3 &amp; Simplex::operator[]</definition>
+        <argsstring>(unsigned index)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>Simplex::operator[]</qualifiedname>
+        <param>
+          <type>unsigned</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="35" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1aeede2b943bcd3d7ab16da0a2715113da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned Simplex::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>Simplex::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="36" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1ad5161ef4f875383b9880f2401cefe71a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Simplex::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <qualifiedname>Simplex::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="38" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_simplex_1ae3a1f652ec439b823610f75846ae8067" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto Simplex::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <qualifiedname>Simplex::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="39" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h" bodystart="10" bodyend="40"/>
+    <listofallmembers>
+      <member refid="struct_simplex_1ad5161ef4f875383b9880f2401cefe71a" prot="public" virt="non-virtual"><scope>Simplex</scope><name>begin</name></member>
+      <member refid="struct_simplex_1ae3a1f652ec439b823610f75846ae8067" prot="public" virt="non-virtual"><scope>Simplex</scope><name>end</name></member>
+      <member refid="struct_simplex_1a12c4022fed644a01764792fc52747028" prot="public" virt="non-virtual"><scope>Simplex</scope><name>operator=</name></member>
+      <member refid="struct_simplex_1a3488afcce336f8c552e86e1bc4071542" prot="public" virt="non-virtual"><scope>Simplex</scope><name>operator[]</name></member>
+      <member refid="struct_simplex_1abe760a4ce661261784808e388bb58c18" prot="public" virt="non-virtual"><scope>Simplex</scope><name>PushFront</name></member>
+      <member refid="struct_simplex_1a6111f5657ca04b243a5823b645b70bc6" prot="public" virt="non-virtual"><scope>Simplex</scope><name>Simplex</name></member>
+      <member refid="struct_simplex_1acdf28b2a62b985cb0647750bab588bae" prot="private" virt="non-virtual"><scope>Simplex</scope><name>Size</name></member>
+      <member refid="struct_simplex_1aeede2b943bcd3d7ab16da0a2715113da" prot="public" virt="non-virtual"><scope>Simplex</scope><name>size</name></member>
+      <member refid="struct_simplex_1a066b020a00cab9cc87e387caafb5c40e" prot="private" virt="non-virtual"><scope>Simplex</scope><name>Vertices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_f_matrix_8h" kind="file" language="C++">
+    <compoundname>FMatrix.h</compoundname>
+    <includedby refid="_simplex_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h</includedby>
+    <includedby refid="_f_matrix_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.cpp</includedby>
+    <includedby refid="_f_matrix4_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp</includedby>
+    <includedby refid="_physics_lib_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</includedby>
+    <includedby refid="_vulkan_renderer_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</label>
+        <link refid="_oct_spatial_partition_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.cpp</label>
+        <link refid="_f_matrix_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp</label>
+        <link refid="_f_matrix4_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</label>
+        <link refid="_box_collider_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.cpp</label>
+        <link refid="_sphere_collider_8cpp"/>
+      </node>
+      <node id="21">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/SphereCollider.h</label>
+        <link refid="_sphere_collider_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp</label>
+        <link refid="_mesh_collision_8cpp"/>
+      </node>
+      <node id="22">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.h</label>
+        <link refid="_mesh_collision_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MovementComponent.cpp</label>
+        <link refid="_movement_component_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="29">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</label>
+        <link refid="_physics_lib_8cpp"/>
+      </node>
+      <node id="30">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanRenderer.cpp</label>
+        <link refid="_vulkan_renderer_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</label>
+        <link refid="_billiard_ball_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</label>
+        <link refid="_billiard_table_8cpp"/>
+      </node>
+      <node id="25">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+      </node>
+      <node id="26">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Source.cpp</label>
+        <link refid="_source_8cpp"/>
+      </node>
+      <node id="24">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</label>
+        <link refid="_tetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_f_matrix" prot="public">FMatrix</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>eRotationAxis</name>
+        <enumvalue id="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a58833a3110c570fb05130d40c365d1e4" prot="public">
+          <name>X</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a5596231eabd6cf29050967d5ac83ad84" prot="public">
+          <name>Y</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5aa70478ce277ffc322f8e1e3418e07355" prot="public">
+          <name>Z</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.h" line="6" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.h" bodystart="6" bodyend="6"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>FMATRIX3_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FMATRIX3_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" kindref="member">eRotationAxis</ref><sp/>{<sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a58833a3110c570fb05130d40c365d1e4" kindref="member">X</ref>,<sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a5596231eabd6cf29050967d5ac83ad84" kindref="member">Y</ref>,<sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5aa70478ce277ffc322f8e1e3418e07355" kindref="member">Z</ref><sp/>};</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="class_f_matrix" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix" kindref="compound">FMatrix</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//the<sp/>Matrix<sp/>itself</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" kindref="member">Matrix</ref>[9];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Default<sp/>contructor,<sp/>initilizes<sp/>to<sp/>an<sp/>identity<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Constructor<sp/>that<sp/>initilizes<sp/>all<sp/>elements<sp/>of<sp/>the<sp/>matrix<sp/>to<sp/>a<sp/>given<sp/>float</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Value);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Initializes<sp/>the<sp/>Matrix<sp/>Given<sp/>3<sp/>FVector3s<sp/>for<sp/>rows</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>Row1,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>Row2,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>Row3);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Initialiazes<sp/>the<sp/>Matrix<sp/>given<sp/>3<sp/>floats<sp/>for<sp/>the<sp/>diagonal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a58833a3110c570fb05130d40c365d1e4" kindref="member">X</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a5596231eabd6cf29050967d5ac83ad84" kindref="member">Y</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5aa70478ce277ffc322f8e1e3418e07355" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Initializes<sp/>the<sp/>Matrix<sp/>given<sp/>an<sp/>Array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>matrix[9]);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Initializes<sp/>the<sp/>Matrix<sp/>to<sp/>a<sp/>rotation<sp/>matrix<sp/>given<sp/>the<sp/>Angle<sp/>and<sp/>Axis,<sp/>optionaly,<sp/>input<sp/>true<sp/>to<sp/>give<sp/>the<sp/>angle<sp/>in<sp/>radians</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a918d6c2ef146a8bdb7c9363a9d0be967" kindref="member">FMatrix</ref>(<ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" kindref="member">eRotationAxis</ref><sp/>Axis,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Angle,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsAngleRadian<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix_1a796cfe16326f40b36bba58a2321572a0" kindref="member">~FMatrix</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a927f5e80c0f003e85e72a4bb592520f7" kindref="member">operator= </ref>(<ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/>matrix);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/><ref refid="class_f_matrix_1a3812ba96542ff5b645d649deb7ee125a" kindref="member">operator* </ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>multiplier);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/><ref refid="class_f_matrix_1a3812ba96542ff5b645d649deb7ee125a" kindref="member">operator* </ref>(<ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/>matrix);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/><ref refid="class_f_matrix_1a3812ba96542ff5b645d649deb7ee125a" kindref="member">operator* </ref>(<ref refid="class_f_matrix" kindref="compound">FMatrix</ref>*<sp/>matrix);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_f_matrix_1a3812ba96542ff5b645d649deb7ee125a" kindref="member">operator*</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>vector);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1ae9dbfb7971812f7d646678fe6dc058d0" kindref="member">operator*= </ref>(<ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/>matrix);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1ae9dbfb7971812f7d646678fe6dc058d0" kindref="member">operator*= </ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>multiplier);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_f_matrix_1a29ea86f957907da3c1707c1cf201f5dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a29ea86f957907da3c1707c1cf201f5dc" kindref="member">operator[] </ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*(&amp;<ref refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" kindref="member">Matrix</ref>[index]);<sp/>}</highlight></codeline>
+<codeline lineno="58" refid="class_f_matrix_1ab9ee7e70c8c0f8eb633e709213756aad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">&amp;<sp/><ref refid="class_f_matrix_1a29ea86f957907da3c1707c1cf201f5dc" kindref="member">operator[] </ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*(&amp;<ref refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" kindref="member">Matrix</ref>[index]);<sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="class_f_matrix_1a3be086eff7c9c392f3855fb5ada88831" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;<ref refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" kindref="member">Matrix</ref>[0]);<sp/>}</highlight></codeline>
+<codeline lineno="61" refid="class_f_matrix_1a74ca70e0859339a1bb78c6574641fe0b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;<ref refid="class_f_matrix_1a8e498bbad45443ab636491a82cdeda49" kindref="member">Matrix</ref>[0]);<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Makes<sp/>this<sp/>Matrix<sp/>an<sp/>Identity<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a9a36ea8743eed67af54c9ee62b3adcb3" kindref="member">SetToIdentity</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Makes<sp/>this<sp/>Matrix<sp/>a<sp/>Rotation<sp/>Matrix<sp/>on<sp/>given<sp/>axis<sp/>with<sp/>given<sp/>degrees<sp/>optionaly,<sp/>input<sp/>true<sp/>to<sp/>give<sp/>the<sp/>angle<sp/>in<sp/>radians</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a51751a5fc51e0801bdcb53c932293821" kindref="member">SetToRotationMatrix</ref>(<ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" kindref="member">eRotationAxis</ref><sp/>Asix,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Angle,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsAngleRadian<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Makes<sp/>this<sp/>Matrix<sp/>a<sp/>Scaling<sp/>Matrix<sp/>with<sp/>X,<sp/>Y<sp/>and<sp/>Z<sp/>respectively<sp/>on<sp/>the<sp/>diagonal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a03cf80a70c83a4848928777e0b579e81" kindref="member">SetToScalingMatrix</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ScaleX,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ScaleY,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ScaleZ);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Makes<sp/>this<sp/>Matrix<sp/>a<sp/>Translation<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a4c311523dfe7c8ec12a92ed673448711" kindref="member">SetToTranslationMatrix</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a58833a3110c570fb05130d40c365d1e4" kindref="member">X</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5a5596231eabd6cf29050967d5ac83ad84" kindref="member">Y</ref>,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5aa70478ce277ffc322f8e1e3418e07355" kindref="member">Z</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Swaps<sp/>Rows<sp/>and<sp/>Columns</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a050158fb48435ba8c1b182fefc831cc8" kindref="member">Transpose</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Sets<sp/>all<sp/>elements<sp/>of<sp/>the<sp/>matrix<sp/>to<sp/>a<sp/>given<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1aac48fa8ee40852e3555259f7eaf8afea" kindref="member">SetAllElements</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Value);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Returns<sp/>the<sp/>Determinant<sp/>of<sp/>the<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a7e3f2e400b1b56062390d0d5fad6aec2" kindref="member">Det</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Returns<sp/>the<sp/>Iverse<sp/>of<sp/>the<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix" kindref="compound">FMatrix</ref><sp/><ref refid="class_f_matrix_1a78705be3f47fbe918496b9bce0a0e152" kindref="member">GetInverse</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Inverts<sp/>the<sp/>Matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1ac0dcec9ef97603a6c355640c2acdf760" kindref="member">Invert</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Prints<sp/>the<sp/>matrix<sp/>to<sp/>console</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_matrix_1a680b29bdae47765729eaaf84c4a83b22" kindref="member">PrintMatrix</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix.h"/>
+  </compounddef>
+</doxygen>

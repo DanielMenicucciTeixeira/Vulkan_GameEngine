@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_light_source_component_8cpp" kind="file" language="C++">
+    <compoundname>LightSourceComponent.cpp</compoundname>
+    <includes refid="_light_source_component_8h" local="yes">LightSourceComponent.h</includes>
+    <includes refid="_level_8h" local="yes">Level.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <includes refid="_level_graph_8h" local="yes">LevelGraph.h</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+      </node>
+      <node id="14">
+        <label>DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Level.h</label>
+        <link refid="_level_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</label>
+        <link refid="_light_source_component_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>LightSourceComponent.h</label>
+        <link refid="_light_source_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="16">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="9">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="4">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Objects/Components/TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="25">
+        <label>algorithm</label>
+      </node>
+      <node id="19">
+        <label>map</label>
+      </node>
+      <node id="18">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>set</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>unordered_map</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_light_source_component_8h" kindref="compound">LightSourceComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_8h" kindref="compound">Level.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_graph_8h" kindref="compound">LevelGraph.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_c___light_source_component_1a02b893a0d5405d9707edf1498c89db99" refkind="member"><highlight class="normal"><ref refid="class_c___light_source_component_1a02b893a0d5405d9707edf1498c89db99" kindref="member">C_LightSourceComponent::C_LightSourceComponent</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner)<sp/>:<sp/><ref refid="class_c___transform_component" kindref="compound">C_TransformComponent</ref>(owner),<sp/>Intensity(1.0f)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1aebea7a15f3ec2fbb65699af75473f5bc" kindref="member">AddLight</ref>(<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>,<sp/><ref refid="class_c___light_source_component_1afd12def655cc8ee7b48b61aac52a6484" kindref="member">LightIndex</ref>);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a9a29507cc93365d61ae97bf8e5cd7418" kindref="member">SetAmbientMultiplier</ref>(0.005f);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a4a00089a3dce20ef1b73dd8ddfd0c748" kindref="member">SetDiffuseMultiplier</ref>(1.0f);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1acf673e171a040dd1e9c43634de475876" kindref="member">SetSpecularMultiplier</ref>(0.5f);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a950dfcd3fbbcb30ae23b9ab1cdf98a4e" kindref="member">SetColour</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref>(1));</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a406d65b2b9a5d03bdf3eb0cce6350abb" kindref="member">SetLightType</ref>(<ref refid="_light_source_component_8h_1a5320577d08b67bf924bfd9569ae59d35a30d898c2a063caaf4b25a1af79e2e305" kindref="member">E_LightType::POINT_LIGHT</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a4aaade6340289682067cca06a75ac64a" kindref="member">SetTurnedOn</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_c___light_source_component_1a60242ec2e92e7dbf172965ac4a424a47" refkind="member"><highlight class="normal"><ref refid="class_c___light_source_component_1a60242ec2e92e7dbf172965ac4a424a47" kindref="member">C_LightSourceComponent::~C_LightSourceComponent</ref>()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1a6c0ca934f13e744f747af71d9b188e5c" kindref="member">RemoveLight</ref>(<ref refid="class_c___light_source_component_1afd12def655cc8ee7b48b61aac52a6484" kindref="member">LightIndex</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_c___light_source_component_1aeaef7bb6588a7f19b9804d5be61e6cb5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1aeaef7bb6588a7f19b9804d5be61e6cb5" kindref="member">C_LightSourceComponent::Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___object_1a640a13e8dc5229329cef12ae8056e919" kindref="member">C_TransformComponent::Update</ref>(deltaTime);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>position<sp/>=<sp/><ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[0][0]<sp/>=<sp/>position.X;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[0][1]<sp/>=<sp/>position.Y;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[0][2]<sp/>=<sp/>position.Z;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_c___light_source_component_1ae566b0faca79b86dfd4421d13691aa8a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1ae566b0faca79b86dfd4421d13691aa8a" kindref="member">C_LightSourceComponent::GetAmbientMultiplier</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="35"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][0];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="class_c___light_source_component_1a0fd2ab8ee3325bebd9f16315cf4e54a4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a0fd2ab8ee3325bebd9f16315cf4e54a4" kindref="member">C_LightSourceComponent::GetDiffuseMultiplier</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="40"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][1];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_c___light_source_component_1ad57f09778d364bd11c12e78d001fe9d6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1ad57f09778d364bd11c12e78d001fe9d6" kindref="member">C_LightSourceComponent::GetSpecularMultiplier</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="45"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][2];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_c___light_source_component_1a7834787dfe83593e1cc8e72b4557042d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a7834787dfe83593e1cc8e72b4557042d" kindref="member">C_LightSourceComponent::GetAmbientIntensity</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="50"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][0]<sp/>*<sp/>(*LightInfo)[3][1];</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="class_c___light_source_component_1ac0065a73630e86176dd255e5f02a5234" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1ac0065a73630e86176dd255e5f02a5234" kindref="member">C_LightSourceComponent::GetDiffuseIntensity</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="55"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][1]<sp/>*<sp/>(*LightInfo)[3][1];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_c___light_source_component_1aeaccdf0530f9ca60919ee0946907964b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1aeaccdf0530f9ca60919ee0946907964b" kindref="member">C_LightSourceComponent::GetSpecularIntensity</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="60"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[1][2]<sp/>*<sp/>(*LightInfo)[3][1];</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="class_c___light_source_component_1a12993919733a44425aefce0a18f1c534" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a12993919733a44425aefce0a18f1c534" kindref="member">C_LightSourceComponent::GetIntensity</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="65"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a4508a0f1a93099437beeb7c86b1ca198" kindref="member">Intensity</ref><sp/>*<sp/>(*LightInfo)[3][1];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_c___light_source_component_1ab316240c29c9e83f456cc0789371a7aa" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___light_source_component_1ab316240c29c9e83f456cc0789371a7aa" kindref="member">C_LightSourceComponent::GetColour</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="70"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>((*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[2][0],<sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[2][1],<sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[2][2]);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_c___light_source_component_1a74ba6974ee384b167630a6f0fe5a8046" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a74ba6974ee384b167630a6f0fe5a8046" kindref="member">C_LightSourceComponent::IsOn</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="76"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[3][1];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="class_c___light_source_component_1a676ce5347e66975a206c76d5ff881e89" refkind="member"><highlight class="normal"><ref refid="_light_source_component_8h_1a5320577d08b67bf924bfd9569ae59d35" kindref="member">E_LightType</ref><sp/><ref refid="class_c___light_source_component_1a676ce5347e66975a206c76d5ff881e89" kindref="member">C_LightSourceComponent::GetLightType</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="81"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_light_source_component_8h_1a5320577d08b67bf924bfd9569ae59d35" kindref="member">E_LightType</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">((*LightInfo)[3][0]);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="class_c___light_source_component_1a9a29507cc93365d61ae97bf8e5cd7418" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a9a29507cc93365d61ae97bf8e5cd7418" kindref="member">C_LightSourceComponent::SetAmbientMultiplier</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>intensity)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][0]<sp/>=<sp/>intensity;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="class_c___light_source_component_1a4a00089a3dce20ef1b73dd8ddfd0c748" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a4a00089a3dce20ef1b73dd8ddfd0c748" kindref="member">C_LightSourceComponent::SetDiffuseMultiplier</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>intensity)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][1]<sp/>=<sp/>intensity;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="class_c___light_source_component_1acf673e171a040dd1e9c43634de475876" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1acf673e171a040dd1e9c43634de475876" kindref="member">C_LightSourceComponent::SetSpecularMultiplier</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>intensity)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][2]<sp/>=<sp/>intensity;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="class_c___light_source_component_1a2759d1899bd33d99d470463b45703b0c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a2759d1899bd33d99d470463b45703b0c" kindref="member">C_LightSourceComponent::SetIntensity</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>intensity)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][0]<sp/>=<sp/>(*LightInfo)[1][0]<sp/>/<sp/><ref refid="class_c___light_source_component_1a4508a0f1a93099437beeb7c86b1ca198" kindref="member">Intensity</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][1]<sp/>=<sp/>(*LightInfo)[1][1]<sp/>/<sp/><ref refid="class_c___light_source_component_1a4508a0f1a93099437beeb7c86b1ca198" kindref="member">Intensity</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][2]<sp/>=<sp/>(*LightInfo)[1][2]<sp/>/<sp/><ref refid="class_c___light_source_component_1a4508a0f1a93099437beeb7c86b1ca198" kindref="member">Intensity</ref>;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][0]<sp/>*=<sp/>intensity;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][1]<sp/>*=<sp/>intensity;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[1][2]<sp/>*=<sp/>intensity;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___light_source_component_1a4508a0f1a93099437beeb7c86b1ca198" kindref="member">Intensity</ref><sp/>=<sp/>intensity;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="class_c___light_source_component_1a4aaade6340289682067cca06a75ac64a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a4aaade6340289682067cca06a75ac64a" kindref="member">C_LightSourceComponent::SetTurnedOn</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isOn)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isOn)<sp/>(*LightInfo)[3][1]<sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>(*<ref refid="class_c___light_source_component_1aacc050b478b7d15480e64a52281501e0" kindref="member">LightInfo</ref>)[3][1]<sp/>=<sp/>-1.0f;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="class_c___light_source_component_1a950dfcd3fbbcb30ae23b9ab1cdf98a4e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a950dfcd3fbbcb30ae23b9ab1cdf98a4e" kindref="member">C_LightSourceComponent::SetColour</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>color)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[2][0]<sp/>=<sp/>color.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[2][1]<sp/>=<sp/>color.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[2][2]<sp/>=<sp/>color.<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="class_c___light_source_component_1a406d65b2b9a5d03bdf3eb0cce6350abb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___light_source_component_1a406d65b2b9a5d03bdf3eb0cce6350abb" kindref="member">C_LightSourceComponent::SetLightType</ref>(<ref refid="_light_source_component_8h_1a5320577d08b67bf924bfd9569ae59d35" kindref="member">E_LightType</ref><sp/>type)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>(*LightInfo)[3][0]<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(type);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp"/>
+  </compounddef>
+</doxygen>

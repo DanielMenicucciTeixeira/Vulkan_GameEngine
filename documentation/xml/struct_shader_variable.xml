@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_shader_variable" kind="struct" language="C++" prot="public">
+    <compoundname>ShaderVariable</compoundname>
+    <includes refid="_material_8h" local="no">Material.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_shader_variable_1a9c544abd83f61671c73fb303d1100d95" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T ShaderVariable&lt; T &gt;::Value</definition>
+        <argsstring></argsstring>
+        <name>Value</name>
+        <qualifiedname>ShaderVariable::Value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="91" column="3" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_shader_variable_1a5eb861ed5d01c28aa4626ba8c734430b" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref></type>
+        <definition>ShaderVariableInfo ShaderVariable&lt; T &gt;::Info</definition>
+        <argsstring></argsstring>
+        <name>Info</name>
+        <qualifiedname>ShaderVariable::Info</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="92" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_shader_variable_1a58ae9006db34c676d7fbba6b6b5e1802" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderVariable&lt; T &gt;::ShaderVariable</definition>
+        <argsstring>(T value, E_ShaderVariableType type, E_ShaderStage stage, size_t size=0)</argsstring>
+        <name>ShaderVariable</name>
+        <qualifiedname>ShaderVariable::ShaderVariable</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref></type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="88" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_shader_variable_1a49a8c9f8287b3b5f0ba88d032359d5a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderVariable&lt; T &gt;::ShaderVariable</definition>
+        <argsstring>()</argsstring>
+        <name>ShaderVariable</name>
+        <qualifiedname>ShaderVariable::ShaderVariable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="89" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_shader_variable_1ab1df3d53e9e4008d86b33026d7563d39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ShaderVariable&lt; T &gt;::operator=</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>ShaderVariable::operator=</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="94" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_shader_variable_1aaba522309294801db23c2591c0af646c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ShaderVariable&lt; T &gt;::operator==</definition>
+        <argsstring>(const ShaderVariable&lt; T &gt; &amp;other)</argsstring>
+        <name>operator==</name>
+        <qualifiedname>ShaderVariable::operator==</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_shader_variable" kindref="compound">ShaderVariable</ref>&lt; T &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="96" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="96" bodyend="99"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ShaderVariable&lt; T &gt;</label>
+        <link refid="struct_shader_variable"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Info</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ShaderVariableInfo</label>
+        <link refid="struct_shader_variable_info"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="86" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="87" bodyend="100"/>
+    <listofallmembers>
+      <member refid="struct_shader_variable_1a5eb861ed5d01c28aa4626ba8c734430b" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>Info</name></member>
+      <member refid="struct_shader_variable_1ab1df3d53e9e4008d86b33026d7563d39" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>operator=</name></member>
+      <member refid="struct_shader_variable_1aaba522309294801db23c2591c0af646c" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>operator==</name></member>
+      <member refid="struct_shader_variable_1a58ae9006db34c676d7fbba6b6b5e1802" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>ShaderVariable</name></member>
+      <member refid="struct_shader_variable_1a49a8c9f8287b3b5f0ba88d032359d5a2" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>ShaderVariable</name></member>
+      <member refid="struct_shader_variable_1a9c544abd83f61671c73fb303d1100d95" prot="public" virt="non-virtual"><scope>ShaderVariable</scope><name>Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_f1cfd5faa12f70aa7fe8f9821101501f" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan</compoundname>
+    <innerfile refid="_vulkan_debugger_8cpp">VulkanDebugger.cpp</innerfile>
+    <innerfile refid="_vulkan_debugger_8h">VulkanDebugger.h</innerfile>
+    <innerfile refid="_vulkan_devices_8cpp">VulkanDevices.cpp</innerfile>
+    <innerfile refid="_vulkan_devices_8h">VulkanDevices.h</innerfile>
+    <innerfile refid="_vulkan_manager_8cpp">VulkanManager.cpp</innerfile>
+    <innerfile refid="_vulkan_manager_8h">VulkanManager.h</innerfile>
+    <innerfile refid="_vulkan_pipeline_manager_8cpp">VulkanPipelineManager.cpp</innerfile>
+    <innerfile refid="_vulkan_pipeline_manager_8h">VulkanPipelineManager.h</innerfile>
+    <innerfile refid="_vulkan_renderer_8cpp">VulkanRenderer.cpp</innerfile>
+    <innerfile refid="_vulkan_renderer_8h">VulkanRenderer.h</innerfile>
+    <innerfile refid="_vulkan_swapchain_manager_8cpp">VulkanSwapchainManager.cpp</innerfile>
+    <innerfile refid="_vulkan_swapchain_manager_8h">VulkanSwapchainManager.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1085 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_f_matrix4" kind="class" language="C++" prot="public">
+    <compoundname>FMatrix4</compoundname>
+    <includes refid="_f_matrix4_8h" local="no">FMatrix4.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_f_matrix4_1a3515e6cc02a4930bb19fe6332411cb26" prot="public" static="no" mutable="no">
+        <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref></type>
+        <definition>FVector4 FMatrix4::Colum[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>Colum</name>
+        <qualifiedname>FMatrix4::Colum</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="15" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_matrix4_1a34585b81edfa8f7d736ab55630080bd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>()</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <briefdescription>
+<para>Constructors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="20" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="15" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a7a85acfcecd0ea3aa89c25fafb2e05b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(FMatrix matrix)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix" kindref="compound">FMatrix</ref></type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="22" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="38" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a3841a5b81ac548390e485d0d23b9783b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(float value)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="25" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a0b34e1128097513ecdd10f6ae3f2c87c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(const FVector4 &amp;row1, const FVector4 &amp;row2, const FVector4 &amp;row3, const FVector4 &amp;row4)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>row1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>row2</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>row3</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>row4</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="56" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a81df009748c0cf6d06c2db3fe4eb9e57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="31" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="80" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a233f7934b5ae55ed1cec9e6bdffec3ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(float a0, float a1, float a2, float a3, float b0, float b1, float b2, float b3, float c0, float c1, float c2, float c3, float d0, float d1, float d2, float d3)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>a0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a3</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b3</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c3</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d0</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d2</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d3</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="34" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="89" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a6fc9175d1ecb75faea6b6a01a073fc0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::FMatrix4</definition>
+        <argsstring>(eRotationAxis axis, float angle, bool isAngleRadian=false)</argsstring>
+        <name>FMatrix4</name>
+        <qualifiedname>FMatrix4::FMatrix4</qualifiedname>
+        <param>
+          <type><ref refid="_f_matrix_8h_1ade63c8058df0b4629fea17b50c36ced5" kindref="member">eRotationAxis</ref></type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isAngleRadian</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="43" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="98" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ae1c5aeced495ee39f9ab8ac82e919c16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::~FMatrix4</definition>
+        <argsstring>()</argsstring>
+        <name>~FMatrix4</name>
+        <qualifiedname>FMatrix4::~FMatrix4</qualifiedname>
+        <briefdescription>
+<para>Destructors. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="47" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a7140765f53064ce3872022a549bda832" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::operator=</definition>
+        <argsstring>(FMatrix4 matrix)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>FMatrix4::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+<para>Operator Overloads. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="51" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a8003d385ece969df18e46f53da060a63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::operator=</definition>
+        <argsstring>(FMatrix4 *matrix)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>FMatrix4::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="53" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a57eff43fdd7a56c8f79fb71dbce3bd2f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::operator*</definition>
+        <argsstring>(float multiplier) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>multiplier</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="55" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="152" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ab58435a8578bf030a2fa4fb3a1da1178" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::operator*</definition>
+        <argsstring>(FMatrix4 *matrix) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="57" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="187" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a597816f4896a87c5db8f4d2d5a56ea7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::operator*</definition>
+        <argsstring>(FMatrix4 matrix) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="59" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="164" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a4e25fe45f6ec065acdd81b6ec6662c0b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref></type>
+        <definition>FVector4 FMatrix4::operator*</definition>
+        <argsstring>(FVector4 *vector) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref> *</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="61" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="203" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1aec40dc3eba60d3a7b4b36738c2e34885" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref></type>
+        <definition>FVector4 FMatrix4::operator*</definition>
+        <argsstring>(FVector4 vector) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref></type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="63" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="215" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a9678396d247e396e8ad7caf914628dc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FMatrix4::operator*</definition>
+        <argsstring>(FVector3 vector) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FMatrix4::operator*</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="65" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="192" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a9cbd3c32cf5577feb7df7f378647e261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::operator*=</definition>
+        <argsstring>(FMatrix4 *matrix)</argsstring>
+        <name>operator*=</name>
+        <qualifiedname>FMatrix4::operator*=</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref> *</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="67" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="226" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a155ed25b87ab15769e44b903bc30a56c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::operator*=</definition>
+        <argsstring>(FMatrix4 matrix)</argsstring>
+        <name>operator*=</name>
+        <qualifiedname>FMatrix4::operator*=</qualifiedname>
+        <param>
+          <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="69" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="231" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a64f334e9025fc3e2ab456fc4cb1d2bde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::operator*=</definition>
+        <argsstring>(float multiplier)</argsstring>
+        <name>operator*=</name>
+        <qualifiedname>FMatrix4::operator*=</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>multiplier</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="71" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="236" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ab0e28e068bc057797fdd9e9d9d1925c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref></type>
+        <definition>const FVector4 FMatrix4::operator[]</definition>
+        <argsstring>(int index) const</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>FMatrix4::operator[]</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="73" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ac92728268eaa2035b04714e88df4987b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+        <definition>FVector4 &amp; FMatrix4::operator[]</definition>
+        <argsstring>(int index)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>FMatrix4::operator[]</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="74" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a91880bc3328501f674ad46282cf6ce4e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::operator float *</definition>
+        <argsstring>()</argsstring>
+        <name>operator float *</name>
+        <qualifiedname>FMatrix4::operator float *</qualifiedname>
+        <briefdescription>
+<para>These allow me convert from type Matrix to const float * without issues. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="77" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a9c3e628ee25b036f2bce63369e9fd7ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FMatrix4::operator const float *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator const float *</name>
+        <qualifiedname>FMatrix4::operator const float *</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="78" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a90c6b205437ef1c6ddaa021681476e8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToIdentity</definition>
+        <argsstring>()</argsstring>
+        <name>SetToIdentity</name>
+        <qualifiedname>FMatrix4::SetToIdentity</qualifiedname>
+        <briefdescription>
+<para>Functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="86" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="533" bodyend="539"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a33fde727be198a028e5e222e70d215d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetRow</definition>
+        <argsstring>(const FVector4 &amp;vector, int row)</argsstring>
+        <name>SetRow</name>
+        <qualifiedname>FMatrix4::SetRow</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="88" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="541" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1acb95284cd2f52015493d164d3197309e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToRotationMatrix</definition>
+        <argsstring>(float angle, float x, float y, float z, bool isAngleRadian=false)</argsstring>
+        <name>SetToRotationMatrix</name>
+        <qualifiedname>FMatrix4::SetToRotationMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isAngleRadian</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="96" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="609" bodyend="612"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1aa9bfd17a67802229b841ede478374289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToLookAtMatrix</definition>
+        <argsstring>(const FVector3 &amp;eye, const FVector3 &amp;target, const FVector3 &amp;up)</argsstring>
+        <name>SetToLookAtMatrix</name>
+        <qualifiedname>FMatrix4::SetToLookAtMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>eye</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="98" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="614" bodyend="617"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1af36558ad0e475da792a56628de82d3db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToPerspectiveMatrix</definition>
+        <argsstring>(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian=false)</argsstring>
+        <name>SetToPerspectiveMatrix</name>
+        <qualifiedname>FMatrix4::SetToPerspectiveMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>fieldOfView</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zNear</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zFar</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRadian</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="102" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="646" bodyend="649"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a3fcfb702cfad195696f49f956ebfb60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToScalingMatrix</definition>
+        <argsstring>(float scaleX, float scaleY, float scaleZ)</argsstring>
+        <name>SetToScalingMatrix</name>
+        <qualifiedname>FMatrix4::SetToScalingMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>scaleX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scaleY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scaleZ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="107" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="668" bodyend="675"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ad1e893b25a7113145b823a1c2d3280c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetToTranslationMatrix</definition>
+        <argsstring>(float X, float Y, float Z)</argsstring>
+        <name>SetToTranslationMatrix</name>
+        <qualifiedname>FMatrix4::SetToTranslationMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>X</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="113" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="686" bodyend="693"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a1272e176785a11d463cd4fc933d95397" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::Transpose</definition>
+        <argsstring>()</argsstring>
+        <name>Transpose</name>
+        <qualifiedname>FMatrix4::Transpose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="121" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="732" bodyend="743"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1ae00db4cf04e65985c540accc9ff26057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::SetAllElements</definition>
+        <argsstring>(float value)</argsstring>
+        <name>SetAllElements</name>
+        <qualifiedname>FMatrix4::SetAllElements</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="124" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="746" bodyend="755"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a54bab098293f3bf741f5e263f8b3df2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float FMatrix4::Det</definition>
+        <argsstring>()</argsstring>
+        <name>Det</name>
+        <qualifiedname>FMatrix4::Det</qualifiedname>
+        <briefdescription>
+<para>Functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="127" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="247" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1abd27fb69cfcc1769955f1d0cb65a5dd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetInverse</definition>
+        <argsstring>()</argsstring>
+        <name>GetInverse</name>
+        <qualifiedname>FMatrix4::GetInverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="130" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="270" bodyend="511"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a1fa168a96594a109533380552854b78e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::Invert</definition>
+        <argsstring>()</argsstring>
+        <name>Invert</name>
+        <qualifiedname>FMatrix4::Invert</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="133" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="514" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a190714d46dbc509584568fe52d612468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FMatrix4::Print</definition>
+        <argsstring>()</argsstring>
+        <name>Print</name>
+        <qualifiedname>FMatrix4::Print</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="135" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="519" bodyend="530"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_f_matrix4_1a5812fe1e8517108511987af0a22b0989" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetRotationMatrix</definition>
+        <argsstring>(float angle, float x, float y, float z, bool isAngleRadian=false)</argsstring>
+        <name>GetRotationMatrix</name>
+        <qualifiedname>FMatrix4::GetRotationMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isAngleRadian</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="91" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="551" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a4a804fba7fd831bf4b1cad681465d361" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetRotationMatrix</definition>
+        <argsstring>(const FQuaternion &amp;rotation)</argsstring>
+        <name>GetRotationMatrix</name>
+        <qualifiedname>FMatrix4::GetRotationMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="93" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="587" bodyend="607"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a83699b4798d8c1fa9545428b289efc9d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>static FMatrix4 FMatrix4::GetRotationMatrix</definition>
+        <argsstring>(const FQuaternion *rotation)</argsstring>
+        <name>GetRotationMatrix</name>
+        <qualifiedname>FMatrix4::GetRotationMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> *</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="94" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a567167a358176d2ec4e29290881b0283" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetLookAtMatrix</definition>
+        <argsstring>(const FVector3 &amp;eye, const FVector3 &amp;target, const FVector3 &amp;up)</argsstring>
+        <name>GetLookAtMatrix</name>
+        <qualifiedname>FMatrix4::GetLookAtMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>eye</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="100" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="619" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1abe848936f81ab4021d5d62448d88c80f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetPerspectiveMatrix</definition>
+        <argsstring>(float fieldOfView, float aspect, float zNear, float zFar, bool isRadian=false)</argsstring>
+        <name>GetPerspectiveMatrix</name>
+        <qualifiedname>FMatrix4::GetPerspectiveMatrix</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>fieldOfView</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zNear</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>zFar</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRadian</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="104" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="651" bodyend="665"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1aea284955c18edc0d2aa9c10db6ddee68" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetScalingMatrix</definition>
+        <argsstring>(const FVector3 &amp;scale)</argsstring>
+        <name>GetScalingMatrix</name>
+        <qualifiedname>FMatrix4::GetScalingMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="109" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="677" bodyend="684"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a017e0633004d9e544123d3bf5ed462d7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>static FMatrix4 FMatrix4::GetScalingMatrix</definition>
+        <argsstring>(const FVector3 *&amp;scale)</argsstring>
+        <name>GetScalingMatrix</name>
+        <qualifiedname>FMatrix4::GetScalingMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> *&amp;</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="110" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1aaa0b70b2abff53c4255f11f7915ba768" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetTranslationMatrix</definition>
+        <argsstring>(const FVector3 &amp;position)</argsstring>
+        <name>GetTranslationMatrix</name>
+        <qualifiedname>FMatrix4::GetTranslationMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="115" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="695" bodyend="702"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1af78624a2eccdd3c8a29c3718b280f83b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>static FMatrix4 FMatrix4::GetTranslationMatrix</definition>
+        <argsstring>(const FVector3 *&amp;position)</argsstring>
+        <name>GetTranslationMatrix</name>
+        <qualifiedname>FMatrix4::GetTranslationMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> *&amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="116" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_matrix4_1a532b2503564d2cfd473b14024217e2b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 FMatrix4::GetViewMatrix</definition>
+        <argsstring>(const FQuaternion &amp;rotation, const FVector3 &amp;position)</argsstring>
+        <name>GetViewMatrix</name>
+        <qualifiedname>FMatrix4::GetViewMatrix</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="118" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.cpp" bodystart="704" bodyend="729"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" line="11" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FMatrix4.h" bodystart="12" bodyend="136"/>
+    <listofallmembers>
+      <member refid="class_f_matrix4_1a3515e6cc02a4930bb19fe6332411cb26" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>Colum</name></member>
+      <member refid="class_f_matrix4_1a54bab098293f3bf741f5e263f8b3df2c" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>Det</name></member>
+      <member refid="class_f_matrix4_1a34585b81edfa8f7d736ab55630080bd8" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a7a85acfcecd0ea3aa89c25fafb2e05b8" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a3841a5b81ac548390e485d0d23b9783b" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a0b34e1128097513ecdd10f6ae3f2c87c" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a81df009748c0cf6d06c2db3fe4eb9e57" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a233f7934b5ae55ed1cec9e6bdffec3ac" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1a6fc9175d1ecb75faea6b6a01a073fc0b" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>FMatrix4</name></member>
+      <member refid="class_f_matrix4_1abd27fb69cfcc1769955f1d0cb65a5dd4" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetInverse</name></member>
+      <member refid="class_f_matrix4_1a567167a358176d2ec4e29290881b0283" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetLookAtMatrix</name></member>
+      <member refid="class_f_matrix4_1abe848936f81ab4021d5d62448d88c80f" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetPerspectiveMatrix</name></member>
+      <member refid="class_f_matrix4_1a5812fe1e8517108511987af0a22b0989" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetRotationMatrix</name></member>
+      <member refid="class_f_matrix4_1a4a804fba7fd831bf4b1cad681465d361" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetRotationMatrix</name></member>
+      <member refid="class_f_matrix4_1a83699b4798d8c1fa9545428b289efc9d" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetRotationMatrix</name></member>
+      <member refid="class_f_matrix4_1aea284955c18edc0d2aa9c10db6ddee68" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetScalingMatrix</name></member>
+      <member refid="class_f_matrix4_1a017e0633004d9e544123d3bf5ed462d7" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetScalingMatrix</name></member>
+      <member refid="class_f_matrix4_1aaa0b70b2abff53c4255f11f7915ba768" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetTranslationMatrix</name></member>
+      <member refid="class_f_matrix4_1af78624a2eccdd3c8a29c3718b280f83b" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetTranslationMatrix</name></member>
+      <member refid="class_f_matrix4_1a532b2503564d2cfd473b14024217e2b5" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>GetViewMatrix</name></member>
+      <member refid="class_f_matrix4_1a1fa168a96594a109533380552854b78e" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>Invert</name></member>
+      <member refid="class_f_matrix4_1a9c3e628ee25b036f2bce63369e9fd7ca" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator const float *</name></member>
+      <member refid="class_f_matrix4_1a91880bc3328501f674ad46282cf6ce4e" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator float *</name></member>
+      <member refid="class_f_matrix4_1a57eff43fdd7a56c8f79fb71dbce3bd2f" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1ab58435a8578bf030a2fa4fb3a1da1178" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1a597816f4896a87c5db8f4d2d5a56ea7d" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1a4e25fe45f6ec065acdd81b6ec6662c0b" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1aec40dc3eba60d3a7b4b36738c2e34885" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1a9678396d247e396e8ad7caf914628dc1" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*</name></member>
+      <member refid="class_f_matrix4_1a9cbd3c32cf5577feb7df7f378647e261" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*=</name></member>
+      <member refid="class_f_matrix4_1a155ed25b87ab15769e44b903bc30a56c" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*=</name></member>
+      <member refid="class_f_matrix4_1a64f334e9025fc3e2ab456fc4cb1d2bde" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator*=</name></member>
+      <member refid="class_f_matrix4_1a7140765f53064ce3872022a549bda832" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator=</name></member>
+      <member refid="class_f_matrix4_1a8003d385ece969df18e46f53da060a63" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator=</name></member>
+      <member refid="class_f_matrix4_1ab0e28e068bc057797fdd9e9d9d1925c5" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator[]</name></member>
+      <member refid="class_f_matrix4_1ac92728268eaa2035b04714e88df4987b" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>operator[]</name></member>
+      <member refid="class_f_matrix4_1a190714d46dbc509584568fe52d612468" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>Print</name></member>
+      <member refid="class_f_matrix4_1ae00db4cf04e65985c540accc9ff26057" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetAllElements</name></member>
+      <member refid="class_f_matrix4_1a33fde727be198a028e5e222e70d215d1" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetRow</name></member>
+      <member refid="class_f_matrix4_1a90c6b205437ef1c6ddaa021681476e8d" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToIdentity</name></member>
+      <member refid="class_f_matrix4_1aa9bfd17a67802229b841ede478374289" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToLookAtMatrix</name></member>
+      <member refid="class_f_matrix4_1af36558ad0e475da792a56628de82d3db" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToPerspectiveMatrix</name></member>
+      <member refid="class_f_matrix4_1acb95284cd2f52015493d164d3197309e" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToRotationMatrix</name></member>
+      <member refid="class_f_matrix4_1a3fcfb702cfad195696f49f956ebfb60d" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToScalingMatrix</name></member>
+      <member refid="class_f_matrix4_1ad1e893b25a7113145b823a1c2d3280c6" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>SetToTranslationMatrix</name></member>
+      <member refid="class_f_matrix4_1a1272e176785a11d463cd4fc933d95397" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>Transpose</name></member>
+      <member refid="class_f_matrix4_1ae1c5aeced495ee39f9ab8ac82e919c16" prot="public" virt="non-virtual"><scope>FMatrix4</scope><name>~FMatrix4</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_d28b9157a129565beaf9b3dd20b16b1a" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry</compoundname>
+    <innerfile refid="_box_8cpp">Box.cpp</innerfile>
+    <innerfile refid="_box_8h">Box.h</innerfile>
+    <innerfile refid="_box_bounds_8h">BoxBounds.h</innerfile>
+    <innerfile refid="_plane_8cpp">Plane.cpp</innerfile>
+    <innerfile refid="_plane_8h">Plane.h</innerfile>
+    <innerfile refid="_ray_8cpp">Ray.cpp</innerfile>
+    <innerfile refid="_ray_8h">Ray.h</innerfile>
+    <innerfile refid="_simplex_8cpp">Simplex.cpp</innerfile>
+    <innerfile refid="_simplex_8h">Simplex.h</innerfile>
+    <innerfile refid="_sphere_8cpp">Sphere.cpp</innerfile>
+    <innerfile refid="_sphere_8h">Sphere.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/"/>
+  </compounddef>
+</doxygen>

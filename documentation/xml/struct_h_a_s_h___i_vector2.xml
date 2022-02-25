@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_h_a_s_h___i_vector2" kind="struct" language="C++" prot="public">
+    <compoundname>HASH_IVector2</compoundname>
+    <includes refid="_i_vector2_8h" local="no">IVector2.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_h_a_s_h___i_vector2_1ac09f2f4defff0ba342d2cb083007c138" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t HASH_IVector2::operator()</definition>
+        <argsstring>(const IVector2 &amp;vector) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>HASH_IVector2::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="class_i_vector2" kindref="compound">IVector2</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector2.h" line="108" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector2.cpp" bodystart="193" bodyend="199"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector2.h" line="106" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/IVector2.h" bodystart="107" bodyend="109"/>
+    <listofallmembers>
+      <member refid="struct_h_a_s_h___i_vector2_1ac09f2f4defff0ba342d2cb083007c138" prot="public" virt="non-virtual"><scope>HASH_IVector2</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

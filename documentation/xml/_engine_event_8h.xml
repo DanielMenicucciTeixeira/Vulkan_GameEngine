@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_engine_event_8h" kind="file" language="C++">
+    <compoundname>EngineEvent.h</compoundname>
+    <innerclass refid="class_engine_event" prot="public">EngineEvent</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaac" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>E_EngineEvent</name>
+        <enumvalue id="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaacab50339a10e1de285ac99d4c3990b8693" prot="public">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaaca5dfd352dd6b7a5d118237fcf1e19fcc1" prot="public">
+          <name>QUIT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaaca306a00407401dd2d9d4b40bf611592a9" prot="public">
+          <name>NUMBER_OF_EVENTS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/EngineEvent.h" line="4" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/EngineEvent.h" bodystart="5" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ENGINEEVENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENGINEEVENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaac" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaac" kindref="member">E_EngineEvent</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaacab50339a10e1de285ac99d4c3990b8693" kindref="member">NONE</ref>,</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaaca5dfd352dd6b7a5d118237fcf1e19fcc1" kindref="member">QUIT</ref>,</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_engine_event_8h_1a0e1d7cd714e27a51e4987eaeb6adcaaca306a00407401dd2d9d4b40bf611592a9" kindref="member">NUMBER_OF_EVENTS</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_engine_event" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_engine_event" kindref="compound">EngineEvent</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/EngineEvent.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_opel_g_l_manager_8cpp" kind="file" language="C++">
+    <compoundname>OpelGLManager.cpp</compoundname>
+    <includes refid="_opel_g_l_manager_8h" local="yes">OpelGLManager.h</includes>
+    <includes refid="_core_engine_8h" local="yes">CoreEngine.h</includes>
+    <includes refid="_open_g_l_shader_manager_8h" local="yes">OpenGLShaderManager.h</includes>
+    <includes refid="_level_graph_8h" local="yes">LevelGraph.h</includes>
+    <includes refid="_render_object_8h" local="yes">Renderers/RenderObject.h</includes>
+    <includes refid="_debug_logger_8h" local="yes">DebugLogger.h</includes>
+    <includes local="no">SDL.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="15">
+        <label>Clock.h</label>
+        <link refid="_clock_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>CoreEngine.h</label>
+        <link refid="_core_engine_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>GameInterface.h</label>
+        <link refid="_game_interface_8h"/>
+      </node>
+      <node id="20">
+        <label>LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Window.h</label>
+        <link refid="_window_8h"/>
+      </node>
+      <node id="22">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="23">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="21">
+        <label>../Objects/Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp</label>
+        <link refid="_opel_g_l_manager_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OpelGLManager.h</label>
+        <link refid="_opel_g_l_manager_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>OpenGLShaderManager.h</label>
+        <link refid="_open_g_l_shader_manager_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Renderers/Renderer.h</label>
+        <link refid="_renderer_8h"/>
+      </node>
+      <node id="26">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>SDL.h</label>
+      </node>
+      <node id="29">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="16">
+        <label>chrono</label>
+      </node>
+      <node id="17">
+        <label>cstdlib</label>
+      </node>
+      <node id="6">
+        <label>glew.h</label>
+      </node>
+      <node id="31">
+        <label>iostream</label>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>memory</label>
+      </node>
+      <node id="10">
+        <label>set</label>
+      </node>
+      <node id="19">
+        <label>sstream</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>unordered_map</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_opel_g_l_manager_8cpp_1a76259e93488aa188c59d8b8a80517f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void GLAPIENTRY</type>
+        <definition>void GLAPIENTRY MessageCallback</definition>
+        <argsstring>(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar *message, const void *userParam)</argsstring>
+        <name>MessageCallback</name>
+        <param>
+          <type>GLenum</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>GLenum</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>GLenum</type>
+          <declname>severity</declname>
+        </param>
+        <param>
+          <type>GLsizei</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>const GLchar *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>userParam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" line="252" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="252" bodyend="256"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_opel_g_l_manager_8h" kindref="compound">OpelGLManager.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_core_engine_8h" kindref="compound">CoreEngine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_open_g_l_shader_manager_8h" kindref="compound">OpenGLShaderManager.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_level_graph_8h" kindref="compound">LevelGraph.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_render_object_8h" kindref="compound">Renderers/RenderObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_debug_logger_8h" kindref="compound">DebugLogger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_open_g_l_manager_1ad68d97cbef4498553a0b13bc82f0c974" refkind="member"><highlight class="normal"><ref refid="class_open_g_l_manager_1ad68d97cbef4498553a0b13bc82f0c974" kindref="member">OpenGLManager::~OpenGLManager</ref>()</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1ae1a499f779b89bd954691b8aee252e87" kindref="member">CleanUp</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_open_g_l_manager_1ae9f60a1adbe43076832fb1416b0dcf09" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1ae9f60a1adbe43076832fb1416b0dcf09" kindref="member">OpenGLManager::Initialize</ref>()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>During<sp/>init,<sp/>enable<sp/>debug<sp/>output</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>glEnable(GL_DEBUG_OUTPUT);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>glDebugMessageCallback(<ref refid="_opel_g_l_manager_8cpp_1a76259e93488aa188c59d8b8a80517f74" kindref="member">MessageCallback</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref>)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_shader_manager" kindref="compound">OpenGLShaderManager</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref>-&gt;<ref refid="class_open_g_l_shader_manager_1a6fb65fb8a7d16be2fefb2f7dc8724f5f" kindref="member">CreateShaderProgram</ref>(</highlight><highlight class="stringliteral">&quot;TextureShader&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Engine/Shaders/TextureShader.vert&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Engine/Shaders/TextureShader.frag&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref><sp/>=<sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1a704cdf7da2d406c8f14d14788a461791" kindref="member">GetRenderData</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_debug_logger_1a1306075ece278dc75c40f3fc771d877f" kindref="member">DebugLogger::FatalError</ref>(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>get<sp/>valid<sp/>RenderData&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Renderers/OpenGL/OpenGLManager.cpp&quot;</highlight><highlight class="normal">,<sp/>__LINE__);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>.clear();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mesh<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1aeeee63d17a25010a2b1ed585d74d5b6b" kindref="member">Meshes</ref>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh]<sp/>=<sp/><ref refid="struct_s___binding_data" kindref="compound">S_BindingData</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mesh<sp/>:<sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" kindref="member">GenerateBuffers</ref>(mesh.first);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_open_g_l_manager_1ad98a9c593167bdce23226b7262f3003d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1ad98a9c593167bdce23226b7262f3003d" kindref="member">OpenGLManager::UpdateWithNewObjects</ref>()</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>.clear();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mesh<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1aeeee63d17a25010a2b1ed585d74d5b6b" kindref="member">Meshes</ref>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh]<sp/>=<sp/><ref refid="struct_s___binding_data" kindref="compound">S_BindingData</ref>();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>mesh<sp/>:<sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" kindref="member">GenerateBuffers</ref>(mesh.first);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>texture<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a0be5fe25e207cf174293348b4f6428f7" kindref="member">Textures</ref>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1a10f2126ac32248bb10cd18445608f61f" kindref="member">CreateGLTexture</ref>(texture);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_open_g_l_manager_1ae1a499f779b89bd954691b8aee252e87" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1ae1a499f779b89bd954691b8aee252e87" kindref="member">OpenGLManager::CleanUp</ref>()</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>glClearColor(0.0f,<sp/>0.0f,<sp/>0.0f,<sp/>0.0f);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="class_open_g_l_manager_1a12535ec711f11ecb16b1f5f12564c052" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a12535ec711f11ecb16b1f5f12564c052" kindref="member">OpenGLManager::Render</ref>(SDL_Window**<sp/>windowArray,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfWindows,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>arrayOffset)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>glClearColor(0.0f,<sp/>0.0f,<sp/>0.0f,<sp/>0.0f);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>glClear(GL_COLOR_BUFFER_BIT<sp/>|<sp/>GL_DEPTH_BUFFER_BIT);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>glEnable(GL_DEPTH_TEST);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>shader<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1aa28750e97872e7b04ccbe767f3ae632b" kindref="member">MaterialsByShader</ref>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>program<sp/>=<sp/><ref refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" kindref="member">ShaderManager</ref>-&gt;<ref refid="class_open_g_l_shader_manager_1aad4274d965d9f28a2d3b5cb3c8020c59" kindref="member">GetShader</ref>(shader.first);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUseProgram(program);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/>cameraBinding<sp/>=<sp/>0,<sp/>cameraIndex,<sp/>cameraBuffer;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cameraIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/></highlight><highlight class="stringliteral">&quot;UniformCamera&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>cameraIndex,<sp/>cameraBinding);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;cameraBuffer);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>cameraBuffer);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref>),<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1aa99d87eaf61dc47d7dc01f268e34cbf3" kindref="member">Camera</ref>,<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>cameraBinding,<sp/>cameraBuffer);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/>modelBinding<sp/>=<sp/>1,<sp/>modelIndex,<sp/>modelBuffer;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>modelIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/></highlight><highlight class="stringliteral">&quot;UniformModel&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>modelIndex,<sp/>modelBinding);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;modelBuffer);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/>numberOfLightsBinding<sp/>=<sp/>3,<sp/>numberOfLightsIndex,<sp/>numberOfLightsBuffer;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>numberOfLightsIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/></highlight><highlight class="stringliteral">&quot;UniformNumberOfLights&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>numberOfLightsIndex,<sp/>numberOfLightsBinding);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;numberOfLightsBuffer);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>numberOfLightsBuffer);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfLights<sp/>=<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a09dc625b17c94e08c9aa2b4500d76f74" kindref="member">LightSources</ref>.size();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>&amp;numberOfLights,<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>numberOfLightsBinding,<sp/>numberOfLightsBuffer);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GLuint<sp/>lightsBinding<sp/>=<sp/>4,<sp/>lightsIndex,<sp/>lightsBuffer;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;lightsBuffer);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lightsIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/></highlight><highlight class="stringliteral">&quot;UniformLights&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>lightsIndex,<sp/>lightsBinding);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>lightsBuffer);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>)<sp/>*<sp/>numberOfLights,<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a09dc625b17c94e08c9aa2b4500d76f74" kindref="member">LightSources</ref>.data(),<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>lightsBinding,<sp/>lightsBuffer);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>material<sp/>:<sp/>shader.second)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*GLuint<sp/>materialBinding<sp/>=<sp/>5,<sp/>materialIndex,<sp/>materialBuffer;</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>materialIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/>&quot;UniformMaterial&quot;);</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>materialIndex,<sp/>materialBinding);</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;materialBuffer);</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>materialBuffer);</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/>sizeof(FMatrix4),<sp/>&amp;material-&gt;Data,<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>materialBinding,<sp/>materialBuffer);</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"></highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>auto&amp;<sp/>difuseLocation<sp/>=<sp/>glGetUniformLocation(program,<sp/>&quot;TextureDifuse&quot;);</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUniform1i(difuseLocation,<sp/>0);</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glActiveTexture(GL_TEXTURE0);</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindTexture(GL_TEXTURE_2D,<sp/>TextureMap[material-&gt;TextureDifuse]);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1a879b00d4e9ae79645b4f0e4c492130fb" kindref="member">HandleMaterial</ref>(material,<sp/>5,<sp/>program);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>modelBuffer);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>mesh<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a938429c168b5df4f866e91eee4b261c6" kindref="member">MeshesByMaterial</ref>[material])</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindVertexArray(<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].<ref refid="struct_vertex" kindref="compound">Vertex</ref>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,<sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].IndexBuffer);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>model<sp/>:<sp/><ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a1bec261b5b349558a142606a11fb4aca" kindref="member">InstancesByMesh</ref>[mesh])</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(*<ref refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" kindref="member">RenderData</ref>-&gt;<ref refid="struct_s___render_data_1a0d6060302669152f6bf18b59ebc8d35f" kindref="member">Models</ref>[model])</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>),<sp/>model,<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>modelBinding,<sp/>modelBuffer);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glDrawElements(GL_TRIANGLES,<sp/>mesh-&gt;Indices.size(),<sp/>GL_UNSIGNED_INT,<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)0);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glBindVertexArray(0);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glUseProgram(0);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_GL_SwapWindow(<ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;GetWindowSDL());</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="class_open_g_l_manager_1a3987788a2618fba442dbf860ca67c3eb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a3987788a2618fba442dbf860ca67c3eb" kindref="member">OpenGLManager::FramebufferResizeCallback</ref>()</highlight></codeline>
+<codeline lineno="157"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/>h;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_GetWindowSize(<ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;GetWindowSDL(),<sp/>&amp;w,<sp/>&amp;h);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>glViewport(0,<sp/>0,<sp/>w,<sp/>h);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163" refid="class_open_g_l_manager_1a10f2126ac32248bb10cd18445608f61f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a10f2126ac32248bb10cd18445608f61f" kindref="member">OpenGLManager::CreateGLTexture</ref>(<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*<sp/>textureData)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>(TextureMap.find(textureData)<sp/>!=<sp/>TextureMap.end())<sp/>return;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenTextures(1,<sp/>&amp;<ref refid="class_open_g_l_manager_1a18642ea22b8d6c624cb1a9d1aa9d9a95" kindref="member">TextureMap</ref>[textureData]);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindTexture(GL_TEXTURE_2D,<sp/><ref refid="class_open_g_l_manager_1a18642ea22b8d6c624cb1a9d1aa9d9a95" kindref="member">TextureMap</ref>[textureData]);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode<sp/>=<sp/>textureData-&gt;<ref refid="struct_s___texture_1a143ee132d3ec47d1df45960607c0cd86" kindref="member">BytesPerPixel</ref><sp/>==<sp/>4<sp/>?<sp/>GL_RGBA<sp/>:<sp/>GL_RGB;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>glTexImage2D(GL_TEXTURE_2D,<sp/>0,<sp/>mode,<sp/>textureData-&gt;<ref refid="struct_s___texture_1a127a69d6408ebd417cf198099a1030ce" kindref="member">Width</ref>,<sp/>textureData-&gt;<ref refid="struct_s___texture_1a2bd2d7d0109589590d682e284289efaa" kindref="member">Height</ref>,<sp/>0,<sp/>mode,<sp/>GL_UNSIGNED_BYTE,<sp/>textureData-&gt;<ref refid="struct_s___texture_1a23c72f796dcf35c571d3dfef4681ae48" kindref="member">Pixels</ref>);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>glTexParameteri(GL_TEXTURE_2D,<sp/>GL_TEXTURE_WRAP_S,<sp/>GL_REPEAT);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>glTexParameteri(GL_TEXTURE_2D,<sp/>GL_TEXTURE_WRAP_T,<sp/>GL_REPEAT);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>glTexParameteri(GL_TEXTURE_2D,<sp/>GL_TEXTURE_MIN_FILTER,<sp/>GL_LINEAR_MIPMAP_LINEAR);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>glTexParameteri(GL_TEXTURE_2D,<sp/>GL_TEXTURE_MAG_FILTER,<sp/>GL_LINEAR);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenerateMipmap(GL_TEXTURE_2D);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindTexture(GL_TEXTURE_2D,<sp/>0);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" kindref="member">OpenGLManager::GenerateBuffers</ref>(<ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>*<sp/>mesh)</highlight></codeline>
+<codeline lineno="181"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].<ref refid="struct_vertex" kindref="compound">Vertex</ref><sp/>!=<sp/>0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Bind<sp/>Vertex<sp/>Arrays<sp/>and<sp/>Buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenVertexArrays(1,<sp/>&amp;<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].<ref refid="struct_vertex" kindref="compound">Vertex</ref>);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].VertexBuffer);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindVertexArray(<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].<ref refid="struct_vertex" kindref="compound">Vertex</ref>);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindBuffer(GL_ARRAY_BUFFER,<sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].VertexBuffer);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>glBufferData(GL_ARRAY_BUFFER,<sp/>mesh-&gt;<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>.size()<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>),<sp/>&amp;mesh-&gt;<ref refid="struct_s___mesh_1ac65abef1ed39f435495be6893b2b30ea" kindref="member">Vertices</ref>[0],<sp/>GL_STATIC_DRAW);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Bind<sp/>Index<sp/>Arrays<sp/>and<sp/>Buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;<ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].IndexBuffer);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,<sp/><ref refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" kindref="member">VertexObjectsMap</ref>[mesh].IndexBuffer);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>glBufferData(GL_ELEMENT_ARRAY_BUFFER,<sp/>mesh-&gt;<ref refid="struct_s___mesh_1a965cdf4efb3b687a86945969fcfcfa85" kindref="member">Indices</ref>.size()<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">),<sp/>&amp;mesh-&gt;<ref refid="struct_s___mesh_1a965cdf4efb3b687a86945969fcfcfa85" kindref="member">Indices</ref>[0],<sp/>GL_STATIC_DRAW);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>glEnableVertexAttribArray(0);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>glVertexAttribPointer(0,<sp/>3,<sp/>GL_FLOAT,<sp/>GL_FALSE,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>),<sp/>(GLvoid*)offsetof(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>,<sp/>Position));</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TextureCoordinates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>glEnableVertexAttribArray(1);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>glVertexAttribPointer(1,<sp/>3,<sp/>GL_FLOAT,<sp/>GL_FALSE,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>),<sp/>(GLvoid*)(offsetof(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>,<sp/>TextureCoordinates)));</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Normal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>glEnableVertexAttribArray(2);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>glVertexAttribPointer(2,<sp/>3,<sp/>GL_FLOAT,<sp/>GL_FALSE,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>),<sp/>(GLvoid*)(offsetof(<ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>,<sp/>Normal)));</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Free<sp/>Arrays<sp/>and<sp/>Buffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindVertexArray(0);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindBuffer(GL_ARRAY_BUFFER,<sp/>0);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="class_open_g_l_manager_1a879b00d4e9ae79645b4f0e4c492130fb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a879b00d4e9ae79645b4f0e4c492130fb" kindref="member">OpenGLManager::HandleMaterial</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentBinding,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>program)</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>info<sp/>=<sp/>material-&gt;<ref refid="class_material_1ad0498bf7f098c0ecb406039b5b83decc" kindref="member">GetShaderVariablesInfo</ref>();</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>data<sp/>=<sp/>material-&gt;<ref refid="class_material_1a979f2c45e705d37185cbb22f5916bb5e" kindref="member">GetShaderVariablesData</ref>();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>info.size();<sp/>i++)</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(info[i].<ref refid="class_renderer_1a32cee2c0cf19d5fb1ef6d0f116adaac8" kindref="member">Type</ref>)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226ea8d0be820da8f4fe5aa49e0ef3065ca29" kindref="member">E_ShaderVariableType::UNIFORM_BUFFER</ref>:</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1a8c821df23b1a8a967a2c250a7ef3eafa" kindref="member">BindUniformBufferFromMaterial</ref>(info[i],<sp/>data[i],<sp/>currentBinding,<sp/>program);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>currentBinding++;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226ea6c27215153b819697fb1403d8bb9a05e" kindref="member">E_ShaderVariableType::COMBINED_IMAGE_SAMPLER</ref>:</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_open_g_l_manager_1a74f56b7b14b3a6e0784cbc2abeae94ef" kindref="member">BindTextureFromMaterial</ref>(info[i],<sp/>data[i],<sp/>program);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="class_open_g_l_manager_1a74f56b7b14b3a6e0784cbc2abeae94ef" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a74f56b7b14b3a6e0784cbc2abeae94ef" kindref="member">OpenGLManager::BindTextureFromMaterial</ref>(<ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref><sp/>info,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>program)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>difuseLocation<sp/>=<sp/>glGetUniformLocation(program,<sp/></highlight><highlight class="stringliteral">&quot;TextureDifuse&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniform1i(difuseLocation,<sp/>0);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/>glActiveTexture(GL_TEXTURE0);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindTexture(GL_TEXTURE_2D,<sp/><ref refid="class_open_g_l_manager_1a18642ea22b8d6c624cb1a9d1aa9d9a95" kindref="member">TextureMap</ref>[(<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*)data]);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241" refid="class_open_g_l_manager_1a8c821df23b1a8a967a2c250a7ef3eafa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_open_g_l_manager_1a8c821df23b1a8a967a2c250a7ef3eafa" kindref="member">OpenGLManager::BindUniformBufferFromMaterial</ref>(<ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref><sp/>info,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentBinding,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>program)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>GLuint<sp/>uniformBinding<sp/>=<sp/>currentBinding,<sp/>uniformIndex,<sp/>uniformBuffer;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>uniformIndex<sp/>=<sp/>glGetUniformBlockIndex(program,<sp/></highlight><highlight class="stringliteral">&quot;UniformMaterial&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>glUniformBlockBinding(program,<sp/>uniformIndex,<sp/>uniformBinding);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>glGenBuffers(1,<sp/>&amp;uniformBuffer);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindBuffer(GL_UNIFORM_BUFFER,<sp/>uniformBuffer);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>glBufferData(GL_UNIFORM_BUFFER,<sp/>info.<ref refid="struct_shader_variable_info_1adc2d9b93e03528818f249b79ad540638" kindref="member">VariableSize</ref>,<sp/>data,<sp/>GL_DYNAMIC_DRAW);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>glBindBufferBase(GL_UNIFORM_BUFFER,<sp/>uniformBinding,<sp/>uniformBuffer);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252" refid="_opel_g_l_manager_8cpp_1a76259e93488aa188c59d8b8a80517f74" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GLAPIENTRY<sp/><ref refid="_opel_g_l_manager_8cpp_1a76259e93488aa188c59d8b8a80517f74" kindref="member">MessageCallback</ref>(GLenum<sp/>source,<sp/>GLenum<sp/>type,<sp/>GLuint<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>GLenum<sp/>severity,<sp/>GLsizei<sp/>length,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/>message,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>userParam)</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(type<sp/>!=<sp/>GL_DEBUG_TYPE_ERROR)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;GL<sp/>CALLBACK:<sp/>%s<sp/>message<sp/>=<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/>(type<sp/>==<sp/>GL_DEBUG_TYPE_ERROR<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;**<sp/>GL<sp/>ERROR<sp/>**&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>message);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp"/>
+  </compounddef>
+</doxygen>

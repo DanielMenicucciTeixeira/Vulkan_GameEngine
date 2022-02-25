@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_physics_component_8h" kind="file" language="C++">
+    <compoundname>PhysicsComponent.h</compoundname>
+    <includes refid="_movement_component_8h" local="yes">MovementComponent.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <includedby refid="_physics_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.cpp</includedby>
+    <includedby refid="_physics_lib_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</includedby>
+    <includedby refid="_billiard_ball_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</includedby>
+    <includedby refid="_billiard_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</includedby>
+    <includedby refid="_billiard_table_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</includedby>
+    <includedby refid="_l___tetrahedron_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="3">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MovementComponent.h</label>
+        <link refid="_movement_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.h</label>
+        <link refid="_physics_component_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.cpp</label>
+        <link refid="_physics_component_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.h</label>
+        <link refid="_physics_component_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</label>
+        <link refid="_physics_lib_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp</label>
+        <link refid="_billiard_ball_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardLevel.cpp</label>
+        <link refid="_billiard_level_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardTable.cpp</label>
+        <link refid="_billiard_table_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_c___physics_component" prot="public">C_PhysicsComponent</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PHYSICSCOMPONENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PHYSICSCOMPONENT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_movement_component_8h" kindref="compound">MovementComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix" kindref="compound">FMatrix</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//class<sp/>FVector3;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_c___physics_component" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_o___component" kindref="compound">O_Component</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>acceleration;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>velocity;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularAcceleration;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularVelocity;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>accelerationBuffer;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>velocityBuffer;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularAccelerationBuffer;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularVelocityBuffer;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//requires<sp/>a<sp/>C_StaticMeshComponent<sp/>set<sp/>as<sp/>MeshComponent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1acd47fd0e7a4faa7e46f130a10799925e" kindref="member">CalculateAngularInertia</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//requires<sp/>a<sp/>C_StaticMeshComponent<sp/>set<sp/>as<sp/>MeshComponent</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a9a07cce95f65935d7aa026f1284c4de0" kindref="member">CalculateCenterOfMass</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="class_c___physics_component_1a4e74a591269dab76f3c612ca8af1a73c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>*<sp/><ref refid="class_c___physics_component_1a4e74a591269dab76f3c612ca8af1a73c" kindref="member">CenterOfMass</ref>;</highlight></codeline>
+<codeline lineno="36" refid="class_c___physics_component_1a17911551f96c524c7c3dfd4e7a6ff894" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a17911551f96c524c7c3dfd4e7a6ff894" kindref="member">UseCenterOfMass</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39" refid="class_c___physics_component_1a9356a0e1222f238cf24f1213faba5675" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a9356a0e1222f238cf24f1213faba5675" kindref="member">Mass</ref>;</highlight></codeline>
+<codeline lineno="40" refid="class_c___physics_component_1a634d6b0a8a2156d3f4e53d9e09ac3d7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a634d6b0a8a2156d3f4e53d9e09ac3d7b" kindref="member">AngularInertia</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___physics_component_1a670bba2903829e69c9321b9bc99080a2" kindref="member">GetCenterOfMass</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___physics_component_1a0526e4c94f088ffcbb41df2239f48a80" kindref="member">C_PhysicsComponent</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass<sp/>=<sp/>1.0f,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>useCenterOfMass<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angularInertia<sp/>=<sp/>1.0f,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>useCalculatedAngularIntertia<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a9a449e8e5b56edf85b059c126fe033c3" kindref="member">~C_PhysicsComponent</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a2ea391b64fdca39dcf55cb1e6aa9fa3f" kindref="member">Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Add<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1ac6171916d9cb98f5c572152bce69c6bd" kindref="member">AddAcceleration</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>acceleration_);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1ad3db8c0b65bfa16b46e604659c2ce4e2" kindref="member">AddVelocity</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>velocity_);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1afd593e31caa9d4e9ecb66efea4939631" kindref="member">AddAngularAcceleration</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularAcceleration_);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1ae6eca96c7dc74f4bce404685dcbae4dd" kindref="member">AddAngularVelocity</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularVelocity_);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Setters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a7e494e2f423bf52de584f68418407fe9" kindref="member">SetAcceleration</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>acceleration_);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1ae87657fcc1c95358178af3594b042c40" kindref="member">SetVelocity</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>velocity_);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a54a68feed6470cdcfeaebe96047bc0a8" kindref="member">SetAngularAcceleration</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularAcceleration_);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1af8bf03b17f439fe1a3d952caef85428d" kindref="member">SetAngularVelocity</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>angularVelocity_);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Getters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___physics_component_1ad9df4e907c43c30219b659cd030e6047" kindref="member">GetAcceleration</ref>();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___physics_component_1a6b862c9600e631d389bc9fd67885d318" kindref="member">GetVelocity</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___physics_component_1a19cef422058942aa984a4e6379dda79f" kindref="member">GetAngularAcceleration</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___physics_component_1af746b8b3ea1aef1987d6eb474f4d4870" kindref="member">GetAngularVelocity</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_c___physics_component_1a14587d4f8e37aef3c9d4170e2641e824" kindref="member">IsStatic</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/PhysicsComponent.h"/>
+  </compounddef>
+</doxygen>

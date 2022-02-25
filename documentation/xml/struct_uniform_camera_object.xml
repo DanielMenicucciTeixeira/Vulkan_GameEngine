@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_uniform_camera_object" kind="struct" language="C++" prot="public">
+    <compoundname>UniformCameraObject</compoundname>
+    <includes refid="_uniform_buffer_object_8h" local="no">UniformBufferObject.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_uniform_camera_object_1ad442681a0b59e90a4d36becaba3d45da" prot="public" static="no" mutable="no">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 UniformCameraObject::View</definition>
+        <argsstring></argsstring>
+        <name>View</name>
+        <qualifiedname>UniformCameraObject::View</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" line="9" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" prot="public" static="no" mutable="no">
+        <type><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref></type>
+        <definition>FMatrix4 UniformCameraObject::Projection</definition>
+        <argsstring></argsstring>
+        <name>Projection</name>
+        <qualifiedname>UniformCameraObject::Projection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" line="9" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_uniform_camera_object_1a806282f02f371ed9bf19b07946f92eed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UniformCameraObject::operator==</definition>
+        <argsstring>(UniformCameraObject uniformCameraObject)</argsstring>
+        <name>operator==</name>
+        <qualifiedname>UniformCameraObject::operator==</qualifiedname>
+        <param>
+          <type><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref></type>
+          <declname>uniformCameraObject</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" line="11" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" bodystart="11" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="1">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" line="7" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h" bodystart="8" bodyend="12"/>
+    <listofallmembers>
+      <member refid="struct_uniform_camera_object_1a806282f02f371ed9bf19b07946f92eed" prot="public" virt="non-virtual"><scope>UniformCameraObject</scope><name>operator==</name></member>
+      <member refid="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" prot="public" virt="non-virtual"><scope>UniformCameraObject</scope><name>Projection</name></member>
+      <member refid="struct_uniform_camera_object_1ad442681a0b59e90a4d36becaba3d45da" prot="public" virt="non-virtual"><scope>UniformCameraObject</scope><name>View</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

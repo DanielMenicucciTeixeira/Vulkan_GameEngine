@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_event_listener_1_1_h_a_s_h___input_key" kind="struct" language="C++" prot="protected">
+    <compoundname>EventListener::HASH_InputKey</compoundname>
+    <includes refid="_event_listener_8h" local="no">EventListener.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_event_listener_1_1_h_a_s_h___input_key_1ae73ea14f342d562191a7e6f8d458e9e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t EventListener::HASH_InputKey::operator()</definition>
+        <argsstring>(inputKey const &amp;vertex) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>EventListener::HASH_InputKey::operator()</qualifiedname>
+        <param>
+          <type><ref refid="_event_listener_8h_1a6afa489c7c562f0dafb3015ba25be92b" kindref="member">inputKey</ref> const &amp;</type>
+          <declname>vertex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.h" line="47" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.cpp" bodystart="168" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.h" line="45" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.h" bodystart="46" bodyend="48"/>
+    <listofallmembers>
+      <member refid="struct_event_listener_1_1_h_a_s_h___input_key_1ae73ea14f342d562191a7e6f8d458e9e7" prot="public" virt="non-virtual"><scope>EventListener::HASH_InputKey</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

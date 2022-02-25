@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_2732fc18caed93c198fbd399af18ede6" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine</compoundname>
+    <innerdir refid="dir_c7c2a8f8205990d27ba051ea8e4e742e">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio</innerdir>
+    <innerdir refid="dir_b36d5d31fe331d9f2f43aeeb52fc1812">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core</innerdir>
+    <innerdir refid="dir_72a46dd752ba1c6b5c48659b08f32fb0">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event</innerdir>
+    <innerdir refid="dir_7893b8beb0a0a49367d17a10681bc8a1">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX</innerdir>
+    <innerdir refid="dir_d28b9157a129565beaf9b3dd20b16b1a">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry</innerdir>
+    <innerdir refid="dir_4f7055da2c4dc06850aa66e912a441a9">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Graphics</innerdir>
+    <innerdir refid="dir_18c03fd768db0a11e4bb46e415768194">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math</innerdir>
+    <innerdir refid="dir_c6a7ad0f28135e04e6219e1f5941a630">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects</innerdir>
+    <innerdir refid="dir_71ebc3f949cce03be49d5f2e733fc345">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics</innerdir>
+    <innerdir refid="dir_5a570d77119a51dbbe9583dbbd635aee">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/"/>
+  </compounddef>
+</doxygen>

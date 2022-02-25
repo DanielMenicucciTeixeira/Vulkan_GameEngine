@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_collision_handler_8cpp" kind="file" language="C++">
+    <compoundname>CollisionHandler.cpp</compoundname>
+    <includes refid="_collision_handler_8h" local="yes">CollisionHandler.h</includes>
+    <includes refid="_collision_component_8h" local="yes">Objects/Components/Colliders/CollisionComponent.h</includes>
+    <includes refid="_bounding_box_8h" local="yes">Objects/Components/Colliders/BoundingBox.h</includes>
+    <includes refid="_sphere_collider_8h" local="yes">Objects/Components/Colliders/SphereCollider.h</includes>
+    <includes refid="_box_collider_8h" local="yes">Objects/Components/Colliders/BoxCollider.h</includes>
+    <includes refid="_ray_8h" local="yes">Geometry/Ray.h</includes>
+    <includes refid="_box_8h" local="yes">Geometry/Box.h</includes>
+    <includes refid="_collision_detection_8h" local="yes">Physics/CollisionDetection.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp</label>
+        <link refid="_collision_handler_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Geometry/Box.h</label>
+        <link refid="_box_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Plane.h</label>
+        <link refid="_plane_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Geometry/Ray.h</label>
+        <link refid="_ray_8h"/>
+      </node>
+      <node id="17">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Geometry/Sphere.h</label>
+        <link refid="_sphere_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="6">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="7">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="29">
+        <label>Math/Math.h</label>
+        <link refid="_math_8h"/>
+      </node>
+      <node id="21">
+        <label>Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Objects/Components/Colliders/BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Objects/Components/Colliders/SphereCollider.h</label>
+        <link refid="_sphere_collider_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Physics/CollisionDetection.h</label>
+        <link refid="_collision_detection_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>array</label>
+      </node>
+      <node id="9">
+        <label>iostream</label>
+      </node>
+      <node id="20">
+        <label>memory</label>
+      </node>
+      <node id="8">
+        <label>set</label>
+      </node>
+      <node id="14">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_handler_8h" kindref="compound">CollisionHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_component_8h" kindref="compound">Objects/Components/Colliders/CollisionComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bounding_box_8h" kindref="compound">Objects/Components/Colliders/BoundingBox.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sphere_collider_8h" kindref="compound">Objects/Components/Colliders/SphereCollider.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_collider_8h" kindref="compound">Objects/Components/Colliders/BoxCollider.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_ray_8h" kindref="compound">Geometry/Ray.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_8h" kindref="compound">Geometry/Box.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_detection_8h" kindref="compound">Physics/CollisionDetection.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">std::unique_ptr&lt;CollisionHandler&gt;<sp/>CollisionHandler::collisionInstance<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">std::vector&lt;O_GameObject*&gt;<sp/>CollisionHandler::prevCollisions<sp/>=<sp/>std::vector&lt;O_GameObject*&gt;();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="class_oct_spatial_partition" kindref="compound">OctSpatialPartition</ref>*<sp/>CollisionHandler::scenePartition<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_collision_handler_1a65e0965d19c38831137f724e83fa8283" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a65e0965d19c38831137f724e83fa8283" kindref="member">CollisionHandler::AABBSpatialCheck</ref>(<ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">UpdateColliderNode</ref>(collider);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="class_collision_handler_1a8d598c1b8ab18a12fa1f098b1390dc5d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a8d598c1b8ab18a12fa1f098b1390dc5d" kindref="member">CollisionHandler::SphereSpatialCheck</ref>(<ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">UpdateColliderNode</ref>(collider);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" kindref="member">CollisionHandler::OBBSpatialCheck</ref>(<ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">UpdateColliderNode</ref>(collider);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">CollisionHandler::CollisionHandler()<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>prevCollisions.reserve(10);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">CollisionHandler::~CollisionHandler()</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" refkind="member"><highlight class="normal"><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>*<sp/><ref refid="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" kindref="member">CollisionHandler::GetInstance</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(collisionInstance.get()<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collisionInstance.reset(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>collisionInstance.get();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_collision_handler_1a5a05fea01278fe4217b91e0e6c27eda4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a5a05fea01278fe4217b91e0e6c27eda4" kindref="member">CollisionHandler::OnCreate</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>worldSize,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>depth)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>prevCollisions.clear();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>scenePartition<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition" kindref="compound">OctSpatialPartition</ref>(worldSize,<sp/>depth);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="class_collision_handler_1a59b3c50fa4547584a57ca915372e5ac3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_collision_handler_1a59b3c50fa4547584a57ca915372e5ac3" kindref="member">CollisionHandler::Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a1bd157844e35173c247568704d8a7cc9" kindref="member">Update</ref>(deltaTime_);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_collision_handler_1a5e1d2e0ad785d79131d8bf9235850e6f" refkind="member"><highlight class="normal"><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/><ref refid="class_collision_handler_1a5e1d2e0ad785d79131d8bf9235850e6f" kindref="member">CollisionHandler::GetCollisionSingleRay</ref>(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>data;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shortestDistance<sp/>=<sp/>FLT_MAX;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollideing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">GetCollision</ref>(ray))<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coll-&gt;GetColliderType())</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a9bb42241d83ea2c517fc2e4fe52f4e50" kindref="member">CollisionDetection::RayAABBIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetBoxBounds());</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1aa5307ed3a1236cd2917caab7f6b222ff" kindref="member">CollisionDetection::RaySphereIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionSphere());</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a580407c59cb10d3aca31854d9a6abe66" kindref="member">CollisionDetection::RayOBBIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionBox());</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isCollideing)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(shortestDistance<sp/>&gt;<sp/>ray.<ref refid="class_ray_1a27474d40f690b4aa345a13e77bc13f52" kindref="member">GetIntersectDistance</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/><ref refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" kindref="member">CollisionDetection::GetCollisionData</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.<ref refid="struct_s___collision_data_1a6d1236ca965095c42748cb5eb48d1cef" kindref="member">OtherCollisonComponent</ref><sp/>=<sp/>coll;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>shortestDistance<sp/>=<sp/>ray.<ref refid="class_ray_1a27474d40f690b4aa345a13e77bc13f52" kindref="member">GetIntersectDistance</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="class_collision_handler_1a7fd1f55029bca9ff4e2dace308f4b38e" refkind="member"><highlight class="normal">std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a7fd1f55029bca9ff4e2dace308f4b38e" kindref="member">CollisionHandler::GetCollisionMuliRay</ref>(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/>data;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>data.reserve(20);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollideing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">GetCollision</ref>(ray))<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coll-&gt;GetColliderType())</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a9bb42241d83ea2c517fc2e4fe52f4e50" kindref="member">CollisionDetection::RayAABBIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetBoxBounds());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1aa5307ed3a1236cd2917caab7f6b222ff" kindref="member">CollisionDetection::RaySphereIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionSphere());</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a580407c59cb10d3aca31854d9a6abe66" kindref="member">CollisionDetection::RayOBBIntersection</ref>(ray,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionBox());</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isCollideing)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>d<sp/>=<sp/><ref refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" kindref="member">CollisionDetection::GetCollisionData</ref>();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.<ref refid="struct_s___collision_data_1a6d1236ca965095c42748cb5eb48d1cef" kindref="member">OtherCollisonComponent</ref><sp/>=<sp/>coll;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.push_back(d);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="class_collision_handler_1a8c4f864b8ed50a3629045534f78f6431" refkind="member"><highlight class="normal">std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a8c4f864b8ed50a3629045534f78f6431" kindref="member">CollisionHandler::GetSphereCollision</ref>(<ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/>data;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>data.reserve(20);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollideing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">GetCollision</ref>(sphere))<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coll-&gt;GetColliderType())</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" kindref="member">CollisionDetection::SphereAABBIntersection</ref>(sphere,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetBoxBounds());</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a0549e8c76a2e6d5eec0bdcbaea73d327" kindref="member">CollisionDetection::SphereIntersection</ref>(sphere,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionSphere());</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a11d8843cccbc47dd20a7cb3461931254" kindref="member">CollisionDetection::SphereOBBIntersection</ref>(sphere,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionBox());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isCollideing)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>d<sp/>=<sp/><ref refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" kindref="member">CollisionDetection::GetCollisionData</ref>();</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.<ref refid="struct_s___collision_data_1a6d1236ca965095c42748cb5eb48d1cef" kindref="member">OtherCollisonComponent</ref><sp/>=<sp/>coll;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.push_back(d);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="class_collision_handler_1a3a072baf8473728649f3d81e1c41870c" refkind="member"><highlight class="normal">std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1a3a072baf8473728649f3d81e1c41870c" kindref="member">CollisionHandler::GetAABBCollision</ref>(<ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/>bounds)</highlight></codeline>
+<codeline lineno="154"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/>data;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>data.reserve(20);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollideing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">GetCollision</ref>(bounds))<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coll-&gt;GetColliderType())</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a07986f1a23e3e6f9a304e729fdfa1133" kindref="member">CollisionDetection::AABBIntersection</ref>(bounds,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetBoxBounds());</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" kindref="member">CollisionDetection::SphereAABBIntersection</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionSphere(),<sp/>bounds);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" kindref="member">CollisionDetection::AABBOBBIntersection</ref>(bounds,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionBox());</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isCollideing)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>d<sp/>=<sp/><ref refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" kindref="member">CollisionDetection::GetCollisionData</ref>();</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.<ref refid="struct_s___collision_data_1a6d1236ca965095c42748cb5eb48d1cef" kindref="member">OtherCollisonComponent</ref><sp/>=<sp/>coll;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.push_back(d);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="class_collision_handler_1ae4c8b076bd79d64813d198d835361dce" refkind="member"><highlight class="normal">std::vector&lt;S_CollisionData&gt;<sp/><ref refid="class_collision_handler_1ae4c8b076bd79d64813d198d835361dce" kindref="member">CollisionHandler::GetOBBCollision</ref>(<ref refid="class_box" kindref="compound">Box</ref><sp/>box)</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_CollisionData&gt;<sp/>data;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>data.reserve(20);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isCollideing<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>scenePartition-&gt;<ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">GetCollision</ref>(box))<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(coll-&gt;GetColliderType())</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" kindref="member">CollisionDetection::AABBOBBIntersection</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetBoxBounds(),<sp/>box);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a11d8843cccbc47dd20a7cb3461931254" kindref="member">CollisionDetection::SphereOBBIntersection</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionSphere(),<sp/>box);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isCollideing<sp/>=<sp/><ref refid="class_collision_detection_1a2b97235db6e30ad5aa2a8e3e6f269243" kindref="member">CollisionDetection::OBBIntersection</ref>(box,<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(coll)-&gt;GetCollisionBox());</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isCollideing)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref><sp/>d<sp/>=<sp/><ref refid="class_collision_detection_1a209dfbe104f76f772388f0be101263d2" kindref="member">CollisionDetection::GetCollisionData</ref>();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>d.<ref refid="struct_s___collision_data_1a6d1236ca965095c42748cb5eb48d1cef" kindref="member">OtherCollisonComponent</ref><sp/>=<sp/>coll;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.push_back(d);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp"/>
+  </compounddef>
+</doxygen>

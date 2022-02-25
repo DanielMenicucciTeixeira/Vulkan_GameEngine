@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_c7c2a8f8205990d27ba051ea8e4e742e" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio</compoundname>
+    <innerfile refid="_audio_handler_8cpp">AudioHandler.cpp</innerfile>
+    <innerfile refid="_audio_handler_8h">AudioHandler.h</innerfile>
+    <innerfile refid="_audio_source_8cpp">AudioSource.cpp</innerfile>
+    <innerfile refid="_audio_source_8h">AudioSource.h</innerfile>
+    <innerfile refid="_background_sound_8cpp">BackgroundSound.cpp</innerfile>
+    <innerfile refid="_background_sound_8h">BackgroundSound.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/"/>
+  </compounddef>
+</doxygen>

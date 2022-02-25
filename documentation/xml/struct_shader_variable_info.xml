@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_shader_variable_info" kind="struct" language="C++" prot="public">
+    <compoundname>ShaderVariableInfo</compoundname>
+    <includes refid="_material_8h" local="no">Material.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_shader_variable_info_1aa574929eb77fd1350d5f8553ab57c82b" prot="public" static="no" mutable="no">
+        <type><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref></type>
+        <definition>E_ShaderStage ShaderVariableInfo::Stage</definition>
+        <argsstring></argsstring>
+        <name>Stage</name>
+        <qualifiedname>ShaderVariableInfo::Stage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="80" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_shader_variable_info_1a4a1a143ee98338e09de8e1a48862fb6e" prot="public" static="no" mutable="no">
+        <type><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref></type>
+        <definition>E_ShaderVariableType ShaderVariableInfo::Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <qualifiedname>ShaderVariableInfo::Type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="81" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_shader_variable_info_1adc2d9b93e03528818f249b79ad540638" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ShaderVariableInfo::VariableSize</definition>
+        <argsstring></argsstring>
+        <name>VariableSize</name>
+        <qualifiedname>ShaderVariableInfo::VariableSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="82" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_shader_variable_info_1a4e8e0343141a72d1217a654849e2716c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderVariableInfo::ShaderVariableInfo</definition>
+        <argsstring>()</argsstring>
+        <name>ShaderVariableInfo</name>
+        <qualifiedname>ShaderVariableInfo::ShaderVariableInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="75" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_shader_variable_info_1a038388f7e8eab7dd0f41928d04763529" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ShaderVariableInfo::ShaderVariableInfo</definition>
+        <argsstring>(E_ShaderStage stage, E_ShaderVariableType type, size_t size=0)</argsstring>
+        <name>ShaderVariableInfo</name>
+        <qualifiedname>ShaderVariableInfo::ShaderVariableInfo</qualifiedname>
+        <param>
+          <type><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref></type>
+          <declname>stage</declname>
+        </param>
+        <param>
+          <type><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref></type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="77" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="77" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="73" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="74" bodyend="83"/>
+    <listofallmembers>
+      <member refid="struct_shader_variable_info_1a4e8e0343141a72d1217a654849e2716c" prot="public" virt="non-virtual"><scope>ShaderVariableInfo</scope><name>ShaderVariableInfo</name></member>
+      <member refid="struct_shader_variable_info_1a038388f7e8eab7dd0f41928d04763529" prot="public" virt="non-virtual"><scope>ShaderVariableInfo</scope><name>ShaderVariableInfo</name></member>
+      <member refid="struct_shader_variable_info_1aa574929eb77fd1350d5f8553ab57c82b" prot="public" virt="non-virtual"><scope>ShaderVariableInfo</scope><name>Stage</name></member>
+      <member refid="struct_shader_variable_info_1a4a1a143ee98338e09de8e1a48862fb6e" prot="public" virt="non-virtual"><scope>ShaderVariableInfo</scope><name>Type</name></member>
+      <member refid="struct_shader_variable_info_1adc2d9b93e03528818f249b79ad540638" prot="public" virt="non-virtual"><scope>ShaderVariableInfo</scope><name>VariableSize</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

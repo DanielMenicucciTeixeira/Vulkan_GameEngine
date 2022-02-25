@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_oct_spatial_partition_8cpp" kind="file" language="C++">
+    <compoundname>OctSpatialPartition.cpp</compoundname>
+    <includes refid="_oct_spatial_partition_8h" local="yes">OctSpatialPartition.h</includes>
+    <includes refid="_ray_8h" local="yes">Geometry/Ray.h</includes>
+    <includes refid="_collision_detection_8h" local="yes">Physics/CollisionDetection.h</includes>
+    <includes refid="_game_object_8h" local="yes">Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_bounding_box_8h" local="yes">Objects/Components/Colliders/BoundingBox.h</includes>
+    <includes refid="_sphere_collider_8h" local="yes">Objects/Components/Colliders/SphereCollider.h</includes>
+    <includes refid="_box_collider_8h" local="yes">Objects/Components/Colliders/BoxCollider.h</includes>
+    <includes refid="_box_8h" local="yes">Geometry/Box.h</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="23">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp</label>
+        <link refid="_oct_spatial_partition_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Geometry/Box.h</label>
+        <link refid="_box_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>Plane.h</label>
+        <link refid="_plane_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Geometry/Ray.h</label>
+        <link refid="_ray_8h"/>
+      </node>
+      <node id="16">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Geometry/Sphere.h</label>
+        <link refid="_sphere_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="5">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="6">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="21">
+        <label>Math/Math.h</label>
+        <link refid="_math_8h"/>
+      </node>
+      <node id="24">
+        <label>Objects/Components/Colliders/BoundingBox.h</label>
+        <link refid="_bounding_box_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>Objects/Components/Colliders/BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../Objects/Components/Colliders/CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Objects/Components/Colliders/SphereCollider.h</label>
+        <link refid="_sphere_collider_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Physics/CollisionDetection.h</label>
+        <link refid="_collision_detection_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>iostream</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="13">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_oct_spatial_partition_8h" kindref="compound">OctSpatialPartition.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_ray_8h" kindref="compound">Geometry/Ray.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_detection_8h" kindref="compound">Physics/CollisionDetection.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game_object_8h" kindref="compound">Objects/GameObjects/GameObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_bounding_box_8h" kindref="compound">Objects/Components/Colliders/BoundingBox.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sphere_collider_8h" kindref="compound">Objects/Components/Colliders/SphereCollider.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_collider_8h" kindref="compound">Objects/Components/Colliders/BoxCollider.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_8h" kindref="compound">Geometry/Box.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OctNode::ChildrenCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_oct_node_1add1400a01488a1f9e9cb1a1fbbde39cd" refkind="member"><highlight class="normal"><ref refid="class_oct_node_1add1400a01488a1f9e9cb1a1fbbde39cd" kindref="member">OctNode::OctNode</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>position,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>size,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>parent)<sp/>:<sp/>OctBounds(nullptr),<sp/>Parent(nullptr),<sp/>Children(),<sp/>Colliders(<ref refid="namespacestd" kindref="compound">std</ref>::vector&lt;<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*&gt;()),<sp/>Empty(true)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>Size<sp/>=<sp/>size;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>Parent<sp/>=<sp/>parent;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>OctBounds<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>OctBounds-&gt;<ref refid="struct_s___box_bounds_1a31bacd04007c374d0416bcc3db4700d3" kindref="member">Min</ref><sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>OctBounds-&gt;<ref refid="struct_s___box_bounds_1a35e3516aca8aac0252b4598f97b3c3eb" kindref="member">Max</ref><sp/>=<sp/>position<sp/>+<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(size);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>Children[i]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>Colliders.reserve(10);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_oct_node_1aea60c5676aa4f41ec3d05ae5f1675c87" refkind="member"><highlight class="normal"><ref refid="class_oct_node_1aea60c5676aa4f41ec3d05ae5f1675c87" kindref="member">OctNode::~OctNode</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(OctBounds);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>OctBounds<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Colliders.size())<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>element<sp/>:<sp/>Colliders)<sp/>element<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>Colliders.clear();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Children[i])<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>Children[i];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Children[i]<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="class_oct_node_1a343bfa877738c5bfe54a7028868ad859" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_node_1a343bfa877738c5bfe54a7028868ad859" kindref="member">OctNode::Octify</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(depth<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>half<sp/>=<sp/>Size<sp/>/<sp/>2.0f;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>0;<sp/>x<sp/>&lt;<sp/>2;<sp/>x++)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>0;<sp/>y<sp/>&lt;<sp/>2;<sp/>y++)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>z<sp/>=<sp/>0;<sp/>z<sp/>&lt;<sp/>2;<sp/>z++)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:<sp/>This<sp/>seem&apos;s<sp/>wrong.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Children[z<sp/>+<sp/>(2<sp/>*<sp/>y)<sp/>+<sp/>(4<sp/>*<sp/>x)]<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_oct_node_1add1400a01488a1f9e9cb1a1fbbde39cd" kindref="member">OctNode</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref>(OctBounds-&gt;<ref refid="struct_s___box_bounds_1a31bacd04007c374d0416bcc3db4700d3" kindref="member">Min</ref>.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>+<sp/>(x<sp/>*<sp/>half),<sp/>OctBounds-&gt;<ref refid="struct_s___box_bounds_1a31bacd04007c374d0416bcc3db4700d3" kindref="member">Min</ref>.<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>+<sp/>(y<sp/>*<sp/>half),<sp/>OctBounds-&gt;<ref refid="struct_s___box_bounds_1a31bacd04007c374d0416bcc3db4700d3" kindref="member">Min</ref>.<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref><sp/>+<sp/>(z<sp/>*<sp/>half)),<sp/>half,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ChildrenCount<sp/>+=<sp/>8;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>Children[i]-&gt;<ref refid="class_oct_node_1a343bfa877738c5bfe54a7028868ad859" kindref="member">Octify</ref>(depth<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="class_oct_node_1a51173324969974a5c4e0a9848c695a06" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_node_1a51173324969974a5c4e0a9848c695a06" kindref="member">OctNode::RemoveCollider</ref>(<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>element)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>Colliders.erase(std::find(Colliders.begin(),<sp/>Colliders.end(),<sp/>element));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" refkind="member"><highlight class="normal"><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/><ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">OctNode::GetBoundingBox</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="69"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*OctBounds;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="class_oct_spatial_partition_1a0b51720177a711397ec0c9845974ed30" refkind="member"><highlight class="normal"><ref refid="class_oct_spatial_partition_1a0b51720177a711397ec0c9845974ed30" kindref="member">OctSpatialPartition::OctSpatialPartition</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>worldSize,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth)<sp/>:<sp/>root(nullptr)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>OctNode::ChildrenCount<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref>(-(worldSize<sp/>/<sp/>2.0f)),<sp/>worldSize,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>root-&gt;<ref refid="class_oct_node_1a343bfa877738c5bfe54a7028868ad859" kindref="member">Octify</ref>(depth);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>std::cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;There<sp/>are<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>root-&gt;<ref refid="class_oct_node_1ad30ba7d800ed850e29add9bb33dc2453" kindref="member">GetChildrenCount</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>child<sp/>nodes&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="class_oct_spatial_partition_1af0f9148ba9a47243de3b89232c2a3777" refkind="member"><highlight class="normal"><ref refid="class_oct_spatial_partition_1af0f9148ba9a47243de3b89232c2a3777" kindref="member">OctSpatialPartition::~OctSpatialPartition</ref>()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(root);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>root<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="class_oct_spatial_partition_1acaf8c30ccb9f5de9a6a635120cdff9b4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1acaf8c30ccb9f5de9a6a635120cdff9b4" kindref="member">OctSpatialPartition::AddCollider</ref>(<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(collider-&gt;<ref refid="class_c___collision_component_1a8201f447e3b0482dafe381c72058e10e" kindref="member">GetColliderType</ref>())</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab96da744287618055e5d086d53f42660" kindref="member">ColliderType::BoundingBox</ref>:</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AddColliderToCell(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(collider),<sp/>root);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395ab7095f057db3fefa7325ad93a04e14fd" kindref="member">ColliderType::Sphere</ref>:</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AddColliderToCell(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(collider),<sp/>root);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">ColliderType::Box</ref>:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>AddColliderToCell(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(collider),<sp/>root);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="class_oct_spatial_partition_1ab6baaa3b1c8331724abcd97ede3b58e4" refkind="member"><highlight class="normal">std::set&lt;OctNode*&gt;<sp/><ref refid="class_oct_spatial_partition_1ab6baaa3b1c8331724abcd97ede3b58e4" kindref="member">OctSpatialPartition::GetActiveLeaves</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="106"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;OctNode*&gt;<sp/>returnSet<sp/>=<sp/>std::set&lt;OctNode*&gt;();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_spatial_partition_1ab6baaa3b1c8331724abcd97ede3b58e4" kindref="member">GetActiveLeaves</ref>(root,<sp/>returnSet);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>returnSet;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" refkind="member"><highlight class="normal">std::vector&lt;C_CollisionComponent*&gt;<sp/><ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">OctSpatialPartition::GetCollision</ref>(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inter<sp/>:<sp/>intersectionList)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inter<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.clear();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.reserve(20);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cell<sp/>:<sp/>GetCollidingNodes(ray))<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>cell-&gt;GetColliders())<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>intersectionList.push_back(coll);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>intersectionList;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="class_oct_spatial_partition_1aa6587b2a247704d3ada8fa024413b093" refkind="member"><highlight class="normal">std::vector&lt;C_CollisionComponent*&gt;<sp/><ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">OctSpatialPartition::GetCollision</ref>(<ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inter<sp/>:<sp/>intersectionList)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inter<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.clear();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.reserve(20);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cell<sp/>:<sp/>GetCollidingNodes(sphere))<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>cell-&gt;GetColliders())<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>intersectionList.push_back(coll);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>intersectionList;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="class_oct_spatial_partition_1af8d264687dc121d5cf15993f2b3daa3d" refkind="member"><highlight class="normal">std::vector&lt;C_CollisionComponent*&gt;<sp/><ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">OctSpatialPartition::GetCollision</ref>(<ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref>&amp;<sp/>bounds)</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inter<sp/>:<sp/>intersectionList)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inter<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.clear();</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.reserve(20);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cell<sp/>:<sp/>GetCollidingNodes(bounds))<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>cell-&gt;GetColliders())<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>intersectionList.push_back(coll);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>intersectionList;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="class_oct_spatial_partition_1ad56e215258b64cbef9a8c22f5c900832" refkind="member"><highlight class="normal">std::vector&lt;C_CollisionComponent*&gt;<sp/><ref refid="class_oct_spatial_partition_1a56539404d679edf5f0c6046a9b477d32" kindref="member">OctSpatialPartition::GetCollision</ref>(<ref refid="class_box" kindref="compound">Box</ref>&amp;<sp/>box)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>inter<sp/>:<sp/>intersectionList)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inter<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.clear();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>intersectionList.reserve(20);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>cell<sp/>:<sp/>GetCollidingNodes(box))<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coll<sp/>:<sp/>cell-&gt;GetColliders())<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>intersectionList.push_back(coll);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>intersectionList;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">OctSpatialPartition::UpdateColliderNode</ref>(<ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="188"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell<sp/>=<sp/>GetCollidingNodes(collider-&gt;<ref refid="class_c___bounding_box_1acd5ca67fa659c99865dd5f3f5777ae55" kindref="member">GetBoxBounds</ref>())[0];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell<sp/>!=<sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:Test<sp/>this<sp/>to<sp/>see<sp/>if<sp/>it<sp/>works.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>()-&gt;<ref refid="class_oct_node_1a51173324969974a5c4e0a9848c695a06" kindref="member">RemoveCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>cell<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="class_oct_spatial_partition_1a1f9cc46577de0665fe11ae28d3e07cc2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">OctSpatialPartition::UpdateColliderNode</ref>(<ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell<sp/>=<sp/>GetCollidingNodes(collider-&gt;<ref refid="class_c___sphere_collider_1a927dc7cba0b910fd5f48579588e6a8fd" kindref="member">GetCollisionSphere</ref>())[0];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell<sp/>!=<sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:Test<sp/>this<sp/>to<sp/>see<sp/>if<sp/>it<sp/>works.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>()-&gt;<ref refid="class_oct_node_1a51173324969974a5c4e0a9848c695a06" kindref="member">RemoveCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>cell<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211" refid="class_oct_spatial_partition_1ad06869036dccfbe8c0828668ffdf5d26" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1a609ac58c98e62193c46e8a85b668f861" kindref="member">OctSpatialPartition::UpdateColliderNode</ref>(<ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/>collider)</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell<sp/>=<sp/>GetCollidingNodes(collider-&gt;<ref refid="class_c___box_collider_1a6afcdcf4e2ad4ea1be8b1be3906b4b66" kindref="member">GetCollisionBox</ref>())[0];</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell<sp/>!=<sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TODO:Test<sp/>this<sp/>to<sp/>see<sp/>if<sp/>it<sp/>works.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1afe301286716016f42f8a2c7c5c836fff" kindref="member">GetCurrentNode</ref>()-&gt;<ref refid="class_oct_node_1a51173324969974a5c4e0a9848c695a06" kindref="member">RemoveCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>cell<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223" refid="class_oct_spatial_partition_1a1bd157844e35173c247568704d8a7cc9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1a1bd157844e35173c247568704d8a7cc9" kindref="member">OctSpatialPartition::Update</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_)</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(auto<sp/>leaves<sp/>:<sp/>GetActiveLeaves())<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//for<sp/>(int<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>leaves-&gt;GetColliderCount();<sp/>i++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(int<sp/>j<sp/>=<sp/>i<sp/>+<sp/>1;<sp/>j<sp/>&lt;<sp/>leaves-&gt;GetColliderCount();<sp/>j++)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if(CollisionDetection::Collision(leaves-&gt;Colliders[i],<sp/>leaves-&gt;Colliders[j])</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="class_oct_spatial_partition_1aab95146e712ed0c4dfb5625cc4a098e7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_oct_spatial_partition_1ab6baaa3b1c8331724abcd97ede3b58e4" kindref="member">OctSpatialPartition::GetActiveLeaves</ref>(<ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell,<sp/>std::set&lt;OctNode*&gt;&amp;<sp/>outSet)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="235"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6ec2a78e34d1810b69965745520d51a9" kindref="member">IsEmpty</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>outSet.insert(cell);</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/><ref refid="class_oct_spatial_partition_1ab6baaa3b1c8331724abcd97ede3b58e4" kindref="member">GetActiveLeaves</ref>(cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)),<sp/>outSet);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal">std::vector&lt;OctNode*&gt;<sp/>OctSpatialPartition::GetCollidingNodes(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray)</highlight></codeline>
+<codeline lineno="242"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;OctNode*&gt;<sp/>nodes;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>nodes.reserve(8);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>GetIntersectedLeaves(ray,<sp/>root,<sp/>nodes);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nodes;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal">std::vector&lt;OctNode*&gt;<sp/>OctSpatialPartition::GetCollidingNodes(<ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/>bounds)</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;OctNode*&gt;<sp/>nodes;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>nodes.reserve(8);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>GetIntersectedLeaves(bounds,<sp/>root,<sp/>nodes);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nodes;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal">std::vector&lt;OctNode*&gt;<sp/>OctSpatialPartition::GetCollidingNodes(<ref refid="class_sphere" kindref="compound">Sphere</ref><sp/>sphere)</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;OctNode*&gt;<sp/>nodes;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>nodes.reserve(8);</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>GetIntersectedLeaves(sphere,<sp/>root,<sp/>nodes);</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nodes;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal">std::vector&lt;OctNode*&gt;<sp/>OctSpatialPartition::GetCollidingNodes(<ref refid="class_box" kindref="compound">Box</ref><sp/>box)</highlight></codeline>
+<codeline lineno="269"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;OctNode*&gt;<sp/>nodes;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>nodes.reserve(8);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>GetIntersectedLeaves(box,<sp/>root,<sp/>nodes);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nodes;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::GetIntersectedLeaves(<ref refid="class_ray" kindref="compound">Ray</ref>&amp;<sp/>ray,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell,<sp/>std::vector&lt;OctNode*&gt;<sp/>nodes)</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Check<sp/>if<sp/>cell<sp/>is<sp/>empty</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6ec2a78e34d1810b69965745520d51a9" kindref="member">IsEmpty</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1a9bb42241d83ea2c517fc2e4fe52f4e50" kindref="member">CollisionDetection::RayAABBIntersection</ref>(ray,<sp/>cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>()))</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>{<sp/></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodes.push_back(cell);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>GetIntersectedLeaves(ray,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)),<sp/>nodes);</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::GetIntersectedLeaves(<ref refid="class_sphere" kindref="compound">Sphere</ref>&amp;<sp/>sphere,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell,<sp/>std::vector&lt;OctNode*&gt;<sp/>nodes)</highlight></codeline>
+<codeline lineno="293"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" kindref="member">CollisionDetection::SphereAABBIntersection</ref>(sphere,<sp/>cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>()))</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodes.push_back(cell);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>GetIntersectedLeaves(sphere,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)),<sp/>nodes);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::GetIntersectedLeaves(<ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref><sp/>bounds,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell,<sp/>std::vector&lt;OctNode*&gt;<sp/>nodes)</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1a07986f1a23e3e6f9a304e729fdfa1133" kindref="member">CollisionDetection::AABBIntersection</ref>(bounds,<sp/>cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>()))</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodes.push_back(cell);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>GetIntersectedLeaves(bounds,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)),<sp/>nodes);</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::GetIntersectedLeaves(<ref refid="class_box" kindref="compound">Box</ref>&amp;<sp/>box,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell,<sp/>std::vector&lt;OctNode*&gt;<sp/>nodes)</highlight></codeline>
+<codeline lineno="315"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" kindref="member">CollisionDetection::AABBOBBIntersection</ref>(cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>(),<sp/>box))</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodes.push_back(cell);</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>GetIntersectedLeaves(box,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)),<sp/>nodes);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="324"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::AddColliderToCell(<ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref>*<sp/>collider,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell)</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1a07986f1a23e3e6f9a304e729fdfa1133" kindref="member">CollisionDetection::AABBIntersection</ref>(collider-&gt;<ref refid="class_c___bounding_box_1acd5ca67fa659c99865dd5f3f5777ae55" kindref="member">GetBoxBounds</ref>(),<sp/>cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>AddColliderToCell(collider,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)));</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::AddColliderToCell(<ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref>*<sp/>collider,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell)</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1a56710aa6672a5dea36e34c476a994d8e" kindref="member">CollisionDetection::SphereAABBIntersection</ref>(collider-&gt;<ref refid="class_c___sphere_collider_1a927dc7cba0b910fd5f48579588e6a8fd" kindref="member">GetCollisionSphere</ref>(),<sp/>cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>AddColliderToCell(collider,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)));</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="348"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OctSpatialPartition::AddColliderToCell(<ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref>*<sp/>collider,<sp/><ref refid="class_oct_node" kindref="compound">OctNode</ref>*<sp/>cell)</highlight></codeline>
+<codeline lineno="351"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="352"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_collision_detection_1af5dc0ab6675b56268e703bf10b4f80c2" kindref="member">CollisionDetection::AABBOBBIntersection</ref>(cell-&gt;<ref refid="class_oct_node_1aa0997d64d706eb3d20ef5936758a5289" kindref="member">GetBoundingBox</ref>(),<sp/>collider-&gt;<ref refid="class_c___box_collider_1a6afcdcf4e2ad4ea1be8b1be3906b4b66" kindref="member">GetCollisionBox</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="353"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cell-&gt;<ref refid="class_oct_node_1a6d79570393729f97c838c9960888fe8e" kindref="member">IsLeaf</ref>())</highlight></codeline>
+<codeline lineno="354"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="355"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>collider-&gt;<ref refid="class_c___collision_component_1a3fa4d25271244b35c26767876265347f" kindref="member">SetCurrentNode</ref>(cell);</highlight></codeline>
+<codeline lineno="356"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cell-&gt;<ref refid="class_oct_node_1a123e02fa642d13bd8cd721ab2371d1d4" kindref="member">AddCollider</ref>(collider);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_oct_spatial_partition_8h_1addf2d3fab6efc4430efc2b03c976f44e" kindref="member">CHILDREN_NUMBER</ref>;<sp/>i++)<sp/>AddColliderToCell(collider,<sp/>cell-&gt;<ref refid="class_oct_node_1aba3f8f70fea99c1684c6b601b6337957" kindref="member">GetChild</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="_oct_spatial_partition_8h_1a50d81ce4a3530ad9944fc3d9a4aa55d3" kindref="member">EOctChildren</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(i)));</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="360"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/OctSpatialPartition.cpp"/>
+  </compounddef>
+</doxygen>

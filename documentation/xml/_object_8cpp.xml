@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_object_8cpp" kind="file" language="C++">
+    <compoundname>Object.cpp</compoundname>
+    <includes refid="_object_8h" local="yes">Object.h</includes>
+    <includes refid="_level_graph_8h" local="yes">../Core/LevelGraph.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>../Core/LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="10">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Object.cpp</label>
+        <link refid="_object_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>set</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>unordered_map</label>
+      </node>
+      <node id="16">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_object_8h" kindref="compound">Object.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Core/LevelGraph.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="class_o___object_1aaad44b4c4e3849154aa227a7c3e15f31" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_o___object_1aaad44b4c4e3849154aa227a7c3e15f31" kindref="member">O_Object::HasTag</ref>(std::string<sp/>tag)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="5"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" kindref="member">Tags</ref>.count(tag);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_o___object_1a386ef90c3a4c35cc71e0e16ff0256ca0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_o___object_1a386ef90c3a4c35cc71e0e16ff0256ca0" kindref="member">O_Object::AddTag</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tag)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1ab9a4a64ca6ff4160fda42b521014f372" kindref="member">AddObjectToTagList</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>tag);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" kindref="member">Tags</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>breakPoint<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_o___object_1ab178ecbeb59ab3f18fbabca885ca7888" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_o___object_1ab178ecbeb59ab3f18fbabca885ca7888" kindref="member">O_Object::RemoveTag</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tag)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1a265ee8df873fcbb03fa4c6ef3ea02550" kindref="member">RemoveObjectFromTagList</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>tag);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_o___object_1a84410867319c8e8c510898b8e29a2a0d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_o___object_1a84410867319c8e8c510898b8e29a2a0d" kindref="member">O_Object::RemoveAllTags</ref>()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>tag<sp/>:<sp/><ref refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" kindref="member">Tags</ref>)<sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">LevelGraph::GetInstance</ref>()-&gt;<ref refid="class_level_graph_1a265ee8df873fcbb03fa4c6ef3ea02550" kindref="member">RemoveObjectFromTagList</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>tag);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Object.cpp"/>
+  </compounddef>
+</doxygen>

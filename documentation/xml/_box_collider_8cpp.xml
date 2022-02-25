@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_box_collider_8cpp" kind="file" language="C++">
+    <compoundname>BoxCollider.cpp</compoundname>
+    <includes refid="_box_collider_8h" local="yes">BoxCollider.h</includes>
+    <includes refid="_box_8h" local="yes">Geometry/Box.h</includes>
+    <includes refid="_game_object_8h" local="yes">Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_sphere_8h" local="yes">Geometry/Sphere.h</includes>
+    <includes refid="_collision_handler_8h" local="yes">CollisionHandler.h</includes>
+    <incdepgraph>
+      <node id="21">
+        <label>CollisionHandler.h</label>
+        <link refid="_collision_handler_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>OctSpatialPartition.h</label>
+        <link refid="_oct_spatial_partition_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>Geometry/Box.h</label>
+        <link refid="_box_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Geometry/BoxBounds.h</label>
+        <link refid="_box_bounds_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Plane.h</label>
+        <link refid="_plane_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Geometry/Simplex.h</label>
+        <link refid="_simplex_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>Geometry/Sphere.h</label>
+        <link refid="_sphere_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="24">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="13">
+        <label>../Math/FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp</label>
+        <link refid="_box_collider_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BoxCollider.h</label>
+        <link refid="_box_collider_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>CollisionComponent.h</label>
+        <link refid="_collision_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Physics/CollisionData.h</label>
+        <link refid="_collision_data_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>array</label>
+      </node>
+      <node id="25">
+        <label>iostream</label>
+      </node>
+      <node id="26">
+        <label>memory</label>
+      </node>
+      <node id="7">
+        <label>set</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_collider_8h" kindref="compound">BoxCollider.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_box_8h" kindref="compound">Geometry/Box.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game_object_8h" kindref="compound">Objects/GameObjects/GameObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include&quot;<ref refid="_sphere_8h" kindref="compound">Geometry/Sphere.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_collision_handler_8h" kindref="compound">CollisionHandler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_c___box_collider_1a99a9beaf240ea755397f3416def2c086" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___box_collider_1a99a9beaf240ea755397f3416def2c086" kindref="member">C_BoxCollider::SetComponentPosition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>position)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___transform_component_1aa9d5ee105ac143d71d72c01916d40671" kindref="member">C_TransformComponent::SetComponentPosition</ref>(position);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>-&gt;<ref refid="class_box_1ab2b51a304c63147067183a34d24d8c87" kindref="member">SetPosition</ref>(<ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>());</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" kindref="member">CollisionHandler::GetInstance</ref>()-&gt;<ref refid="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" kindref="member">OBBSpatialCheck</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_c___box_collider_1ac290281fd0721f867492cdedcd6dec24" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___box_collider_1ac290281fd0721f867492cdedcd6dec24" kindref="member">C_BoxCollider::SetComponentTransform</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___transform_component_1ae1e262db4b4e2953a58af0885bd4b691" kindref="member">C_TransformComponent::SetComponentTransform</ref>(transform);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>-&gt;<ref refid="class_box_1ab2b51a304c63147067183a34d24d8c87" kindref="member">SetPosition</ref>(<ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>());</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_c___box_collider_1a6afcdcf4e2ad4ea1be8b1be3906b4b66" refkind="member"><highlight class="normal"><ref refid="class_box" kindref="compound">Box</ref><sp/><ref refid="class_c___box_collider_1a6afcdcf4e2ad4ea1be8b1be3906b4b66" kindref="member">C_BoxCollider::GetCollisionBox</ref>()</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//bool<sp/>C_BoxCollision::Collide(C_CollisionComponent*<sp/>otherCollider,<sp/>S_CollisionData&amp;<sp/>data)<sp/>const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(dynamic_cast&lt;C_BoxCollision*&gt;(otherCollider))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if<sp/>(dynamic_cast&lt;C_SphereCollision*&gt;(otherCollider))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>SphereBoxCollision(dynamic_cast&lt;C_SphereCollision*&gt;(otherCollider)-&gt;GetCollisionSphere(),<sp/>*CollisionBox,<sp/>data);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_c___box_collider_1a04e64ba1d40296185d3da5e6d10fdea1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___box_collider_1a04e64ba1d40296185d3da5e6d10fdea1" kindref="member">C_BoxCollider::SetBoxExtent</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>extent)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>-&gt;<ref refid="class_box_1a9df63de3cc1042e6fbad43457f1804d2" kindref="member">SetExtent</ref>(extent);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="class_c___box_collider_1a21e465fc0ab3d95957124378ba1846d9" refkind="member"><highlight class="normal"><ref refid="class_c___box_collider_1a21e465fc0ab3d95957124378ba1846d9" kindref="member">C_BoxCollider::C_BoxCollider</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner)<sp/>:<sp/><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>(owner)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="_collision_component_8h_1a7f138e75fc3cc79e825c39e040690395a3cfce651e667ab85486dd42a8185f98a" kindref="member">Box</ref>(<ref refid="class_f_vector3" kindref="compound">FVector3</ref>(1.0f,<sp/>1.0f,<sp/>1.0f),<sp/><ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>());</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="class_c___box_collider_1a9d243223bc926a82adeb2dbcb6139ebd" refkind="member"><highlight class="normal"><ref refid="class_c___box_collider_1a9d243223bc926a82adeb2dbcb6139ebd" kindref="member">C_BoxCollider::~C_BoxCollider</ref>()</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="class_c___box_collider_1a100edd3c001382fd068ca82712903e6d" kindref="member">CollisionBox</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoxCollider.cpp"/>
+  </compounddef>
+</doxygen>

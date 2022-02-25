@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_d96b68a0c2d4bf414ba77981d6ff4e96" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components</compoundname>
+    <innerdir refid="dir_145e7554b93945cb25c3855501f16ee9">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders</innerdir>
+    <innerfile refid="_camera_component_8cpp">CameraComponent.cpp</innerfile>
+    <innerfile refid="_camera_component_8h">CameraComponent.h</innerfile>
+    <innerfile refid="_component_8h">Component.h</innerfile>
+    <innerfile refid="_mesh_collision_8cpp">MeshCollision.cpp</innerfile>
+    <innerfile refid="_mesh_collision_8h">MeshCollision.h</innerfile>
+    <innerfile refid="_movement_component_8cpp">MovementComponent.cpp</innerfile>
+    <innerfile refid="_movement_component_8h">MovementComponent.h</innerfile>
+    <innerfile refid="_physics_component_8cpp">PhysicsComponent.cpp</innerfile>
+    <innerfile refid="_physics_component_8h">PhysicsComponent.h</innerfile>
+    <innerfile refid="_renderable_component_8h">RenderableComponent.h</innerfile>
+    <innerfile refid="_static_mesh_component_8cpp">StaticMeshComponent.cpp</innerfile>
+    <innerfile refid="_static_mesh_component_8h">StaticMeshComponent.h</innerfile>
+    <innerfile refid="_transform_component_8cpp">TransformComponent.cpp</innerfile>
+    <innerfile refid="_transform_component_8h">TransformComponent.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/"/>
+  </compounddef>
+</doxygen>

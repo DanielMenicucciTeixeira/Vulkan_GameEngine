@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_s___binding_data" kind="struct" language="C++" prot="public">
+    <compoundname>S_BindingData</compoundname>
+    <includes refid="_opel_g_l_manager_8h" local="no">OpelGLManager.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s___binding_data_1a9f9c3c79996795c233995367ccf75fad" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int S_BindingData::Vertex</definition>
+        <argsstring></argsstring>
+        <name>Vertex</name>
+        <qualifiedname>S_BindingData::Vertex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="20" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___binding_data_1afc38cd13c3560b3bc75e8ce0f86bc0c3" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int S_BindingData::VertexBuffer</definition>
+        <argsstring></argsstring>
+        <name>VertexBuffer</name>
+        <qualifiedname>S_BindingData::VertexBuffer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="21" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___binding_data_1a5731cf109f909010fb1842f9c26c221b" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int S_BindingData::IndexBuffer</definition>
+        <argsstring></argsstring>
+        <name>IndexBuffer</name>
+        <qualifiedname>S_BindingData::IndexBuffer</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="22" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="18" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="19" bodyend="23"/>
+    <listofallmembers>
+      <member refid="struct_s___binding_data_1a5731cf109f909010fb1842f9c26c221b" prot="public" virt="non-virtual"><scope>S_BindingData</scope><name>IndexBuffer</name></member>
+      <member refid="struct_s___binding_data_1a9f9c3c79996795c233995367ccf75fad" prot="public" virt="non-virtual"><scope>S_BindingData</scope><name>Vertex</name></member>
+      <member refid="struct_s___binding_data_1afc38cd13c3560b3bc75e8ce0f86bc0c3" prot="public" virt="non-virtual"><scope>S_BindingData</scope><name>VertexBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

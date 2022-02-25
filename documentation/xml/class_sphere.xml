@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_sphere" kind="class" language="C++" prot="public">
+    <compoundname>Sphere</compoundname>
+    <includes refid="_sphere_8h" local="no">Sphere.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_sphere_1a4eb6f93f37ac009d4a1a08c2f20b2257" prot="public" static="no" mutable="no">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 Sphere::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>Sphere::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" line="12" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sphere_1ae6f42f0da6679a2f0b4a22681ccccf38" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Sphere::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>Sphere::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" line="13" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sphere_1a890a63ff583cb88e7ec4e840b4ef5eb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Sphere::Sphere</definition>
+        <argsstring>()</argsstring>
+        <name>Sphere</name>
+        <qualifiedname>Sphere::Sphere</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.cpp" bodystart="4" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sphere_1aa43bd8ad77f4a64f7232722329010724" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Sphere::Sphere</definition>
+        <argsstring>(FVector3 Position, float Radius)</argsstring>
+        <name>Sphere</name>
+        <qualifiedname>Sphere::Sphere</qualifiedname>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>Position</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>Radius</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" line="10" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.cpp" bodystart="10" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>FVector3</label>
+        <link refid="class_f_vector3"/>
+      </node>
+      <node id="1">
+        <label>Sphere</label>
+        <link refid="class_sphere"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" line="5" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Geometry/Sphere.h" bodystart="6" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_sphere_1a4eb6f93f37ac009d4a1a08c2f20b2257" prot="public" virt="non-virtual"><scope>Sphere</scope><name>position</name></member>
+      <member refid="class_sphere_1ae6f42f0da6679a2f0b4a22681ccccf38" prot="public" virt="non-virtual"><scope>Sphere</scope><name>radius</name></member>
+      <member refid="class_sphere_1a890a63ff583cb88e7ec4e840b4ef5eb9" prot="public" virt="non-virtual"><scope>Sphere</scope><name>Sphere</name></member>
+      <member refid="class_sphere_1aa43bd8ad77f4a64f7232722329010724" prot="public" virt="non-virtual"><scope>Sphere</scope><name>Sphere</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

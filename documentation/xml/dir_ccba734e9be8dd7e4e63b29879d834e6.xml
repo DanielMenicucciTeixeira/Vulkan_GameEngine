@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_ccba734e9be8dd7e4e63b29879d834e6" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL</compoundname>
+    <innerfile refid="_opel_g_l_manager_8cpp">OpelGLManager.cpp</innerfile>
+    <innerfile refid="_opel_g_l_manager_8h">OpelGLManager.h</innerfile>
+    <innerfile refid="_open_g_l_shader_manager_8cpp">OpenGLShaderManager.cpp</innerfile>
+    <innerfile refid="_open_g_l_shader_manager_8h">OpenGLShaderManager.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/"/>
+  </compounddef>
+</doxygen>

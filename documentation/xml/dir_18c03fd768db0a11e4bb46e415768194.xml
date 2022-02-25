@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_18c03fd768db0a11e4bb46e415768194" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math</compoundname>
+    <innerfile refid="_f_matrix_8cpp">FMatrix.cpp</innerfile>
+    <innerfile refid="_f_matrix_8h">FMatrix.h</innerfile>
+    <innerfile refid="_f_matrix4_8cpp">FMatrix4.cpp</innerfile>
+    <innerfile refid="_f_matrix4_8h">FMatrix4.h</innerfile>
+    <innerfile refid="_f_quaternion_8cpp">FQuaternion.cpp</innerfile>
+    <innerfile refid="_f_quaternion_8h">FQuaternion.h</innerfile>
+    <innerfile refid="_f_transform_8cpp">FTransform.cpp</innerfile>
+    <innerfile refid="_f_transform_8h">FTransform.h</innerfile>
+    <innerfile refid="_f_vector2_8cpp">FVector2.cpp</innerfile>
+    <innerfile refid="_f_vector2_8h">FVector2.h</innerfile>
+    <innerfile refid="_f_vector3_8cpp">FVector3.cpp</innerfile>
+    <innerfile refid="_f_vector3_8h">FVector3.h</innerfile>
+    <innerfile refid="_f_vector4_8cpp">FVector4.cpp</innerfile>
+    <innerfile refid="_f_vector4_8h">FVector4.h</innerfile>
+    <innerfile refid="_i_vector2_8cpp">IVector2.cpp</innerfile>
+    <innerfile refid="_i_vector2_8h">IVector2.h</innerfile>
+    <innerfile refid="_i_vector3_8cpp">IVector3.cpp</innerfile>
+    <innerfile refid="_i_vector3_8h">IVector3.h</innerfile>
+    <innerfile refid="_math_8cpp">Math.cpp</innerfile>
+    <innerfile refid="_math_8h">Math.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/"/>
+  </compounddef>
+</doxygen>

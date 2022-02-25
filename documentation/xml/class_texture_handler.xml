@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_texture_handler" kind="class" language="C++" prot="public">
+    <compoundname>TextureHandler</compoundname>
+    <includes refid="_texture_handler_8h" local="no">TextureHandler.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_texture_handler_1a9ae3a55a375226ec3c19f4ad558a7987" prot="private" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; TextureHandler &gt; TextureHandler::Instance</definition>
+        <argsstring></argsstring>
+        <name>Instance</name>
+        <qualifiedname>TextureHandler::Instance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="36" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_texture_handler_1a871946552943a34b32b65668e9def1c1" prot="private" static="yes" mutable="no">
+        <type>std::vector&lt; <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> * &gt;</type>
+        <definition>std::vector&lt; S_Texture * &gt; TextureHandler::Textures</definition>
+        <argsstring></argsstring>
+        <name>Textures</name>
+        <qualifiedname>TextureHandler::Textures</qualifiedname>
+        <initializer>= std::vector&lt;<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="38" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_texture_handler_1a6d5acd71d0758bcf7d2bba79ce81f460" prot="private" static="no" mutable="no">
+        <type>std::set&lt; SDL_Surface * &gt;</type>
+        <definition>std::set&lt;SDL_Surface*&gt; TextureHandler::Surfaces</definition>
+        <argsstring></argsstring>
+        <name>Surfaces</name>
+        <qualifiedname>TextureHandler::Surfaces</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="40" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_texture_handler_1a58202ef524eb41d09e4b2d99093a3b58" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> *</type>
+        <definition>TextureHandler * TextureHandler::GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>TextureHandler::GetInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="17" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a4a3f6b52cdcbb3b075fd9451412cecf7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool TextureHandler::LoadTexture</definition>
+        <argsstring>(const std::string &amp;textureName, const std::string &amp;filePath, S_Texture *outTexture)</argsstring>
+        <name>LoadTexture</name>
+        <qualifiedname>TextureHandler::LoadTexture</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>textureName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filePath</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *</type>
+          <declname>outTexture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="30" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="29" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_texture_handler_1a266aec84de0bbef772d264f580052219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TextureHandler::TextureHandler</definition>
+        <argsstring>(const TextureHandler &amp;)=delete</argsstring>
+        <name>TextureHandler</name>
+        <qualifiedname>TextureHandler::TextureHandler</qualifiedname>
+        <param>
+          <type>const <ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="19" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a6eabfc868f149fa010e07ad76908586c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TextureHandler::TextureHandler</definition>
+        <argsstring>(TextureHandler &amp;&amp;)=delete</argsstring>
+        <name>TextureHandler</name>
+        <qualifiedname>TextureHandler::TextureHandler</qualifiedname>
+        <param>
+          <type><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="20" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1aa5e2fc7e52739555f6cf4e47f2d6f4c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;</type>
+        <definition>TextureHandler &amp; TextureHandler::operator=</definition>
+        <argsstring>(const TextureHandler &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>TextureHandler::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="21" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a38fc7a7a1ace1034ca540b3b2c91eb8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;</type>
+        <definition>TextureHandler &amp; TextureHandler::operator=</definition>
+        <argsstring>(TextureHandler &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>TextureHandler::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_texture_handler" kindref="compound">TextureHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="22" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a9a1de44743fe607b903101cc3d61f166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void TextureHandler::CleanUp</definition>
+        <argsstring>()</argsstring>
+        <name>CleanUp</name>
+        <qualifiedname>TextureHandler::CleanUp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="26" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a560d5c68adc0544c2695f82a03e85f86" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *</type>
+        <definition>const S_Texture * TextureHandler::GetTextureData</definition>
+        <argsstring>(const std::string &amp;textureName) const</argsstring>
+        <name>GetTextureData</name>
+        <qualifiedname>TextureHandler::GetTextureData</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>textureName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="27" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="69" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_texture_handler_1a9056de3d9a44b2e696c8e8b39462dd46" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TextureHandler::TextureHandler</definition>
+        <argsstring>()</argsstring>
+        <name>TextureHandler</name>
+        <qualifiedname>TextureHandler::TextureHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="33" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_texture_handler_1a6c6cfe48db6e9b582bc29b44c37758e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TextureHandler::~TextureHandler</definition>
+        <argsstring>()</argsstring>
+        <name>~TextureHandler</name>
+        <qualifiedname>TextureHandler::~TextureHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="34" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" line="12" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.h" bodystart="13" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_texture_handler_1a9a1de44743fe607b903101cc3d61f166" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>CleanUp</name></member>
+      <member refid="class_texture_handler_1a58202ef524eb41d09e4b2d99093a3b58" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>GetInstance</name></member>
+      <member refid="class_texture_handler_1a560d5c68adc0544c2695f82a03e85f86" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>GetTextureData</name></member>
+      <member refid="class_texture_handler_1a9ae3a55a375226ec3c19f4ad558a7987" prot="private" virt="non-virtual"><scope>TextureHandler</scope><name>Instance</name></member>
+      <member refid="class_texture_handler_1a4a3f6b52cdcbb3b075fd9451412cecf7" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>LoadTexture</name></member>
+      <member refid="class_texture_handler_1aa5e2fc7e52739555f6cf4e47f2d6f4c2" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>operator=</name></member>
+      <member refid="class_texture_handler_1a38fc7a7a1ace1034ca540b3b2c91eb8a" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>operator=</name></member>
+      <member refid="class_texture_handler_1a6d5acd71d0758bcf7d2bba79ce81f460" prot="private" virt="non-virtual"><scope>TextureHandler</scope><name>Surfaces</name></member>
+      <member refid="class_texture_handler_1a266aec84de0bbef772d264f580052219" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>TextureHandler</name></member>
+      <member refid="class_texture_handler_1a6eabfc868f149fa010e07ad76908586c" prot="public" virt="non-virtual"><scope>TextureHandler</scope><name>TextureHandler</name></member>
+      <member refid="class_texture_handler_1a9056de3d9a44b2e696c8e8b39462dd46" prot="private" virt="non-virtual"><scope>TextureHandler</scope><name>TextureHandler</name></member>
+      <member refid="class_texture_handler_1a871946552943a34b32b65668e9def1c1" prot="private" virt="non-virtual"><scope>TextureHandler</scope><name>Textures</name></member>
+      <member refid="class_texture_handler_1a6c6cfe48db6e9b582bc29b44c37758e6" prot="private" virt="non-virtual"><scope>TextureHandler</scope><name>~TextureHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

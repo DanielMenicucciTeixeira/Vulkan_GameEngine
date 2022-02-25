@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_f_quaternion" kind="class" language="C++" prot="public">
+    <compoundname>FQuaternion</compoundname>
+    <basecompoundref refid="class_f_vector4" prot="public" virt="non-virtual">FVector4</basecompoundref>
+    <includes refid="_f_quaternion_8h" local="no">FQuaternion.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::FQuaternion</definition>
+        <argsstring>()</argsstring>
+        <name>FQuaternion</name>
+        <qualifiedname>FQuaternion::FQuaternion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="12" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1abcccf32587f1cc28ed6a649607ab90f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::FQuaternion</definition>
+        <argsstring>(const FVector4 &amp;vector)</argsstring>
+        <name>FQuaternion</name>
+        <qualifiedname>FQuaternion::FQuaternion</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector4" kindref="compound">FVector4</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="13" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1ae2bf8e8fd3806c04a3199e92f1f598e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::FQuaternion</definition>
+        <argsstring>(float x, float y, float z, float w)</argsstring>
+        <name>FQuaternion</name>
+        <qualifiedname>FQuaternion::FQuaternion</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="14" column="8" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a713ce1647047928cedc830536607b50f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::FQuaternion</definition>
+        <argsstring>(const FVector3 &amp;axis, float angle, bool isRotation=true, bool inRadians=false)</argsstring>
+        <name>FQuaternion</name>
+        <qualifiedname>FQuaternion::FQuaternion</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>angle</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isRotation</declname>
+          <defval>true</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inRadians</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="15" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="10" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a6926a91b073bb62ceccd76f466b9a24b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::FQuaternion</definition>
+        <argsstring>(const FVector3 &amp;euler, bool inRadians=false)</argsstring>
+        <name>FQuaternion</name>
+        <qualifiedname>FQuaternion::FQuaternion</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>euler</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inRadians</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="16" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="32" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1afaf2b364534bed4d384643c9708339ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::operator*</definition>
+        <argsstring>(const FQuaternion &amp;quaternion) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FQuaternion::operator*</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>quaternion</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="19" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="51" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1af27ca273fe70cd5ca69e4e734a50f794" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::operator*</definition>
+        <argsstring>(const float &amp;scalar) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>FQuaternion::operator*</qualifiedname>
+        <param>
+          <type>const float &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="20" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="62" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1af0a0c5e331436b8dcee8501c08215ad2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::MultiplyRotation</definition>
+        <argsstring>(const float &amp;scalar) const</argsstring>
+        <name>MultiplyRotation</name>
+        <qualifiedname>FQuaternion::MultiplyRotation</qualifiedname>
+        <param>
+          <type>const float &amp;</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="21" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1ae55da3b1365b30cb218a2c9a71c4a756" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FQuaternion::operator=</definition>
+        <argsstring>(const FQuaternion &amp;Quaternion)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>FQuaternion::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>Quaternion</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="22" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="74" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a3cd36012317764bcc542973e684bd654" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::GetConjugated</definition>
+        <argsstring>() const</argsstring>
+        <name>GetConjugated</name>
+        <qualifiedname>FQuaternion::GetConjugated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="25" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1aa87f15a6bcc85cdd5b689dc7a2669b01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FQuaternion::Conjugate</definition>
+        <argsstring>()</argsstring>
+        <name>Conjugate</name>
+        <qualifiedname>FQuaternion::Conjugate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="26" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1aa30fd5c8c4c86a82ec52f5fb3629cd0b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::GetInverse</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInverse</name>
+        <qualifiedname>FQuaternion::GetInverse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="27" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1ae6f95ca3871f6179cb8b41e1905366c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FQuaternion::Invert</definition>
+        <argsstring>()</argsstring>
+        <name>Invert</name>
+        <qualifiedname>FQuaternion::Invert</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="28" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="82" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a0c69996b44cc9a334cc1fdb76d78977f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FQuaternion::GetEulerAngle</definition>
+        <argsstring>() const</argsstring>
+        <name>GetEulerAngle</name>
+        <qualifiedname>FQuaternion::GetEulerAngle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="29" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="91" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1abc2667c7824fe333dfe20723e723915f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FQuaternion::GetUpVector</definition>
+        <argsstring>() const</argsstring>
+        <name>GetUpVector</name>
+        <qualifiedname>FQuaternion::GetUpVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="33" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="154" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1ab7ff0894e5a730df032299ca7c619bbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FQuaternion::GetForwardVector</definition>
+        <argsstring>() const</argsstring>
+        <name>GetForwardVector</name>
+        <qualifiedname>FQuaternion::GetForwardVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="34" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1add03b08051448814911ba91daaab5a12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FQuaternion::GetRightVector</definition>
+        <argsstring>() const</argsstring>
+        <name>GetRightVector</name>
+        <qualifiedname>FQuaternion::GetRightVector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="35" column="10" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="164" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a3e837db732462e4b357c43643eadc7bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FQuaternion::~FQuaternion</definition>
+        <argsstring>()</argsstring>
+        <name>~FQuaternion</name>
+        <qualifiedname>FQuaternion::~FQuaternion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="37" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="169" bodyend="171"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_f_quaternion_1aa93d031afd2297f1179d44b2d9c81005" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+        <definition>FVector3 FQuaternion::GetRotatedVector</definition>
+        <argsstring>(const FVector3 &amp;vector, const FQuaternion &amp;quaternion)</argsstring>
+        <name>GetRotatedVector</name>
+        <qualifiedname>FQuaternion::GetRotatedVector</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_vector3" kindref="compound">FVector3</ref> &amp;</type>
+          <declname>vector</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>quaternion</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="30" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1af115e8afca1fb0257876881645c41609" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+        <definition>FQuaternion FQuaternion::SLerp</definition>
+        <argsstring>(FQuaternion quaternion0, FQuaternion quaternion1, float t)</argsstring>
+        <name>SLerp</name>
+        <qualifiedname>FQuaternion::SLerp</qualifiedname>
+        <param>
+          <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+          <declname>quaternion0</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref></type>
+          <declname>quaternion1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="31" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="104" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_f_quaternion_1a304807bc26642438e6492d334ca4a6e9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float FQuaternion::DotProduct</definition>
+        <argsstring>(const FQuaternion &amp;quaternion0, const FQuaternion &amp;quaternion1)</argsstring>
+        <name>DotProduct</name>
+        <qualifiedname>FQuaternion::DotProduct</qualifiedname>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>quaternion0</declname>
+        </param>
+        <param>
+          <type>const <ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref> &amp;</type>
+          <declname>quaternion1</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="32" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.cpp" bodystart="145" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" line="8" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FQuaternion.h" bodystart="9" bodyend="38"/>
+    <listofallmembers>
+      <member refid="class_f_quaternion_1aa87f15a6bcc85cdd5b689dc7a2669b01" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Conjugate</name></member>
+      <member refid="class_f_vector4_1a245e307094f78c9aca39d937dc75af81" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>CrossProduct</name></member>
+      <member refid="class_f_vector4_1a4754a8347c8754d3800bce986d2d7481" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Dot</name></member>
+      <member refid="class_f_quaternion_1a304807bc26642438e6492d334ca4a6e9" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>DotProduct</name></member>
+      <member refid="class_f_quaternion_1a3761bbb5d665d77d9ae462f0553a5b42" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FQuaternion</name></member>
+      <member refid="class_f_quaternion_1abcccf32587f1cc28ed6a649607ab90f8" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FQuaternion</name></member>
+      <member refid="class_f_quaternion_1ae2bf8e8fd3806c04a3199e92f1f598e6" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FQuaternion</name></member>
+      <member refid="class_f_quaternion_1a713ce1647047928cedc830536607b50f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FQuaternion</name></member>
+      <member refid="class_f_quaternion_1a6926a91b073bb62ceccd76f466b9a24b" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FQuaternion</name></member>
+      <member refid="class_f_vector4_1a19ff6ccb1b9bd504016fa4a10a195f01" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1aa78549804a04dbdd966635361bd9a51b" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1a1aea1288b71b7aad9c99e59eb6511d1a" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1ab377e7243cffae80c12390b55144d29d" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1a33a9b577f3b7f4c020c2358cac185ef6" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1a7b2c59e5f480e0a333b6b985967d65c9" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_vector4_1a3ebeeefdd3a0e08c1ddf99b637c4ece0" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>FVector4</name></member>
+      <member refid="class_f_quaternion_1a3cd36012317764bcc542973e684bd654" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetConjugated</name></member>
+      <member refid="class_f_quaternion_1a0c69996b44cc9a334cc1fdb76d78977f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetEulerAngle</name></member>
+      <member refid="class_f_quaternion_1ab7ff0894e5a730df032299ca7c619bbc" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetForwardVector</name></member>
+      <member refid="class_f_quaternion_1aa30fd5c8c4c86a82ec52f5fb3629cd0b" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetInverse</name></member>
+      <member refid="class_f_vector4_1a4e3b0480798077659fa6e240cfa6e09c" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetNormal</name></member>
+      <member refid="class_f_quaternion_1add03b08051448814911ba91daaab5a12" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetRightVector</name></member>
+      <member refid="class_f_quaternion_1aa93d031afd2297f1179d44b2d9c81005" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetRotatedVector</name></member>
+      <member refid="class_f_quaternion_1abc2667c7824fe333dfe20723e723915f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>GetUpVector</name></member>
+      <member refid="class_f_quaternion_1ae6f95ca3871f6179cb8b41e1905366c9" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Invert</name></member>
+      <member refid="class_f_vector4_1a4ff174c7c7f43dde8afd399f24342c07" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Length</name></member>
+      <member refid="class_f_vector4_1a1d3697a5dce19b5671ec720300b7950f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Load</name></member>
+      <member refid="class_f_quaternion_1af0a0c5e331436b8dcee8501c08215ad2" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>MultiplyRotation</name></member>
+      <member refid="class_f_vector4_1a4a1b0daae57b363a41ebd26bf21e3345" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Normalize</name></member>
+      <member refid="class_f_vector4_1a0d68c11a383e6c04b6e7a5238ce5cb3d" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator const float *</name></member>
+      <member refid="class_f_vector4_1ab5049595077ccf50e0e8d9e968cc5648" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator float *</name></member>
+      <member refid="class_f_quaternion_1afaf2b364534bed4d384643c9708339ce" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator*</name></member>
+      <member refid="class_f_quaternion_1af27ca273fe70cd5ca69e4e734a50f794" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator*</name></member>
+      <member refid="class_f_vector4_1aafec914f372b46411f51fd9d70765901" prot="public" virt="non-virtual" ambiguityscope="FVector4::"><scope>FQuaternion</scope><name>operator*</name></member>
+      <member refid="class_f_vector4_1a78ca3d7fb678c719e160f9e7d34e6778" prot="public" virt="non-virtual" ambiguityscope="FVector4::"><scope>FQuaternion</scope><name>operator*</name></member>
+      <member refid="class_f_vector4_1a1b2ac14fbd4fe632a2f33ac9e63d2c00" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator*=</name></member>
+      <member refid="class_f_vector4_1a5cd44af17a769ca51a3cd56491d8da2f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator+</name></member>
+      <member refid="class_f_vector4_1ae135820656717d847b97594db79ab022" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator+=</name></member>
+      <member refid="class_f_vector4_1ab82cc194a00b3690984d81dc48f9c4de" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator-</name></member>
+      <member refid="class_f_vector4_1ae3827261fe17cde89973b15ae30c1045" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator-=</name></member>
+      <member refid="class_f_vector4_1aa322e85fca95f7a2cd8dca5f5b83d3bb" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator/</name></member>
+      <member refid="class_f_quaternion_1ae55da3b1365b30cb218a2c9a71c4a756" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator=</name></member>
+      <member refid="class_f_vector4_1aae70ff8d508520d2825d21c33a8dd605" prot="public" virt="non-virtual" ambiguityscope="FVector4::"><scope>FQuaternion</scope><name>operator=</name></member>
+      <member refid="class_f_vector4_1ad934058ad419926453e2b6d7af36d6fc" prot="public" virt="non-virtual" ambiguityscope="FVector4::"><scope>FQuaternion</scope><name>operator=</name></member>
+      <member refid="class_f_vector4_1aa5b4000a9976fd851cd765993450c66d" prot="public" virt="non-virtual" ambiguityscope="FVector4::"><scope>FQuaternion</scope><name>operator=</name></member>
+      <member refid="class_f_vector4_1a24e46ebfc0831683105aa99136ac5304" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator[]</name></member>
+      <member refid="class_f_vector4_1af038aba942f4e64568799abc04b8c076" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>operator[]</name></member>
+      <member refid="class_f_vector4_1a348b54ec84fb6e1540218b1365dd9f35" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Print</name></member>
+      <member refid="class_f_quaternion_1af115e8afca1fb0257876881645c41609" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>SLerp</name></member>
+      <member refid="class_f_vector4_1a001090eab2a652cb0397ffc677f1553f" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>W</name></member>
+      <member refid="class_f_vector4_1adde7d6c779d671097d93be10971ab469" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>X</name></member>
+      <member refid="class_f_vector4_1a8860ab20cf7c21dd9d814600ed7a65cd" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Y</name></member>
+      <member refid="class_f_vector4_1ade0ea8e42af4f492968e7209b7c12bca" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>Z</name></member>
+      <member refid="class_f_quaternion_1a3e837db732462e4b357c43643eadc7bd" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>~FQuaternion</name></member>
+      <member refid="class_f_vector4_1a67ff45123710912308e8485742c6ecef" prot="public" virt="non-virtual"><scope>FQuaternion</scope><name>~FVector4</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

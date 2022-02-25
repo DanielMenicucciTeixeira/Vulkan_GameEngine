@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_s___shader_info" kind="struct" language="C++" prot="public">
+    <compoundname>S_ShaderInfo</compoundname>
+    <includes refid="_material_8h" local="no">Material.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s___shader_info_1a60a3cc87724f17d105e20355ebcd3bef" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string S_ShaderInfo::Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>S_ShaderInfo::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="104" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___shader_info_1a906ccdd0541faa188e9cf709809bfdf6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; <ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref>, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;E_ShaderStage, std::string&gt; &gt; S_ShaderInfo::ShaderFiles</definition>
+        <argsstring></argsstring>
+        <name>ShaderFiles</name>
+        <qualifiedname>S_ShaderInfo::ShaderFiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="105" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" line="102" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h" bodystart="103" bodyend="106"/>
+    <listofallmembers>
+      <member refid="struct_s___shader_info_1a60a3cc87724f17d105e20355ebcd3bef" prot="public" virt="non-virtual"><scope>S_ShaderInfo</scope><name>Name</name></member>
+      <member refid="struct_s___shader_info_1a906ccdd0541faa188e9cf709809bfdf6" prot="public" virt="non-virtual"><scope>S_ShaderInfo</scope><name>ShaderFiles</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

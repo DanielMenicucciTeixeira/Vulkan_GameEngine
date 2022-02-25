@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_f_physics_lib" kind="class" language="C++" prot="public">
+    <compoundname>FPhysicsLib</compoundname>
+    <includes refid="_physics_lib_8h" local="no">PhysicsLib.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_f_physics_lib_1a2decefd61b2d2440acd5254faf399128" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FPhysicsLib::AddForce</definition>
+        <argsstring>(C_PhysicsComponent *target, FVector3 force, FVector3 location)</argsstring>
+        <name>AddForce</name>
+        <qualifiedname>FPhysicsLib::AddForce</qualifiedname>
+        <param>
+          <type><ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref> *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>force</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>location</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.h" line="12" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp" bodystart="12" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.h" line="9" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.h" bodystart="10" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_f_physics_lib_1a2decefd61b2d2440acd5254faf399128" prot="public" virt="non-virtual"><scope>FPhysicsLib</scope><name>AddForce</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

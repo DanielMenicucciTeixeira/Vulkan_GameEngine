@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="struct_s___buffer_data" kind="struct" language="C++" prot="public">
+    <compoundname>S_BufferData</compoundname>
+    <includes refid="_vulkan_swapchain_manager_8h" local="no">VulkanSwapchainManager.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_s___buffer_data_1a84a218414a675ef10018fd018ec35acc" prot="public" static="no" mutable="no">
+        <type>VkBuffer_T *</type>
+        <definition>VkBuffer_T* S_BufferData::Buffer</definition>
+        <argsstring></argsstring>
+        <name>Buffer</name>
+        <qualifiedname>S_BufferData::Buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="50" column="12" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_s___buffer_data_1ae3b10161929cb49e97643e12d70aaa2b" prot="public" static="no" mutable="no">
+        <type>VkDeviceMemory_T *</type>
+        <definition>VkDeviceMemory_T* S_BufferData::Memory</definition>
+        <argsstring></argsstring>
+        <name>Memory</name>
+        <qualifiedname>S_BufferData::Memory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="51" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="48" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="49" bodyend="52"/>
+    <listofallmembers>
+      <member refid="struct_s___buffer_data_1a84a218414a675ef10018fd018ec35acc" prot="public" virt="non-virtual"><scope>S_BufferData</scope><name>Buffer</name></member>
+      <member refid="struct_s___buffer_data_1ae3b10161929cb49e97643e12d70aaa2b" prot="public" virt="non-virtual"><scope>S_BufferData</scope><name>Memory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

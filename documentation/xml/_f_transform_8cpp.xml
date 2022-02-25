@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_f_transform_8cpp" kind="file" language="C++">
+    <compoundname>FTransform.cpp</compoundname>
+    <includes refid="_f_transform_8h" local="yes">FTransform.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">FVector3.h</includes>
+    <includes refid="_f_quaternion_8h" local="yes">FQuaternion.h</includes>
+    <includes refid="_f_matrix4_8h" local="yes">FMatrix4.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FTransform.cpp</label>
+        <link refid="_f_transform_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="3">
+        <label>FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="5">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_transform_8h" kindref="compound">FTransform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_quaternion_8h" kindref="compound">FQuaternion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_matrix4_8h" kindref="compound">FMatrix4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="struct_f_transform_1a0e072a08f30724da83c707faba849438" refkind="member"><highlight class="normal"><ref refid="struct_f_transform_1a0e072a08f30724da83c707faba849438" kindref="member">FTransform::FTransform</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(1.0f);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct_f_transform_1a46107a6d70411f20b167cd73d92411f1" refkind="member"><highlight class="normal"><ref refid="struct_f_transform_1a0e072a08f30724da83c707faba849438" kindref="member">FTransform::FTransform</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(1.0f);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/>transform;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="struct_f_transform_1a7ce9fe46b6d4fb3f3113de6ac050bd04" refkind="member"><highlight class="normal"><ref refid="struct_f_transform_1a0e072a08f30724da83c707faba849438" kindref="member">FTransform::FTransform</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>position,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>rotation,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>scale)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(position);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>(rotation);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(scale);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_f_transform_1a2423765e82d9549ccbe9551f39df8e99" refkind="member"><highlight class="normal"><ref refid="struct_f_transform_1a2423765e82d9549ccbe9551f39df8e99" kindref="member">FTransform::~FTransform</ref>()</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">(<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" refkind="member"><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">FTransform::GetModelMatrix</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="36"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="class_f_matrix4_1aaa0b70b2abff53c4255f11f7915ba768" kindref="member">FMatrix4::GetTranslationMatrix</ref>(*<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>)<sp/>*<sp/><ref refid="class_f_matrix4_1a5812fe1e8517108511987af0a22b0989" kindref="member">FMatrix4::GetRotationMatrix</ref>(*<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>)<sp/>*<sp/><ref refid="class_f_matrix4_1aea284955c18edc0d2aa9c10db6ddee68" kindref="member">FMatrix4::GetScalingMatrix</ref>(*<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//return<sp/>(FMatrix4::GetScalingMatrix(*Scale)<sp/>*<sp/>FMatrix4::GetTranslationMatrix(*Position)<sp/>*<sp/>FMatrix4::GetRotationMatrix(*Rotation)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="struct_f_transform_1a853becdcf792a36f994a49e550d863b2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1a853becdcf792a36f994a49e550d863b2" kindref="member">FTransform::operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>=<sp/>*transform.<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>=<sp/>*transform.<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>=<sp/>*transform.<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="struct_f_transform_1abce36743a82176782212b00c2e37f12c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1abce36743a82176782212b00c2e37f12c" kindref="member">FTransform::operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="49"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>==<sp/>*transform.<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>&amp;&amp;<sp/>*<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>==<sp/>*transform.<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>&amp;&amp;<sp/>*<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>==<sp/>*transform.<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="struct_f_transform_1aacf758f0557f45f3628615a81615408c" refkind="member"><highlight class="normal"><ref refid="struct_f_transform" kindref="compound">FTransform</ref><sp/><ref refid="struct_f_transform_1aacf758f0557f45f3628615a81615408c" kindref="member">FTransform::operator+</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="54"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1a0e072a08f30724da83c707faba849438" kindref="member">FTransform</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(*<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>+<sp/>*transform.<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>),</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>((*<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>*<sp/>*transform.<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>).GetNormal()),</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>*<sp/>transform.<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref>,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref><sp/>*<sp/>transform.<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1a10ba3ed47b315d00151e218878a3f1b9" kindref="member">Y</ref>,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref><sp/>*<sp/>transform.<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>-&gt;<ref refid="class_f_vector3_1a4a84942e8ea39dd717b9ade9ba0cfe36" kindref="member">Z</ref></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="struct_f_transform_1a2379695ab15301ab9a6161012367e74d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1a2379695ab15301ab9a6161012367e74d" kindref="member">FTransform::SetPosition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>position)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref><sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="struct_f_transform_1a8846e889364a5c58e32d162ef3601c30" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1a8846e889364a5c58e32d162ef3601c30" kindref="member">FTransform::SetRotation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>rotation)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref><sp/>=<sp/>rotation;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="struct_f_transform_1af48f218e4d31f0e50345f128e07e8771" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform_1af48f218e4d31f0e50345f128e07e8771" kindref="member">FTransform::SetScale</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>scale)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref><sp/>=<sp/>scale;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/FTransform.cpp"/>
+  </compounddef>
+</doxygen>

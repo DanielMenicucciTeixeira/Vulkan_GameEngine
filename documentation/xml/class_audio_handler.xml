@@ -1,0 +1,477 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_audio_handler" kind="class" language="C++" prot="public">
+    <compoundname>AudioHandler</compoundname>
+    <includes refid="_audio_handler_8h" local="no">AudioHandler.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_audio_handler_1abd2965a703bc97bdfea89abf44c9890a" prot="private" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; AudioHandler &gt; AudioHandler::audioInstance</definition>
+        <argsstring></argsstring>
+        <name>audioInstance</name>
+        <qualifiedname>AudioHandler::audioInstance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="31" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_audio_handler_1a38d2acba484e4e3dddb7918f21a7a04d" prot="private" static="yes" mutable="no">
+        <type>std::map&lt; std::string, FMOD::Sound * &gt;</type>
+        <definition>std::map&lt; std::string, FMOD::Sound * &gt; AudioHandler::soundPtrList</definition>
+        <argsstring></argsstring>
+        <name>soundPtrList</name>
+        <qualifiedname>AudioHandler::soundPtrList</qualifiedname>
+        <initializer>= std::map&lt;std::string, FMOD::Sound*&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="38" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_audio_handler_1a0d67028c74d7ad0b594850fd7508aa45" prot="private" static="yes" mutable="no">
+        <type>std::map&lt; int, FMOD::Channel * &gt;</type>
+        <definition>std::map&lt; int, FMOD::Channel * &gt; AudioHandler::channelList</definition>
+        <argsstring></argsstring>
+        <name>channelList</name>
+        <qualifiedname>AudioHandler::channelList</qualifiedname>
+        <initializer>= std::map&lt;int, FMOD::Channel*&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="39" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_audio_handler_1a4c6a4b0d9827213876805011e3d9a751" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class AudioSource</definition>
+        <argsstring></argsstring>
+        <name>AudioSource</name>
+        <qualifiedname>AudioHandler::AudioSource</qualifiedname>
+        <param>
+          <type><ref refid="class_audio_source" kindref="compound">AudioSource</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="34" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_audio_handler_1aa4c098e11303c06f07fb05f2bed17e4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class BackgroundSound</definition>
+        <argsstring></argsstring>
+        <name>BackgroundSound</name>
+        <qualifiedname>AudioHandler::BackgroundSound</qualifiedname>
+        <param>
+          <type><ref refid="class_background_sound" kindref="compound">BackgroundSound</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="35" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_audio_handler_1abe85c319b6564a10629ca03fec83fca9" prot="private" static="no" mutable="no">
+        <type>FMOD::System *</type>
+        <definition>FMOD::System* AudioHandler::systemPtr</definition>
+        <argsstring></argsstring>
+        <name>systemPtr</name>
+        <qualifiedname>AudioHandler::systemPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="37" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_audio_handler_1aa160e92b350aa44e4c9f59e2d6bcd829" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int AudioHandler::channelCount</definition>
+        <argsstring></argsstring>
+        <name>channelCount</name>
+        <qualifiedname>AudioHandler::channelCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="40" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_audio_handler_1a692cc0547a760db5dd6d649577681d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioHandler::AudioHandler</definition>
+        <argsstring>(const AudioHandler &amp;)=delete</argsstring>
+        <name>AudioHandler</name>
+        <qualifiedname>AudioHandler::AudioHandler</qualifiedname>
+        <param>
+          <type>const <ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1acf482cd2d24f7f16a47b2f1afa164ccc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioHandler::AudioHandler</definition>
+        <argsstring>(AudioHandler &amp;&amp;)=delete</argsstring>
+        <name>AudioHandler</name>
+        <qualifiedname>AudioHandler::AudioHandler</qualifiedname>
+        <param>
+          <type><ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="16" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a873206c57f2f81966b02895fd754faa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;</type>
+        <definition>AudioHandler &amp; AudioHandler::operator=</definition>
+        <argsstring>(const AudioHandler &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>AudioHandler::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="17" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1ab87974f8f46738764e6cb87cbec0fc5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;</type>
+        <definition>AudioHandler &amp; AudioHandler::operator=</definition>
+        <argsstring>(AudioHandler &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>AudioHandler::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="18" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1af3df1c86c775b8155ae7e816704d4ca9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AudioHandler::Initialize</definition>
+        <argsstring>(glm::vec3 position_=glm::vec3(0), glm::vec3 velocity_=glm::vec3(0), glm::vec3 forward_=glm::vec3(0), glm::vec3 up_=glm::vec3(0))</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>AudioHandler::Initialize</qualifiedname>
+        <param>
+          <type>glm::vec3</type>
+          <declname>position_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>velocity_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>forward_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>up_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="22" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="24" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1ae571068ab86ddafa6c793162eb827c35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioHandler::OnDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>OnDestroy</name>
+        <qualifiedname>AudioHandler::OnDestroy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="24" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="44" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a2a62c7efbcd901201f26e555aabca63d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioHandler::Update</definition>
+        <argsstring>(const float deltaTime_)</argsstring>
+        <name>Update</name>
+        <qualifiedname>AudioHandler::Update</qualifiedname>
+        <param>
+          <type>const float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="25" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="62" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_audio_handler_1a47781573b308bca876c0d921a9978416" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_audio_handler" kindref="compound">AudioHandler</ref> *</type>
+        <definition>AudioHandler * AudioHandler::GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>AudioHandler::GetInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="20" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="16" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_audio_handler_1a605b5c91270eb7cad7a0ac60b354b56b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioHandler::AudioHandler</definition>
+        <argsstring>()</argsstring>
+        <name>AudioHandler</name>
+        <qualifiedname>AudioHandler::AudioHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a61a1e88ca69c4021792400389eec3f27" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AudioHandler::~AudioHandler</definition>
+        <argsstring>()</argsstring>
+        <name>~AudioHandler</name>
+        <qualifiedname>AudioHandler::~AudioHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="29" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="13" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a5090c3680b04abf0beec36f3adbe81a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FMOD_VECTOR</type>
+        <definition>FMOD_VECTOR AudioHandler::glmToFMOD</definition>
+        <argsstring>(glm::vec3 vec_)</argsstring>
+        <name>glmToFMOD</name>
+        <qualifiedname>AudioHandler::glmToFMOD</qualifiedname>
+        <param>
+          <type>glm::vec3</type>
+          <declname>vec_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="42" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="67" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a9515e616e266a413eac806bca7536bbf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioHandler::LoadSound</definition>
+        <argsstring>(const std::string name_, bool loop_, bool is3D_, bool stream_)</argsstring>
+        <name>LoadSound</name>
+        <qualifiedname>AudioHandler::LoadSound</qualifiedname>
+        <param>
+          <type>const std::string</type>
+          <declname>name_</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>loop_</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is3D_</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>stream_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="44" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="76" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a0f7b465e8817854222cf824280bbbc5e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FMOD::Sound *</type>
+        <definition>FMOD::Sound * AudioHandler::GetSound</definition>
+        <argsstring>(std::string name_)</argsstring>
+        <name>GetSound</name>
+        <qualifiedname>AudioHandler::GetSound</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="46" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a14ac0b6efe6fe238f92c3540f43fa854" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int AudioHandler::PlaySound</definition>
+        <argsstring>(std::string name_, glm::vec3 position_=glm::vec3(0), glm::vec3 velocity_=glm::vec3(0), float volume_=1.0f)</argsstring>
+        <name>PlaySound</name>
+        <qualifiedname>AudioHandler::PlaySound</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name_</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>position_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>velocity_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>volume_</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="49" column="5" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="115" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a10ff2e90fbfc6477dd98691af19be760" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AudioHandler::UpdateChannelPositionVelocity</definition>
+        <argsstring>(int channelID_, glm::vec3 position_=glm::vec3(0), glm::vec3 velocity_=glm::vec3(0))</argsstring>
+        <name>UpdateChannelPositionVelocity</name>
+        <qualifiedname>AudioHandler::UpdateChannelPositionVelocity</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>channelID_</declname>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>position_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <param>
+          <type>glm::vec3</type>
+          <declname>velocity_</declname>
+          <defval>glm::vec3(0)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="52" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="145" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="class_audio_handler_1a3748e64c284a774aa635bb60cbb3d928" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AudioHandler::IsPlaying</definition>
+        <argsstring>(int channelID_)</argsstring>
+        <name>IsPlaying</name>
+        <qualifiedname>AudioHandler::IsPlaying</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>channelID_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="56" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.cpp" bodystart="157" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" line="13" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Audio/AudioHandler.h" bodystart="13" bodyend="57"/>
+    <listofallmembers>
+      <member refid="class_audio_handler_1a692cc0547a760db5dd6d649577681d7f" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>AudioHandler</name></member>
+      <member refid="class_audio_handler_1acf482cd2d24f7f16a47b2f1afa164ccc" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>AudioHandler</name></member>
+      <member refid="class_audio_handler_1a605b5c91270eb7cad7a0ac60b354b56b" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>AudioHandler</name></member>
+      <member refid="class_audio_handler_1abd2965a703bc97bdfea89abf44c9890a" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>audioInstance</name></member>
+      <member refid="class_audio_handler_1a4c6a4b0d9827213876805011e3d9a751" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>AudioSource</name></member>
+      <member refid="class_audio_handler_1aa4c098e11303c06f07fb05f2bed17e4e" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>BackgroundSound</name></member>
+      <member refid="class_audio_handler_1aa160e92b350aa44e4c9f59e2d6bcd829" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>channelCount</name></member>
+      <member refid="class_audio_handler_1a0d67028c74d7ad0b594850fd7508aa45" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>channelList</name></member>
+      <member refid="class_audio_handler_1a47781573b308bca876c0d921a9978416" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>GetInstance</name></member>
+      <member refid="class_audio_handler_1a0f7b465e8817854222cf824280bbbc5e" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>GetSound</name></member>
+      <member refid="class_audio_handler_1a5090c3680b04abf0beec36f3adbe81a5" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>glmToFMOD</name></member>
+      <member refid="class_audio_handler_1af3df1c86c775b8155ae7e816704d4ca9" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>Initialize</name></member>
+      <member refid="class_audio_handler_1a3748e64c284a774aa635bb60cbb3d928" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>IsPlaying</name></member>
+      <member refid="class_audio_handler_1a9515e616e266a413eac806bca7536bbf" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>LoadSound</name></member>
+      <member refid="class_audio_handler_1ae571068ab86ddafa6c793162eb827c35" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>OnDestroy</name></member>
+      <member refid="class_audio_handler_1a873206c57f2f81966b02895fd754faa7" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>operator=</name></member>
+      <member refid="class_audio_handler_1ab87974f8f46738764e6cb87cbec0fc5e" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>operator=</name></member>
+      <member refid="class_audio_handler_1a14ac0b6efe6fe238f92c3540f43fa854" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>PlaySound</name></member>
+      <member refid="class_audio_handler_1a38d2acba484e4e3dddb7918f21a7a04d" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>soundPtrList</name></member>
+      <member refid="class_audio_handler_1abe85c319b6564a10629ca03fec83fca9" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>systemPtr</name></member>
+      <member refid="class_audio_handler_1a2a62c7efbcd901201f26e555aabca63d" prot="public" virt="non-virtual"><scope>AudioHandler</scope><name>Update</name></member>
+      <member refid="class_audio_handler_1a10ff2e90fbfc6477dd98691af19be760" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>UpdateChannelPositionVelocity</name></member>
+      <member refid="class_audio_handler_1a61a1e88ca69c4021792400389eec3f27" prot="private" virt="non-virtual"><scope>AudioHandler</scope><name>~AudioHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

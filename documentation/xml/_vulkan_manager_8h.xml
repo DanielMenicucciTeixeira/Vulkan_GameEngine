@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_vulkan_manager_8h" kind="file" language="C++">
+    <compoundname>VulkanManager.h</compoundname>
+    <includes refid="_renderer_8h" local="yes">Renderers/Renderer.h</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includedby refid="_core_engine_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</includedby>
+    <includedby refid="_vulkan_debugger_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.cpp</includedby>
+    <includedby refid="_vulkan_devices_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp</includedby>
+    <includedby refid="_vulkan_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</includedby>
+    <includedby refid="_vulkan_pipeline_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</includedby>
+    <includedby refid="_vulkan_swapchain_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Renderers/Renderer.h</label>
+        <link refid="_renderer_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h</label>
+        <link refid="_vulkan_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>unordered_map</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</label>
+        <link refid="_core_engine_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDebugger.cpp</label>
+        <link refid="_vulkan_debugger_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanDevices.cpp</label>
+        <link refid="_vulkan_devices_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h</label>
+        <link refid="_vulkan_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</label>
+        <link refid="_vulkan_pipeline_manager_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</label>
+        <link refid="_vulkan_swapchain_manager_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_queue_struct" prot="public">QueueStruct</innerclass>
+    <innerclass refid="struct_queue_family_indices" prot="public">QueueFamilyIndices</innerclass>
+    <innerclass refid="struct_swapchain_support_details" prot="public">SwapchainSupportDetails</innerclass>
+    <innerclass refid="struct_s___mesh_data" prot="public">S_MeshData</innerclass>
+    <innerclass refid="class_vulkan_manager" prot="public">VulkanManager</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int VkFlags</definition>
+        <argsstring></argsstring>
+        <name>VkFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="40" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkMemoryPropertyFlags</definition>
+        <argsstring></argsstring>
+        <name>VkMemoryPropertyFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="41" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_manager_8h_1ab221f627433dcae79b6a004fc42b50a9" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkBufferUsageFlags</definition>
+        <argsstring></argsstring>
+        <name>VkBufferUsageFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="42" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" prot="public" static="no">
+        <type>unsigned long long</type>
+        <definition>typedef unsigned long long VkDeviceSize</definition>
+        <argsstring></argsstring>
+        <name>VkDeviceSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" line="43" column="28" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VULKANMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VULKANMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_renderer_8h" kindref="compound">Renderers/Renderer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//-----Forward<sp/>Declarations------\\</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">//Vulkan<sp/>Renderer<sp/>Classes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_debugger" kindref="compound">VulkanDebugger</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_devices" kindref="compound">VulkanDevices</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_pipeline_manager" kindref="compound">VulkanPipelineManager</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_swapchain_manager" kindref="compound">VulkanSwapchainManager</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___vertex" kindref="compound">S_Vertex</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//Vulkan<sp/>API<sp/>Declarations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkPresentModeKHR;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkInstance_T;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSurfaceKHR_T;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkQueue_T;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDevice_T;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkPhysicalDevice_T;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDeviceMemory_T;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSurfaceCapabilitiesKHR;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSurfaceFormatKHR;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkCommandBuffer_T;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkCommandPool_T;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkBuffer_T;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkExtent2D;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDescriptorSetLayout_T;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkRenderPass_T;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkCommandBuffer_T;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkFence_T;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSemaphore_T;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref>;</highlight></codeline>
+<codeline lineno="41" refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref>;</highlight></codeline>
+<codeline lineno="42" refid="_vulkan_manager_8h_1ab221f627433dcae79b6a004fc42b50a9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_manager_8h_1ab221f627433dcae79b6a004fc42b50a9" kindref="member">VkBufferUsageFlags</ref>;</highlight></codeline>
+<codeline lineno="43" refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" kindref="member">VkDeviceSize</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//SDL<sp/>Classes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SDL_Window;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="struct_queue_struct" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_queue_struct" kindref="compound">QueueStruct</ref></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52" refid="struct_queue_struct_1ae57150fdd38f013b350774f8458f443d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue_T*<sp/><ref refid="struct_queue_struct_1ae57150fdd38f013b350774f8458f443d" kindref="member">GraphicsQueue</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53" refid="struct_queue_struct_1ac06590ead8214dbb53306e34ffced65d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue_T*<sp/><ref refid="struct_queue_struct_1ac06590ead8214dbb53306e34ffced65d" kindref="member">PresentationQueue</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_queue_family_indices" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_queue_family_indices" kindref="compound">QueueFamilyIndices</ref></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58" refid="struct_queue_family_indices_1af8fbfd2dfdf24e0741ebe51a1a84055f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;unsigned<sp/>int&gt;<sp/><ref refid="struct_queue_family_indices_1af8fbfd2dfdf24e0741ebe51a1a84055f" kindref="member">GraphicsFamily</ref>;</highlight></codeline>
+<codeline lineno="59" refid="struct_queue_family_indices_1acc6594f5576b6e83be67e89733e9e380" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;unsigned<sp/>int&gt;<sp/><ref refid="struct_queue_family_indices_1acc6594f5576b6e83be67e89733e9e380" kindref="member">PresentationFamily</ref>;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="struct_queue_family_indices_1aa76a81b99ede5c37d75423298765b41c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_queue_family_indices_1aa76a81b99ede5c37d75423298765b41c" kindref="member">IsComplete</ref>()</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_queue_family_indices_1af8fbfd2dfdf24e0741ebe51a1a84055f" kindref="member">GraphicsFamily</ref>.has_value()<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_queue_family_indices_1acc6594f5576b6e83be67e89733e9e380" kindref="member">PresentationFamily</ref>.has_value();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="struct_swapchain_support_details" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_swapchain_support_details" kindref="compound">SwapchainSupportDetails</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70" refid="struct_swapchain_support_details_1ac96f1dd51f5b6c42495d886a7485be3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceCapabilitiesKHR*<sp/><ref refid="struct_swapchain_support_details_1ac96f1dd51f5b6c42495d886a7485be3b" kindref="member">Capabilities</ref><sp/>=<sp/><ref refid="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" kindref="member">InitializeCapabilities</ref>();</highlight></codeline>
+<codeline lineno="71" refid="struct_swapchain_support_details_1ad80967c39fd3f3c09041d0aa7657b3a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkSurfaceFormatKHR&gt;<sp/><ref refid="struct_swapchain_support_details_1ad80967c39fd3f3c09041d0aa7657b3a1" kindref="member">Formats</ref>;</highlight></codeline>
+<codeline lineno="72" refid="struct_swapchain_support_details_1a783cb0b46c795c2ad9ebf50713cf24a9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkPresentModeKHR&gt;<sp/><ref refid="struct_swapchain_support_details_1a783cb0b46c795c2ad9ebf50713cf24a9" kindref="member">PresentationModes</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//This<sp/>function<sp/>makes<sp/>sure<sp/>Capabilities<sp/>is<sp/>not<sp/>a<sp/>nullptr,<sp/>this<sp/>is<sp/>necessary<sp/>since<sp/>Capabilites<sp/>cannot<sp/>be<sp/>properly<sp/>initilized<sp/>in<sp/>the<sp/>header<sp/>while<sp/>using<sp/>forward<sp/>declarations.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceCapabilitiesKHR*<sp/><ref refid="struct_swapchain_support_details_1ac57e2a303d193fe782fe5fb1b2fd8802" kindref="member">InitializeCapabilities</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="struct_s___mesh_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___mesh_data" kindref="compound">S_MeshData</ref></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80" refid="struct_s___mesh_data_1a0a9525f5fad919f3731e06f9c10d449f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkBuffer_T*<sp/><ref refid="struct_s___mesh_data_1a0a9525f5fad919f3731e06f9c10d449f" kindref="member">VertexBuffer</ref>;</highlight></codeline>
+<codeline lineno="81" refid="struct_s___mesh_data_1a53b733bede152a2ee600a70a857089fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDeviceMemory_T*<sp/><ref refid="struct_s___mesh_data_1a53b733bede152a2ee600a70a857089fb" kindref="member">VertexBufferMemory</ref>;</highlight></codeline>
+<codeline lineno="82" refid="struct_s___mesh_data_1a5a2d19e2f19c6024f2a341885083e45b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkBuffer_T*<sp/><ref refid="struct_s___mesh_data_1a5a2d19e2f19c6024f2a341885083e45b" kindref="member">IndexBuffer</ref>;</highlight></codeline>
+<codeline lineno="83" refid="struct_s___mesh_data_1a7402aeaf954e04246853fb35e46aee0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDeviceMemory_T*<sp/><ref refid="struct_s___mesh_data_1a7402aeaf954e04246853fb35e46aee0c" kindref="member">IndexBufferMemory</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="class_vulkan_manager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_renderer" kindref="compound">Renderer</ref></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_manager_1a4afd1df437579b3bfa25335161b67586" kindref="member">VulkanManager</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a4c104bd08d885970ce801eb7625bda23" kindref="member">~VulkanManager</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a6caf7ff23e6843c357be07f7d047b5f8" kindref="member">FramebufferResizeCallback</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1ac72648f118b7e64f8c53ab7ecf152940" kindref="member">UpdateWithNewObjects</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1abaf6fc5d929e5b1b7a125b8591db873d" kindref="member">Render</ref>(SDL_Window**<sp/>windowArray<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numberOfWindows<sp/>=<sp/>1,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>arrayOffset<sp/>=<sp/>0)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1ab8a1f19b7c1d6aca212d0aee94f7957b" kindref="member">Initialize</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a1958c6adc9752c318c874df630dcfd71" kindref="member">CleanUp</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Getters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="class_vulkan_manager_1ab6e7821d79ee1714faaaf8a9a94f0166" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_debugger" kindref="compound">VulkanDebugger</ref>*<sp/><ref refid="class_vulkan_manager_1ab6e7821d79ee1714faaaf8a9a94f0166" kindref="member">GetDebugger</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1acfdb2510a708ed775a2d14975b5a5072" kindref="member">Debugger</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="101" refid="class_vulkan_manager_1a3d426db6308ef44bc63fa4b995b6bf53" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_devices" kindref="compound">VulkanDevices</ref>*<sp/><ref refid="class_vulkan_manager_1a3d426db6308ef44bc63fa4b995b6bf53" kindref="member">GetDevices</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1ad1b138b42e2c9ef3bbe4b863f052e9de" kindref="member">Devices</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="102" refid="class_vulkan_manager_1ae82c8f3930ab6a5a39c88bbfb58404f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_pipeline_manager" kindref="compound">VulkanPipelineManager</ref>*<sp/><ref refid="class_vulkan_manager_1ae82c8f3930ab6a5a39c88bbfb58404f3" kindref="member">GetGraphicsPipeline</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a8ebb0a06b48e21faaba0dfe382b2f3e1" kindref="member">GraphicsPipelineManager</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="103" refid="class_vulkan_manager_1ae31bab5a27a2ea064013048de2b38cb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager" kindref="compound">VulkanSwapchainManager</ref>*<sp/><ref refid="class_vulkan_manager_1ae31bab5a27a2ea064013048de2b38cb3" kindref="member">GetSwapchain</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a09b0e7b66fd6e58b9b953bf9e2d41fd9" kindref="member">SwapchainManager</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="104" refid="class_vulkan_manager_1a81bb78da10b41c46d9a4e23c5fd7a755" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>VkInstance_T*<sp/><ref refid="class_vulkan_manager_1a81bb78da10b41c46d9a4e23c5fd7a755" kindref="member">GetInstance</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1aa0d7d6f40736aa251e2d3319d8779754" kindref="member">Instance</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="105" refid="class_vulkan_manager_1add9da1a4526616aca6f35e6f56855ca9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>VkSurfaceKHR_T*<sp/><ref refid="class_vulkan_manager_1add9da1a4526616aca6f35e6f56855ca9" kindref="member">GetSurface</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1ac54b3c21dd8b2be993bcf93b22d89dbf" kindref="member">Surface</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="106" refid="class_vulkan_manager_1aaa94fef6e211781bcdc3bbc1a7b216ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="struct_queue_struct" kindref="compound">QueueStruct</ref>*<sp/><ref refid="class_vulkan_manager_1aaa94fef6e211781bcdc3bbc1a7b216ed" kindref="member">GetQueues</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a406fddc4d0690b22d6720df95e8ce1ba" kindref="member">Queues</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="107" refid="class_vulkan_manager_1a2ce69acaacdd39f32a1795770c35ac7b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref>*<sp/><ref refid="class_vulkan_manager_1a2ce69acaacdd39f32a1795770c35ac7b" kindref="member">GetRenderData</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a2ff6be1a0d610f764eb53078e9d98102" kindref="member">RenderData</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDevice_T*<sp/><ref refid="class_vulkan_manager_1a2abbca60c32106a830862ee5b2c62324" kindref="member">GetLogicalDevice</ref>();</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>VkPhysicalDevice_T*<sp/><ref refid="class_vulkan_manager_1aa2b520b38ac96355a3c6f435b6519d03" kindref="member">GetPhysicalDevice</ref>();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_swapchain_support_details" kindref="compound">SwapchainSupportDetails</ref><sp/><ref refid="class_vulkan_manager_1ae389bc59927a3c47de38545a13d78376" kindref="member">GetSwapchainSupportDetails</ref>();</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>VkExtent2D*<sp/><ref refid="class_vulkan_manager_1a0162037b619139d8ef5f3d669865fe1f" kindref="member">GetSwapchainExtent</ref>();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>VkDescriptorSetLayout_T*&gt;<sp/><ref refid="class_vulkan_manager_1ab1195a9015bb201e748021132b94b17a" kindref="member">GetDescriptorSetLayoutsByShader</ref>();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>VkRenderPass_T*<sp/><ref refid="class_vulkan_manager_1a3374e79b099201dbd8854177763255f3" kindref="member">GetRenderPass</ref>();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_queue_family_indices" kindref="compound">QueueFamilyIndices</ref><sp/><ref refid="class_vulkan_manager_1a83fa696ceab6dee9118110033db23a7d" kindref="member">FindQueueFamilies</ref>(VkPhysicalDevice_T*<sp/>physicalDevice);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a00263d73a509a1314c313cf494d5543e" kindref="member">FindMemoryType</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>typeFilter,<sp/><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref><sp/>properties);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1acb9828b6ef1d6e64e1cefe7c664136bf" kindref="member">CreateBuffer</ref>(<ref refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" kindref="member">VkDeviceSize</ref><sp/>size,<sp/><ref refid="_vulkan_manager_8h_1ab221f627433dcae79b6a004fc42b50a9" kindref="member">VkBufferUsageFlags</ref><sp/>usage,<sp/><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref><sp/>properties,<sp/>VkBuffer_T*&amp;<sp/>buffer,<sp/>VkDeviceMemory_T*&amp;<sp/>bufferMemory);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a1aa5229606095582ea49a91ab6a2df95" kindref="member">RecreateSwapchain</ref>();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//CommandBuffers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a4915d3e8ef605e04666cf5c333bcaa59" kindref="member">CreateCommandPool</ref>();</highlight></codeline>
+<codeline lineno="123" refid="class_vulkan_manager_1ac0c1ce7ff4c55ef9c63e4516f72cc178" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkCommandPool_T*<sp/><ref refid="class_vulkan_manager_1ac0c1ce7ff4c55ef9c63e4516f72cc178" kindref="member">CommandPool</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1acf8e57a71e7cf0d824b415361aa6c835" kindref="member">CreateCommandBuffers</ref>();</highlight></codeline>
+<codeline lineno="125" refid="class_vulkan_manager_1ac1f88a1d9c50753da384d736528654b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkCommandBuffer_T*&gt;<sp/><ref refid="class_vulkan_manager_1ac1f88a1d9c50753da384d736528654b1" kindref="member">CommandBuffers</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1ab1a147e9bc74c2dd17bf0bb2335edcb4" kindref="member">CreateVertexBuffers</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a1d0cda14957e9371dffbe89cfb61a02d" kindref="member">CreateIndexBuffers</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a11630c856442048b0f08cb0094ac5e68" kindref="member">CopyBuffer</ref>(VkBuffer_T*<sp/>srcBuffer,<sp/>VkBuffer_T*<sp/>dstBuffer,<sp/><ref refid="_vulkan_manager_8h_1a990404191b278871ffcc40552a4893ed" kindref="member">VkDeviceSize</ref><sp/>size);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1acdf284bc2ebbf0eec5ebcf45f1cd1855" kindref="member">CreateSyncObjects</ref>();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>VkCommandBuffer_T*<sp/><ref refid="class_vulkan_manager_1ae365fdf6e22fd07dab94a2e3e6d912ed" kindref="member">BeginSingleTimeCommands</ref>();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a13d4e800fbbfef7726f5fdcad7ade31e" kindref="member">EndSingleTimeCommands</ref>(VkCommandBuffer_T*<sp/>commandBuffer);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1aacf24e959eaa8e1f279c7d00b2b6992c" kindref="member">CreateSurface</ref>();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//appVersion<sp/>must<sp/>be<sp/>an<sp/>array<sp/>of<sp/>3<sp/>unsigned<sp/>int<sp/>values,<sp/>if<sp/>a<sp/>smaller<sp/>array<sp/>is<sp/>passed,<sp/>program<sp/>might<sp/>crash<sp/>or<sp/>appVersion<sp/>might<sp/>have<sp/>unpredicted<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a894ddfcca38042e4f90103fd92407ffa" kindref="member">CreateInstance</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>applicationName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;App<sp/>Name&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>engineName<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Engine<sp/>Name&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>appVersion<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;const<sp/>char*&gt;<sp/><ref refid="class_vulkan_manager_1ab1c12de505db11418c690974d735d6f7" kindref="member">GetSDLExetensions</ref>();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment">//Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="146" refid="class_vulkan_manager_1acfdb2510a708ed775a2d14975b5a5072" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_debugger" kindref="compound">VulkanDebugger</ref>*<sp/><ref refid="class_vulkan_manager_1acfdb2510a708ed775a2d14975b5a5072" kindref="member">Debugger</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147" refid="class_vulkan_manager_1ad1b138b42e2c9ef3bbe4b863f052e9de" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_devices" kindref="compound">VulkanDevices</ref>*<sp/><ref refid="class_vulkan_manager_1ad1b138b42e2c9ef3bbe4b863f052e9de" kindref="member">Devices</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148" refid="class_vulkan_manager_1a8ebb0a06b48e21faaba0dfe382b2f3e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_pipeline_manager" kindref="compound">VulkanPipelineManager</ref>*<sp/><ref refid="class_vulkan_manager_1a8ebb0a06b48e21faaba0dfe382b2f3e1" kindref="member">GraphicsPipelineManager</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149" refid="class_vulkan_manager_1a09b0e7b66fd6e58b9b953bf9e2d41fd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_swapchain_manager" kindref="compound">VulkanSwapchainManager</ref>*<sp/><ref refid="class_vulkan_manager_1a09b0e7b66fd6e58b9b953bf9e2d41fd9" kindref="member">SwapchainManager</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151" refid="class_vulkan_manager_1ac54b3c21dd8b2be993bcf93b22d89dbf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceKHR_T*<sp/><ref refid="class_vulkan_manager_1ac54b3c21dd8b2be993bcf93b22d89dbf" kindref="member">Surface</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="class_vulkan_manager_1aa0d7d6f40736aa251e2d3319d8779754" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkInstance_T*<sp/><ref refid="class_vulkan_manager_1aa0d7d6f40736aa251e2d3319d8779754" kindref="member">Instance</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="154" refid="class_vulkan_manager_1a406fddc4d0690b22d6720df95e8ce1ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_queue_struct" kindref="compound">QueueStruct</ref>*<sp/><ref refid="class_vulkan_manager_1a406fddc4d0690b22d6720df95e8ce1ba" kindref="member">Queues</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156" refid="class_vulkan_manager_1af2ef81db8c3d0a265c847574aa579859" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1af2ef81db8c3d0a265c847574aa579859" kindref="member">FramebufferResized</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="class_vulkan_manager_1a263be3850d7f1108c25b5490c1598d66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;S_Mesh*,<sp/>S_MeshData*&gt;<sp/><ref refid="class_vulkan_manager_1a263be3850d7f1108c25b5490c1598d66" kindref="member">MeshDataMap</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="class_vulkan_manager_1aa6503df70b3135047dd541d0b24aca82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkSemaphore_T*&gt;<sp/><ref refid="class_vulkan_manager_1aa6503df70b3135047dd541d0b24aca82" kindref="member">ImageAvailableSemaphores</ref>;</highlight></codeline>
+<codeline lineno="161" refid="class_vulkan_manager_1a727aa29181877eb25509bf80f20877bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkSemaphore_T*&gt;<sp/><ref refid="class_vulkan_manager_1a727aa29181877eb25509bf80f20877bb" kindref="member">RenderFinishedSemaphores</ref>;</highlight></codeline>
+<codeline lineno="162" refid="class_vulkan_manager_1a58fee2bd83a3e8e79019e6d552746095" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkFence_T*&gt;<sp/><ref refid="class_vulkan_manager_1a58fee2bd83a3e8e79019e6d552746095" kindref="member">InFlightFences</ref>;</highlight></codeline>
+<codeline lineno="163" refid="class_vulkan_manager_1a87b101b66235d3748b34dfdc3aaf778e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkFence_T*&gt;<sp/><ref refid="class_vulkan_manager_1a87b101b66235d3748b34dfdc3aaf778e" kindref="member">ImagesInFlight</ref>;</highlight></codeline>
+<codeline lineno="164" refid="class_vulkan_manager_1a62319d491431ed899aba67d98c562ffa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a62319d491431ed899aba67d98c562ffa" kindref="member">CurrentFrame</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="165" refid="class_vulkan_manager_1a4bbe077c6274b3ae5cdb4f801e7c8189" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a4bbe077c6274b3ae5cdb4f801e7c8189" kindref="member">MAX_FRAMES_IN_FLIGHT</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="166" refid="class_vulkan_manager_1a2ff6be1a0d610f764eb53078e9d98102" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref>*<sp/><ref refid="class_vulkan_manager_1a2ff6be1a0d610f764eb53078e9d98102" kindref="member">RenderData</ref>;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_manager_1a0011eae4dfa7a67867f803f80f0965c7" kindref="member">LoadModel</ref>();</highlight></codeline>
+<codeline lineno="169" refid="class_vulkan_manager_1a4e5550c74343e7e48f8e755118bb50b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="class_vulkan_manager_1a4e5550c74343e7e48f8e755118bb50b2" kindref="member">MODEL_PATH</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Models/viking_room.obj&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.h"/>
+  </compounddef>
+</doxygen>

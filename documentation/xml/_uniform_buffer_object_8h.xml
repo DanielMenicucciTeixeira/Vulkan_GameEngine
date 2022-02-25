@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_uniform_buffer_object_8h" kind="file" language="C++">
+    <compoundname>UniformBufferObject.h</compoundname>
+    <includes refid="_f_matrix4_8h" local="yes">Math/FMatrix4.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <includedby refid="_mouse_event_handler_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/MouseEventHandler.cpp</includedby>
+    <includedby refid="_render_object_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h</includedby>
+    <includedby refid="_vulkan_swapchain_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="3">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</label>
+        <link refid="_core_engine_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.cpp</label>
+        <link refid="_event_listener_8cpp"/>
+      </node>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/MouseEventHandler.cpp</label>
+        <link refid="_mouse_event_handler_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</label>
+        <link refid="_light_source_component_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Graphics/AssetLoader.cpp</label>
+        <link refid="_asset_loader_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Graphics/TextureLoader.cpp</label>
+        <link refid="_texture_loader_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/BoundingBox.cpp</label>
+        <link refid="_bounding_box_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/MeshCollision.cpp</label>
+        <link refid="_mesh_collision_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</label>
+        <link refid="_game_object_8cpp"/>
+      </node>
+      <node id="19">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Object.cpp</label>
+        <link refid="_object_8cpp"/>
+      </node>
+      <node id="20">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp</label>
+        <link refid="_collision_detection_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/StandardMaterial.cpp</label>
+        <link refid="_standard_material_8cpp"/>
+      </node>
+      <node id="27">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/StandardMaterial.h</label>
+        <link refid="_standard_material_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp</label>
+        <link refid="_opel_g_l_manager_8cpp"/>
+      </node>
+      <node id="29">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderInitializationData.h</label>
+        <link refid="_render_initialization_data_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/TextureHandler.cpp</label>
+        <link refid="_texture_handler_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="23">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</label>
+        <link refid="_vulkan_pipeline_manager_8cpp"/>
+      </node>
+      <node id="24">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</label>
+        <link refid="_vulkan_swapchain_manager_8cpp"/>
+      </node>
+      <node id="31">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Apple.cpp</label>
+        <link refid="_apple_8cpp"/>
+      </node>
+      <node id="32">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardGame.cpp</label>
+        <link refid="_billiard_game_8cpp"/>
+      </node>
+      <node id="33">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/GO_Triangle.cpp</label>
+        <link refid="_g_o___triangle_8cpp"/>
+      </node>
+      <node id="25">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</label>
+        <link refid="_l___main_level_8cpp"/>
+      </node>
+      <node id="26">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+      <node id="34">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Tetrahedron.cpp</label>
+        <link refid="_tetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_uniform_camera_object" prot="public">UniformCameraObject</innerclass>
+    <innerclass refid="struct_uniform_buffer_object" prot="public">UniformBufferObject</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>UNIFORMBUFFEROBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNIFORMBUFFEROBJECT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_matrix4_8h" kindref="compound">Math/FMatrix4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="struct_uniform_camera_object" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9" refid="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="struct_uniform_camera_object_1ad442681a0b59e90a4d36becaba3d45da" kindref="member">View</ref>,<sp/><ref refid="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" kindref="member">Projection</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="struct_uniform_camera_object_1a806282f02f371ed9bf19b07946f92eed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_uniform_camera_object_1a806282f02f371ed9bf19b07946f92eed" kindref="member">operator== </ref>(<ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref><sp/>uniformCameraObject)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_uniform_camera_object_1ad442681a0b59e90a4d36becaba3d45da" kindref="member">View</ref><sp/>==<sp/>uniformCameraObject.<ref refid="struct_uniform_camera_object_1ad442681a0b59e90a4d36becaba3d45da" kindref="member">View</ref><sp/>&amp;&amp;<sp/><ref refid="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" kindref="member">Projection</ref><sp/>==<sp/>uniformCameraObject.<ref refid="struct_uniform_camera_object_1aa5c1a2f791dedca49601954247d68715" kindref="member">Projection</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="struct_uniform_buffer_object" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_uniform_buffer_object" kindref="compound">UniformBufferObject</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16" refid="struct_uniform_buffer_object_1aa4668fb0c34142255f72c2464a0499b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="struct_uniform_buffer_object_1aa4668fb0c34142255f72c2464a0499b7" kindref="member">Model</ref>;</highlight></codeline>
+<codeline lineno="17" refid="struct_uniform_buffer_object_1a0b6cc1e9fafb068fa3e7def3b0769c11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="struct_uniform_buffer_object_1a0b6cc1e9fafb068fa3e7def3b0769c11" kindref="member">View</ref>;</highlight></codeline>
+<codeline lineno="18" refid="struct_uniform_buffer_object_1a8fd44df7f2db182fd7e2c8d87e660618" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="struct_uniform_buffer_object_1a8fd44df7f2db182fd7e2c8d87e660618" kindref="member">Projection</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="struct_uniform_buffer_object_1a6904949034064f4d9d6872a18db2957b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_uniform_buffer_object_1a6904949034064f4d9d6872a18db2957b" kindref="member">operator== </ref>(<ref refid="struct_uniform_buffer_object" kindref="compound">UniformBufferObject</ref><sp/>uniformBufferObject)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_uniform_buffer_object_1a0b6cc1e9fafb068fa3e7def3b0769c11" kindref="member">View</ref><sp/>==<sp/>uniformBufferObject.<ref refid="struct_uniform_buffer_object_1a0b6cc1e9fafb068fa3e7def3b0769c11" kindref="member">View</ref><sp/>&amp;&amp;<sp/><ref refid="struct_uniform_buffer_object_1a8fd44df7f2db182fd7e2c8d87e660618" kindref="member">Projection</ref><sp/>==<sp/>uniformBufferObject.<ref refid="struct_uniform_buffer_object_1a8fd44df7f2db182fd7e2c8d87e660618" kindref="member">Projection</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="struct_uniform_buffer_object_1aeb750411527bd7f936c112be36ac5bb8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_uniform_buffer_object_1aeb750411527bd7f936c112be36ac5bb8" kindref="member">UniformBufferObject</ref>(){}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="struct_uniform_buffer_object_1a6427781b214fcf38bf72afb15c96f289" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_uniform_buffer_object_1a6427781b214fcf38bf72afb15c96f289" kindref="member">UniformBufferObject</ref>(<ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/>modelMatrix,<sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/>viewMatrix,<sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/>projectionMatrix)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_uniform_buffer_object_1aa4668fb0c34142255f72c2464a0499b7" kindref="member">Model</ref><sp/>=<sp/>modelMatrix;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_uniform_buffer_object_1a0b6cc1e9fafb068fa3e7def3b0769c11" kindref="member">View</ref><sp/>=<sp/>viewMatrix;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_uniform_buffer_object_1a8fd44df7f2db182fd7e2c8d87e660618" kindref="member">Projection</ref><sp/>=<sp/>projectionMatrix;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/UniformBufferObject.h"/>
+  </compounddef>
+</doxygen>

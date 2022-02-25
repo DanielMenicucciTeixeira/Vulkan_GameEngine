@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_game01_8cpp" kind="file" language="C++">
+    <compoundname>Game01.cpp</compoundname>
+    <includes refid="_game01_8h" local="yes">Game01.h</includes>
+    <includes refid="_l___main_level_8h" local="yes">Levels/L_MainLevel.h</includes>
+    <includes refid="_l___start_level_8h" local="yes">Levels/L_StartLevel.h</includes>
+    <includes refid="_l___tetrahedron_level_8h" local="yes">L_TetrahedronLevel.h</includes>
+    <includes local="no">SDL.h</includes>
+    <includes refid="_event_listener_8h" local="yes">Event/EventListener.h</includes>
+    <includes refid="_core_engine_8h" local="yes">CoreEngine.h</includes>
+    <includes local="no">set</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">map</includes>
+    <includes local="no">string</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>../Engine/Core/Level.h</label>
+      </node>
+      <node id="19">
+        <label>Clock.h</label>
+        <link refid="_clock_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>CoreEngine.h</label>
+        <link refid="_core_engine_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>GameInterface.h</label>
+        <link refid="_game_interface_8h"/>
+      </node>
+      <node id="17">
+        <label>Window.h</label>
+        <link refid="_window_8h"/>
+      </node>
+      <node id="11">
+        <label>Event/EventListener.h</label>
+        <link refid="_event_listener_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Objects/Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp</label>
+        <link refid="_game01_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Game01.h</label>
+        <link refid="_game01_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Levels/L_MainLevel.h</label>
+        <link refid="_l___main_level_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Levels/L_StartLevel.h</label>
+        <link refid="_l___start_level_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>L_TetrahedronLevel.h</label>
+        <link refid="_l___tetrahedron_level_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>SDL.h</label>
+      </node>
+      <node id="20">
+        <label>chrono</label>
+      </node>
+      <node id="21">
+        <label>cstdlib</label>
+      </node>
+      <node id="22">
+        <label>iostream</label>
+      </node>
+      <node id="12">
+        <label>map</label>
+      </node>
+      <node id="15">
+        <label>memory</label>
+      </node>
+      <node id="4">
+        <label>set</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="13">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game01_8h" kindref="compound">Game01.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l___main_level_8h" kindref="compound">Levels/L_MainLevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l___start_level_8h" kindref="compound">Levels/L_StartLevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_l___tetrahedron_level_8h" kindref="compound">L_TetrahedronLevel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SDL.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_event_listener_8h" kindref="compound">Event/EventListener.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_core_engine_8h" kindref="compound">CoreEngine.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_g___game01_1a9afd952dd17b5760d55505f29dfab861" refkind="member"><highlight class="normal"><ref refid="class_g___game01_1a9afd952dd17b5760d55505f29dfab861" kindref="member">G_Game01::G_Game01</ref>()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_g___game01_1a1d67a02faaf9957bfca43402803939cc" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1a1d67a02faaf9957bfca43402803939cc" kindref="member">G_Game01::Initialize</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*SetGameInputFunction(SDL_QUIT,<sp/>SDLK_UNKNOWN,<sp/>BaseGame::QuitEngine);</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/>SetGameInputFunction(SDL_KEYDOWN,<sp/>SDLK_q,<sp/>BaseGame::QuitGame);</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/>SetGameInputFunction(SDL_KEYDOWN,<sp/>SDLK_s,<sp/>G_Game01::LoadStartLevel);</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/>SetGameInputFunction(SDL_KEYDOWN,<sp/>SDLK_m,<sp/>G_Game01::LoadMainLevel);*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1ab893672ba39106e8d4ca6773ecb06df2" kindref="member">EventListener::AddFunctionByInput</ref>(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/><ref refid="class_g___game01_1a827680c9e7e65765a7500fde4649d762" kindref="member">QuitApplication</ref>,<sp/>SDL_QUIT);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_event_listener_1a9c753c85c8779ed5d74a0d193bfc7c16" kindref="member">EventListener::AddFunctionByEvent</ref>(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/><ref refid="class_g___game01_1aa82be610e55804429994dc2f95c46745" kindref="member">EndGame</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Quit<sp/>Game&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//CurrentLevel<sp/>=<sp/>new<sp/>L_MainLevel();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_g___game01_1a1d4fe921201a9f30f4279d6ca43c2b9d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1a1d4fe921201a9f30f4279d6ca43c2b9d" kindref="member">G_Game01::Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime_)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_g___game01_1a80aea6ec5abf82ec4a44b63449cb83a9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1a80aea6ec5abf82ec4a44b63449cb83a9" kindref="member">G_Game01::Render</ref>()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_g___game01_1ad424e51eb1780d05fd7ea260f3102013" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1ad424e51eb1780d05fd7ea260f3102013" kindref="member">G_Game01::LoadLevel</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sceneNum_,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;<ref refid="class_core_engine_1a092e249e9dcb9e99c48bc2b941e78ba2" kindref="member">SetCurrentScene</ref>(sceneNum_);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="class_g___game01_1aa82be610e55804429994dc2f95c46745" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1aa82be610e55804429994dc2f95c46745" kindref="member">G_Game01::EndGame</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;<ref refid="class_core_engine_1a9e078b92e687549460df8b0b19fa65c9" kindref="member">Exit</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_g___game01_1a827680c9e7e65765a7500fde4649d762" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g___game01_1a827680c9e7e65765a7500fde4649d762" kindref="member">G_Game01::QuitApplication</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">,<sp/>SDL_Event*<sp/>event)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;<ref refid="class_core_engine_1a9e078b92e687549460df8b0b19fa65c9" kindref="member">Exit</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_core_engine_1ac17a29df79fd8f87ecf51a6c0ebf86fa" kindref="member">CoreEngine::GetInstance</ref>()-&gt;<ref refid="class_core_engine_1ad1602cef40952d0ae58b7671a014db17" kindref="member">Quit</ref>(event);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp"/>
+  </compounddef>
+</doxygen>

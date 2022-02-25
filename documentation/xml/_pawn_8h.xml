@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_pawn_8h" kind="file" language="C++">
+    <compoundname>Pawn.h</compoundname>
+    <includes refid="_game_object_8h" local="yes">../Engine/Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">../Engine/Math/FVector3.h</includes>
+    <includedby refid="_l___main_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</includedby>
+    <includedby refid="_pawn_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</includedby>
+    <includedby refid="_l___tetrahedron_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../Engine/Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="2">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h</label>
+        <link refid="_pawn_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>set</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</label>
+        <link refid="_l___main_level_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.cpp</label>
+        <link refid="_pawn_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h</label>
+        <link refid="_pawn_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_o___pawn" prot="public">GO_Pawn</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PAWN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PAWN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Engine/Objects/GameObjects/GameObject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Engine/Math/FVector3.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___movement_component" kindref="compound">C_MovementComponent</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_vector2" kindref="compound">FVector2</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_g_o___pawn" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_o___pawn" kindref="compound">GO_Pawn</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_o___pawn_1af319ac40a82ebc6fca627f2132f5f686" kindref="member">GO_Pawn</ref>(<ref refid="class_l___level" kindref="compound">L_Level</ref>*<sp/>level<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/>std::string<sp/>name<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1adb66a176e0313c387f8c45b6216fda6d" kindref="member">~GO_Pawn</ref>();</highlight></codeline>
+<codeline lineno="16" refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/><ref refid="class_g_o___pawn_1acbe0a96de862953970bc25e9399997d4" kindref="member">Camera</ref>;</highlight></codeline>
+<codeline lineno="17" refid="class_g_o___pawn_1ae8b383cef7d40617dcb704d336fab497" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___movement_component" kindref="compound">C_MovementComponent</ref>*<sp/><ref refid="class_g_o___pawn_1ae8b383cef7d40617dcb704d336fab497" kindref="member">Movement</ref>;</highlight></codeline>
+<codeline lineno="18" refid="class_g_o___pawn_1a66870c08fffff97ca1c686944c797dfb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>*<sp/><ref refid="class_g_o___pawn_1a66870c08fffff97ca1c686944c797dfb" kindref="member">Mesh</ref>;</highlight></codeline>
+<codeline lineno="19" refid="class_g_o___pawn_1af386491d312528456f7e6ad6d7001e39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1af386491d312528456f7e6ad6d7001e39" kindref="member">SetSpeed</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>speed)<sp/>{<sp/><ref refid="class_g_o___pawn_1ac69ff506cce9a79221b4578c95694421" kindref="member">Speed</ref><sp/>=<sp/>speed;<sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ae4647d217de8c40c35230c0f3ae7c4bf" kindref="member">Update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>deltaTime)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">MoveForward</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ae710b3a1060e36bb06782cf3514af2fb" kindref="member">MoveBackwards</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">StopMoving</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacf286905d6804ee5df0f091125617cc" kindref="member">TurnRight</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a27270eefe6079a0580723c345cc176d6" kindref="member">TurnLeft</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">StopTurning</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" kindref="member">TurnCamera</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" kindref="member">ZoomCamera</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac54daed7bd2ad2822e31a5a9317759c4" kindref="member">PrintFrustum</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">Grab</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>self,<sp/>SDL_Event*<sp/>event);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a76e5ed8b823a62c9c16e064fa3d7424a" kindref="member">MoveForward</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>backwards);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1aacfd66dd097a75c6362471efa6f482aa" kindref="member">StopMoving</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1af9a5e9a29269ab2ede7e10840800eabb" kindref="member">Turn</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>left);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a097575de7b58cb5fa02ef269d145ef34" kindref="member">StopTurning</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a97ce7bcbfc7d818e98db94efcaa18722" kindref="member">TurnCamera</ref>(<ref refid="class_f_vector2" kindref="compound">FVector2</ref><sp/>offset);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a7b2279d75a85f05afbecfa0c66577152" kindref="member">ZoomCamera</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>zoom);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac64c8e41852bb9f567a15bd2787e179e" kindref="member">Grab</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43" refid="class_g_o___pawn_1ac69ff506cce9a79221b4578c95694421" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1ac69ff506cce9a79221b4578c95694421" kindref="member">Speed</ref><sp/>=<sp/>10.0f;</highlight></codeline>
+<codeline lineno="44" refid="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1a7fa7206166b8a14db01d8a7d05a8bb78" kindref="member">CameraTurnSpeed</ref><sp/>=<sp/>0.005f;</highlight></codeline>
+<codeline lineno="45" refid="class_g_o___pawn_1af6d90da2536c1975a750476df7deb6ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_g_o___pawn_1af6d90da2536c1975a750476df7deb6ae" kindref="member">CameraZoomSpeed</ref><sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="46" refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_g_o___pawn_1a85dab34c670bf72613ae741ef6c314d6" kindref="member">CameraRotation</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Pawn.h"/>
+  </compounddef>
+</doxygen>

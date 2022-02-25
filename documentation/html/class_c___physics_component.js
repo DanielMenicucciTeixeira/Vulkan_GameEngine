@@ -1,0 +1,26 @@
+var class_c___physics_component =
+[
+    [ "C_PhysicsComponent", "class_c___physics_component.html#a0526e4c94f088ffcbb41df2239f48a80", null ],
+    [ "~C_PhysicsComponent", "class_c___physics_component.html#a9a449e8e5b56edf85b059c126fe033c3", null ],
+    [ "AddAcceleration", "class_c___physics_component.html#ac6171916d9cb98f5c572152bce69c6bd", null ],
+    [ "AddAngularAcceleration", "class_c___physics_component.html#afd593e31caa9d4e9ecb66efea4939631", null ],
+    [ "AddAngularVelocity", "class_c___physics_component.html#ae6eca96c7dc74f4bce404685dcbae4dd", null ],
+    [ "AddVelocity", "class_c___physics_component.html#ad3db8c0b65bfa16b46e604659c2ce4e2", null ],
+    [ "CalculateAngularInertia", "class_c___physics_component.html#acd47fd0e7a4faa7e46f130a10799925e", null ],
+    [ "CalculateCenterOfMass", "class_c___physics_component.html#a9a07cce95f65935d7aa026f1284c4de0", null ],
+    [ "GetAcceleration", "class_c___physics_component.html#ad9df4e907c43c30219b659cd030e6047", null ],
+    [ "GetAngularAcceleration", "class_c___physics_component.html#a19cef422058942aa984a4e6379dda79f", null ],
+    [ "GetAngularVelocity", "class_c___physics_component.html#af746b8b3ea1aef1987d6eb474f4d4870", null ],
+    [ "GetCenterOfMass", "class_c___physics_component.html#a670bba2903829e69c9321b9bc99080a2", null ],
+    [ "GetVelocity", "class_c___physics_component.html#a6b862c9600e631d389bc9fd67885d318", null ],
+    [ "IsStatic", "class_c___physics_component.html#a14587d4f8e37aef3c9d4170e2641e824", null ],
+    [ "SetAcceleration", "class_c___physics_component.html#a7e494e2f423bf52de584f68418407fe9", null ],
+    [ "SetAngularAcceleration", "class_c___physics_component.html#a54a68feed6470cdcfeaebe96047bc0a8", null ],
+    [ "SetAngularVelocity", "class_c___physics_component.html#af8bf03b17f439fe1a3d952caef85428d", null ],
+    [ "SetVelocity", "class_c___physics_component.html#ae87657fcc1c95358178af3594b042c40", null ],
+    [ "Update", "class_c___physics_component.html#a2ea391b64fdca39dcf55cb1e6aa9fa3f", null ],
+    [ "AngularInertia", "class_c___physics_component.html#a634d6b0a8a2156d3f4e53d9e09ac3d7b", null ],
+    [ "CenterOfMass", "class_c___physics_component.html#a4e74a591269dab76f3c612ca8af1a73c", null ],
+    [ "Mass", "class_c___physics_component.html#a9356a0e1222f238cf24f1213faba5675", null ],
+    [ "UseCenterOfMass", "class_c___physics_component.html#a17911551f96c524c7c3dfd4e7a6ff894", null ]
+];

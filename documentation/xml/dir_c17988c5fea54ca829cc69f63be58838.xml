@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_c17988c5fea54ca829cc69f63be58838" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials</compoundname>
+    <innerfile refid="_material_8h">Material.h</innerfile>
+    <innerfile refid="_standard_material_8cpp">StandardMaterial.cpp</innerfile>
+    <innerfile refid="_standard_material_8h">StandardMaterial.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Materials/"/>
+  </compounddef>
+</doxygen>

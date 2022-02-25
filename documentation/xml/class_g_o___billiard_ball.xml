@@ -1,0 +1,484 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_g_o___billiard_ball" kind="class" language="C++" prot="public">
+    <compoundname>GO_BilliardBall</compoundname>
+    <basecompoundref refid="class_o___game_object" prot="public" virt="non-virtual">O_GameObject</basecompoundref>
+    <includes refid="_billiard_ball_8h" local="no">BilliardBall.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_g_o___billiard_ball_1a1dac66d31fb854edd27590635c250b6b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref> *</type>
+        <definition>C_PhysicsComponent* GO_BilliardBall::Physics</definition>
+        <argsstring></argsstring>
+        <name>Physics</name>
+        <qualifiedname>GO_BilliardBall::Physics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="18" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___billiard_ball_1af7fe44cff1ff274e6f35a466d5b758ba" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref> *</type>
+        <definition>C_SphereCollider* GO_BilliardBall::Collider</definition>
+        <argsstring></argsstring>
+        <name>Collider</name>
+        <qualifiedname>GO_BilliardBall::Collider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="19" column="18" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_o___billiard_ball_1a6f0fee328fa190a90da6cebc9839a5f9" prot="public" static="no" mutable="no">
+        <type><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref> *</type>
+        <definition>C_StaticMeshComponent* GO_BilliardBall::Mesh</definition>
+        <argsstring></argsstring>
+        <name>Mesh</name>
+        <qualifiedname>GO_BilliardBall::Mesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="20" column="23" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_g_o___billiard_ball_1ab2ecb7e382d08827d2844f404539b5df" prot="protected" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GO_BilliardBall::Drag</definition>
+        <argsstring></argsstring>
+        <name>Drag</name>
+        <qualifiedname>GO_BilliardBall::Drag</qualifiedname>
+        <initializer>= 0.1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="30" column="7" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_g_o___billiard_ball_1a7c23859308b8d60d01ca160d78f62738" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_BilliardBall::OnCollision</definition>
+        <argsstring>(O_GameObject *self, const S_CollisionData &amp;data)</argsstring>
+        <name>OnCollision</name>
+        <qualifiedname>GO_BilliardBall::OnCollision</qualifiedname>
+        <param>
+          <type><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="22" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="12" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_o___billiard_ball_1aa1ee075e740630b25de2739b6055e181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_BilliardBall::BounceOnBall</definition>
+        <argsstring>(GO_BilliardBall *otherBall, FVector3 pointOfImpact)</argsstring>
+        <name>BounceOnBall</name>
+        <qualifiedname>GO_BilliardBall::BounceOnBall</qualifiedname>
+        <param>
+          <type><ref refid="class_g_o___billiard_ball" kindref="compound">GO_BilliardBall</ref> *</type>
+          <declname>otherBall</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>pointOfImpact</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="23" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="27" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___billiard_ball_1a630fff5b0eb590478f559244f7b5c68d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GO_BilliardBall::BounceOnWall</definition>
+        <argsstring>(C_BoxCollider *wall, FVector3 pointOfImpact)</argsstring>
+        <name>BounceOnWall</name>
+        <qualifiedname>GO_BilliardBall::BounceOnWall</qualifiedname>
+        <param>
+          <type><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref> *</type>
+          <declname>wall</declname>
+        </param>
+        <param>
+          <type><ref refid="class_f_vector3" kindref="compound">FVector3</ref></type>
+          <declname>pointOfImpact</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="24" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="40" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___billiard_ball_1a91ef1a46f3c09d6aca61e6c07fb07a3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void GO_BilliardBall::Update</definition>
+        <argsstring>(float deltaTime) override</argsstring>
+        <name>Update</name>
+        <qualifiedname>GO_BilliardBall::Update</qualifiedname>
+        <reimplements refid="class_o___game_object_1ac8207fd90a3674463f77f69d57bb3a49">Update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="25" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="53" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___billiard_ball_1a743886090a0648bfc0adccb619b1ff25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GO_BilliardBall::GO_BilliardBall</definition>
+        <argsstring>(L_Level *level=nullptr, std::string name=&quot;&quot;)</argsstring>
+        <name>GO_BilliardBall</name>
+        <qualifiedname>GO_BilliardBall::GO_BilliardBall</qualifiedname>
+        <param>
+          <type><ref refid="class_l___level" kindref="compound">L_Level</ref> *</type>
+          <declname>level</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="27" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="60" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_o___billiard_ball_1a66c8064232f6a985a20ca724c3803ab0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GO_BilliardBall::~GO_BilliardBall</definition>
+        <argsstring>()</argsstring>
+        <name>~GO_BilliardBall</name>
+        <qualifiedname>GO_BilliardBall::~GO_BilliardBall</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.cpp" bodystart="74" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GO_BilliardBall</label>
+        <link refid="class_g_o___billiard_ball"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="22">
+        <label>C_BoundingBox</label>
+        <link refid="class_c___bounding_box"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>boxBounds</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C_CameraComponent</label>
+        <link refid="class_c___camera_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>UCO</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>FildOfView</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>Frustum</edgelabel>
+        </childnode>
+      </node>
+      <node id="18">
+        <label>C_CollisionComponent</label>
+        <link refid="class_c___collision_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>CollisionMeshCenter</edgelabel>
+        </childnode>
+      </node>
+      <node id="16">
+        <label>C_PhysicsComponent</label>
+        <link refid="class_c___physics_component"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>CenterOfMass</edgelabel>
+        </childnode>
+      </node>
+      <node id="21">
+        <label>C_RenderableComponent</label>
+        <link refid="class_c___renderable_component"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>C_SphereCollider</label>
+        <link refid="class_c___sphere_collider"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>CollisionSphere</edgelabel>
+        </childnode>
+      </node>
+      <node id="20">
+        <label>C_StaticMeshComponent</label>
+        <link refid="class_c___static_mesh_component"/>
+        <childnode refid="21" relation="public-inheritance">
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>ModelMatrix</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>Box</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>Mesh</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>Material</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>C_TransformComponent</label>
+        <link refid="class_c___transform_component"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>Transform</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>FQuaternion</label>
+        <link refid="class_f_quaternion"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>FTransform</label>
+        <link refid="struct_f_transform"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Position</edgelabel>
+          <edgelabel>Scale</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>FVector3</label>
+        <link refid="class_f_vector3"/>
+      </node>
+      <node id="11">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="1">
+        <label>GO_BilliardBall</label>
+        <link refid="class_g_o___billiard_ball"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>Physics</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>Collider</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>Mesh</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>L_Level</label>
+        <link refid="class_l___level"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>NextCamera</edgelabel>
+        </childnode>
+      </node>
+      <node id="25">
+        <label>Material</label>
+        <link refid="class_material"/>
+        <childnode refid="26" relation="usage">
+          <edgelabel>Shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>O_Component</label>
+        <link refid="class_o___component"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="usage">
+          <edgelabel>Owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>O_GameObject</label>
+        <link refid="class_o___game_object"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Root</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>O_Object</label>
+        <link refid="class_o___object"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Level</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Plane</label>
+        <link refid="class_plane"/>
+        <childnode refid="11" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+      </node>
+      <node id="23">
+        <label>S_BoxBounds</label>
+        <link refid="struct_s___box_bounds"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>Max</edgelabel>
+          <edgelabel>Min</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Model</edgelabel>
+        </childnode>
+      </node>
+      <node id="14">
+        <label>S_FieldOfView</label>
+        <link refid="struct_s___field_of_view"/>
+      </node>
+      <node id="24">
+        <label>S_Mesh</label>
+        <link refid="struct_s___mesh"/>
+      </node>
+      <node id="26">
+        <label>S_ShaderInfo</label>
+        <link refid="struct_s___shader_info"/>
+      </node>
+      <node id="19">
+        <label>Sphere</label>
+        <link refid="class_sphere"/>
+        <childnode refid="9" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" line="15" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/BilliardBall.h" bodystart="16" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_o___game_object_1a763b6519ed06ea6b48368d8364a9d838" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>AddComponentOfClass</name></member>
+      <member refid="class_o___object_1a386ef90c3a4c35cc71e0e16ff0256ca0" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>AddTag</name></member>
+      <member refid="class_g_o___billiard_ball_1aa1ee075e740630b25de2739b6055e181" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>BounceOnBall</name></member>
+      <member refid="class_g_o___billiard_ball_1a630fff5b0eb590478f559244f7b5c68d" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>BounceOnWall</name></member>
+      <member refid="class_g_o___billiard_ball_1af7fe44cff1ff274e6f35a466d5b758ba" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Collider</name></member>
+      <member refid="class_o___game_object_1a75d2a54065dfb7ca929c2c778110b48a" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Components</name></member>
+      <member refid="class_g_o___billiard_ball_1ab2ecb7e382d08827d2844f404539b5df" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Drag</name></member>
+      <member refid="class_o___game_object_1aa0e81a176914398672c4115e99fc549f" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetComponentsOfClass</name></member>
+      <member refid="class_o___object_1ab966495c10fffdaf27823580a7beb0ba" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetLevel</name></member>
+      <member refid="class_o___object_1aea776c0459d191d18d05ba5ba0d59386" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetName</name></member>
+      <member refid="class_o___game_object_1acecc5cb8fdc72e9035273265d9b6b125" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetPosition</name></member>
+      <member refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetRoot</name></member>
+      <member refid="class_o___game_object_1ab23ccac87e42423daacec6ff31b29597" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetRotation</name></member>
+      <member refid="class_o___game_object_1a945cd80a318cd411e5514d5a147321e2" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetScale</name></member>
+      <member refid="class_o___object_1ac1bb49ba3efbafdbad4afbc54543aa95" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetTags</name></member>
+      <member refid="class_o___game_object_1af77de2425b5a909281b229335ec03b2d" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetTransform</name></member>
+      <member refid="class_o___game_object_1af58a2531c3e3eead8ef66e629e8981d0" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GetTransformReference</name></member>
+      <member refid="class_g_o___billiard_ball_1a743886090a0648bfc0adccb619b1ff25" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>GO_BilliardBall</name></member>
+      <member refid="class_o___object_1aaad44b4c4e3849154aa227a7c3e15f31" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>HasTag</name></member>
+      <member refid="class_o___object_1acc0fcf838a1ecd02e60985d6415e915e" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Level</name></member>
+      <member refid="class_g_o___billiard_ball_1a6f0fee328fa190a90da6cebc9839a5f9" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Mesh</name></member>
+      <member refid="class_o___object_1adf9354dec12f995b3125794625fe39b4" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Name</name></member>
+      <member refid="class_o___game_object_1a684d8ee962349d2f85e3fce89fdafa9f" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>O_GameObject</name></member>
+      <member refid="class_o___object_1ac70b91cab5714c4a51f4b9cecacd1e3a" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>O_Object</name></member>
+      <member refid="class_g_o___billiard_ball_1a7c23859308b8d60d01ca160d78f62738" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>OnCollision</name></member>
+      <member refid="class_g_o___billiard_ball_1a1dac66d31fb854edd27590635c250b6b" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Physics</name></member>
+      <member refid="class_o___object_1a606afbc6e8e44df437a959fe784c0f67" prot="public" virt="virtual"><scope>GO_BilliardBall</scope><name>PostUpdate</name></member>
+      <member refid="class_o___object_1a466a129cff2f490445d0f28253a152b4" prot="public" virt="virtual"><scope>GO_BilliardBall</scope><name>PreUpdate</name></member>
+      <member refid="class_o___object_1a84410867319c8e8c510898b8e29a2a0d" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>RemoveAllTags</name></member>
+      <member refid="class_o___game_object_1a452c0a2eba83b6e32cabb72175d9c5e0" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>RemoveComponent</name></member>
+      <member refid="class_o___object_1ab178ecbeb59ab3f18fbabca885ca7888" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>RemoveTag</name></member>
+      <member refid="class_o___game_object_1a7c4d4f37ddf2bbcc7b9177720f24626f" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Root</name></member>
+      <member refid="class_o___game_object_1a2db1d0c11817a6d9df10f72a499fdefa" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>SetPosition</name></member>
+      <member refid="class_o___game_object_1a2e414b2ad82c97845066560bf9372476" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>SetRoot</name></member>
+      <member refid="class_o___game_object_1adec6c4d343677e8b6af258df61ce86ca" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>SetRotation</name></member>
+      <member refid="class_o___game_object_1a725a24138a6b88547b3d21d84624bbaf" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>SetScale</name></member>
+      <member refid="class_o___game_object_1aa7bc411003680ca3f511cc5e71748897" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>SetTransform</name></member>
+      <member refid="class_o___game_object_1a7b115555e70224e0f59f806fefbb1c8a" prot="public" virt="virtual"><scope>GO_BilliardBall</scope><name>Start</name></member>
+      <member refid="class_o___object_1a4bea012d6779d28a455928a714c4238f" prot="protected" virt="non-virtual"><scope>GO_BilliardBall</scope><name>Tags</name></member>
+      <member refid="class_g_o___billiard_ball_1a91ef1a46f3c09d6aca61e6c07fb07a3b" prot="public" virt="virtual"><scope>GO_BilliardBall</scope><name>Update</name></member>
+      <member refid="class_o___object_1af8a2446ed4cdca839847256249eda1dd" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>UpdateWhenPaused</name></member>
+      <member refid="class_g_o___billiard_ball_1a66c8064232f6a985a20ca724c3803ab0" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>~GO_BilliardBall</name></member>
+      <member refid="class_o___game_object_1a8cc7a8c952428f475661aa82f2026d8e" prot="public" virt="non-virtual"><scope>GO_BilliardBall</scope><name>~O_GameObject</name></member>
+      <member refid="class_o___object_1af81a5b6b0c098a17de5dad71cf5a722e" prot="public" virt="virtual"><scope>GO_BilliardBall</scope><name>~O_Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

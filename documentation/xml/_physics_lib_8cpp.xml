@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_physics_lib_8cpp" kind="file" language="C++">
+    <compoundname>PhysicsLib.cpp</compoundname>
+    <includes refid="_physics_lib_8h" local="yes">PhysicsLib.h</includes>
+    <includes refid="_physics_component_8h" local="yes">../Objects/Components/PhysicsComponent.h</includes>
+    <includes refid="_game_object_8h" local="yes">../Objects/GameObjects/GameObject.h</includes>
+    <includes refid="_f_transform_8h" local="yes">../Math/FTransform.h</includes>
+    <includes refid="_f_quaternion_8h" local="yes">../Math/FQuaternion.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">../Math/FVector3.h</includes>
+    <includes refid="_f_matrix_8h" local="yes">../Math/FMatrix.h</includes>
+    <includes refid="_math_8h" local="no">math.h</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>../Math/FMatrix.h</label>
+        <link refid="_f_matrix_8h"/>
+      </node>
+      <node id="14">
+        <label>../Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="10">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="15">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="17">
+        <label>math.h</label>
+        <link refid="_math_8h"/>
+      </node>
+      <node id="6">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>MovementComponent.h</label>
+        <link refid="_movement_component_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Objects/Components/PhysicsComponent.h</label>
+        <link refid="_physics_component_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp</label>
+        <link refid="_physics_lib_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PhysicsLib.h</label>
+        <link refid="_physics_lib_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>set</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_physics_lib_8cpp_1a525335710b53cb064ca56b936120431e" prot="public" static="no">
+        <name>_USE_MATH_DEFINES</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp" line="9" column="9" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_physics_lib_8h" kindref="compound">PhysicsLib.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Objects/Components/PhysicsComponent.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Objects/GameObjects/GameObject.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FTransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FQuaternion.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FVector3.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FMatrix.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="_physics_lib_8cpp_1a525335710b53cb064ca56b936120431e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_USE_MATH_DEFINES</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include&lt;<ref refid="_math_8h" kindref="compound">math.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_f_physics_lib_1a2decefd61b2d2440acd5254faf399128" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_f_physics_lib_1a2decefd61b2d2440acd5254faf399128" kindref="member">FPhysicsLib::AddForce</ref>(<ref refid="class_c___physics_component" kindref="compound">C_PhysicsComponent</ref>*<sp/>target,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>force,<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>location)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>target-&gt;<ref refid="class_c___physics_component_1ae87657fcc1c95358178af3594b042c40" kindref="member">SetVelocity</ref>(target-&gt;<ref refid="class_c___physics_component_1a6b862c9600e631d389bc9fd67885d318" kindref="member">GetVelocity</ref>()<sp/>+<sp/>(force<sp/>/<sp/>target-&gt;<ref refid="class_c___physics_component_1a9356a0e1222f238cf24f1213faba5675" kindref="member">Mass</ref>));</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>torque<sp/>=<sp/>(location<sp/>-<sp/>target-&gt;<ref refid="class_o___component_1a1c41248880dad7961e94e9b539598354" kindref="member">GetOwner</ref>()-&gt;<ref refid="class_o___game_object_1acecc5cb8fdc72e9035273265d9b6b125" kindref="member">GetPosition</ref>()).CrossProduct(force);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(torque<sp/>==<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>target-&gt;<ref refid="class_c___physics_component_1af8bf03b17f439fe1a3d952caef85428d" kindref="member">SetAngularVelocity</ref>(target-&gt;<ref refid="class_c___physics_component_1af746b8b3ea1aef1987d6eb474f4d4870" kindref="member">GetAngularVelocity</ref>()<sp/>+<sp/>torque<sp/>/<sp/>target-&gt;<ref refid="class_c___physics_component_1a634d6b0a8a2156d3f4e53d9e09ac3d7b" kindref="member">AngularInertia</ref>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/PhysicsLib.cpp"/>
+  </compounddef>
+</doxygen>

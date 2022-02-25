@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_level_graph_8h" kind="file" language="C++">
+    <compoundname>LevelGraph.h</compoundname>
+    <includes refid="_object_8h" local="yes">../Objects/Object.h</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">map</includes>
+    <includes local="no">set</includes>
+    <includes local="no">string</includes>
+    <includes refid="_f_matrix4_8h" local="yes">../Math/FMatrix4.h</includes>
+    <includes refid="_material_8h" local="yes">Renderers/Materials/Material.h</includes>
+    <includedby refid="_core_engine_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</includedby>
+    <includedby refid="_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</includedby>
+    <includedby refid="_level_graph_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</includedby>
+    <includedby refid="_event_listener_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.cpp</includedby>
+    <includedby refid="_mouse_event_handler_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/MouseEventHandler.cpp</includedby>
+    <includedby refid="_light_source_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</includedby>
+    <includedby refid="_collision_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</includedby>
+    <includedby refid="_static_mesh_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</includedby>
+    <includedby refid="_game_object_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</includedby>
+    <includedby refid="_object_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Object.cpp</includedby>
+    <includedby refid="_collision_detection_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp</includedby>
+    <includedby refid="_opel_g_l_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp</includedby>
+    <includedby refid="_vulkan_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</includedby>
+    <includedby refid="_vulkan_pipeline_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</includedby>
+    <includedby refid="_vulkan_swapchain_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</includedby>
+    <includedby refid="_l___main_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</includedby>
+    <includedby refid="_l___tetrahedron_level_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="9">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="2">
+        <label>../Objects/Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Renderers/Materials/Material.h</label>
+        <link refid="_material_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Renderers/RenderObject.h</label>
+        <link refid="_render_object_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>UniformBufferObject.h</label>
+        <link refid="_uniform_buffer_object_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Vertex.h</label>
+        <link refid="_vertex_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>SDL_image.h</label>
+      </node>
+      <node id="7">
+        <label>map</label>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>set</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>unordered_map</label>
+      </node>
+      <node id="15">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</label>
+        <link refid="_core_engine_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.cpp</label>
+        <link refid="_level_graph_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h</label>
+        <link refid="_level_graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.cpp</label>
+        <link refid="_event_listener_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/MouseEventHandler.cpp</label>
+        <link refid="_mouse_event_handler_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/FX/LightSourceComponent.cpp</label>
+        <link refid="_light_source_component_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/Colliders/CollisionComponent.cpp</label>
+        <link refid="_collision_component_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/StaticMeshComponent.cpp</label>
+        <link refid="_static_mesh_component_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/GameObject.cpp</label>
+        <link refid="_game_object_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Object.cpp</label>
+        <link refid="_object_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Physics/CollisionDetection.cpp</label>
+        <link refid="_collision_detection_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp</label>
+        <link refid="_opel_g_l_manager_8cpp"/>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanPipelineManager.cpp</label>
+        <link refid="_vulkan_pipeline_manager_8cpp"/>
+      </node>
+      <node id="16">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</label>
+        <link refid="_vulkan_swapchain_manager_8cpp"/>
+      </node>
+      <node id="17">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Levels/L_MainLevel.cpp</label>
+        <link refid="_l___main_level_8cpp"/>
+      </node>
+      <node id="18">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/L_TetrahedronLevel.cpp</label>
+        <link refid="_l___tetrahedron_level_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_s___render_data" prot="public">S_RenderData</innerclass>
+    <innerclass refid="class_level_graph" prot="public">LevelGraph</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_level_graph_8h_1a41721955f17df6e94f008654630c1d2a" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int ShaderID</definition>
+        <argsstring></argsstring>
+        <name>ShaderID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="13" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_level_graph_8h_1abceca9d93e40bfd2c564cb4283759030" prot="public" static="no">
+        <type>std::string</type>
+        <definition>typedef std::string ObjectName</definition>
+        <argsstring></argsstring>
+        <name>ObjectName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" line="14" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>LEVELGRAPH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LEVELGRAPH_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Objects/Object.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Math/FMatrix4.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_material_8h" kindref="compound">Renderers/Materials/Material.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="_level_graph_8h_1a41721955f17df6e94f008654630c1d2a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_level_graph_8h_1a41721955f17df6e94f008654630c1d2a" kindref="member">ShaderID</ref>;</highlight></codeline>
+<codeline lineno="14" refid="_level_graph_8h_1abceca9d93e40bfd2c564cb4283759030" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::string<sp/><ref refid="_level_graph_8h_1abceca9d93e40bfd2c564cb4283759030" kindref="member">ObjectName</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_o___object" kindref="compound">O_Object</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_material" kindref="compound">Material</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___renderable_component" kindref="compound">C_RenderableComponent</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_oct_node" kindref="compound">OctNode</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___material" kindref="compound">S_Material</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_s___render_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30" refid="struct_s___render_data_1aa99d87eaf61dc47d7dc01f268e34cbf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref>*<sp/><ref refid="struct_s___render_data_1aa99d87eaf61dc47d7dc01f268e34cbf3" kindref="member">Camera</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="struct_s___render_data_1aa28750e97872e7b04ccbe767f3ae632b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>std::set&lt;Material*&gt;&gt;<sp/><ref refid="struct_s___render_data_1aa28750e97872e7b04ccbe767f3ae632b" kindref="member">MaterialsByShader</ref>;</highlight></codeline>
+<codeline lineno="33" refid="struct_s___render_data_1a938429c168b5df4f866e91eee4b261c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;Material*,<sp/>std::set&lt;S_Mesh*&gt;&gt;<sp/><ref refid="struct_s___render_data_1a938429c168b5df4f866e91eee4b261c6" kindref="member">MeshesByMaterial</ref>;</highlight></codeline>
+<codeline lineno="34" refid="struct_s___render_data_1a1bec261b5b349558a142606a11fb4aca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;S_Mesh*,<sp/>std::set&lt;FMatrix4*&gt;&gt;<sp/><ref refid="struct_s___render_data_1a1bec261b5b349558a142606a11fb4aca" kindref="member">InstancesByMesh</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="struct_s___render_data_1a0d6060302669152f6bf18b59ebc8d35f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;FMatrix4*,<sp/>const<sp/>bool*&gt;<sp/><ref refid="struct_s___render_data_1a0d6060302669152f6bf18b59ebc8d35f" kindref="member">Models</ref>;</highlight></codeline>
+<codeline lineno="37" refid="struct_s___render_data_1a0be5fe25e207cf174293348b4f6428f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;S_Texture*&gt;<sp/><ref refid="struct_s___render_data_1a0be5fe25e207cf174293348b4f6428f7" kindref="member">Textures</ref>;</highlight></codeline>
+<codeline lineno="38" refid="struct_s___render_data_1aeeee63d17a25010a2b1ed585d74d5b6b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;S_Mesh*&gt;<sp/><ref refid="struct_s___render_data_1aeeee63d17a25010a2b1ed585d74d5b6b" kindref="member">Meshes</ref>;</highlight></codeline>
+<codeline lineno="39" refid="struct_s___render_data_1abe3ee66555b2588eaf21c22ffb1b005c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;Material*&gt;<sp/><ref refid="struct_s___render_data_1abe3ee66555b2588eaf21c22ffb1b005c" kindref="member">Materials</ref>;</highlight></codeline>
+<codeline lineno="40" refid="struct_s___render_data_1a09dc625b17c94e08c9aa2b4500d76f74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;FMatrix4&gt;<sp/><ref refid="struct_s___render_data_1a09dc625b17c94e08c9aa2b4500d76f74" kindref="member">LightSources</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="struct_s___render_data_1ae8cb70fe14ca4e6bdfe9152617045d26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_s___render_data_1ae8cb70fe14ca4e6bdfe9152617045d26" kindref="member">Clear</ref>()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1aa99d87eaf61dc47d7dc01f268e34cbf3" kindref="member">Camera</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1aa28750e97872e7b04ccbe767f3ae632b" kindref="member">MaterialsByShader</ref>.clear();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1a938429c168b5df4f866e91eee4b261c6" kindref="member">MeshesByMaterial</ref>.clear();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1a1bec261b5b349558a142606a11fb4aca" kindref="member">InstancesByMesh</ref>.clear();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1a0d6060302669152f6bf18b59ebc8d35f" kindref="member">Models</ref>.clear();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1abe3ee66555b2588eaf21c22ffb1b005c" kindref="member">Materials</ref>.clear();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1a0be5fe25e207cf174293348b4f6428f7" kindref="member">Textures</ref>.clear();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data_1a09dc625b17c94e08c9aa2b4500d76f74" kindref="member">LightSources</ref>.clear();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_level_graph" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_level_graph" kindref="compound">LevelGraph</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>*<sp/><ref refid="class_level_graph_1af839ca0a57e92a85dbd3997a1da1dc95" kindref="member">GetInstance</ref>();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="class_level_graph_1a12b3603db389769fac6fd684dac95fbd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1a12b3603db389769fac6fd684dac95fbd" kindref="member">LevelGraph</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61" refid="class_level_graph_1ae88ebc6cfec7c22ae3742441916bd58a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph_1ae88ebc6cfec7c22ae3742441916bd58a" kindref="member">LevelGraph</ref>(<ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62" refid="class_level_graph_1afe784719fcbb673f6ca710f10aa32d45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;<sp/><ref refid="class_level_graph_1afe784719fcbb673f6ca710f10aa32d45" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63" refid="class_level_graph_1a72a4c05ebda4728065fa239729ad5669" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;<sp/><ref refid="class_level_graph_1a72a4c05ebda4728065fa239729ad5669" kindref="member">operator=</ref>(<ref refid="class_level_graph" kindref="compound">LevelGraph</ref>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a19847506cd821792fde4f02a896e6648" kindref="member">Render</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_level_graph_1ab4ed671fdc5a383c379eb1fa0bcd0f21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::set&lt;O_Object*&gt;&amp;<sp/><ref refid="class_level_graph_1ab4ed671fdc5a383c379eb1fa0bcd0f21" kindref="member">GetGameObjectsByTag</ref>(std::string<sp/>tag)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ac8695cb3441ce3d00b9eaafc68f71d78" kindref="member">GameObjectsByTag</ref>[tag];<sp/>}</highlight></codeline>
+<codeline lineno="70" refid="class_level_graph_1ae7ac8f0530f721f99bec90a3c894adfc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::set&lt;O_Object*&gt;&amp;<sp/><ref refid="class_level_graph_1ae7ac8f0530f721f99bec90a3c894adfc" kindref="member">GetGameObjectsByClass</ref>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>classID)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1acd3785f1775d984fd931cd5078454601" kindref="member">GameObjectsByClass</ref>[classID];<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a7bdc5367cfe11eb4c9abe421bb76640d" kindref="member">AddObject</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>gameObject);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a265ee8df873fcbb03fa4c6ef3ea02550" kindref="member">RemoveObjectFromTagList</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>gameObject,<sp/>std::string<sp/>tag);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ab9a4a64ca6ff4160fda42b521014f372" kindref="member">AddObjectToTagList</ref>(<ref refid="class_o___object" kindref="compound">O_Object</ref>*<sp/>gameObject,<sp/>std::string<sp/>tag);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a3d9ca586b2930f995477ea1ed042ee8e" kindref="member">SetActiveCamera</ref>(<ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/>camera);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1acc60de5dc70d05741104ad08c3332561" kindref="member">FrameBufferResizeCallback</ref>();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ae96c62572f74a05b8bf9f5b3c8fe77d5" kindref="member">AddMesh</ref>(<ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref>*<sp/>mesh);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a98b7e374a919e409326bb129182b6a4d" kindref="member">AddMeshComponent</ref>(<ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>*<sp/>meshComponent);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a7e56003ca0d074a7dbea3f7abbca66ca" kindref="member">AddCollisionComponent</ref>(<ref refid="class_c___collision_component" kindref="compound">C_CollisionComponent</ref>*<sp/>component);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a8db7fe0e00ee7163bf9a0a47fa5c173f" kindref="member">RemoveMeshComponent</ref>(<ref refid="class_c___static_mesh_component" kindref="compound">C_StaticMeshComponent</ref>*<sp/>meshComponent);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a8c7a0e1176876920437c57f222b4a2ba" kindref="member">AddTexture</ref>(<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*<sp/>texture);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aaae8d0f385eb65df65e67e7154088567" kindref="member">AddMaterial</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aebea7a15f3ec2fbb65699af75473f5bc" kindref="member">AddLight</ref>(<ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>*&amp;<sp/>matrix,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&amp;<sp/>index);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a6c0ca934f13e744f747af71d9b188e5c" kindref="member">RemoveLight</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="class_level_graph_1a2675274a949132de30931bce11e51ba9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;std::string,<sp/>S_Mesh*&gt;&amp;<sp/><ref refid="class_level_graph_1a2675274a949132de30931bce11e51ba9" kindref="member">GetMeshes</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aac5e543ece52fc35fd469174381e2a11" kindref="member">MeshesByName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="88" refid="class_level_graph_1aac022dce1a6415884be6824e226b071d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;std::string,<sp/>Material*&gt;&amp;<sp/><ref refid="class_level_graph_1aac022dce1a6415884be6824e226b071d" kindref="member">GetMaterials</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1acb914c443cb398e020fc6ae8b2aa2644" kindref="member">MaterialsByName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="89" refid="class_level_graph_1a710422a8b9a753bd3ae78faf059c5071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;std::string,<sp/>S_Texture*&gt;&amp;<sp/><ref refid="class_level_graph_1a710422a8b9a753bd3ae78faf059c5071" kindref="member">GetTextures</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a03d37b92658f820445427a41cfbff9f7" kindref="member">TexturesByName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="90" refid="class_level_graph_1ac8bf87ee0218b2865484984d684c9ba3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>O_Object*&gt;&amp;<sp/><ref refid="class_level_graph_1ac8bf87ee0218b2865484984d684c9ba3" kindref="member">GetObjects</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1afe92e4a6d32cb1eda091ea70fb703d57" kindref="member">GameObjectsByName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="91" refid="class_level_graph_1a704cdf7da2d406c8f14d14788a461791" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref>*<sp/><ref refid="class_level_graph_1a704cdf7da2d406c8f14d14788a461791" kindref="member">GetRenderData</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="class_level_graph_1aa9a5939d278626b478e0da882d460005" kindref="member">RenderData</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="92" refid="class_level_graph_1aff627e213cfddab2a02fba146f5c4b14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/><ref refid="class_level_graph_1aff627e213cfddab2a02fba146f5c4b14" kindref="member">GetActiveCamera</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a8b521d5f3e67390747b4fb4c81486284" kindref="member">ActiveCamera</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aea686db8b6b044ffff5481f8c6a31807" kindref="member">CleanUp</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Switch&apos;s<sp/>the<sp/>games<sp/>pause<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aefbaaca82f8cc9be88db9d4e01af3b00" kindref="member">Pause</ref>();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Returns<sp/>the<sp/>games<sp/>paused<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="class_level_graph_1ae4d4fdfdd7ad5d91e7e6e38eed8ced02" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ae4d4fdfdd7ad5d91e7e6e38eed8ced02" kindref="member">GetPaused</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>isPaused;};</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1a2d9610fa80d11237f8974112d9674e79" kindref="member">LoadMesh</ref>();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ac4e714a3c2f0d9ed96402e8723962bca" kindref="member">LoadModel</ref>();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1ae9e66ebd5954dc22693a303be1a03ca8" kindref="member">LoadMaterial</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_level_graph_1aee522fefa0b22fa7259d6f803c9b0958" kindref="member">LoadTexture</ref>(<ref refid="struct_s___texture" kindref="compound">S_Texture</ref>*&amp;<sp/>texture,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>textureName);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="class_level_graph_1a9f729df7d4529f8e35f526bdf069ba63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;LevelGraph&gt;<sp/><ref refid="class_level_graph_1a9f729df7d4529f8e35f526bdf069ba63" kindref="member">Instance</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::default_delete&lt;LevelGraph&gt;;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112" refid="class_level_graph_1a03d37b92658f820445427a41cfbff9f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>S_Texture*&gt;<sp/><ref refid="class_level_graph_1a03d37b92658f820445427a41cfbff9f7" kindref="member">TexturesByName</ref>;</highlight></codeline>
+<codeline lineno="113" refid="class_level_graph_1acb914c443cb398e020fc6ae8b2aa2644" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>Material*&gt;<sp/><ref refid="class_level_graph_1acb914c443cb398e020fc6ae8b2aa2644" kindref="member">MaterialsByName</ref>;</highlight></codeline>
+<codeline lineno="114" refid="class_level_graph_1aac5e543ece52fc35fd469174381e2a11" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>S_Mesh*&gt;<sp/><ref refid="class_level_graph_1aac5e543ece52fc35fd469174381e2a11" kindref="member">MeshesByName</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116" refid="class_level_graph_1acb97a1682d9ff9226b66e11cb1b14fc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::set&lt;O_Object*&gt;<sp/><ref refid="class_level_graph_1acb97a1682d9ff9226b66e11cb1b14fc6" kindref="member">UnloadedObjects</ref>;</highlight></codeline>
+<codeline lineno="117" refid="class_level_graph_1afe92e4a6d32cb1eda091ea70fb703d57" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::map&lt;std::string,<sp/>O_Object*&gt;<sp/><ref refid="class_level_graph_1afe92e4a6d32cb1eda091ea70fb703d57" kindref="member">GameObjectsByName</ref>;</highlight></codeline>
+<codeline lineno="118" refid="class_level_graph_1ac8695cb3441ce3d00b9eaafc68f71d78" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;std::string,<sp/>std::set&lt;O_Object*&gt;&gt;<sp/><ref refid="class_level_graph_1ac8695cb3441ce3d00b9eaafc68f71d78" kindref="member">GameObjectsByTag</ref>;</highlight></codeline>
+<codeline lineno="119" refid="class_level_graph_1acd3785f1775d984fd931cd5078454601" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::map&lt;size_t,<sp/>std::set&lt;O_Object*&gt;&gt;<sp/><ref refid="class_level_graph_1acd3785f1775d984fd931cd5078454601" kindref="member">GameObjectsByClass</ref>;</highlight></codeline>
+<codeline lineno="120" refid="class_level_graph_1a8b521d5f3e67390747b4fb4c81486284" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___camera_component" kindref="compound">C_CameraComponent</ref>*<sp/><ref refid="class_level_graph_1a8b521d5f3e67390747b4fb4c81486284" kindref="member">ActiveCamera</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="class_level_graph_1aa9a5939d278626b478e0da882d460005" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref><sp/><ref refid="class_level_graph_1aa9a5939d278626b478e0da882d460005" kindref="member">RenderData</ref>;</highlight></codeline>
+<codeline lineno="123" refid="class_level_graph_1a5e36438e3ec23d29f7ba0f6ff2507830" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;C_StaticMeshComponent*&gt;<sp/><ref refid="class_level_graph_1a5e36438e3ec23d29f7ba0f6ff2507830" kindref="member">StaticMehes</ref>;</highlight></codeline>
+<codeline lineno="124" refid="class_level_graph_1a4efb1596cee003f56d5a796a68a54445" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::set&lt;unsigned<sp/>int&gt;<sp/><ref refid="class_level_graph_1a4efb1596cee003f56d5a796a68a54445" kindref="member">FreeLightSlots</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph" kindref="compound">LevelGraph</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_level_graph" kindref="compound">~LevelGraph</ref>();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isPaused;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="class_level_graph_1adc8a49499f319365c01bb0ea629520bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_l___level" kindref="compound">L_Level</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/LevelGraph.h"/>
+  </compounddef>
+</doxygen>

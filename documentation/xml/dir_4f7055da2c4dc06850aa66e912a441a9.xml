@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="dir_4f7055da2c4dc06850aa66e912a441a9" kind="dir">
+    <compoundname>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Graphics</compoundname>
+    <innerfile refid="_asset_loader_8cpp">AssetLoader.cpp</innerfile>
+    <innerfile refid="_asset_loader_8h">AssetLoader.h</innerfile>
+    <innerfile refid="_texture_loader_8cpp">TextureLoader.cpp</innerfile>
+    <innerfile refid="_texture_loader_8h">TextureLoader.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Graphics/"/>
+  </compounddef>
+</doxygen>

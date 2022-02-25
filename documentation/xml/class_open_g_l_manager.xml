@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_open_g_l_manager" kind="class" language="C++" prot="public">
+    <compoundname>OpenGLManager</compoundname>
+    <basecompoundref refid="class_renderer" prot="public" virt="non-virtual">Renderer</basecompoundref>
+    <includes refid="_opel_g_l_manager_8h" local="no">OpelGLManager.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_open_g_l_shader_manager" kindref="compound">OpenGLShaderManager</ref> *</type>
+        <definition>OpenGLShaderManager* OpenGLManager::ShaderManager</definition>
+        <argsstring></argsstring>
+        <name>ShaderManager</name>
+        <qualifiedname>OpenGLManager::ShaderManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="39" column="21" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref> *, <ref refid="struct_s___binding_data" kindref="compound">S_BindingData</ref> &gt;</type>
+        <definition>std::unordered_map&lt;S_Mesh*, S_BindingData&gt; OpenGLManager::VertexObjectsMap</definition>
+        <argsstring></argsstring>
+        <name>VertexObjectsMap</name>
+        <qualifiedname>OpenGLManager::VertexObjectsMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="42" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_g_l_manager_1a18642ea22b8d6c624cb1a9d1aa9d9a95" prot="protected" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *, unsigned int &gt;</type>
+        <definition>std::unordered_map&lt;S_Texture*, unsigned int&gt; OpenGLManager::TextureMap</definition>
+        <argsstring></argsstring>
+        <name>TextureMap</name>
+        <qualifiedname>OpenGLManager::TextureMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="43" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_g_l_manager_1a54464d5f83560cc037c3a516a5d9c55b" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; OpenGLManager::Lights</definition>
+        <argsstring></argsstring>
+        <name>Lights</name>
+        <qualifiedname>OpenGLManager::Lights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="44" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" prot="protected" static="no" mutable="no">
+        <type><ref refid="struct_s___render_data" kindref="compound">S_RenderData</ref> *</type>
+        <definition>S_RenderData* OpenGLManager::RenderData</definition>
+        <argsstring></argsstring>
+        <name>RenderData</name>
+        <qualifiedname>OpenGLManager::RenderData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="45" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_open_g_l_manager_1ad68d97cbef4498553a0b13bc82f0c974" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OpenGLManager::~OpenGLManager</definition>
+        <argsstring>()</argsstring>
+        <name>~OpenGLManager</name>
+        <qualifiedname>OpenGLManager::~OpenGLManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="28" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1ae9f60a1adbe43076832fb1416b0dcf09" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool OpenGLManager::Initialize</definition>
+        <argsstring>() override</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>OpenGLManager::Initialize</qualifiedname>
+        <reimplements refid="class_renderer_1a9db42ad45cf8ab6e78c0951ebed955c7">Initialize</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="30" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="16" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1ad98a9c593167bdce23226b7262f3003d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::UpdateWithNewObjects</definition>
+        <argsstring>() override</argsstring>
+        <name>UpdateWithNewObjects</name>
+        <qualifiedname>OpenGLManager::UpdateWithNewObjects</qualifiedname>
+        <reimplements refid="class_renderer_1adc8e97d9f0d8633baeb281def24a5d4a">UpdateWithNewObjects</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="31" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="49" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1ae1a499f779b89bd954691b8aee252e87" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::CleanUp</definition>
+        <argsstring>() override</argsstring>
+        <name>CleanUp</name>
+        <qualifiedname>OpenGLManager::CleanUp</qualifiedname>
+        <reimplements refid="class_renderer_1a2269363ca9383bf319d341099bc4c9e4">CleanUp</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="32" column="15" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="68" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1a12535ec711f11ecb16b1f5f12564c052" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::Render</definition>
+        <argsstring>(SDL_Window **windowArray=nullptr, unsigned int numberOfWindows=1, unsigned int arrayOffset=0) override</argsstring>
+        <name>Render</name>
+        <qualifiedname>OpenGLManager::Render</qualifiedname>
+        <reimplements refid="class_renderer_1ac0de484282496e9d832112534e81ffc1">Render</reimplements>
+        <param>
+          <type>SDL_Window **</type>
+          <declname>windowArray</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>numberOfWindows</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>arrayOffset</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="33" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="74" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1a3987788a2618fba442dbf860ca67c3eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::FramebufferResizeCallback</definition>
+        <argsstring>() override</argsstring>
+        <name>FramebufferResizeCallback</name>
+        <qualifiedname>OpenGLManager::FramebufferResizeCallback</qualifiedname>
+        <reimplements refid="class_renderer_1ae8ad442674378b1f531c62b005d70c2f">FramebufferResizeCallback</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="35" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="156" bodyend="161"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_open_g_l_manager_1a10f2126ac32248bb10cd18445608f61f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::CreateGLTexture</definition>
+        <argsstring>(S_Texture *textureData)</argsstring>
+        <name>CreateGLTexture</name>
+        <qualifiedname>OpenGLManager::CreateGLTexture</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___texture" kindref="compound">S_Texture</ref> *</type>
+          <declname>textureData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="40" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="163" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::GenerateBuffers</definition>
+        <argsstring>(S_Mesh *mesh)</argsstring>
+        <name>GenerateBuffers</name>
+        <qualifiedname>OpenGLManager::GenerateBuffers</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___mesh" kindref="compound">S_Mesh</ref> *</type>
+          <declname>mesh</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="41" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="180" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1a879b00d4e9ae79645b4f0e4c492130fb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::HandleMaterial</definition>
+        <argsstring>(Material *material, int currentBinding, const unsigned int &amp;program)</argsstring>
+        <name>HandleMaterial</name>
+        <qualifiedname>OpenGLManager::HandleMaterial</qualifiedname>
+        <param>
+          <type><ref refid="class_material" kindref="compound">Material</ref> *</type>
+          <declname>material</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentBinding</declname>
+        </param>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>program</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="48" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="212" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1a74f56b7b14b3a6e0784cbc2abeae94ef" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::BindTextureFromMaterial</definition>
+        <argsstring>(ShaderVariableInfo info, void *data, const unsigned int &amp;program)</argsstring>
+        <name>BindTextureFromMaterial</name>
+        <qualifiedname>OpenGLManager::BindTextureFromMaterial</qualifiedname>
+        <param>
+          <type><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>program</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="49" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="233" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="class_open_g_l_manager_1a8c821df23b1a8a967a2c250a7ef3eafa" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void OpenGLManager::BindUniformBufferFromMaterial</definition>
+        <argsstring>(ShaderVariableInfo info, void *data, int currentBinding, const unsigned int &amp;program)</argsstring>
+        <name>BindUniformBufferFromMaterial</name>
+        <qualifiedname>OpenGLManager::BindUniformBufferFromMaterial</qualifiedname>
+        <param>
+          <type><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref></type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>currentBinding</declname>
+        </param>
+        <param>
+          <type>const unsigned int &amp;</type>
+          <declname>program</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="50" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp" bodystart="241" bodyend="250"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>OpenGLManager</label>
+        <link refid="class_open_g_l_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>FMatrix4</label>
+        <link refid="class_f_matrix4"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>Colum</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>FVector4</label>
+        <link refid="class_f_vector4"/>
+      </node>
+      <node id="1">
+        <label>OpenGLManager</label>
+        <link refid="class_open_g_l_manager"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ShaderManager</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>RenderData</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>OpenGLShaderManager</label>
+        <link refid="class_open_g_l_shader_manager"/>
+      </node>
+      <node id="2">
+        <label>Renderer</label>
+        <link refid="class_renderer"/>
+      </node>
+      <node id="4">
+        <label>S_RenderData</label>
+        <link refid="struct_s___render_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>Camera</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>UniformCameraObject</label>
+        <link refid="struct_uniform_camera_object"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Projection</edgelabel>
+          <edgelabel>View</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" line="25" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.h" bodystart="26" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_open_g_l_manager_1a74f56b7b14b3a6e0784cbc2abeae94ef" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>BindTextureFromMaterial</name></member>
+      <member refid="class_open_g_l_manager_1a8c821df23b1a8a967a2c250a7ef3eafa" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>BindUniformBufferFromMaterial</name></member>
+      <member refid="class_open_g_l_manager_1ae1a499f779b89bd954691b8aee252e87" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>CleanUp</name></member>
+      <member refid="class_open_g_l_manager_1a10f2126ac32248bb10cd18445608f61f" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>CreateGLTexture</name></member>
+      <member refid="class_open_g_l_manager_1a3987788a2618fba442dbf860ca67c3eb" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>FramebufferResizeCallback</name></member>
+      <member refid="class_open_g_l_manager_1ae2512a785e1d8241a7800a4797f20452" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>GenerateBuffers</name></member>
+      <member refid="class_renderer_1a9cffd0afde81ae36546420ba75c66d60" prot="public" virt="non-virtual"><scope>OpenGLManager</scope><name>GetType</name></member>
+      <member refid="class_open_g_l_manager_1a879b00d4e9ae79645b4f0e4c492130fb" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>HandleMaterial</name></member>
+      <member refid="class_open_g_l_manager_1ae9f60a1adbe43076832fb1416b0dcf09" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>Initialize</name></member>
+      <member refid="class_open_g_l_manager_1a54464d5f83560cc037c3a516a5d9c55b" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>Lights</name></member>
+      <member refid="class_open_g_l_manager_1a12535ec711f11ecb16b1f5f12564c052" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>Render</name></member>
+      <member refid="class_open_g_l_manager_1a84f7529592032b65958c4a0326208898" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>RenderData</name></member>
+      <member refid="class_renderer_1a7ebf46f54dab9905f79b80f7fddb76a6" prot="public" virt="non-virtual"><scope>OpenGLManager</scope><name>Renderer</name></member>
+      <member refid="class_open_g_l_manager_1ae0c54c8fe1b81b4172217a3e01596ac2" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>ShaderManager</name></member>
+      <member refid="class_open_g_l_manager_1a18642ea22b8d6c624cb1a9d1aa9d9a95" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>TextureMap</name></member>
+      <member refid="class_renderer_1a32cee2c0cf19d5fb1ef6d0f116adaac8" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>Type</name></member>
+      <member refid="class_open_g_l_manager_1ad98a9c593167bdce23226b7262f3003d" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>UpdateWithNewObjects</name></member>
+      <member refid="class_open_g_l_manager_1acce697bbaf3019ff96df532fb6c11957" prot="protected" virt="non-virtual"><scope>OpenGLManager</scope><name>VertexObjectsMap</name></member>
+      <member refid="class_open_g_l_manager_1ad68d97cbef4498553a0b13bc82f0c974" prot="public" virt="non-virtual"><scope>OpenGLManager</scope><name>~OpenGLManager</name></member>
+      <member refid="class_renderer_1aba42b60392775e4a492c4d14d4fff29f" prot="public" virt="virtual"><scope>OpenGLManager</scope><name>~Renderer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

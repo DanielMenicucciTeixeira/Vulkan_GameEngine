@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_window_8h" kind="file" language="C++">
+    <compoundname>Window.h</compoundname>
+    <includedby refid="_core_engine_8h" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.h</includedby>
+    <includedby refid="_window_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp</includedby>
+    <includedby refid="_camera_component_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.cpp</label>
+        <link refid="_core_engine_8cpp"/>
+      </node>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CoreEngine.h</label>
+        <link refid="_core_engine_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Level.cpp</label>
+        <link refid="_level_8cpp"/>
+      </node>
+      <node id="15">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.cpp</label>
+        <link refid="_window_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h</label>
+        <link refid="_window_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/EventListener.cpp</label>
+        <link refid="_event_listener_8cpp"/>
+      </node>
+      <node id="6">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Event/MouseEventHandler.cpp</label>
+        <link refid="_mouse_event_handler_8cpp"/>
+      </node>
+      <node id="7">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/CameraComponent.cpp</label>
+        <link refid="_camera_component_8cpp"/>
+      </node>
+      <node id="8">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/OpenGL/OpelGLManager.cpp</label>
+        <link refid="_opel_g_l_manager_8cpp"/>
+      </node>
+      <node id="9">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="10">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</label>
+        <link refid="_vulkan_swapchain_manager_8cpp"/>
+      </node>
+      <node id="11">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/Game01.cpp</label>
+        <link refid="_game01_8cpp"/>
+      </node>
+      <node id="13">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.cpp</label>
+        <link refid="_scene_manager_8cpp"/>
+      </node>
+      <node id="12">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Game/SceneManager.h</label>
+        <link refid="_scene_manager_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Source.cpp</label>
+        <link refid="_source_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_window" prot="public">Window</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" prot="public" static="no">
+        <type>void *</type>
+        <definition>typedef void* SDL_GLContext</definition>
+        <argsstring></argsstring>
+        <name>SDL_GLContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" line="6" column="14" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>WINDOW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WINDOW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">SDLWindowManager;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">SDL_Window;</highlight></codeline>
+<codeline lineno="6" refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" kindref="member">SDL_GLContext</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_renderer_8h_1ab3631679e12986a42ced57267776c459" kindref="member">ERendererType</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_window" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_window" kindref="compound">Window</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_window_1a74e6087da23d3c24e9fac0245e5ec92c" kindref="member">Window</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_window_1a245d821e6016fa1f6970ccbbedd635f6" kindref="member">~Window</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_window_1a5745e7ac464a66f43dae1ffa5931cb7a" kindref="member">Initialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/><ref refid="_renderer_8h_1ab3631679e12986a42ced57267776c459" kindref="member">ERendererType</ref><sp/>renderType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>600,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionX<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionY<sp/>=<sp/>600);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_window_1ab1fa2f0fd49648beb1467b906a8ca27a" kindref="member">GetWidth</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_window_1aea56dcf795a28ec79eebe2dad31867b0" kindref="member">GetHeight</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19" refid="class_window_1a899701a0e9d9075756f4094a84d799f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_window_1a899701a0e9d9075756f4094a84d799f0" kindref="member">GetName</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_window_1abbf4ed8ecc1705f603a8b962b24adc29" kindref="member">WindowName</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="20" refid="class_window_1a56ac488e08cd5afac7ab3936a5318482" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>SDL_Window*<sp/><ref refid="class_window_1a56ac488e08cd5afac7ab3936a5318482" kindref="member">GetSDLWindow</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_window_1ad17a7007895651ffb0643189e9082177" kindref="member">SDLWindow</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="21" refid="class_window_1a6bf4504e7dd7d311d4788229e4cb0e65" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" kindref="member">SDL_GLContext</ref><sp/><ref refid="class_window_1a6bf4504e7dd7d311d4788229e4cb0e65" kindref="member">GetContext</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_window_1afff3f6787a2bc690e092251c13b42612" kindref="member">Context</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_window_1a4140f53a75ecdbbc3d9abe2598241b67" kindref="member">SetPreAttributes</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_window_1a84b358a605b61111a5cc396bac46a2a7" kindref="member">SetPostAttributes</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_window_1a7e6e76b7438e489441e8df246ec307ee" kindref="member">OnCreateVulkanWindow</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>600,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionX<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionY<sp/>=<sp/>600);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_window_1aba106982545a06c7eeb5ccbd9607cca5" kindref="member">OnCreateOpenGLWindow</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>600,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionX<sp/>=<sp/>800,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>positionY<sp/>=<sp/>600);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_window_1abbf4ed8ecc1705f603a8b962b24adc29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_window_1abbf4ed8ecc1705f603a8b962b24adc29" kindref="member">WindowName</ref>;</highlight></codeline>
+<codeline lineno="32" refid="class_window_1ad17a7007895651ffb0643189e9082177" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>SDL_Window*<sp/><ref refid="class_window_1ad17a7007895651ffb0643189e9082177" kindref="member">SDLWindow</ref>;</highlight></codeline>
+<codeline lineno="33" refid="class_window_1afff3f6787a2bc690e092251c13b42612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_window_8h_1a0d64dcf67c9685d09cbe051448e1b3f3" kindref="member">SDL_GLContext</ref><sp/><ref refid="class_window_1afff3f6787a2bc690e092251c13b42612" kindref="member">Context</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/Window.h"/>
+  </compounddef>
+</doxygen>

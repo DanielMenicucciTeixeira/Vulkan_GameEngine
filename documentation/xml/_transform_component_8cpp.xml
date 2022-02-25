@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_transform_component_8cpp" kind="file" language="C++">
+    <compoundname>TransformComponent.cpp</compoundname>
+    <includes refid="_transform_component_8h" local="yes">TransformComponent.h</includes>
+    <includes refid="_f_transform_8h" local="yes">Math/FTransform.h</includes>
+    <includes refid="_f_vector3_8h" local="yes">Math/FVector3.h</includes>
+    <includes refid="_f_quaternion_8h" local="yes">Math/FQuaternion.h</includes>
+    <includes refid="_f_matrix4_8h" local="yes">Math/FMatrix4.h</includes>
+    <includes refid="_game_object_8h" local="yes">Objects/GameObjects/GameObject.h</includes>
+    <incdepgraph>
+      <node id="13">
+        <label>Core/DebugLogger.h</label>
+        <link refid="_debug_logger_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Math/FMatrix4.h</label>
+        <link refid="_f_matrix4_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Math/FQuaternion.h</label>
+        <link refid="_f_quaternion_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Math/FTransform.h</label>
+        <link refid="_f_transform_8h"/>
+      </node>
+      <node id="8">
+        <label>Math/FVector3.h</label>
+        <link refid="_f_vector3_8h"/>
+      </node>
+      <node id="10">
+        <label>FVector4.h</label>
+        <link refid="_f_vector4_8h"/>
+      </node>
+      <node id="3">
+        <label>Component.h</label>
+        <link refid="_component_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/TransformComponent.cpp</label>
+        <link refid="_transform_component_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>TransformComponent.h</label>
+        <link refid="_transform_component_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Objects/GameObjects/GameObject.h</label>
+        <link refid="_game_object_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../Object.h</label>
+        <link refid="_object_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_transform_component_8h" kindref="compound">TransformComponent.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_transform_8h" kindref="compound">Math/FTransform.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_vector3_8h" kindref="compound">Math/FVector3.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_quaternion_8h" kindref="compound">Math/FQuaternion.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_f_matrix4_8h" kindref="compound">Math/FMatrix4.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_game_object_8h" kindref="compound">Objects/GameObjects/GameObject.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_c___transform_component_1a9df9b5d83d87e2c24cc33ad4620fad38" refkind="member"><highlight class="normal"><ref refid="class_c___transform_component_1a9df9b5d83d87e2c24cc33ad4620fad38" kindref="member">C_TransformComponent::C_TransformComponent</ref>(<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*<sp/>owner,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isStatic)<sp/>:<sp/><ref refid="class_o___component" kindref="compound">O_Component</ref>(owner)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>)<sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>();</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>IsStatic<sp/>=<sp/>isStatic;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_c___transform_component_1aa7ca714bffc22909ed72c8ff9d5be326" refkind="member"><highlight class="normal"><ref refid="struct_f_transform" kindref="compound">FTransform</ref><sp/><ref refid="class_c___transform_component_1aa7ca714bffc22909ed72c8ff9d5be326" kindref="member">C_TransformComponent::GetComponentTransform</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="16"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="class_c___transform_component_1a25e69bb1fbb5bbf46a08d120f91fabca" refkind="member"><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/><ref refid="class_c___transform_component_1a25e69bb1fbb5bbf46a08d120f91fabca" kindref="member">C_TransformComponent::GetComponentModelMatrix</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="21"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" kindref="member">GetRoot</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1af77de2425b5a909281b229335ec03b2d" kindref="member">GetTransform</ref>().<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>()<sp/>*<sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_c___transform_component_1a29ac9b602bb4059860a8805bd7ef9936" refkind="member"><highlight class="normal"><ref refid="struct_f_transform" kindref="compound">FTransform</ref>*<sp/><ref refid="class_c___transform_component_1a29ac9b602bb4059860a8805bd7ef9936" kindref="member">C_TransformComponent::GetComponentTransformReference</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="27"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="class_c___transform_component_1af55be14e486babdfe7fbb6ed643f2205" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___transform_component_1af55be14e486babdfe7fbb6ed643f2205" kindref="member">C_TransformComponent::GetComponentPosition</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="32"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a87cf7a43bc519df3ec9280716dc8d532" kindref="member">Position</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" refkind="member"><highlight class="normal"><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" kindref="member">C_TransformComponent::GetComponentRotation</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="37"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a2b7f02e8cd45e3a0216e92bfe1f291b7" kindref="member">Rotation</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" kindref="member">C_TransformComponent::GetComponentScale</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="42"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1aca636c27f09fc7cb5abdbc165a28a026" kindref="member">Scale</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_c___transform_component_1a6fd6d757a29f761c218bdd72e420c25b" refkind="member"><highlight class="normal"><ref refid="struct_f_transform" kindref="compound">FTransform</ref><sp/><ref refid="class_c___transform_component_1a6fd6d757a29f761c218bdd72e420c25b" kindref="member">C_TransformComponent::GetComponentAbsoluteTransform</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="47"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" kindref="member">GetRoot</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>(<ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">GetComponentAbsolutePosition</ref>(),<sp/><ref refid="class_c___transform_component_1afe080dbcf3911bd6d89d8265e3da744b" kindref="member">GetComponentAbsoluteRotation</ref>(),<sp/><ref refid="class_c___transform_component_1a8e4718fb5e3f4f1079af9918b5e709ef" kindref="member">GetComponentAbsoluteScale</ref>());</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___transform_component_1abb154089ca4b93b39b34ba0de32c54c4" kindref="member">C_TransformComponent::GetComponentAbsolutePosition</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="56"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>!=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" kindref="member">GetRoot</ref>())</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref><sp/>transform<sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1af77de2425b5a909281b229335ec03b2d" kindref="member">GetTransform</ref>().<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>()<sp/>*<sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a70014d87da8ca466ba1edf8418b4259e" kindref="member">GetModelMatrix</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/>position<sp/>=<sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>(transform[3][0],<sp/>transform[3][1],<sp/>transform[3][2]);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//return<sp/>GetComponentPosition()<sp/>+<sp/>Owner-&gt;GetPosition();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>position;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1af55be14e486babdfe7fbb6ed643f2205" kindref="member">GetComponentPosition</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="class_c___transform_component_1afe080dbcf3911bd6d89d8265e3da744b" refkind="member"><highlight class="normal"><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref><sp/><ref refid="class_c___transform_component_1afe080dbcf3911bd6d89d8265e3da744b" kindref="member">C_TransformComponent::GetComponentAbsoluteRotation</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="68"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" kindref="member">GetRoot</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" kindref="member">GetComponentRotation</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1ab23ccac87e42423daacec6ff31b29597" kindref="member">GetRotation</ref>()<sp/>*<sp/><ref refid="class_c___transform_component_1af8fdf5629898be57a7e25cf9f1e3fc9b" kindref="member">GetComponentRotation</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="class_c___transform_component_1a8e4718fb5e3f4f1079af9918b5e709ef" refkind="member"><highlight class="normal"><ref refid="class_f_vector3" kindref="compound">FVector3</ref><sp/><ref refid="class_c___transform_component_1a8e4718fb5e3f4f1079af9918b5e709ef" kindref="member">C_TransformComponent::GetComponentAbsoluteScale</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="74"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>==<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a92c442805f801549b40d1ad54b59cf4b" kindref="member">GetRoot</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" kindref="member">GetComponentScale</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>newScale<sp/>=<sp/><ref refid="class_c___transform_component_1adad6de7e24191fbe3119a4a59a2c0348" kindref="member">GetComponentScale</ref>();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ownerScale<sp/>=<sp/><ref refid="class_o___component_1ad6c797345730809059d368357b92ebf5" kindref="member">Owner</ref>-&gt;<ref refid="class_o___game_object_1a945cd80a318cd411e5514d5a147321e2" kindref="member">GetScale</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newScale.<ref refid="class_f_vector3_1aa6655e85376fd79f5e0b0fd89ba0258e" kindref="member">X</ref><sp/>*=<sp/>ownerScale.X;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newScale.Y<sp/>*=<sp/>ownerScale.Y;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newScale.Z<sp/>*=<sp/>ownerScale.Z;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newScale;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="class_c___transform_component_1ae1e262db4b4e2953a58af0885bd4b691" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1ae1e262db4b4e2953a58af0885bd4b691" kindref="member">C_TransformComponent::SetComponentTransform</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_f_transform" kindref="compound">FTransform</ref>&amp;<sp/>transform)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref><sp/>=<sp/>transform;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="class_c___transform_component_1aa9d5ee105ac143d71d72c01916d40671" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1aa9d5ee105ac143d71d72c01916d40671" kindref="member">C_TransformComponent::SetComponentPosition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>position)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a2379695ab15301ab9a6161012367e74d" kindref="member">SetPosition</ref>(position);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="class_c___transform_component_1a192e4a45635fa0cfcdd992fb7bf3d657" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1a192e4a45635fa0cfcdd992fb7bf3d657" kindref="member">C_TransformComponent::SetComponentRotation</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_quaternion" kindref="compound">FQuaternion</ref>&amp;<sp/>rotation)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1a8846e889364a5c58e32d162ef3601c30" kindref="member">SetRotation</ref>(rotation);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="class_c___transform_component_1afe3327409fed00d0a2358c80ac643447" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_c___transform_component_1afe3327409fed00d0a2358c80ac643447" kindref="member">C_TransformComponent::SetComponentScale</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_f_vector3" kindref="compound">FVector3</ref>&amp;<sp/>scale)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_c___transform_component_1ae406added602c547d01aaaf048176d6e" kindref="member">Transform</ref>-&gt;<ref refid="struct_f_transform_1af48f218e4d31f0e50345f128e07e8771" kindref="member">SetScale</ref>(scale);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/Components/TransformComponent.cpp"/>
+  </compounddef>
+</doxygen>

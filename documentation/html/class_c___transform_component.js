@@ -1,0 +1,25 @@
+var class_c___transform_component =
+[
+    [ "C_TransformComponent", "class_c___transform_component.html#a9df9b5d83d87e2c24cc33ad4620fad38", null ],
+    [ "~C_TransformComponent", "class_c___transform_component.html#a8856fbac0622ac9a6b765430b71c86d6", null ],
+    [ "GetComponentAbsolutePosition", "class_c___transform_component.html#abb154089ca4b93b39b34ba0de32c54c4", null ],
+    [ "GetComponentAbsoluteRotation", "class_c___transform_component.html#afe080dbcf3911bd6d89d8265e3da744b", null ],
+    [ "GetComponentAbsoluteScale", "class_c___transform_component.html#a8e4718fb5e3f4f1079af9918b5e709ef", null ],
+    [ "GetComponentAbsoluteTransform", "class_c___transform_component.html#a6fd6d757a29f761c218bdd72e420c25b", null ],
+    [ "GetComponentModelMatrix", "class_c___transform_component.html#a25e69bb1fbb5bbf46a08d120f91fabca", null ],
+    [ "GetComponentPosition", "class_c___transform_component.html#af55be14e486babdfe7fbb6ed643f2205", null ],
+    [ "GetComponentRotation", "class_c___transform_component.html#af8fdf5629898be57a7e25cf9f1e3fc9b", null ],
+    [ "GetComponentScale", "class_c___transform_component.html#adad6de7e24191fbe3119a4a59a2c0348", null ],
+    [ "GetComponentTransform", "class_c___transform_component.html#aa7ca714bffc22909ed72c8ff9d5be326", null ],
+    [ "GetComponentTransformReference", "class_c___transform_component.html#a29ac9b602bb4059860a8805bd7ef9936", null ],
+    [ "GetIsStatic", "class_c___transform_component.html#a4e2e502d0406b4f096ceeb29f3800c09", null ],
+    [ "SetComponentPosition", "class_c___transform_component.html#aa9d5ee105ac143d71d72c01916d40671", null ],
+    [ "SetComponentRotation", "class_c___transform_component.html#a192e4a45635fa0cfcdd992fb7bf3d657", null ],
+    [ "SetComponentScale", "class_c___transform_component.html#afe3327409fed00d0a2358c80ac643447", null ],
+    [ "SetComponentTransform", "class_c___transform_component.html#ae1e262db4b4e2953a58af0885bd4b691", null ],
+    [ "SetUseAbsolutes", "class_c___transform_component.html#a496e329c63316db2c00b0d6496cac519", null ],
+    [ "Transform", "class_c___transform_component.html#ae406added602c547d01aaaf048176d6e", null ],
+    [ "UseAbsolutePosition", "class_c___transform_component.html#a046613b09072b3f1907e835d1c00c0ff", null ],
+    [ "UseAbsoluteRotation", "class_c___transform_component.html#a413fcaae234f4fd26b9eee7f56c0c953", null ],
+    [ "UseAbsoluteScale", "class_c___transform_component.html#a0df9455d1063699285b7e9e63568b8a3", null ]
+];

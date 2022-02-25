@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="class_collision_handler" kind="class" language="C++" prot="public">
+    <compoundname>CollisionHandler</compoundname>
+    <includes refid="_collision_handler_8h" local="no">CollisionHandler.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_collision_handler_1ab8eba41f4e9eb8b6d3828ecfba542b53" prot="private" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; CollisionHandler &gt; CollisionHandler::collisionInstance</definition>
+        <argsstring></argsstring>
+        <name>collisionInstance</name>
+        <qualifiedname>CollisionHandler::collisionInstance</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="57" column="24" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_collision_handler_1ad22fb536cb2fc97a8121f8755b7b3d17" prot="private" static="yes" mutable="no">
+        <type>std::vector&lt; <ref refid="class_o___game_object" kindref="compound">O_GameObject</ref> * &gt;</type>
+        <definition>std::vector&lt; O_GameObject * &gt; CollisionHandler::prevCollisions</definition>
+        <argsstring></argsstring>
+        <name>prevCollisions</name>
+        <qualifiedname>CollisionHandler::prevCollisions</qualifiedname>
+        <initializer>= std::vector&lt;<ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>*&gt;()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="61" column="20" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_collision_handler_1a65e438f0dd6793a415a92d7bee3a7be6" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_oct_spatial_partition" kindref="compound">OctSpatialPartition</ref> *</type>
+        <definition>OctSpatialPartition * CollisionHandler::scenePartition</definition>
+        <argsstring></argsstring>
+        <name>scenePartition</name>
+        <qualifiedname>CollisionHandler::scenePartition</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="63" column="28" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_collision_handler_1ab00650c66dfbbac6f058c3f0571f7d2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionHandler::CollisionHandler</definition>
+        <argsstring>(const CollisionHandler &amp;)=delete</argsstring>
+        <name>CollisionHandler</name>
+        <qualifiedname>CollisionHandler::CollisionHandler</qualifiedname>
+        <param>
+          <type>const <ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="14" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a54142938d76646f86819fcfef826a829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionHandler::CollisionHandler</definition>
+        <argsstring>(CollisionHandler &amp;&amp;)=delete</argsstring>
+        <name>CollisionHandler</name>
+        <qualifiedname>CollisionHandler::CollisionHandler</qualifiedname>
+        <param>
+          <type><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="15" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a016d8b57229ec7e51c31204537462a0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;</type>
+        <definition>CollisionHandler &amp; CollisionHandler::operator=</definition>
+        <argsstring>(const CollisionHandler &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>CollisionHandler::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="16" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a12868f95ec530fb7437bcdd4056e9911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;</type>
+        <definition>CollisionHandler &amp; CollisionHandler::operator=</definition>
+        <argsstring>(CollisionHandler &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>CollisionHandler::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="17" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a5a05fea01278fe4217b91e0e6c27eda4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CollisionHandler::OnCreate</definition>
+        <argsstring>(float worldSize, float depth=3)</argsstring>
+        <name>OnCreate</name>
+        <qualifiedname>CollisionHandler::OnCreate</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>worldSize</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>depth</declname>
+          <defval>3</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="21" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a59b3c50fa4547584a57ca915372e5ac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CollisionHandler::Update</definition>
+        <argsstring>(float deltaTime_)</argsstring>
+        <name>Update</name>
+        <qualifiedname>CollisionHandler::Update</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>deltaTime_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="24" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a5e1d2e0ad785d79131d8bf9235850e6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref></type>
+        <definition>S_CollisionData CollisionHandler::GetCollisionSingleRay</definition>
+        <argsstring>(Ray &amp;ray)</argsstring>
+        <name>GetCollisionSingleRay</name>
+        <qualifiedname>CollisionHandler::GetCollisionSingleRay</qualifiedname>
+        <param>
+          <type><ref refid="class_ray" kindref="compound">Ray</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="29" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="57" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a7fd1f55029bca9ff4e2dace308f4b38e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref> &gt;</type>
+        <definition>std::vector&lt; S_CollisionData &gt; CollisionHandler::GetCollisionMuliRay</definition>
+        <argsstring>(Ray &amp;ray)</argsstring>
+        <name>GetCollisionMuliRay</name>
+        <qualifiedname>CollisionHandler::GetCollisionMuliRay</qualifiedname>
+        <param>
+          <type><ref refid="class_ray" kindref="compound">Ray</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="32" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="89" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a8c4f864b8ed50a3629045534f78f6431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref> &gt;</type>
+        <definition>std::vector&lt; S_CollisionData &gt; CollisionHandler::GetSphereCollision</definition>
+        <argsstring>(Sphere &amp;sphere)</argsstring>
+        <name>GetSphereCollision</name>
+        <qualifiedname>CollisionHandler::GetSphereCollision</qualifiedname>
+        <param>
+          <type><ref refid="class_sphere" kindref="compound">Sphere</ref> &amp;</type>
+          <declname>sphere</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="35" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="121" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a3a072baf8473728649f3d81e1c41870c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref> &gt;</type>
+        <definition>std::vector&lt; S_CollisionData &gt; CollisionHandler::GetAABBCollision</definition>
+        <argsstring>(S_BoxBounds bounds)</argsstring>
+        <name>GetAABBCollision</name>
+        <qualifiedname>CollisionHandler::GetAABBCollision</qualifiedname>
+        <param>
+          <type><ref refid="struct_s___box_bounds" kindref="compound">S_BoxBounds</ref></type>
+          <declname>bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="38" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="153" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1ae4c8b076bd79d64813d198d835361dce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="struct_s___collision_data" kindref="compound">S_CollisionData</ref> &gt;</type>
+        <definition>std::vector&lt; S_CollisionData &gt; CollisionHandler::GetOBBCollision</definition>
+        <argsstring>(Box box)</argsstring>
+        <name>GetOBBCollision</name>
+        <qualifiedname>CollisionHandler::GetOBBCollision</qualifiedname>
+        <param>
+          <type><ref refid="class_box" kindref="compound">Box</ref></type>
+          <declname>box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="41" column="13" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="186" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a65e0965d19c38831137f724e83fa8283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CollisionHandler::AABBSpatialCheck</definition>
+        <argsstring>(C_BoundingBox *collider)</argsstring>
+        <name>AABBSpatialCheck</name>
+        <qualifiedname>CollisionHandler::AABBSpatialCheck</qualifiedname>
+        <param>
+          <type><ref refid="class_c___bounding_box" kindref="compound">C_BoundingBox</ref> *</type>
+          <declname>collider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="46" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a8d598c1b8ab18a12fa1f098b1390dc5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CollisionHandler::SphereSpatialCheck</definition>
+        <argsstring>(C_SphereCollider *collider)</argsstring>
+        <name>SphereSpatialCheck</name>
+        <qualifiedname>CollisionHandler::SphereSpatialCheck</qualifiedname>
+        <param>
+          <type><ref refid="class_c___sphere_collider" kindref="compound">C_SphereCollider</ref> *</type>
+          <declname>collider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="47" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CollisionHandler::OBBSpatialCheck</definition>
+        <argsstring>(C_BoxCollider *collider)</argsstring>
+        <name>OBBSpatialCheck</name>
+        <qualifiedname>CollisionHandler::OBBSpatialCheck</qualifiedname>
+        <param>
+          <type><ref refid="class_c___box_collider" kindref="compound">C_BoxCollider</ref> *</type>
+          <declname>collider</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="48" column="6" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_collision_handler" kindref="compound">CollisionHandler</ref> *</type>
+        <definition>CollisionHandler * CollisionHandler::GetInstance</definition>
+        <argsstring>()</argsstring>
+        <name>GetInstance</name>
+        <qualifiedname>CollisionHandler::GetInstance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="19" column="25" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="38" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_collision_handler_1ab02079362792cd6e13ff5dd7428f4d7c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionHandler::CollisionHandler</definition>
+        <argsstring>()</argsstring>
+        <name>CollisionHandler</name>
+        <qualifiedname>CollisionHandler::CollisionHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="52" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="30" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_collision_handler_1a99f5524cf1706f9ea95500cf273a9d97" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>CollisionHandler::~CollisionHandler</definition>
+        <argsstring>()</argsstring>
+        <name>~CollisionHandler</name>
+        <qualifiedname>CollisionHandler::~CollisionHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="53" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.cpp" bodystart="34" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" line="11" column="1" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Core/CollisionHandler.h" bodystart="12" bodyend="65"/>
+    <listofallmembers>
+      <member refid="class_collision_handler_1a65e0965d19c38831137f724e83fa8283" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>AABBSpatialCheck</name></member>
+      <member refid="class_collision_handler_1ab00650c66dfbbac6f058c3f0571f7d2f" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>CollisionHandler</name></member>
+      <member refid="class_collision_handler_1a54142938d76646f86819fcfef826a829" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>CollisionHandler</name></member>
+      <member refid="class_collision_handler_1ab02079362792cd6e13ff5dd7428f4d7c" prot="private" virt="non-virtual"><scope>CollisionHandler</scope><name>CollisionHandler</name></member>
+      <member refid="class_collision_handler_1ab8eba41f4e9eb8b6d3828ecfba542b53" prot="private" virt="non-virtual"><scope>CollisionHandler</scope><name>collisionInstance</name></member>
+      <member refid="class_collision_handler_1a3a072baf8473728649f3d81e1c41870c" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetAABBCollision</name></member>
+      <member refid="class_collision_handler_1a7fd1f55029bca9ff4e2dace308f4b38e" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetCollisionMuliRay</name></member>
+      <member refid="class_collision_handler_1a5e1d2e0ad785d79131d8bf9235850e6f" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetCollisionSingleRay</name></member>
+      <member refid="class_collision_handler_1a03b9dfc62f9725220f84320c5407c9f0" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetInstance</name></member>
+      <member refid="class_collision_handler_1ae4c8b076bd79d64813d198d835361dce" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetOBBCollision</name></member>
+      <member refid="class_collision_handler_1a8c4f864b8ed50a3629045534f78f6431" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>GetSphereCollision</name></member>
+      <member refid="class_collision_handler_1a8314d1480907849034d1dca5fbc2bec2" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>OBBSpatialCheck</name></member>
+      <member refid="class_collision_handler_1a5a05fea01278fe4217b91e0e6c27eda4" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>OnCreate</name></member>
+      <member refid="class_collision_handler_1a016d8b57229ec7e51c31204537462a0f" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>operator=</name></member>
+      <member refid="class_collision_handler_1a12868f95ec530fb7437bcdd4056e9911" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>operator=</name></member>
+      <member refid="class_collision_handler_1ad22fb536cb2fc97a8121f8755b7b3d17" prot="private" virt="non-virtual"><scope>CollisionHandler</scope><name>prevCollisions</name></member>
+      <member refid="class_collision_handler_1a65e438f0dd6793a415a92d7bee3a7be6" prot="private" virt="non-virtual"><scope>CollisionHandler</scope><name>scenePartition</name></member>
+      <member refid="class_collision_handler_1a8d598c1b8ab18a12fa1f098b1390dc5d" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>SphereSpatialCheck</name></member>
+      <member refid="class_collision_handler_1a59b3c50fa4547584a57ca915372e5ac3" prot="public" virt="non-virtual"><scope>CollisionHandler</scope><name>Update</name></member>
+      <member refid="class_collision_handler_1a99f5524cf1706f9ea95500cf273a9d97" prot="private" virt="non-virtual"><scope>CollisionHandler</scope><name>~CollisionHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

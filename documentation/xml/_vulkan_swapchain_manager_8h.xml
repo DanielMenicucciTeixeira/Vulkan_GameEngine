@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_vulkan_swapchain_manager_8h" kind="file" language="C++">
+    <compoundname>VulkanSwapchainManager.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includedby refid="_vulkan_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</includedby>
+    <includedby refid="_vulkan_swapchain_manager_8cpp" local="yes">C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h</label>
+        <link refid="_vulkan_swapchain_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>unordered_map</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanManager.cpp</label>
+        <link refid="_vulkan_manager_8cpp"/>
+      </node>
+      <node id="3">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.cpp</label>
+        <link refid="_vulkan_swapchain_manager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h</label>
+        <link refid="_vulkan_swapchain_manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_s___buffer_data" prot="public">S_BufferData</innerclass>
+    <innerclass refid="struct_s___texture_data" prot="public">S_TextureData</innerclass>
+    <innerclass refid="class_vulkan_swapchain_manager" prot="public">VulkanSwapchainManager</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_vulkan_swapchain_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>typedef unsigned int VkFlags</definition>
+        <argsstring></argsstring>
+        <name>VkFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="42" column="22" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_swapchain_manager_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkImageAspectFlags</definition>
+        <argsstring></argsstring>
+        <name>VkImageAspectFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="43" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_swapchain_manager_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkFormatFeatureFlags</definition>
+        <argsstring></argsstring>
+        <name>VkFormatFeatureFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="44" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_swapchain_manager_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkImageUsageFlags</definition>
+        <argsstring></argsstring>
+        <name>VkImageUsageFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="45" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="_vulkan_swapchain_manager_8h_1a06f71178c68bf5712dbec35d6f124122" prot="public" static="no">
+        <type><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref></type>
+        <definition>typedef VkFlags VkMemoryPropertyFlags</definition>
+        <argsstring></argsstring>
+        <name>VkMemoryPropertyFlags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" line="46" column="17" bodyfile="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VULKANSWAPCHAINMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VULKANSWAPCHAINMANAGER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_f_matrix4" kindref="compound">FMatrix4</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_material" kindref="compound">Material</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkPresentModeKHR;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkFormat;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkImageTiling;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkImageLayout;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkShaderStageFlagBits;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>VkDescriptorType;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSurfaceFormatKHR;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkExtent2D;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkImage_T;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkImageView_T;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSurfaceCapabilitiesKHR;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSwapchainKHR_T;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkFramebuffer_T;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkRenderPass_T;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDeviceMemory_T;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkBuffer_T;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDescriptorSetLayout_T;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDescriptorPool_T;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkDescriptorSet_T;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkWriteDescriptorSet;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VkSampler_T;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_uniform_buffer_object" kindref="compound">UniformBufferObject</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_uniform_camera_object" kindref="compound">UniformCameraObject</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___texture" kindref="compound">S_Texture</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="_vulkan_swapchain_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_vulkan_swapchain_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref>;</highlight></codeline>
+<codeline lineno="43" refid="_vulkan_swapchain_manager_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_swapchain_manager_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" kindref="member">VkImageAspectFlags</ref>;</highlight></codeline>
+<codeline lineno="44" refid="_vulkan_swapchain_manager_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_swapchain_manager_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" kindref="member">VkFormatFeatureFlags</ref>;</highlight></codeline>
+<codeline lineno="45" refid="_vulkan_swapchain_manager_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_swapchain_manager_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" kindref="member">VkImageUsageFlags</ref>;</highlight></codeline>
+<codeline lineno="46" refid="_vulkan_swapchain_manager_8h_1a06f71178c68bf5712dbec35d6f124122" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="_vulkan_manager_8h_1a6b4a9a5098079c3cce45f376f23471ec" kindref="member">VkFlags</ref><sp/><ref refid="_vulkan_swapchain_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="struct_s___buffer_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___buffer_data" kindref="compound">S_BufferData</ref></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50" refid="struct_s___buffer_data_1a84a218414a675ef10018fd018ec35acc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkBuffer_T*<sp/><ref refid="struct_s___buffer_data_1a84a218414a675ef10018fd018ec35acc" kindref="member">Buffer</ref>;</highlight></codeline>
+<codeline lineno="51" refid="struct_s___buffer_data_1ae3b10161929cb49e97643e12d70aaa2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDeviceMemory_T*<sp/><ref refid="struct_s___buffer_data_1ae3b10161929cb49e97643e12d70aaa2b" kindref="member">Memory</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="struct_s___texture_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_s___texture_data" kindref="compound">S_TextureData</ref></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56" refid="struct_s___texture_data_1a44b5af568e638f2aa696dc3e72076cdd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkImage_T*<sp/><ref refid="struct_s___texture_data_1a44b5af568e638f2aa696dc3e72076cdd" kindref="member">TextureImage</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57" refid="struct_s___texture_data_1a39e3ae3be1c2a5ed33bf5a529556d5ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDeviceMemory_T*<sp/><ref refid="struct_s___texture_data_1a39e3ae3be1c2a5ed33bf5a529556d5ef" kindref="member">TextureImageMemory</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58" refid="struct_s___texture_data_1a9148a2c22e73dbb96db64c81b58696a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkImageView_T*<sp/><ref refid="struct_s___texture_data_1a9148a2c22e73dbb96db64c81b58696a3" kindref="member">TextureImageView</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59" refid="struct_s___texture_data_1a70818e8db454cb714fb424ef983cf739" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSampler_T*<sp/><ref refid="struct_s___texture_data_1a70818e8db454cb714fb424ef983cf739" kindref="member">TextureSampler</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_vulkan_swapchain_manager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_vulkan_swapchain_manager" kindref="compound">VulkanSwapchainManager</ref></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_swapchain_manager_1a1ce48cd4916564abbb4144f5f4c75bc8" kindref="member">VulkanSwapchainManager</ref>(<ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/>manager);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_swapchain_manager_1a6eaa08f7cec249594bc9af51047b5e47" kindref="member">~VulkanSwapchainManager</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceFormatKHR<sp/><ref refid="class_vulkan_swapchain_manager_1a8fd8ee951a81ad8a5068bb1ab63a757f" kindref="member">ChooseSwapSurfaceFormat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;VkSurfaceFormatKHR&gt;<sp/>availableFormats);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>VkPresentModeKHR<sp/><ref refid="class_vulkan_swapchain_manager_1a031a63761f0e337103cdc0c5dc05284a" kindref="member">ChooseSwapPresentMode</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;VkPresentModeKHR&gt;&amp;<sp/>availablePresentModes);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>VkExtent2D<sp/><ref refid="class_vulkan_swapchain_manager_1ace75c40a88a0cb7222ed09bf6aa42d77" kindref="member">ChooseSwapExtent</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VkSurfaceCapabilitiesKHR*<sp/>capabilities);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a7723137432b6d07f111510dd4fab6f4e" kindref="member">CreateSwapChain</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ad073c1e97745d57d28a1b8d5d66a1e0b" kindref="member">CreateImageViews</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>VkImageView_T*<sp/><ref refid="class_vulkan_swapchain_manager_1a14c9c0d5e0fdd52f0d4a1ae3e4688a9e" kindref="member">CreateImageView</ref>(VkImage_T*<sp/>image,<sp/>VkFormat<sp/>format,<sp/><ref refid="_vulkan_renderer_8h_1a1dc6a69eefc5cddb8237b87d5c22d1ec" kindref="member">VkImageAspectFlags</ref><sp/>aspectFlags);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a9687d1e5b5289269e183c3d8f0674c4c" kindref="member">CreateRenderPass</ref>();</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ac805e3c32dd1a7f47a19e33afdf9f0af" kindref="member">CreateImage</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/>VkFormat<sp/>format,<sp/>VkImageTiling<sp/>tiling,<sp/><ref refid="_vulkan_renderer_8h_1a2c990c0c189d0a9bd02c5d911d5cc5f7" kindref="member">VkImageUsageFlags</ref><sp/>usage,<sp/><ref refid="_vulkan_manager_8h_1a06f71178c68bf5712dbec35d6f124122" kindref="member">VkMemoryPropertyFlags</ref><sp/>properties,<sp/>VkImage_T*&amp;<sp/>image,<sp/>VkDeviceMemory_T*&amp;<sp/>imageMemory);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a7b354080d3cfbb054fdc9772db643b56" kindref="member">CreateDepthResources</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a0f5362626d30524092d3c1f2cd89ce1c" kindref="member">CreateFramebuffers</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a22df6a1996a2afc5b3cee779ded2c7d6" kindref="member">CreateUniformBuffers</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a1fb4d08af0053fd690cdf10b2aeaa4c4" kindref="member">CreateDescriptorSetLayouts</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a78317ec976a8be58656dda76310d24c4" kindref="member">CreateDescriptorPool</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a5f87eaa2ed9df4c246df5b0136c647eb" kindref="member">CreateDescriptorSets</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a8065f8027198ed42a4b6213f4ee0e418" kindref="member">CreateTextureImage</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1aa3ee47b6718a426803cabd199e6be1f9" kindref="member">CreateTextureSampler</ref>(VkSampler_T*&amp;<sp/>sampler);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a65efa17d731847cee0f6c85607f37faa" kindref="member">RecreationCleanUp</ref>();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1aa8ce875c0b30d7706b7ecd18094c2e59" kindref="member">FinalCleanUp</ref>();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>VkFormat<sp/><ref refid="class_vulkan_swapchain_manager_1a8e13115e202a8e3f5e67e2cfa6010bc9" kindref="member">FindSupportedFormat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;VkFormat&gt;&amp;<sp/>candidates,<sp/>VkImageTiling<sp/>tiling,<sp/><ref refid="_vulkan_renderer_8h_1a8f6c3cb203ed2eabe1f2093bf9c6352a" kindref="member">VkFormatFeatureFlags</ref><sp/>features);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>VkFormat<sp/><ref refid="class_vulkan_swapchain_manager_1a66c6909cc00edc58f87f94cb258aef96" kindref="member">FindDepthFormat</ref>();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1acd8bb5022376987fc6e376d204458225" kindref="member">TransitionImageLayout</ref>(VkImage_T*<sp/>image,<sp/>VkFormat<sp/>format,<sp/>VkImageLayout<sp/>oldLayout,<sp/>VkImageLayout<sp/>newLayout);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ad4f23eb999d9a8f90870852fa8d97dea" kindref="member">HasStencilComponent</ref>(VkFormat<sp/>format);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ae88c46b746790210aa06147c3df1eb1c" kindref="member">CopyBufferToImage</ref>(VkBuffer_T*<sp/>buffer,<sp/>VkImage_T*<sp/>image,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="class_vulkan_swapchain_manager_1a4c610260ff5d865b331a4f7a5ec503c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>VkExtent2D*<sp/><ref refid="class_vulkan_swapchain_manager_1a4c610260ff5d865b331a4f7a5ec503c8" kindref="member">GetExtent</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ab7ad479a7f5095e062a008fc46832ce6" kindref="member">Extent</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="98" refid="class_vulkan_swapchain_manager_1a10d461a65cf265a985826ffa2ee3cc45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>VkRenderPass_T*<sp/><ref refid="class_vulkan_swapchain_manager_1a10d461a65cf265a985826ffa2ee3cc45" kindref="member">GetRenderPass</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1ab3dd5f27e0862acff6bd7636db6f606b" kindref="member">RenderPass</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="99" refid="class_vulkan_swapchain_manager_1a8124d82d5088cd3aa3bcfb2fe509ec81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::vector&lt;VkFramebuffer_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a8124d82d5088cd3aa3bcfb2fe509ec81" kindref="member">GetFramebuffers</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1aac1688c5f1edc455f33391a7174478e3" kindref="member">Framebuffers</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="100" refid="class_vulkan_swapchain_manager_1af842a4c57909121a978f28d1e2fae1b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;FMatrix4*,<sp/>std::vector&lt;VkDescriptorSet_T*&gt;&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1af842a4c57909121a978f28d1e2fae1b0" kindref="member">GetDescriptorSetsMap</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a385330f2ef9e616a3d84b8dd5e67fd48" kindref="member">DescriptorSetsMap</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="101" refid="class_vulkan_swapchain_manager_1a6d261ab435d653af4d137083441739ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::vector&lt;VkImage_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a6d261ab435d653af4d137083441739ba" kindref="member">GetImages</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a832b418d1979b268ac3404b667d0e270" kindref="member">Images</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="102" refid="class_vulkan_swapchain_manager_1a1ce838552d74fb2652ef65f9830dac26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>VkSwapchainKHR_T*<sp/><ref refid="class_vulkan_swapchain_manager_1a1ce838552d74fb2652ef65f9830dac26" kindref="member">GetSwapchain</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1acd645defc4a72233211f8366fb8239e9" kindref="member">Swapchain</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="103" refid="class_vulkan_swapchain_manager_1af1be918f69f619b5acda0809329e57d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::unordered_map&lt;std::string,<sp/>VkDescriptorSetLayout_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1af1be918f69f619b5acda0809329e57d1" kindref="member">GetDescriptorLayoutsByShader</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a019773dcdc0c9d6561fbcd85eea2f2eb" kindref="member">DescriptorLayoutsByShader</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//inline<sp/>VkDescriptorSetLayout_T*<sp/>GetDescriptorSetLayout()<sp/>{<sp/>return<sp/>DescriptorSetLayout;<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_vulkan_swapchain_manager_1a0498973d310eb7ed7f3f37fad78c279e" kindref="member">UpdateBuffers</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentImageIndex);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>VkShaderStageFlagBits<sp/><ref refid="class_vulkan_swapchain_manager_1ab86ff194e02a4d2e68eef1555b3334db" kindref="member">GetVulkanShaderStageFlag</ref>(<ref refid="_material_8h_1a0aefdb8e5fdee72495d2b6419f3a0c4f" kindref="member">E_ShaderStage</ref><sp/>stage)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDescriptorType<sp/><ref refid="class_vulkan_swapchain_manager_1a6e4b42e7924470dc7148e559339a00db" kindref="member">GetVulkanDescriptorType</ref>(<ref refid="_material_8h_1ad0905b90e69dacecbc5389b41c82226e" kindref="member">E_ShaderVariableType</ref><sp/>type)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkWriteDescriptorSet&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a095dac47c778274379064eea014ea600" kindref="member">CreateDescriptorWritesFromMaterial</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentImage);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>VkWriteDescriptorSet<sp/><ref refid="class_vulkan_swapchain_manager_1a7c89e8240cc56e10f786f5a76844ce56" kindref="member">CreateCombinedImageSamplerWrite</ref>(<ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref><sp/>info,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>VkWriteDescriptorSet<sp/><ref refid="class_vulkan_swapchain_manager_1a230d765c0fb7fe1777a0bafeca1e1586" kindref="member">CreateUniformBufferWrite</ref>(<ref refid="class_material" kindref="compound">Material</ref>*<sp/>material,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>currentImage,<sp/><ref refid="struct_shader_variable_info" kindref="compound">ShaderVariableInfo</ref><sp/>info,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="class_vulkan_swapchain_manager_1acd645defc4a72233211f8366fb8239e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSwapchainKHR_T*<sp/><ref refid="class_vulkan_swapchain_manager_1acd645defc4a72233211f8366fb8239e9" kindref="member">Swapchain</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="class_vulkan_swapchain_manager_1a832b418d1979b268ac3404b667d0e270" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkImage_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a832b418d1979b268ac3404b667d0e270" kindref="member">Images</ref>;</highlight></codeline>
+<codeline lineno="122" refid="class_vulkan_swapchain_manager_1aac1688c5f1edc455f33391a7174478e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkFramebuffer_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1aac1688c5f1edc455f33391a7174478e3" kindref="member">Framebuffers</ref>;</highlight></codeline>
+<codeline lineno="123" refid="class_vulkan_swapchain_manager_1afc7bd364fb3e3a41bca4f62f4f675fef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkFormat<sp/><ref refid="class_vulkan_swapchain_manager_1afc7bd364fb3e3a41bca4f62f4f675fef" kindref="member">ImageFormat</ref>;</highlight></codeline>
+<codeline lineno="124" refid="class_vulkan_swapchain_manager_1ab7ad479a7f5095e062a008fc46832ce6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkExtent2D*<sp/><ref refid="class_vulkan_swapchain_manager_1ab7ad479a7f5095e062a008fc46832ce6" kindref="member">Extent</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125" refid="class_vulkan_swapchain_manager_1a5b2ce79658a0417f60b23668fd6632db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkImageView_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a5b2ce79658a0417f60b23668fd6632db" kindref="member">ImageViews</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="class_vulkan_swapchain_manager_1ab3dd5f27e0862acff6bd7636db6f606b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkRenderPass_T*<sp/><ref refid="class_vulkan_swapchain_manager_1ab3dd5f27e0862acff6bd7636db6f606b" kindref="member">RenderPass</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="class_vulkan_swapchain_manager_1a76393f92d2691518b0ad387dced8f024" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkImage_T*<sp/><ref refid="class_vulkan_swapchain_manager_1a76393f92d2691518b0ad387dced8f024" kindref="member">DepthImage</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130" refid="class_vulkan_swapchain_manager_1aefd057eddafaeadc6fdce0f5150228f0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDeviceMemory_T*<sp/><ref refid="class_vulkan_swapchain_manager_1aefd057eddafaeadc6fdce0f5150228f0" kindref="member">DepthImageMemory</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="131" refid="class_vulkan_swapchain_manager_1a4e48a3506a6fd06444dbeeed5d50fdb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkImageView_T*<sp/><ref refid="class_vulkan_swapchain_manager_1a4e48a3506a6fd06444dbeeed5d50fdb4" kindref="member">DepthImageView</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="class_vulkan_swapchain_manager_1aac741b9efcd880d77d01027c15eefa89" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;FMatrix4*,<sp/>std::vector&lt;S_BufferData&gt;&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1aac741b9efcd880d77d01027c15eefa89" kindref="member">ModelMap</ref>;</highlight></codeline>
+<codeline lineno="134" refid="class_vulkan_swapchain_manager_1a864db93bf880909b5150dc139d627ad2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;Material*,<sp/>std::vector&lt;std::vector&lt;S_BufferData&gt;&gt;&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a864db93bf880909b5150dc139d627ad2" kindref="member">MaterialMap</ref>;</highlight></codeline>
+<codeline lineno="135" refid="class_vulkan_swapchain_manager_1a07bd99f3e1316c2a5299db42bd905da1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_BufferData&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a07bd99f3e1316c2a5299db42bd905da1" kindref="member">CameraData</ref>;</highlight></codeline>
+<codeline lineno="136" refid="class_vulkan_swapchain_manager_1a4568ca8f75fee05e3847e8aef63a43a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_BufferData&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a4568ca8f75fee05e3847e8aef63a43a2" kindref="member">LightsData</ref>;</highlight></codeline>
+<codeline lineno="137" refid="class_vulkan_swapchain_manager_1af7517a5155ee97425118ac63e2b7d32b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;S_BufferData&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1af7517a5155ee97425118ac63e2b7d32b" kindref="member">NumberOfLightsData</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="class_vulkan_swapchain_manager_1aa16c2004dd1b2ef28666ebce88766951" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDescriptorPool_T*<sp/><ref refid="class_vulkan_swapchain_manager_1aa16c2004dd1b2ef28666ebce88766951" kindref="member">DescriptorPool</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="140" refid="class_vulkan_swapchain_manager_1a385330f2ef9e616a3d84b8dd5e67fd48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;FMatrix4*,<sp/>std::vector&lt;VkDescriptorSet_T*&gt;&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a385330f2ef9e616a3d84b8dd5e67fd48" kindref="member">DescriptorSetsMap</ref>;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//VkDescriptorSetLayout_T*<sp/>DescriptorSetLayout;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="class_vulkan_swapchain_manager_1a019773dcdc0c9d6561fbcd85eea2f2eb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>VkDescriptorSetLayout_T*&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1a019773dcdc0c9d6561fbcd85eea2f2eb" kindref="member">DescriptorLayoutsByShader</ref>;</highlight></codeline>
+<codeline lineno="143" refid="class_vulkan_swapchain_manager_1ad60d8fac8797493d6c82ac4ba5a151ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;S_Texture*,<sp/>S_TextureData&gt;<sp/><ref refid="class_vulkan_swapchain_manager_1ad60d8fac8797493d6c82ac4ba5a151ec" kindref="member">TextureDataMap</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="class_vulkan_swapchain_manager_1a00c82010251f25a3b7260cb1b2b895c2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_vulkan_manager" kindref="compound">VulkanManager</ref>*<sp/><ref refid="class_vulkan_swapchain_manager_1a00c82010251f25a3b7260cb1b2b895c2" kindref="member">Manager</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Renderers/Vulkan/VulkanSwapchainManager.h"/>
+  </compounddef>
+</doxygen>

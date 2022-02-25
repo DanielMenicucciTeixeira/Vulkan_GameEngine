@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_physics_body_8cpp" kind="file" language="C++">
+    <compoundname>PhysicsBody.cpp</compoundname>
+    <includes refid="_physics_body_8h" local="yes">PhysicsBody.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>../Engine/Objects/GameObjects/GameObject.h</label>
+      </node>
+      <node id="1">
+        <label>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/PhysicsBody.cpp</label>
+        <link refid="_physics_body_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PhysicsBody.h</label>
+        <link refid="_physics_body_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_physics_body_8h" kindref="compound">PhysicsBody.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="class_g_o___physics_body_1a43241b1c063ae78918ba14fbba3d30ff" refkind="member"><highlight class="normal"><ref refid="class_g_o___physics_body_1a43241b1c063ae78918ba14fbba3d30ff" kindref="member">GO_PhysicsBody::GO_PhysicsBody</ref>()<sp/>:<sp/><ref refid="class_o___game_object" kindref="compound">O_GameObject</ref>()</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="class_g_o___physics_body_1a69618521e6121773f53e59f3da0c3ef3" refkind="member"><highlight class="normal"><ref refid="class_g_o___physics_body_1a69618521e6121773f53e59f3da0c3ef3" kindref="member">GO_PhysicsBody::~GO_PhysicsBody</ref>()</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_o___game_object_1a8cc7a8c952428f475661aa82f2026d8e" kindref="member">O_GameObject::~O_GameObject</ref>();</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Objects/GameObjects/PhysicsBody.cpp"/>
+  </compounddef>
+</doxygen>

@@ -35,13 +35,15 @@ bool L_TetrahedronLevel::Initialize()
 
 	auto Tetrahedron_Texture = new S_Texture();
 	Tetrahedron_Texture->Name = "DumbTexture";
-	Tetrahedron_Texture->Path = "./Assets/Textures/DumbTexture.png";
-	LevelGraph::GetInstance()->AddTexture(Tetrahedron_Texture);
+	Tetrahedron_Texture->Path = "C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Assets/Textures/DumbTexture.png";
 	LoadTexture(Tetrahedron_Texture, Tetrahedron_Texture->Name);
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
+
+	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
+	standardMaterial->DiffuseTexture = Tetrahedron_Texture;
 
 	/*LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureNameDifuse = "DumbTexture";
 	LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]->TextureDifuse = Tetrahedron_Texture;

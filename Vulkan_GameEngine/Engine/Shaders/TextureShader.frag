@@ -37,6 +37,8 @@ layout (binding = 4) uniform UniformMaterial
 } Material;
 
 layout (binding = 5) uniform sampler2D TextureDifuse;
+layout (binding = 6) uniform sampler2D TextureSpecular;
+
 
 layout(location = 0) out vec4 FragColour;
 

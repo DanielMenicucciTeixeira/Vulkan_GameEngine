@@ -175,7 +175,8 @@ void CoreEngine::PostUpdate(const float deltaTime)
 
 void CoreEngine::Render()
 {
-	if (gameInterface) { gameInterface->Render(); }	
+	if (gameInterface) { gameInterface->Render(); }
+	EngineRenderer->Render();
 }
 
 CoreEngine* CoreEngine::GetInstance()

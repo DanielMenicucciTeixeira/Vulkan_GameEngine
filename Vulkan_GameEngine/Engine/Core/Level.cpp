@@ -209,6 +209,5 @@ void L_Level::PostUpdate(const float deltaTime)
 void L_Level::Render()
 {
 	LevelGraph::GetInstance()->Render();
-	//CurrentGame->GetRenderer()->Render();
 }
 

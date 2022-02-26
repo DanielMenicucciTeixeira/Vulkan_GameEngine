@@ -846,13 +846,12 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     for (const auto& material : Manager->GetRenderData()->Materials)
     {
         void* materialData;
-        const auto& info = material->GetShaderVariablesInfo();
-        /*for (int i = 0; i < info.size(); i++)
+        for (const auto& data : MaterialMap[material][currentImageIndex])
         {
-            vkMapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory, 0, sizeof(FMatrix4), 0, &materialData);
-            memcpy(materialData, material, info[i].VariableSize);
-            vkUnmapMemory(Manager->GetLogicalDevice(), MaterialMap[material][currentImageIndex][i].Memory);
-        }*/
+            vkMapMemory(Manager->GetLogicalDevice(), data.Memory, 0, sizeof(FMatrix4), 0, &materialData);
+            memcpy(materialData, data.Data, data.Size);
+            vkUnmapMemory(Manager->GetLogicalDevice(), data.Memory);
+        }
     }
 
     for (const auto& model : Manager->GetRenderData()->Models)
@@ -978,8 +977,9 @@ VkWriteDescriptorSet VulkanSwapchainManager::CreateCombinedImageSamplerWrite(Sha
 VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(Material* material, int currentImage, ShaderVariableInfo info, void* data)
 {
     MaterialMap[material][currentImage].push_back(S_BufferData());
-    void* test = &MaterialMap[material][currentImage].back();
-    Manager->CreateBuffer(info.VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, (MaterialMap[material][currentImage].back()).Buffer, (MaterialMap[material][currentImage].back()).Memory);
+    Manager->CreateBuffer(info.VariableSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, MaterialMap[material][currentImage].back().Buffer, MaterialMap[material][currentImage].back().Memory);
+    MaterialMap[material][currentImage].back().Size = info.VariableSize;
+    MaterialMap[material][currentImage].back().Data = data;
 
     VkDescriptorBufferInfo* uniformBufferInfo = new VkDescriptorBufferInfo();
     uniformBufferInfo->buffer = (MaterialMap[material][currentImage].back()).Buffer;

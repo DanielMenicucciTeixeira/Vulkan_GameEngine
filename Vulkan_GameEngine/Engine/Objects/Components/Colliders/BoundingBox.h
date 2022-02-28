@@ -16,6 +16,7 @@ public:
 	void GetDimensionsFromMesh(S_Mesh* mesh);
 	virtual void Start() override;
 	virtual void Update(float deltaTime) override;
+	virtual void PostUpdate(float deltaTime) override;
 	virtual FVector3 GetMin();
 	virtual FVector3 GetMax();
 	inline const FVector3& GetRelativeMin() const { return boxBounds.Min; }

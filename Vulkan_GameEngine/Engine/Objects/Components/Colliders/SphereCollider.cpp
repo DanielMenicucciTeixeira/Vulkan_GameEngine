@@ -46,6 +46,12 @@ void C_SphereCollider::Update(const float deltaTime)
 
 }
 
+void C_SphereCollider::PostUpdate(float deltaTime)
+{
+	CollisionHandler::GetInstance()->SphereSpatialCheck(this);
+
+}
+
 //bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
 //{
 //	if (dynamic_cast<C_BoxCollision*>(otherCollider))

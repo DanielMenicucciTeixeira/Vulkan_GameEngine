@@ -2,13 +2,12 @@
 #define BOXBOLLISION_H
 
 #include "CollisionComponent.h"
-
-class Box;
+#include "Geometry/Box.h"
 
 class C_BoxCollider : public C_CollisionComponent
 {
 protected:
-	Box* CollisionBox;
+	Box CollisionBox;
 
 public:
 	void SetComponentPosition(const FVector3& position) override;
@@ -21,6 +20,8 @@ public:
 
 	C_BoxCollider(O_GameObject* owner);
 	virtual ~C_BoxCollider();
+
+	virtual void PostUpdate(float deltaTime) override;
 };
 #endif
 

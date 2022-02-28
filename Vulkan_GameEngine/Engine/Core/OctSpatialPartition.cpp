@@ -222,13 +222,13 @@ void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 
 void OctSpatialPartition::Update(const float deltaTime_)
 {
-	//for (auto leaves : GetActiveLeaves()) {
-		//for (int i = 0; i < leaves->GetColliderCount(); i++) {
-		//	for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
+	for (auto leaves : GetActiveLeaves()) {
+		for (int i = 0; i < leaves->GetColliderCount(); i++) {
+			for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
 				//if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
-		//	}
-		//}
-	//}
+			}
+		}
+	}
 }
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const

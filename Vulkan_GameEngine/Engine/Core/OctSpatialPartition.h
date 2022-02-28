@@ -43,6 +43,7 @@ public:
 	void RemoveCollider(C_CollisionComponent* element);
 
 	inline std::vector<C_CollisionComponent*> GetColliders() { return Colliders; }
+	inline int GetColliderCount() { return Colliders.size(); }
 	inline static const unsigned int& GetChildrenCount() { return ChildrenCount; };
 	inline bool IsLeaf() const { return Children[0] == nullptr; }
 	S_BoxBounds GetBoundingBox() const;

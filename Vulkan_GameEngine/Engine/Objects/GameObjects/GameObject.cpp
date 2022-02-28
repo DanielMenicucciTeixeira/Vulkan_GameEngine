@@ -28,6 +28,11 @@ void O_GameObject::Update(float deltaTime)
 	for (const auto& component : Components) component->Update(deltaTime);
 }
 
+void O_GameObject::PostUpdate(float deltaTime)
+{
+	for (const auto& component : Components) component->PostUpdate(deltaTime);
+}
+
 void O_GameObject::Start()
 {
 	for (const auto& component : Components) component->Start();

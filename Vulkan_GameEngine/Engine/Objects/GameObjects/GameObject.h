@@ -22,6 +22,7 @@ public:
 	~O_GameObject();
 
 	virtual void Update(float deltaTime) override;
+	virtual void PostUpdate(float deltaTime) override;
 	virtual void Start() override;
 
 	///Gettters

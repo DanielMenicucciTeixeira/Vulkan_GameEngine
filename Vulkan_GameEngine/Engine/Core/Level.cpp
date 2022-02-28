@@ -193,9 +193,6 @@ void L_Level::Update(const float deltaTime)
 
 	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->Update(deltaTime);
-
-	//check collision here
-	CollisionHandler::GetInstance()->Update(deltaTime);
 }
 
 void L_Level::PostUpdate(const float deltaTime)
@@ -204,6 +201,9 @@ void L_Level::PostUpdate(const float deltaTime)
 
 	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->PostUpdate(deltaTime);
 	else for (const auto& object : levelObjects) if (object.second->UpdateWhenPaused) object.second->PostUpdate(deltaTime);
+
+	//check collision here
+	CollisionHandler::GetInstance()->Update(deltaTime);
 }
 
 void L_Level::Render()

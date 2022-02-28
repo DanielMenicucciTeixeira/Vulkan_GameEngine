@@ -25,8 +25,8 @@ protected:
 	void SetPreAttributes();
 	void SetPostAttributes();
 
-	bool OnCreateVulkanWindow(const char* name, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
-	bool OnCreateOpenGLWindow(const char* name, int width = 800, int height = 600, int positionX = 800, int positionY = 600);
+	bool OnCreateVulkanWindow(const char* name, int width = 800, int height = 600, int positionX = 100, int positionY = 100);
+	bool OnCreateOpenGLWindow(const char* name, int width = 800, int height = 600, int positionX = 100, int positionY = 100);
 
 	const char* WindowName;
 	SDL_Window* SDLWindow;

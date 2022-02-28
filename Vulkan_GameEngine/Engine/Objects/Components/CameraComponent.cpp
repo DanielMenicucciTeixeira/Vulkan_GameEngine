@@ -67,7 +67,7 @@ void C_CameraComponent::Start()
 	
 	FVector2 size = CoreEngine::GetInstance()->GetWindowSize();
 
-	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, size.Y/ size.X, FildOfView.NearPlane, FildOfView.FarPlane);
+	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, size.X/ size.Y, FildOfView.NearPlane, FildOfView.FarPlane);
 	CalculateFrustum();
 }
 

@@ -82,9 +82,7 @@ void L_TetrahedronLevel::Start()
 
 void L_TetrahedronLevel::Update(float deltaTime)
 {
-	auto objects = LevelGraph::GetInstance()->GetObjects();
 	L_Level::Update(deltaTime);
-	//PrintMinowskiDifference();
 }
 
 void L_TetrahedronLevel::Render()

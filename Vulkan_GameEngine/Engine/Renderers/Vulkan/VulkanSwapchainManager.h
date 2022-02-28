@@ -49,6 +49,8 @@ struct S_BufferData
 {
 	VkBuffer_T* Buffer;
 	VkDeviceMemory_T* Memory;
+	void* Data;
+	size_t Size;
 };
 
 struct S_TextureData

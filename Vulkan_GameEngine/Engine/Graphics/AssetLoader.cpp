@@ -2,7 +2,7 @@
 #include "Renderers/RenderObject.h"
 #include "DebugLogger.h"
 
-#define TINYOBJLOADER_IMPLEMENTATION
+//#define TINYOBJLOADER_IMPLEMENTATION
 #include <tiny_obj_loader.h>
 #include <unordered_map>
 
@@ -12,6 +12,7 @@
 
 bool AssetLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
 {
+    
     tinyobj::attrib_t attrib;
     std::vector<tinyobj::shape_t> shapes;
     std::vector<tinyobj::material_t> materials;
@@ -22,6 +23,7 @@ bool AssetLoader::LoadMesh(std::string meshPath, S_Mesh* mesh)
         throw std::runtime_error(warn + err);
         return false;
     }
+    
 
     std::unordered_map<S_Vertex, uint32_t, HASH_Vertex> uniqueVertices{};
 

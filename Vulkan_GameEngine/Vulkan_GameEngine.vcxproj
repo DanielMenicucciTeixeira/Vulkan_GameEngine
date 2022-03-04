@@ -295,6 +295,7 @@
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanPipelineManager.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp" />
     <ClCompile Include="Engine\Core\Window.cpp" />
+    <ClCompile Include="tiny_obj_loader.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Core\Game.h" />
@@ -378,6 +379,7 @@
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanPipelineManager.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.h" />
     <ClInclude Include="Engine\Core\Window.h" />
+    <ClInclude Include="tiny_obj_loader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

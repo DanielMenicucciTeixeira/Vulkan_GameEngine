@@ -1,5 +1,4 @@
-﻿  CoreEngine.cpp
+﻿  Source.cpp
 C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.h(54,108): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\Game.h(42,117): warning C4042: 'function': has bad storage class
-C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Core\CoreEngine.cpp(185,119): warning C4042: 'function': has bad storage class
+C:\Dev\Vulkan_Engine\Vulkan_GameEngine\Engine\Geometry\Simplex.h(24,1): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   Vulkan_GameEngine.vcxproj -> C:\Dev\Vulkan_Engine\Vulkan_GameEngine\x64\Debug\Vulkan_GameEngine.exe

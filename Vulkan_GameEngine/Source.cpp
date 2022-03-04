@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
 
 	CoreEngine::GetInstance()->SetGameInterface(new SceneManager);
 
-	if (!CoreEngine::GetInstance()->Initialize("Window", VULKAN))
+	if (!CoreEngine::GetInstance()->Initialize("Window", OPEN_GL))
 	{
 		printf("Failed to create Engine!");
 		return 0;

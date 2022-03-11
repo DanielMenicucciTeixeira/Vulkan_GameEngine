@@ -257,3 +257,9 @@ LevelGraph::~LevelGraph()
 {
 	CleanUp();
 }
+
+ostream& operator<<(ostream& out, const O_Object& obj)
+{
+	out << obj << endl;
+	return out;
+}

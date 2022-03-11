@@ -10,6 +10,11 @@
 #include "../Math/FMatrix4.h"
 #include "Renderers/Materials/Material.h"
 
+#include <fstream>
+#include <iostream>
+
+using namespace std;
+
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
 
@@ -98,6 +103,8 @@ public:
 	inline const std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
+
+	friend ostream& operator<<(ostream& out, const O_Object& obj);
 
 	void CleanUp();
 

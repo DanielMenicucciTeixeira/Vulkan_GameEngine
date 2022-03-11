@@ -48,8 +48,9 @@ void C_SphereCollider::Update(const float deltaTime)
 
 void C_SphereCollider::PostUpdate(float deltaTime)
 {
-	CollisionHandler::GetInstance()->SphereSpatialCheck(this);
-
+	if (GetIsStatic()) {
+		CollisionHandler::GetInstance()->SphereSpatialCheck(this);
+	}
 }
 
 //bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const

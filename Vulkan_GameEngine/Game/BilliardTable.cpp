@@ -4,7 +4,7 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Geometry/Box.h"
 
-GO_BilliardTable::GO_BilliardTable(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_BilliardTable::GO_BilliardTable(std::string name) : O_GameObject(name)
 {
 	Name = "Table";
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();

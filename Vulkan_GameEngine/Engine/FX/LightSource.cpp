@@ -3,7 +3,7 @@
 #include "Math/FVector3.h"
 #include "Level.h"
 
-GO_LightSource::GO_LightSource(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_LightSource::GO_LightSource(std::string name) : O_GameObject(name)
 {
 	Light = AddComponentOfClass<C_LightSourceComponent>();
 	RemoveComponent(Root);

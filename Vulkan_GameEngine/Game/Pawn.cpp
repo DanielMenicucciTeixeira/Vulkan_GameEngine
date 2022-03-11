@@ -15,7 +15,7 @@
 #include <iostream>
 #include <SDL.h>
 
-GO_Pawn::GO_Pawn(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_Pawn::GO_Pawn(std::string name) : O_GameObject(name)
 {
 
 	/*Mesh = AddComponentOfClass<C_StaticMeshComponent>();

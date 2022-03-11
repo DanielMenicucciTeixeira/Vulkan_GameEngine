@@ -10,7 +10,7 @@ protected:
 	class C_MovementComponent* Movement = nullptr;
 	class C_MeshCollision* Collider = nullptr;
 public:
-	GO_Tetrahedron(L_Level* level = nullptr, std::string name = "");
+	GO_Tetrahedron(std::string name = "");
 	virtual ~GO_Tetrahedron();
 
 	virtual void Update(float deltaTime) override;

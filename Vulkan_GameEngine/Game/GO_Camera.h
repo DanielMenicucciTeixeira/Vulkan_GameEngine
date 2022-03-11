@@ -9,7 +9,7 @@ class C_MovementComponent;
 class GO_Camera : public O_GameObject
 {
 public:
-	GO_Camera(L_Level* level, std::string name = "");
+	GO_Camera(std::string name = "");
 	virtual void Start();
 	inline C_CameraComponent* GetCamera() const { return Camera; }
 

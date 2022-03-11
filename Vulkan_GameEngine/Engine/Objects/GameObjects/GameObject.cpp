@@ -7,12 +7,13 @@
 #include "Level.h"
 #include "LevelGraph.h"
 
-O_GameObject::O_GameObject(L_Level* level, std::string name) : O_Object(name)
+O_GameObject::O_GameObject(std::string name, bool isStatic) : O_Object(name)
 {
-	Level = level;
 	Components.clear();
 
 	Root = AddComponentOfClass<C_TransformComponent>();
+
+	Root->IsStatic = isStatic;
 }
 
 O_GameObject::~O_GameObject()
@@ -93,4 +94,9 @@ void O_GameObject::RemoveComponent(O_Component* component)
 	if (!component || !Components.count(component)) return;
 	Components.erase(component);
 	delete(component);
+}
+
+bool O_GameObject::GetIsStatic()
+{
+	 return GetRoot()->GetIsStatic(); 
 }

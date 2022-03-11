@@ -34,7 +34,7 @@ void C_MovementComponent::Translate(FVector3 translation_)
 	}
 }
 
-void C_MovementComponent::Rotate(FVector3 rotation_)
+void C_MovementComponent::Rotate(FQuaternion rotation_)
 {
 	if (!Owner->GetRoot()->GetIsStatic()) {
 		Owner->SetRotation(Owner->GetRotation() + rotation_);

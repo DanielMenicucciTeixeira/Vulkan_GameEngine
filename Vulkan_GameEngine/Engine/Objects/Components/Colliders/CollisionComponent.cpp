@@ -172,9 +172,18 @@ void C_CollisionComponent::Update(const float deltaTime)
 	C_TransformComponent::Update(deltaTime);
 }
 
-C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner)
+C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, IsStatic)
 {
 	CollisionType = collisionType;
+
+	//This is done this way so that all collider do not have to have a game object attached to them (as just passing in 
+	//owner->GetIsStatic() would throw an error if owner was null.)
+
+	//TODO: Would this be done before or after the other constructor call? if after need to change somethings.
+	if (owner != nullptr) {
+		IsStatic = owner->GetIsStatic();
+	}
+	else { IsStatic = true; }
 
 	//TODO: Collider must be added to partition throught the handler
 	//Owner->GetLevel()->AddCollider(this);

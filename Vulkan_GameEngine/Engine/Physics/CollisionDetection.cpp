@@ -222,6 +222,15 @@ bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
 	return distance < (a.radius + b.radius);
 }
 
+float CollisionDetection::SphereIntersectionDistance(Sphere a, Sphere b)
+{
+	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
+		(a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
+		(a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
+
+	return distance;
+}
+
 bool CollisionDetection::AABBIntersection(S_BoxBounds a, S_BoxBounds b)
 {
 	//TODO://Add in point of collision

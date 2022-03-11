@@ -6,7 +6,7 @@
 class GO_DirectionalLight : public GO_LightSource
 {
 public:
-	GO_DirectionalLight(L_Level* level, std::string name = "");
+	GO_DirectionalLight(std::string name = "");
 	void SetLightType(E_LightType type)  = delete;
 };
 #endif

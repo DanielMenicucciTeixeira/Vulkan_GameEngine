@@ -50,7 +50,9 @@ void C_BoundingBox::Update(float deltaTime)
 
 void C_BoundingBox::PostUpdate(float deltaTime)
 {
-	CollisionHandler::GetInstance()->AABBSpatialCheck(this);
+	if (!GetIsStatic()) {
+		CollisionHandler::GetInstance()->AABBSpatialCheck(this);
+	}
 }
 
 FVector3 C_BoundingBox::GetMin()

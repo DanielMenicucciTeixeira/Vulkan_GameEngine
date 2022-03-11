@@ -10,7 +10,8 @@
 
 unsigned int OctNode::ChildrenCount = 0;
 
-OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), Colliders(std::vector<C_CollisionComponent*>()), Empty(true)
+OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nullptr), Parent(nullptr), Children(), 
+AABBColliders(std::vector<C_BoundingBox*>()), SphereColliders(std::vector<C_SphereCollider*>()), OBBColliders(std::vector<C_BoxCollider*>()), Empty(true)
 {
 	Size = size;
 	Parent = parent;
@@ -20,7 +21,11 @@ OctNode::OctNode(FVector3 position, float size, OctNode* parent) : OctBounds(nul
 	OctBounds->Max = position + FVector3(size);
 
 	for (int i = 0; i < CHILDREN_NUMBER; i++) Children[i] = nullptr;
-	if (IsLeaf()) Colliders.reserve(10);
+	if (IsLeaf()) {
+		AABBColliders.reserve(10);
+		SphereColliders.reserve(10);
+		OBBColliders.reserve(10);
+	}
 }
 
 OctNode::~OctNode()
@@ -28,8 +33,14 @@ OctNode::~OctNode()
 	delete(OctBounds);
 	OctBounds = nullptr;
 
-	if (Colliders.size()) for (auto element : Colliders) element = nullptr;
-	Colliders.clear();
+	if (AABBColliders.size()) for (auto element : AABBColliders) element = nullptr;
+	AABBColliders.clear();
+
+	if (SphereColliders.size()) for (auto element : SphereColliders) element = nullptr;
+	SphereColliders.clear();
+
+	if (OBBColliders.size()) for (auto element : OBBColliders) element = nullptr;
+	OBBColliders.clear();
 
 	if (!IsLeaf()) for (int i = 0; i < CHILDREN_NUMBER; i++)
 	{
@@ -60,9 +71,25 @@ void OctNode::Octify(unsigned int depth)
 	}
 }
 
-void OctNode::RemoveCollider(C_CollisionComponent* element)
+void OctNode::RemoveCollider(C_BoundingBox* element)
 {
-	Colliders.erase(std::find(Colliders.begin(), Colliders.end(), element));
+	AABBColliders.erase(std::find(AABBColliders.begin(), AABBColliders.end(), element));
+
+	ColliderCount--;
+}
+
+void OctNode::RemoveCollider(C_SphereCollider* element)
+{
+	SphereColliders.erase(std::find(SphereColliders.begin(), SphereColliders.end(), element));
+
+	ColliderCount--;
+}
+
+void OctNode::RemoveCollider(C_BoxCollider* element)
+{
+	OBBColliders.erase(std::find(OBBColliders.begin(), OBBColliders.end(), element));
+
+	ColliderCount--;
 }
 
 S_BoxBounds OctNode::GetBoundingBox() const
@@ -121,12 +148,16 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Ray& ray)
 
 
 	for (auto cell : GetCollidingNodes(ray)) {
-		for (auto coll : cell->GetColliders()) {
+		for (auto& coll : cell->GetAABBColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetSphereColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetOBBColliders()) {
 			intersectionList.push_back(coll);
 		}
 	}
-
-
 	return intersectionList;
 }
 
@@ -140,7 +171,13 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Sphere& sph
 	intersectionList.reserve(20);
 
 	for (auto cell : GetCollidingNodes(sphere)) {
-		for (auto coll : cell->GetColliders()) {
+		for (auto coll : cell->GetAABBColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetSphereColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetOBBColliders()) {
 			intersectionList.push_back(coll);
 		}
 	}
@@ -158,7 +195,13 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_BoxBounds
 	intersectionList.reserve(20);
 
 	for (auto cell : GetCollidingNodes(bounds)) {
-		for (auto coll : cell->GetColliders()) {
+		for (auto coll : cell->GetAABBColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetSphereColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetOBBColliders()) {
 			intersectionList.push_back(coll);
 		}
 	}
@@ -176,7 +219,13 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Box& box)
 	intersectionList.reserve(20);
 
 	for (auto cell : GetCollidingNodes(box)) {
-		for (auto coll : cell->GetColliders()) {
+		for (auto coll : cell->GetAABBColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetSphereColliders()) {
+			intersectionList.push_back(coll);
+		}
+		for (auto& coll : cell->GetOBBColliders()) {
 			intersectionList.push_back(coll);
 		}
 	}
@@ -218,17 +267,6 @@ void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 		collider->SetCurrentNode(cell);
 	}
 	cell = nullptr;
-}
-
-void OctSpatialPartition::Update(const float deltaTime_)
-{
-	for (auto leaves : GetActiveLeaves()) {
-		for (int i = 0; i < leaves->GetColliderCount(); i++) {
-			for (int j = i + 1; j < leaves->GetColliderCount(); j++) {
-				//if(CollisionDetection::Collision(leaves->Colliders[i], leaves->Colliders[j])
-			}
-		}
-	}
 }
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const

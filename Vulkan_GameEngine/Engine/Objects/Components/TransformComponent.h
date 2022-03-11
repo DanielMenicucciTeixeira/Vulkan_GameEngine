@@ -43,6 +43,10 @@ protected:
 
 private:
 	bool IsStatic;
+
+
+	//I don't like this but it allows for GameObject to set if its static on creation which facilitates a bunch of other things.
+	friend O_GameObject;
 };
 
 #endif

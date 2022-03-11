@@ -5,7 +5,7 @@
 #include "Renderers/RenderObject.h"
 #include "Math/FQuaternion.h"
 
-GO_Apple::GO_Apple(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_Apple::GO_Apple(std::string name) : O_GameObject(name)
 {
 	FruitMesh = AddComponentOfClass<C_StaticMeshComponent>();
 	FruitMesh->SetMeshName("GeoSphere");

@@ -6,23 +6,25 @@
 class O_GameObject;
 
 class FMatrix;
-//class FVector3;
 class C_StaticMeshComponent;
+class C_BoundingBox;
+class C_SphereCollider;
+class C_BoxCollider;
 
 
-class C_PhysicsComponent : public O_Component
+class C_PhysicsComponent : public C_MovementComponent
 {
 
 private:
 	FVector3 acceleration;
-	FVector3 velocity;
 	FVector3 angularAcceleration;
 	FVector3 angularVelocity;
 
 	FVector3 accelerationBuffer;
-	FVector3 velocityBuffer;
 	FVector3 angularAccelerationBuffer;
 	FVector3 angularVelocityBuffer;
+
+	float Mass;
 
 protected:
 
@@ -36,7 +38,6 @@ protected:
 	bool UseCenterOfMass;
 
 public:
-	float Mass;
 	float AngularInertia;
 	FVector3 GetCenterOfMass();
 	C_PhysicsComponent(O_GameObject* owner, float mass = 1.0f, bool useCenterOfMass = false, float angularInertia = 1.0f, bool useCalculatedAngularIntertia = false);
@@ -57,6 +58,7 @@ public:
 	void SetVelocity(FVector3 velocity_);
 	void SetAngularAcceleration(FVector3 angularAcceleration_);
 	void SetAngularVelocity(FVector3 angularVelocity_);
+	void SetMass(float mass);
 
 	//Getters
 
@@ -64,7 +66,29 @@ public:
 	FVector3 GetVelocity();
 	FVector3 GetAngularAcceleration();
 	FVector3 GetAngularVelocity();
+	float GetMass();
 
-	bool IsStatic();
+
+	//Physics Response. If the other object does not have physics values ausumed to be 0.
+
+	//AABB v AABB
+	void AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2);
+	
+	//AABB v Sphere
+	void AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollider* coll2);
+
+
+	//AABB v OBB
+	void AABBOBBResponse(C_BoundingBox* coll1, C_BoxCollider* coll2);
+
+	
+	//Sphere v Sphere
+	void SphereSphereResponse(C_SphereCollider* coll1, C_SphereCollider* coll2);
+
+	//Sphere v OBB
+
+
+	//OBB v OBB
+	void OBBResponse(C_BoxCollider* coll1, C_BoxCollider* coll2);
 };
 #endif

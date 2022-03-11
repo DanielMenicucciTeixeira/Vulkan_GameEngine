@@ -5,7 +5,7 @@
 #include "Math/FQuaternion.h"
 #include "Objects/Components/MeshCollision.h"
 
-GO_Tetrahedron::GO_Tetrahedron(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("tetrahedron");

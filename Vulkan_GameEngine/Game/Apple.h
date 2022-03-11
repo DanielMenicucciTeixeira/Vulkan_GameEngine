@@ -9,7 +9,7 @@ class C_MovementComponent;
 class GO_Apple : public O_GameObject
 {
 public:
-	GO_Apple(L_Level* level, std::string name = "");
+	GO_Apple(std::string name = "");
 	virtual ~GO_Apple();
 	virtual void Start() override;
 	C_StaticMeshComponent* FruitMesh;

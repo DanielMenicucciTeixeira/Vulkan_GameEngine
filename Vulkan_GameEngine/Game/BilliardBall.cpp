@@ -29,7 +29,7 @@ void GO_BilliardBall::BounceOnBall(GO_BilliardBall* otherBall, FVector3 pointOfI
 	FVector3 distance = (GetPosition() - otherBall->GetPosition());
 	FVector3 force =
 		(
-			  (distance) * (2 * otherBall->Physics->Mass / (Physics->Mass + otherBall->Physics->Mass))
+			  (distance) * (2 * otherBall->Physics->GetMass() / (Physics->GetMass() + otherBall->Physics->GetMass()))
 			* ((Physics->GetVelocity() - otherBall->Physics->GetVelocity()) * (distance))
 			/ pow((distance).Length(), 2)
 		) * -1.0f;
@@ -57,7 +57,7 @@ void GO_BilliardBall::Update(float deltaTime)
 	FPhysicsLib::AddForce(Physics, (Physics->GetVelocity() * -Drag * deltaTime), GetPosition() + (FVector3(0.0f, 0.0f, -1.0f) * Collider->GetRadius()));
 }
 
-GO_BilliardBall::GO_BilliardBall(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_BilliardBall::GO_BilliardBall(std::string name) : O_GameObject(name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("SphereMesh");

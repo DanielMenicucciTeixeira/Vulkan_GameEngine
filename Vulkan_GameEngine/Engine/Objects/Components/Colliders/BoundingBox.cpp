@@ -48,6 +48,13 @@ void C_BoundingBox::Update(float deltaTime)
 	boxBounds.Model = GetComponentModelMatrix();
 }
 
+void C_BoundingBox::PostUpdate(float deltaTime)
+{
+	if (!GetIsStatic()) {
+		CollisionHandler::GetInstance()->AABBSpatialCheck(this);
+	}
+}
+
 FVector3 C_BoundingBox::GetMin()
 {
 	//FVector4 temp = Transform->GetModelMatrix() * FVector4(BoxBounds.Min.X, BoxBounds.Min.Y, BoxBounds.Min.Z, 1.0f);

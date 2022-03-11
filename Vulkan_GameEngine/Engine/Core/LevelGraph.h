@@ -77,7 +77,6 @@ public:
 	void AddObject(O_Object* gameObject);
 	void RemoveObjectFromTagList(O_Object* gameObject, std::string tag);
 	void AddObjectToTagList(O_Object* gameObject, std::string tag);
-	void SetActiveCamera(C_CameraComponent* camera);
 	void FrameBufferResizeCallback();
 
 	void AddMesh(S_Mesh* mesh);
@@ -88,6 +87,15 @@ public:
 	void AddMaterial(Material* material);
 	void AddLight(FMatrix4*& matrix, unsigned int& index);
 	void RemoveLight(unsigned int index);
+
+	//Camera
+
+	//TODO:Should we add a remove function.
+	void AddCamera(C_CameraComponent* camera);
+	void SetActiveCamera(C_CameraComponent* camera);
+	std::vector<C_CameraComponent*> GetCameraComponents();
+	
+	//Getters
 
 	inline std::unordered_map<std::string, S_Mesh*>& GetMeshes() { return MeshesByName; }
 	inline std::unordered_map<std::string, Material*>& GetMaterials() { return MaterialsByName; }
@@ -124,7 +132,7 @@ protected:
 	std::map<std::string, O_Object*> GameObjectsByName;
 	static std::map<std::string, std::set<O_Object*>> GameObjectsByTag;
 	static std::map<size_t, std::set<O_Object*>> GameObjectsByClass;
-    C_CameraComponent* ActiveCamera;
+
 
 	S_RenderData RenderData;
 	std::set<C_StaticMeshComponent*> StaticMehes;
@@ -135,6 +143,9 @@ private:
 	~LevelGraph();
 
 	bool isPaused;
+
+	C_CameraComponent* ActiveCamera;
+	std::vector<C_CameraComponent*> CameraList;
 
 	friend class L_Level;
 };

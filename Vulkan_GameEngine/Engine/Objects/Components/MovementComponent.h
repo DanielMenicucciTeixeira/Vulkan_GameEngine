@@ -15,8 +15,8 @@ class C_MovementComponent : public O_Component
 protected:
 	bool AlwaysFaceForward;
 
-	FVector3 Velocity;
-	FVector3 Buffer_Velocity;
+	FVector3 velocity;
+	FVector3 velocityBuffer;
 
 
 public:
@@ -27,7 +27,7 @@ public:
 
 	void Translate(FVector3 translation_);
 
-	void Rotate(FVector3 rotation_);
+	void Rotate(FQuaternion rotation_);
 };
 #endif
 

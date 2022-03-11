@@ -11,7 +11,7 @@ class FVector2;
 class GO_Pawn : public O_GameObject
 {
 public:
-	GO_Pawn(L_Level* level = nullptr, std::string name = "");
+	GO_Pawn(std::string name = "");
 	virtual ~GO_Pawn();
 	C_CameraComponent* Camera;
 	C_MovementComponent* Movement;

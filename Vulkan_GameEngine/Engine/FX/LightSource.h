@@ -11,7 +11,7 @@ enum E_LightType;
 class GO_LightSource : public O_GameObject
 {
 public:
-	GO_LightSource(L_Level* level = nullptr, std::string name = "");
+	GO_LightSource(std::string name = "");
 	virtual ~GO_LightSource();
 
 	float GetAmbientMultiplier() const;

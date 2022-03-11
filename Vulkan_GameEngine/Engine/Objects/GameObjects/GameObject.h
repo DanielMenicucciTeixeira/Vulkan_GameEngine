@@ -12,16 +12,16 @@ class FQuaternion;
 class O_Component;
 struct FTransform;
 class C_TransformComponent;
-class L_Level;
 class LevelGraph;
 
 class O_GameObject : public O_Object
 {
 public:
-	O_GameObject(L_Level* level = nullptr, std::string name = "");
+	O_GameObject(std::string name = "", bool isStatic = false);
 	~O_GameObject();
 
 	virtual void Update(float deltaTime) override;
+	virtual void PostUpdate(float deltaTime) override;
 	virtual void Start() override;
 
 	///Gettters
@@ -56,6 +56,21 @@ public:
 		return component;
 	}
 
+	//Used to get one component of a class
+	template<class componentClass>
+	componentClass* GetComponentOfClass() {
+		for (const auto& component : Components) {
+			if (componentClass* ptr = dynamic_cast<componentClass*>(component))
+			{
+				return ptr;
+			}
+		}
+		DebugLogger::Error("Component does not exist", "GameObject.h", __LINE__);
+		return nullptr;
+	}
+
+
+	//Used to get all components of a class
 	template<class componentClass>
 	std::set<componentClass*> GetComponentsOfClass()//TODO add assert function
 	{
@@ -65,6 +80,9 @@ public:
 	}
 
 	void RemoveComponent(O_Component* component);
+
+	//Assistant functions for static implementation
+	bool GetIsStatic();
 
 protected:
 	C_TransformComponent* Root = nullptr;

@@ -20,6 +20,7 @@ public:
 	Sphere GetCollisionSphere();
 
 	void Update(const float deltaTime) override;
+	virtual void PostUpdate(float deltaTime) override;
 
 	//bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 

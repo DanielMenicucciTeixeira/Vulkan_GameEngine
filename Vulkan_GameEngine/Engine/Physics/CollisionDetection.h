@@ -43,6 +43,9 @@ public:
 	//Sphere & Sphere collision
 	static bool SphereIntersection(Sphere a, Sphere b);
 
+	//Sphere & Sphere collision w/ distance return
+	static float SphereIntersectionDistance(Sphere a, Sphere b);
+
 	//Sphere & BoundingBox collision
 	static bool SphereAABBIntersection(Sphere a, const S_BoxBounds b);
 

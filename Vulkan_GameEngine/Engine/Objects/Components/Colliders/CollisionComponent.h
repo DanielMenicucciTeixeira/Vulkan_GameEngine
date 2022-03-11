@@ -13,7 +13,6 @@ class Sphere;
 class Box;
 class FVector3;
 class Plane;
-class C_BoundingBox;
 class O_GameObject;
 class OctNode;
 
@@ -85,5 +84,9 @@ private:
 	ColliderType colliderType;
 
 	OctNode* CurrentNode;
+
+
+	//Facilitator for passing in wheither or not this is static.
+	bool IsStatic;
 };
 #endif

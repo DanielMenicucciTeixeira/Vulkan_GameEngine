@@ -3,6 +3,8 @@
 #include "Objects/Components/Colliders/BoundingBox.h"
 #include "Objects/Components/Colliders/SphereCollider.h"
 #include "Objects/Components/Colliders/BoxCollider.h"
+#include "Objects/GameObjects/GameObject.h"
+#include "Objects/Components/PhysicsComponent.h"
 #include "Geometry/Ray.h"
 #include "Geometry/Box.h"
 #include "Physics/CollisionDetection.h"
@@ -49,9 +51,91 @@ void CollisionHandler::OnCreate(float worldSize, float depth)
 	scenePartition = new OctSpatialPartition(worldSize, depth);
 }
 
+//TODO: Fill out how response occurs / is this a better way then the cast system?
+//TODO: Also need to integrate the on collision, and on overlap system with this.
 void CollisionHandler::Update(float deltaTime_)
 {
-	scenePartition->Update(deltaTime_);
+	int vecLoc = 0;
+
+	//AABB Collision
+	for (auto leaves : scenePartition->GetActiveLeaves()) {
+		for (auto& coll1 : leaves->GetAABBColliders()) {
+			if (coll1->GetIsStatic()) { return; }
+
+			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+			//Check AABB v AABB
+			for (int j = vecLoc + 1; j < leaves->GetAABBCount(); j++) {
+				if (CollisionDetection::AABBIntersection(coll1->GetBoxBounds(), leaves->GetAABBColliders()[j]->GetBoxBounds()))
+				{
+					physicsComp->AABBResponse(coll1, leaves->GetAABBColliders()[j]);
+				}
+			}
+			vecLoc++;
+
+			//Check AABB v Sphere
+			for (auto& coll2 : leaves->GetSphereColliders()) {
+				if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
+				{
+
+				}
+			}
+
+			//Check AABB v OBB
+			for (auto& coll2 : leaves->GetOBBColliders()) {
+				if (CollisionDetection::AABBOBBIntersection(coll1->GetBoxBounds(), coll2->GetCollisionBox()))
+				{
+
+				}
+			}
+
+			physicsComp = nullptr;
+		}
+
+		vecLoc = 0;
+
+		//Sphere Collision
+		for (auto& coll1 : leaves->GetSphereColliders()) {
+			if (coll1->GetIsStatic()) { return; }
+
+			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+			//Check Sphere v Sphere
+			for (int j = vecLoc + 1; j < leaves->GetSphereCount(); j++) {
+				if (CollisionDetection::SphereIntersection(coll1->GetCollisionSphere(), leaves->GetSphereColliders()[j]->GetCollisionSphere())) {
+					physicsComp->SphereSphereResponse(coll1, leaves->GetSphereColliders()[j]);
+				}
+			}
+			vecLoc++;
+
+			//Check Sphere v OBB
+			for (auto& coll2 : leaves->GetOBBColliders()) {
+				if (CollisionDetection::SphereOBBIntersection(coll1->GetCollisionSphere(), coll2->GetCollisionBox())) {
+
+				}
+			}
+
+			physicsComp = nullptr;
+		}
+
+		vecLoc = 0;
+
+		//OBB Collision
+		for (auto& coll1 : leaves->GetOBBColliders()) {
+			if (coll1->GetIsStatic()) { return; }
+
+			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+			//Check OBB v OBB
+			for (int j = vecLoc + 1; j < leaves->GetOBBCount(); j++) {
+				if (CollisionDetection::OBBIntersection(coll1->GetCollisionBox(), leaves->GetOBBColliders()[j]->GetCollisionBox())) {
+
+				}
+			}
+			vecLoc++;
+			physicsComp = nullptr;
+		}
+	}
 }
 
 S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)

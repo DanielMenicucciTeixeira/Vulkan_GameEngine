@@ -42,7 +42,7 @@ public:
 	objectClass* SpawnGameObjectOfClass(FTransform transform = FTransform(), std::string name = "")
 	{
 		static_assert(std::is_base_of<O_GameObject, objectClass>::value, "objectClass must derive from O_GameObject!");
-		objectClass* gameObject = new objectClass(this, name);
+		objectClass* gameObject = new objectClass(name);
 		if (!dynamic_cast<O_GameObject*>(gameObject))
 		{
 			DebugLogger::Error("Invalid GameObject class: " + std::string(typeid(gameObject).name()), "Core/Level.h", __LINE__);

@@ -39,21 +39,37 @@ public:
 	inline OctNode* GetParent() const { return Parent; }
 	inline OctNode* GetChild(EOctChildren childPostion) const { return Children[static_cast<int>(childPostion)]; }
 
-	inline void AddCollider(C_CollisionComponent* element) { Colliders.push_back(element); }
-	void RemoveCollider(C_CollisionComponent* element);
+	inline void AddCollider(C_BoundingBox* element) { AABBColliders.push_back(element); ColliderCount++; }
+	inline void AddCollider(C_SphereCollider* element) { SphereColliders.push_back(element); ColliderCount++; }
+	inline void AddCollider(C_BoxCollider* element) { OBBColliders.push_back(element); ColliderCount++; }
+	void RemoveCollider(C_BoundingBox* element);
+	void RemoveCollider(C_SphereCollider* element);
+	void RemoveCollider(C_BoxCollider* element);
 
-	inline std::vector<C_CollisionComponent*> GetColliders() { return Colliders; }
+	inline std::vector<C_BoundingBox*> GetAABBColliders() { return AABBColliders; }
+	inline std::vector<C_SphereCollider*> GetSphereColliders() { return SphereColliders; }
+	inline std::vector<C_BoxCollider*> GetOBBColliders() { return OBBColliders; }
+	inline int GetColliderCount() { return ColliderCount; }
+	inline int GetAABBCount() { return AABBColliders.size(); }
+	inline int GetSphereCount() { return SphereColliders.size(); }
+	inline int GetOBBCount() { return OBBColliders.size(); }
 	inline static const unsigned int& GetChildrenCount() { return ChildrenCount; };
 	inline bool IsLeaf() const { return Children[0] == nullptr; }
 	S_BoxBounds GetBoundingBox() const;
-	inline const bool IsEmpty() const { return Colliders.empty(); }
+	inline const bool IsEmpty() const { return (AABBColliders.empty() && SphereColliders.empty() && OBBColliders.empty()); }
 
 private:
 	friend class OctSpatialPartition;
 	S_BoxBounds* OctBounds;
 	OctNode* Parent;
 	OctNode* Children[CHILDREN_NUMBER];
-	std::vector <C_CollisionComponent*> Colliders;
+
+
+	//This is done instead of a single vector as a memory trade for faster Update calls due to removeing the need for a switch and cast.
+	std::vector <C_BoundingBox*> AABBColliders;
+	std::vector <C_SphereCollider*> SphereColliders;
+	std::vector <C_BoxCollider*> OBBColliders;
+	float ColliderCount;
 	float Size;
 	bool Empty;
 
@@ -86,10 +102,6 @@ public:
 	void UpdateColliderNode(C_BoxCollider* collider);
 
 	inline OctNode* GetRoot() { return root; }
-
-	//Does collision detection on every node.
-	//TODO: Improve this so that it only needs to go through handlers and will just give back the sets as needed.
-	void Update(const float deltaTime_);
 
 protected:
 	void GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const;

@@ -192,7 +192,7 @@
     <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\GO_Camera.cpp">
+    <ClCompile Include="Engine\Objects\GameObjects\GO_Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Engine\FX\LightSourceComponent.cpp">
@@ -449,7 +449,7 @@
     <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GO_Camera.h">
+    <ClInclude Include="Engine\Objects\GameObjects\GO_Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Engine\FX\LightSourceComponent.h">

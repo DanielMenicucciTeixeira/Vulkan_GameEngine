@@ -119,7 +119,7 @@ bool L_Level::LoadCamera(C_CameraComponent* camera)
 		DebugLogger::Error("No valid CameraFound!", "Core/Level.cpp", __LINE__);
 		return false;
 	}
-	LevelGraph::GetInstance()->SetActiveCamera(camera);
+	//LevelGraph::GetInstance()->SetActiveCamera(camera);
 	return true;
 }
 
@@ -157,14 +157,14 @@ bool L_Level::CheckForCamera()
 	if (NextCamera)
 	{
 		if (ChangeCamera()) return true;
-		else if (LevelGraph::GetInstance()->ActiveCamera) return true;
+		else if (LevelGraph::GetInstance()->GetActiveCamera()) return true;
 		else
 		{
 			DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
 			return false;
 		}
 	}
-	else if (!LevelGraph::GetInstance()->ActiveCamera)
+	else if (!LevelGraph::GetInstance()->GetActiveCamera())
 	{
 		if (FindAnyCamera() && ChangeCamera()) return true;
 		else

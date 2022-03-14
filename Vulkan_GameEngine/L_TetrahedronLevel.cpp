@@ -6,7 +6,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/Renderer.h"
 #include "Math/FQuaternion.h"
-#include "GO_Camera.h"
+#include "Objects/GameObjects/GO_Camera.h"
 #include "FX/LightSource.h"
 #include "FX/DirectionalLight.h"
 #include "Graphics/AssetLoader.h"
@@ -76,7 +76,10 @@ void L_TetrahedronLevel::Start()
 	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
 	sun->SetTurnedOn(true);
 
-	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+
+	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	//LevelGraph::GetInstance()->AddCamera(GO_Camera("Camera1", (FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)))));
+	//LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetAllCameras()[0]);
 	L_Level::Start();
 }
 

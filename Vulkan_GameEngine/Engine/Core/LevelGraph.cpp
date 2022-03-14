@@ -7,6 +7,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Objects/GameObjects/GO_Camera.h"
 #include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
 
@@ -147,19 +148,18 @@ void LevelGraph::RemoveLight(unsigned int index)
 	FreeLightSlots.insert(index);
 }
 
-void LevelGraph::AddCamera(C_CameraComponent* camera)
+void LevelGraph::AddCamera(GO_Camera camera)
 {
 	CameraList.push_back(camera);
 }
 
-void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
-
+void LevelGraph::SetActiveCamera(GO_Camera camera)
 {
-	ActiveCamera = camera;
-	RenderData.Camera = camera->GetUCO();
+	ActiveCamera = camera.GetCamera();
+	RenderData.Camera = camera.GetCamera()->GetUCO();
 }
 
-std::vector<C_CameraComponent*> LevelGraph::GetCameraComponents()
+std::vector<GO_Camera> LevelGraph::GetAllCameras()
 {
 	return CameraList;
 }

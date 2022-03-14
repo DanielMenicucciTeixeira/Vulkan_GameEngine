@@ -24,6 +24,7 @@ class C_RenderableComponent;
 class C_StaticMeshComponent;
 class C_CameraComponent;
 class C_CollisionComponent;
+class GO_Camera;
 class OctNode;
 struct S_Mesh;
 struct S_Material;
@@ -91,9 +92,9 @@ public:
 	//Camera
 
 	//TODO:Should we add a remove function.
-	void AddCamera(C_CameraComponent* camera);
-	void SetActiveCamera(C_CameraComponent* camera);
-	std::vector<C_CameraComponent*> GetCameraComponents();
+	void AddCamera(GO_Camera camera);
+	void SetActiveCamera(GO_Camera camera);
+	std::vector<GO_Camera> GetAllCameras();
 	
 	//Getters
 
@@ -145,9 +146,7 @@ private:
 	bool isPaused;
 
 	C_CameraComponent* ActiveCamera;
-	std::vector<C_CameraComponent*> CameraList;
-
-	friend class L_Level;
+	std::vector<GO_Camera> CameraList;
 };
 #endif
 

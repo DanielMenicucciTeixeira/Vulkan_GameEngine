@@ -4,7 +4,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/Renderer.h"
 #include "Math/FQuaternion.h"
-#include "GO_Camera.h"
+#include "Objects/GameObjects/GO_Camera.h"
 #include "FX/LightSource.h"
 #include "FX/DirectionalLight.h"
 #include "Graphics/AssetLoader.h"

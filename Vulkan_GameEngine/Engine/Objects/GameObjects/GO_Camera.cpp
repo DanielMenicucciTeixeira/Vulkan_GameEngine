@@ -5,7 +5,7 @@
 
 GO_Camera::GO_Camera(std::string name, FTransform transform) : O_GameObject(name)
 {
-	Camera = AddComponentOfClass<C_CameraComponent>();
+	Camera = new C_CameraComponent(this);
 	Camera->SetComponentTransform(transform);
 	SetTransform(transform);
 }

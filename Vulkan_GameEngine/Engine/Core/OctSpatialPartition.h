@@ -117,10 +117,10 @@ private:
 	std::vector<OctNode*> GetCollidingNodes(Box box);
 
 	//Query functions for GetCollidingNodes
-	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> nodes);
-	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell, std::vector<OctNode*> nodes);
-	void GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell, std::vector<OctNode*> nodes);
-	void GetIntersectedLeaves(Box& box, OctNode* cell, std::vector<OctNode*> nodes);
+	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(Box& box, OctNode* cell, std::vector<OctNode*> &nodes);
 
 
 	void AddColliderToCell(C_BoundingBox* collider, OctNode* cell);

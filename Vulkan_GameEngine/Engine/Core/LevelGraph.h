@@ -9,6 +9,7 @@
 #include <string>
 #include "../Math/FMatrix4.h"
 #include "Renderers/Materials/Material.h"
+#include "Math/FTransform.h"
 
 #include <fstream>
 #include <iostream>
@@ -92,8 +93,8 @@ public:
 	//Camera
 
 	//TODO:Should we add a remove function.
-	void AddCamera(GO_Camera camera);
-	void SetActiveCamera(GO_Camera camera);
+	void AddCamera(std::string = "", FTransform transform = FTransform());
+	void SetActiveCamera(C_CameraComponent* camera);
 	std::vector<GO_Camera> GetAllCameras();
 	
 	//Getters

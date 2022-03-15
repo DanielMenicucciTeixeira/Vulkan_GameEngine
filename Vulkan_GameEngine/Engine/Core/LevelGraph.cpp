@@ -22,7 +22,9 @@ std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
 
 LevelGraph* LevelGraph::GetInstance()
 {
-	if (Instance.get() == nullptr) Instance.reset(new LevelGraph);
+	if (Instance.get() == nullptr) {
+		Instance.reset(new LevelGraph);
+	}
 	return Instance.get();
 }
 
@@ -148,15 +150,15 @@ void LevelGraph::RemoveLight(unsigned int index)
 	FreeLightSlots.insert(index);
 }
 
-void LevelGraph::AddCamera(GO_Camera camera)
+void LevelGraph::AddCamera(std::string name, FTransform transform)
 {
-	CameraList.push_back(camera);
+	CameraList.push_back(GO_Camera(name, transform));
 }
 
-void LevelGraph::SetActiveCamera(GO_Camera camera)
+void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 {
-	ActiveCamera = camera.GetCamera();
-	RenderData.Camera = camera.GetCamera()->GetUCO();
+	ActiveCamera = camera;
+	RenderData.Camera = camera->GetUCO();
 }
 
 std::vector<GO_Camera> LevelGraph::GetAllCameras()

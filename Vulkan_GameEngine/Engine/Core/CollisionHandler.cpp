@@ -138,6 +138,11 @@ void CollisionHandler::Update(float deltaTime_)
 	}
 }
 
+void CollisionHandler::AddCollider(C_CollisionComponent* comp)
+{
+	scenePartition->AddCollider(comp);
+}
+
 S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 {
 	S_CollisionData data;

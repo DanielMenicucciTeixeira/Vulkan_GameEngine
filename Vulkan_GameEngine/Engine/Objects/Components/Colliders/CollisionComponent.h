@@ -42,8 +42,12 @@ public:
 
 	void ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data);
 
-	void SetCurrentNode(OctNode* node);
-	OctNode* GetCurrentNode();
+	//Node Functions
+
+	void SetCurrentNodes(std::vector<OctNode*> nodes);
+	void SetCurrentNodes(OctNode* node);
+	std::vector<OctNode*> GetCurrentNodes();
+	inline void ClearNodes() { CurrentNodes.clear(); }
 
 	virtual void Update(const float deltaTime) override;
 
@@ -83,10 +87,6 @@ private:
 
 	ColliderType colliderType;
 
-	OctNode* CurrentNode;
-
-
-	//Facilitator for passing in wheither or not this is static.
-	bool IsStatic;
+	std::vector<OctNode*> CurrentNodes;
 };
 #endif

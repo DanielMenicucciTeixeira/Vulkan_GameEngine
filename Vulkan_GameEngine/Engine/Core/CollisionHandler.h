@@ -23,7 +23,7 @@ public:
 	//Use to do collision detection for all coliders
 	void Update(float deltaTime_);
 
-
+	void AddCollider(C_CollisionComponent* comp);
 
 	//Get closest collider
 	S_CollisionData GetCollisionSingleRay(Ray& ray);

@@ -11,6 +11,7 @@
 #include "Level.h"
 #include "LevelGraph.h"
 #include "OctSpatialPartition.h"
+#include "CollisionHandler.h"
 #include "../CameraComponent.h"
 
 
@@ -139,14 +140,20 @@ void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollid
 	/// 
 //}
 
-void C_CollisionComponent::SetCurrentNode(OctNode* node)
+void C_CollisionComponent::SetCurrentNodes(std::vector<OctNode*> node)
 {
-	CurrentNode = node;
+	CurrentNodes.clear();
+	CurrentNodes = node;
 }
 
-OctNode* C_CollisionComponent::GetCurrentNode()
+void C_CollisionComponent::SetCurrentNodes(OctNode* node)
 {
-	return CurrentNode;
+	CurrentNodes.push_back(node);
+}
+
+std::vector<OctNode*> C_CollisionComponent::GetCurrentNodes()
+{
+	return CurrentNodes;
 }
 
 void C_CollisionComponent::OnCollision(const S_CollisionData& data)
@@ -172,26 +179,17 @@ void C_CollisionComponent::Update(const float deltaTime)
 	C_TransformComponent::Update(deltaTime);
 }
 
-C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, IsStatic)
+C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic())
 {
 	CollisionType = collisionType;
+	CurrentNodes.reserve(5);
 
-	//This is done this way so that all collider do not have to have a game object attached to them (as just passing in 
-	//owner->GetIsStatic() would throw an error if owner was null.)
-
-	//TODO: Would this be done before or after the other constructor call? if after need to change somethings.
-	if (owner != nullptr) {
-		IsStatic = owner->GetIsStatic();
-	}
-	else { IsStatic = true; }
-
-	//TODO: Collider must be added to partition throught the handler
-	//Owner->GetLevel()->AddCollider(this);
+	CollisionHandler::GetInstance()->AddCollider(this);
 }
 
 C_CollisionComponent::~C_CollisionComponent()
 {
-	CurrentNode = nullptr;
+	CurrentNodes.clear();
 }
 
 FVector3 C_CollisionComponent::GetFurthestPoint(const FVector3& direction) const

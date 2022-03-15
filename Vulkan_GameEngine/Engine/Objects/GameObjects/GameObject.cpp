@@ -11,9 +11,7 @@ O_GameObject::O_GameObject(std::string name, bool isStatic) : O_Object(name)
 {
 	Components.clear();
 
-	Root = AddComponentOfClass<C_TransformComponent>();
-
-	Root->IsStatic = isStatic;
+	Root = new C_TransformComponent(this, isStatic);
 }
 
 O_GameObject::~O_GameObject()

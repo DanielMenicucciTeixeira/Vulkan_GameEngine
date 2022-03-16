@@ -105,8 +105,8 @@ void CoreEngine::Run()
 		PreUpdate(deltaTime);
 		HandleEvents();
 		Update(deltaTime);
-		Render();
 		PostUpdate(deltaTime);
+		Render();
 		SDL_Delay(EngineClock.GetSleepTime(FramesPerSecond));
 	}
 	CleanUp();

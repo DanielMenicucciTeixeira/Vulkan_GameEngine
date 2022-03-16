@@ -65,21 +65,41 @@ FVector3 O_GameObject::GetScale() const
 void O_GameObject::SetTransform(const FTransform& transform)
 {
 	Root->SetComponentTransform(transform);
+	for (auto& comp : Components) {
+		if (C_TransformComponent* ptr = dynamic_cast<C_TransformComponent*>(comp)) {
+			ptr->SetComponentTransform(transform);
+		}
+	}
 }
 
 void O_GameObject::SetPosition(const FVector3& position)
 {
 	Root->SetComponentPosition(position);
+	for (auto& comp : Components) {
+		if (C_TransformComponent* ptr = dynamic_cast<C_TransformComponent*>(comp)) {
+			ptr->SetComponentPosition(position);
+		}
+	}
 }
 
 void O_GameObject::SetRotation(const FQuaternion& rotation)
 {
 	Root->SetComponentRotation(rotation);
+	for (auto& comp : Components) {
+		if (C_TransformComponent* ptr = dynamic_cast<C_TransformComponent*>(comp)) {
+			ptr->SetComponentRotation(rotation);
+		}
+	}
 }
 
 void O_GameObject::SetScale(const FVector3& scale)
 {
 	Root->SetComponentScale(scale);
+	for (auto& comp : Components) {
+		if (C_TransformComponent* ptr = dynamic_cast<C_TransformComponent*>(comp)) {
+			ptr->SetComponentScale(scale);
+		}
+	}
 }
 
 void O_GameObject::SetRoot(C_TransformComponent* root)

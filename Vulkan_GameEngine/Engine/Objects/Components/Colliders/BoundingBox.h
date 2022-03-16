@@ -2,7 +2,6 @@
 #define BOUNDINGBOX_H
 #include "CollisionComponent.h"
 #include "Geometry/BoxBounds.h"
-
 #include <set>
 
 class FMatrix4;
@@ -28,6 +27,7 @@ public:
 
 protected:
 
+	float width;
 	S_BoxBounds boxBounds;
 };
 #endif

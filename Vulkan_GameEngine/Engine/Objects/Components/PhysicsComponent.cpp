@@ -67,21 +67,25 @@ void C_PhysicsComponent::AddAngularVelocity(FVector3 angularVelocity_)
 void C_PhysicsComponent::SetAcceleration(FVector3 acceleration_)
 {
 	acceleration = acceleration_;
+	accelerationBuffer = acceleration_;
 }
 
 void C_PhysicsComponent::SetVelocity(FVector3 velocity_)
 {
 	velocity = velocity_;
+	velocityBuffer = velocity_;
 }
 
 void C_PhysicsComponent::SetAngularAcceleration(FVector3 angularAcceleration_)
 {
-	angularAcceleration += angularAcceleration_;
+	angularAcceleration = angularAcceleration_;
+	angularAccelerationBuffer = angularAcceleration_;
 }
 
 void C_PhysicsComponent::SetAngularVelocity(FVector3 angularVelocity_)
 {
 	angularVelocity = angularVelocity_;
+	angularVelocityBuffer = angularVelocity_;
 }
 
 void C_PhysicsComponent::SetMass(float mass)

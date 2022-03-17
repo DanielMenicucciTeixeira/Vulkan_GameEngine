@@ -12,7 +12,9 @@
 #include <glm/glm.hpp>
 #include "Game/SceneManager.h"
 
-#include "Serialize.h"
+#include "Engine/Serialize/Serialize.h"
+
+
 
 void printUp(SDL_Event* event) { printf("Key up!\n"); }
 void printDown(SDL_Event* event) { printf("Key down!\n"); }
@@ -33,7 +35,7 @@ int main(int argc, char* argv[])
 	inFile.close();
 	cout << other;
 
-
+	
 
 
 	std::system("Engine\\Shaders\\compile.bat");//Compile the shaders to .spv files

@@ -282,7 +282,7 @@
     <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Serialize.cpp">
+    <ClCompile Include="Engine\Serialize\Serialize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -542,7 +542,7 @@
     <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Serialize.h">
+    <ClInclude Include="Engine\Serialize\Serialize.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -562,5 +562,6 @@
     <None Include="Engine\Shaders\ColourShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
+    <None Include="Resources\Audio\test sound.m4a" />
   </ItemGroup>
 </Project>

@@ -287,7 +287,7 @@
     <ClCompile Include="Engine\Event\MouseEventHandler.cpp" />
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
     <ClCompile Include="Engine\Math\Math.cpp" />
-    <ClCompile Include="Serialize.cpp" />
+    <ClCompile Include="Engine\Serialize\Serialize.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp" />
@@ -373,7 +373,7 @@
     <ClInclude Include="Engine\Event\MouseEventHandler.h" />
     <ClInclude Include="Engine\Core\OctSpatialPartition.h" />
     <ClInclude Include="Engine\Math\Math.h" />
-    <ClInclude Include="Serialize.h" />
+    <ClInclude Include="Engine\Serialize\Serialize.h" />
     <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />
@@ -399,6 +399,7 @@
     <None Include="Engine\Shaders\ColourShader.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
+    <None Include="Resources\Audio\test sound.m4a" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

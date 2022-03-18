@@ -157,13 +157,23 @@ void LevelGraph::AddCamera(std::string name, FTransform transform)
 
 void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 {
+	if (!camera)
+	{
+		DebugLogger::Error("No valid Camera found!", "Core/LevelGraph.cpp", __LINE__);
+		return;
+	}
 	ActiveCamera = camera;
 	RenderData.Camera = camera->GetUCO();
 }
 
-std::vector<GO_Camera> LevelGraph::GetAllCameras()
+std::vector<GO_Camera> * LevelGraph::GetAllCameras()
 {
-	return CameraList;
+	return &CameraList;
+}
+
+GO_Camera * LevelGraph::GetCamera(int cameraID)
+{
+	return &CameraList[cameraID];
 }
 
 void LevelGraph::AddLight(FMatrix4*& matrix, unsigned int& index)

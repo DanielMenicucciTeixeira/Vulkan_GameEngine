@@ -95,7 +95,8 @@ public:
 	//TODO:Should we add a remove function.
 	void AddCamera(std::string = "", FTransform transform = FTransform());
 	void SetActiveCamera(C_CameraComponent* camera);
-	std::vector<GO_Camera> GetAllCameras();
+	std::vector<GO_Camera>* GetAllCameras();
+	GO_Camera * GetCamera(int cameraID);
 	
 	//Getters
 

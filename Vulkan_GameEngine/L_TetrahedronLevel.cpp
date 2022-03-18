@@ -58,14 +58,14 @@ void L_TetrahedronLevel::Start()
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
+		//phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
+		//phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
 	}
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
+		//phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
+		//phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
@@ -79,7 +79,7 @@ void L_TetrahedronLevel::Start()
 
 	
 	LevelGraph::GetInstance()->AddCamera("Camera1", FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
-	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetAllCameras()[0].GetCamera());
+	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 	L_Level::Start();
 }
 

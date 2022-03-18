@@ -564,4 +564,7 @@
     <None Include="Engine\Shaders\TextureShader.frag" />
     <None Include="Resources\Audio\test sound.m4a" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Audio\test sound 2.mp3" />
+  </ItemGroup>
 </Project>

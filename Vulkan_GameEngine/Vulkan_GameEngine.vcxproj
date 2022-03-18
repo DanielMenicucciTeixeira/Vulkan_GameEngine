@@ -401,6 +401,9 @@
     <None Include="Engine\Shaders\TextureShader.vert" />
     <None Include="Resources\Audio\test sound.m4a" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="Resources\Audio\test sound 2.mp3" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -80,13 +80,10 @@ void L_TetrahedronLevel::Start()
 
 	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f))); // cam position
 
-	
-
 	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());
-	bgm->OnCreate("test sound.m4a", false, true, false);
-	bgm->PlaySound();
+	bgm->PlaySound("test sound 2.mp3", true, false, false); // background music follow cam -> 2d
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

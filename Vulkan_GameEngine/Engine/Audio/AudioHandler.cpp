@@ -1,8 +1,5 @@
 #include "AudioHandler.h"
 
-
-
-
 std::unique_ptr<AudioHandler> AudioHandler::audioInstance = nullptr;
 std::map<std::string, FMOD::Sound* > AudioHandler::soundPtrList = std::map<std::string, FMOD::Sound*>();
 std::map<int, FMOD::Channel*> AudioHandler::channelList = std::map<int, FMOD::Channel*>();
@@ -37,19 +34,15 @@ bool AudioHandler::Initialize(glm::vec3 position_, glm::vec3 velocity_, glm::vec
 		return false;
 	}
 
-	//systemPtr->setSoftwareFormat(44000, FMOD_SPEAKERMODE_STEREO, 0);
-	
 	systemPtr->init(10, FMOD_INIT_NORMAL | FMOD_3D | FMOD_INIT_3D_RIGHTHANDED, nullptr);
 
-	//TODO: Fix requires l-Value
 	fmod_pos = glmToFMOD(position_);
 	fmod_vel = glmToFMOD(velocity_);
 	fmod_forward = glmToFMOD(forward_);
 	fmod_up = glmToFMOD(up_);
     systemPtr->set3DListenerAttributes(1, &fmod_pos, &fmod_vel, &fmod_forward, &fmod_up);
 	
-	
-return true;
+    return true;
 }
 
 void AudioHandler::OnDestroy()
@@ -122,19 +115,19 @@ FMOD::Sound* AudioHandler::GetSound(std::string name_)
 
 int AudioHandler::PlaySound(std::string name_, glm::vec3 position_, glm::vec3 velocity_, float volume_, bool loop_, bool is3D_, bool stream_)
 {
+	int channelID = -1;
+	FMOD::Channel* channel_ = nullptr;
+
 	if (!Initialize(position_, velocity_)) {
 		Initialize(position_,velocity_);
 	}
 
-	int channelID = -1;
 	if (!GetSound(name_)) {
 		LoadSound(name_, loop_, is3D_, stream_);
 	}
-	FMOD::Channel* channel_ = nullptr;
 
 	systemPtr->playSound(GetSound(name_), nullptr, true, &channel_);
 	
-
 	if (!channel_) {
 		DebugLogger::Error("Channel failed to load", "AudioHandler", __LINE__);
 		return channelID;
@@ -144,7 +137,6 @@ int AudioHandler::PlaySound(std::string name_, glm::vec3 position_, glm::vec3 ve
 	GetSound(name_)->getMode(&curMode);
 
 	if (curMode & FMOD_3D) {
-		//TODO: Fix requires l-value
 		channel_->set3DAttributes(&fmod_pos, nullptr);
 	}
 	
@@ -154,7 +146,7 @@ int AudioHandler::PlaySound(std::string name_, glm::vec3 position_, glm::vec3 ve
 	channelID = channelCount;
 	channelCount++;
 
-	//channelList.emplace(channelID, channel_);
+	channelList.emplace(channelID, channel_);
 	channel_ = nullptr;
 	return channelID;
 }
@@ -165,7 +157,6 @@ void AudioHandler::UpdateChannelPositionVelocity(int channelID_, glm::vec3 posit
 		DebugLogger::Error("Channel not found", "AudioHandler.cpp", __LINE__);
 		return;
 	}
-
 	channelList[channelID_]->set3DAttributes(&fmod_pos, &fmod_vel);
 }
 

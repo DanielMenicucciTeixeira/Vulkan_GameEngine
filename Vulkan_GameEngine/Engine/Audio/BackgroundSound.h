@@ -7,10 +7,10 @@ public:
 	BackgroundSound(C_CameraComponent* camera_);
 	~BackgroundSound();
 
-	bool OnCreate(const std::string name_, bool loop_, bool is3D_, bool stream_);
+	bool OnCreate();
 	void Update(const float deltaTime_);
 
-	void PlaySound(const std::string name_, bool loop_, bool is3D_, bool stream_);
+	void PlaySound(const std::string name_, float volume_ ,bool loop_, bool is3D_, bool stream_);
 	bool IsPlaying();
 
 private:

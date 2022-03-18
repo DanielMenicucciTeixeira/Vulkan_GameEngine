@@ -57,6 +57,7 @@ private:
 	//Function to check if a specific channel is playing a sound
 	bool IsPlaying(int channelID_);
 
+	// Fix l-values
 	FMOD_VECTOR fmod_pos;
 	FMOD_VECTOR fmod_vel;
 	FMOD_VECTOR fmod_forward;

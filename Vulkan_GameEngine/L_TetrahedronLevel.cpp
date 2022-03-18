@@ -83,7 +83,7 @@ void L_TetrahedronLevel::Start()
 	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());
-	bgm->PlaySound("test sound 2.mp3", true, false, false); // background music follow cam -> 2d
+	bgm->PlaySound("test sound 2.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

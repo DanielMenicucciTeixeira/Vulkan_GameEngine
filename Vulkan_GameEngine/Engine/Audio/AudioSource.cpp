@@ -8,6 +8,7 @@
 AudioSource::AudioSource(O_GameObject* parent_) : O_Component(parent_)
 {
 	Owner = parent_;
+	channelID = -1;
 }
 
 AudioSource::~AudioSource()
@@ -15,10 +16,8 @@ AudioSource::~AudioSource()
 
 }
 
-bool AudioSource::OnCreate(const std::string name_,
-	bool loop_, bool is3D_, bool stream_)
+bool AudioSource::OnCreate(const std::string name_, bool loop_, bool is3D_, bool stream_)
 {
-	channelID = -1;
 	fileName = name_;
 
 	AudioHandler::GetInstance()->LoadSound(name_, loop_, is3D_, stream_);

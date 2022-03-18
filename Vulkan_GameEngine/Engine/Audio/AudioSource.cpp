@@ -1,6 +1,7 @@
 #include "AudioSource.h"
 #include "AudioHandler.h"
 #include "../Objects/GameObjects/GameObject.h"
+#include "Objects/Components/PhysicsComponent.h"
 #include "Math/FVector3.h"
 
 
@@ -32,10 +33,11 @@ void AudioSource::Update(const float deltaTime_)
 	AudioHandler::GetInstance()->UpdateChannelPositionVelocity(channelID, glm::vec3(pos.X, pos.Y,pos.Z));
 }
 
-void AudioSource::PlaySound()
+void AudioSource::PlaySound(const std::string name_, float volume_, bool loop_, bool is3D_, bool stream_)
 {
-	FVector3 pos = Owner->GetPosition();
-	channelID = AudioHandler::GetInstance()->PlaySound(fileName, glm::vec3(pos.X, pos.Y, pos.Z));
+	FVector3 O_pos = Owner->GetPosition();
+	FVector3 O_vec = FVector3(); // TODO : Get object vel
+	channelID = AudioHandler::GetInstance()->PlaySound(name_, glm::vec3(O_pos.X, O_pos.Y, O_pos.Z), glm::vec3(O_vec.X, O_vec.Y, O_vec.Z), volume_, loop_, is3D_, stream_);
 }
 
 bool AudioSource::IsPlaying()

@@ -562,9 +562,9 @@
     <None Include="Engine\Shaders\ColourShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
-    <None Include="Resources\Audio\test sound.m4a" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="Resources\Audio\test sound 2.mp3" />
+    <Media Include="Resources\Audio\lofi.mp3" />
+    <Media Include="Resources\Audio\lol music.mp3" />
   </ItemGroup>
 </Project>

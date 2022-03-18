@@ -21,6 +21,7 @@
 #include "Renderers/Materials/StandardMaterial.h"
 
 #include "../Audio/BackgroundSound.h"
+#include "../Audio/AudioSource.h"
 
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
@@ -83,7 +84,12 @@ void L_TetrahedronLevel::Start()
 	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());
-	bgm->PlaySound("test sound 2.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
+    bgm->PlaySound("lol music.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
+	//bgm->PlaySound("lofi.mp3", 1.0f, true, false, false);
+
+	AudioSource* test1 = new AudioSource(T1);
+	//test1->PlaySound("lol music.mp3", 10.0f, true, true, false); // object sound -> 3d (true)
+
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

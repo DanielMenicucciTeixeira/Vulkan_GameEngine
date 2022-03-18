@@ -10,11 +10,10 @@ public:
 	AudioSource(O_GameObject* parent_);
 	~AudioSource();
 
-	bool OnCreate(const std::string name_,
-		bool loop_, bool is3D_, bool stream_);
+	bool OnCreate(const std::string name_, bool loop_, bool is3D_, bool stream_);
 	void Update(const float deltaTime_) override;
 
-	void PlaySound();
+	void PlaySound(const std::string name_, float volume_, bool loop_, bool is3D_, bool stream_);
 	bool IsPlaying();
 
 private:

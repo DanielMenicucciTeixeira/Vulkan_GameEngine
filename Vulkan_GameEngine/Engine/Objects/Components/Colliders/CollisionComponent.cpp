@@ -15,57 +15,6 @@
 #include "../CameraComponent.h"
 
 
-bool C_CollisionComponent::RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision)
-{
-	Ray line = ray;
-	int i = 0;
-	FVector3 interssection[6];
-	for (auto plane : box.box)
-	{
-		if
-			(
-				plane.InterssectionPoint(line, interssection[i]) &&
-				interssection[i].X <= box.GetExtent().X && interssection[i].X >= 0 &&
-				interssection[i].Y <= box.GetExtent().Y && interssection[i].Y >= 0 &&
-				interssection[i].Z <= box.GetExtent().Z && interssection[i].Z >= 0
-				)
-		{
-			i++;
-			if (i >= 2) break;
-		}
-	}
-
-
-	if (i == 0) return false;
-	else
-	{
-		if (stopAtFirstCollision)
-		{
-			FVector3 closestPoint = interssection[0];
-			for (int j = 1; j <= i; j++)
-			{
-				if ((line.GetOrigin() - interssection[j]).Length() < (line.GetOrigin() - closestPoint).Length())
-				{
-					closestPoint = interssection[j];
-				}
-			}
-			collisionPoints[0] = closestPoint;
-		}
-		else
-		{
-			for (int j = 0; j <= i; j++)
-			{
-				collisionPoints[j] = interssection[j];
-			}
-		}
-
-		data.CollisionPoint = collisionPoints[0];
-		return true;
-	}
-
-}
-
-
 bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data)
 {
 
@@ -75,28 +24,6 @@ bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVec
 	bool result = plane.InterssectionPoint(Ray(sphere.position, collisionDirection, sphere.radius, false), collisionPoint);
 	data.CollisionPoint = collisionPoint;
 	return result;
-}
-
-bool C_CollisionComponent::SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data)
-{
-	if
-		(
-			   (sphere.position.X - sphere.radius <= box.GetPosition().X + box.GetExtent().X && sphere.position.X + sphere.radius >= box.GetPosition().X)
-			&& (sphere.position.Y - sphere.radius <= box.GetPosition().Y + box.GetExtent().Y && sphere.position.Y + sphere.radius >= box.GetPosition().Y)
-			&& (sphere.position.Z - sphere.radius <= box.GetPosition().Z + box.GetExtent().Z && sphere.position.Z + sphere.radius >= box.GetPosition().Z)
-		)
-	{
-		for (const auto& plane : box.box)
-		{
-			float distance = (sphere.position - plane.GetRandomPointInPlane()) * plane.GetPlaneNormal();
-			if (distance < sphere.radius)
-			{
-				data.CollisionPoint = (plane.GetPlaneNormal() * sphere.radius) + sphere.position;
-				return true;
-			}
-		}
-	}
-	return false;
 }
 
 

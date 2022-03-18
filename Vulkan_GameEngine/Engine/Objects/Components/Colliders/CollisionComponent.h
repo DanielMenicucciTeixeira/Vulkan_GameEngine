@@ -70,9 +70,7 @@ protected:
 	ECollisionType CollisionType;
 	FVector3 CollisionMeshCenter;
 
-	static bool RayBoxCollision(const Ray& ray, const Box& box, FVector3 collisionPoints[2], S_CollisionData& data, bool stopAtFirstCollision = true);
 	static bool SpherePlaneCollision(const Sphere& sphere, const FVector3& direction, const Plane& plane, S_CollisionData& data);
-	static bool SphereBoxCollision(const Sphere& sphere, const Box& box, S_CollisionData& data);
 
 	virtual void OnCollision(const S_CollisionData& data);
 	virtual void OnOverlapBegin(const S_CollisionData& data);

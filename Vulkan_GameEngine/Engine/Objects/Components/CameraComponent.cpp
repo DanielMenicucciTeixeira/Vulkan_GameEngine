@@ -54,9 +54,9 @@ void C_CameraComponent::CalculateFrustum()
 void C_CameraComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
-	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
+	//UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	//UCO->View = FMatrix4::GetViewMatrix(GetComponentAbsoluteRotation(), GetComponentAbsolutePosition());
-	CalculateFrustum();
+	//CalculateFrustum();
 }
 
 void C_CameraComponent::Start()
@@ -78,6 +78,12 @@ void C_CameraComponent::UpdateProjection()
 	UCO->Projection.SetToPerspectiveMatrix(FildOfView.Angle, float(w) / float(h), FildOfView.NearPlane, FildOfView.FarPlane);
 }
 
+void C_CameraComponent::UpdateView()
+{
+	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
+	CalculateFrustum();
+}
+
 C_CameraComponent::C_CameraComponent(O_GameObject* owner) : C_TransformComponent(owner), UCO(new UniformCameraObject)
 {
 	
@@ -96,6 +102,12 @@ FMatrix4 C_CameraComponent::GetViewMatrix()
 FMatrix4 C_CameraComponent::GetProjectionMatrix()
 {
 	return UCO->Projection;
+}
+
+void C_CameraComponent::SetComponentTransform(FTransform transform_)
+{
+	*Transform = transform_;
+	UpdateView();
 }
 
 bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)

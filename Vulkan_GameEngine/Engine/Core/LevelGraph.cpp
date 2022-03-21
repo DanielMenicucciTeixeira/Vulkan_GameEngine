@@ -155,6 +155,11 @@ void LevelGraph::AddCamera(std::string name, FTransform transform)
 	CameraList.push_back(GO_Camera(name, transform));
 }
 
+void LevelGraph::AddCamera(GO_Camera* cam, std::string)
+{
+	CameraList.push_back(*cam);
+}
+
 void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 {
 	if (!camera)
@@ -164,6 +169,7 @@ void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 	}
 	ActiveCamera = camera;
 	RenderData.Camera = camera->GetUCO();
+	int test = 0;
 }
 
 std::vector<GO_Camera> * LevelGraph::GetAllCameras()

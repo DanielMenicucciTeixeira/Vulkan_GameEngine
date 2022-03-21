@@ -19,6 +19,8 @@ public:
 	virtual void PostUpdate(float deltaTime_);
 	inline C_CameraComponent* GetCamera() const { return Camera; }
 
+	virtual void SetComponentTransform(FTransform transform_);
+
 protected:
 	C_CameraComponent* Camera;
 };

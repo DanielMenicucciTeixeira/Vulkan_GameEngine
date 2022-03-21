@@ -65,11 +65,13 @@ FVector3 O_GameObject::GetScale() const
 void O_GameObject::SetTransform(const FTransform& transform)
 {
 	Root->SetComponentTransform(transform);
+	/*
 	for (auto& comp : Components) {
 		if (C_TransformComponent* ptr = dynamic_cast<C_TransformComponent*>(comp)) {
 			ptr->SetComponentTransform(transform);
 		}
 	}
+	*/
 }
 
 void O_GameObject::SetPosition(const FVector3& position)

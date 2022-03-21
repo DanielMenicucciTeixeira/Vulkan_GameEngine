@@ -27,6 +27,7 @@ public:
 	virtual void Update(const float deltaTime) override;
 	virtual void Start() override;
 	virtual void UpdateProjection();
+	void UpdateView();
 	C_CameraComponent(O_GameObject* owner);
 	virtual ~C_CameraComponent();
 
@@ -35,6 +36,8 @@ public:
 	inline UniformCameraObject* GetUCO() { return UCO; }
 	inline const float& GetNearPlane() const { return FildOfView.NearPlane; }
 	inline const float& GetFarPlane() const { return FildOfView.FarPlane; }
+
+	virtual void SetComponentTransform(FTransform transform_);
 
 	bool FrustumCheck(C_BoundingBox* meshBox);
 	void PrintFrustum();

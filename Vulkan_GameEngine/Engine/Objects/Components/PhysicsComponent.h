@@ -44,6 +44,8 @@ public:
 	virtual ~C_PhysicsComponent();
 
 	void Update(const float deltaTime) override;
+	void SlowDown(FVector3 vector);
+
 
 	//Add Functions
 

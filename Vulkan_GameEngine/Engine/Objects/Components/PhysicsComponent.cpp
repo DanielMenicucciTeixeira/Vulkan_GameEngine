@@ -25,23 +25,53 @@ void C_PhysicsComponent::Update(const float deltaTime)
 
 
 	//If owner has movement as well translate them accordingly.
-	C_MovementComponent* c = Owner->GetComponentOfClass<C_MovementComponent>();
-	if (c != nullptr) {
-		c->Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
+	Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
 
+	Rotate((
+		FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
+		FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
+		).GetNormal());
 
-		c->Rotate((
-			FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
-			FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
-			).GetNormal());
-	}
+	SlowDown(velocityBuffer);
+	SlowDown(accelerationBuffer);
 
 	//SingleComponent
-	velocity = velocityBuffer + (accelerationBuffer * deltaTime);
+	SetVelocity(velocityBuffer + (accelerationBuffer * deltaTime));
 	acceleration = accelerationBuffer;
 	angularAcceleration = angularAccelerationBuffer;
 	AddAngularVelocity(angularAcceleration * deltaTime);
 	angularVelocity = angularVelocityBuffer;
+}
+
+void C_PhysicsComponent::SlowDown(FVector3 vector)
+{
+	float x = 0.1;
+
+	//Slow down?
+	if (vector.X != 0) {
+		if (vector.X < 0) {
+			x *= -1;
+		}
+		vector.X += x;
+	}
+
+	float y = 0.1;
+
+	if (vector.Y != 0) {
+		if (vector.Y < 0) {
+			y *= -1;
+		}
+		vector.Y += y;
+	}
+
+	float z = 0.1;
+
+	if (vector.Z != 0) {
+		if (vector.Z < 0) {
+			z *= -1;
+		}
+		vector.Z += z;
+	}
 }
 
 void C_PhysicsComponent::AddAcceleration(FVector3 acceleration_)

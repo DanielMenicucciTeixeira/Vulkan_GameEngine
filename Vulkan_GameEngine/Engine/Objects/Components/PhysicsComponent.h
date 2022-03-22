@@ -44,6 +44,8 @@ public:
 	virtual ~C_PhysicsComponent();
 
 	void Update(const float deltaTime) override;
+	void SlowDown(FVector3 vector);
+
 
 	//Add Functions
 
@@ -86,6 +88,7 @@ public:
 	void SphereSphereResponse(C_SphereCollider* coll1, C_SphereCollider* coll2);
 
 	//Sphere v OBB
+	void SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2);
 
 
 	//OBB v OBB

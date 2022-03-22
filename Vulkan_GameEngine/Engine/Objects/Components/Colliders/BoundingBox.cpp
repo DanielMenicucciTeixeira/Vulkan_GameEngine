@@ -6,6 +6,14 @@
 
 C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type)
 {
+
+	//TODO: Find good way of setting this value with ease.
+	width = 10.0f;
+	boxBounds.Min = GetComponentPosition();
+	boxBounds.Max = boxBounds.Min;
+	boxBounds.Max.X += width;
+
+
 }
 
 C_BoundingBox::~C_BoundingBox()
@@ -38,12 +46,6 @@ void C_BoundingBox::Start()
 
 void C_BoundingBox::Update(float deltaTime)
 {
-	//TODO:Move this to post update
-	if (!GetIsStatic()) {
-		for (auto& coll : CollisionHandler::GetInstance()->GetAABBCollision(boxBounds)) {
-			//TODO:Collision Response here.
-		}
-	}
 	C_CollisionComponent::Update(deltaTime);
 	boxBounds.Model = GetComponentModelMatrix();
 }
@@ -65,7 +67,6 @@ FVector3 C_BoundingBox::GetMin()
 
 FVector3 C_BoundingBox::GetMax()
 {
-
 	//FVector4 temp = Transform->GetModelMatrix() * FVector4(BoxBounds.Max.X, BoxBounds.Max.Y, BoxBounds.Max.Z, 1.0f);
 	FVector4 temp = GetComponentModelMatrix() * FVector4(boxBounds.Max, 1.0f);
 	temp = temp / temp.W;
@@ -76,9 +77,10 @@ void C_BoundingBox::SetComponentPosition(const FVector3& position)
 {
 	//Do the static check here as well?
 	Transform->SetPosition(position);
-	//TODO:Do check to see if in same collider here.
+	boxBounds.Min = position;
+	boxBounds.Max = position;
+	boxBounds.Max.X += width;
 
-	CollisionHandler::GetInstance()->AABBSpatialCheck(this);
 	///Theory
 	///
 	/// have a pointer to keep track of where what partiton you are in.

@@ -11,7 +11,6 @@
 
 class LevelGraph;
 class C_CollisionComponent;
-class C_CameraComponent;
 class FMatrix4;
 struct S_Mesh;
 class Material;
@@ -20,7 +19,7 @@ struct S_RenderData;
 
 
 /// <summary>
-/// Designed to load information involving a level (actual management should go to LevelGraph.
+/// Designed to load information involving a level (actual management should go to LevelGraph).
 /// </summary>
 class L_Level
 {
@@ -34,9 +33,6 @@ public:
 	virtual void Update(const float deltaTime);
 	virtual void PostUpdate(const float deltaTime);
 	virtual void Render();
-
-	bool CheckForCamera();
-	inline void SetCamera(C_CameraComponent* camera) { NextCamera = camera;}
 
 	template<class objectClass>
 	objectClass* SpawnGameObjectOfClass(FTransform transform = FTransform(), std::string name = "")
@@ -75,17 +71,13 @@ public:
 	void LoadMaterial(Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
 	void LoadLevelObjects();
-	bool LoadCamera(C_CameraComponent* camera);
 	inline const float& GetWorldSize() const { return WorldSize; }
 
 protected:
 
 	std::string Name;
 
-	bool FindAnyCamera();
-	bool ChangeCamera();
 	std::set<O_Object*> UnloadedObjects;
-	C_CameraComponent* NextCamera;
 
 	std::set<std::string> ModelPaths;
 	std::set<std::string> MaterialPaths;

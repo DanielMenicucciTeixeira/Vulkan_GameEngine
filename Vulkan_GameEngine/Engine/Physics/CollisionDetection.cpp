@@ -133,7 +133,6 @@ bool CollisionDetection::RaySphereIntersection(Ray a, Sphere b)
 }
 bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 {
-	//TODO: Finish this
 	int i = 0;
 	FVector3 interssection[6];
 	for (auto &plane : b.box)
@@ -148,11 +147,9 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 		}
 	}
 
-
+	//TODO: Is this correct?
 	if (i == 0) return false;
-	/*
-	if (stopAtFirstCollision)
-	{
+	else {
 		FVector3 closestPoint = interssection[0];
 		for (int j = 1; j <= i; j++)
 		{
@@ -161,8 +158,9 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 				closestPoint = interssection[j];
 			}
 		}
-		collisionPoints[0] = closestPoint;
+		a.SetIntersectDistance(closestPoint.Length());
 	}
+	/*
 	else
 	{
 		for (int j = 0; j <= i; j++)
@@ -172,13 +170,12 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 	}
 	a.SetIntersectDistance(collisionPoints[0])
 	*/
-
-
 	return true;
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
 	//TODO://Add in point of collision
+
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
 	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
 	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
@@ -186,13 +183,14 @@ bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 	float distance = ((x - a.position.X) * (x - a.position.X) +
 					  (y - a.position.Y) * (y - a.position.Y) +
 				   	  (z - a.position.Z) * (z - a.position.Z));
-	
+
+	collisionData.CollisionPoint = FVector3(x, y, z);
+
 	return distance < a.radius * a.radius;
 }
 
 bool CollisionDetection::SphereOBBIntersection(Sphere a, Box b)
 {
-	//TODO://Add in point of collision
 	if(
 			(a.position.X - a.radius <= b.GetPosition().X + b.GetExtent().X && a.position.X + a.radius >= b.GetPosition().X)
 			&& (a.position.Y - a.radius <= b.GetPosition().Y + b.GetExtent().Y && a.position.Y + a.radius >= b.GetPosition().Y)

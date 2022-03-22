@@ -18,7 +18,7 @@
 
 #include <algorithm>
 
-L_Level::L_Level(float worldSize) : NextCamera(nullptr), Name(""), WorldSize(worldSize)
+L_Level::L_Level(float worldSize) : Name(""), WorldSize(worldSize)
 {
 	CollisionHandler::GetInstance()->OnCreate(worldSize);
 }
@@ -37,7 +37,6 @@ bool L_Level::Initialize()
 void L_Level::Start()
 {
 	LoadLevelObjects();
-	CheckForCamera();
 }
 
 void L_Level::LoadModels()
@@ -110,71 +109,6 @@ void L_Level::LoadLevelObjects()
 		UnloadedObjects.clear();
 		UnloadedObjects = std::set<O_Object*>();
 	}
-}
-
-bool L_Level::LoadCamera(C_CameraComponent* camera)
-{
-	if (!camera)
-	{
-		DebugLogger::Error("No valid CameraFound!", "Core/Level.cpp", __LINE__);
-		return false;
-	}
-	LevelGraph::GetInstance()->SetActiveCamera(camera);
-	return true;
-}
-
-bool L_Level::FindAnyCamera()
-{
-	for (const auto gameObject : LevelGraph::GetInstance()->GetObjects())
-	{
-		if (dynamic_cast<O_GameObject*>(gameObject.second))
-		{
-			for (const auto camera : dynamic_cast<O_GameObject*>(gameObject.second)->GetComponentsOfClass<C_CameraComponent>())
-			{
-				NextCamera = camera;
-				return true;
-			}
-		}
-	}
-	DebugLogger::Warning("No camera found!", "Core/Level.cpp", __LINE__);
-	return false;
-}
-
-bool L_Level::ChangeCamera()
-{
-	if (NextCamera)
-	{
-		bool returnValue = LoadCamera(NextCamera);
-		NextCamera = nullptr;
-		return returnValue;
-	}
-	DebugLogger::Warning("Invalid NextCamera!", "Core/Level.cpp", __LINE__);
-	return false;
-}
-
-bool L_Level::CheckForCamera()
-{
-	if (NextCamera)
-	{
-		if (ChangeCamera()) return true;
-		else if (LevelGraph::GetInstance()->ActiveCamera) return true;
-		else
-		{
-			DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
-			return false;
-		}
-	}
-	else if (!LevelGraph::GetInstance()->ActiveCamera)
-	{
-		if (FindAnyCamera() && ChangeCamera()) return true;
-		else
-		{
-			DebugLogger::FatalError("No valid camera found!", "Core/Level.cpp", __LINE__);
-			return false;
-		}
-	}
-
-	return true;
 }
 
 void L_Level::PreUpdate(const float deltaTime)

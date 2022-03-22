@@ -1,5 +1,5 @@
 #include "L_StartLevel.h"
-#include "GO_Camera.h"
+#include "Objects/GameObjects/GO_Camera.h"
 
 #include <iostream>
 #include <SDL.h>

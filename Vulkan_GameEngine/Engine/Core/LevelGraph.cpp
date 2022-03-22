@@ -7,6 +7,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/CameraComponent.h"
 #include "Objects/Components/Colliders/CollisionComponent.h"
+#include "Objects/GameObjects/GO_Camera.h"
 #include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
 
@@ -21,7 +22,9 @@ std::map<size_t, std::set<O_Object*>> LevelGraph::GameObjectsByClass;
 
 LevelGraph* LevelGraph::GetInstance()
 {
-	if (Instance.get() == nullptr) Instance.reset(new LevelGraph);
+	if (Instance.get() == nullptr) {
+		Instance.reset(new LevelGraph);
+	}
 	return Instance.get();
 }
 
@@ -147,21 +150,36 @@ void LevelGraph::RemoveLight(unsigned int index)
 	FreeLightSlots.insert(index);
 }
 
-void LevelGraph::AddCamera(C_CameraComponent* camera)
+void LevelGraph::AddCamera(std::string name, FTransform transform)
 {
-	CameraList.push_back(camera);
+	CameraList.push_back(GO_Camera(name, transform));
+}
+
+void LevelGraph::AddCamera(GO_Camera* cam, std::string)
+{
+	CameraList.push_back(*cam);
 }
 
 void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
-
 {
+	if (!camera)
+	{
+		DebugLogger::Error("No valid Camera found!", "Core/LevelGraph.cpp", __LINE__);
+		return;
+	}
 	ActiveCamera = camera;
 	RenderData.Camera = camera->GetUCO();
+	int test = 0;
 }
 
-std::vector<C_CameraComponent*> LevelGraph::GetCameraComponents()
+std::vector<GO_Camera> * LevelGraph::GetAllCameras()
 {
-	return CameraList;
+	return &CameraList;
+}
+
+GO_Camera * LevelGraph::GetCamera(int cameraID)
+{
+	return &CameraList[cameraID];
 }
 
 void LevelGraph::AddLight(FMatrix4*& matrix, unsigned int& index)

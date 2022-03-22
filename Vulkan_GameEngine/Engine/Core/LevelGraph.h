@@ -9,6 +9,7 @@
 #include <string>
 #include "../Math/FMatrix4.h"
 #include "Renderers/Materials/Material.h"
+#include "Math/FTransform.h"
 
 #include <fstream>
 #include <iostream>
@@ -24,6 +25,7 @@ class C_RenderableComponent;
 class C_StaticMeshComponent;
 class C_CameraComponent;
 class C_CollisionComponent;
+class GO_Camera;
 class OctNode;
 struct S_Mesh;
 struct S_Material;
@@ -91,9 +93,11 @@ public:
 	//Camera
 
 	//TODO:Should we add a remove function.
-	void AddCamera(C_CameraComponent* camera);
+	void AddCamera(std::string = "", FTransform transform = FTransform());
+	void AddCamera(GO_Camera* cam, std::string = "");
 	void SetActiveCamera(C_CameraComponent* camera);
-	std::vector<C_CameraComponent*> GetCameraComponents();
+	std::vector<GO_Camera>* GetAllCameras();
+	GO_Camera * GetCamera(int cameraID);
 	
 	//Getters
 
@@ -145,9 +149,7 @@ private:
 	bool isPaused;
 
 	C_CameraComponent* ActiveCamera;
-	std::vector<C_CameraComponent*> CameraList;
-
-	friend class L_Level;
+	std::vector<GO_Camera> CameraList;
 };
 #endif
 

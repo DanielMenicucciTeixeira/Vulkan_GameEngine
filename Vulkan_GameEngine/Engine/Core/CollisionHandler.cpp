@@ -53,6 +53,7 @@ void CollisionHandler::OnCreate(float worldSize, float depth)
 
 //TODO: Fill out how response occurs / is this a better way then the cast system?
 //TODO: Also need to integrate the on collision, and on overlap system with this.
+//TODO: cant just ignore statics else some collisions will to be detected.
 void CollisionHandler::Update(float deltaTime_)
 {
 	int vecLoc = 0;
@@ -60,7 +61,7 @@ void CollisionHandler::Update(float deltaTime_)
 	//AABB Collision
 	for (auto leaves : scenePartition->GetActiveLeaves()) {
 		for (auto& coll1 : leaves->GetAABBColliders()) {
-			if (coll1->GetIsStatic()) { return; }
+			//if (coll1->GetIsStatic()) { return; }
 
 			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 
@@ -77,7 +78,7 @@ void CollisionHandler::Update(float deltaTime_)
 			for (auto& coll2 : leaves->GetSphereColliders()) {
 				if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
 				{
-
+					physicsComp->AABBSphereResponse(coll1, coll2);
 				}
 			}
 
@@ -136,6 +137,11 @@ void CollisionHandler::Update(float deltaTime_)
 			physicsComp = nullptr;
 		}
 	}
+}
+
+void CollisionHandler::AddCollider(C_CollisionComponent* comp)
+{
+	scenePartition->AddCollider(comp);
 }
 
 S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)

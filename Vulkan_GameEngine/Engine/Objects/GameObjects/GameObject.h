@@ -51,7 +51,6 @@ public:
 			return nullptr;
 		}
 
-
 		Components.insert(component);
 		return component;
 	}

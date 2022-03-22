@@ -279,7 +279,7 @@
     <ClCompile Include="Engine\Renderers\OpenGL\OpelGLManager.cpp" />
     <ClCompile Include="Game\GO_Triangle.cpp" />
     <ClCompile Include="Engine\Renderers\OpenGL\OpenGLShaderManager.cpp" />
-    <ClCompile Include="Game\GO_Camera.cpp" />
+    <ClCompile Include="Engine\Objects\GameObjects\GO_Camera.cpp" />
     <ClCompile Include="Engine\FX\LightSource.cpp" />
     <ClCompile Include="Game\Pawn.cpp" />
     <ClCompile Include="Game\SceneManager.cpp" />
@@ -365,7 +365,7 @@
     <ClInclude Include="Engine\Renderers\OpenGL\OpelGLManager.h" />
     <ClInclude Include="Game\GO_Triangle.h" />
     <ClInclude Include="Engine\Renderers\OpenGL\OpenGLShaderManager.h" />
-    <ClInclude Include="Game\GO_Camera.h" />
+    <ClInclude Include="Engine\Objects\GameObjects\GO_Camera.h" />
     <ClInclude Include="Engine\FX\LightSource.h" />
     <ClInclude Include="Game\Pawn.h" />
     <ClInclude Include="Game\SceneManager.h" />

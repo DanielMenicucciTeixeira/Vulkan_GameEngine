@@ -25,23 +25,53 @@ void C_PhysicsComponent::Update(const float deltaTime)
 
 
 	//If owner has movement as well translate them accordingly.
-	C_MovementComponent* c = Owner->GetComponentOfClass<C_MovementComponent>();
-	if (c != nullptr) {
-		c->Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
+	Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
 
+	Rotate((
+		FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
+		FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
+		).GetNormal());
 
-		c->Rotate((
-			FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
-			FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
-			).GetNormal());
-	}
+	SlowDown(velocityBuffer);
+	SlowDown(accelerationBuffer);
 
 	//SingleComponent
-	velocity = velocityBuffer + (accelerationBuffer * deltaTime);
+	SetVelocity(velocityBuffer + (accelerationBuffer * deltaTime));
 	acceleration = accelerationBuffer;
 	angularAcceleration = angularAccelerationBuffer;
 	AddAngularVelocity(angularAcceleration * deltaTime);
 	angularVelocity = angularVelocityBuffer;
+}
+
+void C_PhysicsComponent::SlowDown(FVector3 vector)
+{
+	float x = 0.1;
+
+	//Slow down?
+	if (vector.X != 0) {
+		if (vector.X < 0) {
+			x *= -1;
+		}
+		vector.X += x;
+	}
+
+	float y = 0.1;
+
+	if (vector.Y != 0) {
+		if (vector.Y < 0) {
+			y *= -1;
+		}
+		vector.Y += y;
+	}
+
+	float z = 0.1;
+
+	if (vector.Z != 0) {
+		if (vector.Z < 0) {
+			z *= -1;
+		}
+		vector.Z += z;
+	}
 }
 
 void C_PhysicsComponent::AddAcceleration(FVector3 acceleration_)
@@ -67,21 +97,25 @@ void C_PhysicsComponent::AddAngularVelocity(FVector3 angularVelocity_)
 void C_PhysicsComponent::SetAcceleration(FVector3 acceleration_)
 {
 	acceleration = acceleration_;
+	accelerationBuffer = acceleration_;
 }
 
 void C_PhysicsComponent::SetVelocity(FVector3 velocity_)
 {
 	velocity = velocity_;
+	velocityBuffer = velocity_;
 }
 
 void C_PhysicsComponent::SetAngularAcceleration(FVector3 angularAcceleration_)
 {
-	angularAcceleration += angularAcceleration_;
+	angularAcceleration = angularAcceleration_;
+	angularAccelerationBuffer = angularAcceleration_;
 }
 
 void C_PhysicsComponent::SetAngularVelocity(FVector3 angularVelocity_)
 {
 	angularVelocity = angularVelocity_;
+	angularVelocityBuffer = angularVelocity_;
 }
 
 void C_PhysicsComponent::SetMass(float mass)
@@ -166,6 +200,18 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollider* coll2)
 {
+	//Split objects
+	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+
+	//Translation
+	FVector3 displacementVector = (displacement.GetNormal() * (coll2->GetCollisionSphere().radius + displacement.Length())) * -1;
+
+
+	C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	physicsComp->Translate(displacementVector);
+	physicsComp = nullptr;
+
+	//TODO: Reflect the ball using angle
 }
 
 void C_PhysicsComponent::AABBOBBResponse(C_BoundingBox* coll1, C_BoxCollider* coll2)
@@ -211,6 +257,22 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 	}
 
 	physicsComp = nullptr;
+}
+
+void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2)
+{
+	//Split objects
+	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+
+	//Translation
+	FVector3 displacementVector = (displacement.GetNormal() * (coll1->GetCollisionSphere().radius + displacement.Length())) * -1;
+
+
+	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	physicsComp->Translate(displacementVector);
+	physicsComp = nullptr;
+
+	//TODO: Reflect the ball using angle
 }
 
 void C_PhysicsComponent::OBBResponse(C_BoxCollider* coll1, C_BoxCollider* coll2)

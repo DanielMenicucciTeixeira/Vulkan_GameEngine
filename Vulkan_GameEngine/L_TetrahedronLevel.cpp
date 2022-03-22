@@ -79,8 +79,9 @@ void L_TetrahedronLevel::Start()
 	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
 	sun->SetTurnedOn(true);
 
-	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f))); // cam position
-
+	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	LevelGraph::GetInstance()->AddCamera(cam, "Camera1");
+	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());

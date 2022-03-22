@@ -6,7 +6,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/Renderer.h"
 #include "Math/FQuaternion.h"
-#include "GO_Camera.h"
+#include "Objects/GameObjects/GO_Camera.h"
 #include "FX/LightSource.h"
 #include "FX/DirectionalLight.h"
 #include "Graphics/AssetLoader.h"
@@ -84,7 +84,7 @@ void L_TetrahedronLevel::Start()
 	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 	L_Level::Start();
 
-	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());
+	BackgroundSound* bgm = new BackgroundSound(LevelGraph::GetInstance()->GetActiveCamera());
     bgm->PlaySound("lol music.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
 	//bgm->PlaySound("lofi.mp3", 1.0f, true, false, false);
 

@@ -5,19 +5,15 @@
 BackgroundSound::BackgroundSound(C_CameraComponent* camera_)
 {
 	camera = camera_;
+	channelID = -1;
 }
 
 BackgroundSound::~BackgroundSound()
 {
 }
 
-bool BackgroundSound::OnCreate(const std::string name_, bool loop_, bool is3D_, bool stream_)
+bool BackgroundSound::OnCreate()
 {
-	channelID = -1;
-	fileName = name_;
-
-	AudioHandler::GetInstance()->LoadSound(name_, loop_, is3D_, stream_);
-
 	return true;
 }
 
@@ -25,10 +21,11 @@ void BackgroundSound::Update(const float deltaTime_)
 {
 }
 
-void BackgroundSound::PlaySound()
+void BackgroundSound::PlaySound(const std::string name_, float volume_, bool loop_, bool is3D_, bool stream_)
 {
-	FVector3 pos = camera->GetComponentAbsolutePosition();
-	channelID = AudioHandler::GetInstance()->PlaySound(fileName, glm::vec3(pos.X,pos.Y,pos.Z));
+	FVector3 cam_pos = camera->GetComponentAbsolutePosition();
+	FVector3 cam_vec = FVector3(); // TODO: Get cam vel
+	channelID = AudioHandler::GetInstance()->PlaySound(name_, glm::vec3(cam_pos.X, cam_pos.Y, cam_pos.Z), glm::vec3(cam_vec.X, cam_vec.Y, cam_vec.Z), volume_, loop_, is3D_, stream_);
 }
 
 bool BackgroundSound::IsPlaying()

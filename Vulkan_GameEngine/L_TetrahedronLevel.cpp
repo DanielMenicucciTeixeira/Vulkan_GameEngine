@@ -20,6 +20,9 @@
 #include "Objects/Components/PhysicsComponent.h"
 #include "Renderers/Materials/StandardMaterial.h"
 
+#include "../Audio/BackgroundSound.h"
+#include "../Audio/AudioSource.h"
+
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
 	Name = "Tetrahedron Level";
@@ -76,8 +79,17 @@ void L_TetrahedronLevel::Start()
 	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
 	sun->SetTurnedOn(true);
 
-	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f))); // cam position
+
 	L_Level::Start();
+
+	BackgroundSound* bgm = new BackgroundSound(camera->GetCamera());
+    bgm->PlaySound("lol music.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
+	//bgm->PlaySound("lofi.mp3", 1.0f, true, false, false);
+
+	AudioSource* test1 = new AudioSource(T1);
+	//test1->PlaySound("lol music.mp3", 10.0f, true, true, false); // object sound -> 3d (true)
+
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

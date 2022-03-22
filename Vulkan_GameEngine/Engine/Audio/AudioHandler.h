@@ -10,6 +10,8 @@
 #include "AudioSource.h"
 #include "BackgroundSound.h"
 
+#include <iostream>
+
 class AudioHandler {
 public:
 	AudioHandler(const AudioHandler&) = delete;
@@ -47,12 +49,18 @@ private:
 
 	//Function to play sound that returns the channel ID
 	int PlaySound(std::string name_, glm::vec3 position_ = glm::vec3(0),
-		glm::vec3 velocity_ = glm::vec3(0), float volume_ = 1.0f);
+		glm::vec3 velocity_ = glm::vec3(0), float volume_ = 1.0f, bool loop_ = false, bool is3D_ = false, bool stream_ = false);
 
 	void UpdateChannelPositionVelocity(int channelID_, glm::vec3 position_ = glm::vec3(0),
 		glm::vec3 velocity_ = glm::vec3(0));
 
 	//Function to check if a specific channel is playing a sound
 	bool IsPlaying(int channelID_);
+
+	// Fix l-values
+	FMOD_VECTOR fmod_pos;
+	FMOD_VECTOR fmod_vel;
+	FMOD_VECTOR fmod_forward;
+	FMOD_VECTOR fmod_up;
 };
 #endif // !AUDIOHANDLER_H

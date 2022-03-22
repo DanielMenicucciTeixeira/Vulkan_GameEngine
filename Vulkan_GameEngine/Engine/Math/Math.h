@@ -14,6 +14,16 @@ namespace MATH {
 				else { return b; }
 			}
 		}
+
+		inline static float Max(float a, float b) {
+			if (a > b) { return a; }
+			else { return b; }
+		}
+
+		inline static float Min(float a, float b) {
+			if (a < b) { return a; }
+			else { return b; }
+		}
 	};
 }
 

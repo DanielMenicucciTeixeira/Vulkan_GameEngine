@@ -86,6 +86,7 @@ public:
 	void SphereSphereResponse(C_SphereCollider* coll1, C_SphereCollider* coll2);
 
 	//Sphere v OBB
+	void SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2);
 
 
 	//OBB v OBB

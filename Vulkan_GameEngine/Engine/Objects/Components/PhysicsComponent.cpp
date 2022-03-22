@@ -170,6 +170,18 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollider* coll2)
 {
+	//Split objects
+	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+
+	//Translation
+	FVector3 displacementVector = (displacement.GetNormal() * (coll2->GetCollisionSphere().radius + displacement.Length())) * -1;
+
+
+	C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	physicsComp->Translate(displacementVector);
+	physicsComp = nullptr;
+
+	//TODO: Reflect the ball using angle
 }
 
 void C_PhysicsComponent::AABBOBBResponse(C_BoundingBox* coll1, C_BoxCollider* coll2)
@@ -215,6 +227,22 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 	}
 
 	physicsComp = nullptr;
+}
+
+void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2)
+{
+	//Split objects
+	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+
+	//Translation
+	FVector3 displacementVector = (displacement.GetNormal() * (coll1->GetCollisionSphere().radius + displacement.Length())) * -1;
+
+
+	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	physicsComp->Translate(displacementVector);
+	physicsComp = nullptr;
+
+	//TODO: Reflect the ball using angle
 }
 
 void C_PhysicsComponent::OBBResponse(C_BoxCollider* coll1, C_BoxCollider* coll2)

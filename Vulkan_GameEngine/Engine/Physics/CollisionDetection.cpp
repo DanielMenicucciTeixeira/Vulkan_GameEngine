@@ -174,8 +174,6 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
-	//TODO://Add in point of collision
-
 	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
 	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
 	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);

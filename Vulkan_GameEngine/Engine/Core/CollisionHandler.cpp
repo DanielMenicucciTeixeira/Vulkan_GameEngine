@@ -61,16 +61,21 @@ void CollisionHandler::Update(float deltaTime_)
 	//AABB Collision
 	for (auto leaves : scenePartition->GetActiveLeaves()) {
 		for (auto& coll1 : leaves->GetAABBColliders()) {
-			//if (coll1->GetIsStatic()) { return; }
-
 			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
-
 			//Check AABB v AABB
 			for (int j = vecLoc + 1; j < leaves->GetAABBCount(); j++) {
-				if (CollisionDetection::AABBIntersection(coll1->GetBoxBounds(), leaves->GetAABBColliders()[j]->GetBoxBounds()))
+				C_BoundingBox* boxPtr = leaves->GetAABBColliders()[j];
+				if (physicsComp == nullptr && boxPtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>() == nullptr) { }
+				else if (CollisionDetection::AABBIntersection(coll1->GetBoxBounds(), boxPtr->GetBoxBounds()))
 				{
-					physicsComp->AABBResponse(coll1, leaves->GetAABBColliders()[j]);
+					if (physicsComp != nullptr) {
+						physicsComp->AABBResponse(coll1, boxPtr);
+					}
+					else {
+						boxPtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AABBResponse(coll1, boxPtr);
+					}
 				}
+				boxPtr = nullptr;
 			}
 			vecLoc++;
 
@@ -78,7 +83,12 @@ void CollisionHandler::Update(float deltaTime_)
 			for (auto& coll2 : leaves->GetSphereColliders()) {
 				if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
 				{
-					physicsComp->AABBSphereResponse(coll1, coll2);
+					if (physicsComp != nullptr) {
+						physicsComp->AABBSphereResponse(coll1, coll2);
+					}
+					else {
+						coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AABBSphereResponse(coll1, coll2);
+					}
 				}
 			}
 
@@ -97,22 +107,28 @@ void CollisionHandler::Update(float deltaTime_)
 
 		//Sphere Collision
 		for (auto& coll1 : leaves->GetSphereColliders()) {
-			if (coll1->GetIsStatic()) { return; }
 
 			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 
 			//Check Sphere v Sphere
 			for (int j = vecLoc + 1; j < leaves->GetSphereCount(); j++) {
-				if (CollisionDetection::SphereIntersection(coll1->GetCollisionSphere(), leaves->GetSphereColliders()[j]->GetCollisionSphere())) {
-					physicsComp->SphereSphereResponse(coll1, leaves->GetSphereColliders()[j]);
+				C_SphereCollider* spherePtr = leaves->GetSphereColliders()[j];
+				if (CollisionDetection::SphereIntersection(coll1->GetCollisionSphere(), spherePtr->GetCollisionSphere())) {
+					if (physicsComp != nullptr) {
+						physicsComp->SphereSphereResponse(coll1, spherePtr);
+					}
+					else {
+						spherePtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SphereSphereResponse(coll1, spherePtr);
+					}
 				}
+				spherePtr = nullptr;
 			}
 			vecLoc++;
 
 			//Check Sphere v OBB
 			for (auto& coll2 : leaves->GetOBBColliders()) {
 				if (CollisionDetection::SphereOBBIntersection(coll1->GetCollisionSphere(), coll2->GetCollisionBox())) {
-
+					coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SphereOBBResponse(coll1, coll2);
 				}
 			}
 
@@ -123,15 +139,16 @@ void CollisionHandler::Update(float deltaTime_)
 
 		//OBB Collision
 		for (auto& coll1 : leaves->GetOBBColliders()) {
-			if (coll1->GetIsStatic()) { return; }
 
 			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 
 			//Check OBB v OBB
 			for (int j = vecLoc + 1; j < leaves->GetOBBCount(); j++) {
-				if (CollisionDetection::OBBIntersection(coll1->GetCollisionBox(), leaves->GetOBBColliders()[j]->GetCollisionBox())) {
+				C_BoxCollider* boxPtr = leaves->GetOBBColliders()[j];
+				if (CollisionDetection::OBBIntersection(coll1->GetCollisionBox(), boxPtr->GetCollisionBox())) {
 
 				}
+				boxPtr = nullptr;
 			}
 			vecLoc++;
 			physicsComp = nullptr;

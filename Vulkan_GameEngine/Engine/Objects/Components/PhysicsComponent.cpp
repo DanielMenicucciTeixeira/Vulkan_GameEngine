@@ -152,13 +152,20 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 {
 	//First determine which one is farther left.
 
+	//Is the first colldier staic
+	bool isFirstStatic = coll1->GetIsStatic();
+
+		//Is the second collider static
+	bool isSecondStatic = coll2->GetIsStatic();
+
+	//If both are static then neither can move.  This should not happen becuase the static split check but just in case?
+	if (isFirstStatic && isSecondStatic) { return; }
+
 	S_BoxBounds min1 = coll1->GetBoxBounds();
 	S_BoxBounds min2 = coll2->GetBoxBounds();
 
 	FVector3 depthPenetration;
 
-	//Is the second collider static
-	bool isSecondStatic = coll2->GetIsStatic();
 
 	//three spliting points
 	//1. is coll1 to the left or right of the other.
@@ -167,7 +174,7 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Notes
 	//if coll2 is static it does not matter if it has a parent or not.
-	//By making the depthPenetration negative if coll1 is on the right, the translation can be negated allowing for the bypassing of another nesting.
+	//By making the depthPenetration negative if coll1 is on the right, the translation can be negated allowing for the bypassing of another nesting section.
 	//A collider without a object is by definition static. so 3 being false = 2 
 
 	//Push X
@@ -187,6 +194,9 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	if (isSecondStatic) {
 		Translate(-depthPenetration);
+	}
+	else if (isFirstStatic) {
+		Translate(depthPenetration);
 	}
 	else {
 		depthPenetration = depthPenetration / 2.0f;
@@ -211,7 +221,29 @@ void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollid
 	physicsComp->Translate(displacementVector);
 	physicsComp = nullptr;
 
-	//TODO: Reflect the ball using angle
+	//TODO: Reflect the ball using angle of incidence.
+
+	//Test
+
+	//Reflect 
+	//Could use how displacement push's the ball out to determine how to reflect the ball.
+	
+	//Could there be an easier way to do this?
+	//Determine which side it hit.
+
+	//Top or bottom 
+	if (coll2->GetComponentPosition().Y >= coll1->GetBoxBounds().Max.Y || coll2->GetComponentPosition().Y <= coll1->GetBoxBounds().Min.Y) {
+		SetVelocity(FVector3(velocity.X, velocity.Y * -1, velocity.Z));
+	}
+	//Left or right
+	else if (coll2->GetComponentPosition().X >= coll1->GetBoxBounds().Max.X || coll2->GetComponentPosition().X <= coll1->GetBoxBounds().Min.X){
+		SetVelocity(FVector3(velocity.X * -1, velocity.Y, velocity.Z));
+	}
+	//Forward or backwards
+	else if (coll2->GetComponentPosition().Z >= coll1->GetBoxBounds().Max.Z || coll2->GetComponentPosition().Z <= coll1->GetBoxBounds().Min.Z) {
+		SetVelocity(FVector3(velocity.X, velocity.Y, velocity.Z * -1));
+	}
+	
 }
 
 void C_PhysicsComponent::AABBOBBResponse(C_BoundingBox* coll1, C_BoxCollider* coll2)
@@ -224,7 +256,8 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 
 	FVector3 vecP = coll1->GetCollisionSphere().position - coll2->GetCollisionSphere().position;
 
-	C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	C_PhysicsComponent* physicsComp2 = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 	//TODO: Does this split?
 
 	if (vecP < 0) { vecP = -vecP; }
@@ -233,18 +266,24 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 
 	//Then we calculate the x - direction velocity vector and the perpendicular y - vector.
 	
-	float x1 = vecP.GetDotProduct(velocity);
-	FVector3 v1x = vecP * x1;
-	FVector3 v1y = velocity - v1x;
+	float x1 = 0;
+	FVector3 v1x;
+	FVector3 v1y;
+
+	if (physicsComp != nullptr) {
+		x1 = vecP.GetDotProduct(velocity);
+		v1x = vecP * x1;
+		v1y = velocity - v1x;
+	}
 
 	vecP = vecP * -1;
 
 	FVector3 v2;
 	float mass2 = 0;
 
-	if (physicsComp != nullptr) {
-		v2 = physicsComp->GetVelocity();
-		mass2 = physicsComp->GetMass();
+	if (physicsComp2 != nullptr) {
+		v2 = physicsComp2->GetVelocity();
+		mass2 = physicsComp2->GetMass();
 	}
 	
 	FVector3 x2 = vecP.GetDotProduct(v2);
@@ -252,7 +291,7 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 	FVector3 v2y = v2 - v2x;
 
 	SetVelocity(v1x * (Mass - mass2) / (Mass - mass2) + v2x * (2 * mass2) / (Mass + mass2) + v1y);
-	if (physicsComp != nullptr) {
+	if (physicsComp2 != nullptr) {
 		physicsComp->SetVelocity(v1x * (2 * Mass) / (Mass + mass2) + v2x * (mass2 - Mass) / (Mass + mass2) + v2y);
 	}
 
@@ -273,6 +312,12 @@ void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollide
 	physicsComp = nullptr;
 
 	//TODO: Reflect the ball using angle
+
+
+	//Use the rotation of the nearest plane to calculate how the ball bounces?
+
+
+	//Also apply force from one object to the other as well.
 }
 
 void C_PhysicsComponent::OBBResponse(C_BoxCollider* coll1, C_BoxCollider* coll2)

@@ -7,7 +7,6 @@ void C_BoxCollider::SetComponentPosition(const FVector3& position)
 {
 	C_TransformComponent::SetComponentPosition(position);
 	CollisionBox.SetPosition(GetComponentAbsolutePosition());
-	CollisionHandler::GetInstance()->OBBSpatialCheck(this);
 }
 
 void C_BoxCollider::SetComponentTransform(const FTransform& transform)

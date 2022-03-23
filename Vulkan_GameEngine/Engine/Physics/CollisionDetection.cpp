@@ -174,9 +174,14 @@ bool CollisionDetection::RayOBBIntersection(Ray a, Box b)
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere a, const S_BoxBounds b)
 {
-	float x = Math::Clamp(b.Min.X, Math::Clamp(a.position.X, b.Max.X, false), true);
-	float y = Math::Clamp(b.Min.Y, Math::Clamp(a.position.Y, b.Max.Y, false), true);
-	float z = Math::Clamp(b.Min.Z, Math::Clamp(a.position.Z, b.Max.Z, false), true);
+	FVector3 bTransform = b.Model[3];
+
+	FVector3 bMin = b.Min + bTransform;
+	FVector3 bMax = b.Max + bTransform;
+
+	float x = Math::Clamp(bMin.X, Math::Clamp(a.position.X, bMax.X, false), true);
+	float y = Math::Clamp(bMin.Y, Math::Clamp(a.position.Y, bMax.Y, false), true);
+	float z = Math::Clamp(bMin.Z, Math::Clamp(a.position.Z, bMax.Z, false), true);
 
 	float distance = ((x - a.position.X) * (x - a.position.X) +
 					  (y - a.position.Y) * (y - a.position.Y) +
@@ -230,8 +235,8 @@ float CollisionDetection::SphereIntersectionDistance(Sphere a, Sphere b)
 bool CollisionDetection::AABBIntersection(S_BoxBounds a, S_BoxBounds b)
 {
 	//TODO://Add in point of collision
-	FVector3 aTransformPos = FVector3(a.Model[3].X, a.Model[3].Y, a.Model[3].Z);
-	FVector3 bTransformPos = FVector3(b.Model[3].X, b.Model[3].Y, b.Model[3].Z);
+	FVector3 aTransformPos = a.Model[3];
+	FVector3 bTransformPos = b.Model[3];
 
 	FVector3 minCorner = a.Min + aTransformPos;
 	FVector3 maxCorner = a.Max + aTransformPos;

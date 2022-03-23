@@ -13,8 +13,6 @@ GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name)
 	Mesh->SetMaterialName("M_Tetrahedron");
 
 	AddComponentOfClass<C_PhysicsComponent>();
-	C_BoundingBox* boxPtr = AddComponentOfClass<C_BoundingBox>();
-	boxPtr->SetCollisionType(ECollisionType::COLLISION);
 
 	Collider = AddComponentOfClass<C_MeshCollision>();
 	//Collider->SetCollisionType(OVERLAP);

@@ -80,6 +80,9 @@ protected:
 	void (*OverlapBeginFunction)(O_GameObject* self, const S_CollisionData& data);
 	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
 
+	inline void SetColliderType(ColliderType type) { colliderType = type; }
+
+
 private:
 	//bool CheckSimplexForOrigin(Simplex& simplex) const;
 

@@ -23,6 +23,9 @@
 #include "../Audio/BackgroundSound.h"
 #include "../Audio/AudioSource.h"
 
+#include "Objects/Components/Colliders/BoundingBox.h"
+#include "Objects/Components/Colliders/SphereCollider.h"
+
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
 	Name = "Tetrahedron Level";
@@ -57,7 +60,15 @@ void L_TetrahedronLevel::Start()
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
+
+
+	C_BoundingBox* boxPtr = T1->AddComponentOfClass<C_BoundingBox>();
+	boxPtr->SetCollisionType(ECollisionType::COLLISION);
+
 	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
+
+	C_SphereCollider* spherePtr = T2->AddComponentOfClass<C_SphereCollider>();
+	spherePtr->SetCollisionType(ECollisionType::COLLISION);
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{

@@ -86,6 +86,7 @@ public:
 	~OctSpatialPartition();
 
 	void AddCollider(C_CollisionComponent* collider);
+	void RemoveCollider(C_CollisionComponent* collider);
 
 	std::set<OctNode*> GetActiveLeaves() const;
 

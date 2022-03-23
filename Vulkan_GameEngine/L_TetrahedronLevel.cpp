@@ -62,13 +62,11 @@ void L_TetrahedronLevel::Start()
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
 		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
 	}
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
 	{
 		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();

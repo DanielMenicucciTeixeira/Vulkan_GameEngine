@@ -32,8 +32,8 @@ void C_PhysicsComponent::Update(const float deltaTime)
 		FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
 		).GetNormal());
 
-	SlowDown(velocityBuffer);
-	SlowDown(accelerationBuffer);
+	//SlowDown(velocityBuffer);
+	//SlowDown(accelerationBuffer);
 
 	//SingleComponent
 	SetVelocity(velocityBuffer + (accelerationBuffer * deltaTime));
@@ -161,8 +161,11 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 	//If both are static then neither can move.  This should not happen becuase the static split check but just in case?
 	if (isFirstStatic && isSecondStatic) { return; }
 
-	S_BoxBounds min1 = coll1->GetBoxBounds();
-	S_BoxBounds min2 = coll2->GetBoxBounds();
+	FVector3 min1 = coll1->GetBoxBounds().Min + coll1->GetBoxBounds().Model[3];
+	FVector3 min2 = coll2->GetBoxBounds().Min + coll2->GetBoxBounds().Model[3];
+
+	FVector3 max1 = coll1->GetBoxBounds().Max + coll1->GetBoxBounds().Model[3];
+	FVector3 max2 = coll2->GetBoxBounds().Max + coll2->GetBoxBounds().Model[3];
 
 	FVector3 depthPenetration;
 
@@ -179,18 +182,18 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Push X
 
-	if (min1.Min.X <= min2.Min.X) { depthPenetration.X = min1.Max.X - min2.Min.X; }
-	else { depthPenetration.X = -(min2.Max.X - min1.Min.X); }
+	if (min1.X <= min2.X) { depthPenetration.X = max1.X - min2.X; }
+	else { depthPenetration.X = -(max2.X - min1.X); }
 
 	//Push Y
 
-	if (min1.Min.Y <= min2.Min.Y) { depthPenetration.Y = min1.Max.Y - min2.Min.Y; }
-	else { depthPenetration.Y = -(min2.Max.Y - min1.Min.Y); }
+	if (min1.Y <= min2.Y) { depthPenetration.Y = max1.Y - min2.Y; }
+	else { depthPenetration.Y = -(max2.Y - min1.Y); }
 
 	//Push Z
 
-	if (min1.Min.Z <= min2.Min.Z) { depthPenetration.Z = min1.Max.Z - min2.Min.Z; }
-	else { depthPenetration.Z = -(min2.Max.Z - min1.Min.Z); }
+	if (min1.Z <= min2.Z) { depthPenetration.Z = max1.Z - min2.Z; }
+	else { depthPenetration.Z = -(max2.Z - min1.Z); }
 
 	if (isSecondStatic) {
 		Translate(-depthPenetration);
@@ -240,7 +243,7 @@ void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollid
 		SetVelocity(FVector3(velocity.X * -1, velocity.Y, velocity.Z));
 	}
 	//Forward or backwards
-	else if (coll2->GetComponentPosition().Z >= coll1->GetBoxBounds().Max.Z || coll2->GetComponentPosition().Z <= coll1->GetBoxBounds().Min.Z) {
+	else {
 		SetVelocity(FVector3(velocity.X, velocity.Y, velocity.Z * -1));
 	}
 	
@@ -317,7 +320,7 @@ void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollide
 	//Use the rotation of the nearest plane to calculate how the ball bounces?
 
 
-	//Also apply force from one object to the other as well.
+	//Also apply force from one object to the other as well. (if the other is not static)
 }
 
 void C_PhysicsComponent::OBBResponse(C_BoxCollider* coll1, C_BoxCollider* coll2)

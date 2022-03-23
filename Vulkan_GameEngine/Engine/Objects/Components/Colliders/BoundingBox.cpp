@@ -8,10 +8,7 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 {
 
 	//TODO: Find good way of setting this value with ease.
-	width = 10.0f;
-	boxBounds.Min = GetComponentPosition();
-	boxBounds.Max = boxBounds.Min;
-	boxBounds.Max.X += width;
+	SetWidth(10.0f);
 
 
 }
@@ -22,7 +19,7 @@ C_BoundingBox::~C_BoundingBox()
 
 void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
 {
-	boxBounds.Max = mesh->Vertices[0].Position;
+/*boxBounds.Max = mesh->Vertices[0].Position;
 	boxBounds.Min = mesh->Vertices[0].Position;
 
 	for (const auto& vertex : mesh->Vertices)
@@ -36,6 +33,7 @@ void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
 		if (boxBounds.Min.Z > vertex.Position.Z) boxBounds.Min.Z = vertex.Position.Z;
 		else if (boxBounds.Max.Y < vertex.Position.Y) boxBounds.Max.Y = vertex.Position.Y;
 	}
+	*/
 }
 
 void C_BoundingBox::Start()
@@ -47,7 +45,9 @@ void C_BoundingBox::Start()
 void C_BoundingBox::Update(float deltaTime)
 {
 	C_CollisionComponent::Update(deltaTime);
-	boxBounds.Model = GetComponentModelMatrix();
+	if (!GetIsStatic()) {
+		boxBounds.Model = GetComponentModelMatrix();
+	}
 }
 
 void C_BoundingBox::PostUpdate(float deltaTime)
@@ -77,9 +77,6 @@ void C_BoundingBox::SetComponentPosition(const FVector3& position)
 {
 	//Do the static check here as well?
 	Transform->SetPosition(position);
-	boxBounds.Min = position;
-	boxBounds.Max = position;
-	boxBounds.Max.X += width;
 
 	///Theory
 	///
@@ -93,4 +90,12 @@ void C_BoundingBox::SetComponentPosition(const FVector3& position)
 	/// if the cells don't match up then remove the pointer from the list and add it to the new one, also change the pointer adress
 	/// in the collider to the new one. (could this be done in the function by changing it?  would that work?)
 	/// 
+}
+
+void C_BoundingBox::SetWidth(float width_)
+{
+	width = width_;
+	float halfWidth = width / 2.0f;
+	boxBounds.Min = FVector3(-5.0f, -5.0f, -5.0f);
+	boxBounds.Max = boxBounds.Min + width;
 }

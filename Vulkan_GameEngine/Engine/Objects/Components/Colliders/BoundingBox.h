@@ -24,6 +24,7 @@ public:
 	inline S_BoxBounds GetBoxBounds() const { return boxBounds; }
 
 	virtual void SetComponentPosition(const FVector3& position) override;
+	void SetWidth(float width_);
 
 protected:
 

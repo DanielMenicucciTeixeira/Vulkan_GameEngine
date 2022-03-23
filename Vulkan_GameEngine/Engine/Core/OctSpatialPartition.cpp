@@ -129,6 +129,31 @@ void OctSpatialPartition::AddCollider(C_CollisionComponent* collider)
 	}
 }
 
+void OctSpatialPartition::RemoveCollider(C_CollisionComponent* collider)
+{
+
+	switch (collider->GetColliderType())
+	{
+	case ColliderType::BoundingBox:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_BoundingBox*>(collider));
+		}
+		break;
+
+	case ColliderType::Sphere:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_SphereCollider*>(collider));
+		}
+		break;
+
+	case ColliderType::Box:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_BoxCollider*>(collider));
+		}
+		break;
+	}
+}
+
 std::set<OctNode*> OctSpatialPartition::GetActiveLeaves() const
 {
 	std::set<OctNode*> returnSet = std::set<OctNode*>();
@@ -346,8 +371,10 @@ void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const
 {
-	if (cell->IsEmpty()) return;
-	if (cell->IsLeaf()) outSet.insert(cell);
+	if (cell->IsLeaf()) { 
+		if (cell->IsEmpty()) return;
+		outSet.insert(cell); 
+	}
 	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetActiveLeaves(cell->GetChild(static_cast<EOctChildren>(i)), outSet);
 }
 

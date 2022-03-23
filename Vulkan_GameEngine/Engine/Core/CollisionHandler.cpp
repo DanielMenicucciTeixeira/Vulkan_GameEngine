@@ -161,6 +161,11 @@ void CollisionHandler::AddCollider(C_CollisionComponent* comp)
 	scenePartition->AddCollider(comp);
 }
 
+void CollisionHandler::RemoveCollider(C_CollisionComponent* comp)
+{
+	scenePartition->RemoveCollider(comp);
+}
+
 S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 {
 	S_CollisionData data;

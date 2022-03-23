@@ -33,7 +33,7 @@ class C_CollisionComponent : public C_TransformComponent
 {
 public:
 	inline ECollisionType GetCollisionType() { return CollisionType; }
-	inline void SetCollisionType(ECollisionType type) { CollisionType = type; }
+	void SetCollisionType(ECollisionType type);
 	inline void SetCollisionFunction(static void (*collisionFunction)(O_GameObject* self, const S_CollisionData& data)) { CollisionFunction = collisionFunction; }
 	inline void SetOverlapBeginFunction(static void (*overlapBeginFunction)(O_GameObject* self, const S_CollisionData& data)) { OverlapBeginFunction = overlapBeginFunction; }
 	inline void SetOverlapEndFunction(static void (*overlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider)) { OverlapEndFunction = overlapEndFunction; }

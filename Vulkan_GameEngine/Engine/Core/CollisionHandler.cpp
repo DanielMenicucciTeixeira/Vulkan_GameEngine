@@ -56,6 +56,8 @@ void CollisionHandler::OnCreate(float worldSize, float depth)
 //TODO: cant just ignore statics else some collisions will to be detected.
 void CollisionHandler::Update(float deltaTime_)
 {
+
+	//TODO: Current issue.  It might be that sphere intersection is incorrect.
 	int vecLoc = 0;
 
 	//AABB Collision

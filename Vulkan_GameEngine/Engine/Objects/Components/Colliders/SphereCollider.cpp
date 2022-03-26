@@ -47,7 +47,7 @@ void C_SphereCollider::Update(const float deltaTime)
 
 void C_SphereCollider::PostUpdate(float deltaTime)
 {
-	if (GetIsStatic()) {
+	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->SphereSpatialCheck(this);
 	}
 }

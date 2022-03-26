@@ -122,12 +122,8 @@ void C_CollisionComponent::Update(const float deltaTime)
 
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic())
 {
-	CollisionType = collisionType;
 	CurrentNodes.reserve(5);
-
-	if (CollisionType != ECollisionType::NO_COLLISION) {
-		CollisionHandler::GetInstance()->AddCollider(this);
-	}
+	SetCollisionType(collisionType);
 }
 
 C_CollisionComponent::~C_CollisionComponent()

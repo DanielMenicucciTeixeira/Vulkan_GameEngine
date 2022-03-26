@@ -50,7 +50,7 @@ C_BoxCollider::~C_BoxCollider()
 
 void C_BoxCollider::PostUpdate(float deltaTime)
 {
-	if (!GetIsStatic()) {
+	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->OBBSpatialCheck(this);
 	}
 }

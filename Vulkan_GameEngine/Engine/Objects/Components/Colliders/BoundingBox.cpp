@@ -19,7 +19,7 @@ C_BoundingBox::~C_BoundingBox()
 
 void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
 {
-/*boxBounds.Max = mesh->Vertices[0].Position;
+    boxBounds.Max = mesh->Vertices[0].Position;
 	boxBounds.Min = mesh->Vertices[0].Position;
 
 	for (const auto& vertex : mesh->Vertices)
@@ -33,7 +33,7 @@ void C_BoundingBox::GetDimensionsFromMesh(S_Mesh* mesh)
 		if (boxBounds.Min.Z > vertex.Position.Z) boxBounds.Min.Z = vertex.Position.Z;
 		else if (boxBounds.Max.Y < vertex.Position.Y) boxBounds.Max.Y = vertex.Position.Y;
 	}
-	*/
+	
 }
 
 void C_BoundingBox::Start()
@@ -52,7 +52,7 @@ void C_BoundingBox::Update(float deltaTime)
 
 void C_BoundingBox::PostUpdate(float deltaTime)
 {
-	if (!GetIsStatic()) {
+	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->AABBSpatialCheck(this);
 	}
 }

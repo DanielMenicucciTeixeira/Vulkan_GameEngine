@@ -67,7 +67,7 @@ void L_TetrahedronLevel::Start()
 
 	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 
-	C_SphereCollider* spherePtr = T2->AddComponentOfClass<C_SphereCollider>();
+	C_BoundingBox* spherePtr = T2->AddComponentOfClass<C_BoundingBox>();
 	spherePtr->SetCollisionType(ECollisionType::COLLISION);
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())

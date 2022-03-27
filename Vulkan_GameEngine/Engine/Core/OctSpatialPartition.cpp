@@ -297,6 +297,9 @@ void OctSpatialPartition::UpdateColliderNode(C_BoundingBox* collider)
 		loop++;
 	}
 
+	//if new && remaining are both 0 return early
+	if (newCells.empty() && remainingCells.empty()) { return; }
+
 	//Add and remove remaining
 
 	for (auto& cell: newCells) {

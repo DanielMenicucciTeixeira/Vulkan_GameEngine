@@ -8,7 +8,7 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 {
 
 	//TODO: Find good way of setting this value with ease.
-	SetWidth(0.5f);
+	SetWidth(10.0f);
 	SetColliderType(ColliderType::BoundingBox);
 
 }

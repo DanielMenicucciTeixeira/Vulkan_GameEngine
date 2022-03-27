@@ -182,18 +182,18 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Push X
 
-	if (min1.X <= min2.X) { depthPenetration.X = max1.X - min2.X; }
-	else { depthPenetration.X = -(max2.X - min1.X); }
+	if (min1.X < min2.X) { depthPenetration.X = std::abs(max1.X - min2.X); }
+	else if (min1.X > min2.X) { depthPenetration.X = -(std::abs(max2.X - min1.X)); }
 
 	//Push Y
 
-	if (min1.Y <= min2.Y) { depthPenetration.Y = max1.Y - min2.Y; }
-	else { depthPenetration.Y = -(max2.Y - min1.Y); }
+	if (min1.Y < min2.Y) { depthPenetration.Y = std::abs(max1.Y - min2.Y); }
+	else if (min1.Y > min2.Y) { depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); }
 
 	//Push Z
 
-	if (min1.Z <= min2.Z) { depthPenetration.Z = max1.Z - min2.Z; }
-	else { depthPenetration.Z = -(max2.Z - min1.Z); }
+	if (min1.Z < min2.Z) { depthPenetration.Z = std::abs(max1.Z - min2.Z); }
+	else if (min1.Z > min2.Z) { depthPenetration.Z = -(std::abs(max2.Z - min1.Z)); }
 
 	if (isSecondStatic) {
 		Translate(-depthPenetration);

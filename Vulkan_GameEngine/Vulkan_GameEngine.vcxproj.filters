@@ -282,6 +282,12 @@
     <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Renderers\Materials\SkyboxMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\GameObjects\Skybox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Geometry\Box.h">
@@ -539,6 +545,12 @@
     <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Renderers\Materials\SkyboxMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\GameObjects\Skybox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -556,5 +568,45 @@
     <None Include="Engine\Shaders\ColourShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
+    <None Include="Engine\Shaders\Skybox.frag" />
+    <None Include="Engine\Shaders\Skybox.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\Apple_Body.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\Apple_Stem.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\CheckerboardTexture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\diceTexture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\DumbTexture.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\hello_world.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\back.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\bottom.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\front.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\left.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\right.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Textures\skybox\top.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

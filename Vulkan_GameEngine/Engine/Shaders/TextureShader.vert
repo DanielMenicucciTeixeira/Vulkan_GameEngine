@@ -14,7 +14,7 @@ layout (location = 4) out vec3 CameraPosition;
 layout(binding = 0, std140) uniform UniformCamera 
 {
     mat4 View;
-    mat4 Projecjtion;
+    mat4 Projection;
 } Camera;
 
 layout(binding = 1, std140) uniform UniformModel
@@ -24,7 +24,7 @@ layout(binding = 1, std140) uniform UniformModel
 
 void main()
 {
-	gl_Position = Camera.Projecjtion * Camera.View * Model.Matrix * vec4(InPosition, 1.0);
+	gl_Position = Camera.Projection * Camera.View * Model.Matrix * vec4(InPosition, 1.0);
 	TextureCoords = InTextureCoords.xy;
 	Normal = transpose(inverse(mat3(Model.Matrix))) * InNormal;
 	vec4 fragPosition = Model.Matrix * vec4(InPosition, 1.0f);

@@ -37,6 +37,7 @@ struct VkSampler_T;
 struct UniformBufferObject;
 struct UniformCameraObject;
 struct S_Texture;
+struct S_CubeSampler;
 struct ShaderVariableInfo;
 
 typedef unsigned int VkFlags;
@@ -44,6 +45,8 @@ typedef VkFlags VkImageAspectFlags;
 typedef VkFlags VkFormatFeatureFlags;
 typedef VkFlags VkImageUsageFlags;
 typedef VkFlags VkMemoryPropertyFlags;
+
+typedef enum VkImageViewType;
 
 struct S_BufferData
 {
@@ -75,16 +78,17 @@ public:
 	void CreateSwapChain();
 
 	void CreateImageViews();
-	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags);
+	VkImageView_T* CreateImageView(VkImage_T* image, VkFormat format, VkImageAspectFlags aspectFlags, VkImageViewType imageViewType, unsigned int layerCount = 1);
 	void CreateRenderPass();
-	void CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory);
+	void CreateImage(unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties, VkImage_T*& image, VkDeviceMemory_T*& imageMemory, VkFlags flags = {}, int layerCount = 1);
 	void CreateDepthResources();
 	void CreateFramebuffers();
 	void CreateUniformBuffers();
 	void CreateDescriptorSetLayouts();
 	void CreateDescriptorPool();
 	void CreateDescriptorSets();
-	void CreateTextureImage();
+	void CreateTextureImages();
+	void CreateSkyboxImages();
 	void CreateTextureSampler(VkSampler_T*& sampler);
 
 	void RecreationCleanUp();
@@ -92,18 +96,18 @@ public:
 
 	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 	VkFormat FindDepthFormat();
-	void TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
+	void TransitionImageLayout(VkImage_T* image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout, int layerCount = 1);
 	bool HasStencilComponent(VkFormat format);
-	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height);
+	void CopyBufferToImage(VkBuffer_T* buffer, VkImage_T* image, unsigned int width, unsigned int height, unsigned int layerCount = 1);
 
 	inline VkExtent2D* GetExtent() const { return Extent; }
 	inline VkRenderPass_T* GetRenderPass() const { return RenderPass; }
+
 	inline std::vector<VkFramebuffer_T*> GetFramebuffers() const { return Framebuffers; }
 	inline std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() const { return DescriptorSetsMap; }
 	inline std::vector<VkImage_T*> GetImages() const { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() const { return Swapchain; }
 	inline std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorLayoutsByShader() const { return DescriptorLayoutsByShader; }
-	//inline VkDescriptorSetLayout_T* GetDescriptorSetLayout() { return DescriptorSetLayout; }
 
 	void UpdateBuffers(unsigned int currentImageIndex);
 
@@ -143,6 +147,9 @@ protected:
 	//VkDescriptorSetLayout_T* DescriptorSetLayout;
 	std::unordered_map<std::string, VkDescriptorSetLayout_T*> DescriptorLayoutsByShader;
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
+	std::unordered_map<S_CubeSampler*, S_TextureData> SkyboxDataMap;
+
+
 
 	VulkanManager* Manager = nullptr;
 };

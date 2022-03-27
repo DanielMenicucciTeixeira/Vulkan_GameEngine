@@ -16,6 +16,7 @@ class FMatrix4;
 struct S_Mesh;
 class Material;
 struct S_Texture;
+struct S_CubeSampler;
 struct S_RenderData;
 
 
@@ -74,6 +75,7 @@ public:
 	void LoadMaterialLibrary();
 	void LoadMaterial(Material* material);
 	bool LoadTexture(S_Texture*& texture, const std::string& textureName);
+	bool LoadCubeSampler(S_CubeSampler*& texture, const std::string& samplerName);
 	void LoadLevelObjects();
 	bool LoadCamera(C_CameraComponent* camera);
 	inline const float& GetWorldSize() const { return WorldSize; }

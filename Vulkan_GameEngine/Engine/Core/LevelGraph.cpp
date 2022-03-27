@@ -87,10 +87,10 @@ void LevelGraph::AddObjectToTagList(O_Object* gameObject, std::string tag)
 }
 
 void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
-
 {
 	ActiveCamera = camera;
 	RenderData.Camera = camera->GetUCO();
+	int test = 0;
 }
 
 void LevelGraph::FrameBufferResizeCallback()
@@ -139,6 +139,12 @@ void LevelGraph::AddTexture(S_Texture* texture)
 {
 	TexturesByName[texture->Name] = texture;
 	RenderData.Textures.insert(texture);
+}
+
+void LevelGraph::AddCubeSampler(S_CubeSampler* sampler)
+{
+	CubeSamplersByName[sampler->Name] = sampler;
+	RenderData.CubeSamplers.insert(sampler);
 }
 
 void LevelGraph::AddMaterial(Material* material)
@@ -190,6 +196,18 @@ void LevelGraph::CleanUp()
 	{
 		for (auto& material : MaterialsByName) if (material.second) delete (material.second);
 		MaterialsByName.clear();
+	}
+
+	if (!TexturesByName.empty())
+	{
+		for (auto& texture : TexturesByName) if (texture.second) delete (texture.second);
+		TexturesByName.clear();
+	}
+
+	if (!CubeSamplersByName.empty())
+	{
+		for (auto& cubeSampler : CubeSamplersByName) if (cubeSampler.second) delete (cubeSampler.second);
+		CubeSamplersByName.clear();
 	}
 
 	RenderData.Clear();

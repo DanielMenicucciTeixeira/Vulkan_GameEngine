@@ -35,6 +35,7 @@ struct S_RenderData
 
 	std::unordered_map<FMatrix4*, const bool*> Models;
 	std::set<S_Texture*> Textures;
+	std::set<S_CubeSampler*> CubeSamplers;
 	std::set<S_Mesh*> Meshes;
 	std::set<Material*> Materials;
 	std::vector<FMatrix4> LightSources;
@@ -80,6 +81,7 @@ public:
 	void AddCollisionComponent(C_CollisionComponent* component);
 	void RemoveMeshComponent(C_StaticMeshComponent* meshComponent);
 	void AddTexture(S_Texture* texture);
+	void AddCubeSampler(S_CubeSampler* sampler);
 	void AddMaterial(Material* material);
 	void AddLight(FMatrix4*& matrix, unsigned int& index);
 	void RemoveLight(unsigned int index);
@@ -87,6 +89,7 @@ public:
 	inline std::unordered_map<std::string, S_Mesh*>& GetMeshes() { return MeshesByName; }
 	inline std::unordered_map<std::string, Material*>& GetMaterials() { return MaterialsByName; }
 	inline std::unordered_map<std::string, S_Texture*>& GetTextures() { return TexturesByName; }
+	inline std::unordered_map<std::string, S_CubeSampler*>& GetCubeSamplers() { return CubeSamplersByName; }
 	inline const std::map<std::string, O_Object*>& GetObjects() const { return GameObjectsByName; }
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
@@ -110,6 +113,7 @@ protected:
 	friend std::default_delete<LevelGraph>;
 	
 	std::unordered_map<std::string, S_Texture*> TexturesByName;
+	std::unordered_map<std::string, S_CubeSampler*> CubeSamplersByName;
     std::unordered_map<std::string, Material*> MaterialsByName;
 	std::unordered_map<std::string, S_Mesh*> MeshesByName;
 	

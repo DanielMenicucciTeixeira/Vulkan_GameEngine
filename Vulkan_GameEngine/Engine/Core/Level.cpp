@@ -84,6 +84,31 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 	return true;
 }
 
+bool L_Level::LoadCubeSampler(S_CubeSampler*& sampler, const std::string& samplerName)
+{
+	auto& samplers = LevelGraph::GetInstance()->GetCubeSamplers();
+	if (!samplers[samplerName])
+	{
+		DebugLogger::Error("Failed to find texture with name: " + sampler->Name + ". ", "Core/Level.cpp", __LINE__);
+		return false;
+	}
+
+	for (auto& texture : samplers[samplerName]->Textures)
+	{
+		if (!texture->Pixels)
+		{
+			if (!TextureHandler::LoadTexture(texture->Name, texture->Path, texture))
+			{
+				DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
+				return false;
+			}
+		}
+	}
+
+	sampler = samplers[samplerName];
+	return true;
+}
+
 void L_Level::LoadLevelObjects()
 {
 	if (UnloadedObjects.empty()) return;

@@ -228,6 +228,7 @@
     <ClCompile Include="Engine\Audio\AudioSource.cpp" />
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
     <ClCompile Include="Engine\Core\GameInterface.cpp" />
+    <ClCompile Include="Engine\Objects\GameObjects\Skybox.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
@@ -244,6 +245,7 @@
     <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp" />
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp" />
     <ClCompile Include="Engine\Objects\Object.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\SkyboxMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\TextureHandler.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
@@ -305,6 +307,7 @@
     <ClInclude Include="Engine\Audio\AudioSource.h" />
     <ClInclude Include="Engine\Audio\BackgroundSound.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
+    <ClInclude Include="Engine\Objects\GameObjects\Skybox.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
@@ -322,6 +325,7 @@
     <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h" />
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h" />
     <ClInclude Include="Engine\Renderers\Materials\Material.h" />
+    <ClInclude Include="Engine\Renderers\Materials\SkyboxMaterial.h" />
     <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h" />
     <ClInclude Include="Engine\Renderers\TextureHandler.h" />
     <ClInclude Include="Game\Apple.h" />
@@ -395,8 +399,24 @@
     <None Include="Engine\Shaders\Base.vert" />
     <None Include="Engine\Shaders\ColourShader.frag" />
     <None Include="Engine\Shaders\ColourShader.vert" />
+    <None Include="Engine\Shaders\Skybox.frag" />
+    <None Include="Engine\Shaders\Skybox.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\Apple_Body.png" />
+    <Image Include="Assets\Textures\Apple_Stem.png" />
+    <Image Include="Assets\Textures\CheckerboardTexture.png" />
+    <Image Include="Assets\Textures\diceTexture.png" />
+    <Image Include="Assets\Textures\DumbTexture.png" />
+    <Image Include="Assets\Textures\hello_world.bmp" />
+    <Image Include="Assets\Textures\skybox\back.jpg" />
+    <Image Include="Assets\Textures\skybox\bottom.jpg" />
+    <Image Include="Assets\Textures\skybox\front.jpg" />
+    <Image Include="Assets\Textures\skybox\left.jpg" />
+    <Image Include="Assets\Textures\skybox\right.jpg" />
+    <Image Include="Assets\Textures\skybox\top.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

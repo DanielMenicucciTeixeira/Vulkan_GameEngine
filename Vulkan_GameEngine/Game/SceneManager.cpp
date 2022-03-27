@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "Game/Levels/L_MainLevel.h"
 
 
 
@@ -19,6 +20,7 @@ bool SceneManager::OnCreate()
 
 
 	if (CoreEngine::GetInstance()->GetCurrentScene() == 0) {
+		//currentLevel = new L_MainLevel();
 		currentLevel = new L_TetrahedronLevel();
 		if (!currentLevel->Initialize()) {
 			DebugLogger::FatalError("Scene has failed on create", "Game1", __LINE__);

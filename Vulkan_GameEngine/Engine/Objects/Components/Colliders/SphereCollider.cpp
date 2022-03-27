@@ -70,6 +70,7 @@ C_SphereCollider::C_SphereCollider(O_GameObject* owner) : C_CollisionComponent(o
 {
 	//CollisionSphere = new Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
 	CollisionSphere = Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
+	SetRadius(5.0f);
 
 	SetColliderType(ColliderType::Sphere);
 }

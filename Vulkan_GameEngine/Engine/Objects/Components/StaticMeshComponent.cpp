@@ -5,7 +5,7 @@
 #include "Math/FTransform.h"
 #include "Math/FQuaternion.h"
 #include "LevelGraph.h"
-#include "Objects/Components/Colliders/BoundingBox.h"
+#include "Objects/Components/Colliders/BoxCollider.h"
 
 #include <iostream>
 
@@ -46,7 +46,8 @@ C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_Renderable
 {
 	ModelMatrix = new FMatrix4();
 	UpdateModelMatrix();
-	Box = Owner->AddComponentOfClass<C_BoundingBox>();
+	Box = Owner->AddComponentOfClass<C_BoxCollider>();
+	//Box->SetCollisionType(ECollisionType::COLLISION);
 }
 
 C_StaticMeshComponent::~C_StaticMeshComponent()

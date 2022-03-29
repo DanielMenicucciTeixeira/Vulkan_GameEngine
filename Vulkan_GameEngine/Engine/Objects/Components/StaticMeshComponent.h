@@ -9,7 +9,7 @@ class Material;
 struct S_Texture;
 struct FTransform;
 class FMatrix4;
-class C_BoundingBox;
+class C_BoxCollider;
 
 class C_StaticMeshComponent : public C_RenderableComponent
 {
@@ -35,13 +35,13 @@ public:
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 	inline const bool* IsInFrustum() const { return &InFrustum; }
 	void SetInFrustum(bool inFrustum);
-	inline C_BoundingBox* GetBoundingBox() { return Box; }
+	inline C_BoxCollider* GetBoxCollider() { return Box; }
 
 protected:
 	void UpdateModelMatrix();
 
 	FMatrix4* ModelMatrix;
-	C_BoundingBox* Box;
+	C_BoxCollider* Box;
 
 	S_Mesh* Mesh = nullptr;
 	std::string MeshName;

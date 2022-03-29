@@ -69,10 +69,14 @@ public:
 
 
 
+
+
 	//Return collision data of last detection
 	static S_CollisionData GetCollisionData();
 	
 private:
 	static S_CollisionData collisionData;
+
+	static bool IsSeparatingPlane(const FVector3 RelativePosition, const FVector3 plane, FVector3 box1HalfSize, FVector3 box1Axis[3], FVector3 box2HalfSize, FVector3 box2Axis[3]);
 };
 

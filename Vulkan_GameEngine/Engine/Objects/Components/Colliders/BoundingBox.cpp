@@ -8,7 +8,7 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 {
 
 	//TODO: Find good way of setting this value with ease.
-	SetWidth(10.0f);
+	SetComponentScale(5.0f);
 	SetColliderType(ColliderType::BoundingBox);
 
 }
@@ -92,10 +92,8 @@ void C_BoundingBox::SetComponentPosition(const FVector3& position)
 	/// 
 }
 
-void C_BoundingBox::SetWidth(float width_)
+void C_BoundingBox::SetComponentScale(const FVector3& scale_)
 {
-	width = width_;
-	float halfWidth = width / 2.0f;
-	boxBounds.Min = FVector3(-5.0f, -5.0f, -5.0f);
-	boxBounds.Max = boxBounds.Min + width;
+	scale = scale_;
+	boxBounds.Max = boxBounds.Min + scale;
 }

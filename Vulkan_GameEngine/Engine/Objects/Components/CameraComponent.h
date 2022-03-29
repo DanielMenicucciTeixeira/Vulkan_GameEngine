@@ -6,7 +6,7 @@
 
 struct UniformCameraObject;
 class FMatrix4;
-class C_BoundingBox;
+class C_BoxCollider;
 
 struct S_FieldOfView
 {
@@ -39,7 +39,7 @@ public:
 
 	virtual void SetComponentTransform(FTransform transform_);
 
-	bool FrustumCheck(C_BoundingBox* meshBox);
+	bool FrustumCheck(C_BoxCollider* meshBox);
 	void PrintFrustum();
 };
 #endif

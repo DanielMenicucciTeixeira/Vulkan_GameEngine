@@ -4,7 +4,7 @@
 #include "../Math/FMatrix4.h"
 #include "../Math/FVector3.h"
 
-struct S_BoxBounds
+class S_BoxBounds
 {
 	FVector3 Max = FVector3();
 	FVector3 Min = FVector3();

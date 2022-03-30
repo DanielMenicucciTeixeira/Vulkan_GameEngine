@@ -13,6 +13,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Objects/Components/MovementComponent.h"
 #include "Pawn.h"
+#include "Renderers/Materials/StandardMaterial.h"
 
 #include <SDL.h>
 #include <glew.h>
@@ -26,54 +27,53 @@ bool L_MainLevel::Initialize()
 {
 	printf("\n\n---------------------------------------MainLevel Initialized!----------------------------------------\n\n");
 
-	/*auto SphereMesh = new S_Mesh();
+	auto SphereMesh = new S_Mesh();
 	SphereMesh->Name = "SphereMesh";
-	SphereMesh->Path = "Game/Models/sphere.obj";*/
+	SphereMesh->Path = "Game/Models/sphere.obj";
 
 	/*auto Ball14_Texture = new S_Texture();
 	Ball14_Texture->Name = "Ball14";
-	Ball14_Texture->Path = "Game/Textures/Ball14.jpg";
-	auto Ball14_Material = new S_Material();
-	Ball14_Material->Name = "Ball14";
-	Ball14_Material->TextureNameDifuse = "Ball14";
-	Ball14_Material->ShaderName = "TextureShader";*/
+	Ball14_Texture->Path = "Game/Textures/Ball14.jpg";*/
+
 
 	auto Apple_Body_Texture = new S_Texture();
 	Apple_Body_Texture->Name = "Apple_Body";
 	Apple_Body_Texture->Path = "Assets/Textures/Apple_Body.png";
-	//Apple_Body_Texture->Path = "Game/Textures/Ball15.jpg";
 	LevelGraph::GetInstance()->AddTexture(Apple_Body_Texture);
 	LoadTexture(Apple_Body_Texture, Apple_Body_Texture->Name);
 
 	auto Apple_Stem_Texture = new S_Texture();
 	Apple_Stem_Texture->Name = "Apple_Stem";
-	Apple_Stem_Texture->Path = "./Assets/Textures/Apple_Stem.png";
+	Apple_Stem_Texture->Path = "Assets/Textures/Apple_Stem.png";
 	LevelGraph::GetInstance()->AddTexture(Apple_Stem_Texture);
 	LoadTexture(Apple_Stem_Texture, Apple_Stem_Texture->Name);
 
 	auto Dice_Texture = new S_Texture();
 	Dice_Texture->Name = "diceTexture";
-	Dice_Texture->Path = "./Assets/Textures/diceTexture.png";
+	Dice_Texture->Path = "Assets/Textures/diceTexture.png";
 	LevelGraph::GetInstance()->AddTexture(Dice_Texture);
 	LoadTexture(Dice_Texture, Dice_Texture->Name);
 
 	ModelPaths.insert("Assets/Models/Apple.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
+	LoadModels();
+
 	MaterialPaths.insert("Assets/Materials/Apple.mtl");
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 	
-	/*LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->TextureNameDifuse = "Apple_Body";
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->TextureDifuse = Apple_Body_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]->ShaderName = "TextureShader";
-	
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Stem"]->TextureNameDifuse = "Apple_Stem";
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Stem"]->TextureDifuse = Apple_Stem_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_Apple_Stem"]->ShaderName = "TextureShader";
+	M_StandardMaterial* appleBodyMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]);
+	appleBodyMat->DiffuseTexture = Apple_Body_Texture;
+	appleBodyMat->SpecularTexture = Apple_Body_Texture;
 
-	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureNameDifuse = "diceTexture";
-	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->TextureDifuse = Dice_Texture;
-	LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]->ShaderName = "TextureShader";*/
+	M_StandardMaterial* appleStemMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Stem"]);
+	appleBodyMat->DiffuseTexture = Apple_Stem_Texture;
+	appleBodyMat->SpecularTexture = Apple_Stem_Texture;
+
+	M_StandardMaterial* diceMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
+	appleBodyMat->DiffuseTexture = Dice_Texture;
+	appleBodyMat->SpecularTexture = Dice_Texture;
+
 	return L_Level::Initialize();
 }
 
@@ -98,22 +98,22 @@ void L_MainLevel::Start()
 	
 	SpawnGameObjectOfClass<GO_Apple>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 
-	auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
-	auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
-	mesh->SetMeshName("Box001");
-	mesh->SetMaterialName("M_diceTexture");
-	mesh->AddTag("Main");
-	//mesh->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
+	//auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
+	//auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
+	//mesh->SetMeshName("Box001");
+	//mesh->SetMaterialName("M_diceTexture");
+	//mesh->AddTag("Main");
+	////mesh->SetComponentRotation(FQuaternion(FVector3(0.0f, 0.0f, 1.0f), 180.0f));
 
 
-	auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();
-	att->SetMeshName("Box001");
-	att->SetMaterialName("M_diceTexture");
-	att->SetComponentScale({ 0.5f, 0.5f, 0.5f });
-	att->SetComponentPosition({ 0.0f, 0.0f, 2.0f });
-	att->AddTag("Attached");
-	
-	auto movement = dice->AddComponentOfClass<C_MovementComponent>();
+	//auto att = dice->AddComponentOfClass<C_StaticMeshComponent>();
+	//att->SetMeshName("Box001");
+	//att->SetMaterialName("M_diceTexture");
+	//att->SetComponentScale({ 0.5f, 0.5f, 0.5f });
+	//att->SetComponentPosition({ 0.0f, 0.0f, 2.0f });
+	//att->AddTag("Attached");
+	//
+	//auto movement = dice->AddComponentOfClass<C_MovementComponent>();
 	//movement->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
 	//TODO: Velocity function change
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();

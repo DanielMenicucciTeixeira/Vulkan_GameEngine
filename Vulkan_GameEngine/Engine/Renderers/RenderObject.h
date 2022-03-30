@@ -17,10 +17,33 @@ public:
 	int Channels = 0;
 	uint8_t BytesPerPixel = 0;
 	void* Pixels = nullptr;
-	size_t ImageSize = 0;
+	//size_t ImageSize = 0; TODO implement proper sizing, at the moment every image is assumed to have the same byte/pixel ratio.
 
 	std::string Path = "";
 	std::string Name = "";
+};
+
+struct S_CubeSampler
+{
+public:
+	S_CubeSampler()
+	{
+		for (int i = 0; i < 6; i++) Textures[i] = new S_Texture();
+	}
+	S_CubeSampler(S_Texture* textures[6])
+	{ 
+		for (int i = 0; i < 6; i++) Textures[i] = textures[i];
+	}
+
+	virtual ~S_CubeSampler()
+	{
+		for (int i = 0; i < 6; i++) if (Textures[i]) delete(Textures[i]);
+	}
+
+	std::string Name = "";
+
+	S_Texture* Textures[6];
+
 };
 
 struct S_Mesh

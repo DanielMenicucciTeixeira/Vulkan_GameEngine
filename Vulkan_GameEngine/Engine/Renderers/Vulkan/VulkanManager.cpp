@@ -57,7 +57,8 @@ void VulkanManager::UpdateWithNewObjects()
     CreateVertexBuffers();
     CreateIndexBuffers();
     SwapchainManager->CreateDescriptorSetLayouts();
-    SwapchainManager->CreateTextureImage();
+    SwapchainManager->CreateTextureImages();
+    SwapchainManager->CreateSkyboxImages();
     RecreateSwapchain();
 }
 
@@ -227,17 +228,17 @@ void VulkanManager::CreateCommandBuffers()
             throw std::runtime_error("failed to begin recording command buffer!");
         }
 
-        VkRenderPassBeginInfo renderPassInfo{};
-        renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-        renderPassInfo.renderPass = SwapchainManager->GetRenderPass();
-        renderPassInfo.framebuffer = SwapchainManager->GetFramebuffers()[i];
-        renderPassInfo.renderArea.offset = { 0, 0 };
-        renderPassInfo.renderArea.extent = *SwapchainManager->GetExtent();
+        VkRenderPassBeginInfo mainPassInfo{};
+        mainPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+        mainPassInfo.renderPass = SwapchainManager->GetRenderPass();
+        mainPassInfo.framebuffer = SwapchainManager->GetFramebuffers()[i];
+        mainPassInfo.renderArea.offset = { 0, 0 };
+        mainPassInfo.renderArea.extent = *SwapchainManager->GetExtent();
         std::array<VkClearValue, 2> clearValues{};
         clearValues[0].color = { 0.0f, 0.0f, 0.0f, 1.0f };
         clearValues[1].depthStencil = { 1.0f, 0 };
-        renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
-        renderPassInfo.pClearValues = clearValues.data();
+        mainPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
+        mainPassInfo.pClearValues = clearValues.data();
 
         VkDeviceSize offsets[] = { 0 };
 
@@ -253,7 +254,7 @@ void VulkanManager::CreateCommandBuffers()
         scissor.offset = { 0, 0 };
         scissor.extent = *GetSwapchainExtent();
 
-        vkCmdBeginRenderPass(CommandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
+        vkCmdBeginRenderPass(CommandBuffers[i], &mainPassInfo, VK_SUBPASS_CONTENTS_INLINE);
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
             for (const auto& shader : RenderData->MaterialsByShader)
@@ -431,7 +432,8 @@ bool VulkanManager::Initialize()
     CreateCommandPool();
     SwapchainManager->CreateDepthResources();
     SwapchainManager->CreateFramebuffers();
-    SwapchainManager->CreateTextureImage();
+    SwapchainManager->CreateTextureImages();
+    SwapchainManager->CreateSkyboxImages();
     LoadModel();
     CreateVertexBuffers();
     CreateIndexBuffers();

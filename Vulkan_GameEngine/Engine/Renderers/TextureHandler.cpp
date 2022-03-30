@@ -38,15 +38,6 @@ bool TextureHandler::LoadTexture(const std::string& textureName, const std::stri
         return false;
     }
 
-    /*SDL_Surface* convertedSurface = new SDL_Surface();
-    int test = SDL_ConvertPixels(surface->w, surface->h, surface->format->format, surface->pixels, surface->format->BytesPerPixel, SDL_PIXELFORMAT_RGBA8888, outTexture->Pixels, 4);
-    if (test != 0)
-    {
-        printf(SDL_GetError());
-        printf("\n");
-        DebugLogger::Error("Failed to convert pixel format for: " + textureName + " at: " + filePath + ".\nSDL_image Error: " + std::string(IMG_GetError()) + "\n", "SDL/TextureHandler.cpp", __LINE__);
-        //return false;
-    }*/
 
     outTexture->Height = surface->h;
     outTexture->Width = surface->w;

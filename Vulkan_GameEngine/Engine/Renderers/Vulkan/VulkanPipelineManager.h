@@ -9,6 +9,7 @@
 
 class VulkanManager;
 class Material;
+class M_VulkanMaterial;
 
 enum class E_ShaderStage;
 enum VkShaderStageFlagBits;
@@ -29,20 +30,19 @@ public:
 	static std::array<VkVertexInputAttributeDescription, 3> GetAttributeDescriptions();
 
 	inline std::unordered_map<std::string, std::pair<VkPipeline_T*, VkPipelineLayout_T*>> GetPipelinesMap() { return PipelinesMap; }
-	//inline VkPipelineLayout_T* GetPipelineLayout() { return PipelineLayout; }
 
 protected:
 
 	static std::vector<char> ReadFile(const std::string& filename);
 	VkShaderModule_T* CreateShaderModule(const std::vector<char>& code);
-	//VkPipelineLayout_T* PipelineLayout = nullptr;
 
 	std::unordered_map <std::string, std::pair<VkPipeline_T*, VkPipelineLayout_T*>> PipelinesMap;
-	//VkPipeline_T* Pipeline = nullptr;
 	VulkanManager* Manager = nullptr;
 
-	//std::string GetShaderBitString(E_ShaderStage stage) const;
 	VkShaderStageFlagBits GetVulkanShaderStageFlag(E_ShaderStage stage) const;
+
+	void CreatePipelineFromGenericMaterial(std::string shader, Material* material);
+	void CreatePipelineFromVulkanMaterial(std::string shader, M_VulkanMaterial* material);
 };
 #endif
 

@@ -34,6 +34,7 @@ FQuaternion::FQuaternion(const FVector3& euler, bool inRadians)
 	FVector3 vector;
 	if (!inRadians) vector = euler * M_PI / 180;
 	else vector = euler;
+
 	// Abbreviations for the various angular functions
 	double cy = cos(vector.Z * 0.5);
 	double sy = sin(vector.Z * 0.5);

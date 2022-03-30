@@ -25,6 +25,14 @@ enum class E_ShaderVariableType
 	MAX_ENUM = 0x7FFFFFFF
 };
 
+enum class E_SharderVariableSubtype
+{
+	NONE = 0,
+	COMBINED_IMAGE_SAMPLER_TEXTURE = 1,
+	COMBINED_IMAGE_SAMPLER_CUBE = 2,
+	ALL_SUBTYPES
+};
+
 enum class E_ShaderStage
 {
 	VERTEX_BIT = 0x00000001,
@@ -79,6 +87,7 @@ struct ShaderVariableInfo
 
 	E_ShaderStage Stage;
 	E_ShaderVariableType Type;
+	E_SharderVariableSubtype Subtype = E_SharderVariableSubtype::NONE;
 	size_t VariableSize;
 };
 

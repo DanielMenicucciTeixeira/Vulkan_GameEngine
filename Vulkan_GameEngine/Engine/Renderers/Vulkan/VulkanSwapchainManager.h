@@ -8,6 +8,7 @@
 class VulkanManager;
 class FMatrix4;
 class Material;
+class M_VulkanMaterial;
 
 enum VkPresentModeKHR;
 enum VkFormat;
@@ -144,14 +145,15 @@ protected:
 
 	VkDescriptorPool_T* DescriptorPool = nullptr;
 	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
-	//VkDescriptorSetLayout_T* DescriptorSetLayout;
 	std::unordered_map<std::string, VkDescriptorSetLayout_T*> DescriptorLayoutsByShader;
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 	std::unordered_map<S_CubeSampler*, S_TextureData> SkyboxDataMap;
 
-
-
 	VulkanManager* Manager = nullptr;
+
+	void CreateDescriptorSetLayoutFromGenericMaterial(std::string shader, Material* material);
+	void CreateDescriptorSetLayoutFromVulkanMaterial(std::string shader, M_VulkanMaterial* material);
+
 };
 #endif
 

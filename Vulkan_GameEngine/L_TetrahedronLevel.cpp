@@ -19,7 +19,7 @@
 #include "Math/FQuaternion.h"
 #include "Objects/Components/PhysicsComponent.h"
 #include "Renderers/Materials/StandardMaterial.h"
-#include "Renderers/Materials/SkyboxMaterial.h"
+#include "Renderers/Materials/VulkanSkyboxMaterial.h"
 #include "Objects/GameObjects/Skybox.h"
 
 L_TetrahedronLevel::L_TetrahedronLevel()
@@ -39,7 +39,7 @@ bool L_TetrahedronLevel::Initialize()
 
 	S_CubeSampler* skybox_Sampler = new S_CubeSampler();
 	skybox_Sampler->Name = "SkyboxSampler";
-	/*skybox_Sampler->Textures[0]->Name = "Front";
+	skybox_Sampler->Textures[0]->Name = "Front";
 	skybox_Sampler->Textures[0]->Path = "Assets/Textures/skybox/front.png";
 	skybox_Sampler->Textures[1]->Name = "Back";
 	skybox_Sampler->Textures[1]->Path = "Assets/Textures/skybox/back.png";
@@ -50,8 +50,8 @@ bool L_TetrahedronLevel::Initialize()
 	skybox_Sampler->Textures[4]->Name = "Right";
 	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/right.png";
 	skybox_Sampler->Textures[5]->Name = "Left";
-	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.png";*/
-	skybox_Sampler->Textures[0]->Name = "Front";
+	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.png";
+	/*skybox_Sampler->Textures[0]->Name = "Front";
 	skybox_Sampler->Textures[0]->Path = "Assets/Textures/CheckerboardTexture.png";
 	skybox_Sampler->Textures[1]->Name = "Back";
 	skybox_Sampler->Textures[1]->Path = "Assets/Textures/Apple_Body.png";
@@ -62,12 +62,12 @@ bool L_TetrahedronLevel::Initialize()
 	skybox_Sampler->Textures[4]->Name = "Right";
 	skybox_Sampler->Textures[4]->Path = "Assets/Textures/CheckerboardTexture.png";
 	skybox_Sampler->Textures[5]->Name = "Left";
-	skybox_Sampler->Textures[5]->Path = "Assets/Textures/Apple_Body.png";
+	skybox_Sampler->Textures[5]->Path = "Assets/Textures/Apple_Body.png";*/
 	LevelGraph::GetInstance()->AddCubeSampler(skybox_Sampler);
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
-	ModelPaths.insert("Assets/Models/Skybox.obj");
+	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
 	LoadMaterialLibrary();
@@ -76,7 +76,7 @@ bool L_TetrahedronLevel::Initialize()
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
 
-	M_SkyboxMaterial* skyboxMaterial = new M_SkyboxMaterial();
+	MV_SkyboxMaterial* skyboxMaterial = new MV_SkyboxMaterial();
 	skyboxMaterial->CubeMap = skybox_Sampler;
 	LevelGraph::GetInstance()->AddMaterial(skyboxMaterial);
 
@@ -111,7 +111,8 @@ void L_TetrahedronLevel::Start()
 	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
 	sun->SetTurnedOn(true);
 
-	auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(0.0f, FVector3(0, 0, 1)), FVector3(1.0f)));
+	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(FVector3(0, 1, 0), 0.0f), FVector3(1.0f)));
+	auto pawn = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(FVector3(1, 0, 0), 0.0f), FVector3(1.0f)));
 	L_Level::Start();
 }
 

@@ -5,6 +5,7 @@
 #include "Renderers/RenderObject.h"
 #include "Renderers/RenderInitializationData.h"
 #include "Renderers/Materials/Material.h"
+#include "Renderers/Materials/VulkanMaterial.h"
 #include "DebugLogger.h"
 #include "Graphics/TextureLoader.h"
 #include "LevelGraph.h"
@@ -339,80 +340,8 @@ void VulkanSwapchainManager::CreateDescriptorSetLayouts()
     for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
     {
         Material* material = (*shader.second.begin());
-        std::vector<VkDescriptorSetLayoutBinding> bindings;
-        bindings.reserve(material->GetShaderVariablesInfo().size() + 4);
-
-        VkDescriptorSetLayoutBinding cameraLayoutBinding{};
-        cameraLayoutBinding.binding = 0;
-        cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        cameraLayoutBinding.descriptorCount = 1;
-        cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-        cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
-        bindings.push_back(cameraLayoutBinding);
-
-        VkDescriptorSetLayoutBinding modelLayoutBinding{};
-        modelLayoutBinding.binding = 1;
-        modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        modelLayoutBinding.descriptorCount = 1;
-        modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-        modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
-        bindings.push_back(modelLayoutBinding);
-
-        VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
-        numberOfLightsLayoutBinding.binding = 2;
-        numberOfLightsLayoutBinding.descriptorCount = 1;
-        numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-        numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
-        bindings.push_back(numberOfLightsLayoutBinding);
-
-        VkDescriptorSetLayoutBinding lightsLayoutBinding{};
-        lightsLayoutBinding.binding = 3;
-        lightsLayoutBinding.descriptorCount = 1;
-        lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-        lightsLayoutBinding.pImmutableSamplers = nullptr;
-        bindings.push_back(lightsLayoutBinding);
-
-        /*VkDescriptorSetLayoutBinding samplerLayoutBinding{};
-        samplerLayoutBinding.binding = 2;
-        samplerLayoutBinding.descriptorCount = 1;
-        samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-        samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-        samplerLayoutBinding.pImmutableSamplers = nullptr;*/
-
-        /*VkDescriptorSetLayoutBinding materialLayoutBinding{};
-        materialLayoutBinding.binding = 5;
-        materialLayoutBinding.descriptorCount = 1;
-        materialLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-        materialLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
-        materialLayoutBinding.pImmutableSamplers = nullptr;*/
-
-        int bidingCount = 4;
-        for (const auto& info : material->GetShaderVariablesInfo())
-        {
-            VkDescriptorSetLayoutBinding materialLayoutBinding{};
-            materialLayoutBinding.binding = bidingCount;
-            materialLayoutBinding.descriptorCount = 1;
-            materialLayoutBinding.descriptorType = GetVulkanDescriptorType(info.Type);
-            materialLayoutBinding.stageFlags = GetVulkanShaderStageFlag(info.Stage);
-            materialLayoutBinding.pImmutableSamplers = nullptr;
-
-            bindings.push_back(materialLayoutBinding);
-            bidingCount++;
-        }
-
-        //std::array<VkDescriptorSetLayoutBinding, 6> bindings = { cameraLayoutBinding, modelLayoutBinding, samplerLayoutBinding, lightsLayoutBinding, numberOfLightsLayoutBinding, materialLayoutBinding };
-        VkDescriptorSetLayoutCreateInfo layoutInfo{};
-        layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
-        layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
-        layoutInfo.pBindings = bindings.data();
-
-        DescriptorLayoutsByShader[shader.first] = VkDescriptorSetLayout();//TODO see if I can get rid of this line
-        if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorLayoutsByShader[shader.first]) != VK_SUCCESS)
-        {
-            throw std::runtime_error("failed to create descriptor set layout!");
-        }
+        if (M_VulkanMaterial* vulkanMaterial = dynamic_cast<M_VulkanMaterial*>(material)) CreateDescriptorSetLayoutFromVulkanMaterial(shader.first, vulkanMaterial);
+        else CreateDescriptorSetLayoutFromGenericMaterial(shader.first, material);
     }
 }
 
@@ -543,24 +472,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         //Counter starting on how many descriptors were pre-defined,
                         //used to delete some pointers latter on to avoid memory leak
                         int descriptorCounter = descriptorWrites.size();
-                        
                         descriptorWrites.insert(descriptorWrites.end(), tempVector.begin(), tempVector.end());
-
-                        /*descriptorWrites[4].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[4].dstSet = DescriptorSetsMap[model][i];
-                        descriptorWrites[4].dstBinding = 4;
-                        descriptorWrites[4].dstArrayElement = 0;
-                        descriptorWrites[4].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-                        descriptorWrites[4].descriptorCount = 1;
-                        descriptorWrites[4].pImageInfo = &imageInfo;*/
-
-                        /*descriptorWrites[5].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[5].dstSet = DescriptorSetsMap[model][i];
-                        descriptorWrites[5].dstBinding = 5;
-                        descriptorWrites[5].dstArrayElement = 0;
-                        descriptorWrites[5].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-                        descriptorWrites[5].descriptorCount = 1;
-                        descriptorWrites[5].pBufferInfo = &materialInfo;*/
 
                         vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
                         for (descriptorCounter; descriptorCounter < descriptorWrites.size(); descriptorCounter++)
@@ -626,8 +538,8 @@ void VulkanSwapchainManager::CreateSkyboxImages()
         unsigned char* texturePixels;
 
         const VkDeviceSize layerSize = textureWidth * textureHeight * pixelSize;
-        //const VkDeviceSize imageSize = layerSize * 6;
-        const VkDeviceSize imageSize = textureWidth * textureHeight * 24;
+        const VkDeviceSize imageSize = layerSize * 6;
+        //const VkDeviceSize imageSize = textureWidth * textureHeight * 24;
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;
 
@@ -643,7 +555,8 @@ void VulkanSwapchainManager::CreateSkyboxImages()
         vkUnmapMemory(Manager->GetLogicalDevice(), stagingBufferMemory);
 
         CreateImage(textureWidth, textureHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL, VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, SkyboxDataMap[cubeSampler].TextureImage, SkyboxDataMap[cubeSampler].TextureImageMemory, VK_IMAGE_CREATE_CUBE_COMPATIBLE_BIT, 6);
-
+        
+        //TransitionImageLayout(SkyboxDataMap[cubeSampler].TextureImage, VK_FORMAT_R8G8B8_SNORM, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 6);
         TransitionImageLayout(SkyboxDataMap[cubeSampler].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 6);
         CopyBufferToImage(stagingBuffer, SkyboxDataMap[cubeSampler].TextureImage, static_cast<uint32_t>(textureWidth), static_cast<uint32_t>(textureHeight), 6);
         TransitionImageLayout(SkyboxDataMap[cubeSampler].TextureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, 6);
@@ -1040,4 +953,75 @@ VkWriteDescriptorSet VulkanSwapchainManager::CreateUniformBufferWrite(Material* 
     uniformBufferWrite.pBufferInfo = uniformBufferInfo;
 
     return uniformBufferWrite;
+}
+
+void VulkanSwapchainManager::CreateDescriptorSetLayoutFromGenericMaterial(std::string shader, Material* material)
+{
+    std::vector<VkDescriptorSetLayoutBinding> bindings;
+    bindings.reserve(material->GetShaderVariablesInfo().size() + 4);
+
+    VkDescriptorSetLayoutBinding cameraLayoutBinding{};
+    cameraLayoutBinding.binding = 0;
+    cameraLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    cameraLayoutBinding.descriptorCount = 1;
+    cameraLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    cameraLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(cameraLayoutBinding);
+
+    VkDescriptorSetLayoutBinding modelLayoutBinding{};
+    modelLayoutBinding.binding = 1;
+    modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    modelLayoutBinding.descriptorCount = 1;
+    modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(modelLayoutBinding);
+
+    VkDescriptorSetLayoutBinding numberOfLightsLayoutBinding{};
+    numberOfLightsLayoutBinding.binding = 2;
+    numberOfLightsLayoutBinding.descriptorCount = 1;
+    numberOfLightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    numberOfLightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    numberOfLightsLayoutBinding.pImmutableSamplers = nullptr;
+    bindings.push_back(numberOfLightsLayoutBinding);
+
+    VkDescriptorSetLayoutBinding lightsLayoutBinding{};
+    lightsLayoutBinding.binding = 3;
+    lightsLayoutBinding.descriptorCount = 1;
+    lightsLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    lightsLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+    lightsLayoutBinding.pImmutableSamplers = nullptr;
+    bindings.push_back(lightsLayoutBinding);
+
+    int bidingCount = 3;
+    for (const auto& info : material->GetShaderVariablesInfo())
+    {
+        bidingCount++;
+
+        VkDescriptorSetLayoutBinding materialLayoutBinding{};
+        materialLayoutBinding.binding = bidingCount;
+        materialLayoutBinding.descriptorCount = 1;
+        materialLayoutBinding.descriptorType = GetVulkanDescriptorType(info.Type);
+        materialLayoutBinding.stageFlags = GetVulkanShaderStageFlag(info.Stage);
+        materialLayoutBinding.pImmutableSamplers = nullptr;
+
+        bindings.push_back(materialLayoutBinding);
+    }
+
+    VkDescriptorSetLayoutCreateInfo layoutInfo{};
+    layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+    layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+    layoutInfo.pBindings = bindings.data();
+
+    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &DescriptorLayoutsByShader[shader]) != VK_SUCCESS)
+    {
+        throw std::runtime_error("failed to create descriptor set layout!");
+    }
+}
+
+void VulkanSwapchainManager::CreateDescriptorSetLayoutFromVulkanMaterial(std::string shader, M_VulkanMaterial* material)
+{
+    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), material->GetDescriptorSetLayoutCreateInfo(), nullptr, &DescriptorLayoutsByShader[shader]) != VK_SUCCESS)
+    {
+        throw std::runtime_error("failed to create descriptor set layout!");
+    }
 }

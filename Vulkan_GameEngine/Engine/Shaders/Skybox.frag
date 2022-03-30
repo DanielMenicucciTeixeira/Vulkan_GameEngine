@@ -4,7 +4,6 @@
 layout (location = 0) out vec4 FragColor;
 
 layout (location = 1) in vec3 TextureCoords;
-layout (location = 2) in vec3 Normal;
 
 layout (binding = 4) uniform samplerCube Skybox;
 

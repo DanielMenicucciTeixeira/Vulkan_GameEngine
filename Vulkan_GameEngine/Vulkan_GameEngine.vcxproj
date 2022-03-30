@@ -247,7 +247,10 @@
     <ClCompile Include="Engine\Objects\Object.cpp" />
     <ClCompile Include="Engine\Renderers\Materials\SkyboxMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\VulkanMaterial.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\VulkanSkyboxMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\TextureHandler.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanSupport.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
     <ClCompile Include="Game\BilliardGame.cpp" />
@@ -327,7 +330,10 @@
     <ClInclude Include="Engine\Renderers\Materials\Material.h" />
     <ClInclude Include="Engine\Renderers\Materials\SkyboxMaterial.h" />
     <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h" />
+    <ClInclude Include="Engine\Renderers\Materials\VulkanMaterial.h" />
+    <ClInclude Include="Engine\Renderers\Materials\VulkanSkyboxMaterial.h" />
     <ClInclude Include="Engine\Renderers\TextureHandler.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanSupport.h" />
     <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />

@@ -1,5 +1,5 @@
-[WARNING]: Nothing to be rendered, no descriptor pool created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 423
-[WARNING]: Nothing to be rendered, no descriptor set created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 448
+[WARNING]: Nothing to be rendered, no descriptor pool created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 352
+[WARNING]: Nothing to be rendered, no descriptor set created in: Renderers/Vulkan/VulkanSwapchainManager.cppp on line: 377
 [WARNING]: DumbTexturewas not nullptr, it will be overriden in: SDL/TextureHandler.cpp on line: 31
 [WARNING]: Frontwas not nullptr, it will be overriden in: SDL/TextureHandler.cpp on line: 31
 [WARNING]: Backwas not nullptr, it will be overriden in: SDL/TextureHandler.cpp on line: 31

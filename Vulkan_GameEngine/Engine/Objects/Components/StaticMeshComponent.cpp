@@ -11,8 +11,8 @@
 
 void C_StaticMeshComponent::Start()
 {
-	Box->GetDimensionsFromMesh(Mesh);
-	Box->SetComponentTransform(*Transform);
+	S_Box->GetDimensionsFromMesh(Mesh);
+	S_Box->SetComponentTransform(*Transform);
 }
 
 /*S_Texture* C_StaticMeshComponent::GetTextureDifuse() const
@@ -46,13 +46,13 @@ C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_Renderable
 {
 	ModelMatrix = new FMatrix4();
 	UpdateModelMatrix();
-	Box = Owner->AddComponentOfClass<C_BoxCollider>();
-	//Box->SetCollisionType(ECollisionType::COLLISION);
+	S_Box = Owner->AddComponentOfClass<C_BoxCollider>();
+	//S_Box->SetCollisionType(ECollisionType::COLLISION);
 }
 
 C_StaticMeshComponent::~C_StaticMeshComponent()
 {
 	LevelGraph::GetInstance()->RemoveMeshComponent(this);
-	Box = nullptr;
+	S_Box = nullptr;
 	if (ModelMatrix) delete(ModelMatrix);
 }

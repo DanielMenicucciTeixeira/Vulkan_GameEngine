@@ -11,7 +11,7 @@
 
 void FPhysicsLib::AddForce(C_PhysicsComponent* target, FVector3 force, FVector3 location)
 {
-	target->SetVelocity(target->GetVelocity() + (force / target->GetMass()));
+	target->SetVelocity(target->GetVelocity() + (force / 1.0f)); //(force / target->GetMass()));
 
 	FVector3 torque = (location - target->GetOwner()->GetPosition()).CrossProduct(force);
 	if (torque == FVector3()) return;

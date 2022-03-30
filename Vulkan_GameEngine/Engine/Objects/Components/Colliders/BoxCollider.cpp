@@ -28,7 +28,7 @@ void C_BoxCollider::SetComponentTransform(const FTransform& transform)
 	CollisionBox.model = GetComponentModelMatrix();
 }
 
-Box C_BoxCollider::GetCollisionBox()
+S_Box C_BoxCollider::GetCollisionBox()
 {
 	return CollisionBox;
 }
@@ -49,9 +49,9 @@ Box C_BoxCollider::GetCollisionBox()
 
 C_BoxCollider::C_BoxCollider(O_GameObject* owner) : C_CollisionComponent(owner)
 {
-	CollisionBox = Box();
+	CollisionBox = S_Box();
 	CollisionBox.Max = FVector3(5.0f, 5.0f, 5.0f);
-	SetColliderType(ColliderType::Box);
+	SetColliderType(ColliderType::S_Box);
 }
 
 C_BoxCollider::~C_BoxCollider()

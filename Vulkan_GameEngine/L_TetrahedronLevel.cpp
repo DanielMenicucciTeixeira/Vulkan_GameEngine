@@ -60,7 +60,7 @@ void L_TetrahedronLevel::Start()
 {
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
-	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-5, 0, 0), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
 
 
 	C_BoxCollider* boxPtr = T1->AddComponentOfClass<C_BoxCollider>();

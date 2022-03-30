@@ -35,13 +35,13 @@ public:
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 	inline const bool* IsInFrustum() const { return &InFrustum; }
 	void SetInFrustum(bool inFrustum);
-	inline C_BoxCollider* GetBoxCollider() { return Box; }
+	inline C_BoxCollider* GetBoxCollider() { return S_Box; }
 
 protected:
 	void UpdateModelMatrix();
 
 	FMatrix4* ModelMatrix;
-	C_BoxCollider* Box;
+	C_BoxCollider* S_Box;
 
 	S_Mesh* Mesh = nullptr;
 	std::string MeshName;

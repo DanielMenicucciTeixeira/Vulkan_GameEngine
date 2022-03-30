@@ -55,12 +55,12 @@ public:
 	inline int GetOBBCount() { return OBBColliders.size(); }
 	inline static const unsigned int& GetChildrenCount() { return ChildrenCount; };
 	inline bool IsLeaf() const { return Children[0] == nullptr; }
-	S_BoxBounds GetBoundingBox() const;
+	BoxBounds GetBoundingBox() const;
 	inline const bool IsEmpty() const { return (AABBColliders.empty() && SphereColliders.empty() && OBBColliders.empty()); }
 
 private:
 	friend class OctSpatialPartition;
-	S_BoxBounds* OctBounds;
+	BoxBounds* OctBounds;
 	OctNode* Parent;
 	OctNode* Children[CHILDREN_NUMBER];
 
@@ -92,8 +92,8 @@ public:
 
 	std::vector<C_CollisionComponent*> GetCollision(Ray& ray);
 	std::vector<C_CollisionComponent*> GetCollision(Sphere& sphere);
-	std::vector<C_CollisionComponent*> GetCollision(S_BoxBounds& bounds);
-	std::vector<C_CollisionComponent*> GetCollision(Box& box);
+	std::vector<C_CollisionComponent*> GetCollision(BoxBounds& bounds);
+	std::vector<C_CollisionComponent*> GetCollision(S_Box& box);
 
 	//TODO: make these work better with multiple collisions
 
@@ -113,15 +113,15 @@ private:
 
 	//Functions to get which cell/s the are being collided with
 	std::vector<OctNode*> GetCollidingNodes(Ray& ray);
-	std::vector<OctNode*> GetCollidingNodes(S_BoxBounds bounds);
+	std::vector<OctNode*> GetCollidingNodes(BoxBounds bounds);
 	std::vector<OctNode*> GetCollidingNodes(Sphere sphere);
-	std::vector<OctNode*> GetCollidingNodes(Box box);
+	std::vector<OctNode*> GetCollidingNodes(S_Box box);
 
 	//Query functions for GetCollidingNodes
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> &nodes);
 	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell, std::vector<OctNode*> &nodes);
-	void GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes);
-	void GetIntersectedLeaves(Box& box, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes);
 
 
 	void AddColliderToCell(C_BoundingBox* collider, OctNode* cell);

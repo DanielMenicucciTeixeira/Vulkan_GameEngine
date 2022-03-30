@@ -10,7 +10,7 @@
 
 class Ray;
 class Sphere;
-class Box;
+class S_Box;
 class FVector3;
 class Plane;
 class O_GameObject;
@@ -26,7 +26,7 @@ enum ECollisionType
 enum class ColliderType {
 	BoundingBox = 0,
 	Sphere = 1,
-	Box = 2
+	S_Box = 2
 };
 
 class C_CollisionComponent : public C_TransformComponent

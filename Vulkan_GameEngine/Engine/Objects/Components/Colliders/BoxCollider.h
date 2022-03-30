@@ -9,7 +9,7 @@ class S_Mesh;
 class C_BoxCollider : public C_CollisionComponent
 {
 protected:
-	Box CollisionBox;
+	S_Box CollisionBox;
 
 public:
 	C_BoxCollider(O_GameObject* owner);
@@ -30,7 +30,7 @@ public:
 	void SetComponentRotation(const FQuaternion& rotation) override;
 	void SetComponentScale(const FVector3& scale) override;
 
-	Box GetCollisionBox();
+	S_Box GetCollisionBox();
 
 	//bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 

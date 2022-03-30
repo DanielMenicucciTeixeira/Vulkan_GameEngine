@@ -184,7 +184,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 			isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
 			break;
 
-		case ColliderType::Box:
+		case ColliderType::S_Box:
 			isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}
@@ -218,7 +218,7 @@ std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
 			isCollideing = CollisionDetection::RaySphereIntersection(ray, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
 			break;
 
-		case ColliderType::Box:
+		case ColliderType::S_Box:
 			isCollideing = CollisionDetection::RayOBBIntersection(ray, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}
@@ -250,7 +250,7 @@ std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere
 			isCollideing = CollisionDetection::SphereIntersection(sphere, static_cast<C_SphereCollider*>(coll)->GetCollisionSphere());
 			break;
 
-		case ColliderType::Box:
+		case ColliderType::S_Box:
 			isCollideing = CollisionDetection::SphereOBBIntersection(sphere, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}
@@ -264,7 +264,7 @@ std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere
 	return data;
 }
 
-std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(S_BoxBounds bounds)
+std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(BoxBounds bounds)
 {
 	std::vector<S_CollisionData> data;
 
@@ -283,7 +283,7 @@ std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(S_BoxBounds boun
 			isCollideing = CollisionDetection::SphereAABBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), bounds);
 			break;
 
-		case ColliderType::Box:
+		case ColliderType::S_Box:
 			isCollideing = CollisionDetection::AABBOBBIntersection(bounds, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}
@@ -297,7 +297,7 @@ std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(S_BoxBounds boun
 	return data;
 }
 
-std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(Box box)
+std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(S_Box box)
 {
 	std::vector<S_CollisionData> data;
 
@@ -316,7 +316,7 @@ std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(Box box)
 			isCollideing = CollisionDetection::SphereOBBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), box);
 			break;
 
-		case ColliderType::Box:
+		case ColliderType::S_Box:
 			isCollideing = CollisionDetection::OBBIntersection(box, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
 			break;
 		}

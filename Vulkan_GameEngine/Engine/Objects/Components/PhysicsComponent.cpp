@@ -161,11 +161,11 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 	//If both are static then neither can move.  This should not happen becuase the static split check but just in case?
 	if (isFirstStatic && isSecondStatic) { return; }
 
-	FVector3 min1 = coll1->GetBoxBounds().Min + coll1->GetBoxBounds().Model[3];
-	FVector3 min2 = coll2->GetBoxBounds().Min + coll2->GetBoxBounds().Model[3];
+	FVector3 min1 = coll1->GetBoxBounds().GetPosition();
+	FVector3 min2 = coll2->GetBoxBounds().GetPosition();
 
-	FVector3 max1 = coll1->GetBoxBounds().Max + coll1->GetBoxBounds().Model[3];
-	FVector3 max2 = coll2->GetBoxBounds().Max + coll2->GetBoxBounds().Model[3];
+	FVector3 max1 = min1 + coll1->GetBoxBounds().GetExtent();
+	FVector3 max2 = min2 + coll2->GetBoxBounds().GetExtent();
 
 	FVector3 depthPenetration;
 
@@ -234,12 +234,15 @@ void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollid
 	//Could there be an easier way to do this?
 	//Determine which side it hit.
 
+	FVector3 min = coll1->GetBoxBounds().GetPosition();
+	FVector3 max = min + coll1->GetBoxBounds().GetExtent();
+
 	//Top or bottom 
-	if (coll2->GetComponentPosition().Y >= coll1->GetBoxBounds().Max.Y || coll2->GetComponentPosition().Y <= coll1->GetBoxBounds().Min.Y) {
+	if (coll2->GetComponentPosition().Y >= max.Y || coll2->GetComponentPosition().Y <= min.Y) {
 		SetVelocity(FVector3(velocity.X, velocity.Y * -1, velocity.Z));
 	}
 	//Left or right
-	else if (coll2->GetComponentPosition().X >= coll1->GetBoxBounds().Max.X || coll2->GetComponentPosition().X <= coll1->GetBoxBounds().Min.X){
+	else if (coll2->GetComponentPosition().X >= max.X || coll2->GetComponentPosition().X <= min.X){
 		SetVelocity(FVector3(velocity.X * -1, velocity.Y, velocity.Z));
 	}
 	//Forward or backwards
@@ -304,13 +307,27 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2)
 {
 	//Split objects
-	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+	FVector3 displacement = coll1->GetOwner()->GetPosition() - CollisionDetection::GetCollisionData().CollisionPoint;
 
 	//Translation
-	FVector3 displacementVector = (displacement.GetNormal() * (coll1->GetCollisionSphere().radius + displacement.Length())) * -1;
+	FVector3 displacementVector = displacement.GetNormal() * (coll1->GetCollisionSphere().radius - displacement.Length());
 
+	if (displacement == coll1->GetComponentPosition()) {
+		//if the sphere centre is in the box get the closest face and calculate from there using the other equation.
+		//This can also be found if the vector is 0,0,0
+	}
 
 	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+	FVector3 force =
+		(
+			(displacement) * 2.0f
+			* (physicsComp->GetVelocity() * (displacement))
+			/ pow((displacement).Length(), 2)
+			) * -1.0f;
+	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / 1.0f));
+
+	coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SetVelocity(FVector3(0.0f));
+
 	physicsComp->Translate(displacementVector);
 	physicsComp = nullptr;
 

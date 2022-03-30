@@ -369,3 +369,5 @@ paket-files/
 !/Vulkan_GameEngine/Assets/
 !/Vulkan_GameEngine/Assets/*
 !/Vulkan_GameEngine/Assets/**/*
+Vulkan_GameEngine/.vs/Vulkan_GameEngine/v16/.suo
+Vulkan_GameEngine/.vs/Vulkan_GameEngine/v16/Browse.VC.db

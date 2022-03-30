@@ -25,6 +25,10 @@
 #include "../Audio/BackgroundSound.h"
 #include "../Audio/AudioSource.h"
 
+#include "Objects/Components/Colliders/BoundingBox.h"
+#include "Objects/Components/Colliders/SphereCollider.h"
+#include "Objects/Components/Colliders/BoxCollider.h"
+
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
 	Name = "Tetrahedron Level";
@@ -91,19 +95,24 @@ void L_TetrahedronLevel::Start()
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
-	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
+
+	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
+
+	C_BoxCollider* boxPtr = T1->AddComponentOfClass<C_BoxCollider>();
+	boxPtr->SetCollisionType(ECollisionType::COLLISION);
+
+	C_SphereCollider* spherePtr = T2->AddComponentOfClass<C_SphereCollider>();
+	spherePtr->SetCollisionType(ECollisionType::COLLISION);
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
 		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, 45.0f, 0.0f });
 	}
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
 	{
 		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
-		phys->SetAngularVelocity({ 0.0f, -45.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();

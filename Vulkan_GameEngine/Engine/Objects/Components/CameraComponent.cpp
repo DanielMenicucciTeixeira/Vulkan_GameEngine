@@ -4,7 +4,7 @@
 #include "Renderers/RenderObject.h"
 #include "Core/Window.h"
 #include "Math/FQuaternion.h"
-#include "Colliders/BoundingBox.h"
+#include "Colliders/BoxCollider.h"
 #include "Math/FTransform.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <SDL.h>
@@ -110,7 +110,7 @@ void C_CameraComponent::SetComponentTransform(FTransform transform_)
 	UpdateView();
 }
 
-bool C_CameraComponent::FrustumCheck(C_BoundingBox* meshBox)
+bool C_CameraComponent::FrustumCheck(C_BoxCollider* meshBox)
 {
 	bool wrongSide, rightSide;
 	int i, j, k;

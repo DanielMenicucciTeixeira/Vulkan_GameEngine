@@ -7,9 +7,9 @@
 
 
 class Ray;
-class S_BoxBounds;
+class BoxBounds;
 class Sphere;
-class Box;
+class S_Box;
 
 using namespace MATH;
 
@@ -30,13 +30,13 @@ public:
 	//Ray
 
 	//Ray & BoundingBox collision
-	static bool RayAABBIntersection(Ray a, const S_BoxBounds b);
+	static bool RayAABBIntersection(Ray a, const BoxBounds b);
 
 	//Ray & Sphere collision, Geometry based
-	static bool RaySphereIntersection(Ray a, Sphere b);
+	static bool RaySphereIntersection(Ray ray, Sphere sphere);
 
-	//Ray & Box collision
-	static bool RayOBBIntersection(Ray a, Box b);
+	//Ray & S_Box collision
+	static bool RayOBBIntersection(Ray a, S_Box b);
 
 	//Sphere
 
@@ -47,25 +47,23 @@ public:
 	static float SphereIntersectionDistance(Sphere a, Sphere b);
 
 	//Sphere & BoundingBox collision
-	static bool SphereAABBIntersection(Sphere a, const S_BoxBounds b);
+	static bool SphereAABBIntersection(Sphere sphere, const BoxBounds box);
 
-	//Sphere & Box collision
-	static bool SphereOBBIntersection(Sphere a, Box b);
+	//Sphere & S_Box collision
+	static bool SphereOBBIntersection(Sphere a, S_Box b);
 
 	//AABB
 
 	//AABB & AABB collision.
-	static bool AABBIntersection(S_BoxBounds a, S_BoxBounds b);
+	static bool AABBIntersection(BoxBounds a, BoxBounds b);
 
-	//AABB & Box collision
-	static bool AABBOBBIntersection(S_BoxBounds a, Box b);
+	//AABB & S_Box collision
+	static bool AABBOBBIntersection(BoxBounds a, S_Box b);
 
-	//Box
+	//S_Box
 
-	//Box & Box collision
-	static bool OBBIntersection(Box a, Box b);
-
-
+	//S_Box & S_Box collision
+	static bool OBBIntersection(S_Box a, S_Box b);
 
 
 
@@ -74,5 +72,7 @@ public:
 	
 private:
 	static S_CollisionData collisionData;
+
+	static bool IsSeparatingPlane(const FVector3 RelativePosition, const FVector3 plane, FVector3 box1HalfSize, FVector3 box1Axis[3], FVector3 box2HalfSize, FVector3 box2Axis[3]);
 };
 

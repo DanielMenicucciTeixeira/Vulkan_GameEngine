@@ -16,9 +16,9 @@ AABBColliders(std::vector<C_BoundingBox*>()), SphereColliders(std::vector<C_Sphe
 	Size = size;
 	Parent = parent;
 
-	OctBounds = new S_BoxBounds();
-	OctBounds->Min = position;
-	OctBounds->Max = position + FVector3(size);
+	OctBounds = new BoxBounds();
+	OctBounds->SetPosition(position);
+	OctBounds->SetExtent(size);
 
 	for (int i = 0; i < CHILDREN_NUMBER; i++) Children[i] = nullptr;
 	if (IsLeaf()) {
@@ -61,7 +61,7 @@ void OctNode::Octify(unsigned int depth)
 				for (int z = 0; z < 2; z++)
 				{
 					//TODO: This seem's wrong.
-					Children[z + (2 * y) + (4 * x)] = new OctNode(FVector3(OctBounds->Min.X + (x * half), OctBounds->Min.Y + (y * half), OctBounds->Min.Z + (z * half)), half, this);
+					Children[z + (2 * y) + (4 * x)] = new OctNode(FVector3(OctBounds->GetPosition().X + (x * half), OctBounds->GetPosition().Y + (y * half), OctBounds->GetPosition().Z + (z * half)), half, this);
 				}
 			}
 		}
@@ -92,7 +92,7 @@ void OctNode::RemoveCollider(C_BoxCollider* element)
 	ColliderCount--;
 }
 
-S_BoxBounds OctNode::GetBoundingBox() const
+BoxBounds OctNode::GetBoundingBox() const
 {
 	return *OctBounds;
 }
@@ -123,8 +123,33 @@ void OctSpatialPartition::AddCollider(C_CollisionComponent* collider)
 		AddColliderToCell(static_cast<C_SphereCollider*>(collider), root);
 		break;
 
-	case ColliderType::Box:
+	case ColliderType::S_Box:
 		AddColliderToCell(static_cast<C_BoxCollider*>(collider), root);
+		break;
+	}
+}
+
+void OctSpatialPartition::RemoveCollider(C_CollisionComponent* collider)
+{
+
+	switch (collider->GetColliderType())
+	{
+	case ColliderType::BoundingBox:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_BoundingBox*>(collider));
+		}
+		break;
+
+	case ColliderType::Sphere:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_SphereCollider*>(collider));
+		}
+		break;
+
+	case ColliderType::S_Box:
+		for (auto& cell : collider->GetCurrentNodes()) {
+			cell->RemoveCollider(static_cast<C_BoxCollider*>(collider));
+		}
 		break;
 	}
 }
@@ -185,7 +210,7 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Sphere& sph
 	return intersectionList;
 }
 
-std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_BoxBounds& bounds)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(BoxBounds& bounds)
 {
 	for (auto inter : intersectionList) {
 		inter = nullptr;
@@ -209,7 +234,7 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_BoxBounds
 	return intersectionList;
 }
 
-std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Box& box)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_Box& box)
 {
 	for (auto inter : intersectionList) {
 		inter = nullptr;
@@ -235,119 +260,185 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(Box& box)
 //TODO:Test this to see if it works.
 void OctSpatialPartition::UpdateColliderNode(C_BoundingBox* collider)
 {
+
 	//Trick to prevent need for double check.
-
+	int c1 = 0;
+	int c2 = 0;
+	bool doesExist = false;
 	std::set<int> copies;
-	int point = 0;
-	bool exists = false;
 	
-	auto currentCells = GetCollidingNodes(collider->GetBoxBounds());
+	auto newCells = GetCollidingNodes(collider->GetBoxBounds());
+	auto remainingCells = collider->GetCurrentNodes();
 
-	for (int i = 0; i < collider->GetCurrentNodes().size(); i++) {
-		copies.insert(i);
-	}
+	std::vector<OctNode*> currentCells;
+	currentCells.reserve(4);
 
-	for(auto & cell : currentCells){
-		for (auto& cell2 : collider->GetCurrentNodes()) {
+	//Check to see which one's exist in both, then remove them from each.
+	for(auto& cell : newCells){
+		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
-				exists = true;
-				copies.erase(point);
-				point = 0;
+				doesExist = true;
 				break;
 			}
-			point++;
+			c2++;
 		}
-		if (exists == false) {
-			cell->AddCollider(collider);
+		if (doesExist) {
+			currentCells.push_back(remainingCells[c2]);
+			remainingCells.erase(remainingCells.begin() + c2);
+			copies.insert(c1);
+			doesExist = false;
 		}
-		exists = false;
-		point = 0;
+		c2 = 0;
+		c1++;
+	}
+	int loop = 0;
+	for (auto cop : copies) {
+		newCells.erase(newCells.begin() + (cop - loop));
+		loop++;
 	}
 
-	for (auto cell : copies) {
-		collider->GetCurrentNodes()[cell]->RemoveCollider(collider);
+	//if new && remaining are both 0 return early
+	if (newCells.empty() && remainingCells.empty()) { return; }
+
+	//Add and remove remaining
+
+	for (auto& cell: newCells) {
+		cell->AddCollider(collider);
+	}
+	for (auto cell : remainingCells) {
+		cell->RemoveCollider(collider);
 	}
 
+	//merge both and set to collider.
+	for (auto& cell : currentCells) {
+		newCells.push_back(cell);
+	}
 
-	collider->SetCurrentNodes(currentCells);
+	collider->SetCurrentNodes(newCells);
 }
 
 void OctSpatialPartition::UpdateColliderNode(C_SphereCollider* collider)
 {
+	//Trick to prevent need for double check.
+	int c1 = 0;
+	int c2 = 0;
+	bool doesExist = false;
 	std::set<int> copies;
-	int point = 0;
-	bool exists = false;
 
-	auto currentCells = GetCollidingNodes(collider->GetCollisionSphere());
+	auto newCells = GetCollidingNodes(collider->GetCollisionSphere());
+	auto remainingCells = collider->GetCurrentNodes();
 
-	for (int i = 0; i < collider->GetCurrentNodes().size(); i++) {
-		copies.insert(i);
-	}
+	std::vector<OctNode*> currentCells;
+	currentCells.reserve(4);
 
-	for (auto& cell : currentCells) {
-		for (auto& cell2 : collider->GetCurrentNodes()) {
+	//Check to see which one's exist in both, then remove them from each.
+	for (auto& cell : newCells) {
+		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
-				exists = true;
-				copies.erase(point);
-				point = 0;
+				doesExist = true;
 				break;
 			}
-			point++;
+			c2++;
 		}
-		if (exists == false) {
-			cell->AddCollider(collider);
+		if (doesExist) {
+			currentCells.push_back(remainingCells[c2]);
+			remainingCells.erase(remainingCells.begin() + c2);
+			copies.insert(c1);
+			doesExist = false;
 		}
-		exists = false;
-		point = 0;
+		c2 = 0;
+		c1++;
+	}
+	int loop = 0;
+	for (auto cop : copies) {
+		newCells.erase(newCells.begin() + (cop - loop));
+		loop++;
 	}
 
-	for (auto cell : copies) {
-		collider->GetCurrentNodes()[cell]->RemoveCollider(collider);
+	//if new && remaining are both 0 return early
+	if (newCells.empty() && remainingCells.empty()) { return; }
+
+	//Add and remove remaining
+
+	for (auto& cell : newCells) {
+		cell->AddCollider(collider);
+	}
+	for (auto cell : remainingCells) {
+		cell->RemoveCollider(collider);
 	}
 
-	collider->SetCurrentNodes(currentCells);
+	//merge both and set to collider.
+	for (auto& cell : currentCells) {
+		newCells.push_back(cell);
+	}
+
+	collider->SetCurrentNodes(newCells);
 }
 
 void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 {
+	//Trick to prevent need for double check.
+	int c1 = 0;
+	int c2 = 0;
+	bool doesExist = false;
 	std::set<int> copies;
-	int point = 0;
-	bool exists = false;
 
-	auto currentCells = GetCollidingNodes(collider->GetCollisionBox());
+	auto newCells = GetCollidingNodes(collider->GetCollisionBox());
+	auto remainingCells = collider->GetCurrentNodes();
 
-	for (int i = 0; i < collider->GetCurrentNodes().size(); i++) {
-		copies.insert(i);
-	}
+	std::vector<OctNode*> currentCells;
+	currentCells.reserve(4);
 
-	for (auto& cell : currentCells) {
-		for (auto& cell2 : collider->GetCurrentNodes()) {
+	//Check to see which one's exist in both, then remove them from each.
+	for (auto& cell : newCells) {
+		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
-				exists = true;
-				copies.erase(point);
-				point = 0;
+				doesExist = true;
 				break;
 			}
-			point++;
+			c2++;
 		}
-		if (exists == false) {
-			cell->AddCollider(collider);
+		if (doesExist) {
+			currentCells.push_back(remainingCells[c2]);
+			remainingCells.erase(remainingCells.begin() + c2);
+			copies.insert(c1);
+			doesExist = false;
 		}
-		exists = false;
-		point = 0;
+		c2 = 0;
+		c1++;
+	}
+	int loop = 0;
+	for (auto cop : copies) {
+		newCells.erase(newCells.begin() + (cop - loop));
+		loop++;
 	}
 
-	for (auto cell : copies) {
-		collider->GetCurrentNodes()[cell]->RemoveCollider(collider);
+	//if new && remaining are both 0 return early
+	if (newCells.empty() && remainingCells.empty()) { return; }
+
+	//Add and remove remaining
+
+	for (auto& cell : newCells) {
+		cell->AddCollider(collider);
+	}
+	for (auto cell : remainingCells) {
+		cell->RemoveCollider(collider);
 	}
 
-	collider->SetCurrentNodes(currentCells);
+	//merge both and set to collider.
+	for (auto& cell : currentCells) {
+		newCells.push_back(cell);
+	}
+
+	collider->SetCurrentNodes(newCells);
 }
 
 void OctSpatialPartition::GetActiveLeaves(OctNode* cell, std::set<OctNode*>& outSet) const
 {
-	if (cell->IsEmpty()) return;
-	if (cell->IsLeaf()) outSet.insert(cell);
+	if (cell->IsLeaf()) { 
+		if (cell->IsEmpty()) return;
+		outSet.insert(cell); 
+	}
 	else for (int i = 0; i < CHILDREN_NUMBER; i++) GetActiveLeaves(cell->GetChild(static_cast<EOctChildren>(i)), outSet);
 }
 
@@ -360,7 +451,7 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Ray& ray)
 	return nodes;
 }
 
-std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_BoxBounds bounds)
+std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(BoxBounds bounds)
 {
 	std::vector<OctNode*> nodes;
 	nodes.reserve(8);
@@ -378,7 +469,7 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Sphere sphere)
 	return nodes;
 }
 
-std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Box box)
+std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_Box box)
 {
 	std::vector<OctNode*> nodes;
 	nodes.reserve(8);
@@ -413,7 +504,7 @@ void OctSpatialPartition::GetIntersectedLeaves(Sphere& sphere, OctNode* cell, st
 	}
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes)
+void OctSpatialPartition::GetIntersectedLeaves(BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes)
 {
 	if (CollisionDetection::AABBIntersection(bounds, cell->GetBoundingBox()))
 	{
@@ -424,7 +515,7 @@ void OctSpatialPartition::GetIntersectedLeaves(S_BoxBounds bounds, OctNode* cell
 	}
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(Box& box, OctNode* cell, std::vector<OctNode*> &nodes)
+void OctSpatialPartition::GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes)
 {
 	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), box))
 	{

@@ -1,7 +1,6 @@
-#include "Box.h"
+#include "BoxBounds.h"
 
-Box::Box()
-{
+BoxBounds::BoxBounds() {
 	Extent.X = 1.0f;
 	Extent.Y = 1.0f;
 	Extent.Z = 1.0f;
@@ -16,8 +15,7 @@ Box::Box()
 	Position = FVector3();
 }
 
-Box::Box(const FVector3& extent, const FVector3& position)
-{
+BoxBounds::BoxBounds(const FVector3& extent, const FVector3& position) {
 	Extent = extent;
 	Position = position;
 
@@ -29,12 +27,11 @@ Box::Box(const FVector3& extent, const FVector3& position)
 	box[5] = Plane(0, 0, 1, extent.Z + position.Z);
 }
 
-Box::~Box()
-{
+BoxBounds::~BoxBounds() {
+
 }
 
-void Box::SetPosition(FVector3 position)
-{
+void BoxBounds::SetPosition(FVector3 position) {
 	box[0] = Plane(1, 0, 0, position.X);
 	box[1] = Plane(0, 1, 0, position.Y);
 	box[2] = Plane(0, 0, 1, position.Z);
@@ -45,11 +42,7 @@ void Box::SetPosition(FVector3 position)
 	Position = position;
 }
 
-void Box::SetExtent(FVector3 extent)
-{
-	box[0] = Plane(1, 0, 0, Position.X);
-	box[1] = Plane(0, 1, 0, Position.Y);
-	box[2] = Plane(0, 0, 1, Position.Z);
+void BoxBounds::SetExtent(FVector3 extent) {
 	box[3] = Plane(1, 0, 0, extent.X + Position.X);
 	box[4] = Plane(0, 1, 0, extent.Y + Position.Y);
 	box[5] = Plane(0, 0, 1, extent.Z + Position.Z);

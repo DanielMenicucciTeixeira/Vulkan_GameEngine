@@ -32,7 +32,7 @@ void LevelGraph::Render()
 {
 	for (auto& mesh : StaticMehes)
 	{
-		mesh->SetInFrustum(ActiveCamera->FrustumCheck(mesh->GetBoundingBox()));
+		mesh->SetInFrustum(ActiveCamera->FrustumCheck(mesh->GetBoxCollider()));
 	}
 }
 

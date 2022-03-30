@@ -4,18 +4,19 @@
 #include "Renderers/RenderObject.h"
 #include "Math/FQuaternion.h"
 #include "Objects/Components/MeshCollision.h"
-
+#include "Objects/Components/PhysicsComponent.h"
+#include "Objects/Components/Colliders/BoundingBox.h"
 GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
 	Mesh->SetMeshName("tetrahedron");
 	Mesh->SetMaterialName("M_Tetrahedron");
 
-	Movement = AddComponentOfClass<C_MovementComponent>();
+	AddComponentOfClass<C_PhysicsComponent>();
 
 	Collider = AddComponentOfClass<C_MeshCollision>();
-	Collider->SetCollisionType(OVERLAP);
-	Collider->SetOverlapBeginFunction(GO_Tetrahedron::OnOverlapBegin);
+	//Collider->SetCollisionType(OVERLAP);
+	//Collider->SetOverlapBeginFunction(GO_Tetrahedron::OnOverlapBegin);
 }
 
 GO_Tetrahedron::~GO_Tetrahedron()

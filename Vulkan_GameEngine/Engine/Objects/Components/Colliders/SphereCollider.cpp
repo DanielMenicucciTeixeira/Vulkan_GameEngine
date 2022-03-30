@@ -8,7 +8,6 @@ void C_SphereCollider::SetComponentPosition(const FVector3& position)
 {
 	C_TransformComponent::SetComponentPosition(position);
 	CollisionSphere.position = GetComponentAbsolutePosition();
-	CollisionHandler::GetInstance()->SphereSpatialCheck(this);
 }
 
 void C_SphereCollider::SetComponentScale(const FVector3& scale)
@@ -48,7 +47,7 @@ void C_SphereCollider::Update(const float deltaTime)
 
 void C_SphereCollider::PostUpdate(float deltaTime)
 {
-	if (GetIsStatic()) {
+	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->SphereSpatialCheck(this);
 	}
 }
@@ -71,6 +70,9 @@ C_SphereCollider::C_SphereCollider(O_GameObject* owner) : C_CollisionComponent(o
 {
 	//CollisionSphere = new Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
 	CollisionSphere = Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
+	SetRadius(5.0f);
+
+	SetColliderType(ColliderType::Sphere);
 }
 
 C_SphereCollider::~C_SphereCollider()

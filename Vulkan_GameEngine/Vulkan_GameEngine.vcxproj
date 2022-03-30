@@ -228,6 +228,7 @@
     <ClCompile Include="Engine\Audio\AudioSource.cpp" />
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
     <ClCompile Include="Engine\Core\GameInterface.cpp" />
+    <ClCompile Include="Engine\Geometry\BoxBounds.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
@@ -256,7 +257,6 @@
     <ClCompile Include="Engine\Objects\Components\Colliders\CollisionComponent.cpp" />
     <ClCompile Include="Engine\Physics\CollisionData.h" />
     <ClCompile Include="Engine\Objects\GameObjects\GameObject.cpp" />
-    <ClCompile Include="Engine\Geometry\Box.cpp" />
     <ClCompile Include="Engine\Geometry\Plane.cpp" />
     <ClCompile Include="Engine\Geometry\Ray.cpp" />
     <ClCompile Include="Engine\Geometry\Sphere.cpp" />

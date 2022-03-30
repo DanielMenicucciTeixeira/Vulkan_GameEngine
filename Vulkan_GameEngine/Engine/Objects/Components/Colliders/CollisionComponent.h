@@ -10,7 +10,7 @@
 
 class Ray;
 class Sphere;
-class Box;
+class S_Box;
 class FVector3;
 class Plane;
 class O_GameObject;
@@ -26,14 +26,14 @@ enum ECollisionType
 enum class ColliderType {
 	BoundingBox = 0,
 	Sphere = 1,
-	Box = 2
+	S_Box = 2
 };
 
 class C_CollisionComponent : public C_TransformComponent
 {
 public:
 	inline ECollisionType GetCollisionType() { return CollisionType; }
-	inline void SetCollisionType(ECollisionType type) { CollisionType = type; }
+	void SetCollisionType(ECollisionType type);
 	inline void SetCollisionFunction(static void (*collisionFunction)(O_GameObject* self, const S_CollisionData& data)) { CollisionFunction = collisionFunction; }
 	inline void SetOverlapBeginFunction(static void (*overlapBeginFunction)(O_GameObject* self, const S_CollisionData& data)) { OverlapBeginFunction = overlapBeginFunction; }
 	inline void SetOverlapEndFunction(static void (*overlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider)) { OverlapEndFunction = overlapEndFunction; }
@@ -79,6 +79,9 @@ protected:
 	void (*CollisionFunction)(O_GameObject* self, const S_CollisionData& data);
 	void (*OverlapBeginFunction)(O_GameObject* self, const S_CollisionData& data);
 	void (*OverlapEndFunction)(O_GameObject* self, C_CollisionComponent* otherCollider);
+
+	inline void SetColliderType(ColliderType type) { colliderType = type; }
+
 
 private:
 	//bool CheckSimplexForOrigin(Simplex& simplex) const;

@@ -24,6 +24,7 @@ public:
 	void Update(float deltaTime_);
 
 	void AddCollider(C_CollisionComponent* comp);
+	void RemoveCollider(C_CollisionComponent* comp);
 
 	//Get closest collider
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
@@ -35,10 +36,10 @@ public:
 	std::vector<S_CollisionData> GetSphereCollision(Sphere& sphere);
 
 	//Get all colliders colliding with the bounding box
-	std::vector<S_CollisionData> GetAABBCollision(S_BoxBounds bounds);
+	std::vector<S_CollisionData> GetAABBCollision(BoxBounds bounds);
 
 	//Get all colliders colliding with the box
-	std::vector<S_CollisionData> GetOBBCollision(Box box);
+	std::vector<S_CollisionData> GetOBBCollision(S_Box box);
 
 	//TODO:Tag filters?
 

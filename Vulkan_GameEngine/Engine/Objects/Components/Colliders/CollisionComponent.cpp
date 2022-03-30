@@ -27,6 +27,20 @@ bool C_CollisionComponent::SpherePlaneCollision(const Sphere& sphere, const FVec
 }
 
 
+void C_CollisionComponent::SetCollisionType(ECollisionType type)
+{
+	if (CollisionType == type) { return; }
+	if (CollisionType != ECollisionType::NO_COLLISION) {
+		CollisionHandler::GetInstance()->RemoveCollider(this);
+	}
+	CollisionType = type;
+
+	if (CollisionType != ECollisionType::NO_COLLISION) {
+		CollisionHandler::GetInstance()->AddCollider(this);
+	}
+
+}
+
 void C_CollisionComponent::ChooseCollisionType(C_CollisionComponent* otherCollider, const S_CollisionData& data)
 {
 	if (this->CollisionType == NO_COLLISION || otherCollider->CollisionType == NO_COLLISION) return;
@@ -108,10 +122,8 @@ void C_CollisionComponent::Update(const float deltaTime)
 
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic())
 {
-	CollisionType = collisionType;
 	CurrentNodes.reserve(5);
-
-	CollisionHandler::GetInstance()->AddCollider(this);
+	SetCollisionType(collisionType);
 }
 
 C_CollisionComponent::~C_CollisionComponent()

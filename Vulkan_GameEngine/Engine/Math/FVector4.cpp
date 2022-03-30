@@ -110,9 +110,10 @@ float FVector4::Length() const
 }
 
 FVector4 FVector4::GetNormal() const
-{
+{	
 	float length = Length();
-	return FVector4(X / length, Y / length, Z / length, W / length);
+	if (length == 0) { return *this; }
+	return *this / Length();
 }
 
 void FVector4::Normalize()

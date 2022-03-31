@@ -89,12 +89,6 @@ void LevelGraph::AddObjectToTagList(O_Object* gameObject, std::string tag)
 	GameObjectsByTag[tag].insert(gameObject);
 }
 
-void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
-{
-	ActiveCamera = camera;
-	RenderData.Camera = camera->GetUCO();
-}
-
 void LevelGraph::FrameBufferResizeCallback()
 {
 	ActiveCamera->UpdateProjection();
@@ -181,7 +175,6 @@ void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 	}
 	ActiveCamera = camera;
 	RenderData.Camera = camera->GetUCO();
-	int test = 0;
 }
 
 std::vector<GO_Camera> * LevelGraph::GetAllCameras()

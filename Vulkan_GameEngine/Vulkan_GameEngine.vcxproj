@@ -229,6 +229,7 @@
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
     <ClCompile Include="Engine\Core\GameInterface.cpp" />
     <ClCompile Include="Engine\Geometry\BoxBounds.cpp" />
+    <ClCompile Include="Engine\Objects\GameObjects\Skybox.cpp" />
     <ClCompile Include="Engine\Physics\CollisionDetection.cpp" />
     <ClCompile Include="Engine\Core\CollisionHandler.cpp" />
     <ClCompile Include="Engine\Core\LevelGraph.cpp" />
@@ -245,8 +246,12 @@
     <ClCompile Include="Engine\Objects\Components\Colliders\BoundingBox.cpp" />
     <ClCompile Include="Engine\Objects\Components\MeshCollision.cpp" />
     <ClCompile Include="Engine\Objects\Object.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\SkyboxMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\Materials\StandardMaterial.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\VulkanMaterial.cpp" />
+    <ClCompile Include="Engine\Renderers\Materials\VulkanSkyboxMaterial.cpp" />
     <ClCompile Include="Engine\Renderers\TextureHandler.cpp" />
+    <ClCompile Include="Engine\Renderers\Vulkan\VulkanSupport.cpp" />
     <ClCompile Include="Game\Apple.cpp" />
     <ClCompile Include="Game\BilliardBall.cpp" />
     <ClCompile Include="Game\BilliardGame.cpp" />
@@ -300,12 +305,14 @@
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanPipelineManager.cpp" />
     <ClCompile Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.cpp" />
     <ClCompile Include="Engine\Core\Window.cpp" />
+    <ClCompile Include="Game\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Audio\AudioHandler.h" />
     <ClInclude Include="Engine\Audio\AudioSource.h" />
     <ClInclude Include="Engine\Audio\BackgroundSound.h" />
     <ClInclude Include="Engine\Core\GameInterface.h" />
+    <ClInclude Include="Engine\Objects\GameObjects\Skybox.h" />
     <ClInclude Include="Engine\Physics\CollisionDetection.h" />
     <ClInclude Include="Engine\Core\CollisionHandler.h" />
     <ClInclude Include="Engine\Core\LevelGraph.h" />
@@ -323,8 +330,12 @@
     <ClInclude Include="Engine\Objects\Components\Colliders\BoundingBox.h" />
     <ClInclude Include="Engine\Objects\Components\MeshCollision.h" />
     <ClInclude Include="Engine\Renderers\Materials\Material.h" />
+    <ClInclude Include="Engine\Renderers\Materials\SkyboxMaterial.h" />
     <ClInclude Include="Engine\Renderers\Materials\StandardMaterial.h" />
+    <ClInclude Include="Engine\Renderers\Materials\VulkanMaterial.h" />
+    <ClInclude Include="Engine\Renderers\Materials\VulkanSkyboxMaterial.h" />
     <ClInclude Include="Engine\Renderers\TextureHandler.h" />
+    <ClInclude Include="Engine\Renderers\Vulkan\VulkanSupport.h" />
     <ClInclude Include="Game\Apple.h" />
     <ClInclude Include="Game\BilliardBall.h" />
     <ClInclude Include="Game\BilliardBalls.h" />
@@ -388,6 +399,7 @@
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanPipelineManager.h" />
     <ClInclude Include="Engine\Renderers\Vulkan\VulkanSwapchainManager.h" />
     <ClInclude Include="Engine\Core\Window.h" />
+    <ClInclude Include="Game\Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc" />

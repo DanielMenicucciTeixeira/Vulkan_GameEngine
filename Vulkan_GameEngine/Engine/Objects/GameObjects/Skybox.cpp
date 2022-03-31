@@ -2,7 +2,7 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Renderers/RenderObject.h"
 
-GO_Skybox::GO_Skybox(L_Level* level, std::string name) : O_GameObject(level, name)
+GO_Skybox::GO_Skybox(std::string name) : O_GameObject(name)
 {
 	Cube = AddComponentOfClass<C_StaticMeshComponent>();
 	Cube->SetMeshName("Box001");

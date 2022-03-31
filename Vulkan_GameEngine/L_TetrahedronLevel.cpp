@@ -21,6 +21,7 @@
 #include "Renderers/Materials/StandardMaterial.h"
 #include "Renderers/Materials/VulkanSkyboxMaterial.h"
 #include "Objects/GameObjects/Skybox.h"
+#include "Game/Wall.h"
 
 #include "../Audio/BackgroundSound.h"
 #include "../Audio/AudioSource.h"
@@ -43,6 +44,12 @@ bool L_TetrahedronLevel::Initialize()
 	tetrahedron_Texture->Path = "Assets/Textures/DumbTexture.png";
 	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
+
+	S_Texture* box_Texture = new S_Texture();
+	box_Texture->Name = "boxTexture";
+	box_Texture->Path = "Assets/Textures/diceTexture.png";
+	LevelGraph::GetInstance()->AddTexture(box_Texture);
+	LoadTexture(box_Texture, box_Texture->Name);
 
 	S_CubeSampler* skybox_Sampler = new S_CubeSampler();
 	skybox_Sampler->Name = "SkyboxSampler";
@@ -77,11 +84,16 @@ bool L_TetrahedronLevel::Initialize()
 	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
+	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
+
+	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
+	boxMaterial->DiffuseTexture = box_Texture;
+	boxMaterial->SpecularTexture = box_Texture;
 
 	MV_SkyboxMaterial* skyboxMaterial = new MV_SkyboxMaterial();
 	skyboxMaterial->CubeMap = skybox_Sampler;
@@ -94,7 +106,7 @@ void L_TetrahedronLevel::Start()
 {
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
-	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
 
 	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
@@ -129,8 +141,7 @@ void L_TetrahedronLevel::Start()
 	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 
 	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(FVector3(0, 1, 0), 0.0f), FVector3(1.0f)));
-	auto pawn = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(FVector3(1, 0, 0), 0.0f), FVector3(1.0f)));
-	
+
 	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(LevelGraph::GetInstance()->GetActiveCamera());

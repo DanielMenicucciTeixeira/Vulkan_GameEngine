@@ -10,9 +10,9 @@ C_TransformComponent::C_TransformComponent(O_GameObject* owner, bool isStatic) :
 {
 	if(!Transform) Transform = new FTransform();
 	if (owner->GetRoot() != nullptr) {
-		Transform->SetPosition(owner->GetPosition());
-		Transform->SetRotation(owner->GetRotation());
-		Transform->SetScale(owner->GetScale());
+		//Transform->SetPosition(owner->GetPosition());
+		//Transform->SetRotation(owner->GetRotation());
+		//Transform->SetScale(owner->GetScale());
 	}
 	IsStatic = isStatic;
 }

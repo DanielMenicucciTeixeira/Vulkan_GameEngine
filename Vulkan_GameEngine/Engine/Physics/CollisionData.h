@@ -6,6 +6,7 @@ class C_CollisionComponent;
 //class FVector3;
 
 #include "../Math/FVector3.h"
+#include "../Geometry/Plane.h"
 
 struct S_CollisionData
 {
@@ -13,5 +14,7 @@ struct S_CollisionData
 	//O_GameObject* OtherGameObject = nullptr;
 	C_CollisionComponent* OtherCollisonComponent = nullptr;
 	FVector3 CollisionPoint;
+
+	Plane plane;
 };
 #endif

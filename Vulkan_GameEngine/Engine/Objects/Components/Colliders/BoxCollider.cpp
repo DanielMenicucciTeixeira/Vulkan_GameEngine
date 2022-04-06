@@ -50,7 +50,7 @@ S_Box C_BoxCollider::GetCollisionBox()
 C_BoxCollider::C_BoxCollider(O_GameObject* owner) : C_CollisionComponent(owner)
 {
 	CollisionBox = S_Box();
-	CollisionBox.Max = FVector3(5.0f, 5.0f, 5.0f);
+	CollisionBox.Max = FVector3(2.0f, 2.0f, 2.0f);
 	SetColliderType(ColliderType::S_Box);
 }
 

@@ -60,7 +60,6 @@ void OctNode::Octify(unsigned int depth)
 			{
 				for (int z = 0; z < 2; z++)
 				{
-					//TODO: This seem's wrong.
 					Children[z + (2 * y) + (4 * x)] = new OctNode(FVector3(OctBounds->GetPosition().X + (x * half), OctBounds->GetPosition().Y + (y * half), OctBounds->GetPosition().Z + (z * half)), half, this);
 				}
 			}
@@ -234,7 +233,7 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(BoxBounds& 
 	return intersectionList;
 }
 
-std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_Box& box)
+std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_Box& box, FVector3 comPos)
 {
 	for (auto inter : intersectionList) {
 		inter = nullptr;
@@ -243,7 +242,7 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_Box& box)
 
 	intersectionList.reserve(20);
 
-	for (auto cell : GetCollidingNodes(box)) {
+	for (auto cell : GetCollidingNodes(box, comPos)) {
 		for (auto coll : cell->GetAABBColliders()) {
 			intersectionList.push_back(coll);
 		}
@@ -383,7 +382,7 @@ void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 	bool doesExist = false;
 	std::set<int> copies;
 
-	auto newCells = GetCollidingNodes(collider->GetCollisionBox());
+	auto newCells = GetCollidingNodes(collider->GetCollisionBox(), collider->GetComponentAbsolutePosition());
 	auto remainingCells = collider->GetCurrentNodes();
 
 	std::vector<OctNode*> currentCells;
@@ -469,12 +468,12 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(Sphere sphere)
 	return nodes;
 }
 
-std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_Box box)
+std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_Box box, FVector3 comPos)
 {
 	std::vector<OctNode*> nodes;
 	nodes.reserve(8);
 
-	GetIntersectedLeaves(box, root, nodes);
+	GetIntersectedLeaves(box, root, nodes, comPos);
 	return nodes;
 }
 
@@ -515,15 +514,15 @@ void OctSpatialPartition::GetIntersectedLeaves(BoxBounds bounds, OctNode* cell, 
 	}
 }
 
-void OctSpatialPartition::GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes)
+void OctSpatialPartition::GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes, FVector3 comPos)
 {
-	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), box))
+	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), box, comPos))
 	{
 		if (cell->IsLeaf()) {
 			nodes.push_back(cell);
 		}
 
-		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(box, cell->GetChild(static_cast<EOctChildren>(i)), nodes);
+		else for (int i = 0; i < CHILDREN_NUMBER; i++) GetIntersectedLeaves(box, cell->GetChild(static_cast<EOctChildren>(i)), nodes, comPos);
 	}
 }
 
@@ -553,7 +552,7 @@ void OctSpatialPartition::AddColliderToCell(C_SphereCollider* collider, OctNode*
 
 void OctSpatialPartition::AddColliderToCell(C_BoxCollider* collider, OctNode* cell)
 {
-	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), collider->GetCollisionBox())) {
+	if (CollisionDetection::AABBOBBIntersection(cell->GetBoundingBox(), collider->GetCollisionBox(), collider->GetComponentAbsolutePosition())) {
 		if (cell->IsLeaf())
 		{
 			collider->SetCurrentNodes(cell);

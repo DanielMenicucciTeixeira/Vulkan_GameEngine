@@ -46,8 +46,8 @@ bool L_TetrahedronLevel::Initialize()
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
 	S_Texture* box_Texture = new S_Texture();
-	box_Texture->Name = "boxTexture";
-	box_Texture->Path = "Assets/Textures/diceTexture.png";
+	box_Texture->Name = "AppleTexture";
+	box_Texture->Path = "Assets/Textures/Apple_Body.png";
 	LevelGraph::GetInstance()->AddTexture(box_Texture);
 	LoadTexture(box_Texture, box_Texture->Name);
 
@@ -82,16 +82,17 @@ bool L_TetrahedronLevel::Initialize()
 
 	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
+	ModelPaths.insert("Assets/Models/Apple.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
-	MaterialPaths.insert("Assets/Materials/Dice.mtl");
+	MaterialPaths.insert("Assets/Materials/Apple.mtl");
 	LoadMaterialLibrary();
 
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
 
-	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
+	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]);
 	boxMaterial->DiffuseTexture = box_Texture;
 	boxMaterial->SpecularTexture = box_Texture;
 
@@ -106,25 +107,30 @@ void L_TetrahedronLevel::Start()
 {
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
-	T1 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-19, 0, 0), FQuaternion(), FVector3(1)));
 
-	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
+	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(-12, 0, 0), FQuaternion(), FVector3(1)));
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 
-	C_BoxCollider* boxPtr = T1->AddComponentOfClass<C_BoxCollider>();
+	T3 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-9, 0, 0), FQuaternion(), FVector3(1)));
+
+	C_SphereCollider* boxPtr = T1->AddComponentOfClass<C_SphereCollider>();
 	boxPtr->SetCollisionType(ECollisionType::COLLISION);
 
 	C_SphereCollider* spherePtr = T2->AddComponentOfClass<C_SphereCollider>();
 	spherePtr->SetCollisionType(ECollisionType::COLLISION);
 
+	C_SphereCollider* simPtr = T3->AddComponentOfClass<C_SphereCollider>();
+	simPtr->SetCollisionType(ECollisionType::COLLISION);
+
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ 1.0f, 0.0f, 0.0f });
+		phys->SetVelocity({ 3.0f, 0.0f, 0.0f });
 	}
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ -1.0f, 0.0f, 0.0f });
+		phys->SetVelocity({ -3.0f, 0.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
@@ -136,7 +142,7 @@ void L_TetrahedronLevel::Start()
 	sun->SetTurnedOn(true);
 
 
-	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(-15.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
 	LevelGraph::GetInstance()->AddCamera(cam, "Camera1");
 	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 

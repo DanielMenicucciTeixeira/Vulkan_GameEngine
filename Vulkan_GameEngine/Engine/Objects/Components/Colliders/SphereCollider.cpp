@@ -41,7 +41,7 @@ void C_SphereCollider::Update(const float deltaTime)
 {
 	C_CollisionComponent::Update(deltaTime);
 
-	CollisionSphere.position = GetComponentPosition() + GetOwner()->GetPosition();
+	CollisionSphere.position = GetComponentAbsolutePosition();
 
 }
 
@@ -50,6 +50,11 @@ void C_SphereCollider::PostUpdate(float deltaTime)
 	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->SphereSpatialCheck(this);
 	}
+}
+
+void C_SphereCollider::RefreshSphere()
+{
+	CollisionSphere.position = GetComponentAbsolutePosition();
 }
 
 //bool C_SphereCollision::Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const
@@ -69,8 +74,8 @@ void C_SphereCollider::PostUpdate(float deltaTime)
 C_SphereCollider::C_SphereCollider(O_GameObject* owner) : C_CollisionComponent(owner)
 {
 	//CollisionSphere = new Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
-	CollisionSphere = Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
-	SetRadius(5.0f);
+	CollisionSphere = Sphere(GetComponentAbsolutePosition(), 1.0f);
+	SetRadius(1.0f);
 
 	SetColliderType(ColliderType::Sphere);
 }

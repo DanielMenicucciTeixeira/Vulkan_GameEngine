@@ -50,7 +50,7 @@ public:
 	static bool SphereAABBIntersection(Sphere sphere, const BoxBounds box);
 
 	//Sphere & S_Box collision
-	static bool SphereOBBIntersection(Sphere a, S_Box b);
+	static bool SphereOBBIntersection(Sphere a, S_Box b, FVector3 boxPos);
 
 	//AABB
 
@@ -58,7 +58,7 @@ public:
 	static bool AABBIntersection(BoxBounds a, BoxBounds b);
 
 	//AABB & S_Box collision
-	static bool AABBOBBIntersection(BoxBounds a, S_Box b);
+	static bool AABBOBBIntersection(BoxBounds a, S_Box b, FVector3 comPos);
 
 	//S_Box
 

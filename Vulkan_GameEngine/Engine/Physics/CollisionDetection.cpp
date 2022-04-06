@@ -5,12 +5,14 @@
 #include "Geometry/Ray.h"
 #include "Objects/Components/CameraComponent.h"
 #include "LevelGraph.h"
+#include <limits>
 
 S_CollisionData CollisionDetection::collisionData = S_CollisionData();
 
 
 CollisionDetection::~CollisionDetection()
 {
+	
 }
 
 bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
@@ -169,6 +171,8 @@ bool CollisionDetection::RayOBBIntersection(Ray a, S_Box b)
 }
 bool CollisionDetection::SphereAABBIntersection(Sphere sphere, const BoxBounds box)
 {
+	/*
+	float distance = numeric_limits<float>::max();
 	if
 		(
 			(sphere.position.X - sphere.radius <= box.GetPosition().X + box.GetExtent().X && sphere.position.X + sphere.radius >= box.GetPosition().X)
@@ -176,20 +180,47 @@ bool CollisionDetection::SphereAABBIntersection(Sphere sphere, const BoxBounds b
 			&& (sphere.position.Z - sphere.radius <= box.GetPosition().Z + box.GetExtent().Z && sphere.position.Z + sphere.radius >= box.GetPosition().Z)
 			)
 	{
+
 		for (const auto& plane : box.box)
 		{
-			float distance = (sphere.position - plane.GetRandomPointInPlane()) * plane.GetPlaneNormal();
-			if (distance < sphere.radius)
+			float newDistance = (sphere.position - plane.GetRandomPointInPlane()) * plane.GetPlaneNormal();
+			if (distance > newDistance && newDistance > 0)
 			{
+				distance = newDistance;
 				collisionData.CollisionPoint = (plane.GetPlaneNormal() * sphere.radius) + sphere.position;
-				return true;
 			}
 		}
+		if (distance < sphere.radius) {
+			//return true;
+		}
 	}
-	return false;
+	//return false;
+	*/
+	
+
+	FVector3 bTransform = box.GetPosition();
+
+	FVector3 bMin = bTransform;
+	FVector3 bMax = bTransform + box.GetExtent();
+
+	//Find closest point
+
+	float x = Math::Max(bMin.X, Math::Min(sphere.position.X, bMax.X));
+	float y = Math::Max(bMin.Y, Math::Min(sphere.position.Y, bMax.Y));
+	float z = Math::Max(bMin.Z, Math::Min(sphere.position.Z, bMax.Z));
+
+	//Distance between two points.
+
+	float distance = ((x - sphere.position.X) * (x - sphere.position.X) +
+		(y - sphere.position.Y) * (y - sphere.position.Y) +
+		(z - sphere.position.Z) * (z - sphere.position.Z));
+
+	collisionData.CollisionPoint = FVector3(x, y, z);
+
+	return distance < sphere.radius* sphere.radius;
 }
 
-bool CollisionDetection::SphereOBBIntersection(Sphere a, S_Box b)
+bool CollisionDetection::SphereOBBIntersection(Sphere a, S_Box b, FVector3 boxPos)
 {
 	FVector3 bTransform = b.model[3];
 
@@ -215,12 +246,20 @@ bool CollisionDetection::SphereOBBIntersection(Sphere a, S_Box b)
 
 bool CollisionDetection::SphereIntersection(Sphere a, Sphere b)
 {
+	float distance = (a.position - b.position).Length();
+	if (distance - (a.radius + b.radius) <= 0.01f)
+	{
+		collisionData.CollisionPoint = ((a.position - b.position).GetNormal() * a.radius) + b.position;
+		return true;
+	}
+	else return false;
 	//TODO://Add in point of collision
+	/*
 	float distance = sqrtf((a.position.X - b.position.X) * (a.position.X - b.position.X) +
 					  (a.position.Y - b.position.Y) * (a.position.Y - b.position.Y) +
 					  (a.position.Z - b.position.Z) * (a.position.Z - b.position.Z));
 
-	return distance < (a.radius + b.radius);
+	return distance < (a.radius + b.radius);*/
 }
 
 float CollisionDetection::SphereIntersectionDistance(Sphere a, Sphere b)
@@ -253,34 +292,34 @@ bool CollisionDetection::AABBIntersection(BoxBounds a, BoxBounds b)
 	return false;
 }
 
-bool CollisionDetection::AABBOBBIntersection(BoxBounds a, S_Box b)
+bool CollisionDetection::AABBOBBIntersection(BoxBounds a, S_Box b, FVector3 comPos)
 {
 	FVector3 RelativePosition;
-	RelativePosition = FVector3(a.GetPosition()) - FVector3(b.model[3]);
+	RelativePosition = FVector3(a.GetPosition()) - FVector3(comPos);
 
-	FVector3 box1Axis[3] = { FVector3(1.0f), FVector3(1.0f), FVector3(1.0f) };
+	FVector3 box1Axis[3] = { FVector3(1.0f, 0.0f,0.0f), FVector3(0.0f, 1.0f,0.0f), FVector3(0.0f, 0.0f, 1.0f) };
 	FVector3 box2Axis[3] = { FVector3(b.model[0]), FVector3(b.model[1]), FVector3(b.model[2]) };
 
 	FVector3 box1HalfSize = a.GetExtent() / 2.0f;
 	FVector3 box2HalfSize = (b.Max - b.Min) / 2.0f;
 
 	return
-		(
-			!IsSeparatingPlane(RelativePosition, box1Axis[0], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[1], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[2], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box2Axis[0], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box2Axis[1], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box2Axis[2], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
-			!IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis)
+		!(
+			IsSeparatingPlane(RelativePosition, box1Axis[0], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[1], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[2], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box2Axis[0], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box2Axis[1], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box2Axis[2], box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[0].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[1].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[0]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[1]), box1HalfSize, box1Axis, box2HalfSize, box2Axis) &&
+			IsSeparatingPlane(RelativePosition, box1Axis[2].CrossProduct(box2Axis[2]), box1HalfSize, box1Axis, box2HalfSize, box2Axis)
 			);
 }
 

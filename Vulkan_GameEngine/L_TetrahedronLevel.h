@@ -15,8 +15,9 @@ public:
 	virtual void Render() override;
 
 protected:
-	GO_Wall* T1 = nullptr;
-	GO_Tetrahedron* T2 = nullptr;
+	GO_Tetrahedron* T1 = nullptr;
+	GO_Tetrahedron* T3 = nullptr;
+	GO_Wall* T2 = nullptr;
 	GO_Skybox* Skybox = nullptr;
 
 	void PrintMinowskiDifference();

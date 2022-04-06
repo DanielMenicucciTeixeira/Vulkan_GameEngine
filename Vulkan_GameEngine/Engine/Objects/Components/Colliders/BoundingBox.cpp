@@ -8,7 +8,7 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 {
 
 	//TODO: Find good way of setting this value with ease.
-	SetComponentScale(5.0f);
+	SetComponentScale(1.0f);
 	SetColliderType(ColliderType::BoundingBox);
 
 }
@@ -27,7 +27,7 @@ void C_BoundingBox::Update(float deltaTime)
 {
 	C_CollisionComponent::Update(deltaTime);
 	if (!GetIsStatic()) {
-		boxBounds.SetPosition(GetComponentPosition());
+		boxBounds.SetPosition(GetComponentAbsolutePosition());
 	}
 }
 

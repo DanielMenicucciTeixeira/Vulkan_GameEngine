@@ -2,6 +2,7 @@ var struct_s___render_data =
 [
     [ "Clear", "struct_s___render_data.html#ae8cb70fe14ca4e6bdfe9152617045d26", null ],
     [ "Camera", "struct_s___render_data.html#aa99d87eaf61dc47d7dc01f268e34cbf3", null ],
+    [ "CubeSamplers", "struct_s___render_data.html#adcb153e84fefe3531bdd9415ab5fe68c", null ],
     [ "InstancesByMesh", "struct_s___render_data.html#a1bec261b5b349558a142606a11fb4aca", null ],
     [ "LightSources", "struct_s___render_data.html#a09dc625b17c94e08c9aa2b4500d76f74", null ],
     [ "Materials", "struct_s___render_data.html#abe3ee66555b2588eaf21c22ffb1b005c", null ],

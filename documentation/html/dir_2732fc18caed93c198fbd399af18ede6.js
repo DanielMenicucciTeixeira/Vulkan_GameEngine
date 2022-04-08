@@ -9,5 +9,6 @@ var dir_2732fc18caed93c198fbd399af18ede6 =
     [ "Math", "dir_18c03fd768db0a11e4bb46e415768194.html", "dir_18c03fd768db0a11e4bb46e415768194" ],
     [ "Objects", "dir_c6a7ad0f28135e04e6219e1f5941a630.html", "dir_c6a7ad0f28135e04e6219e1f5941a630" ],
     [ "Physics", "dir_71ebc3f949cce03be49d5f2e733fc345.html", "dir_71ebc3f949cce03be49d5f2e733fc345" ],
-    [ "Renderers", "dir_5a570d77119a51dbbe9583dbbd635aee.html", "dir_5a570d77119a51dbbe9583dbbd635aee" ]
+    [ "Renderers", "dir_5a570d77119a51dbbe9583dbbd635aee.html", "dir_5a570d77119a51dbbe9583dbbd635aee" ],
+    [ "Serialize", "dir_2cd490132b807fdc64cfd3eb9e4a6f5d.html", "dir_2cd490132b807fdc64cfd3eb9e4a6f5d" ]
 ];

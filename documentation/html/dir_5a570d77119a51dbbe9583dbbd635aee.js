@@ -7,6 +7,7 @@ var dir_5a570d77119a51dbbe9583dbbd635aee =
     [ "RenderInitializationData.h", "_render_initialization_data_8h.html", null ],
     [ "RenderObject.h", "_render_object_8h.html", [
       [ "S_Texture", "struct_s___texture.html", "struct_s___texture" ],
+      [ "S_CubeSampler", "struct_s___cube_sampler.html", "struct_s___cube_sampler" ],
       [ "S_Mesh", "struct_s___mesh.html", "struct_s___mesh" ],
       [ "S_Material", "struct_s___material.html", "struct_s___material" ],
       [ "RenderObject", "struct_render_object.html", "struct_render_object" ]

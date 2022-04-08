@@ -11,5 +11,9 @@ var dir_6b2e1d125d3cf86fb842968d2f7a1fa3 =
     [ "Tetrahedron.cpp", "_tetrahedron_8cpp.html", null ],
     [ "Tetrahedron.h", "_tetrahedron_8h.html", [
       [ "GO_Tetrahedron", "class_g_o___tetrahedron.html", "class_g_o___tetrahedron" ]
+    ] ],
+    [ "VulkanMaterial.cpp", "_vulkan_material_8cpp.html", null ],
+    [ "VulkanMaterial.h", "_vulkan_material_8h.html", [
+      [ "M_VulkanMaterial", "class_m___vulkan_material.html", "class_m___vulkan_material" ]
     ] ]
 ];

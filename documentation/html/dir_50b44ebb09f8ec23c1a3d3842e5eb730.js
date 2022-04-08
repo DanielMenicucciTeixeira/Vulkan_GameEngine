@@ -26,10 +26,6 @@ var dir_50b44ebb09f8ec23c1a3d3842e5eb730 =
     [ "Game01.h", "_game01_8h.html", [
       [ "G_Game01", "class_g___game01.html", "class_g___game01" ]
     ] ],
-    [ "GO_Camera.cpp", "_g_o___camera_8cpp.html", null ],
-    [ "GO_Camera.h", "_g_o___camera_8h.html", [
-      [ "GO_Camera", "class_g_o___camera.html", "class_g_o___camera" ]
-    ] ],
     [ "GO_Triangle.cpp", "_g_o___triangle_8cpp.html", null ],
     [ "GO_Triangle.h", "_g_o___triangle_8h.html", [
       [ "GO_Triangle", "class_g_o___triangle.html", "class_g_o___triangle" ]
@@ -41,5 +37,9 @@ var dir_50b44ebb09f8ec23c1a3d3842e5eb730 =
     [ "SceneManager.cpp", "_scene_manager_8cpp.html", null ],
     [ "SceneManager.h", "_scene_manager_8h.html", [
       [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ]
+    ] ],
+    [ "Wall.cpp", "_wall_8cpp.html", null ],
+    [ "Wall.h", "_wall_8h.html", [
+      [ "GO_Wall", "class_g_o___wall.html", "class_g_o___wall" ]
     ] ]
 ];

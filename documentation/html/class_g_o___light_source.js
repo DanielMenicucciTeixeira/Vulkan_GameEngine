@@ -1,6 +1,6 @@
 var class_g_o___light_source =
 [
-    [ "GO_LightSource", "class_g_o___light_source.html#a7cb4f5c97fdd2bba39edab1c9c42649a", null ],
+    [ "GO_LightSource", "class_g_o___light_source.html#a3fe737a1cb11db60e2d035e0efcca922", null ],
     [ "~GO_LightSource", "class_g_o___light_source.html#ab70ec893e439fe1e55ef688d2f3fa4de", null ],
     [ "GetAmbientIntensity", "class_g_o___light_source.html#a88bc95f486ebb6db5f36d525c1ac9dc4", null ],
     [ "GetAmbientMultiplier", "class_g_o___light_source.html#a3f4cd68a5f4caa8aaee7361ad7d53a2f", null ],

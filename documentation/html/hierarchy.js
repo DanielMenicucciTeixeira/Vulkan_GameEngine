@@ -4,7 +4,7 @@ var hierarchy =
     [ "AudioHandler", "class_audio_handler.html", null ],
     [ "BackgroundSound", "class_background_sound.html", null ],
     [ "BilliardGame", "class_billiard_game.html", null ],
-    [ "Box", "class_box.html", null ],
+    [ "BoxBounds", "class_box_bounds.html", null ],
     [ "Clock", "class_clock.html", null ],
     [ "CollisionDetection", "class_collision_detection.html", null ],
     [ "CollisionHandler", "class_collision_handler.html", null ],
@@ -42,15 +42,21 @@ var hierarchy =
     ] ],
     [ "LevelGraph", "class_level_graph.html", null ],
     [ "Material", "class_material.html", [
-      [ "M_StandardMaterial", "class_m___standard_material.html", null ]
+      [ "M_SkyboxMaterial", "class_m___skybox_material.html", null ],
+      [ "M_StandardMaterial", "class_m___standard_material.html", null ],
+      [ "M_VulkanMaterial", "class_m___vulkan_material.html", [
+        [ "MV_SkyboxMaterial", "class_m_v___skybox_material.html", null ]
+      ] ],
+      [ "M_VulkanMaterial", "class_m___vulkan_material.html", null ]
     ] ],
     [ "MATH::Math", "class_m_a_t_h_1_1_math.html", null ],
     [ "MouseEventHandler", "class_mouse_event_handler.html", null ],
     [ "O_Object", "class_o___object.html", [
       [ "O_Component", "class_o___component.html", [
         [ "AudioSource", "class_audio_source.html", null ],
-        [ "C_MovementComponent", "class_c___movement_component.html", null ],
-        [ "C_PhysicsComponent", "class_c___physics_component.html", null ],
+        [ "C_MovementComponent", "class_c___movement_component.html", [
+          [ "C_PhysicsComponent", "class_c___physics_component.html", null ]
+        ] ],
         [ "C_TransformComponent", "class_c___transform_component.html", [
           [ "C_CameraComponent", "class_c___camera_component.html", null ],
           [ "C_CollisionComponent", "class_c___collision_component.html", [
@@ -77,8 +83,10 @@ var hierarchy =
         ] ],
         [ "GO_Pawn", "class_g_o___pawn.html", null ],
         [ "GO_PhysicsBody", "class_g_o___physics_body.html", null ],
+        [ "GO_Skybox", "class_g_o___skybox.html", null ],
         [ "GO_Tetrahedron", "class_g_o___tetrahedron.html", null ],
-        [ "GO_Triangle", "class_g_o___triangle.html", null ]
+        [ "GO_Triangle", "class_g_o___triangle.html", null ],
+        [ "GO_Wall", "class_g_o___wall.html", null ]
       ] ]
     ] ],
     [ "OctNode", "class_oct_node.html", null ],
@@ -94,10 +102,12 @@ var hierarchy =
     ] ],
     [ "RenderObject", "struct_render_object.html", null ],
     [ "S_BindingData", "struct_s___binding_data.html", null ],
-    [ "S_BoxBounds", "struct_s___box_bounds.html", null ],
+    [ "S_Box", "struct_s___box.html", null ],
     [ "S_BufferData", "struct_s___buffer_data.html", null ],
     [ "S_CollisionData", "struct_s___collision_data.html", null ],
+    [ "S_CubeSampler", "struct_s___cube_sampler.html", null ],
     [ "S_FieldOfView", "struct_s___field_of_view.html", null ],
+    [ "S_GraphicsPipelineStagesInfo", "struct_s___graphics_pipeline_stages_info.html", null ],
     [ "S_Material", "struct_s___material.html", null ],
     [ "S_Mesh", "struct_s___mesh.html", null ],
     [ "S_MeshData", "struct_s___mesh_data.html", null ],
@@ -107,8 +117,10 @@ var hierarchy =
     [ "S_Texture", "struct_s___texture.html", null ],
     [ "S_TextureData", "struct_s___texture_data.html", null ],
     [ "S_Vertex", "struct_s___vertex.html", null ],
+    [ "Serialize", "class_serialize.html", null ],
     [ "ShaderVariable< T >", "struct_shader_variable.html", null ],
     [ "ShaderVariable< FMatrix4 >", "struct_shader_variable.html", null ],
+    [ "ShaderVariable< S_CubeSampler * >", "struct_shader_variable.html", null ],
     [ "ShaderVariable< S_Texture * >", "struct_shader_variable.html", null ],
     [ "ShaderVariableInfo", "struct_shader_variable_info.html", null ],
     [ "Simplex", "struct_simplex.html", null ],
@@ -122,6 +134,7 @@ var hierarchy =
     [ "VulkanDebugger", "class_vulkan_debugger.html", null ],
     [ "VulkanDevices", "class_vulkan_devices.html", null ],
     [ "VulkanPipelineManager", "class_vulkan_pipeline_manager.html", null ],
+    [ "VulkanSupport", "class_vulkan_support.html", null ],
     [ "VulkanSwapchainManager", "class_vulkan_swapchain_manager.html", null ],
     [ "Window", "class_window.html", null ]
 ];

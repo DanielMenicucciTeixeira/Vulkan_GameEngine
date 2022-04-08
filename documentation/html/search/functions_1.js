@@ -8,5 +8,5 @@ var searchData=
   ['binduniformbufferfrommaterial_5',['BindUniformBufferFromMaterial',['../class_open_g_l_manager.html#a8c821df23b1a8a967a2c250a7ef3eafa',1,'OpenGLManager']]],
   ['bounceonball_6',['BounceOnBall',['../class_g_o___billiard_ball.html#aa1ee075e740630b25de2739b6055e181',1,'GO_BilliardBall']]],
   ['bounceonwall_7',['BounceOnWall',['../class_g_o___billiard_ball.html#a630fff5b0eb590478f559244f7b5c68d',1,'GO_BilliardBall']]],
-  ['box_8',['Box',['../class_box.html#aca78d7db44972bfa78d46b7bbc8796f6',1,'Box::Box()'],['../class_box.html#a465526361cc979c0a86c56f8865d9536',1,'Box::Box(const FVector3 &amp;extent, const FVector3 &amp;position=FVector3())']]]
+  ['boxbounds_8',['BoxBounds',['../class_box_bounds.html#ae3a27798221c456a2db8da2ca2c1ac50',1,'BoxBounds::BoxBounds()'],['../class_box_bounds.html#a211d7af85b70a273827a7d5c04254197',1,'BoxBounds::BoxBounds(const FVector3 &amp;extent, const FVector3 &amp;position=FVector3())']]]
 ];

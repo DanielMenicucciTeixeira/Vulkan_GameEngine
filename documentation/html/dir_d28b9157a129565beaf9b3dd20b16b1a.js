@@ -1,11 +1,11 @@
 var dir_d28b9157a129565beaf9b3dd20b16b1a =
 [
-    [ "Box.cpp", "_box_8cpp.html", null ],
     [ "Box.h", "_box_8h.html", [
-      [ "Box", "class_box.html", "class_box" ]
+      [ "S_Box", "struct_s___box.html", "struct_s___box" ]
     ] ],
+    [ "BoxBounds.cpp", "_box_bounds_8cpp.html", null ],
     [ "BoxBounds.h", "_box_bounds_8h.html", [
-      [ "S_BoxBounds", "struct_s___box_bounds.html", "struct_s___box_bounds" ]
+      [ "BoxBounds", "class_box_bounds.html", "class_box_bounds" ]
     ] ],
     [ "Plane.cpp", "_plane_8cpp.html", null ],
     [ "Plane.h", "_plane_8h.html", [

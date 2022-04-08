@@ -45,5 +45,11 @@ var _material_8h =
       [ "ACCELERATION_STRUCTURE_KHR", "_material_8h.html#ad0905b90e69dacecbc5389b41c82226eafbfee44520cdd4b96bf05a8c92f3b008", null ],
       [ "ACCELERATION_STRUCTURE_NV", "_material_8h.html#ad0905b90e69dacecbc5389b41c82226ea7fc330be9ec5c3b377c16f83a9f8058d", null ],
       [ "MAX_ENUM", "_material_8h.html#ad0905b90e69dacecbc5389b41c82226ea7ebf031b87b99c1e7081095d642e2593", null ]
+    ] ],
+    [ "E_SharderVariableSubtype", "_material_8h.html#a15c8a4a7c56b36eea8d5331e30654ede", [
+      [ "NONE", "_material_8h.html#a15c8a4a7c56b36eea8d5331e30654edeab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "COMBINED_IMAGE_SAMPLER_TEXTURE", "_material_8h.html#a15c8a4a7c56b36eea8d5331e30654edea12ac0a4e57f61082dbf6c672d09b5073", null ],
+      [ "COMBINED_IMAGE_SAMPLER_CUBE", "_material_8h.html#a15c8a4a7c56b36eea8d5331e30654edeabb76013b8113411c4489f1e1791584c3", null ],
+      [ "ALL_SUBTYPES", "_material_8h.html#a15c8a4a7c56b36eea8d5331e30654edea2a2778ae41db8ecd1b0362de6d9fe489", null ]
     ] ]
 ];

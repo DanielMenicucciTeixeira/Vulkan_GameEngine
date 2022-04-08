@@ -100,8 +100,9 @@ Inheritance diagram for C_PhysicsComponent:</div>
  <div class="center">
   <img src="class_c___physics_component.png" usemap="#C_5FPhysicsComponent_map" alt=""/>
   <map id="C_5FPhysicsComponent_map" name="C_5FPhysicsComponent_map">
-<area href="class_o___component.html" alt="O_Component" shape="rect" coords="0,56,135,80"/>
-<area href="class_o___object.html" alt="O_Object" shape="rect" coords="0,0,135,24"/>
+<area href="class_c___movement_component.html" title="Responsable for moveing objects" alt="C_MovementComponent" shape="rect" coords="0,112,149,136"/>
+<area href="class_o___component.html" alt="O_Component" shape="rect" coords="0,56,149,80"/>
+<area href="class_o___object.html" alt="O_Object" shape="rect" coords="0,0,149,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -115,6 +116,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9a449e8e5b56edf85b059c126fe033c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ea391b64fdca39dcf55cb1e6aa9fa3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a2ea391b64fdca39dcf55cb1e6aa9fa3f">Update</a> (const float deltaTime) override</td></tr>
 <tr class="separator:a2ea391b64fdca39dcf55cb1e6aa9fa3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f6f2933f78f077efa3a0d217c7f623"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a07f6f2933f78f077efa3a0d217c7f623">SlowDown</a> (<a class="el" href="class_f_vector3.html">FVector3</a> vector)</td></tr>
+<tr class="separator:a07f6f2933f78f077efa3a0d217c7f623"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6171916d9cb98f5c572152bce69c6bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#ac6171916d9cb98f5c572152bce69c6bd">AddAcceleration</a> (<a class="el" href="class_f_vector3.html">FVector3</a> acceleration_)</td></tr>
 <tr class="separator:ac6171916d9cb98f5c572152bce69c6bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3db8c0b65bfa16b46e604659c2ce4e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#ad3db8c0b65bfa16b46e604659c2ce4e2">AddVelocity</a> (<a class="el" href="class_f_vector3.html">FVector3</a> velocity_)</td></tr>
@@ -131,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a54a68feed6470cdcfeaebe96047bc0a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8bf03b17f439fe1a3d952caef85428d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#af8bf03b17f439fe1a3d952caef85428d">SetAngularVelocity</a> (<a class="el" href="class_f_vector3.html">FVector3</a> angularVelocity_)</td></tr>
 <tr class="separator:af8bf03b17f439fe1a3d952caef85428d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09832a40b7aaaa03c21ce4f43c151dc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a09832a40b7aaaa03c21ce4f43c151dc1">SetMass</a> (float mass)</td></tr>
+<tr class="separator:a09832a40b7aaaa03c21ce4f43c151dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9df4e907c43c30219b659cd030e6047"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#ad9df4e907c43c30219b659cd030e6047">GetAcceleration</a> ()</td></tr>
 <tr class="separator:ad9df4e907c43c30219b659cd030e6047"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b862c9600e631d389bc9fd67885d318"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a6b862c9600e631d389bc9fd67885d318">GetVelocity</a> ()</td></tr>
@@ -139,8 +144,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a19cef422058942aa984a4e6379dda79f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af746b8b3ea1aef1987d6eb474f4d4870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#af746b8b3ea1aef1987d6eb474f4d4870">GetAngularVelocity</a> ()</td></tr>
 <tr class="separator:af746b8b3ea1aef1987d6eb474f4d4870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14587d4f8e37aef3c9d4170e2641e824"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a14587d4f8e37aef3c9d4170e2641e824">IsStatic</a> ()</td></tr>
-<tr class="separator:a14587d4f8e37aef3c9d4170e2641e824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a037405f09c8ac4ba7dba2fc259c0ecb3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a037405f09c8ac4ba7dba2fc259c0ecb3">GetMass</a> ()</td></tr>
+<tr class="separator:a037405f09c8ac4ba7dba2fc259c0ecb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c107d07388130e6e678b72d3f5c2a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a30c107d07388130e6e678b72d3f5c2a5">AABBResponse</a> (<a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *coll1, <a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *coll2)</td></tr>
+<tr class="separator:a30c107d07388130e6e678b72d3f5c2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd6e880e0d5809b06a7b191cfe1723a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#abfd6e880e0d5809b06a7b191cfe1723a">AABBSphereResponse</a> (<a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *coll1, <a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *coll2)</td></tr>
+<tr class="separator:abfd6e880e0d5809b06a7b191cfe1723a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e27505775f5e6432caccd202d4a3b51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a5e27505775f5e6432caccd202d4a3b51">AABBOBBResponse</a> (<a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *coll1, <a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *coll2)</td></tr>
+<tr class="separator:a5e27505775f5e6432caccd202d4a3b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e797fa2c82d5dac9fb9d89b15b6b033"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a5e797fa2c82d5dac9fb9d89b15b6b033">SphereSphereResponse</a> (<a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *coll1, <a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *coll2)</td></tr>
+<tr class="separator:a5e797fa2c82d5dac9fb9d89b15b6b033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667ddb13c811e0091e806c46cb942148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a667ddb13c811e0091e806c46cb942148">SphereOBBResponse</a> (<a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *coll1, <a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *coll2)</td></tr>
+<tr class="separator:a667ddb13c811e0091e806c46cb942148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ffb2403daa94117239c9af3eeccbfda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a1ffb2403daa94117239c9af3eeccbfda">OBBResponse</a> (<a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *coll1, <a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *coll2)</td></tr>
+<tr class="separator:a1ffb2403daa94117239c9af3eeccbfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_c___movement_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_c___movement_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_c___movement_component.html">C_MovementComponent</a></td></tr>
+<tr class="memitem:af9362a4f1466564f9471bd97aa1f952c inherit pub_methods_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#af9362a4f1466564f9471bd97aa1f952c">C_MovementComponent</a> (<a class="el" href="class_o___game_object.html">O_GameObject</a> *owner)</td></tr>
+<tr class="separator:af9362a4f1466564f9471bd97aa1f952c inherit pub_methods_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7944163d597ca540f275fb222d7e6ca inherit pub_methods_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#ae7944163d597ca540f275fb222d7e6ca">~C_MovementComponent</a> ()</td></tr>
+<tr class="separator:ae7944163d597ca540f275fb222d7e6ca inherit pub_methods_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21659fdbf8839f31ecc0daeaf6a77616 inherit pub_methods_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#a21659fdbf8839f31ecc0daeaf6a77616">Update</a> (const float deltaTime) override</td></tr>
+<tr class="separator:a21659fdbf8839f31ecc0daeaf6a77616 inherit pub_methods_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e057cc4cf6710cff8a049c770a672c inherit pub_methods_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#a06e057cc4cf6710cff8a049c770a672c">Translate</a> (<a class="el" href="class_f_vector3.html">FVector3</a> translation_)</td></tr>
+<tr class="separator:a06e057cc4cf6710cff8a049c770a672c inherit pub_methods_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab807817413c7c107dca8b3bbbaf5439b inherit pub_methods_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#ab807817413c7c107dca8b3bbbaf5439b">Rotate</a> (<a class="el" href="class_f_quaternion.html">FQuaternion</a> rotation_)</td></tr>
+<tr class="separator:ab807817413c7c107dca8b3bbbaf5439b inherit pub_methods_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_o___component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_o___component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_o___component.html">O_Component</a></td></tr>
 <tr class="memitem:ab15f4083bbe28c39ce97845a732bf121 inherit pub_methods_class_o___component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o___component.html#ab15f4083bbe28c39ce97845a732bf121">O_Component</a> (<a class="el" href="class_o___game_object.html">O_GameObject</a> *owner)</td></tr>
 <tr class="separator:ab15f4083bbe28c39ce97845a732bf121 inherit pub_methods_class_o___component"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,8 +209,6 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9356a0e1222f238cf24f1213faba5675"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a9356a0e1222f238cf24f1213faba5675">Mass</a></td></tr>
-<tr class="separator:a9356a0e1222f238cf24f1213faba5675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634d6b0a8a2156d3f4e53d9e09ac3d7b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a634d6b0a8a2156d3f4e53d9e09ac3d7b">AngularInertia</a></td></tr>
 <tr class="separator:a634d6b0a8a2156d3f4e53d9e09ac3d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_o___object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_o___object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_o___object.html">O_Object</a></td></tr>
@@ -202,6 +228,13 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a4e74a591269dab76f3c612ca8af1a73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17911551f96c524c7c3dfd4e7a6ff894"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___physics_component.html#a17911551f96c524c7c3dfd4e7a6ff894">UseCenterOfMass</a></td></tr>
 <tr class="separator:a17911551f96c524c7c3dfd4e7a6ff894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_c___movement_component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_c___movement_component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_c___movement_component.html">C_MovementComponent</a></td></tr>
+<tr class="memitem:affb616ddcf85a45de3b05f81627a4fe4 inherit pro_attribs_class_c___movement_component"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#affb616ddcf85a45de3b05f81627a4fe4">AlwaysFaceForward</a></td></tr>
+<tr class="separator:affb616ddcf85a45de3b05f81627a4fe4 inherit pro_attribs_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92b9d371795bb352c192b83da5d32a73 inherit pro_attribs_class_c___movement_component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#a92b9d371795bb352c192b83da5d32a73">velocity</a></td></tr>
+<tr class="separator:a92b9d371795bb352c192b83da5d32a73 inherit pro_attribs_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e95d00877f3dd197ce8ff87441dc10f inherit pro_attribs_class_c___movement_component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c___movement_component.html#a0e95d00877f3dd197ce8ff87441dc10f">velocityBuffer</a></td></tr>
+<tr class="separator:a0e95d00877f3dd197ce8ff87441dc10f inherit pro_attribs_class_c___movement_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_o___component"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_o___component')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_o___component.html">O_Component</a></td></tr>
 <tr class="memitem:ad6c797345730809059d368357b92ebf5 inherit pro_attribs_class_o___component"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_o___game_object.html">O_GameObject</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o___component.html#ad6c797345730809059d368357b92ebf5">Owner</a> = nullptr</td></tr>
 <tr class="separator:ad6c797345730809059d368357b92ebf5 inherit pro_attribs_class_o___component"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -215,7 +248,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00013">13</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00015">15</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0526e4c94f088ffcbb41df2239f48a80" name="a0526e4c94f088ffcbb41df2239f48a80"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0526e4c94f088ffcbb41df2239f48a80">&#9670;&nbsp;</a></span>C_PhysicsComponent()</h2>
@@ -261,7 +294,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00125">125</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00369">369</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -288,11 +321,101 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00135">135</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00379">379</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5e27505775f5e6432caccd202d4a3b51" name="a5e27505775f5e6432caccd202d4a3b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e27505775f5e6432caccd202d4a3b51">&#9670;&nbsp;</a></span>AABBOBBResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::AABBOBBResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00255">255</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a30c107d07388130e6e678b72d3f5c2a5" name="a30c107d07388130e6e678b72d3f5c2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c107d07388130e6e678b72d3f5c2a5">&#9670;&nbsp;</a></span>AABBResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::AABBResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00151">151</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abfd6e880e0d5809b06a7b191cfe1723a" name="abfd6e880e0d5809b06a7b191cfe1723a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd6e880e0d5809b06a7b191cfe1723a">&#9670;&nbsp;</a></span>AABBSphereResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::AABBSphereResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___bounding_box.html">C_BoundingBox</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00214">214</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ac6171916d9cb98f5c572152bce69c6bd" name="ac6171916d9cb98f5c572152bce69c6bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6171916d9cb98f5c572152bce69c6bd">&#9670;&nbsp;</a></span>AddAcceleration()</h2>
 
@@ -309,7 +432,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00041">41</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00077">77</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -329,7 +452,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00051">51</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00087">87</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +472,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00056">56</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00092">92</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -369,7 +492,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00046">46</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00082">82</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -396,7 +519,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00106">106</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00350">350</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -423,7 +546,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00111">111</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00355">355</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -442,7 +565,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00081">81</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00126">126</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +584,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00091">91</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00136">136</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -480,7 +603,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00096">96</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00141">141</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -499,7 +622,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00120">120</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00364">364</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a037405f09c8ac4ba7dba2fc259c0ecb3" name="a037405f09c8ac4ba7dba2fc259c0ecb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a037405f09c8ac4ba7dba2fc259c0ecb3">&#9670;&nbsp;</a></span>GetMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float C_PhysicsComponent::GetMass </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00146">146</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -518,26 +660,37 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00086">86</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00131">131</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a14587d4f8e37aef3c9d4170e2641e824" name="a14587d4f8e37aef3c9d4170e2641e824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14587d4f8e37aef3c9d4170e2641e824">&#9670;&nbsp;</a></span>IsStatic()</h2>
+<a id="a1ffb2403daa94117239c9af3eeccbfda" name="a1ffb2403daa94117239c9af3eeccbfda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ffb2403daa94117239c9af3eeccbfda">&#9670;&nbsp;</a></span>OBBResponse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool C_PhysicsComponent::IsStatic </td>
+          <td class="memname">void C_PhysicsComponent::OBBResponse </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00101">101</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00343">343</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +710,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00061">61</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00097">97</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -577,7 +730,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00071">71</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00109">109</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +750,27 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00076">76</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00115">115</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a09832a40b7aaaa03c21ce4f43c151dc1" name="a09832a40b7aaaa03c21ce4f43c151dc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09832a40b7aaaa03c21ce4f43c151dc1">&#9670;&nbsp;</a></span>SetMass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::SetMass </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>mass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00121">121</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -617,7 +790,87 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00066">66</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00103">103</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a07f6f2933f78f077efa3a0d217c7f623" name="a07f6f2933f78f077efa3a0d217c7f623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f6f2933f78f077efa3a0d217c7f623">&#9670;&nbsp;</a></span>SlowDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::SlowDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_f_vector3.html">FVector3</a>&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00046">46</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a667ddb13c811e0091e806c46cb942148" name="a667ddb13c811e0091e806c46cb942148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a667ddb13c811e0091e806c46cb942148">&#9670;&nbsp;</a></span>SphereOBBResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::SphereOBBResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___box_collider.html">C_BoxCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00307">307</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a5e797fa2c82d5dac9fb9d89b15b6b033" name="a5e797fa2c82d5dac9fb9d89b15b6b033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e797fa2c82d5dac9fb9d89b15b6b033">&#9670;&nbsp;</a></span>SphereSphereResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void C_PhysicsComponent::SphereSphereResponse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_c___sphere_collider.html">C_SphereCollider</a> *&#160;</td>
+          <td class="paramname"><em>coll2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00260">260</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -645,9 +898,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="class_o___object.html#a640a13e8dc5229329cef12ae8056e919">O_Object</a>.</p>
+<p>Reimplemented from <a class="el" href="class_c___movement_component.html#a21659fdbf8839f31ecc0daeaf6a77616">C_MovementComponent</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00011">11</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8cpp_source.html#l00015">15</a> of file <a class="el" href="_physics_component_8cpp_source.html">PhysicsComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -664,7 +917,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00040">40</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00041">41</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
 
 </div>
 </div>
@@ -688,23 +941,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00035">35</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
-
-</div>
-</div>
-<a id="a9356a0e1222f238cf24f1213faba5675" name="a9356a0e1222f238cf24f1213faba5675"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9356a0e1222f238cf24f1213faba5675">&#9670;&nbsp;</a></span>Mass</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float C_PhysicsComponent::Mass</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00039">39</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00037">37</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
 
 </div>
 </div>
@@ -728,7 +965,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00036">36</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physics_component_8h_source.html#l00038">38</a> of file <a class="el" href="_physics_component_8h_source.html">PhysicsComponent.h</a>.</p>
 
 </div>
 </div>

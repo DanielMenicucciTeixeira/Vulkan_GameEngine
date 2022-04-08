@@ -8,5 +8,5 @@ var searchData=
   ['enginewindow_5',['engineWindow',['../class_core_engine.html#a74ef3f0c321c88125b9dc1f5693190df',1,'CoreEngine']]],
   ['eventmap_6',['EventMap',['../class_event_listener.html#abb24783768508c386f202b11c7b0097b',1,'EventListener']]],
   ['eventsbyinput_7',['EventsByInput',['../class_event_listener.html#ad5e3f2b22fab8bd29ff4e866c2412719',1,'EventListener']]],
-  ['extent_8',['Extent',['../class_box.html#aecd85d7fa499d5352a9a2b2bbdfd26b2',1,'Box::Extent()'],['../class_vulkan_swapchain_manager.html#ab7ad479a7f5095e062a008fc46832ce6',1,'VulkanSwapchainManager::Extent()']]]
+  ['extent_8',['Extent',['../class_vulkan_swapchain_manager.html#ab7ad479a7f5095e062a008fc46832ce6',1,'VulkanSwapchainManager']]]
 ];

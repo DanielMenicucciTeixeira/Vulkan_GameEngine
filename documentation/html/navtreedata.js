@@ -58,14 +58,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_apple_8cpp.html",
-"_material_8h.html#ad0905b90e69dacecbc5389b41c82226e",
-"class_c___bounding_box.html#a50f7b4d918ae5783de445b7254772814",
-"class_core_engine.html#a9e078b92e687549460df8b0b19fa65c9",
-"class_g___game01.html",
-"class_level_graph.html#a2d9610fa80d11237f8974112d9674e79",
-"class_vulkan_devices.html#ae1089e44f5fc6f5c75a59aff9ec2f7d2",
-"class_window.html#a899701a0e9d9075756f4094a84d799f0",
-"struct_shader_variable_info.html"
+"_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fac8b4984db70159e0fa57abd9939dacc1",
+"class_audio_handler.html#a873206c57f2f81966b02895fd754faa7",
+"class_clock.html",
+"class_f_vector3.html#a8366a541dca2d8638c93589e799bf63f",
+"class_i_vector3.html#a993cc1d5c2b9375684bf3c74de0f5c9e",
+"class_oct_spatial_partition.html#aa6587b2a247704d3ada8fa024413b093",
+"class_vulkan_renderer.html#a793f6480c6c70f22e530064061efab2e",
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

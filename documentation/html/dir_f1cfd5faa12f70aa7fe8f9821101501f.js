@@ -16,6 +16,11 @@ var dir_f1cfd5faa12f70aa7fe8f9821101501f =
     ] ],
     [ "VulkanRenderer.cpp", "_vulkan_renderer_8cpp.html", "_vulkan_renderer_8cpp" ],
     [ "VulkanRenderer.h", "_vulkan_renderer_8h.html", "_vulkan_renderer_8h" ],
+    [ "VulkanSupport.cpp", "_vulkan_support_8cpp.html", null ],
+    [ "VulkanSupport.h", "_vulkan_support_8h.html", [
+      [ "S_GraphicsPipelineStagesInfo", "struct_s___graphics_pipeline_stages_info.html", "struct_s___graphics_pipeline_stages_info" ],
+      [ "VulkanSupport", "class_vulkan_support.html", "class_vulkan_support" ]
+    ] ],
     [ "VulkanSwapchainManager.cpp", "_vulkan_swapchain_manager_8cpp.html", "_vulkan_swapchain_manager_8cpp" ],
     [ "VulkanSwapchainManager.h", "_vulkan_swapchain_manager_8h.html", "_vulkan_swapchain_manager_8h" ]
 ];

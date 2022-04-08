@@ -110,12 +110,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7723137432b6d07f111510dd4fab6f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad073c1e97745d57d28a1b8d5d66a1e0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#ad073c1e97745d57d28a1b8d5d66a1e0b">CreateImageViews</a> ()</td></tr>
 <tr class="separator:ad073c1e97745d57d28a1b8d5d66a1e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14c9c0d5e0fdd52f0d4a1ae3e4688a9e"><td class="memItemLeft" align="right" valign="top">VkImageView_T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a14c9c0d5e0fdd52f0d4a1ae3e4688a9e">CreateImageView</a> (VkImage_T *image, VkFormat format, <a class="el" href="_vulkan_renderer_8h.html#a1dc6a69eefc5cddb8237b87d5c22d1ec">VkImageAspectFlags</a> aspectFlags)</td></tr>
-<tr class="separator:a14c9c0d5e0fdd52f0d4a1ae3e4688a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa533ccbe95cd635bc9a7eb113a280296"><td class="memItemLeft" align="right" valign="top">VkImageView_T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#aa533ccbe95cd635bc9a7eb113a280296">CreateImageView</a> (VkImage_T *image, VkFormat format, <a class="el" href="_vulkan_renderer_8h.html#a1dc6a69eefc5cddb8237b87d5c22d1ec">VkImageAspectFlags</a> aspectFlags, VkImageViewType imageViewType, unsigned int layerCount=1)</td></tr>
+<tr class="separator:aa533ccbe95cd635bc9a7eb113a280296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9687d1e5b5289269e183c3d8f0674c4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a9687d1e5b5289269e183c3d8f0674c4c">CreateRenderPass</a> ()</td></tr>
 <tr class="separator:a9687d1e5b5289269e183c3d8f0674c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac805e3c32dd1a7f47a19e33afdf9f0af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#ac805e3c32dd1a7f47a19e33afdf9f0af">CreateImage</a> (unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, <a class="el" href="_vulkan_renderer_8h.html#a2c990c0c189d0a9bd02c5d911d5cc5f7">VkImageUsageFlags</a> usage, <a class="el" href="_vulkan_manager_8h.html#a06f71178c68bf5712dbec35d6f124122">VkMemoryPropertyFlags</a> properties, VkImage_T *&amp;image, VkDeviceMemory_T *&amp;imageMemory)</td></tr>
-<tr class="separator:ac805e3c32dd1a7f47a19e33afdf9f0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124aefd00a5a0b824c2cc6f2f54f3b1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a124aefd00a5a0b824c2cc6f2f54f3b1f">CreateImage</a> (unsigned int width, unsigned int height, VkFormat format, VkImageTiling tiling, <a class="el" href="_vulkan_renderer_8h.html#a2c990c0c189d0a9bd02c5d911d5cc5f7">VkImageUsageFlags</a> usage, <a class="el" href="_vulkan_manager_8h.html#a06f71178c68bf5712dbec35d6f124122">VkMemoryPropertyFlags</a> properties, VkImage_T *&amp;image, VkDeviceMemory_T *&amp;imageMemory, <a class="el" href="_vulkan_manager_8h.html#a6b4a9a5098079c3cce45f376f23471ec">VkFlags</a> flags={}, int layerCount=1)</td></tr>
+<tr class="separator:a124aefd00a5a0b824c2cc6f2f54f3b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b354080d3cfbb054fdc9772db643b56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a7b354080d3cfbb054fdc9772db643b56">CreateDepthResources</a> ()</td></tr>
 <tr class="separator:a7b354080d3cfbb054fdc9772db643b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f5362626d30524092d3c1f2cd89ce1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a0f5362626d30524092d3c1f2cd89ce1c">CreateFramebuffers</a> ()</td></tr>
@@ -128,8 +128,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a78317ec976a8be58656dda76310d24c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f87eaa2ed9df4c246df5b0136c647eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a5f87eaa2ed9df4c246df5b0136c647eb">CreateDescriptorSets</a> ()</td></tr>
 <tr class="separator:a5f87eaa2ed9df4c246df5b0136c647eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8065f8027198ed42a4b6213f4ee0e418"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a8065f8027198ed42a4b6213f4ee0e418">CreateTextureImage</a> ()</td></tr>
-<tr class="separator:a8065f8027198ed42a4b6213f4ee0e418"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce717836fb257f870b13d91566daa82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a3ce717836fb257f870b13d91566daa82">CreateTextureImages</a> ()</td></tr>
+<tr class="separator:a3ce717836fb257f870b13d91566daa82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0325f6f09e9084500261382ef7640fbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a0325f6f09e9084500261382ef7640fbf">CreateSkyboxImages</a> ()</td></tr>
+<tr class="separator:a0325f6f09e9084500261382ef7640fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3ee47b6718a426803cabd199e6be1f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#aa3ee47b6718a426803cabd199e6be1f9">CreateTextureSampler</a> (VkSampler_T *&amp;sampler)</td></tr>
 <tr class="separator:aa3ee47b6718a426803cabd199e6be1f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65efa17d731847cee0f6c85607f37faa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a65efa17d731847cee0f6c85607f37faa">RecreationCleanUp</a> ()</td></tr>
@@ -140,12 +142,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e13115e202a8e3f5e67e2cfa6010bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66c6909cc00edc58f87f94cb258aef96"><td class="memItemLeft" align="right" valign="top">VkFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a66c6909cc00edc58f87f94cb258aef96">FindDepthFormat</a> ()</td></tr>
 <tr class="separator:a66c6909cc00edc58f87f94cb258aef96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd8bb5022376987fc6e376d204458225"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#acd8bb5022376987fc6e376d204458225">TransitionImageLayout</a> (VkImage_T *image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)</td></tr>
-<tr class="separator:acd8bb5022376987fc6e376d204458225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a669dcd04c39a456bdabf32eb82d0ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a3a669dcd04c39a456bdabf32eb82d0ea">TransitionImageLayout</a> (VkImage_T *image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout, int layerCount=1)</td></tr>
+<tr class="separator:a3a669dcd04c39a456bdabf32eb82d0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f23eb999d9a8f90870852fa8d97dea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#ad4f23eb999d9a8f90870852fa8d97dea">HasStencilComponent</a> (VkFormat format)</td></tr>
 <tr class="separator:ad4f23eb999d9a8f90870852fa8d97dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae88c46b746790210aa06147c3df1eb1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#ae88c46b746790210aa06147c3df1eb1c">CopyBufferToImage</a> (VkBuffer_T *buffer, VkImage_T *image, unsigned int width, unsigned int height)</td></tr>
-<tr class="separator:ae88c46b746790210aa06147c3df1eb1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6acb9f832e7f6afc0ce23145c1453d0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a6acb9f832e7f6afc0ce23145c1453d0d">CopyBufferToImage</a> (VkBuffer_T *buffer, VkImage_T *image, unsigned int width, unsigned int height, unsigned int layerCount=1)</td></tr>
+<tr class="separator:a6acb9f832e7f6afc0ce23145c1453d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c610260ff5d865b331a4f7a5ec503c8"><td class="memItemLeft" align="right" valign="top">VkExtent2D *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a4c610260ff5d865b331a4f7a5ec503c8">GetExtent</a> () const</td></tr>
 <tr class="separator:a4c610260ff5d865b331a4f7a5ec503c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10d461a65cf265a985826ffa2ee3cc45"><td class="memItemLeft" align="right" valign="top">VkRenderPass_T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a10d461a65cf265a985826ffa2ee3cc45">GetRenderPass</a> () const</td></tr>
@@ -175,6 +177,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a7c89e8240cc56e10f786f5a76844ce56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a230d765c0fb7fe1777a0bafeca1e1586"><td class="memItemLeft" align="right" valign="top">VkWriteDescriptorSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a230d765c0fb7fe1777a0bafeca1e1586">CreateUniformBufferWrite</a> (<a class="el" href="class_material.html">Material</a> *material, int currentImage, <a class="el" href="struct_shader_variable_info.html">ShaderVariableInfo</a> info, void *data)</td></tr>
 <tr class="separator:a230d765c0fb7fe1777a0bafeca1e1586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661da79e4e1ca4802c571618687fb5ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a661da79e4e1ca4802c571618687fb5ae">CreateDescriptorSetLayoutFromGenericMaterial</a> (std::string shader, <a class="el" href="class_material.html">Material</a> *material)</td></tr>
+<tr class="separator:a661da79e4e1ca4802c571618687fb5ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f45b5d60759052ee8000a68d39959d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#af3f45b5d60759052ee8000a68d39959d">CreateDescriptorSetLayoutFromVulkanMaterial</a> (std::string shader, <a class="el" href="class_m___vulkan_material.html">M_VulkanMaterial</a> *material)</td></tr>
+<tr class="separator:af3f45b5d60759052ee8000a68d39959d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -216,12 +222,14 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a019773dcdc0c9d6561fbcd85eea2f2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad60d8fac8797493d6c82ac4ba5a151ec"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="struct_s___texture.html">S_Texture</a> *, <a class="el" href="struct_s___texture_data.html">S_TextureData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#ad60d8fac8797493d6c82ac4ba5a151ec">TextureDataMap</a></td></tr>
 <tr class="separator:ad60d8fac8797493d6c82ac4ba5a151ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5666d6f9bdc55ec5e773b4449b5f2570"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="struct_s___cube_sampler.html">S_CubeSampler</a> *, <a class="el" href="struct_s___texture_data.html">S_TextureData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a5666d6f9bdc55ec5e773b4449b5f2570">SkyboxDataMap</a></td></tr>
+<tr class="separator:a5666d6f9bdc55ec5e773b4449b5f2570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00c82010251f25a3b7260cb1b2b895c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vulkan_manager.html">VulkanManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_swapchain_manager.html#a00c82010251f25a3b7260cb1b2b895c2">Manager</a> = nullptr</td></tr>
 <tr class="separator:a00c82010251f25a3b7260cb1b2b895c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00062">62</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00068">68</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1ce48cd4916564abbb4144f5f4c75bc8" name="a1ce48cd4916564abbb4144f5f4c75bc8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ce48cd4916564abbb4144f5f4c75bc8">&#9670;&nbsp;</a></span>VulkanSwapchainManager()</h2>
@@ -239,7 +247,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00028">28</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,7 +266,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00033">33</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,7 +287,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00061">61</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +307,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00050">50</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -319,12 +327,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00037">37</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00038">38</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ae88c46b746790210aa06147c3df1eb1c" name="ae88c46b746790210aa06147c3df1eb1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae88c46b746790210aa06147c3df1eb1c">&#9670;&nbsp;</a></span>CopyBufferToImage()</h2>
+<a id="a6acb9f832e7f6afc0ce23145c1453d0d" name="a6acb9f832e7f6afc0ce23145c1453d0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6acb9f832e7f6afc0ce23145c1453d0d">&#9670;&nbsp;</a></span>CopyBufferToImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +359,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>layerCount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -361,7 +375,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00804">804</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00747">747</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +413,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00961">961</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00903">903</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +432,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00265">265</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00267">267</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -437,7 +451,83 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00425">425</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00348">348</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a661da79e4e1ca4802c571618687fb5ae" name="a661da79e4e1ca4802c571618687fb5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661da79e4e1ca4802c571618687fb5ae">&#9670;&nbsp;</a></span>CreateDescriptorSetLayoutFromGenericMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VulkanSwapchainManager::CreateDescriptorSetLayoutFromGenericMaterial </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_material.html">Material</a> *&#160;</td>
+          <td class="paramname"><em>material</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00958">958</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af3f45b5d60759052ee8000a68d39959d" name="af3f45b5d60759052ee8000a68d39959d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3f45b5d60759052ee8000a68d39959d">&#9670;&nbsp;</a></span>CreateDescriptorSetLayoutFromVulkanMaterial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VulkanSwapchainManager::CreateDescriptorSetLayoutFromVulkanMaterial </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>shader</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_m___vulkan_material.html">M_VulkanMaterial</a> *&#160;</td>
+          <td class="paramname"><em>material</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l01021">1021</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -456,7 +546,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00343">343</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00338">338</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +565,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00450">450</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00373">373</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -513,7 +603,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00925">925</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00867">867</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -532,12 +622,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00274">274</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00276">276</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ac805e3c32dd1a7f47a19e33afdf9f0af" name="ac805e3c32dd1a7f47a19e33afdf9f0af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac805e3c32dd1a7f47a19e33afdf9f0af">&#9670;&nbsp;</a></span>CreateImage()</h2>
+<a id="a124aefd00a5a0b824c2cc6f2f54f3b1f" name="a124aefd00a5a0b824c2cc6f2f54f3b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a124aefd00a5a0b824c2cc6f2f54f3b1f">&#9670;&nbsp;</a></span>CreateImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -588,7 +678,19 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkDeviceMemory_T *&amp;&#160;</td>
-          <td class="paramname"><em>imageMemory</em>&#160;</td>
+          <td class="paramname"><em>imageMemory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_vulkan_manager_8h.html#a6b4a9a5098079c3cce45f376f23471ec">VkFlags</a>&#160;</td>
+          <td class="paramname"><em>flags</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>layerCount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -598,12 +700,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00227">227</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00228">228</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a14c9c0d5e0fdd52f0d4a1ae3e4688a9e" name="a14c9c0d5e0fdd52f0d4a1ae3e4688a9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14c9c0d5e0fdd52f0d4a1ae3e4688a9e">&#9670;&nbsp;</a></span>CreateImageView()</h2>
+<a id="aa533ccbe95cd635bc9a7eb113a280296" name="aa533ccbe95cd635bc9a7eb113a280296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa533ccbe95cd635bc9a7eb113a280296">&#9670;&nbsp;</a></span>CreateImageView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -624,7 +726,19 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="_vulkan_renderer_8h.html#a1dc6a69eefc5cddb8237b87d5c22d1ec">VkImageAspectFlags</a>&#160;</td>
-          <td class="paramname"><em>aspectFlags</em>&#160;</td>
+          <td class="paramname"><em>aspectFlags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VkImageViewType&#160;</td>
+          <td class="paramname"><em>imageViewType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>layerCount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -634,7 +748,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00145">145</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00146">146</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +767,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00136">136</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00137">137</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -672,7 +786,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00167">167</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00168">168</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0325f6f09e9084500261382ef7640fbf" name="a0325f6f09e9084500261382ef7640fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0325f6f09e9084500261382ef7640fbf">&#9670;&nbsp;</a></span>CreateSkyboxImages()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VulkanSwapchainManager::CreateSkyboxImages </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00530">530</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -691,18 +824,18 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00080">80</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00081">81</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a8065f8027198ed42a4b6213f4ee0e418" name="a8065f8027198ed42a4b6213f4ee0e418"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8065f8027198ed42a4b6213f4ee0e418">&#9670;&nbsp;</a></span>CreateTextureImage()</h2>
+<a id="a3ce717836fb257f870b13d91566daa82" name="a3ce717836fb257f870b13d91566daa82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce717836fb257f870b13d91566daa82">&#9670;&nbsp;</a></span>CreateTextureImages()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void VulkanSwapchainManager::CreateTextureImage </td>
+          <td class="memname">void VulkanSwapchainManager::CreateTextureImages </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -710,7 +843,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00595">595</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00490">490</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -730,7 +863,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00637">637</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00572">572</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -749,7 +882,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00298">298</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00300">300</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -799,7 +932,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00978">978</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00929">929</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -818,7 +951,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00688">688</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00623">623</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -837,7 +970,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00726">726</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00669">669</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -873,7 +1006,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00706">706</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00649">649</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -900,7 +1033,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00103">103</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00111">111</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -927,7 +1060,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00100">100</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00108">108</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -954,7 +1087,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00097">97</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00104">104</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -981,7 +1114,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00099">99</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00107">107</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1008,7 +1141,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00101">101</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00109">109</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1035,7 +1168,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00098">98</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00105">105</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1062,7 +1195,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00102">102</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00110">110</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1090,7 +1223,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00890">890</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00832">832</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1118,7 +1251,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00867">867</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00809">809</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1138,7 +1271,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00799">799</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00742">742</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1157,12 +1290,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00663">663</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00598">598</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
-<a id="acd8bb5022376987fc6e376d204458225" name="acd8bb5022376987fc6e376d204458225"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd8bb5022376987fc6e376d204458225">&#9670;&nbsp;</a></span>TransitionImageLayout()</h2>
+<a id="a3a669dcd04c39a456bdabf32eb82d0ea" name="a3a669dcd04c39a456bdabf32eb82d0ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a669dcd04c39a456bdabf32eb82d0ea">&#9670;&nbsp;</a></span>TransitionImageLayout()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1189,7 +1322,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">VkImageLayout&#160;</td>
-          <td class="paramname"><em>newLayout</em>&#160;</td>
+          <td class="paramname"><em>newLayout</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>layerCount</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1199,7 +1338,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00732">732</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00675">675</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1219,7 +1358,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00826">826</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html#l00769">769</a> of file <a class="el" href="_vulkan_swapchain_manager_8cpp_source.html">VulkanSwapchainManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1244,7 +1383,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00135">135</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00142">142</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1268,7 +1407,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00129">129</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00136">136</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1292,7 +1431,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00130">130</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00137">137</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1316,7 +1455,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00131">131</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00138">138</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1340,7 +1479,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00142">142</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00148">148</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1364,7 +1503,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00139">139</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00146">146</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1388,7 +1527,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00140">140</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00147">147</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1412,7 +1551,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00124">124</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00131">131</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1436,7 +1575,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00122">122</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00129">129</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1460,7 +1599,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00123">123</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00130">130</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1484,7 +1623,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00121">121</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00128">128</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1647,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00125">125</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00132">132</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1532,7 +1671,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00136">136</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00143">143</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1695,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00145">145</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00152">152</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1580,7 +1719,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00134">134</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00141">141</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1743,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00133">133</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00140">140</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1628,7 +1767,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00137">137</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00144">144</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1652,7 +1791,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00127">127</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00134">134</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a5666d6f9bdc55ec5e773b4449b5f2570" name="a5666d6f9bdc55ec5e773b4449b5f2570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5666d6f9bdc55ec5e773b4449b5f2570">&#9670;&nbsp;</a></span>SkyboxDataMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="struct_s___cube_sampler.html">S_CubeSampler</a>*, <a class="el" href="struct_s___texture_data.html">S_TextureData</a>&gt; VulkanSwapchainManager::SkyboxDataMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00150">150</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1839,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00119">119</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00126">126</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>
@@ -1700,7 +1863,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00143">143</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_swapchain_manager_8h_source.html#l00149">149</a> of file <a class="el" href="_vulkan_swapchain_manager_8h_source.html">VulkanSwapchainManager.h</a>.</p>
 
 </div>
 </div>

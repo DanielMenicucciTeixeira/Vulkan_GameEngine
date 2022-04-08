@@ -1,6 +1,6 @@
 var class_g_o___pawn =
 [
-    [ "GO_Pawn", "class_g_o___pawn.html#af319ac40a82ebc6fca627f2132f5f686", null ],
+    [ "GO_Pawn", "class_g_o___pawn.html#afba5f420f6a19b04bda84c202c47b7af", null ],
     [ "~GO_Pawn", "class_g_o___pawn.html#adb66a176e0313c387f8c45b6216fda6d", null ],
     [ "Grab", "class_g_o___pawn.html#ac64c8e41852bb9f567a15bd2787e179e", null ],
     [ "MoveForward", "class_g_o___pawn.html#a5c51f102d8390e80f889515a4eb1e759", null ],

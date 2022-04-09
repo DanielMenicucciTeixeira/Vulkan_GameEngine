@@ -17,6 +17,7 @@ public:
 	virtual void PostUpdate(float deltaTime) override;
 	inline BoxBounds GetBoxBounds() const { return boxBounds; }
 
+
 	virtual void SetComponentPosition(const FVector3& position) override;
 	void SetComponentScale(const FVector3& scale) override;
 

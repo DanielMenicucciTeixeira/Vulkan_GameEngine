@@ -10,6 +10,7 @@ C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_Colli
 	//TODO: Find good way of setting this value with ease.
 	SetComponentScale(1.0f);
 	SetColliderType(ColliderType::BoundingBox);
+	boxBounds.SetPosition(GetComponentAbsolutePosition());
 
 }
 

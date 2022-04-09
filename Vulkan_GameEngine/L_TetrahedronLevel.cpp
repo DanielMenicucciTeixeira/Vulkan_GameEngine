@@ -112,16 +112,14 @@ void L_TetrahedronLevel::Start()
 	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(-12, 0, 0), FQuaternion(), FVector3(1)));
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 
-	T3 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-9, 0, 0), FQuaternion(), FVector3(1)));
+	//T3 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-9, 0, 0), FQuaternion(), FVector3(1)));
 
 	C_SphereCollider* boxPtr = T1->AddComponentOfClass<C_SphereCollider>();
 	boxPtr->SetCollisionType(ECollisionType::COLLISION);
 
-	C_SphereCollider* spherePtr = T2->AddComponentOfClass<C_SphereCollider>();
-	spherePtr->SetCollisionType(ECollisionType::COLLISION);
-
-	C_SphereCollider* simPtr = T3->AddComponentOfClass<C_SphereCollider>();
-	simPtr->SetCollisionType(ECollisionType::COLLISION);
+	C_BoundingBox* spherePtr = T2->AddComponentOfClass<C_BoundingBox>();
+	spherePtr->SetCollisionType(ECollisionType::OVERLAP);
+	spherePtr->SetOverlapBeginFunction(GO_Wall::Overlap);
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
@@ -130,7 +128,7 @@ void L_TetrahedronLevel::Start()
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ -3.0f, 0.0f, 0.0f });
+		//phys->SetVelocity({ -3.0f, 0.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();

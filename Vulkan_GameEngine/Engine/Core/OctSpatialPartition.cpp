@@ -256,7 +256,7 @@ std::vector<C_CollisionComponent*> OctSpatialPartition::GetCollision(S_Box& box,
 
 	return intersectionList;
 }
-//TODO:Test this to see if it works.
+
 void OctSpatialPartition::UpdateColliderNode(C_BoundingBox* collider)
 {
 
@@ -276,13 +276,13 @@ void OctSpatialPartition::UpdateColliderNode(C_BoundingBox* collider)
 	for(auto& cell : newCells){
 		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
+				currentCells.push_back(cell2);
 				doesExist = true;
 				break;
 			}
 			c2++;
 		}
 		if (doesExist) {
-			currentCells.push_back(remainingCells[c2]);
 			remainingCells.erase(remainingCells.begin() + c2);
 			copies.insert(c1);
 			doesExist = false;
@@ -334,13 +334,13 @@ void OctSpatialPartition::UpdateColliderNode(C_SphereCollider* collider)
 	for (auto& cell : newCells) {
 		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
+				currentCells.push_back(cell2);
 				doesExist = true;
 				break;
 			}
 			c2++;
 		}
 		if (doesExist) {
-			currentCells.push_back(remainingCells[c2]);
 			remainingCells.erase(remainingCells.begin() + c2);
 			copies.insert(c1);
 			doesExist = false;
@@ -392,13 +392,13 @@ void OctSpatialPartition::UpdateColliderNode(C_BoxCollider* collider)
 	for (auto& cell : newCells) {
 		for (auto& cell2 : remainingCells) {
 			if (cell == cell2) {
+				currentCells.push_back(cell2);
 				doesExist = true;
 				break;
 			}
 			c2++;
 		}
 		if (doesExist) {
-			currentCells.push_back(remainingCells[c2]);
 			remainingCells.erase(remainingCells.begin() + c2);
 			copies.insert(c1);
 			doesExist = false;

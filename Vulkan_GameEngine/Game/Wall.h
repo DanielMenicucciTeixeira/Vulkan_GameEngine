@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Engine/Objects/GameObjects/GameObject.h"
+#include "../Engine/Physics/CollisionData.h"
 
 class GO_Wall : public O_GameObject
 {
@@ -15,5 +16,7 @@ public:
 	virtual void Start() override;
 
 	inline C_StaticMeshComponent* GetMesh() { return Mesh; }
+
+	static void Overlap(O_GameObject* self, const S_CollisionData& data);
 };
 

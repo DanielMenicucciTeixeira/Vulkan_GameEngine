@@ -308,7 +308,6 @@ void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollide
 {
 	//Split objects
 	FVector3 displacement = coll1->GetOwner()->GetPosition() - CollisionDetection::GetCollisionData().CollisionPoint;
-
 	//Translation
 	FVector3 displacementVector = displacement.GetNormal() * (coll1->GetCollisionSphere().radius - displacement.Length());
 

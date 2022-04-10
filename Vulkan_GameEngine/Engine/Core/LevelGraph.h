@@ -14,7 +14,34 @@
 #include <fstream>
 #include <iostream>
 
-using namespace std;
+struct S_ModelData
+{
+	const FMatrix4* ModelMatrix;
+	const bool* InFrustum;
+
+public:
+	inline S_ModelData(const FMatrix4* modelMatrix, const bool* inFrustum) : ModelMatrix(modelMatrix), InFrustum(inFrustum) {}
+	inline S_ModelData(FMatrix4* modelMatrix, const bool* inFrustum) : ModelMatrix(modelMatrix), InFrustum(inFrustum) {}
+
+	//The Coistructors and comparators with std::pair exist so I don't need to tell C_StaticMeshComponent about S_ModelData
+
+	inline S_ModelData(std::pair<FMatrix4*, const bool*> pair) : ModelMatrix(pair.first), InFrustum(pair.second) {}
+	inline S_ModelData(std::pair<const FMatrix4*, const bool*> pair) : ModelMatrix(pair.first), InFrustum(pair.second) {}
+	
+	inline bool operator==(std::pair<FMatrix4*, const bool*> pair) const { return ModelMatrix == pair.first; }
+	inline bool operator==(std::pair<const FMatrix4*, const bool*> pair) const { return ModelMatrix == pair.first; }
+
+	//This allows me to use this struct in sets and maps while still only comparing the ModelMatrix,
+	//making it more efficient and guaranteeing there will be no duplicates.
+	inline bool operator< (const S_ModelData& other) const { return ModelMatrix < other.ModelMatrix; }
+	inline bool operator< (const S_ModelData& other) { return ModelMatrix < other.ModelMatrix; }
+	inline bool operator< (S_ModelData& other) const { return ModelMatrix < other.ModelMatrix; }
+	inline bool operator< (S_ModelData& other) { return ModelMatrix < other.ModelMatrix; }
+};
+
+typedef std::unordered_map < S_Mesh*, std::set<S_ModelData>> ModelsByMesh_T;
+typedef std::unordered_map<Material*, ModelsByMesh_T> MeshesByMaterial_T;
+typedef std::unordered_map<std::string, MeshesByMaterial_T> MaterialsByShader_T;
 
 typedef unsigned int ShaderID;
 typedef std::string ObjectName;
@@ -35,26 +62,18 @@ struct UniformCameraObject;
 struct S_RenderData
 {
 	UniformCameraObject* Camera;
+	MaterialsByShader_T DataMapByShader;
 
-	std::unordered_map<std::string, std::set<Material*>> MaterialsByShader;
-	std::unordered_map<Material*, std::set<S_Mesh*>> MeshesByMaterial;
-	std::unordered_map<S_Mesh*, std::set<FMatrix4*>> InstancesByMesh;
-
-	std::unordered_map<FMatrix4*, const bool*> Models;
+	std::set<FMatrix4*> Models;
 	std::set<S_Texture*> Textures;
 	std::set<S_CubeSampler*> CubeSamplers;
-	std::set<S_Mesh*> Meshes;
-	std::set<Material*> Materials;
 	std::vector<FMatrix4> LightSources;
 
 	void Clear()
 	{
 		Camera = nullptr;
-		MaterialsByShader.clear();
-		MeshesByMaterial.clear();
-		InstancesByMesh.clear();
+		DataMapByShader.clear();
 		Models.clear();
-		Materials.clear();
 		Textures.clear();
 		LightSources.clear();
 	}
@@ -111,7 +130,7 @@ public:
 	inline S_RenderData* GetRenderData() { return &RenderData; }
 	inline C_CameraComponent* GetActiveCamera() { return ActiveCamera; }
 
-	friend ostream& operator<<(ostream& out, const O_Object& obj);
+	friend std::ostream& operator<<(std::ostream& out, const O_Object& obj);
 
 	void CleanUp();
 

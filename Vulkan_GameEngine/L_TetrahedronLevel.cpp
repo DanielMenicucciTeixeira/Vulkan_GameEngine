@@ -46,7 +46,7 @@ bool L_TetrahedronLevel::Initialize()
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
 	S_Texture* box_Texture = new S_Texture();
-	box_Texture->Name = "boxTexture";
+	box_Texture->Name = "diceTexture";
 	box_Texture->Path = "Assets/Textures/diceTexture.png";
 	LevelGraph::GetInstance()->AddTexture(box_Texture);
 	LoadTexture(box_Texture, box_Texture->Name);
@@ -65,18 +65,6 @@ bool L_TetrahedronLevel::Initialize()
 	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/right.png";
 	skybox_Sampler->Textures[5]->Name = "Left";
 	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.png";
-	/*skybox_Sampler->Textures[0]->Name = "Front";
-	skybox_Sampler->Textures[0]->Path = "Assets/Textures/CheckerboardTexture.png";
-	skybox_Sampler->Textures[1]->Name = "Back";
-	skybox_Sampler->Textures[1]->Path = "Assets/Textures/Apple_Body.png";
-	skybox_Sampler->Textures[2]->Name = "Top";
-	skybox_Sampler->Textures[2]->Path = "Assets/Textures/CheckerboardTexture.png";
-	skybox_Sampler->Textures[3]->Name = "Bottom";
-	skybox_Sampler->Textures[3]->Path = "Assets/Textures/Apple_Body.png";
-	skybox_Sampler->Textures[4]->Name = "Right";
-	skybox_Sampler->Textures[4]->Path = "Assets/Textures/CheckerboardTexture.png";
-	skybox_Sampler->Textures[5]->Name = "Left";
-	skybox_Sampler->Textures[5]->Path = "Assets/Textures/Apple_Body.png";*/
 	LevelGraph::GetInstance()->AddCubeSampler(skybox_Sampler);
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
@@ -106,10 +94,17 @@ void L_TetrahedronLevel::Start()
 {
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
-	T1 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
-
-	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(5, 0, 0), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
+	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
+	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
+
+	auto Wall = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0, 3, 0), FQuaternion(), FVector3(1)));
+
+	auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(0, -1, 0), FQuaternion(), FVector3(1)));
+	auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
+	mesh->SetMeshName("Box001");
+	mesh->SetMaterialName("M_Tetrahedron");
 
 	C_BoxCollider* boxPtr = T1->AddComponentOfClass<C_BoxCollider>();
 	boxPtr->SetCollisionType(ECollisionType::COLLISION);
@@ -142,15 +137,14 @@ void L_TetrahedronLevel::Start()
 
 	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(FVector3(0, 1, 0), 0.0f), FVector3(1.0f)));
 
-	L_Level::Start();
 
 	BackgroundSound* bgm = new BackgroundSound(LevelGraph::GetInstance()->GetActiveCamera());
-    bgm->PlaySound("lol music.mp3", 1.0f , true, false, false); // background music follow cam -> 2d (false)
+	bgm->PlaySound("lol music.mp3", 1.0f, true, false, false); // background music follow cam -> 2d (false)
 	//bgm->PlaySound("lofi.mp3", 1.0f, true, false, false);
 
 	AudioSource* test1 = new AudioSource(T1);
 	//test1->PlaySound("lol music.mp3", 10.0f, true, true, false); // object sound -> 3d (true)
-
+	L_Level::Start();
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

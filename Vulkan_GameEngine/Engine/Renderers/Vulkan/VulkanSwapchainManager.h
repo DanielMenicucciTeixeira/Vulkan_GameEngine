@@ -105,7 +105,7 @@ public:
 	inline VkRenderPass_T* GetRenderPass() const { return RenderPass; }
 
 	inline std::vector<VkFramebuffer_T*> GetFramebuffers() const { return Framebuffers; }
-	inline std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() const { return DescriptorSetsMap; }
+	inline std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() const { return DescriptorSetsMap; }
 	inline std::vector<VkImage_T*> GetImages() const { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() const { return Swapchain; }
 	inline std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorLayoutsByShader() const { return DescriptorLayoutsByShader; }
@@ -137,14 +137,14 @@ protected:
 	VkDeviceMemory_T* DepthImageMemory = nullptr;
 	VkImageView_T* DepthImageView = nullptr;
 
-	std::unordered_map<FMatrix4*, std::vector<S_BufferData>> ModelMap;
+	std::unordered_map<const FMatrix4*, std::vector<S_BufferData>> ModelMap;
 	std::unordered_map<Material*, std::vector<std::vector<S_BufferData>>> MaterialMap;
 	std::vector<S_BufferData> CameraData;
 	std::vector<S_BufferData> LightsData;
 	std::vector<S_BufferData> NumberOfLightsData;
 
 	VkDescriptorPool_T* DescriptorPool = nullptr;
-	std::unordered_map<FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
+	std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	std::unordered_map<std::string, VkDescriptorSetLayout_T*> DescriptorLayoutsByShader;
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 	std::unordered_map<S_CubeSampler*, S_TextureData> SkyboxDataMap;

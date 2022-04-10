@@ -21,6 +21,7 @@ public:
 
 	///Getters
 	inline FMatrix4* GetModelMatrix() const { return ModelMatrix; }
+	inline const std::pair<const FMatrix4*, const bool*> GetModelData() const { return std::make_pair(ModelMatrix, &InFrustum); }
 	inline S_Mesh* GetMesh() const { return Mesh; }
 	//S_Texture* GetTextureDifuse() const;
 	//S_Texture* GetTextureSpecular() const;

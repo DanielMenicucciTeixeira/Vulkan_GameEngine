@@ -41,7 +41,7 @@ bool L_TetrahedronLevel::Initialize()
 
 	S_Texture* tetrahedron_Texture = new S_Texture();
 	tetrahedron_Texture->Name = "DumbTexture";
-	tetrahedron_Texture->Path = "Assets/Textures/1.png";
+	tetrahedron_Texture->Path = "Assets/Textures/2.jpeg";
 	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
@@ -73,8 +73,8 @@ bool L_TetrahedronLevel::Initialize()
 	ModelPaths.insert("Assets/Models/PoolBall.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
-	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	MaterialPaths.insert("Assets/Materials/PoolBall.mtl");
+	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 	auto lin = LevelGraph::GetInstance()->GetMaterials();
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_PoolBall"]);
@@ -97,7 +97,7 @@ void L_TetrahedronLevel::Start()
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
 
-	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(0.5)));
 	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
 	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
@@ -118,7 +118,7 @@ void L_TetrahedronLevel::Start()
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
-		phys->SetVelocity({ 3.0f, 0.0f, 0.0f });
+		//phys->SetVelocity({ 3.0f, 0.0f, 0.0f });
 	}
 
 	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())

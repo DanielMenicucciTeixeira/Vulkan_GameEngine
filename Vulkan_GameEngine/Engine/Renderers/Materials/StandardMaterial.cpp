@@ -18,6 +18,8 @@ M_StandardMaterial::M_StandardMaterial()
 	SpecularTexture.Info.Stage = E_ShaderStage::FRAGMENT_BIT;
 	SpecularTexture.Info.Type = E_ShaderVariableType::COMBINED_IMAGE_SAMPLER;
 	SpecularTexture.Info.VariableSize = sizeof(S_Texture*);
+
+	SetReflectionDataDefaults();
 }
 
 M_StandardMaterial::~M_StandardMaterial()
@@ -32,4 +34,15 @@ std::vector<void*> M_StandardMaterial::GetShaderVariablesData() const
 std::vector<ShaderVariableInfo> M_StandardMaterial::GetShaderVariablesInfo() const
 {
 	return { ReflectionData.Info, DiffuseTexture.Info, SpecularTexture.Info };
+}
+
+void M_StandardMaterial::SetReflectionDataDefaults()
+{
+	ReflectionData = FMatrix4
+	(
+		0.5880, 0.5880, 0.5880, 0.0000,
+		0.5880, 0.5880, 0.5880, 0.0000,
+		0.9000, 0.9000, 0.9000, 0.0000,
+		10.0000, 1.000, 0.0000, 0.0000
+	);
 }

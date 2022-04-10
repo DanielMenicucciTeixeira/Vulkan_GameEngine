@@ -15,6 +15,9 @@ public:
 
 	virtual std::vector<void*> GetShaderVariablesData() const override;
 	virtual std::vector<ShaderVariableInfo> GetShaderVariablesInfo() const override;
+
+protected:
+	void SetReflectionDataDefaults();
 };
 
 #endif

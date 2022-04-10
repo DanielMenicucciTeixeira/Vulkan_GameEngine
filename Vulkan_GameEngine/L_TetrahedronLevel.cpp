@@ -47,11 +47,13 @@ bool L_TetrahedronLevel::Initialize()
 
 	S_Texture* box_Texture = new S_Texture();
 
-	box_Texture->Name = "diceTexture";
+	box_Texture->Name = "Floor";
 	box_Texture->Path = "Assets/Textures/1.jpeg";
 
 	LevelGraph::GetInstance()->AddTexture(box_Texture);
 	LoadTexture(box_Texture, box_Texture->Name);
+
+
 
 	S_CubeSampler* skybox_Sampler = new S_CubeSampler();
 	skybox_Sampler->Name = "SkyboxSampler";
@@ -71,11 +73,14 @@ bool L_TetrahedronLevel::Initialize()
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
 	ModelPaths.insert("Assets/Models/PoolBall.obj");
+	ModelPaths.insert("Assets/Models/Floor.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/PoolBall.mtl");
+	MaterialPaths.insert("Assets/Materials/Floor.mtl");
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
+
 	auto lin = LevelGraph::GetInstance()->GetMaterials();
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_PoolBall"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
@@ -84,6 +89,10 @@ bool L_TetrahedronLevel::Initialize()
 	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
 	boxMaterial->DiffuseTexture = box_Texture;
 	boxMaterial->SpecularTexture = box_Texture;
+
+	M_StandardMaterial* floorMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Floor"]);
+	floorMaterial->DiffuseTexture = box_Texture;
+	floorMaterial->SpecularTexture = box_Texture;
 
 	MV_SkyboxMaterial* skyboxMaterial = new MV_SkyboxMaterial();
 	skyboxMaterial->CubeMap = skybox_Sampler;
@@ -98,7 +107,7 @@ void L_TetrahedronLevel::Start()
 
 
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(0.5)));
-	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
+	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0, 0, 0), FQuaternion(), FVector3(10,1,10)));
 	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 

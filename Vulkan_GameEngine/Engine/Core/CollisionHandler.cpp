@@ -63,6 +63,52 @@ void CollisionHandler::Update(float deltaTime_)
 	//AABB Collision
 	for (auto leaves : scenePartition->GetActiveLeaves()) {
 		for (auto& coll1 : leaves->GetAABBColliders()) {
+
+
+			//If collider is OVERLAP do check for EndOverlap here.
+			if (coll1->GetCollisionType() == ECollisionType::OVERLAP && !coll1->GetDoneOverlapCheck()) {
+
+				std::set<C_CollisionComponent*> newOverlaps;
+				for (auto& coll2 : coll1->GetPrevOverlaps()) {
+					switch (coll2->GetColliderType())
+					{
+					case ColliderType::BoundingBox:
+						if (CollisionDetection::AABBIntersection(coll1->GetBoxBounds(), dynamic_cast<C_BoundingBox*>(coll2)->GetBoxBounds())) {
+							newOverlaps.insert(coll2);
+						}
+						else {
+							coll1->OnOverlapEnd(coll2);
+						}
+						break;
+
+					case ColliderType::Sphere:
+						if (CollisionDetection::SphereAABBIntersection(dynamic_cast<C_SphereCollider*>(coll2)->GetCollisionSphere(), coll1->GetBoxBounds())) {
+							newOverlaps.insert(coll2);
+						}
+						else {
+							coll1->OnOverlapEnd(coll2);
+						}
+
+						break;
+
+					case ColliderType::S_Box:
+						if (CollisionDetection::AABBOBBIntersection(coll1->GetBoxBounds(), dynamic_cast<C_BoxCollider*>(coll2)->GetCollisionBox(), coll2->GetComponentAbsolutePosition())) {
+							newOverlaps.insert(coll2);
+						}
+						else {
+							coll1->OnOverlapEnd(coll2);
+						}
+
+						break;
+					default:
+						break;
+					}
+				}
+
+				coll1->SetPrevOverlaps(newOverlaps);
+				coll1->SetDoneOverlapCheck(true);
+			}
+
 			C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 			//Check AABB v AABB
 			for (int j = vecLoc + 1; j < leaves->GetAABBCount(); j++) {
@@ -83,25 +129,39 @@ void CollisionHandler::Update(float deltaTime_)
 
 			//Check AABB v Sphere
 			for (auto& coll2 : leaves->GetSphereColliders()) {
-				if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
-				{
-					if (physicsComp != nullptr) {
-						physicsComp->AABBSphereResponse(coll1, coll2);
-					}
-					else {
-						coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AABBSphereResponse(coll1, coll2);
+				if (!coll1->CheckHasCollidedBefore(coll2)) {
+					if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
+					{
+						//If collision then do physics response
+						if (coll1->GetCollisionType() == ECollisionType::COLLISION && coll2->GetCollisionType() == ECollisionType::COLLISION) {
+							if (physicsComp != nullptr) {
+								physicsComp->AABBSphereResponse(coll1, coll2);
+							}
+							else {
+								coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AABBSphereResponse(coll1, coll2);
+							}
+						}
+
+						//If overlap do overlap response
+						if (coll1->GetCollisionType() == ECollisionType::OVERLAP) {
+							coll1->OnOverlapBegin(CollisionDetection::GetCollisionData());
+							coll1->AddToPrevOverlaps(coll2);
+						}
+						if (coll2->GetCollisionType() == ECollisionType::OVERLAP) {
+							coll2->OnOverlapBegin(CollisionDetection::GetCollisionData());
+							coll2->AddToPrevOverlaps(coll1);
+						}
 					}
 				}
 			}
 
 			//Check AABB v OBB
 			for (auto& coll2 : leaves->GetOBBColliders()) {
-				if (CollisionDetection::AABBOBBIntersection(coll1->GetBoxBounds(), coll2->GetCollisionBox()))
+				if (CollisionDetection::AABBOBBIntersection(coll1->GetBoxBounds(), coll2->GetCollisionBox(), coll2->GetComponentPosition()))
 				{
 
 				}
 			}
-
 			physicsComp = nullptr;
 		}
 
@@ -129,7 +189,7 @@ void CollisionHandler::Update(float deltaTime_)
 
 			//Check Sphere v OBB
 			for (auto& coll2 : leaves->GetOBBColliders()) {
-				if (CollisionDetection::SphereOBBIntersection(coll1->GetCollisionSphere(), coll2->GetCollisionBox())) {
+				if (CollisionDetection::SphereOBBIntersection(coll1->GetCollisionSphere(), coll2->GetCollisionBox(), coll2->GetComponentAbsolutePosition())) {
 					coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SphereOBBResponse(coll1, coll2);
 				}
 			}
@@ -251,7 +311,7 @@ std::vector<S_CollisionData> CollisionHandler::GetSphereCollision(Sphere& sphere
 			break;
 
 		case ColliderType::S_Box:
-			isCollideing = CollisionDetection::SphereOBBIntersection(sphere, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+			isCollideing = CollisionDetection::SphereOBBIntersection(sphere, static_cast<C_BoxCollider*>(coll)->GetCollisionBox(), coll->GetComponentAbsolutePosition());
 			break;
 		}
 
@@ -284,7 +344,7 @@ std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(BoxBounds bounds
 			break;
 
 		case ColliderType::S_Box:
-			isCollideing = CollisionDetection::AABBOBBIntersection(bounds, static_cast<C_BoxCollider*>(coll)->GetCollisionBox());
+			isCollideing = CollisionDetection::AABBOBBIntersection(bounds, static_cast<C_BoxCollider*>(coll)->GetCollisionBox(), coll->GetComponentAbsolutePosition());
 			break;
 		}
 
@@ -297,7 +357,7 @@ std::vector<S_CollisionData> CollisionHandler::GetAABBCollision(BoxBounds bounds
 	return data;
 }
 
-std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(S_Box box)
+std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(S_Box box, FVector3 boxPos)
 {
 	std::vector<S_CollisionData> data;
 
@@ -305,15 +365,15 @@ std::vector<S_CollisionData> CollisionHandler::GetOBBCollision(S_Box box)
 
 	bool isCollideing = false;
 
-	for (auto coll : scenePartition->GetCollision(box)) {
+	for (auto coll : scenePartition->GetCollision(box, boxPos)) {
 		switch (coll->GetColliderType())
 		{
 		case ColliderType::BoundingBox:
-			isCollideing = CollisionDetection::AABBOBBIntersection(static_cast<C_BoundingBox*>(coll)->GetBoxBounds(), box);
+			isCollideing = CollisionDetection::AABBOBBIntersection(static_cast<C_BoundingBox*>(coll)->GetBoxBounds(), box, boxPos);
 			break;
 
 		case ColliderType::Sphere:
-			isCollideing = CollisionDetection::SphereOBBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), box);
+			isCollideing = CollisionDetection::SphereOBBIntersection(static_cast<C_SphereCollider*>(coll)->GetCollisionSphere(), box, boxPos);
 			break;
 
 		case ColliderType::S_Box:

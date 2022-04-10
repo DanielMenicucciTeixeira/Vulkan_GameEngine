@@ -93,7 +93,7 @@ public:
 	std::vector<C_CollisionComponent*> GetCollision(Ray& ray);
 	std::vector<C_CollisionComponent*> GetCollision(Sphere& sphere);
 	std::vector<C_CollisionComponent*> GetCollision(BoxBounds& bounds);
-	std::vector<C_CollisionComponent*> GetCollision(S_Box& box);
+	std::vector<C_CollisionComponent*> GetCollision(S_Box& box, FVector3 comPos);
 
 	//TODO: make these work better with multiple collisions
 
@@ -115,13 +115,13 @@ private:
 	std::vector<OctNode*> GetCollidingNodes(Ray& ray);
 	std::vector<OctNode*> GetCollidingNodes(BoxBounds bounds);
 	std::vector<OctNode*> GetCollidingNodes(Sphere sphere);
-	std::vector<OctNode*> GetCollidingNodes(S_Box box);
+	std::vector<OctNode*> GetCollidingNodes(S_Box box, FVector3 comPos);
 
 	//Query functions for GetCollidingNodes
 	void GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> &nodes);
 	void GetIntersectedLeaves(Sphere& sphere, OctNode* cell, std::vector<OctNode*> &nodes);
 	void GetIntersectedLeaves(BoxBounds bounds, OctNode* cell, std::vector<OctNode*> &nodes);
-	void GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes);
+	void GetIntersectedLeaves(S_Box& box, OctNode* cell, std::vector<OctNode*> &nodes, FVector3 comPos);
 
 
 	void AddColliderToCell(C_BoundingBox* collider, OctNode* cell);

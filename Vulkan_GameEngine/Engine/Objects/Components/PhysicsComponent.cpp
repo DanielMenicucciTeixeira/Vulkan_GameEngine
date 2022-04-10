@@ -213,42 +213,36 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollider* coll2)
 {
+	FVector3 collisionPoint = CollisionDetection::GetCollisionData().CollisionPoint;
+
 	//Split objects
-	FVector3 displacement = CollisionDetection::GetCollisionData().CollisionPoint;
+	FVector3 displacement = coll2->GetComponentAbsolutePosition() - collisionPoint;
 
 	//Translation
-	FVector3 displacementVector = (displacement.GetNormal() * (coll2->GetCollisionSphere().radius + displacement.Length())) * -1;
+	FVector3 displacementVector = displacement.GetNormal() * (coll2->GetCollisionSphere().radius - displacement.Length());
 
+
+	if (displacement == coll1->GetComponentAbsolutePosition()) {
+		//if the sphere centre is in the box get the closest face and calculate from there using the other equation.
+		//This can also be found if the vector is 0,0,0
+	}
 
 	C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
-	physicsComp->Translate(displacementVector);
+
+	//Reflect objects velocity
+	FVector3 force =
+		(
+			(displacement) * 2.0f *
+			(physicsComp->GetVelocity() * (displacement))
+			/ pow((displacement).Length(), 2)
+			) * -1.0f;
+	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / physicsComp->GetMass()));
+
+	physicsComp->Translate(displacementVector + (displacementVector * 0.01));
+
+	coll2->RefreshSphere();
+
 	physicsComp = nullptr;
-
-	//TODO: Reflect the ball using angle of incidence.
-
-	//Test
-
-	//Reflect 
-	//Could use how displacement push's the ball out to determine how to reflect the ball.
-	
-	//Could there be an easier way to do this?
-	//Determine which side it hit.
-
-	FVector3 min = coll1->GetBoxBounds().GetPosition();
-	FVector3 max = min + coll1->GetBoxBounds().GetExtent();
-
-	//Top or bottom 
-	if (coll2->GetComponentPosition().Y >= max.Y || coll2->GetComponentPosition().Y <= min.Y) {
-		SetVelocity(FVector3(velocity.X, velocity.Y * -1, velocity.Z));
-	}
-	//Left or right
-	else if (coll2->GetComponentPosition().X >= max.X || coll2->GetComponentPosition().X <= min.X){
-		SetVelocity(FVector3(velocity.X * -1, velocity.Y, velocity.Z));
-	}
-	//Forward or backwards
-	else {
-		SetVelocity(FVector3(velocity.X, velocity.Y, velocity.Z * -1));
-	}
 	
 }
 
@@ -259,76 +253,95 @@ void C_PhysicsComponent::AABBOBBResponse(C_BoundingBox* coll1, C_BoxCollider* co
 
 void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereCollider* coll2)
 {
-
 	FVector3 vecP = coll1->GetCollisionSphere().position - coll2->GetCollisionSphere().position;
 
 	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 	C_PhysicsComponent* physicsComp2 = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 	//TODO: Does this split?
 
-	if (vecP < 0) { vecP = -vecP; }
+	FVector3 displacementVector = vecP;
 
-	vecP.Normalize();
+	//Force 1 
 
-	//Then we calculate the x - direction velocity vector and the perpendicular y - vector.
-	
-	float x1 = 0;
-	FVector3 v1x;
-	FVector3 v1y;
+	FVector3 force =
+		(
+			(vecP) * (2 * physicsComp2->GetMass() / (physicsComp->GetMass() + physicsComp2->GetMass()))
+			* ((physicsComp->GetVelocity() - physicsComp2->GetVelocity()) * (vecP))
+			/ pow((vecP).Length(), 2)
+			) * -1.0f;
 
-	if (physicsComp != nullptr) {
-		x1 = vecP.GetDotProduct(velocity);
-		v1x = vecP * x1;
-		v1y = velocity - v1x;
+
+
+	//Force 2
+
+	vecP = -vecP;
+
+	FVector3 force2 =
+		(
+			(vecP) * (2 * physicsComp->GetMass() / (physicsComp2->GetMass() + physicsComp->GetMass()))
+			* ((physicsComp2->GetVelocity() - physicsComp->GetVelocity()) * (vecP))
+			/ pow((vecP).Length(), 2)
+			) * -1.0f;
+
+	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / 1.0f));
+	physicsComp2->SetVelocity(physicsComp2->GetVelocity() + (force2 / 1.0f));
+
+
+	//TODO: For some reason instead of dividing by 2 I need to multiply by about 6.5 to 6.6 to get the approximate displacement.  Something is obviously wrong here.
+	//Translate objects
+
+	float distance = CollisionDetection::SphereIntersectionDistance(coll1->GetCollisionSphere(), coll2->GetCollisionSphere());
+	float fOverlap = (distance - coll1->GetCollisionSphere().radius - coll2->GetCollisionSphere().radius);
+	displacementVector = (displacementVector * fOverlap) / distance;
+
+
+	if (coll2->GetIsStatic()) {
+		physicsComp->Translate(-displacementVector + -(displacementVector * 0.01f));
 	}
-
-	vecP = vecP * -1;
-
-	FVector3 v2;
-	float mass2 = 0;
-
-	if (physicsComp2 != nullptr) {
-		v2 = physicsComp2->GetVelocity();
-		mass2 = physicsComp2->GetMass();
+	else {
+		displacementVector; //= displacementVector / 2;
+		physicsComp->Translate(-displacementVector * 6.6f);
+		physicsComp2->Translate(displacementVector * 6.6f);
 	}
-	
-	FVector3 x2 = vecP.GetDotProduct(v2);
-	FVector3 v2x = vecP * x2;
-	FVector3 v2y = v2 - v2x;
-
-	SetVelocity(v1x * (Mass - mass2) / (Mass - mass2) + v2x * (2 * mass2) / (Mass + mass2) + v1y);
-	if (physicsComp2 != nullptr) {
-		physicsComp->SetVelocity(v1x * (2 * Mass) / (Mass + mass2) + v2x * (mass2 - Mass) / (Mass + mass2) + v2y);
-	}
+	coll1->RefreshSphere();
+	coll2->RefreshSphere();
 
 	physicsComp = nullptr;
+	physicsComp2 = nullptr;
 }
 
 void C_PhysicsComponent::SphereOBBResponse(C_SphereCollider* coll1, C_BoxCollider* coll2)
 {
 	//Split objects
-	FVector3 displacement = coll1->GetOwner()->GetPosition() - CollisionDetection::GetCollisionData().CollisionPoint;
+	FVector3 displacement = coll1->GetComponentAbsolutePosition() - CollisionDetection::GetCollisionData().CollisionPoint;
 
 	//Translation
 	FVector3 displacementVector = displacement.GetNormal() * (coll1->GetCollisionSphere().radius - displacement.Length());
 
-	if (displacement == coll1->GetComponentPosition()) {
+	if (displacement == coll1->GetComponentAbsolutePosition()) {
 		//if the sphere centre is in the box get the closest face and calculate from there using the other equation.
 		//This can also be found if the vector is 0,0,0
 	}
-
+	
 	C_PhysicsComponent* physicsComp = coll1->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+	//Reflect objects velocity
 	FVector3 force =
 		(
-			(displacement) * 2.0f
-			* (physicsComp->GetVelocity() * (displacement))
+			(displacement) * 2.0f *
+			(physicsComp->GetVelocity() * (displacement))
 			/ pow((displacement).Length(), 2)
 			) * -1.0f;
-	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / 1.0f));
+	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / physicsComp->GetMass()));
 
 	coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SetVelocity(FVector3(0.0f));
 
-	physicsComp->Translate(displacementVector);
+
+	physicsComp->Translate(displacementVector + (displacementVector * 0.01f));
+
+	//Test Idea.
+	coll1->RefreshSphere();
+
 	physicsComp = nullptr;
 
 	//TODO: Reflect the ball using angle

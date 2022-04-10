@@ -293,6 +293,7 @@
     <ClCompile Include="Engine\Core\OctSpatialPartition.cpp" />
     <ClCompile Include="Engine\Math\Math.cpp" />
     <ClCompile Include="Engine\Serialize\Serialize.cpp" />
+    <ClCompile Include="Game\Pocket.cpp" />
     <ClCompile Include="Tetrahedron.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Engine\Objects\Components\Colliders\SphereCollider.cpp" />
@@ -385,6 +386,7 @@
     <ClInclude Include="Engine\Core\OctSpatialPartition.h" />
     <ClInclude Include="Engine\Math\Math.h" />
     <ClInclude Include="Engine\Serialize\Serialize.h" />
+    <ClInclude Include="Game\Pocket.h" />
     <ClInclude Include="Tetrahedron.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Engine\Objects\Components\Colliders\SphereCollider.h" />

@@ -115,9 +115,19 @@ void C_CollisionComponent::OnOverlapEnd(C_CollisionComponent* otherCollider)
 	}
 }
 
+bool C_CollisionComponent::CheckHasCollidedBefore(C_CollisionComponent* comp)
+{
+	if (prevOverlaps.find(comp) == prevOverlaps.end()) {
+		return false;
+	}
+	return true;
+}
+
 void C_CollisionComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
+
+	if (CollisionType == ECollisionType::OVERLAP) { SetDoneOverlapCheck(false); }
 }
 
 C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic())

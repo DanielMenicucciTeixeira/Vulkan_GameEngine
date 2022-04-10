@@ -22,6 +22,9 @@ public:
 	void Update(const float deltaTime) override;
 	virtual void PostUpdate(float deltaTime) override;
 
+	//Used to refresh sphere's position after collision
+	void RefreshSphere();
+
 	//bool Collide(C_CollisionComponent* otherCollider, S_CollisionData& data) const override;
 
 	C_SphereCollider(O_GameObject* owner);

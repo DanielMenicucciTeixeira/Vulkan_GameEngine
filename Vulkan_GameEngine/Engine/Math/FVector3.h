@@ -1,7 +1,6 @@
 #ifndef FVector3_H
 #define FVector3_H
 
-
 class FQuaternion;
 class FVector4;
 

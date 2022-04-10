@@ -9,8 +9,8 @@
 GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("tetrahedron");
-	Mesh->SetMaterialName("M_Tetrahedron");
+	Mesh->SetMeshName("Layer0_001");
+	Mesh->SetMaterialName("M_PoolBall");
 
 	AddComponentOfClass<C_PhysicsComponent>();
 

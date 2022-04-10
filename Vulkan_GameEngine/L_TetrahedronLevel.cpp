@@ -41,14 +41,14 @@ bool L_TetrahedronLevel::Initialize()
 
 	S_Texture* tetrahedron_Texture = new S_Texture();
 	tetrahedron_Texture->Name = "DumbTexture";
-	tetrahedron_Texture->Path = "Assets/Textures/DumbTexture.png";
+	tetrahedron_Texture->Path = "Assets/Textures/1.png";
 	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
 
 	S_Texture* box_Texture = new S_Texture();
 
 	box_Texture->Name = "diceTexture";
-	box_Texture->Path = "Assets/Textures/diceTexture.png";
+	box_Texture->Path = "Assets/Textures/1.jpeg";
 
 	LevelGraph::GetInstance()->AddTexture(box_Texture);
 	LoadTexture(box_Texture, box_Texture->Name);
@@ -70,19 +70,18 @@ bool L_TetrahedronLevel::Initialize()
 	LevelGraph::GetInstance()->AddCubeSampler(skybox_Sampler);
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
-	ModelPaths.insert("Assets/Models/Tetrahedron.obj");
+	ModelPaths.insert("Assets/Models/PoolBall.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
-	ModelPaths.insert("Assets/Models/Apple.obj");
 	LoadModels();
-	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
-	MaterialPaths.insert("Assets/Materials/Apple.mtl");
+	MaterialPaths.insert("Assets/Materials/Dice.mtl");
+	MaterialPaths.insert("Assets/Materials/PoolBall.mtl");
 	LoadMaterialLibrary();
-
-	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
+	auto lin = LevelGraph::GetInstance()->GetMaterials();
+	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_PoolBall"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
 
-	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]);
+	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
 	boxMaterial->DiffuseTexture = box_Texture;
 	boxMaterial->SpecularTexture = box_Texture;
 
@@ -99,19 +98,18 @@ void L_TetrahedronLevel::Start()
 
 
 	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(1)));
-	T2 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
+	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(3, 0, 0), FQuaternion(), FVector3(1)));
 	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 
-	auto Wall = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0, 3, 0), FQuaternion(), FVector3(1)));
+	//auto Wall = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0, 3, 0), FQuaternion(), FVector3(1)));
 
-	auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(0, -1, 0), FQuaternion(), FVector3(1)));
-	auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
-	mesh->SetMeshName("Box001");
-	mesh->SetMaterialName("M_Tetrahedron");
+	//auto dice = SpawnGameObjectOfClass<O_GameObject>(FTransform(FVector3(0, -1, 0), FQuaternion(), FVector3(1)));
+	//auto mesh = dice->AddComponentOfClass<C_StaticMeshComponent>();
+	//mesh->SetMeshName("Box001");
+	//mesh->SetMaterialName("M_Tetrahedron");
 
-	C_BoxCollider* boxPtr = T1->AddComponentOfClass<C_BoxCollider>();
-
+	C_SphereCollider* boxPtr = T1->AddComponentOfClass<C_SphereCollider>();
 	boxPtr->SetCollisionType(ECollisionType::COLLISION);
 
 	C_BoundingBox* spherePtr = T2->AddComponentOfClass<C_BoundingBox>();
@@ -137,7 +135,7 @@ void L_TetrahedronLevel::Start()
 	sun->SetTurnedOn(true);
 
 
-	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(-15.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
 	LevelGraph::GetInstance()->AddCamera(cam, "Camera1");
 	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
 

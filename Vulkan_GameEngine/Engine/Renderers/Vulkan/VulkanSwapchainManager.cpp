@@ -493,11 +493,10 @@ void VulkanSwapchainManager::CreateTextureImages()
     {
         int textureWidth = texture->Width;
         int textureHeight = texture->Height;
-        int pixelSize = texture->BytesPerPixel;
         unsigned char* texturePixels = static_cast<unsigned char*>(texture->Pixels);
 
 
-        VkDeviceSize imageSize = textureWidth * textureHeight * pixelSize;
+        VkDeviceSize imageSize = textureWidth * textureHeight * 4;
 
         if (!texturePixels)
         {
@@ -534,10 +533,9 @@ void VulkanSwapchainManager::CreateSkyboxImages()
     {
         int textureWidth = cubeSampler->Textures[0]->Width;
         int textureHeight = cubeSampler->Textures[0]->Height;
-        int pixelSize = cubeSampler->Textures[0]->BytesPerPixel;
         unsigned char* texturePixels;
 
-        const VkDeviceSize layerSize = textureWidth * textureHeight * pixelSize;
+        const VkDeviceSize layerSize = textureWidth * textureHeight * 4;
         const VkDeviceSize imageSize = layerSize * 6;
         //const VkDeviceSize imageSize = textureWidth * textureHeight * 24;
         VkBuffer stagingBuffer;

@@ -71,7 +71,8 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 
 	if (!textures[textureName]->Pixels)
 	{	
-		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+		//if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+		if (!TextureLoader::LoadTexture(textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
@@ -96,7 +97,7 @@ bool L_Level::LoadCubeSampler(S_CubeSampler*& sampler, const std::string& sample
 	{
 		if (!texture->Pixels)
 		{
-			if (!TextureHandler::LoadTexture(texture->Name, texture->Path, texture))
+			if (!TextureLoader::LoadTexture(texture->Path, texture))
 			{
 				DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 				return false;

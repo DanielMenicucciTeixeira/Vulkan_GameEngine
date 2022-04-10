@@ -56,17 +56,17 @@ bool L_TetrahedronLevel::Initialize()
 	S_CubeSampler* skybox_Sampler = new S_CubeSampler();
 	skybox_Sampler->Name = "SkyboxSampler";
 	skybox_Sampler->Textures[0]->Name = "Front";
-	skybox_Sampler->Textures[0]->Path = "Assets/Textures/skybox/front.png";
+	skybox_Sampler->Textures[0]->Path = "Assets/Textures/skybox/front.jpg";
 	skybox_Sampler->Textures[1]->Name = "Back";
-	skybox_Sampler->Textures[1]->Path = "Assets/Textures/skybox/back.png";
+	skybox_Sampler->Textures[1]->Path = "Assets/Textures/skybox/back.jpg";
 	skybox_Sampler->Textures[2]->Name = "Top";
-	skybox_Sampler->Textures[2]->Path = "Assets/Textures/skybox/top.png";
+	skybox_Sampler->Textures[2]->Path = "Assets/Textures/skybox/top.jpg";
 	skybox_Sampler->Textures[3]->Name = "Bottom";
-	skybox_Sampler->Textures[3]->Path = "Assets/Textures/skybox/bottom.png";
+	skybox_Sampler->Textures[3]->Path = "Assets/Textures/skybox/bottom.jpg";
 	skybox_Sampler->Textures[4]->Name = "Right";
-	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/right.png";
+	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/right.jpg";
 	skybox_Sampler->Textures[5]->Name = "Left";
-	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.png";
+	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.jpg";
 	LevelGraph::GetInstance()->AddCubeSampler(skybox_Sampler);
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 

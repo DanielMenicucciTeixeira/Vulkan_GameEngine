@@ -8,7 +8,7 @@ struct S_Texture;
 class TextureLoader
 {
 public:
-	static void LoadTexture(std::string texturePath, S_Texture* texture);
+	static bool LoadTexture(std::string texturePath, S_Texture* texture);
 };
 #endif
 

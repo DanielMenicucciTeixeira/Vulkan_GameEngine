@@ -10,8 +10,8 @@
 GO_Wall::GO_Wall(std::string name) : O_GameObject(name, true)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("GeoSphere");
-	Mesh->SetMaterialName("M_Apple_Body");
+	Mesh->SetMeshName("Box001");
+	Mesh->SetMaterialName("M_diceTexture");
 
 	AddComponentOfClass<C_PhysicsComponent>();
 

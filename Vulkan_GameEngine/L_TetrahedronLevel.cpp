@@ -75,14 +75,14 @@ bool L_TetrahedronLevel::Initialize()
 	ModelPaths.insert("Assets/Models/Apple.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/Tetrahedron.mtl");
-	MaterialPaths.insert("Assets/Materials/Apple.mtl");
+	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 
 	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Tetrahedron"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
 
-	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]);
+	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
 	boxMaterial->DiffuseTexture = box_Texture;
 	boxMaterial->SpecularTexture = box_Texture;
 
@@ -133,7 +133,7 @@ void L_TetrahedronLevel::Start()
 	sun->SetIntensity(1.0);
 	sun->SetAmbientMultiplier(0);
 	sun->SetSpecularMultiplier(0.5);
-	sun->SetRotation(FQuaternion({ 1, 0,  0 }, -90.0f));
+	sun->SetRotation(FQuaternion({ 0, 1,  0 }, 180.0f));
 	sun->SetTurnedOn(true);
 
 

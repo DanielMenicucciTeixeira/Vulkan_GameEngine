@@ -33,9 +33,9 @@ bool OpenGLManager::Initialize()
 	}
 
 	VertexObjectsMap.clear();
-	for (const auto mesh : RenderData->Meshes)
+	for (const auto& shader : RenderData->DataMapByShader) for (const auto& material : shader.second) for (const auto& mesh : material.second)
 	{
-		VertexObjectsMap[mesh] = S_BindingData();
+		VertexObjectsMap[mesh.first] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -49,9 +49,9 @@ bool OpenGLManager::Initialize()
 void OpenGLManager::UpdateWithNewObjects()
 {
 	VertexObjectsMap.clear();
-	for (const auto mesh : RenderData->Meshes)
+	for (const auto& shader : RenderData->DataMapByShader) for (const auto& material : shader.second) for (const auto& mesh : material.second)
 	{
-		VertexObjectsMap[mesh] = S_BindingData();
+		VertexObjectsMap[mesh.first] = S_BindingData();
 	}
 
 	for (auto mesh : VertexObjectsMap)
@@ -59,7 +59,7 @@ void OpenGLManager::UpdateWithNewObjects()
 		GenerateBuffers(mesh.first);
 	}
 
-	for (auto& texture : RenderData->Textures)
+	for (const auto& texture : RenderData->Textures)
 	{
 		CreateGLTexture(texture);
 	}
@@ -78,7 +78,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
 
-	for (const auto& shader : RenderData->MaterialsByShader)
+	for (const auto& shader : RenderData->DataMapByShader)
 	{
 		const auto& program = ShaderManager->GetShader(shader.first);
 		glUseProgram(program);
@@ -113,36 +113,23 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 		glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4) * numberOfLights, RenderData->LightSources.data(), GL_DYNAMIC_DRAW);
 		glBindBufferBase(GL_UNIFORM_BUFFER, lightsBinding, lightsBuffer);
 
-		for (const auto& material : shader.second)
+		for (const auto& materialMap : shader.second)
 		{
-			/*GLuint materialBinding = 5, materialIndex, materialBuffer;
-			materialIndex = glGetUniformBlockIndex(program, "UniformMaterial");
-			glUniformBlockBinding(program, materialIndex, materialBinding);
-			glGenBuffers(1, &materialBuffer);
-			glBindBuffer(GL_UNIFORM_BUFFER, materialBuffer);
-			glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), &material->Data, GL_DYNAMIC_DRAW);
-			glBindBufferBase(GL_UNIFORM_BUFFER, materialBinding, materialBuffer);
-
-			const auto& difuseLocation = glGetUniformLocation(program, "TextureDifuse");
-			glUniform1i(difuseLocation, 0);
-			glActiveTexture(GL_TEXTURE0);
-			glBindTexture(GL_TEXTURE_2D, TextureMap[material->TextureDifuse]);*/
-
-			HandleMaterial(material, 5, program);
+			HandleMaterial(materialMap.first, 5, program);
 
 			glBindBuffer(GL_UNIFORM_BUFFER, modelBuffer);
-			for (const auto& mesh : RenderData->MeshesByMaterial[material])
+			for (const auto& meshMap : materialMap.second)
 			{
-				glBindVertexArray(VertexObjectsMap[mesh].Vertex);
-				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[mesh].IndexBuffer);
+				glBindVertexArray(VertexObjectsMap[meshMap.first].Vertex);
+				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, VertexObjectsMap[meshMap.first].IndexBuffer);
 
-				for (const auto& model : RenderData->InstancesByMesh[mesh])
+				for (const auto& modelData : meshMap.second)
 				{
-					if (*RenderData->Models[model])
+					if (*modelData.InFrustum)
 					{
-						glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), model, GL_DYNAMIC_DRAW);
+						glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), modelData.ModelMatrix, GL_DYNAMIC_DRAW);
 						glBindBufferBase(GL_UNIFORM_BUFFER, modelBinding, modelBuffer);
-						glDrawElements(GL_TRIANGLES, mesh->Indices.size(), GL_UNSIGNED_INT, (void*)0);
+						glDrawElements(GL_TRIANGLES, meshMap.first->Indices.size(), GL_UNSIGNED_INT, (void*)0);
 					}
 				}
 				glBindVertexArray(0);

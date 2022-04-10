@@ -97,25 +97,20 @@ void LevelGraph::FrameBufferResizeCallback()
 void LevelGraph::AddMesh(S_Mesh* mesh)
 {
 	MeshesByName[mesh->Name] = mesh;
-	RenderData.Meshes.insert(mesh);
 }
 
 void LevelGraph::AddMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	if (!RenderData.MaterialsByShader.count(meshComponent->GetMaterial()->GetShaderInfo().Name)) RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name] = std::set<Material*>();
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].insert(meshComponent->GetMaterial());
+	std::string shaderName = meshComponent->GetMaterial()->GetShaderInfo().Name;
+	Material* material = meshComponent->GetMaterial();
+	S_Mesh* mesh = meshComponent->GetMesh();
+	if (!RenderData.DataMapByShader.count(shaderName)) RenderData.DataMapByShader[shaderName] = MeshesByMaterial_T();
+	if (!RenderData.DataMapByShader[shaderName].count(material)) RenderData.DataMapByShader[shaderName][material] = ModelsByMesh_T();
+	if (!RenderData.DataMapByShader[shaderName][material].count(mesh)) RenderData.DataMapByShader[shaderName][material][mesh] = std::set<S_ModelData>();
+	RenderData.DataMapByShader[shaderName][material][mesh].insert(S_ModelData(meshComponent->GetModelMatrix(), meshComponent->IsInFrustum()));
 
-	if (!RenderData.MeshesByMaterial.count(meshComponent->GetMaterial())) RenderData.MeshesByMaterial[meshComponent->GetMaterial()] = std::set<S_Mesh*>();
-	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].insert(meshComponent->GetMesh());
-	
-	if (!RenderData.InstancesByMesh.count(meshComponent->GetMesh())) RenderData.InstancesByMesh[meshComponent->GetMesh()] = std::set<FMatrix4*>();
-	RenderData.InstancesByMesh[meshComponent->GetMesh()].insert(meshComponent->GetModelMatrix());
 
-	RenderData.Models[meshComponent->GetModelMatrix()] = meshComponent->IsInFrustum();
-	RenderData.Materials.insert(meshComponent->GetMaterial());
-	//if(meshComponent->GetMaterial()->TextureDifuse) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureDifuse);
-	//if (meshComponent->GetMaterial()->TextureSpecular) RenderData.Textures.insert(meshComponent->GetMaterial()->TextureSpecular);
-	RenderData.Meshes.insert(meshComponent->GetMesh());
+	RenderData.Models.insert(meshComponent->GetModelMatrix());
 	StaticMehes.insert(meshComponent);
 }
 
@@ -126,9 +121,9 @@ void LevelGraph::AddCollisionComponent(C_CollisionComponent* component)
 
 void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
 {
-	RenderData.MaterialsByShader[meshComponent->GetMaterial()->GetShaderInfo().Name].erase(meshComponent->GetMaterial());
-	RenderData.MeshesByMaterial[meshComponent->GetMaterial()].erase(meshComponent->GetMesh());
-	RenderData.InstancesByMesh[meshComponent->GetMesh()].erase(meshComponent->GetModelMatrix());
+	Material* material = meshComponent->GetMaterial();
+	RenderData.DataMapByShader[material->GetShaderInfo().Name][material][meshComponent->GetMesh()].erase(meshComponent->GetModelData());
+	RenderData.Models.erase(meshComponent->GetModelMatrix());
 }
 
 void LevelGraph::AddTexture(S_Texture* texture)
@@ -146,7 +141,7 @@ void LevelGraph::AddCubeSampler(S_CubeSampler* sampler)
 void LevelGraph::AddMaterial(Material* material)
 {
 	MaterialsByName[material->GetMaterialName()] = material;
-	RenderData.Materials.insert(material);
+	//RenderData.Materials.insert(material);
 	LoadMaterial(material);
 }
 
@@ -293,8 +288,8 @@ LevelGraph::~LevelGraph()
 	CleanUp();
 }
 
-ostream& operator<<(ostream& out, const O_Object& obj)
+std::ostream& operator<<(std::ostream& out, const O_Object& obj)
 {
-	out << obj << endl;
+	out << obj << std::endl;
 	return out;
 }

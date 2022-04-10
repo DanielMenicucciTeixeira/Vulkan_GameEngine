@@ -257,21 +257,21 @@ void VulkanManager::CreateCommandBuffers()
         vkCmdBeginRenderPass(CommandBuffers[i], &mainPassInfo, VK_SUBPASS_CONTENTS_INLINE);
             vkCmdSetViewport(CommandBuffers[i], 0, 1, &viewport);
             vkCmdSetScissor(CommandBuffers[i], 0, 1, &scissor);
-            for (const auto& shader : RenderData->MaterialsByShader)
+            for (const auto& shaderMap : RenderData->DataMapByShader)
             {
-                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first);
-                for (const auto& material : shader.second)
+                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].first);
+                for (const auto& materialMap : shaderMap.second)
                 {
-                    for (const auto& mesh : RenderData->MeshesByMaterial[material])
+                    for (const auto& meshMap : materialMap.second)
                     {
-                        vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[mesh]->VertexBuffer, offsets);
-                        vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[mesh]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
-                        for (const auto& model : RenderData->InstancesByMesh[mesh])
+                        vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &MeshDataMap[meshMap.first]->VertexBuffer, offsets);
+                        vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[meshMap.first]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+                        for (const auto& modelData : meshMap.second)
                         {
-                            if (*RenderData->Models[model])
+                            if (*modelData.InFrustum)
                             {
-                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[model][i], 0, nullptr);
-                                vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(mesh->Indices.size()), 1, 0, 0, 0);
+                                vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[modelData.ModelMatrix][i], 0, nullptr);
+                                vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(meshMap.first->Indices.size()), 1, 0, 0, 0);
                             }
                         }
                     }
@@ -287,9 +287,9 @@ void VulkanManager::CreateCommandBuffers()
 
 void VulkanManager::CreateVertexBuffers()
 {
-    for (const auto& mesh : RenderData->Meshes)
+    for (const auto& shader : RenderData->DataMapByShader) for (const auto& material : shader.second) for (const auto& mesh : material.second)
     {
-        VkDeviceSize bufferSize = sizeof(S_Vertex) * mesh->Vertices.size();
+        VkDeviceSize bufferSize = sizeof(S_Vertex) * mesh.first->Vertices.size();
 
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;
@@ -297,12 +297,12 @@ void VulkanManager::CreateVertexBuffers()
 
         void* data;
         vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, mesh->Vertices.data(), (size_t)bufferSize);
+        memcpy(data, mesh.first->Vertices.data(), (size_t)bufferSize);
         vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        MeshDataMap[mesh] = new S_MeshData();
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh]->VertexBuffer, MeshDataMap[mesh]->VertexBufferMemory);
-        CopyBuffer(stagingBuffer, MeshDataMap[mesh]->VertexBuffer, bufferSize);
+        MeshDataMap[mesh.first] = new S_MeshData();
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh.first]->VertexBuffer, MeshDataMap[mesh.first]->VertexBufferMemory);
+        CopyBuffer(stagingBuffer, MeshDataMap[mesh.first]->VertexBuffer, bufferSize);
 
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
@@ -311,9 +311,9 @@ void VulkanManager::CreateVertexBuffers()
 
 void VulkanManager::CreateIndexBuffers()
 {
-    for (const auto& mesh : RenderData->Meshes)
+    for (const auto& shader : RenderData->DataMapByShader) for (const auto& material : shader.second) for (const auto& mesh : material.second)
     {
-        VkDeviceSize bufferSize = sizeof(unsigned int) * mesh->Indices.size();
+        VkDeviceSize bufferSize = sizeof(unsigned int) * mesh.first->Indices.size();
 
         VkBuffer stagingBuffer;
         VkDeviceMemory stagingBufferMemory;
@@ -321,12 +321,12 @@ void VulkanManager::CreateIndexBuffers()
 
         void* data;
         vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
-        memcpy(data, mesh->Indices.data(), (size_t)bufferSize);
+        memcpy(data, mesh.first->Indices.data(), (size_t)bufferSize);
         vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
 
-        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh]->IndexBuffer, MeshDataMap[mesh]->IndexBufferMemory);
+        CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, MeshDataMap[mesh.first]->IndexBuffer, MeshDataMap[mesh.first]->IndexBufferMemory);
 
-        CopyBuffer(stagingBuffer, MeshDataMap[mesh]->IndexBuffer, bufferSize);
+        CopyBuffer(stagingBuffer, MeshDataMap[mesh.first]->IndexBuffer, bufferSize);
 
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
@@ -452,10 +452,10 @@ void VulkanManager::CleanUp()
 
     SwapchainManager->FinalCleanUp();
     vkFreeCommandBuffers(Devices->GetLogicalDevice(), CommandPool, CommandBuffers.size(), CommandBuffers.data());
-    for (const auto& shader : RenderData->MaterialsByShader)
+    for (const auto& shaderMap : RenderData->DataMapByShader)
     {
-        vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].first, nullptr);
-        vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shader.second.begin())->GetShaderInfo().Name].second, nullptr);
+        vkDestroyPipeline(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].first, nullptr);
+        vkDestroyPipelineLayout(Devices->GetLogicalDevice(), GraphicsPipelineManager->GetPipelinesMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].second, nullptr);
     }    
     for (const auto& semaphore : RenderFinishedSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);
     for (const auto& semaphore : ImageAvailableSemaphores) vkDestroySemaphore(Devices->GetLogicalDevice(), semaphore, nullptr);

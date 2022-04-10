@@ -318,28 +318,28 @@ void VulkanSwapchainManager::CreateUniformBuffers()
             Manager->CreateBuffer(intBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, NumberOfLightsData[i].Buffer, NumberOfLightsData[i].Memory);
         }
 
-       for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
+       for (const auto& shader : Manager->GetRenderData()->DataMapByShader)
         {
             for (const auto& material : shader.second)
             {
-                MaterialMap[material].resize(Images.size());
-                for (auto& image : MaterialMap[material]) image = std::vector<S_BufferData>();
+                MaterialMap[material.first].resize(Images.size());
+                for (auto& image : MaterialMap[material.first]) image = std::vector<S_BufferData>();
             }
         }
 
         for (const auto& model : Manager->GetRenderData()->Models)
         {
-            ModelMap[model.first].resize(Images.size());
-            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model.first][i].Buffer, ModelMap[model.first][i].Memory);
+            ModelMap[model].resize(Images.size());
+            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].Buffer, ModelMap[model][i].Memory);
         }
     }
 }
 
 void VulkanSwapchainManager::CreateDescriptorSetLayouts()
 {
-    for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
+    for (const auto& shader : Manager->GetRenderData()->DataMapByShader)
     {
-        Material* material = (*shader.second.begin());
+        Material* material = (*shader.second.begin()).first;
         if (M_VulkanMaterial* vulkanMaterial = dynamic_cast<M_VulkanMaterial*>(material)) CreateDescriptorSetLayoutFromVulkanMaterial(shader.first, vulkanMaterial);
         else CreateDescriptorSetLayoutFromGenericMaterial(shader.first, material);
     }
@@ -378,24 +378,24 @@ void VulkanSwapchainManager::CreateDescriptorSets()
         return;
     }
 
-    for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
+    for (const auto& shader : Manager->GetRenderData()->DataMapByShader)
     {
         std::vector<VkDescriptorSetLayout> layouts(Images.size(), DescriptorLayoutsByShader[shader.first]);
-
-        for (const auto& material : shader.second)
+        for (const auto& materialMap : shader.second)
         {
-            for (const auto& mesh : Manager->GetRenderData()->MeshesByMaterial[material])
+            for (const auto& meshMap : materialMap.second)
             {
-                for (const auto& model : Manager->GetRenderData()->InstancesByMesh[mesh])
+                for (const auto& modelData : meshMap.second)
                 {
                     VkDescriptorSetAllocateInfo allocInfo{};
                     allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
                     allocInfo.descriptorPool = DescriptorPool;
                     allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
                     allocInfo.pSetLayouts = layouts.data();
-
-                    DescriptorSetsMap[model].resize(Images.size());
-                    if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[model].data()) != VK_SUCCESS)
+                    
+                    auto check = Manager->GetRenderData();
+                    DescriptorSetsMap[modelData.ModelMatrix].resize(Images.size());
+                    if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[modelData.ModelMatrix].data()) != VK_SUCCESS)
                     {
                         throw std::runtime_error("failed to allocate descriptor sets!");
                     }
@@ -418,16 +418,16 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         numberOfLightsInfo.range = sizeof(int);
 
                         VkDescriptorBufferInfo modelInfo{};
-                        modelInfo.buffer = ModelMap[model][currentImage].Buffer;
+                        modelInfo.buffer = ModelMap[modelData.ModelMatrix][currentImage].Buffer;
                         modelInfo.offset = 0;
                         modelInfo.range = sizeof(FMatrix4);
 
                         std::vector<VkWriteDescriptorSet> descriptorWrites;
-                        descriptorWrites.reserve(material->GetShaderVariablesInfo().size());
+                        descriptorWrites.reserve(materialMap.first->GetShaderVariablesInfo().size());
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[0].dstSet = DescriptorSetsMap[model][currentImage];
+                        descriptorWrites[0].dstSet = DescriptorSetsMap[modelData.ModelMatrix][currentImage];
                         descriptorWrites[0].dstBinding = 0;
                         descriptorWrites[0].dstArrayElement = 0;
                         descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -436,7 +436,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[1].dstSet = DescriptorSetsMap[model][currentImage];
+                        descriptorWrites[1].dstSet = DescriptorSetsMap[modelData.ModelMatrix][currentImage];
                         descriptorWrites[1].dstBinding = 1;
                         descriptorWrites[1].dstArrayElement = 0;
                         descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -445,7 +445,7 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[2].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[2].dstSet = DescriptorSetsMap[model][currentImage];
+                        descriptorWrites[2].dstSet = DescriptorSetsMap[modelData.ModelMatrix][currentImage];
                         descriptorWrites[2].dstBinding = 2;
                         descriptorWrites[2].dstArrayElement = 0;
                         descriptorWrites[2].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
@@ -454,18 +454,18 @@ void VulkanSwapchainManager::CreateDescriptorSets()
 
                         descriptorWrites.push_back(VkWriteDescriptorSet());
                         descriptorWrites[3].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
-                        descriptorWrites[3].dstSet = DescriptorSetsMap[model][currentImage];
+                        descriptorWrites[3].dstSet = DescriptorSetsMap[modelData.ModelMatrix][currentImage];
                         descriptorWrites[3].dstBinding = 3;
                         descriptorWrites[3].dstArrayElement = 0;
                         descriptorWrites[3].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
                         descriptorWrites[3].descriptorCount = 1;
                         descriptorWrites[3].pBufferInfo = &lightsInfo;
 
-                        auto tempVector = CreateDescriptorWritesFromMaterial(material, currentImage);
+                        auto tempVector = CreateDescriptorWritesFromMaterial(materialMap.first, currentImage);
                         
                         for (int i = 0; i < tempVector.size(); i++)
                         {
-                            tempVector[i].dstSet = DescriptorSetsMap[model][currentImage];
+                            tempVector[i].dstSet = DescriptorSetsMap[modelData.ModelMatrix][currentImage];
                             tempVector[i].dstBinding = i + descriptorWrites.size();
                         }
 
@@ -529,7 +529,7 @@ void VulkanSwapchainManager::CreateTextureImages()
 
 void VulkanSwapchainManager::CreateSkyboxImages()
 {
-    auto test = Manager->GetRenderData()->CubeSamplers;
+    size_t check = Manager->GetRenderData()->CubeSamplers.size();
     for (const auto& cubeSampler : Manager->GetRenderData()->CubeSamplers)
     {
         int textureWidth = cubeSampler->Textures[0]->Width;
@@ -800,9 +800,9 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     for (const auto& model : Manager->GetRenderData()->Models)
     {
         void* modelData;
-        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model.first][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
-        memcpy(modelData, model.first, sizeof(FMatrix4));
-        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model.first][currentImageIndex].Memory);
+        vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
+        memcpy(modelData, model, sizeof(FMatrix4));
+        vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory);
     }
 }
 

@@ -20,9 +20,9 @@ VulkanPipelineManager::VulkanPipelineManager(VulkanManager* manager)
 
 void VulkanPipelineManager::CreateGraphicsPipelines()
 {
-    for (const auto& shader : Manager->GetRenderData()->MaterialsByShader)
+    for (const auto& shader : Manager->GetRenderData()->DataMapByShader)
     {
-        Material* material = (*shader.second.begin());
+        Material* material = (*shader.second.begin()).first;
         if (M_VulkanMaterial* vulkanMaterial = dynamic_cast<M_VulkanMaterial*>(material)) CreatePipelineFromVulkanMaterial(shader.first, vulkanMaterial);
         else CreatePipelineFromGenericMaterial(shader.first, material);
     } 

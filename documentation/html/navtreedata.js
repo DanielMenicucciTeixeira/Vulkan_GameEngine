@@ -58,14 +58,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_apple_8cpp.html",
-"_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fac8b4984db70159e0fa57abd9939dacc1",
-"class_audio_handler.html#a873206c57f2f81966b02895fd754faa7",
-"class_clock.html",
-"class_f_vector3.html#a8366a541dca2d8638c93589e799bf63f",
-"class_i_vector3.html#a993cc1d5c2b9375684bf3c74de0f5c9e",
-"class_oct_spatial_partition.html#aa6587b2a247704d3ada8fa024413b093",
-"class_vulkan_renderer.html#a793f6480c6c70f22e530064061efab2e",
-"index.html"
+"_material_8h.html#a0aefdb8e5fdee72495d2b6419f3a0c4fa7a059a5b0400d56b7771efd2c9f0f535",
+"class_asset_loader.html#a8e04116594a19c7d73a4fe59593d0963",
+"class_c___transform_component.html#a4e2e502d0406b4f096ceeb29f3800c09",
+"class_f_vector3.html#a482ca4f8d4f9bb32d8a63bdcae369682",
+"class_i_vector3.html#a38a6b53e8648c7363ed25b15f5093304",
+"class_oct_node.html#aa6353e738724f02cdbe4404886f3d79e",
+"class_vulkan_renderer.html#a55dedbbb6f2836d4c2b09464ddbda1d5",
+"functions_vars_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

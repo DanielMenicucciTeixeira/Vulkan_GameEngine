@@ -7,6 +7,7 @@ var class_c___static_mesh_component =
     [ "GetMaterialName", "class_c___static_mesh_component.html#addee0cefccebc52ba9ffeb4c4ba7ed74", null ],
     [ "GetMesh", "class_c___static_mesh_component.html#a577fd94f13e70078934bd9af553e47d5", null ],
     [ "GetMeshName", "class_c___static_mesh_component.html#aee9fe7f7cd2a789cfc174a660879edae", null ],
+    [ "GetModelData", "class_c___static_mesh_component.html#ad6476ac594128c5a3ee030cfe4e70e8b", null ],
     [ "GetModelMatrix", "class_c___static_mesh_component.html#ab45913895e64a4dff34037f5b654934f", null ],
     [ "IsInFrustum", "class_c___static_mesh_component.html#a2600216668af353e018a4342adfb6030", null ],
     [ "SetInFrustum", "class_c___static_mesh_component.html#a1670de2a79d4ab5ccac1d46d36e5a88e", null ],

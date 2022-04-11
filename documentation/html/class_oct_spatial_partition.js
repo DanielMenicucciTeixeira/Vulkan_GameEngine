@@ -7,7 +7,7 @@ var class_oct_spatial_partition =
     [ "GetActiveLeaves", "class_oct_spatial_partition.html#aab95146e712ed0c4dfb5625cc4a098e7", null ],
     [ "GetCollision", "class_oct_spatial_partition.html#acbb19e2b56055ae88100ca5a20a96072", null ],
     [ "GetCollision", "class_oct_spatial_partition.html#a56539404d679edf5f0c6046a9b477d32", null ],
-    [ "GetCollision", "class_oct_spatial_partition.html#a6e4ae4942d8d5a3ff16b5d1670cc3add", null ],
+    [ "GetCollision", "class_oct_spatial_partition.html#a8c110b02e8ee948f371c78dc1d520e38", null ],
     [ "GetCollision", "class_oct_spatial_partition.html#aa6587b2a247704d3ada8fa024413b093", null ],
     [ "GetRoot", "class_oct_spatial_partition.html#af5513a0c48ba7e5ec4c5fdb682d2c329", null ],
     [ "RemoveCollider", "class_oct_spatial_partition.html#a51a30b4cec2aa288075b79aefead6ecc", null ],

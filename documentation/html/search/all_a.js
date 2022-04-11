@@ -41,7 +41,7 @@ var searchData=
   ['loadmeshvertices_38',['LoadMeshVertices',['../class_asset_loader.html#ae2df6d877c2e5f284931819c673a7fd6',1,'AssetLoader']]],
   ['loadmodel_39',['LoadModel',['../class_level_graph.html#ac4e714a3c2f0d9ed96402e8723962bca',1,'LevelGraph::LoadModel()'],['../class_asset_loader.html#a3c324611347578766e590ecfc753e241',1,'AssetLoader::LoadModel()'],['../class_vulkan_manager.html#a0011eae4dfa7a67867f803f80f0965c7',1,'VulkanManager::LoadModel()'],['../class_vulkan_renderer.html#acee28fbd6d1c75f49744e9b526db48d6',1,'VulkanRenderer::LoadModel()']]],
   ['loadmodels_40',['LoadModels',['../class_l___level.html#a185b54dffdc08e7c8faa1436348dbf3b',1,'L_Level']]],
-  ['loadtexture_41',['LoadTexture',['../class_l___level.html#a0ca7d69e16ccff05d0fc2d8fb789737c',1,'L_Level::LoadTexture()'],['../class_level_graph.html#aee522fefa0b22fa7259d6f803c9b0958',1,'LevelGraph::LoadTexture()'],['../class_texture_loader.html#a750d4a492569369626644ac2e5520f41',1,'TextureLoader::LoadTexture()'],['../class_texture_handler.html#a4a3f6b52cdcbb3b075fd9451412cecf7',1,'TextureHandler::LoadTexture()']]],
+  ['loadtexture_41',['LoadTexture',['../class_l___level.html#a0ca7d69e16ccff05d0fc2d8fb789737c',1,'L_Level::LoadTexture()'],['../class_level_graph.html#aee522fefa0b22fa7259d6f803c9b0958',1,'LevelGraph::LoadTexture()'],['../class_texture_loader.html#a34a49fb7f77e7724074529c647249b34',1,'TextureLoader::LoadTexture()'],['../class_texture_handler.html#a4a3f6b52cdcbb3b075fd9451412cecf7',1,'TextureHandler::LoadTexture()']]],
   ['logical_42',['Logical',['../class_vulkan_devices.html#a148f327d2d513ac826ec44b506454753',1,'VulkanDevices']]],
   ['logicaldevice_43',['LogicalDevice',['../class_vulkan_renderer.html#ab94b780bda1492819006c0ab36fcd93e',1,'VulkanRenderer']]]
 ];

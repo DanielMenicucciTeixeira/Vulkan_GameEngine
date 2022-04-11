@@ -34,6 +34,10 @@ var dir_50b44ebb09f8ec23c1a3d3842e5eb730 =
     [ "Pawn.h", "_pawn_8h.html", [
       [ "GO_Pawn", "class_g_o___pawn.html", "class_g_o___pawn" ]
     ] ],
+    [ "Pocket.cpp", "_pocket_8cpp.html", null ],
+    [ "Pocket.h", "_pocket_8h.html", [
+      [ "Pocket", "class_pocket.html", "class_pocket" ]
+    ] ],
     [ "SceneManager.cpp", "_scene_manager_8cpp.html", null ],
     [ "SceneManager.h", "_scene_manager_8h.html", [
       [ "SceneManager", "class_scene_manager.html", "class_scene_manager" ]

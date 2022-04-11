@@ -86,7 +86,8 @@ var hierarchy =
         [ "GO_Skybox", "class_g_o___skybox.html", null ],
         [ "GO_Tetrahedron", "class_g_o___tetrahedron.html", null ],
         [ "GO_Triangle", "class_g_o___triangle.html", null ],
-        [ "GO_Wall", "class_g_o___wall.html", null ]
+        [ "GO_Wall", "class_g_o___wall.html", null ],
+        [ "Pocket", "class_pocket.html", null ]
       ] ]
     ] ],
     [ "OctNode", "class_oct_node.html", null ],
@@ -111,6 +112,7 @@ var hierarchy =
     [ "S_Material", "struct_s___material.html", null ],
     [ "S_Mesh", "struct_s___mesh.html", null ],
     [ "S_MeshData", "struct_s___mesh_data.html", null ],
+    [ "S_ModelData", "struct_s___model_data.html", null ],
     [ "S_OBJData", "struct_s___o_b_j_data.html", null ],
     [ "S_RenderData", "struct_s___render_data.html", null ],
     [ "S_ShaderInfo", "struct_s___shader_info.html", null ],

@@ -105,6 +105,8 @@ $(document).ready(function(){initNavTree('_level_graph_8h.html',''); initResizab
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___model_data.html">S_ModelData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___render_data.html">S_RenderData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_level_graph.html">LevelGraph</a></td></tr>
@@ -112,12 +114,66 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:af5f8c6d72beb981c1adaaf9ec04b1847"><td class="memItemLeft" align="right" valign="top">typedef std::unordered_map&lt; <a class="el" href="struct_s___mesh.html">S_Mesh</a> *, std::set&lt; <a class="el" href="struct_s___model_data.html">S_ModelData</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_level_graph_8h.html#af5f8c6d72beb981c1adaaf9ec04b1847">ModelsByMesh_T</a></td></tr>
+<tr class="separator:af5f8c6d72beb981c1adaaf9ec04b1847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec940ba045c14c0fb2e3eaec966292c"><td class="memItemLeft" align="right" valign="top">typedef std::unordered_map&lt; <a class="el" href="class_material.html">Material</a> *, <a class="el" href="_level_graph_8h.html#af5f8c6d72beb981c1adaaf9ec04b1847">ModelsByMesh_T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_level_graph_8h.html#a4ec940ba045c14c0fb2e3eaec966292c">MeshesByMaterial_T</a></td></tr>
+<tr class="separator:a4ec940ba045c14c0fb2e3eaec966292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403f344c1a23237e7b443d9c04d85786"><td class="memItemLeft" align="right" valign="top">typedef std::unordered_map&lt; std::string, <a class="el" href="_level_graph_8h.html#a4ec940ba045c14c0fb2e3eaec966292c">MeshesByMaterial_T</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_level_graph_8h.html#a403f344c1a23237e7b443d9c04d85786">MaterialsByShader_T</a></td></tr>
+<tr class="separator:a403f344c1a23237e7b443d9c04d85786"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41721955f17df6e94f008654630c1d2a"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_level_graph_8h.html#a41721955f17df6e94f008654630c1d2a">ShaderID</a></td></tr>
 <tr class="separator:a41721955f17df6e94f008654630c1d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abceca9d93e40bfd2c564cb4283759030"><td class="memItemLeft" align="right" valign="top">typedef std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_level_graph_8h.html#abceca9d93e40bfd2c564cb4283759030">ObjectName</a></td></tr>
 <tr class="separator:abceca9d93e40bfd2c564cb4283759030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a403f344c1a23237e7b443d9c04d85786" name="a403f344c1a23237e7b443d9c04d85786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a403f344c1a23237e7b443d9c04d85786">&#9670;&nbsp;</a></span>MaterialsByShader_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unordered_map&lt;std::string, <a class="el" href="_level_graph_8h.html#a4ec940ba045c14c0fb2e3eaec966292c">MeshesByMaterial_T</a>&gt; <a class="el" href="_level_graph_8h.html#a403f344c1a23237e7b443d9c04d85786">MaterialsByShader_T</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00044">44</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
+
+</div>
+</div>
+<a id="a4ec940ba045c14c0fb2e3eaec966292c" name="a4ec940ba045c14c0fb2e3eaec966292c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec940ba045c14c0fb2e3eaec966292c">&#9670;&nbsp;</a></span>MeshesByMaterial_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unordered_map&lt;<a class="el" href="class_material.html">Material</a>*, <a class="el" href="_level_graph_8h.html#af5f8c6d72beb981c1adaaf9ec04b1847">ModelsByMesh_T</a>&gt; <a class="el" href="_level_graph_8h.html#a4ec940ba045c14c0fb2e3eaec966292c">MeshesByMaterial_T</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00043">43</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
+
+</div>
+</div>
+<a id="af5f8c6d72beb981c1adaaf9ec04b1847" name="af5f8c6d72beb981c1adaaf9ec04b1847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f8c6d72beb981c1adaaf9ec04b1847">&#9670;&nbsp;</a></span>ModelsByMesh_T</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::unordered_map&lt; <a class="el" href="struct_s___mesh.html">S_Mesh</a>*, std::set&lt;<a class="el" href="struct_s___model_data.html">S_ModelData</a>&gt; &gt; <a class="el" href="_level_graph_8h.html#af5f8c6d72beb981c1adaaf9ec04b1847">ModelsByMesh_T</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00042">42</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
+
+</div>
+</div>
 <a id="abceca9d93e40bfd2c564cb4283759030" name="abceca9d93e40bfd2c564cb4283759030"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abceca9d93e40bfd2c564cb4283759030">&#9670;&nbsp;</a></span>ObjectName</h2>
 
@@ -130,7 +186,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00020">20</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00047">47</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
 
 </div>
 </div>
@@ -146,7 +202,7 @@ Typedefs</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00019">19</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_level_graph_8h_source.html#l00046">46</a> of file <a class="el" href="_level_graph_8h_source.html">LevelGraph.h</a>.</p>
 
 </div>
 </div>

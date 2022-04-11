@@ -17,14 +17,14 @@ CollisionDetection::~CollisionDetection()
 
 bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
 {
-	Ray line = a;
-	int i = 0;
+	/*int i = 0;
 	FVector3 interssection[6];
+
 	for (auto& plane : b.box)
 	{
 		if
 			(
-				plane.InterssectionPoint(line, interssection[i]) &&
+				plane.InterssectionPoint(a, interssection[i]) &&
 				interssection[i].X <= b.GetExtent().X && interssection[i].X >= 0 &&
 				interssection[i].Y <= b.GetExtent().Y && interssection[i].Y >= 0 &&
 				interssection[i].Z <= b.GetExtent().Z && interssection[i].Z >= 0
@@ -42,7 +42,7 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
 		FVector3 closestPoint = interssection[0];
 		for (int j = 1; j <= i; j++)
 		{
-			if ((line.GetOrigin() - interssection[j]).Length() < (line.GetOrigin() - closestPoint).Length())
+			if ((a.GetOrigin() - interssection[j]).Length() < (a.GetOrigin() - closestPoint).Length())
 			{
 				closestPoint = interssection[j];
 			}
@@ -50,6 +50,96 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
 		collisionData.CollisionPoint = closestPoint;
 	}
 	return true;
+	*/
+
+	FVector3 rayDirection = a.GetDirection().GetNormal();
+	FVector3 boxMin = FVector3(0.0f);
+	FVector3 boxMax = boxMin + b.GetExtent();
+
+
+	float tMin = LevelGraph::GetInstance()->GetActiveCamera()->GetNearPlane();
+	float tMax = LevelGraph::GetInstance()->GetActiveCamera()->GetFarPlane();
+
+	FVector3 worldPosition = b.GetPosition();
+
+	FVector3 delta = worldPosition - a.GetOrigin();
+
+	//X Axis
+	FVector3 axis = FVector3(1.0f, 0.0f, 0.0f);
+
+	float deltaDot = delta.GetDotProduct(axis);
+	float directionDot = rayDirection.GetDotProduct(axis);
+
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.X) / directionDot;
+		float t2 = (deltaDot + boxMax.X) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.X > 0.0f || -deltaDot + boxMax.X < 0.0f) return false;
+
+	//Y Axis
+	axis = FVector3(0.0f, 1.0f, 0.0f);
+	deltaDot = delta.GetDotProduct(axis);
+	directionDot = rayDirection.GetDotProduct(axis);
+
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.Y) / directionDot;
+		float t2 = (deltaDot + boxMax.Y) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.Y > 0.0f || -deltaDot + boxMax.Y < 0.0f) return false;
+
+	//Z Axis
+	axis = FVector3(0.0f, 0.0f, 1.0f);
+
+	deltaDot = delta.GetDotProduct(axis);
+	directionDot = rayDirection.GetDotProduct(axis);
+
+	if (fabs(directionDot) > 0.0001f)
+	{
+		float t1 = (deltaDot + boxMin.Z) / directionDot;
+		float t2 = (deltaDot + boxMax.Z) / directionDot;
+
+		if (t1 > t2)
+		{
+			float w = t1;
+			t1 = t2;
+			t2 = w;
+		}
+
+		if (t2 < tMax) tMax = t2;
+		if (t1 > tMin) tMin = t1;
+		if (tMax < tMin) return false;
+	}
+	else if (-deltaDot + boxMin.Z > 0.0f || -deltaDot + boxMax.Z < 0.0f) return false;
+
+	a.SetIntersectDistance(tMin);
+	collisionData.CollisionPoint = a.GetOrigin() + tMin;
+
+	return true;
+
 }
 bool CollisionDetection::RaySphereIntersection(Ray ray, Sphere sphere)
 {

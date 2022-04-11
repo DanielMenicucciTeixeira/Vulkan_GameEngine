@@ -98,12 +98,13 @@ bool CoreEngine::Initialize(const char* name, ERendererType renderType, int widt
 void CoreEngine::Run()
 {
 	EngineClock.StartClock();
+	float deltaTime;
 	while (RunningEngine)
 	{
 		EngineClock.UpdateClock();
-		auto deltaTime = EngineClock.GetDeltaTimeSeconds();
+		deltaTime = EngineClock.GetDeltaTimeSeconds();
 		PreUpdate(deltaTime);
-		HandleEvents();
+		EventListener::HandleEvents();
 		Update(deltaTime);
 		PostUpdate(deltaTime);
 		Render();

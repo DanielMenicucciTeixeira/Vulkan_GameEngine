@@ -8,6 +8,7 @@
 #include "Math/FTransform.h"
 #include "Objects/GameObjects/GameObject.h"
 #include <SDL.h>
+#include "Engine/Core/LevelGraph.h"
 
 void C_CameraComponent::CalculateFrustum()
 {
@@ -54,9 +55,9 @@ void C_CameraComponent::CalculateFrustum()
 void C_CameraComponent::Update(const float deltaTime)
 {
 	C_TransformComponent::Update(deltaTime);
-	//UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
+	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
 	//UCO->View = FMatrix4::GetViewMatrix(GetComponentAbsoluteRotation(), GetComponentAbsolutePosition());
-	//CalculateFrustum();
+	CalculateFrustum();
 }
 
 void C_CameraComponent::Start()
@@ -86,7 +87,7 @@ void C_CameraComponent::UpdateView()
 
 C_CameraComponent::C_CameraComponent(O_GameObject* owner) : C_TransformComponent(owner), UCO(new UniformCameraObject)
 {
-	
+	LevelGraph::GetInstance()->AddCamera(this);
 }
 
 C_CameraComponent::~C_CameraComponent()

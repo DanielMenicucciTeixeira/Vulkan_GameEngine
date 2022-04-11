@@ -480,7 +480,7 @@ std::vector<OctNode*> OctSpatialPartition::GetCollidingNodes(S_Box box, FVector3
 void OctSpatialPartition::GetIntersectedLeaves(Ray& ray, OctNode* cell, std::vector<OctNode*> &nodes)
 {
 	//Check if cell is empty
-	if (cell->IsEmpty()) return;
+	if (cell->IsEmpty() && cell->IsLeaf()) return;
 
 	if (CollisionDetection::RayAABBIntersection(ray, cell->GetBoundingBox()))
 	{

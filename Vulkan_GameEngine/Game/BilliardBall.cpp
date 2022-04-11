@@ -4,7 +4,6 @@
 #include "Objects/Components/StaticMeshComponent.h"
 #include "Math/FVector3.h"
 #include "Geometry/Sphere.h"
-#include "Physics/PhysicsLib.h"
 #include "BilliardTable.h"
 #include "Objects/Components/Colliders/BoxCollider.h"
 #include "Geometry/Box.h"
@@ -34,7 +33,7 @@ void GO_BilliardBall::BounceOnBall(GO_BilliardBall* otherBall, FVector3 pointOfI
 			/ pow((distance).Length(), 2)
 		) * -1.0f;
 
-	FPhysicsLib::AddForce(Physics, force, pointOfImpact);
+	//FPhysicsLib::AddForce(Physics, force, pointOfImpact);
 }
 
 void GO_BilliardBall::BounceOnWall(C_BoxCollider* wall, FVector3 pointOfImpact)
@@ -47,14 +46,14 @@ void GO_BilliardBall::BounceOnWall(C_BoxCollider* wall, FVector3 pointOfImpact)
 			/ pow((distance).Length(), 2)
 		) * -1.0f;
 
-	FPhysicsLib::AddForce(Physics, force, pointOfImpact);
+	//FPhysicsLib::AddForce(Physics, force, pointOfImpact);
 }
 
 void GO_BilliardBall::Update(float deltaTime)
 {
 	O_GameObject::Update(deltaTime);
 	Physics->SetAngularAcceleration(Physics->GetAngularVelocity() * -0.1f);
-	FPhysicsLib::AddForce(Physics, (Physics->GetVelocity() * -Drag * deltaTime), GetPosition() + (FVector3(0.0f, 0.0f, -1.0f) * Collider->GetRadius()));
+	//FPhysicsLib::AddForce(Physics, (Physics->GetVelocity() * -Drag * deltaTime), GetPosition() + (FVector3(0.0f, 0.0f, -1.0f) * Collider->GetRadius()));
 }
 
 GO_BilliardBall::GO_BilliardBall(std::string name) : O_GameObject(name)

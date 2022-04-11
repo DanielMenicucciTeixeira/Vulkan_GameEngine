@@ -1,7 +1,7 @@
 #ifndef RAY_H
 #define RAY_H
 
-class FVector3;
+#include "Math/FVector3.h"
 class C_BoundingBox;
 
 class Ray
@@ -14,8 +14,8 @@ public:
 	~Ray();
 
 private:
-	FVector3* Origin;
-	FVector3* Direction;
+	FVector3 Origin;
+	FVector3 Direction;
 	float Length;
 	bool Infinit;
 

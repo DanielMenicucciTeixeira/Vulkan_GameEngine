@@ -151,14 +151,12 @@ void LevelGraph::RemoveLight(unsigned int index)
 	FreeLightSlots.insert(index);
 }
 
-void LevelGraph::AddCamera(std::string name, FTransform transform)
+void LevelGraph::AddCamera(C_CameraComponent* cam, std::string)
 {
-	CameraList.push_back(GO_Camera(name, transform));
-}
-
-void LevelGraph::AddCamera(GO_Camera* cam, std::string)
-{
-	CameraList.push_back(*cam);
+	if (CameraList.empty()) {
+		SetActiveCamera(cam);
+	}
+	CameraList.push_back(cam);
 }
 
 void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
@@ -172,14 +170,14 @@ void LevelGraph::SetActiveCamera(C_CameraComponent* camera)
 	RenderData.Camera = camera->GetUCO();
 }
 
-std::vector<GO_Camera> * LevelGraph::GetAllCameras()
+std::vector<C_CameraComponent*> * LevelGraph::GetAllCameras()
 {
 	return &CameraList;
 }
 
-GO_Camera * LevelGraph::GetCamera(int cameraID)
+C_CameraComponent * LevelGraph::GetCamera(int cameraID)
 {
-	return &CameraList[cameraID];
+	return CameraList[cameraID];
 }
 
 void LevelGraph::AddLight(FMatrix4*& matrix, unsigned int& index)

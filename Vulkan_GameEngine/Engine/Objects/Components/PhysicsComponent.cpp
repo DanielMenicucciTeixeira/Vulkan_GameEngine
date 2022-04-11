@@ -1,7 +1,6 @@
 #include "PhysicsComponent.h"
 #include "MovementComponent.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "Physics/PhysicsLib.h"
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
 #include "Objects/Components/TransformComponent.h"
@@ -94,6 +93,15 @@ void C_PhysicsComponent::AddAngularVelocity(FVector3 angularVelocity_)
 	angularVelocityBuffer += angularVelocity_;
 }
 
+void C_PhysicsComponent::ApplyForce(FVector3 force, FVector3 location)
+{
+	SetVelocity(GetVelocity() + (force / GetMass()));
+
+	FVector3 torque = (location - GetOwner()->GetPosition()).CrossProduct(force);
+	if (torque == FVector3()) return;
+	SetAngularVelocity(GetAngularVelocity() + torque / AngularInertia);
+}
+
 void C_PhysicsComponent::SetAcceleration(FVector3 acceleration_)
 {
 	acceleration = acceleration_;
@@ -123,6 +131,11 @@ void C_PhysicsComponent::SetMass(float mass)
 	Mass = mass;
 }
 
+void C_PhysicsComponent::SetApplyGravity(bool applyGravity_)
+{
+	applyGravity = applyGravity_;
+}
+
 FVector3 C_PhysicsComponent::GetAcceleration()
 {
 	return acceleration;
@@ -146,6 +159,11 @@ FVector3 C_PhysicsComponent::GetAngularVelocity()
 float C_PhysicsComponent::GetMass()
 {
 	return Mass;
+}
+
+bool C_PhysicsComponent::GetApplyGravity()
+{
+	return applyGravity;
 }
 
 void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2)

@@ -144,9 +144,8 @@ void L_TetrahedronLevel::Start()
 	sun->SetTurnedOn(true);
 
 
-	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
-	LevelGraph::GetInstance()->AddCamera(cam, "Camera1");
-	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
+	SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(-3.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
+
 
 	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(FVector3(0, 1, 0), 0.0f), FVector3(1.0f)));
 

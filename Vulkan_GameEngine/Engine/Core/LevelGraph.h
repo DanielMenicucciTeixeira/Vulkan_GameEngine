@@ -114,11 +114,10 @@ public:
 	//Camera
 
 	//TODO:Should we add a remove function.
-	void AddCamera(std::string = "", FTransform transform = FTransform());
-	void AddCamera(GO_Camera* cam, std::string = "");
+	void AddCamera(C_CameraComponent* cam, std::string = "");
 	void SetActiveCamera(C_CameraComponent* camera);
-	std::vector<GO_Camera>* GetAllCameras();
-	GO_Camera * GetCamera(int cameraID);
+	std::vector<C_CameraComponent*>* GetAllCameras();
+	C_CameraComponent* GetCamera(int cameraID);
 	
 	//Getters
 
@@ -172,7 +171,7 @@ private:
 	bool isPaused;
 
 	C_CameraComponent* ActiveCamera;
-	std::vector<GO_Camera> CameraList;
+	std::vector<C_CameraComponent*> CameraList;
 };
 #endif
 

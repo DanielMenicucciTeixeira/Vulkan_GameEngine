@@ -23,6 +23,8 @@
 #include "../Audio/BackgroundSound.h"
 #include "../Audio/AudioSource.h"
 
+#include "Engine/Serialize/Serialize.h"
+
 L_TetrahedronLevel::L_TetrahedronLevel()
 {
 	Name = "Tetrahedron Level";
@@ -89,6 +91,19 @@ void L_TetrahedronLevel::Start()
 
 	AudioSource* test1 = new AudioSource(T1);
 	//test1->PlaySound("lol music.mp3", 10.0f, true, true, false); // object sound -> 3d (true)
+
+	Serialize myObj(10);
+	Serialize other(1);
+
+	cout << myObj;
+	ofstream outFile("serialized.txt");
+	outFile << myObj;
+	outFile.close();
+	ifstream inFile("serialized.txt");
+	inFile >> other;
+	inFile.close();
+	cout << other;
+
 
 }
 

@@ -1,1 +1,1 @@
-10 11
+GO_Tetrahedron(1) 

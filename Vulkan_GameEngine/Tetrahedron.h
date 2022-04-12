@@ -20,6 +20,7 @@ public:
 	inline C_MovementComponent* GetMovement() { return Movement; }
 
 	static void OnOverlapBegin(O_GameObject* self, const struct S_CollisionData& data);
+
 };
 
 #endif

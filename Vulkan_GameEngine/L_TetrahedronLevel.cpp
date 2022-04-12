@@ -92,19 +92,24 @@ void L_TetrahedronLevel::Start()
 	AudioSource* test1 = new AudioSource(T1);
 	//test1->PlaySound("lol music.mp3", 10.0f, true, true, false); // object sound -> 3d (true)
 
-	Serialize myObj(10);
-	Serialize other(1);
-
-	cout << myObj;
 	ofstream outFile("serialized.txt");
-	outFile << myObj;
+	Serialize myObj;
+	//Serialize other(1);
+
+	myObj.SaveGame(outFile, *T1);
+
+	//cout << myObj;
+	
+	//outFile.write((char*)&T1, sizeof(T1));
+	//outFile <<T1->GetPosition();
+	//outFile << myObj;
 	outFile.close();
-	ifstream inFile("serialized.txt");
-	inFile >> other;
-	inFile.close();
-	cout << other;
+    //ifstream inFile("serialized.txt");
+	//inFile >> T1;
+	//inFile.close();
+	//cout << other;
 
-
+	
 }
 
 void L_TetrahedronLevel::Update(float deltaTime)

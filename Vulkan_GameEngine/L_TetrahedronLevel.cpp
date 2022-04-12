@@ -40,10 +40,16 @@ bool L_TetrahedronLevel::Initialize()
 	printf("\n\n---------------------------------------Tetrahedron Initialized!----------------------------------------\n\n");
 
 	S_Texture* tetrahedron_Texture = new S_Texture();
-	tetrahedron_Texture->Name = "DumbTexture";
-	tetrahedron_Texture->Path = "Assets/Textures/2.jpeg";
+	tetrahedron_Texture->Name = "PoolTable";
+	tetrahedron_Texture->Path = "Assets/Textures/TableFrame.png";
 	LevelGraph::GetInstance()->AddTexture(tetrahedron_Texture);
 	LoadTexture(tetrahedron_Texture, tetrahedron_Texture->Name);
+
+	S_Texture* tableSurface_Texture = new S_Texture();
+	tableSurface_Texture->Name = "TableSurface";
+	tableSurface_Texture->Path = "Assets/Textures/TableSurface.png";
+	LevelGraph::GetInstance()->AddTexture(tableSurface_Texture);
+	LoadTexture(tableSurface_Texture, tableSurface_Texture->Name);
 
 	S_Texture* box_Texture = new S_Texture();
 
@@ -66,25 +72,28 @@ bool L_TetrahedronLevel::Initialize()
 	skybox_Sampler->Textures[3]->Name = "Bottom";
 	skybox_Sampler->Textures[3]->Path = "Assets/Textures/skybox/bottom.jpg";
 	skybox_Sampler->Textures[4]->Name = "Right";
-	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/right.jpg";
+	skybox_Sampler->Textures[4]->Path = "Assets/Textures/skybox/left.jpg";
 	skybox_Sampler->Textures[5]->Name = "Left";
-	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/left.jpg";
+	skybox_Sampler->Textures[5]->Path = "Assets/Textures/skybox/right.jpg";
 	LevelGraph::GetInstance()->AddCubeSampler(skybox_Sampler);
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
-	ModelPaths.insert("Assets/Models/PoolBall.obj");
+	ModelPaths.insert("Assets/Models/PoolTableV2.obj");
 	ModelPaths.insert("Assets/Models/Floor.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
-	MaterialPaths.insert("Assets/Materials/PoolBall.mtl");
+	MaterialPaths.insert("Assets/Materials/PoolTableV2.mtl");
 	MaterialPaths.insert("Assets/Materials/Floor.mtl");
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 
-	auto lin = LevelGraph::GetInstance()->GetMaterials();
-	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_PoolBall"]);
+	M_StandardMaterial* standardMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Brown"]);
 	standardMaterial->DiffuseTexture = tetrahedron_Texture;
 	standardMaterial->SpecularTexture = tetrahedron_Texture;
+
+	M_StandardMaterial* tableSurfaceMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Green"]);
+	tableSurfaceMaterial->DiffuseTexture = tableSurface_Texture;
+	tableSurfaceMaterial->SpecularTexture = tableSurface_Texture;
 
 	M_StandardMaterial* boxMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
 	boxMaterial->DiffuseTexture = box_Texture;
@@ -106,8 +115,8 @@ void L_TetrahedronLevel::Start()
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
 
-	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-3, 0, 0), FQuaternion(), FVector3(0.5)));
-	T2 = SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0, 0, 0), FQuaternion(), FVector3(10,1,10)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-1000, -100000, 0), FQuaternion(), FVector3(0.5)));
+	T3 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0, 0, 3), FQuaternion(), FVector3(1)));
 	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 
@@ -118,21 +127,17 @@ void L_TetrahedronLevel::Start()
 	//mesh->SetMeshName("Box001");
 	//mesh->SetMaterialName("M_Tetrahedron");
 
-	C_SphereCollider* boxPtr = T1->AddComponentOfClass<C_SphereCollider>();
-	boxPtr->SetCollisionType(ECollisionType::COLLISION);
+	//C_SphereCollider* boxPtr = T1->AddComponentOfClass<C_SphereCollider>();
+	//boxPtr->SetCollisionType(ECollisionType::COLLISION);
 
-	C_BoundingBox* spherePtr = T2->AddComponentOfClass<C_BoundingBox>();
-	spherePtr->SetCollisionType(ECollisionType::OVERLAP);
-	spherePtr->SetOverlapBeginFunction(GO_Wall::Overlap);
+	C_BoundingBox* spherePtr = T1->AddComponentOfClass<C_BoundingBox>();
+	spherePtr->SetCollisionType(ECollisionType::COLLISION);
+	spherePtr->SetComponentScale(FVector3(100.0f, 5.0f, 100.0f));
+	//spherePtr->SetOverlapBeginFunction(GO_Wall::Overlap);
 
 	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
 	{
 		//phys->SetVelocity({ 3.0f, 0.0f, 0.0f });
-	}
-
-	for (auto phys : T2->GetComponentsOfClass<C_PhysicsComponent>())
-	{
-		//phys->SetVelocity({ -3.0f, 0.0f, 0.0f });
 	}
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
@@ -144,9 +149,9 @@ void L_TetrahedronLevel::Start()
 	sun->SetTurnedOn(true);
 
 
-	auto cam = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 10.0f), FQuaternion(), FVector3(1.0f)));
-	LevelGraph::GetInstance()->AddCamera(cam, "Camera1");
-	LevelGraph::GetInstance()->SetActiveCamera(LevelGraph::GetInstance()->GetCamera(0)->GetCamera());
+	T2 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0.0f, 0.0f, 0.0f), FQuaternion(), FVector3(1.0f)));
+
+
 
 	//auto camera = SpawnGameObjectOfClass<GO_Camera>(FTransform(FVector3(0.0f, 0.0f, 15.0f), FQuaternion(FVector3(0, 1, 0), 0.0f), FVector3(1.0f)));
 
@@ -178,7 +183,7 @@ void L_TetrahedronLevel::PrintMinowskiDifference()
 	int i = 0;
 
 	printf("\nMinowski Difference\n");
-	for (auto v1 : T1->GetMesh()->GetMesh()->Vertices)//for each vertex in Tetrahedron1
+	/*for (auto v1 : T1->GetMesh()->GetMesh()->Vertices)//for each vertex in Tetrahedron1
 	{
 		temp = FQuaternion(v1.Position.X, v1.Position.Y, v1.Position.Z, 0);
 		temp = T1->GetRotation() * temp * T1->GetRotation().GetConjugated();
@@ -202,4 +207,5 @@ void L_TetrahedronLevel::PrintMinowskiDifference()
 		i++;
 		if (i >= 4) break;
 	}
+	*/
 }

@@ -29,7 +29,7 @@ bool Plane::InterssectionPoint(const Ray& ray, FVector3& interssectionPoint) con
 {
 	if (ray.GetDirection() * normal != 0.0f)
 	{
-		//float displacement = (W - (normal * ray.GetStartPosition())) / (normal * ray.GetDirection());
+		//float displacement = (W - (normal * ray.GetOrigin())) / (normal * ray.GetDirection());
 		float displacement = (normal * ray.GetOrigin() + W) / (normal * (ray.GetDirection() -  ray.GetOrigin()));
 		if (ray.IsInfinit() || abs(displacement) <= ray.GetLength())
 		{

@@ -260,7 +260,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 	return data;
 }
 
-std::vector<S_CollisionData> CollisionHandler::GetCollisionMuliRay(Ray& ray)
+std::vector<S_CollisionData> CollisionHandler::GetCollisionMultiRay(Ray& ray)
 {
 	std::vector<S_CollisionData> data;
 	

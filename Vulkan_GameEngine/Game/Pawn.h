@@ -4,7 +4,7 @@
 #include "../Engine/Math/FVector3.h"
 
 class C_CameraComponent;
-class C_MovementComponent;
+class C_PhysicsComponent;
 class C_StaticMeshComponent;
 class FVector2;
 
@@ -14,7 +14,7 @@ public:
 	GO_Pawn(std::string name = "");
 	virtual ~GO_Pawn();
 	C_CameraComponent* Camera;
-	C_MovementComponent* Movement;
+	C_PhysicsComponent* Movement;
 	C_StaticMeshComponent* Mesh;
 	inline void SetSpeed(float speed) { Speed = speed; }
 

@@ -144,9 +144,6 @@
     <ClCompile Include="Engine\Objects\GameObjects\PhysicsBody.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Physics\PhysicsLib.cpp">
-      <Filter>Physics</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Physics\CollisionData.h">
       <Filter>Objects\Components\Collision</Filter>
     </ClCompile>
@@ -418,9 +415,6 @@
     </ClInclude>
     <ClInclude Include="Engine\Objects\GameObjects\PhysicsBody.h">
       <Filter>Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Physics\PhysicsLib.h">
-      <Filter>Physics</Filter>
     </ClInclude>
     <ClInclude Include="Engine\Renderers\Renderer.h">
       <Filter>Renderers</Filter>

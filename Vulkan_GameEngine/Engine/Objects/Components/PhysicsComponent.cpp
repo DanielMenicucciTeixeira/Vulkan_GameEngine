@@ -1,7 +1,6 @@
 #include "PhysicsComponent.h"
 #include "MovementComponent.h"
 #include "Objects/GameObjects/GameObject.h"
-#include "Physics/PhysicsLib.h"
 #include "Math/FQuaternion.h"
 #include "Math/FTransform.h"
 #include "Objects/Components/TransformComponent.h"
@@ -14,26 +13,33 @@
 
 void C_PhysicsComponent::Update(const float deltaTime)
 {
-	//C_MovementComponent::Update(deltaTime);
+	C_MovementComponent::Update(deltaTime);
 	//*Acceleration = FVector3();
 	//*AngularAcceleration = FQuaternion();
 
-	//FVector3 displacement = velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f);
+	if (applyGravity) {
+		//Apply gravitational force's here.
 
-	//FQuaternion VelocityQuat = FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f);
-	//FQuaternion AccelerationQuat = FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f);
+		velocityBuffer += FVector3(0.0f, -0.098f, 0.0f);
+	}
 
+	FVector3 displacement = velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f);
+
+	FQuaternion VelocityQuat = FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f);
+	FQuaternion AccelerationQuat = FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f);
 
 	//If owner has movement as well translate them accordingly.
-	Translate(velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f));
+	Translate(displacement);
 
-	Rotate((
+	Rotate((Owner->GetRotation() + 
 		FQuaternion(angularVelocityBuffer.X * (M_PI / 180.0f), angularVelocityBuffer.Y * (M_PI / 180.0f), angularVelocityBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.5f * deltaTime +
 		FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
 		).GetNormal());
 
 	//SlowDown(velocityBuffer);
 	//SlowDown(accelerationBuffer);
+
+
 
 	//SingleComponent
 	SetVelocity(velocityBuffer + (accelerationBuffer * deltaTime));
@@ -94,6 +100,15 @@ void C_PhysicsComponent::AddAngularVelocity(FVector3 angularVelocity_)
 	angularVelocityBuffer += angularVelocity_;
 }
 
+void C_PhysicsComponent::ApplyForce(FVector3 force, FVector3 location)
+{
+	SetVelocity(GetVelocity() + (force / GetMass()));
+
+	FVector3 torque = (location - GetOwner()->GetPosition()).CrossProduct(force);
+	if (torque == FVector3()) return;
+	SetAngularVelocity(GetAngularVelocity() + torque / AngularInertia);
+}
+
 void C_PhysicsComponent::SetAcceleration(FVector3 acceleration_)
 {
 	acceleration = acceleration_;
@@ -123,6 +138,11 @@ void C_PhysicsComponent::SetMass(float mass)
 	Mass = mass;
 }
 
+void C_PhysicsComponent::SetApplyGravity(bool applyGravity_)
+{
+	applyGravity = applyGravity_;
+}
+
 FVector3 C_PhysicsComponent::GetAcceleration()
 {
 	return acceleration;
@@ -146,6 +166,11 @@ FVector3 C_PhysicsComponent::GetAngularVelocity()
 float C_PhysicsComponent::GetMass()
 {
 	return Mass;
+}
+
+bool C_PhysicsComponent::GetApplyGravity()
+{
+	return applyGravity;
 }
 
 void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2)
@@ -182,12 +207,14 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Push X
 
-	if (min1.X < min2.X) { depthPenetration.X = std::abs(max1.X - min2.X); }
-	else if (min1.X > min2.X) { depthPenetration.X = -(std::abs(max2.X - min1.X)); }
+	if (min1.X < min2.X) { 
+		depthPenetration.X = max1.X - min2.X; 
+	}
+	else if (min1.X > min2.X) { depthPenetration.X = max2.X - min1.X; }
 
 	//Push Y
 
-	if (min1.Y < min2.Y) { depthPenetration.Y = std::abs(max1.Y - min2.Y); }
+	if (min1.Y < min2.Y) { depthPenetration.Y = max1.Y - min2.Y; }
 	else if (min1.Y > min2.Y) { depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); }
 
 	//Push Z
@@ -195,11 +222,22 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 	if (min1.Z < min2.Z) { depthPenetration.Z = std::abs(max1.Z - min2.Z); }
 	else if (min1.Z > min2.Z) { depthPenetration.Z = -(std::abs(max2.Z - min1.Z)); }
 
+	if(depthPenetration.X == 0) { }
+	else if (depthPenetration.X > depthPenetration.Y || depthPenetration.Y == 0) {
+		if (depthPenetration.X < depthPenetration.Y || depthPenetration.Y == 0) {
+
+		}
+	}
+
+	if(depthPenetration.Y == 0){}
+	//else if()
+
 	if (isSecondStatic) {
 		Translate(-depthPenetration);
 	}
 	else if (isFirstStatic) {
-		Translate(depthPenetration);
+		coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->Translate(depthPenetration);
+		//Translate(depthPenetration);
 	}
 	else {
 		depthPenetration = depthPenetration / 2.0f;

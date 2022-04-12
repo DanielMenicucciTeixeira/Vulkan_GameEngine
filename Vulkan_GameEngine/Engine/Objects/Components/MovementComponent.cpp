@@ -8,7 +8,7 @@
 C_MovementComponent::C_MovementComponent(O_GameObject* owner) : O_Component(owner)
 {
 	//AccelerationBuffer = new FVector3();
-	//VelocityBuffer = new FVector3();
+	velocityBuffer = new FVector3();
 	//AngularAccelerationBuffer = new FVector3();
 	//AngularVelocityBuffer = new FVector3();
 
@@ -25,6 +25,7 @@ C_MovementComponent::~C_MovementComponent()
 
 void C_MovementComponent::Update(const float deltaTime)
 {
+	//Add basic velocity movement here?
 }
 
 void C_MovementComponent::Translate(FVector3 translation_)
@@ -37,6 +38,6 @@ void C_MovementComponent::Translate(FVector3 translation_)
 void C_MovementComponent::Rotate(FQuaternion rotation_)
 {
 	if (!Owner->GetRoot()->GetIsStatic()) {
-		Owner->SetRotation(Owner->GetRotation() + rotation_);
+		Owner->SetRotation(rotation_);
 	}
 }

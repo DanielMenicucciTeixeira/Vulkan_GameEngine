@@ -26,6 +26,8 @@ private:
 
 	float Mass;
 
+	bool applyGravity;
+
 protected:
 
 	//requires a C_StaticMeshComponent set as MeshComponent
@@ -44,6 +46,8 @@ public:
 	virtual ~C_PhysicsComponent();
 
 	void Update(const float deltaTime) override;
+
+	//AKA stupid stop gap for friction.
 	void SlowDown(FVector3 vector);
 
 
@@ -53,6 +57,7 @@ public:
 	void AddVelocity(FVector3 velocity_);
 	void AddAngularAcceleration(FVector3 angularAcceleration_);
 	void AddAngularVelocity(FVector3 angularVelocity_);
+	void ApplyForce(FVector3 force, FVector3 location);
 
 	//Setters
 
@@ -61,6 +66,7 @@ public:
 	void SetAngularAcceleration(FVector3 angularAcceleration_);
 	void SetAngularVelocity(FVector3 angularVelocity_);
 	void SetMass(float mass);
+	void SetApplyGravity(bool applyGravity_);
 
 	//Getters
 
@@ -69,6 +75,7 @@ public:
 	FVector3 GetAngularAcceleration();
 	FVector3 GetAngularVelocity();
 	float GetMass();
+	bool GetApplyGravity();
 
 
 	//Physics Response. If the other object does not have physics values ausumed to be 0.

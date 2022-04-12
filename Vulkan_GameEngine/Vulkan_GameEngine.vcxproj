@@ -277,7 +277,6 @@
     <ClCompile Include="Engine\Core\Level.cpp" />
     <ClCompile Include="Engine\Objects\GameObjects\PhysicsBody.cpp" />
     <ClCompile Include="Engine\Objects\Components\PhysicsComponent.cpp" />
-    <ClCompile Include="Engine\Physics\PhysicsLib.cpp" />
     <ClCompile Include="Game\Levels\L_StartLevel.cpp" />
     <ClCompile Include="Game\Levels\L_MainLevel.cpp" />
     <ClCompile Include="Game\Game01.cpp" />
@@ -366,7 +365,6 @@
     <ClInclude Include="Engine\Core\Level.h" />
     <ClInclude Include="Engine\Objects\GameObjects\PhysicsBody.h" />
     <ClInclude Include="Engine\Objects\Components\PhysicsComponent.h" />
-    <ClInclude Include="Engine\Physics\PhysicsLib.h" />
     <ClInclude Include="Engine\Objects\Components\RenderableComponent.h" />
     <ClInclude Include="Engine\Renderers\Renderer.h" />
     <ClInclude Include="Engine\Renderers\RenderInitializationData.h" />

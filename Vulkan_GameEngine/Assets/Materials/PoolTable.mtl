@@ -1,0 +1,12 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 11.04.2022 21:49:29
+
+newmtl PoolTable
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.7412 0.2745 0.0392
+	Kd 0.7412 0.2745 0.0392
+	Ks 0.3500 0.3500 0.3500

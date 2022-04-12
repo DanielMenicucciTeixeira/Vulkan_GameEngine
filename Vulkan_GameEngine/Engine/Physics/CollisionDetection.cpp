@@ -17,18 +17,16 @@ CollisionDetection::~CollisionDetection()
 
 bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
 {
-	/*int i = 0;
+	int i = 0;
 	FVector3 interssection[6];
 
 	for (auto& plane : b.box)
 	{
-		if
-			(
-				plane.InterssectionPoint(a, interssection[i]) &&
+		
+		if (plane.InterssectionPoint(a, interssection[i]) &&
 				interssection[i].X <= b.GetExtent().X && interssection[i].X >= 0 &&
 				interssection[i].Y <= b.GetExtent().Y && interssection[i].Y >= 0 &&
-				interssection[i].Z <= b.GetExtent().Z && interssection[i].Z >= 0
-				)
+				interssection[i].Z <= b.GetExtent().Z && interssection[i].Z >= 0)
 		{
 			i++;
 			if (i >= 2) break;
@@ -50,7 +48,7 @@ bool CollisionDetection::RayAABBIntersection(Ray a, const BoxBounds b)
 		collisionData.CollisionPoint = closestPoint;
 	}
 	return true;
-	*/
+	
 
 	FVector3 rayDirection = a.GetDirection().GetNormal();
 	FVector3 boxMin = FVector3(0.0f);

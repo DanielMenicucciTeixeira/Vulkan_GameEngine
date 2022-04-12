@@ -6,12 +6,16 @@
 #include "Objects/Components/MeshCollision.h"
 #include "Objects/Components/PhysicsComponent.h"
 #include "Objects/Components/Colliders/BoundingBox.h"
-GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name)
+GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name, true)
 {
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("PoolBall");
-	Mesh->SetMaterialName("M_PoolBall");
+	Mesh->SetMeshName("TableSurface");
+	Mesh->SetMaterialName("M_Green");
+	Mesh->SetComponentScale(FVector3(10.0f, 10.0f, 10.0f));
 
+	
+	Mesh->SetComponentPosition(GetPosition());
+	
 	AddComponentOfClass<C_PhysicsComponent>();
 
 	Collider = AddComponentOfClass<C_MeshCollision>();

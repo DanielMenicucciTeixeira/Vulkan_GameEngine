@@ -2,6 +2,7 @@
 #include "../Engine/Core/Level.h"
 
 class GO_Tetrahedron;
+class GO_Pawn;
 class GO_Wall;
 class GO_Skybox;
 
@@ -17,8 +18,8 @@ public:
 protected:
 	GO_Tetrahedron* T1 = nullptr;
 
-	GO_Tetrahedron* T3 = nullptr;
-	GO_Wall* T2 = nullptr;
+	GO_Pawn* T3 = nullptr;
+	GO_Pawn* T2 = nullptr;
 
 	GO_Skybox* Skybox = nullptr;
 

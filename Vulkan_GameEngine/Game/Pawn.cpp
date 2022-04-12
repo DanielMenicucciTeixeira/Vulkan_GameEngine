@@ -21,19 +21,28 @@ GO_Pawn::GO_Pawn(std::string name) : O_GameObject(name)
 {
 
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("Box001");
-	Mesh->SetMaterialName("M_diceTexture");
-	Mesh->SetComponentScale({ 0.3f, 0.3f, 0.3f });
+	Mesh->SetMeshName("TableSurface");
+	Mesh->SetMaterialName("M_Green");
+	Mesh->SetComponentScale({ 10.0f, 10.0f, 10.0f });
 	Mesh->SetComponentPosition({ 0.0f, 0.0, 0.0 });
 
+	auto Mesa = AddComponentOfClass<C_StaticMeshComponent>();
+	Mesa->SetMeshName("TableFrame");
+	Mesa->SetMaterialName("M_Brown");
+	Mesa->SetComponentScale({ 10.0f, 10.0f, 10.0f });
+	Mesa->SetComponentPosition({ 0.0f, 0.0, 0.0 });
+
+	//SetPosition(FVector3(0.0f));
+
 	C_BoundingBox* spherePtr = AddComponentOfClass<C_BoundingBox>();
-	spherePtr->SetCollisionType(ECollisionType::OVERLAP);
+	spherePtr->SetCollisionType(ECollisionType::COLLISION);
 
 
 	Camera = AddComponentOfClass<C_CameraComponent>();
-	Camera->SetComponentPosition({ 0.0f, 0.0f, 5.0f });
+	Camera->SetComponentPosition({ 0.0f, 2.0f, 5.0f });
 
 	Movement = AddComponentOfClass<C_PhysicsComponent>();
+	//Movement->SetApplyGravity(true);
 
 	EventListener::AddFunctionByInput(this, MoveForward, SDL_KEYDOWN, SDLK_w);
 	EventListener::AddFunctionByInput(this, MoveBackwards, SDL_KEYDOWN, SDLK_s);
@@ -127,10 +136,10 @@ void GO_Pawn::StopMoving()
 void GO_Pawn::Turn(bool left)
 {
 	if (left) { 
-		Movement->SetAngularVelocity(FVector3(0.0f, 1.0f, 0.0f));
+		Movement->SetAngularVelocity(FVector3(0.0f, 10.0f, 0.0f));
 	}
 	else {
-		Movement->SetAngularVelocity(FVector3(0.0f, -1.0f, 0.0f));
+		Movement->SetAngularVelocity(FVector3(0.0f, -10.0f, 0.0f));
 	}
 }
 
@@ -178,15 +187,22 @@ void GO_Pawn::ZoomCamera(float zoom)
 
 void GO_Pawn::Grab()
 {
-	S_CollisionData data;
+
+	//TODO: aim ray right in front of object.
+	
 	Ray ray = MouseEventHandler::MousePositionToWorldRay();
 
-	data = CollisionHandler::GetInstance()->GetCollisionSingleRay(ray);
+	//ray.SetOrigin(GetPosition());
+	//ray.SetDirection(GetRotation().GetForwardVector());
+
+	auto data = CollisionHandler::GetInstance()->GetCollisionSingleRay(ray);
 	
-	if (data.OtherCollisonComponent != nullptr)
-	{
-		std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;
-	}
-	else std::cout << "No hit!" << std::endl;
+		if (data.OtherCollisonComponent != nullptr)
+		{
+			std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;
+
+			//data.OtherCollisonComponent->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SetVelocity(FVector3(1.0f, 0.0f, 0.0f));
+		}
+		else std::cout << "No hit!" << std::endl;
 	
 }

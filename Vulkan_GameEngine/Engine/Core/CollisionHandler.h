@@ -30,7 +30,7 @@ public:
 	S_CollisionData GetCollisionSingleRay(Ray& ray);
 
 	//Get all colliders
-	std::vector<S_CollisionData> GetCollisionMuliRay(Ray& ray);
+	std::vector<S_CollisionData> GetCollisionMultiRay(Ray& ray);
 
 	//Get all objects colliding with the sphere
 	std::vector<S_CollisionData> GetSphereCollision(Sphere& sphere);

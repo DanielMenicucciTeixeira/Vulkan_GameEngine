@@ -1,10 +1,7 @@
 #include "FVector3.h"
 #include "FQuaternion.h"
 
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <iostream>
-#include <type_traits>
+
 
 ///Constructors
 
@@ -214,6 +211,11 @@ inline void FVector3::Load(float x, float y, float z)
 void FVector3::Print()
 {
 	printf("[ %f,\t%f,\t%f ]\n", X, Y, Z);
+}
+
+std::ostream& operator<<(std::ostream& os, const FVector3& vec) {
+	os << "(" << vec.X << ", " << vec.Y << ", " << vec.Z << ")";
+	return os;
 }
 
 size_t HASH_FVector3::operator()(const FVector3& vector) const

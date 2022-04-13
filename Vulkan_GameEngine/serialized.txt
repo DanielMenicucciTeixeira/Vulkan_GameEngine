@@ -1,4 +1,1 @@
-Object name:
-Object position: (-3, 0, 0)
-Object name:
-Object position: (0, 0, 0)
+10 11

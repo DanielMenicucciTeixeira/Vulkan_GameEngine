@@ -1,6 +1,11 @@
 #ifndef FVector3_H
 #define FVector3_H
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <iostream>
+#include <type_traits>
+
 class FQuaternion;
 class FVector4;
 
@@ -112,6 +117,9 @@ public:
 	inline void Load(float x, float y, float z);
 
 	void Print();
+
+	// Print using cout
+	friend std::ostream& operator<<(std::ostream& os, const FVector3& vec);
 };
 
 struct HASH_FVector3

@@ -21,7 +21,8 @@ C_BoundingBox::~C_BoundingBox()
 void C_BoundingBox::Start()
 {
 	C_CollisionComponent::Start();
-	boxBounds.SetPosition(GetComponentPosition());
+	boxBounds.SetPosition(GetComponentAbsolutePosition());
+	//boxBounds.SetLocalPos(GetComponentPosition());
 }
 
 void C_BoundingBox::Update(float deltaTime)
@@ -29,6 +30,7 @@ void C_BoundingBox::Update(float deltaTime)
 	C_CollisionComponent::Update(deltaTime);
 	if (!GetIsStatic()) {
 		boxBounds.SetPosition(GetComponentAbsolutePosition());
+		//boxBounds.SetLocalPos(GetComponentPosition());
 	}
 }
 
@@ -37,6 +39,27 @@ void C_BoundingBox::PostUpdate(float deltaTime)
 	if (!GetIsStatic() && CollisionType != ECollisionType::NO_COLLISION) {
 		CollisionHandler::GetInstance()->AABBSpatialCheck(this);
 	}
+}
+
+void C_BoundingBox::GetBoundsFromMesh(S_Mesh* mesh, FVector3 pos, FVector3 scale_)
+{
+	FVector3 newPos = mesh->Vertices[0].Position;
+	FVector3 newExtent = mesh->Vertices[0].Position;
+
+	for (const auto& vertex : mesh->Vertices)
+	{
+		if (newPos.X > vertex.Position.X) newPos.X = vertex.Position.X;
+		else if (newExtent.X < vertex.Position.X) newExtent.X = vertex.Position.X;
+
+		if (newPos.Y > vertex.Position.Y) newPos.Y = vertex.Position.Y;
+		else if (newExtent.Y < vertex.Position.Y) newExtent.Y = vertex.Position.Y;
+
+		if (newPos.Z > vertex.Position.Z) newPos.Z = vertex.Position.Z;
+		else if (newExtent.Z < vertex.Position.Z) newExtent.Y = vertex.Position.Z;
+	}
+
+	//boxBounds.SetLocalPos(newPos + pos);
+	//boxBounds.SetLocalScale((newExtent - newPos) * scale_);
 }
 
 void C_BoundingBox::SetComponentPosition(const FVector3& position)
@@ -62,4 +85,9 @@ void C_BoundingBox::SetComponentScale(const FVector3& scale_)
 {
 	scale = scale_;
 	boxBounds.SetExtent(scale);
+}
+
+void C_BoundingBox::RefreshBox()
+{
+	boxBounds.SetPosition(GetComponentAbsolutePosition());
 }

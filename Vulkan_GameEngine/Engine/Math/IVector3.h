@@ -105,9 +105,9 @@ public:
 	void Print();
 };
 
-struct HASH_FVector3
-{
-	size_t operator() (const IVector3& vector) const;
-};
+//struct HASH_FVector3
+//{
+//	size_t operator() (const IVector3& vector) const;
+//};
 
 #endif

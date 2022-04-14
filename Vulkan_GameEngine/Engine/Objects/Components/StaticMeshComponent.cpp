@@ -11,8 +11,8 @@
 
 void C_StaticMeshComponent::Start()
 {
-	S_Box->GetDimensionsFromMesh(Mesh);
-	S_Box->SetComponentTransform(*Transform);
+	Box->GetDimensionsFromMesh(Mesh);
+	Box->SetComponentTransform(*Transform);
 }
 
 /*S_Texture* C_StaticMeshComponent::GetTextureDifuse() const
@@ -23,6 +23,12 @@ void C_StaticMeshComponent::Start()
 {
 	return Material->TextureSpecular;
 }*/
+
+void C_StaticMeshComponent::SetMesh(S_Mesh* mesh)
+{
+	Mesh = mesh;
+	Box->GetDimensionsFromMesh(Mesh);
+}
 
 void C_StaticMeshComponent::SetInFrustum(bool inFrustum)
 {
@@ -46,13 +52,12 @@ C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_Renderable
 {
 	ModelMatrix = new FMatrix4();
 	UpdateModelMatrix();
-	S_Box = Owner->AddComponentOfClass<C_BoxCollider>();
-	//S_Box->SetCollisionType(ECollisionType::COLLISION);
+	Box = Owner->AddComponentOfClass<C_BoxCollider>();
 }
 
 C_StaticMeshComponent::~C_StaticMeshComponent()
 {
 	LevelGraph::GetInstance()->RemoveMeshComponent(this);
-	S_Box = nullptr;
+	Box = nullptr;
 	if (ModelMatrix) delete(ModelMatrix);
 }

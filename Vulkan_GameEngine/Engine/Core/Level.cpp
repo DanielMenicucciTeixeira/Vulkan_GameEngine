@@ -20,7 +20,7 @@
 
 L_Level::L_Level(float worldSize) : Name(""), WorldSize(worldSize)
 {
-	CollisionHandler::GetInstance()->OnCreate(worldSize);
+	CollisionHandler::GetInstance()->OnCreate(worldSize, 2.0f);
 }
 
 L_Level::~L_Level()
@@ -149,6 +149,7 @@ void L_Level::PreUpdate(const float deltaTime)
 
 void L_Level::Update(const float deltaTime)
 {
+
 	auto& levelObjects = LevelGraph::GetInstance()->GetObjects();
 
 	if (!LevelGraph::GetInstance()->GetPaused()) for (const auto& object : levelObjects) object.second->Update(deltaTime);

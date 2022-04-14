@@ -32,7 +32,7 @@ FVector3 Ray::GetPositionAtLength(float displacement) const
 	}
 	else
 	{
-		throw std::runtime_error("Ray::GetPosition() tried to acess position beyond ray lenght");
+		throw std::runtime_error("Ray::GetPosition() tried to acess position beyond ray length");
 	}
 }
 
@@ -68,4 +68,11 @@ Ray& Ray::operator=(const Ray& ray)
 void Ray::SetIntersectDistance(float dis)
 {
 	intersectDistance = dis;
+}
+
+float Ray::GetDistanceFromOrigin(FVector3 point)
+{
+	return ((Origin.X - point.X) * (Origin.X - point.X) +
+		(Origin.Y - point.Y) * (Origin.Y - point.Y) +
+		(Origin.Z - point.Z) * (Origin.Z - point.Z));
 }

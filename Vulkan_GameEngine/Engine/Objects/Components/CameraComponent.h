@@ -12,7 +12,7 @@ struct S_FieldOfView
 {
 	float Angle = 45.0f;
 	float NearPlane = 2.0f;
-	float FarPlane = 20.0f;
+	float FarPlane = 40.0f;
 };
 
 class C_CameraComponent : public C_TransformComponent

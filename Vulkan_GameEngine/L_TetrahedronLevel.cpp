@@ -29,8 +29,9 @@
 #include "Objects/Components/Colliders/BoundingBox.h"
 #include "Objects/Components/Colliders/SphereCollider.h"
 #include "Objects/Components/Colliders/BoxCollider.h"
+#include "Game/Ball.h"
 
-L_TetrahedronLevel::L_TetrahedronLevel()
+L_TetrahedronLevel::L_TetrahedronLevel() : L_Level(1000.0f)
 {
 	Name = "Tetrahedron Level";
 }
@@ -53,7 +54,7 @@ bool L_TetrahedronLevel::Initialize()
 
 	S_Texture* box_Texture = new S_Texture();
 
-	box_Texture->Name = "Floor";
+	box_Texture->Name = "PoolBall";
 	box_Texture->Path = "Assets/Textures/1.jpeg";
 
 	LevelGraph::GetInstance()->AddTexture(box_Texture);
@@ -79,11 +80,11 @@ bool L_TetrahedronLevel::Initialize()
 	LoadCubeSampler(skybox_Sampler, skybox_Sampler->Name);
 
 	ModelPaths.insert("Assets/Models/PoolTableV2.obj");
-	ModelPaths.insert("Assets/Models/Floor.obj");
+	ModelPaths.insert("Assets/Models/PoolBall.obj");
 	ModelPaths.insert("Assets/Models/Dice.obj");
 	LoadModels();
 	MaterialPaths.insert("Assets/Materials/PoolTableV2.mtl");
-	MaterialPaths.insert("Assets/Materials/Floor.mtl");
+	MaterialPaths.insert("Assets/Materials/PoolBall.mtl");
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 
@@ -99,7 +100,7 @@ bool L_TetrahedronLevel::Initialize()
 	boxMaterial->DiffuseTexture = box_Texture;
 	boxMaterial->SpecularTexture = box_Texture;
 
-	M_StandardMaterial* floorMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Floor"]);
+	M_StandardMaterial* floorMaterial = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_PoolBall"]);
 	floorMaterial->DiffuseTexture = box_Texture;
 	floorMaterial->SpecularTexture = box_Texture;
 
@@ -115,8 +116,10 @@ void L_TetrahedronLevel::Start()
 	printf("\n\n---------------------------------------Tetrahedron Started!----------------------------------------\n\n");
 
 
-	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(-1000, -100000, 0), FQuaternion(), FVector3(0.5)));
-	T3 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0, 0, 3), FQuaternion(), FVector3(1)));
+	T1 = SpawnGameObjectOfClass<GO_Tetrahedron>(FTransform(FVector3(0.0f, -20.0f, 0.0f), FQuaternion(), FVector3(1)));
+
+	SpawnGameObjectOfClass<GO_Ball>(FTransform(FVector3(0.0f, 0.0f, -5.0f), FQuaternion(), FVector3(1)));
+	//T3 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0, 0, 0.5f), FQuaternion(), FVector3(1)));
 	
 	Skybox = SpawnGameObjectOfClass<GO_Skybox>();
 
@@ -132,13 +135,14 @@ void L_TetrahedronLevel::Start()
 
 	C_BoundingBox* spherePtr = T1->AddComponentOfClass<C_BoundingBox>();
 	spherePtr->SetCollisionType(ECollisionType::COLLISION);
-	spherePtr->SetComponentScale(FVector3(100.0f, 5.0f, 100.0f));
+	spherePtr->SetComponentScale(FVector3(300.0f, 2.f, 300.0f));
+	spherePtr->SetComponentPosition(FVector3(-150.0f,-1.5f,-150.0f));
 	//spherePtr->SetOverlapBeginFunction(GO_Wall::Overlap);
 
-	for (auto phys : T1->GetComponentsOfClass<C_PhysicsComponent>())
-	{
-		//phys->SetVelocity({ 3.0f, 0.0f, 0.0f });
-	}
+	
+	//SpawnGameObjectOfClass<GO_Wall>(FTransform(FVector3(0.0f, 3.0f, -17.0f), FQuaternion(), FVector3()));
+
+	//wall->Mesh->SetComponentPosition(FVector3(0.0f, 0.3f, -17.0f));
 
 	auto sun = SpawnGameObjectOfClass<GO_DirectionalLight>();
 	sun->SetColour({ 1.0, 1.0, 1.0 });
@@ -149,7 +153,7 @@ void L_TetrahedronLevel::Start()
 	sun->SetTurnedOn(true);
 
 
-	T2 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0.0f, 0.0f, 0.0f), FQuaternion(), FVector3(1.0f)));
+	T2 = SpawnGameObjectOfClass<GO_Pawn>(FTransform(FVector3(0.0f, 0.0f, 1.0f), FQuaternion(), FVector3(1.0f)));
 
 
 

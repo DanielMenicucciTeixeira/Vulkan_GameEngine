@@ -30,7 +30,7 @@ public:
 	//Ray
 
 	//Ray & BoundingBox collision
-	static bool RayAABBIntersection(Ray a, const BoxBounds b);
+	static bool RayAABBIntersection(Ray& a, const BoxBounds b);
 
 	//Ray & Sphere collision, Geometry based
 	static bool RaySphereIntersection(Ray ray, Sphere sphere);

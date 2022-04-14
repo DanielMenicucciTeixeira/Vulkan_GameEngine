@@ -17,9 +17,13 @@ public:
 	virtual void PostUpdate(float deltaTime) override;
 	inline BoxBounds GetBoxBounds() const { return boxBounds; }
 
+	void GetBoundsFromMesh(S_Mesh* mesh, FVector3 pos, FVector3 scale);
+
 
 	virtual void SetComponentPosition(const FVector3& position) override;
 	void SetComponentScale(const FVector3& scale) override;
+	
+	void RefreshBox();
 
 protected:
 

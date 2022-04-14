@@ -46,6 +46,8 @@ public:
 
 	FVector3 operator/ (float divisor) const;//Overload of the "/" operator, makes a vector divided by scalar division.
 
+	FVector3 operator/ (const FVector3& vector) const; //Overload of the "/" operator, returns a vector divided by each value.
+
 	float operator* (const FVector3& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
 	inline float operator* (const FVector3*& vector) const { return *this * *vector; }
 
@@ -110,6 +112,13 @@ public:
 
 	//Utility to populate vector
 	inline void Load(float x, float y, float z);
+
+	//Returns a vector with the smallest value
+	FVector3 GetSmallestVector();
+
+	FVector3 Divide(float value);
+
+	FVector3 Multiply(FVector3 b);
 
 	void Print();
 };

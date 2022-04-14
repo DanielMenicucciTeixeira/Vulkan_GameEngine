@@ -113,22 +113,31 @@ void CollisionHandler::Update(float deltaTime_)
 			//Check AABB v AABB
 			for (int j = vecLoc + 1; j < leaves->GetAABBCount(); j++) {
 				C_BoundingBox* boxPtr = leaves->GetAABBColliders()[j];
-				if (physicsComp == nullptr && boxPtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>() == nullptr) { }
+				C_PhysicsComponent* physicsComp2 = boxPtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+
+				if(coll1->CheckHasCollidedBefore(boxPtr)) {}
+				else if (physicsComp == nullptr && physicsComp2 == nullptr) { }
 				else if (CollisionDetection::AABBIntersection(coll1->GetBoxBounds(), boxPtr->GetBoxBounds()))
 				{
 					if (physicsComp != nullptr) {
 						physicsComp->AABBResponse(coll1, boxPtr);
 					}
 					else {
-						boxPtr->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AABBResponse(coll1, boxPtr);
+						physicsComp2->AABBResponse(boxPtr, coll1);
 					}
+
+					coll1->AddToPrevOverlaps(boxPtr);
+					boxPtr->AddToPrevOverlaps(coll1);
 				}
 				boxPtr = nullptr;
+				physicsComp2 = nullptr;
 			}
 			vecLoc++;
 
 			//Check AABB v Sphere
 			for (auto& coll2 : leaves->GetSphereColliders()) {
+
 				if (!coll1->CheckHasCollidedBefore(coll2)) {
 					if (CollisionDetection::SphereAABBIntersection(coll2->GetCollisionSphere(), coll1->GetBoxBounds()))
 					{
@@ -145,12 +154,14 @@ void CollisionHandler::Update(float deltaTime_)
 						//If overlap do overlap response
 						if (coll1->GetCollisionType() == ECollisionType::OVERLAP) {
 							coll1->OnOverlapBegin(CollisionDetection::GetCollisionData());
-							coll1->AddToPrevOverlaps(coll2);
+
 						}
 						if (coll2->GetCollisionType() == ECollisionType::OVERLAP) {
 							coll2->OnOverlapBegin(CollisionDetection::GetCollisionData());
-							coll2->AddToPrevOverlaps(coll1);
+
 						}
+						coll1->AddToPrevOverlaps(coll2);
+						coll2->AddToPrevOverlaps(coll1);
 					}
 				}
 			}
@@ -249,7 +260,7 @@ S_CollisionData CollisionHandler::GetCollisionSingleRay(Ray& ray)
 			break;
 		}
 
-		if (isCollideing) {
+		if (isCollideing && ray.obj != coll->GetOwner()) {
 			if (shortestDistance > ray.GetIntersectDistance()) {
 				data = CollisionDetection::GetCollisionData();
 				data.OtherCollisonComponent = coll;

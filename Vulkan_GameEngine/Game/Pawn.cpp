@@ -19,30 +19,29 @@
 
 GO_Pawn::GO_Pawn(std::string name) : O_GameObject(name)
 {
+	Movement = AddComponentOfClass<C_PhysicsComponent>();
+	Movement->SetApplyGravity(true);
+	Movement->SetRubberness(0.0f);
+	//Movement->SetVelocity(FVector3(0.0f, -9.8f, 0.0f));
+
 
 	Mesh = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesh->SetMeshName("TableSurface");
-	Mesh->SetMaterialName("M_Green");
-	Mesh->SetComponentScale({ 10.0f, 10.0f, 10.0f });
+	Mesh->SetMeshName("Box001");
+	Mesh->SetMaterialName("M_diceTexture");
+	Mesh->SetComponentScale( FVector3(0.25f) );
 	Mesh->SetComponentPosition({ 0.0f, 0.0, 0.0 });
-
-	auto Mesa = AddComponentOfClass<C_StaticMeshComponent>();
-	Mesa->SetMeshName("TableFrame");
-	Mesa->SetMaterialName("M_Brown");
-	Mesa->SetComponentScale({ 10.0f, 10.0f, 10.0f });
-	Mesa->SetComponentPosition({ 0.0f, 0.0, 0.0 });
 
 	//SetPosition(FVector3(0.0f));
 
 	C_BoundingBox* spherePtr = AddComponentOfClass<C_BoundingBox>();
 	spherePtr->SetCollisionType(ECollisionType::COLLISION);
+	spherePtr->SetComponentScale(FVector3(0.25f));
 
 
 	Camera = AddComponentOfClass<C_CameraComponent>();
-	Camera->SetComponentPosition({ 0.0f, 2.0f, 5.0f });
+	Camera->SetComponentPosition({ 0.0f, 1.0f, 8.0f });
 
-	Movement = AddComponentOfClass<C_PhysicsComponent>();
-	//Movement->SetApplyGravity(true);
+
 
 	EventListener::AddFunctionByInput(this, MoveForward, SDL_KEYDOWN, SDLK_w);
 	EventListener::AddFunctionByInput(this, MoveBackwards, SDL_KEYDOWN, SDLK_s);
@@ -86,6 +85,8 @@ void GO_Pawn::StopMoving(O_Object* self, SDL_Event* event)
 void GO_Pawn::TurnRight(O_Object* self, SDL_Event* event)
 {
 	dynamic_cast<GO_Pawn*>(self)->Turn(false);
+	//dynamic_cast<GO_Pawn*>(self)->GetComponentOfClass<C_PhysicsComponent>()->SetApplyGravity(false);
+	//dynamic_cast<GO_Pawn*>(self)->GetComponentOfClass<C_PhysicsComponent>()->Translate(FVector3(0.0f, 0.5f, 0.0f));
 }
 
 void GO_Pawn::TurnLeft(O_Object* self, SDL_Event* event)
@@ -121,16 +122,16 @@ void GO_Pawn::Grab(O_Object* self, SDL_Event* event)
 void GO_Pawn::MoveForward(bool backwards)
 {
 	if (backwards) {
-		Movement->SetVelocity(GetRotation().GetForwardVector() * -Speed);
+		Movement->AddVelocity(GetRotation().GetForwardVector() * -Speed);
 	}
 	else {
-		Movement->SetVelocity(GetRotation().GetForwardVector() * Speed);
+		Movement->AddVelocity(GetRotation().GetForwardVector() * Speed);
 	}
 }
 
 void GO_Pawn::StopMoving()
 {
-	Movement->SetVelocity(FVector3(0.0f));
+	//Movement->AddVelocity(FVector3(0.0f));
 }
 
 void GO_Pawn::Turn(bool left)
@@ -192,8 +193,16 @@ void GO_Pawn::Grab()
 	
 	Ray ray = MouseEventHandler::MousePositionToWorldRay();
 
-	//ray.SetOrigin(GetPosition());
-	//ray.SetDirection(GetRotation().GetForwardVector());
+	FVector3 scale = GetScale() / 2;
+	FVector3 fwd = GetRotation().GetForwardVector();
+
+	FVector3 rot = FVector3(scale.X * fwd.X, scale.Y * fwd.Y, scale.Z * fwd.Z);
+
+	FVector3 centre = GetPosition() + (scale * 2);
+
+	ray.SetOrigin(centre + rot);
+	ray.SetDirection(GetRotation().GetForwardVector());
+	ray.obj = this;
 
 	auto data = CollisionHandler::GetInstance()->GetCollisionSingleRay(ray);
 	
@@ -201,7 +210,7 @@ void GO_Pawn::Grab()
 		{
 			std::cout << data.OtherCollisonComponent->GetOwner()->GetName() << " was hit!" << std::endl;
 
-			//data.OtherCollisonComponent->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->SetVelocity(FVector3(1.0f, 0.0f, 0.0f));
+			data.OtherCollisonComponent->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->AddVelocity(GetRotation().GetForwardVector() * 100.0f);
 		}
 		else std::cout << "No hit!" << std::endl;
 	

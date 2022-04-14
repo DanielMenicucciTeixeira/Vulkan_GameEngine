@@ -30,19 +30,19 @@ public:
 	inline const std::string& GetMaterialName() const { return MaterialName; }
 
 	///Setters
-	inline void SetMesh(S_Mesh* mesh) { Mesh = mesh; }
+	void SetMesh(S_Mesh* mesh);
 	inline void SetMaterial(Material* material) { Material = material; }
 	inline void SetMeshName(const std::string& name) { MeshName = name; }
 	inline void SetMaterialName(const std::string& name) { MaterialName = name; }
 	inline const bool* IsInFrustum() const { return &InFrustum; }
 	void SetInFrustum(bool inFrustum);
-	inline C_BoxCollider* GetBoxCollider() { return S_Box; }
+	inline C_BoxCollider* GetBoxCollider() { return Box; }
 
 protected:
 	void UpdateModelMatrix();
 
 	FMatrix4* ModelMatrix;
-	C_BoxCollider* S_Box;
+	C_BoxCollider* Box;
 
 	S_Mesh* Mesh = nullptr;
 	std::string MeshName;

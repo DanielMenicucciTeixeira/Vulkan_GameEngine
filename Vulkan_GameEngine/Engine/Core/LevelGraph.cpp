@@ -28,6 +28,7 @@ LevelGraph* LevelGraph::GetInstance()
 	return Instance.get();
 }
 
+
 void LevelGraph::Render()
 {
 	for (auto& mesh : StaticMehes)

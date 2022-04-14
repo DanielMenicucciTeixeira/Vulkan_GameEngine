@@ -20,8 +20,11 @@ void C_PhysicsComponent::Update(const float deltaTime)
 	if (applyGravity) {
 		//Apply gravitational force's here.
 
-		velocityBuffer += FVector3(0.0f, -0.098f, 0.0f);
+		velocityBuffer += FVector3(0.0f, -0.98f, 0.0f);
 	}
+
+	SlowDown(velocityBuffer);
+	SlowDown(accelerationBuffer);
 
 	FVector3 displacement = velocityBuffer * deltaTime + ((accelerationBuffer * (deltaTime * deltaTime)) / 2.0f);
 
@@ -36,8 +39,7 @@ void C_PhysicsComponent::Update(const float deltaTime)
 		FQuaternion(angularAccelerationBuffer.X * (M_PI / 180.0f), angularAccelerationBuffer.Y * (M_PI / 180.0f), angularAccelerationBuffer.Z * (M_PI / 180.0f), 0.0f) * Owner->GetRotation() * 0.25f * deltaTime * deltaTime
 		).GetNormal());
 
-	//SlowDown(velocityBuffer);
-	//SlowDown(accelerationBuffer);
+
 
 
 
@@ -49,32 +51,51 @@ void C_PhysicsComponent::Update(const float deltaTime)
 	angularVelocity = angularVelocityBuffer;
 }
 
-void C_PhysicsComponent::SlowDown(FVector3 vector)
+void C_PhysicsComponent::SlowDown(FVector3& vector)
 {
-	float x = 0.1;
+	float x = 0.09f;
+	float y = 0.5f;
+	float z = 0.09f;
 
 	//Slow down?
 	if (vector.X != 0) {
-		if (vector.X < 0) {
+		if (vector.X > 0) {
+			if (x > vector.X) { x = vector.X; }
 			x *= -1;
+		}
+		else {
+			//Push up (negative veloicty)
+			if (-x < vector.X) { x = vector.X; }
 		}
 		vector.X += x;
 	}
 
-	float y = 0.1;
+
 
 	if (vector.Y != 0) {
-		if (vector.Y < 0) {
+
+		//Push down (positive velocity)
+		if (vector.Y > 0) {
+			if (y > vector.Y) { y = vector.Y; }
 			y *= -1;
+		}
+		else {
+			//Push up (negative veloicty)
+			if (-y < vector.Y) { y = vector.Y; }
 		}
 		vector.Y += y;
 	}
 
-	float z = 0.1;
+
 
 	if (vector.Z != 0) {
-		if (vector.Z < 0) {
+		if (vector.Z > 0) {
+			if (z > vector.Z) { z = vector.Z; }
 			z *= -1;
+		}
+		else {
+			//Push up (negative veloicty)
+			if (-z < vector.Z) { z = vector.Z; }
 		}
 		vector.Z += z;
 	}
@@ -143,6 +164,11 @@ void C_PhysicsComponent::SetApplyGravity(bool applyGravity_)
 	applyGravity = applyGravity_;
 }
 
+void C_PhysicsComponent::SetRubberness(float rubber)
+{
+	rubberness = rubber;
+}
+
 FVector3 C_PhysicsComponent::GetAcceleration()
 {
 	return acceleration;
@@ -173,6 +199,11 @@ bool C_PhysicsComponent::GetApplyGravity()
 	return applyGravity;
 }
 
+float C_PhysicsComponent::GetRubberness()
+{
+	return rubberness;
+}
+
 void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2)
 {
 	//First determine which one is farther left.
@@ -195,6 +226,8 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 	FVector3 depthPenetration;
 
 
+
+
 	//three spliting points
 	//1. is coll1 to the left or right of the other.
 	//2. is coll2 static or not
@@ -207,50 +240,102 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Push X
 
+
+
 	if (min1.X < min2.X) { 
 		depthPenetration.X = max1.X - min2.X; 
 	}
-	else if (min1.X > min2.X) { depthPenetration.X = max2.X - min1.X; }
+	else if (min1.X > min2.X) { 
+		depthPenetration.X = max2.X - min1.X; }
 
 	//Push Y
 
-	if (min1.Y < min2.Y) { depthPenetration.Y = max1.Y - min2.Y; }
-	else if (min1.Y > min2.Y) { depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); }
+	if (min1.Y < min2.Y) { 
+		depthPenetration.Y = max1.Y - min2.Y; }
+	else if (min1.Y > min2.Y) { 
+		depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); }
+
+	//depthPenetration.Y = max1.Y - min2.Y;
 
 	//Push Z
 
-	if (min1.Z < min2.Z) { depthPenetration.Z = std::abs(max1.Z - min2.Z); }
-	else if (min1.Z > min2.Z) { depthPenetration.Z = -(std::abs(max2.Z - min1.Z)); }
-
-	if(depthPenetration.X == 0) { }
-	else if (depthPenetration.X > depthPenetration.Y || depthPenetration.Y == 0) {
-		if (depthPenetration.X < depthPenetration.Y || depthPenetration.Y == 0) {
-
-		}
+	if (min1.Z < min2.Z) { 
+		depthPenetration.Z = std::abs(max1.Z - min2.Z); }
+	else if (min1.Z > min2.Z) { 
+		depthPenetration.Z = max2.Z - min1.Z; 
 	}
 
-	if(depthPenetration.Y == 0){}
-	//else if()
+
+	//Push by the smallest distance.
+
+	depthPenetration = depthPenetration.GetSmallestVector();
+
+	//Translation
 
 	if (isSecondStatic) {
 		Translate(-depthPenetration);
 	}
 	else if (isFirstStatic) {
 		coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->Translate(depthPenetration);
-		//Translate(depthPenetration);
 	}
 	else {
 		depthPenetration = depthPenetration / 2.0f;
 		Translate(-depthPenetration);
 
-		C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
-		physicsComp->Translate(depthPenetration);
-		physicsComp = nullptr;
+		coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>()->Translate(depthPenetration);
 	}
+
+	//Force reflection
+	auto physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
+
+	if (depthPenetration != FVector3(0.0f)) {
+
+		if (!isFirstStatic) {
+			FVector3 force =
+				(
+					(depthPenetration) * 2.0f *
+					(GetVelocity() * (depthPenetration))
+					/ pow((depthPenetration).Length(), 2)
+					) * -1.0f;
+
+			if (force != FVector3(0.0f)) {
+				SetVelocity((GetVelocity() + (force / GetMass())) * rubberness);
+			}
+		}
+
+
+		if (!isSecondStatic) {
+			FVector3 force2 =
+				(
+					(depthPenetration) * 2.0f *
+					(physicsComp->GetVelocity() * (depthPenetration))
+					/ pow((depthPenetration).Length(), 2)
+					) * -1.0f;
+
+			if (force2 != FVector3(0.0f)) {
+				physicsComp->SetVelocity((physicsComp->GetVelocity() + (force2 / physicsComp->GetMass())) * physicsComp->GetRubberness());
+			}
+		}
+	}
+
+
+	coll1->RefreshBox();
+	coll2->RefreshBox();
+
+	physicsComp = nullptr;
 }
 
 void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollider* coll2)
 {
+	//Is the first colldier staic
+	bool isFirstStatic = coll1->GetIsStatic();
+
+	//Is the second collider static
+	bool isSecondStatic = coll2->GetIsStatic();
+
+	//If both are static then neither can move.  This should not happen becuase the static split check but just in case?
+	if (isFirstStatic && isSecondStatic) { return; }
+
 	FVector3 collisionPoint = CollisionDetection::GetCollisionData().CollisionPoint;
 
 	//Split objects
@@ -260,24 +345,68 @@ void C_PhysicsComponent::AABBSphereResponse(C_BoundingBox* coll1, C_SphereCollid
 	FVector3 displacementVector = displacement.GetNormal() * (coll2->GetCollisionSphere().radius - displacement.Length());
 
 
-	if (displacement == coll1->GetComponentAbsolutePosition()) {
+	if (collisionPoint == coll2->GetComponentAbsolutePosition() || displacementVector == FVector3(0.0f)) {
 		//if the sphere centre is in the box get the closest face and calculate from there using the other equation.
 		//This can also be found if the vector is 0,0,0
+
+		FVector3 pos = coll2->GetCollisionSphere().position;
+
+		FVector3 bMin = coll1->GetBoxBounds().GetPosition();
+		FVector3 bMax = bMin + coll1->GetBoxBounds().GetExtent();
+
+		//Clamp to nearest face point
+		float x = Math::Clamp(bMin.X, bMax.X, pos.X);
+		float y = Math::Clamp(bMin.Y, bMax.Y, pos.Y);
+		float z = Math::Clamp(bMin.Z, bMax.Z, pos.Z);
+
+		//Penetration = sphere center - this point
+		FVector3 penetration = pos - FVector3(x, y, z);
+
+		//should you subtract coll2 absolute here as well?
+
+		displacementVector = penetration.GetNormal() * ((coll2->GetCollisionSphere().radius + penetration.Length()) * -1);
+
 	}
+
+	displacementVector = displacementVector.GetSmallestVector();
 
 	C_PhysicsComponent* physicsComp = coll2->GetOwner()->GetComponentOfClass<C_PhysicsComponent>();
 
-	//Reflect objects velocity
-	FVector3 force =
-		(
-			(displacement) * 2.0f *
-			(physicsComp->GetVelocity() * (displacement))
-			/ pow((displacement).Length(), 2)
-			) * -1.0f;
-	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / physicsComp->GetMass()));
+	//Force reflection
 
-	physicsComp->Translate(displacementVector + (displacementVector * 0.01));
+	if (displacementVector != FVector3(0.0f)) {
 
+		if (!isFirstStatic) {
+			FVector3 force =
+				(
+					(displacementVector) * 2.0f *
+					(GetVelocity() * (displacementVector))
+					/ pow((displacementVector).Length(), 2)
+					) * -1.0f;
+
+			if (force != FVector3(0.0f)) {
+				SetVelocity((GetVelocity() + (force / GetMass())) * rubberness);
+			}
+		}
+
+
+		if (!isSecondStatic) {
+			FVector3 force2 =
+				(
+					(displacementVector) * 2.0f *
+					(physicsComp->GetVelocity() * (displacementVector))
+					/ pow((displacementVector).Length(), 2)
+					) * -1.0f;
+
+			if (force2 != FVector3(0.0f)) {
+				physicsComp->SetVelocity((physicsComp->GetVelocity() + (force2 / physicsComp->GetMass())) * physicsComp->GetRubberness());
+			}
+		}
+	}
+
+	physicsComp->Translate(displacementVector);
+
+	coll1->RefreshBox();
 	coll2->RefreshSphere();
 
 	physicsComp = nullptr;
@@ -321,11 +450,13 @@ void C_PhysicsComponent::SphereSphereResponse(C_SphereCollider* coll1, C_SphereC
 			/ pow((vecP).Length(), 2)
 			) * -1.0f;
 
-	physicsComp->SetVelocity(physicsComp->GetVelocity() + (force / 1.0f));
-	physicsComp2->SetVelocity(physicsComp2->GetVelocity() + (force2 / 1.0f));
+	physicsComp->SetVelocity((physicsComp->GetVelocity() + (force / physicsComp->GetMass())) * physicsComp->GetRubberness());
+	physicsComp2->SetVelocity((physicsComp2->GetVelocity() + (force2 / physicsComp->GetMass())) * physicsComp2->GetRubberness());
 
 
-	//TODO: For some reason instead of dividing by 2 I need to multiply by about 6.5 to 6.6 to get the approximate displacement.  Something is obviously wrong here.
+	//TODO: For some reason instead of dividing by 2 I need to multiply by about 6.5 to 6.6 to get the approximate displacement.  
+	//Something is obviously wrong here.
+	
 	//Translate objects
 
 	float distance = CollisionDetection::SphereIntersectionDistance(coll1->GetCollisionSphere(), coll2->GetCollisionSphere());
@@ -416,9 +547,10 @@ FVector3 C_PhysicsComponent::GetCenterOfMass()
 	return *CenterOfMass;
 }
 
-C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool useCenterOfMass, float angularInertia, bool useCalculatedAngularIntertia) : C_MovementComponent(owner)
+C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool useCenterOfMass, float angularInertia, float rubberness_, bool useCalculatedAngularIntertia) : C_MovementComponent(owner)
 {
 	Mass = mass;
+	rubberness = rubberness_;
 	if (UseCenterOfMass) CalculateCenterOfMass();
 	else CenterOfMass = Owner->GetTransformReference()->Position;
 

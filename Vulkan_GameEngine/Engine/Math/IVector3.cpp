@@ -204,11 +204,11 @@ void IVector3::Print()
 	printf("[ %f,\t%f,\t%f ]\n", X, Y, Z);
 }
 
-size_t HASH_FVector3::operator()(const IVector3& vector) const
-{
-	std::size_t vectorX = std::hash<int>()(vector.X);
-	std::size_t vectorY = std::hash<int>()(vector.Y);
-	std::size_t vectorZ = std::hash<int>()(vector.Z);
+//size_t HASH_FVector3::operator()(const IVector3& vector) const
+//{
+//	std::size_t vectorX = std::hash<int>()(vector.X);
+//	std::size_t vectorY = std::hash<int>()(vector.Y);
+//	std::size_t vectorZ = std::hash<int>()(vector.Z);
 
-	return vectorX ^ vectorY ^ vectorZ;
-}
+//	return vectorX ^ vectorY ^ vectorZ;
+//}

@@ -2,6 +2,7 @@
 #include "../Objects/GameObjects/GameObject.h"
 #include "Objects/Components/PhysicsComponent.h"
 #include "Math/FVector3.h"
+#include "Math/FQuaternion.h"
 
 
 Serialize::Serialize()
@@ -17,6 +18,7 @@ void Serialize::SaveGame(ostream& out, const O_GameObject& obj)
 {
 	out << "Object name:" << obj.GetName() << endl;
 	out << "Object position: " << obj.GetPosition() << endl;
+	out << "Object rotation: " << obj.GetRotation() << endl;
 }
 
 /*

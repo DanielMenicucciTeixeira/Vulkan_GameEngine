@@ -3,9 +3,7 @@
 #include "FMatrix4.h"
 #include "FVector3.h"
 
-#define _USE_MATH_DEFINES
-#include<cmath>
-#include <stdio.h>
+
 
 FQuaternion::FQuaternion(const FVector3& axis, float angle, bool isRotation, bool inRadians)
 {
@@ -169,4 +167,10 @@ FVector3 FQuaternion::GetRightVector() const
 
 FQuaternion::~FQuaternion()
 {
+}
+
+std::ostream& operator<<(std::ostream& os, const FQuaternion& q)
+{
+	os << "(" << q.W << ", " << q.X << ", " << q.Y << ", " << q.Z << ")";
+	return os;
 }

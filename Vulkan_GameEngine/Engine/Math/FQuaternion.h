@@ -1,6 +1,11 @@
 #ifndef FQUATERNION_H
 #define FQUATERNION_H
 
+#define _USE_MATH_DEFINES
+#include<cmath>
+#include <stdio.h>
+#include <iostream>
+
 #include "FVector4.h"
 
 class FMatrix4;
@@ -33,6 +38,8 @@ public:
 	FVector3 GetUpVector() const;
 	FVector3 GetForwardVector() const;
 	FVector3 GetRightVector() const;
+
+	friend std::ostream& operator<<(std::ostream& os, const FQuaternion& q);
 
 	~FQuaternion();
 };

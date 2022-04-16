@@ -10,7 +10,7 @@ class C_BoxCollider;
 
 struct S_FieldOfView
 {
-	float Angle = 45.0f;
+	float Angle = 60.0f;
 	float NearPlane = 2.0f;
 	float FarPlane = 20.0f;
 };

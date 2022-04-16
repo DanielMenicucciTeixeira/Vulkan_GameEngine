@@ -36,7 +36,7 @@ void AudioSource::Update(const float deltaTime_)
 void AudioSource::PlaySound(const std::string name_, float volume_, bool loop_, bool is3D_, bool stream_)
 {
 	FVector3 O_pos = Owner->GetPosition();
-	FVector3 O_vec = FVector3(); // TODO : Get object vel
+	FVector3 O_vec = Owner->GetComponentOfClass<C_PhysicsComponent>()->GetVelocity();
 	channelID = AudioHandler::GetInstance()->PlaySound(name_, glm::vec3(O_pos.X, O_pos.Y, O_pos.Z), glm::vec3(O_vec.X, O_vec.Y, O_vec.Z), volume_, loop_, is3D_, stream_);
 }
 

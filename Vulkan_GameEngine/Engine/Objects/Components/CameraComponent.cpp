@@ -81,6 +81,7 @@ void C_CameraComponent::UpdateProjection()
 void C_CameraComponent::UpdateView()
 {
 	UCO->View.SetToLookAtMatrix(GetComponentAbsolutePosition(), GetComponentAbsolutePosition() + GetComponentAbsoluteRotation().GetForwardVector(), GetComponentAbsoluteRotation().GetUpVector());
+	UCO->View = FMatrix4::GetViewMatrix(GetComponentAbsoluteRotation(), GetComponentAbsolutePosition());
 	CalculateFrustum();
 }
 

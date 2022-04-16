@@ -57,6 +57,7 @@ public:
 	//AABB & AABB collision.
 	static bool AABBIntersection(BoxBounds a, BoxBounds b);
 
+
 	//AABB & S_Box collision
 	static bool AABBOBBIntersection(BoxBounds a, S_Box b, FVector3 comPos);
 

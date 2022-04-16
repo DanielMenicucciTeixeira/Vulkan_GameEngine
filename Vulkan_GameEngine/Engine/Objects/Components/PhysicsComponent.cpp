@@ -225,9 +225,6 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	FVector3 depthPenetration;
 
-
-
-
 	//three spliting points
 	//1. is coll1 to the left or right of the other.
 	//2. is coll2 static or not
@@ -240,8 +237,6 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 	//Push X
 
-
-
 	if (min1.X < min2.X) { 
 		depthPenetration.X = max1.X - min2.X; 
 	}
@@ -253,9 +248,7 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 	if (min1.Y < min2.Y) { 
 		depthPenetration.Y = max1.Y - min2.Y; }
 	else if (min1.Y > min2.Y) { 
-		depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); }
-
-	//depthPenetration.Y = max1.Y - min2.Y;
+		depthPenetration.Y = -(std::abs(max2.Y - min1.Y)); };
 
 	//Push Z
 
@@ -267,6 +260,9 @@ void C_PhysicsComponent::AABBResponse(C_BoundingBox* coll1, C_BoundingBox* coll2
 
 
 	//Push by the smallest distance.
+
+	//Solution to edge collision. (do wish I could figure out a better way but ehh for now)
+	depthPenetration += FVector3(0.0000000000001f);
 
 	depthPenetration = depthPenetration.GetSmallestVector();
 

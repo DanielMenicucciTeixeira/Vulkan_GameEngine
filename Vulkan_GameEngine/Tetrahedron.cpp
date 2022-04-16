@@ -33,7 +33,7 @@ GO_Tetrahedron::GO_Tetrahedron(std::string name) : O_GameObject(name, true)
 	coll1 = AddComponentOfClass<C_BoundingBox>();
 	coll1->SetCollisionType(ECollisionType::COLLISION);
 	coll1->SetComponentScale(FVector3(500.0f, 10.0f, 10.0f));
-	coll1->SetComponentPosition(FVector3(0.0f, -1.0f, -17.0f));
+	coll1->SetComponentPosition(FVector3(-25.0f, -1.0f, -17.0f));
 	
 	
 

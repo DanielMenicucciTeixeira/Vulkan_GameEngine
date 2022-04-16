@@ -303,6 +303,18 @@
     <ClCompile Include="Game\Pocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\Objects\Components\UIComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Objects\GameObjects\UserInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderers\TextRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Renderers\Materials\UIMaterial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Geometry\Box.h">
@@ -581,6 +593,18 @@
     <ClInclude Include="Game\Pocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\Objects\Components\UIComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Objects\GameObjects\UserInterface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderers\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Renderers\Materials\UIMaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Vulkan_GameEngine.rc">
@@ -598,6 +622,8 @@
     <None Include="Engine\Shaders\ColourShader.frag" />
     <None Include="Engine\Shaders\TextureShader.vert" />
     <None Include="Engine\Shaders\TextureShader.frag" />
+    <None Include="Engine\Shaders\UIShader.frag" />
+    <None Include="Engine\Shaders\UIShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="Resources\Audio\lofi.mp3" />

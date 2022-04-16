@@ -6,6 +6,7 @@
 #include "Renderers/RenderInitializationData.h"
 #include "Renderers/Materials/Material.h"
 #include "Renderers/Materials/VulkanMaterial.h"
+#include "Renderers/Materials/UIMaterial.h"
 #include "DebugLogger.h"
 #include "Graphics/TextureLoader.h"
 #include "LevelGraph.h"
@@ -300,10 +301,12 @@ void VulkanSwapchainManager::CreateFramebuffers()
 void VulkanSwapchainManager::CreateUniformBuffers()
 {
     VkDeviceSize cameraBufferSize = sizeof(UniformCameraObject);
+    VkDeviceSize aspectRatioSize = sizeof(float);
     VkDeviceSize matrixBufferSize = sizeof(FMatrix4);
     VkDeviceSize intBufferSize = sizeof(int);
 
     CameraData.resize(Images.size());
+    AspectRatioData.resize(Images.size());
     LightsData.resize(Images.size());
     NumberOfLightsData.resize(Images.size());
 
@@ -311,6 +314,8 @@ void VulkanSwapchainManager::CreateUniformBuffers()
     for (size_t i = 0; i < Images.size(); i++)
     {
         Manager->CreateBuffer(cameraBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, CameraData[i].Buffer, CameraData[i].Memory);
+        Manager->CreateBuffer(aspectRatioSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, AspectRatioData[i].Buffer, AspectRatioData[i].Memory);
+
         
         if (!Manager->GetRenderData()->LightSources.empty())
         {
@@ -332,6 +337,12 @@ void VulkanSwapchainManager::CreateUniformBuffers()
             ModelMap[model].resize(Images.size());
             Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, ModelMap[model][i].Buffer, ModelMap[model][i].Memory);
         }
+
+        for (const auto& model : Manager->GetRenderData()->UIElements)
+        {
+            UIRectMap[model].resize(Images.size());
+            Manager->CreateBuffer(matrixBufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, UIRectMap[model][i].Buffer, UIRectMap[model][i].Memory);
+        }
     }
 }
 
@@ -342,6 +353,13 @@ void VulkanSwapchainManager::CreateDescriptorSetLayouts()
         Material* material = (*shader.second.begin()).first;
         if (M_VulkanMaterial* vulkanMaterial = dynamic_cast<M_VulkanMaterial*>(material)) CreateDescriptorSetLayoutFromVulkanMaterial(shader.first, vulkanMaterial);
         else CreateDescriptorSetLayoutFromGenericMaterial(shader.first, material);
+    }
+
+    for (const auto& shader : Manager->GetRenderData()->UIMapByShader)
+    {
+        M_UI_Material* material = (*shader.second.begin()).first;
+        if (M_UI_VulkanMaterial* vulkanMaterial = dynamic_cast<M_UI_VulkanMaterial*>(material)) CreateUIDescriptorSetLayoutFromVulkanMaterial(shader.first, vulkanMaterial);
+        else CreateUIDescriptorSetLayoutFromGenericMaterial(shader.first, material);
     }
 }
 
@@ -354,15 +372,15 @@ void VulkanSwapchainManager::CreateDescriptorPool()
     }
     std::array<VkDescriptorPoolSize, 2> poolSizes{};
     poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
-    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
+    poolSizes[0].descriptorCount = static_cast<uint32_t>(Images.size() * (Manager->GetRenderData()->Models.size() + Manager->GetRenderData()->UIElements.size()));
     poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
-    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
+    poolSizes[1].descriptorCount = static_cast<uint32_t>(Images.size() * (Manager->GetRenderData()->Models.size() + Manager->GetRenderData()->UIElements.size()));
 
     VkDescriptorPoolCreateInfo poolInfo{};
     poolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
     poolInfo.poolSizeCount = static_cast<uint32_t>(poolSizes.size());
     poolInfo.pPoolSizes = poolSizes.data();
-    poolInfo.maxSets = static_cast<uint32_t>(Images.size() * Manager->GetRenderData()->Models.size());
+    poolInfo.maxSets = static_cast<uint32_t>(Images.size() * (Manager->GetRenderData()->Models.size() + Manager->GetRenderData()->UIElements.size()));
 
     if (vkCreateDescriptorPool(Manager->GetLogicalDevice(), &poolInfo, nullptr, &DescriptorPool) != VK_SUCCESS)
     {
@@ -393,7 +411,6 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                     allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
                     allocInfo.pSetLayouts = layouts.data();
                     
-                    auto check = Manager->GetRenderData();
                     DescriptorSetsMap[modelData.ModelMatrix].resize(Images.size());
                     if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, DescriptorSetsMap[modelData.ModelMatrix].data()) != VK_SUCCESS)
                     {
@@ -482,6 +499,95 @@ void VulkanSwapchainManager::CreateDescriptorSets()
                         }
                     }
                 }
+            }
+        }
+    }
+
+    CreateUIDescriptorSets();
+}
+
+void VulkanSwapchainManager::CreateUIDescriptorSets()
+{
+    if (Manager->GetRenderData()->Models.empty())
+    {
+        DebugLogger::Warning("No UI to rendered, no UI descriptor set created", "Renderers/Vulkan/VulkanSwapchainManager.cppp", __LINE__);
+        return;
+    }
+
+    for (const auto& shader : Manager->GetRenderData()->UIMapByShader)
+    {
+        std::vector<VkDescriptorSetLayout> layouts(Images.size(), UIDescriptorSetLayoutByShader[shader.first]);
+        for (const auto& materialMap : shader.second)
+        {
+            for (const auto& model : materialMap.second)
+            {
+                VkDescriptorSetAllocateInfo allocInfo{};
+                allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+                allocInfo.descriptorPool = DescriptorPool;
+                allocInfo.descriptorSetCount = static_cast<uint32_t>(Images.size());
+                allocInfo.pSetLayouts = layouts.data();
+
+                UIDescriptorSetsMap[model.ModelMatrix].resize(Images.size());
+                if (vkAllocateDescriptorSets(Manager->GetLogicalDevice(), &allocInfo, UIDescriptorSetsMap[model.ModelMatrix].data()) != VK_SUCCESS)
+                {
+                    throw std::runtime_error("failed to allocate descriptor sets!");
+                }
+
+                for (size_t currentImage = 0; currentImage < Images.size(); currentImage++)
+                {
+                    VkDescriptorBufferInfo aspectRatioInfo{};
+                    aspectRatioInfo.buffer = AspectRatioData[currentImage].Buffer;
+                    aspectRatioInfo.offset = 0;
+                    aspectRatioInfo.range = sizeof(float);
+
+                    VkDescriptorBufferInfo modelInfo{};
+                    modelInfo.buffer = UIRectMap[model.ModelMatrix][currentImage].Buffer;
+                    modelInfo.offset = 0;
+                    modelInfo.range = sizeof(FMatrix4);
+
+                    std::vector<VkWriteDescriptorSet> descriptorWrites;
+                    descriptorWrites.reserve(2);
+                    // descriptorWrites.reserve(materialMap.first->GetShaderVariablesInfo().size());
+
+                    descriptorWrites.push_back(VkWriteDescriptorSet());
+                    descriptorWrites[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                    descriptorWrites[0].dstSet = UIDescriptorSetsMap[model.ModelMatrix][currentImage];
+                    descriptorWrites[0].dstBinding = 0;
+                    descriptorWrites[0].dstArrayElement = 0;
+                    descriptorWrites[0].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                    descriptorWrites[0].descriptorCount = 1;
+                    descriptorWrites[0].pBufferInfo = &aspectRatioInfo;
+
+                    descriptorWrites.push_back(VkWriteDescriptorSet());
+                    descriptorWrites[1].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+                    descriptorWrites[1].dstSet = UIDescriptorSetsMap[model.ModelMatrix][currentImage];
+                    descriptorWrites[1].dstBinding = 1;
+                    descriptorWrites[1].dstArrayElement = 0;
+                    descriptorWrites[1].descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+                    descriptorWrites[1].descriptorCount = 1;
+                    descriptorWrites[1].pBufferInfo = &modelInfo;
+
+                    auto tempVector = CreateDescriptorWritesFromMaterial(materialMap.first, currentImage);
+
+                    for (int i = 0; i < tempVector.size(); i++)
+                    {
+                        tempVector[i].dstSet = UIDescriptorSetsMap[model.ModelMatrix][currentImage];
+                        tempVector[i].dstBinding = i + descriptorWrites.size();
+                    }
+
+                    //Counter starting on how many descriptors were pre-defined,
+                    //used to delete some pointers latter on to avoid memory leak
+                    int descriptorCounter = descriptorWrites.size();
+                    descriptorWrites.insert(descriptorWrites.end(), tempVector.begin(), tempVector.end());
+
+                    vkUpdateDescriptorSets(Manager->GetLogicalDevice(), static_cast<uint32_t>(descriptorWrites.size()), descriptorWrites.data(), 0, nullptr);
+                    for (descriptorCounter; descriptorCounter < descriptorWrites.size(); descriptorCounter++)
+                    {
+                        if (descriptorWrites[descriptorCounter].pBufferInfo) delete(descriptorWrites[descriptorCounter].pBufferInfo);
+                        if (descriptorWrites[descriptorCounter].pImageInfo) delete(descriptorWrites[descriptorCounter].pImageInfo);
+                    }
+                }
+                
             }
         }
     }
@@ -773,6 +879,11 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
     memcpy(cameraData, &vulkanCamera, sizeof(UniformCameraObject));
     vkUnmapMemory(Manager->GetLogicalDevice(), CameraData[currentImageIndex].Memory);
 
+    void* apectData;
+    vkMapMemory(Manager->GetLogicalDevice(), AspectRatioData[currentImageIndex].Memory, 0, sizeof(float), 0, &apectData);
+    memcpy(apectData, &Manager->GetRenderData()->AspectRatio, sizeof(float));
+    vkUnmapMemory(Manager->GetLogicalDevice(), AspectRatioData[currentImageIndex].Memory);
+
     void* numberOfLightsData;
     vkMapMemory(Manager->GetLogicalDevice(), NumberOfLightsData[currentImageIndex].Memory, 0, sizeof(int), 0, &numberOfLightsData);
     int numberOfLights = Manager->GetRenderData()->LightSources.size();
@@ -801,6 +912,14 @@ void VulkanSwapchainManager::UpdateBuffers(unsigned int currentImageIndex)
         vkMapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &modelData);
         memcpy(modelData, model, sizeof(FMatrix4));
         vkUnmapMemory(Manager->GetLogicalDevice(), ModelMap[model][currentImageIndex].Memory);
+    }
+
+    for (const auto& rect : Manager->GetRenderData()->UIElements)
+    {
+        void* rectData;
+        vkMapMemory(Manager->GetLogicalDevice(), UIRectMap[rect][currentImageIndex].Memory, 0, sizeof(FMatrix4), 0, &rectData);
+        memcpy(rectData, rect, sizeof(FMatrix4));
+        vkUnmapMemory(Manager->GetLogicalDevice(), UIRectMap[rect][currentImageIndex].Memory);
     }
 }
 
@@ -1022,4 +1141,55 @@ void VulkanSwapchainManager::CreateDescriptorSetLayoutFromVulkanMaterial(std::st
     {
         throw std::runtime_error("failed to create descriptor set layout!");
     }
+}
+
+void VulkanSwapchainManager::CreateUIDescriptorSetLayoutFromGenericMaterial(std::string shader, M_UI_Material* material)
+{
+    std::vector<VkDescriptorSetLayoutBinding> bindings;
+    bindings.reserve(2);
+
+    VkDescriptorSetLayoutBinding aspectRatioLayoutBinding{};
+    aspectRatioLayoutBinding.binding = 0;
+    aspectRatioLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    aspectRatioLayoutBinding.descriptorCount = 1;
+    aspectRatioLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    aspectRatioLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(aspectRatioLayoutBinding);
+
+    VkDescriptorSetLayoutBinding modelLayoutBinding{};
+    modelLayoutBinding.binding = 1;
+    modelLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    modelLayoutBinding.descriptorCount = 1;
+    modelLayoutBinding.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
+    modelLayoutBinding.pImmutableSamplers = nullptr; // Optional
+    bindings.push_back(modelLayoutBinding);
+
+    int bidingCount = 1;
+    for (const auto& info : material->GetShaderVariablesInfo())
+    {
+        bidingCount++;
+
+        VkDescriptorSetLayoutBinding materialLayoutBinding{};
+        materialLayoutBinding.binding = bidingCount;
+        materialLayoutBinding.descriptorCount = 1;
+        materialLayoutBinding.descriptorType = GetVulkanDescriptorType(info.Type);
+        materialLayoutBinding.stageFlags = GetVulkanShaderStageFlag(info.Stage);
+        materialLayoutBinding.pImmutableSamplers = nullptr;
+
+        bindings.push_back(materialLayoutBinding);
+    }
+
+    VkDescriptorSetLayoutCreateInfo layoutInfo{};
+    layoutInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+    layoutInfo.bindingCount = static_cast<uint32_t>(bindings.size());
+    layoutInfo.pBindings = bindings.data();
+
+    if (vkCreateDescriptorSetLayout(Manager->GetLogicalDevice(), &layoutInfo, nullptr, &UIDescriptorSetLayoutByShader[shader]) != VK_SUCCESS)
+    {
+        throw std::runtime_error("failed to create descriptor set layout!");
+    }
+}
+
+void VulkanSwapchainManager::CreateUIDescriptorSetLayoutFromVulkanMaterial(std::string shader, M_UI_VulkanMaterial* material)
+{
 }

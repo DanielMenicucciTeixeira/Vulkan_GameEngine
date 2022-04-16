@@ -71,8 +71,8 @@ bool L_Level::LoadTexture(S_Texture*& texture, const std::string& textureName)
 
 	if (!textures[textureName]->Pixels)
 	{	
-		//if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
-		if (!TextureLoader::LoadTexture(textures[textureName]->Path, textures[textureName]))
+		if (!TextureHandler::LoadTexture(textureName, textures[textureName]->Path, textures[textureName]))
+		//if (!TextureLoader::LoadTexture(textures[textureName]->Path, textures[textureName]))
 		{
 			DebugLogger::Error("Failed to load texture: " + texture->Name + " at " + texture->Path, "Core/Level.cpp", __LINE__);
 			return false;
@@ -120,7 +120,7 @@ void L_Level::LoadLevelObjects()
 		{
 			for (auto& mesh : gameObject->GetComponentsOfClass<C_StaticMeshComponent>())
 			{
-				mesh->SetMaterial(LevelGraph::GetInstance()->GetMaterials()[mesh->GetMaterialName()]);
+				mesh->SetMaterial(LevelGraph::GetInstance()->GetMaterialInstances()[mesh->GetMaterialName()]);
 				mesh->SetMesh(LevelGraph::GetInstance()->GetMeshes()[mesh->GetMeshName()]);
 				LevelGraph::GetInstance()->AddMeshComponent(mesh);
 			}

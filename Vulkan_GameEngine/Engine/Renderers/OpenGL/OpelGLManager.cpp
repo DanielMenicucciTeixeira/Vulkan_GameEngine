@@ -77,6 +77,9 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
+	// Enable blending
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	for (const auto& shader : RenderData->DataMapByShader)
 	{
@@ -125,7 +128,7 @@ void OpenGLManager::Render(SDL_Window** windowArray, unsigned int numberOfWindow
 
 				for (const auto& modelData : meshMap.second)
 				{
-					if (*modelData.InFrustum)
+					if (*modelData.IsVisible)
 					{
 						glBufferData(GL_UNIFORM_BUFFER, sizeof(FMatrix4), modelData.ModelMatrix, GL_DYNAMIC_DRAW);
 						glBindBufferBase(GL_UNIFORM_BUFFER, modelBinding, modelBuffer);
@@ -145,6 +148,7 @@ void OpenGLManager::FramebufferResizeCallback()
 	int w, h;
 	SDL_GetWindowSize(CoreEngine::GetInstance()->GetWindowSDL(), &w, &h);
 	glViewport(0, 0, w, h);
+	LevelGraph::GetInstance()->FrameBufferResizeCallback();
 }
 
 void OpenGLManager::CreateGLTexture(S_Texture* textureData)

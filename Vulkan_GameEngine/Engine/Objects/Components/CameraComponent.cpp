@@ -85,7 +85,7 @@ void C_CameraComponent::UpdateView()
 	CalculateFrustum();
 }
 
-C_CameraComponent::C_CameraComponent(O_GameObject* owner) : C_TransformComponent(owner), UCO(new UniformCameraObject)
+C_CameraComponent::C_CameraComponent(O_GameObject* owner) : C_TransformComponent(owner), UCO(new UniformCameraObject), O_Component(owner)
 {
 	LevelGraph::GetInstance()->AddCamera(this);
 }

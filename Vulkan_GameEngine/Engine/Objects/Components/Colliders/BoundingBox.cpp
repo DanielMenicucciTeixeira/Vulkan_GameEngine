@@ -4,7 +4,7 @@
 #include "Objects/GameObjects/GameObject.h"
 #include "Core/CollisionHandler.h"
 
-C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type)
+C_BoundingBox::C_BoundingBox(O_GameObject* owner, ECollisionType type) : C_CollisionComponent(owner, type), O_Component(owner)
 {
 
 	//TODO: Find good way of setting this value with ease.

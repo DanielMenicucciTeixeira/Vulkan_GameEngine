@@ -62,15 +62,15 @@ bool L_MainLevel::Initialize()
 	MaterialPaths.insert("Assets/Materials/Dice.mtl");
 	LoadMaterialLibrary();
 	
-	M_StandardMaterial* appleBodyMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Body"]);
+	M_StandardMaterial* appleBodyMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterialInstances()["M_Apple_Body"]);
 	appleBodyMat->DiffuseTexture = Apple_Body_Texture;
 	appleBodyMat->SpecularTexture = Apple_Body_Texture;
 
-	M_StandardMaterial* appleStemMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_Apple_Stem"]);
+	M_StandardMaterial* appleStemMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterialInstances()["M_Apple_Stem"]);
 	appleBodyMat->DiffuseTexture = Apple_Stem_Texture;
 	appleBodyMat->SpecularTexture = Apple_Stem_Texture;
 
-	M_StandardMaterial* diceMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterials()["M_diceTexture"]);
+	M_StandardMaterial* diceMat = dynamic_cast<M_StandardMaterial*>(LevelGraph::GetInstance()->GetMaterialInstances()["M_diceTexture"]);
 	appleBodyMat->DiffuseTexture = Dice_Texture;
 	appleBodyMat->SpecularTexture = Dice_Texture;
 

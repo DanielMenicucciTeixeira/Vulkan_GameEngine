@@ -8,7 +8,7 @@ class FVector3;
 class FQuaternion;
 class FMatrix4;
 
-class C_TransformComponent : public O_Component
+class C_TransformComponent : virtual public O_Component
 {
 public:
 	C_TransformComponent(O_GameObject* owner, bool isStatic = false);

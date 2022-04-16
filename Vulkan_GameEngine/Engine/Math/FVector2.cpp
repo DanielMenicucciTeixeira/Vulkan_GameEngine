@@ -113,6 +113,11 @@ float FVector2::operator*(const FVector2& vector) const
 	return (X * vector.X + Y * vector.Y);
 }
 
+//FVector2 FVector2::operator|(const FVector2& vector) const
+//{
+//	return FVector2(X * vector.X, Y * vector.Y);
+//}
+
 //Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 void FVector2::operator=(const FVector2& vector)
 {

@@ -1,4 +1,6 @@
 #include "IVector2.h"
+#include "FVector2.h"
+
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
@@ -20,6 +22,12 @@ IVector2::IVector2(int value)
 }
 
 inline IVector2::IVector2(const IVector2& vector)
+{
+	X = vector.X;
+	Y = vector.Y;
+}
+
+IVector2::IVector2(const FVector2& vector)
 {
 	X = vector.X;
 	Y = vector.Y;

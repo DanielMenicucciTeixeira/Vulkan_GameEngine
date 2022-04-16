@@ -3,6 +3,7 @@
 #include "CoreEngine.h"
 #include "Math/FVector2.h"
 #include "Renderers/Materials/Material.h"
+#include "Renderers/Materials/UIMaterial.h"
 
 //Basic includes
 #include <iostream>
@@ -50,6 +51,7 @@ VulkanManager::~VulkanManager()
 void VulkanManager::FramebufferResizeCallback()
 {
     FramebufferResized = true;
+    LevelGraph::GetInstance()->FrameBufferResizeCallback();
 }
 
 void VulkanManager::UpdateWithNewObjects()
@@ -86,6 +88,11 @@ VkExtent2D* VulkanManager::GetSwapchainExtent()
 std::unordered_map<std::string, VkDescriptorSetLayout_T*> VulkanManager::GetDescriptorSetLayoutsByShader()
 {
     return SwapchainManager->GetDescriptorLayoutsByShader();
+}
+
+std::unordered_map<std::string, VkDescriptorSetLayout_T*> VulkanManager::GetUIDescriptorSetLayoutMap()
+{
+    return SwapchainManager->GetUIDescriptorSetLayoutMap();
 }
 
 VkRenderPass_T* VulkanManager::GetRenderPass()
@@ -268,11 +275,28 @@ void VulkanManager::CreateCommandBuffers()
                         vkCmdBindIndexBuffer(CommandBuffers[i], MeshDataMap[meshMap.first]->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
                         for (const auto& modelData : meshMap.second)
                         {
-                            if (*modelData.InFrustum)
+                            if (*modelData.IsVisible)
                             {
                                 vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetPipelinesMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetDescriptorSetsMap()[modelData.ModelMatrix][i], 0, nullptr);
                                 vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(meshMap.first->Indices.size()), 1, 0, 0, 0);
                             }
+                        }
+                    }
+                }
+            }
+            for (const auto& shaderMap : RenderData->UIMapByShader)
+            {
+                vkCmdBindPipeline(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetUIPipelineMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].first);
+                vkCmdBindVertexBuffers(CommandBuffers[i], 0, 1, &RectMeshData->VertexBuffer, offsets);
+                vkCmdBindIndexBuffer(CommandBuffers[i], RectMeshData->IndexBuffer, 0, VK_INDEX_TYPE_UINT32);
+                for (const auto& materialMap : shaderMap.second)
+                {
+                    for (const auto& modelData: materialMap.second)
+                    {
+                        for (const auto& modelData : RenderData->UIElements)
+                        {
+                            vkCmdBindDescriptorSets(CommandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, GraphicsPipelineManager->GetUIPipelineMap()[(*shaderMap.second.begin()).first->GetShaderInfo().Name].second, 0, 1, &SwapchainManager->GetUIDescriptorSetsMap()[modelData][i], 0, nullptr);
+                            vkCmdDrawIndexed(CommandBuffers[i], static_cast<uint32_t>(RenderData->UIRect->Indices.size()), 1, 0, 0, 0);
                         }
                     }
                 }
@@ -307,6 +331,24 @@ void VulkanManager::CreateVertexBuffers()
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
     }
+
+    VkDeviceSize bufferSize = sizeof(S_Vertex) * RenderData->UIRect->Vertices.size();
+
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+
+    void* data;
+    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, RenderData->UIRect->Vertices.data(), (size_t)bufferSize);
+    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+
+    RectMeshData = new S_MeshData();
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, RectMeshData->VertexBuffer, RectMeshData->VertexBufferMemory);
+    CopyBuffer(stagingBuffer, RectMeshData->VertexBuffer, bufferSize);
+
+    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
 void VulkanManager::CreateIndexBuffers()
@@ -331,6 +373,24 @@ void VulkanManager::CreateIndexBuffers()
         vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
         vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
     }
+
+    VkDeviceSize bufferSize = sizeof(unsigned int) * RenderData->UIRect->Indices.size();
+
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+
+    void* data;
+    vkMapMemory(Devices->GetLogicalDevice(), stagingBufferMemory, 0, bufferSize, 0, &data);
+    memcpy(data, RenderData->UIRect->Indices.data(), (size_t)bufferSize);
+    vkUnmapMemory(Devices->GetLogicalDevice(), stagingBufferMemory);
+    
+    CreateBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, RectMeshData->IndexBuffer, RectMeshData->IndexBufferMemory);
+
+    CopyBuffer(stagingBuffer, RectMeshData->IndexBuffer, bufferSize);
+
+    vkDestroyBuffer(Devices->GetLogicalDevice(), stagingBuffer, nullptr);
+    vkFreeMemory(Devices->GetLogicalDevice(), stagingBufferMemory, nullptr);
 }
 
 void VulkanManager::CopyBuffer(VkBuffer_T* srcBuffer, VkBuffer_T* dstBuffer, VkDeviceSize size)

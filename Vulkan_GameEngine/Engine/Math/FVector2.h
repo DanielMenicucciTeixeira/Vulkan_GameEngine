@@ -48,6 +48,9 @@ public:
 	float operator* (const FVector2& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
 	inline float operator* (const FVector2*& vector) const { return *this * *vector; }
 
+	inline FVector2 operator| (const FVector2& vector) const { return FVector2(X * vector.X, Y * vector.Y); }//Overload of the "|" operator, returns vector { X*x, Y*y}
+	inline FVector2 operator| (const FVector2*& vector) const { return *this | vector; }
+
 	void operator= (const FVector2& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 	inline void operator= (FVector2* vector) { *this = *vector; }
 

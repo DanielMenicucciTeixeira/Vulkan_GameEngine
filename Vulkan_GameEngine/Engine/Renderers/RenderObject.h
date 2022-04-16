@@ -4,9 +4,14 @@
 #include "UniformBufferObject.h"
 #include "Vertex.h"
 #include <vector>
+#include <array>
 #include "Math\FVector3.h"
+#include "Math\FVector2.h"
+#include "Math\FVector4.h"
+#include "Math\FMatrix4.h"
 #include <string>
 #include <SDL_image.h>
+#include <memory>
 
 struct S_Texture
 {
@@ -84,6 +89,30 @@ public:
 
 	std::string ShaderName;
 	std::string Name;
+};
+
+struct S_Rectangle
+{
+	std::array<S_Vertex, 4> Vertices;
+
+	std::array<unsigned int, 6> Indices;
+
+	virtual ~S_Rectangle() {}
+	
+	S_Rectangle()
+	{
+		Vertices =
+		{
+		S_Vertex({-0.5f, -0.5f, 0.0f}, {0.f, 0.f, 0.0f}, {0.0f, 0.0f, 1.0f}),
+		S_Vertex({0.5f, -0.5f, 0.0f}, {1.0f, 0.f, 0.0f}, {0.0f, 0.0f, 1.0f}),
+		S_Vertex({0.5f, 0.5f, 0.0f}, {1.f, 1.f, 0.0f}, {0.0f, 0.0f, 1.0f}),
+		S_Vertex({-0.5f, 0.5f, 0.0f}, {0.f, 1.f, 0.0f}, {0.0f, 0.0f, 1.0f})
+		};
+
+		Indices = { 0, 1, 2, 2, 3, 0 };
+	};
+
+
 };
 
 struct RenderObject

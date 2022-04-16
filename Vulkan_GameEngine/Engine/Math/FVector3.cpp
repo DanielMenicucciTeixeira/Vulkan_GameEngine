@@ -1,4 +1,7 @@
 #include "FVector3.h"
+#include "FVector2.h"
+#include "IVector3.h"
+#include "IVector2.h"
 #include "FQuaternion.h"
 
 #define _USE_MATH_DEFINES
@@ -22,6 +25,27 @@ FVector3::FVector3(float value)
 	X = value;
 	Y = value;
 	Z = value;
+}
+
+FVector3::FVector3(const IVector3& vector)
+{
+	X = vector.X;
+	Y = vector.Y;
+	Z = vector.Z;
+}
+
+FVector3::FVector3(const FVector2& vector)
+{
+	X = vector.X;
+	Y = vector.Y;
+	Z = 0;
+}
+
+FVector3::FVector3(const IVector2& vector)
+{
+	X = vector.X;
+	Y = vector.Y;
+	Z = 0;
 }
 
 inline FVector3::FVector3(const FVector3& vector)

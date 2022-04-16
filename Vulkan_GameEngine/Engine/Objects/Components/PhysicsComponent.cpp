@@ -416,7 +416,7 @@ FVector3 C_PhysicsComponent::GetCenterOfMass()
 	return *CenterOfMass;
 }
 
-C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool useCenterOfMass, float angularInertia, bool useCalculatedAngularIntertia) : C_MovementComponent(owner)
+C_PhysicsComponent::C_PhysicsComponent(O_GameObject* owner, float mass, bool useCenterOfMass, float angularInertia, bool useCalculatedAngularIntertia) : C_MovementComponent(owner), O_Component(owner)
 {
 	Mass = mass;
 	if (UseCenterOfMass) CalculateCenterOfMass();

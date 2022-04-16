@@ -11,8 +11,8 @@ typedef uint32_t sdlEventType;
 typedef int32_t sdlKeycode;
 typedef const char* eventName_t;
 using inputKey = std::pair<sdlEventType, sdlKeycode>;
-using inputFunction_t = void(*)(O_Object*, SDL_Event*);
-using functionMap_t = std::unordered_map <inputFunction_t, std::set<O_Object*>>;
+using inputFunction_t = void(*)(void*, SDL_Event*);
+using functionMap_t = std::unordered_map <inputFunction_t, std::set<void*>>;
 
 class EventListener
 {
@@ -25,17 +25,17 @@ public:
 	EventListener() = delete;
 	~EventListener();
 
-	static bool AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
-	static void RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
-	static bool AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event);
-	static void RemoveFunctionFromEvent(O_Object* object, inputFunction_t function, eventName_t event);
+	static bool AddFunctionByInput(void* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
+	static void RemoveObjectFromInput(void* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode = 0);
+	static bool AddFunctionByEvent(void* object, inputFunction_t function, eventName_t event);
+	static void RemoveFunctionFromEvent(void* object, inputFunction_t function, eventName_t event);
 	inline static std::unordered_map<eventName_t, std::set<inputFunction_t>> GetEventMap() { return EventMap; }
 
 protected:
 	static void AddEvent(const char* event);
 	static bool AddInputToEvent(const char* event, sdlEventType type, sdlKeycode keyCode = 0);
-	static bool AddObjectToFunctionMap(inputFunction_t function, O_Object* object);
-	static void RemoveObjectToFunctionMap(inputFunction_t function, O_Object* object);
+	static bool AddObjectToFunctionMap(inputFunction_t function, void* object);
+	static void RemoveObjectToFunctionMap(inputFunction_t function, void* object);
 	static void Initialize();
 	static void HandleEvents();
 	static void CallFunctions(inputKey key, SDL_Event* event);

@@ -5,7 +5,7 @@ M_StandardMaterial::M_StandardMaterial()
 	Shader.Name = "TextureShader";
 	Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::VERTEX_BIT, "TextureShaderVert"));
 	Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::FRAGMENT_BIT, "TextureShaderFrag"));
-	MaterialName = "StandardMaterial";
+	InstanceName = "StandardMaterial";
 
 	ReflectionData.Info.Stage = E_ShaderStage::FRAGMENT_BIT;
 	ReflectionData.Info.Type = E_ShaderVariableType::UNIFORM_BUFFER;

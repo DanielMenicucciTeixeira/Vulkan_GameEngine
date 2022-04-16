@@ -5,6 +5,8 @@
 
 struct S_Vertex
 {
+	S_Vertex() {};
+	S_Vertex(FVector3 position, FVector3 textureCoordintes, FVector3 normal) : Position(position), TextureCoordinates(textureCoordintes), Normal(normal) {}
 	FVector3 Position, TextureCoordinates, Normal;
 
 	inline bool operator== (const S_Vertex& vertex) const { return vertex.Position == Position && vertex.TextureCoordinates == TextureCoordinates && vertex.Normal == Normal; }

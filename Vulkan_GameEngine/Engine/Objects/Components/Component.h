@@ -5,7 +5,7 @@
 class O_GameObject;
 class L_Level;
 
-class O_Component : public O_Object
+class O_Component : virtual public O_Object
 {
 public:
 	inline O_Component(O_GameObject* owner) { Owner = owner; }

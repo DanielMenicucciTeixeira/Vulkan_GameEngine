@@ -1,6 +1,8 @@
 #ifndef IVECTOR2_H
 #define IVECTOR2_H
 
+class FVector2;
+
 class IVector2
 {
 public:
@@ -17,6 +19,9 @@ public:
 
 	//Constructor initializing to match a given IVector2, a copy constructor
 	IVector2(const IVector2& vector);
+
+	//Constructor initializing to match a given FVector2, a copy constructor
+	IVector2(const FVector2& vector);
 
 	//Contructor initalizaing to match given values
 	IVector2(int values[2]);
@@ -42,6 +47,9 @@ public:
 
 	int operator* (const IVector2& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
 	inline int operator* (const IVector2*& vector) const { return *this * *vector; }
+
+	inline IVector2 operator| (const IVector2& vector) const { return IVector2(X * vector.X, Y * vector.Y); }//Overload of the "|" operator, returns vector { X*x, Y*y}
+	inline IVector2 operator| (const IVector2*& vector) const { return *this | vector; }
 
 	void operator= (const IVector2& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 	inline void operator= (IVector2* vector) { *this = *vector; }

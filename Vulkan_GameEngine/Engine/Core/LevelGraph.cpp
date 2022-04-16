@@ -10,6 +10,11 @@
 #include "Objects/GameObjects/GO_Camera.h"
 #include "CollisionHandler.h"
 #include "Renderers/TextureHandler.h"
+#include "Objects/Components/UIComponent.h"
+#include "Window.h"
+#include "CoreEngine.h"
+#include "Renderers/Materials/UIMaterial.h"
+#include "Graphics/TextureLoader.h"
 
 //Static Re-declarations
 
@@ -92,6 +97,8 @@ void LevelGraph::AddObjectToTagList(O_Object* gameObject, std::string tag)
 void LevelGraph::FrameBufferResizeCallback()
 {
 	ActiveCamera->UpdateProjection();
+	FVector2 windowSize = CoreEngine::GetInstance()->GetWindowSize();
+	RenderData.AspectRatio = windowSize.X / windowSize.Y;
 }
 
 void LevelGraph::AddMesh(S_Mesh* mesh)
@@ -126,6 +133,27 @@ void LevelGraph::RemoveMeshComponent(C_StaticMeshComponent* meshComponent)
 	RenderData.Models.erase(meshComponent->GetModelMatrix());
 }
 
+void LevelGraph::RemoveUIElement(UI_Element* element)
+{
+	M_UI_Material* material = dynamic_cast<M_UI_Material *>(MaterialInstancesByName[element->GetMaterialInstanceName()]);
+	if (!material) return;
+	RenderData.UIMapByShader[material->GetShaderInfo().Name][material].erase(element->GetModelData());
+	RenderData.UIElements.erase(element->GetRect()->GetModel());
+}
+
+void LevelGraph::AddUIElement(UI_Element* element)
+{
+	M_UI_Material* material = dynamic_cast<M_UI_Material*>(MaterialInstancesByName[element->GetMaterialInstanceName()]);
+	if (!material) material = dynamic_cast<M_UI_Material*>(MaterialInstancesByName["UIMaterial"]);
+	if (!material) return;
+	std::string shaderName = material->GetShaderInfo().Name;
+	if (!RenderData.UIMapByShader.count(shaderName)) RenderData.UIMapByShader[shaderName] = UIModelsByMaterial_T();
+	if (!RenderData.UIMapByShader[shaderName].count(material)) RenderData.UIMapByShader[shaderName][material] = std::set<S_ModelData>();
+	RenderData.UIMapByShader[shaderName][material].insert(S_ModelData(element->GetRect()->GetModel(), element->IsVisible()));
+
+	RenderData.UIElements.insert(element->GetRect()->GetModel());
+}
+
 void LevelGraph::AddTexture(S_Texture* texture)
 {
 	TexturesByName[texture->Name] = texture;
@@ -140,7 +168,7 @@ void LevelGraph::AddCubeSampler(S_CubeSampler* sampler)
 
 void LevelGraph::AddMaterial(Material* material)
 {
-	MaterialsByName[material->GetMaterialName()] = material;
+	MaterialInstancesByName[material->GetMaterialName()] = material;
 	//RenderData.Materials.insert(material);
 	LoadMaterial(material);
 }
@@ -212,10 +240,10 @@ void LevelGraph::CleanUp()
 		MeshesByName.clear();
 	}
 	
-	if (!MaterialsByName.empty())
+	if (!MaterialInstancesByName.empty())
 	{
-		for (auto& material : MaterialsByName) if (material.second) delete (material.second);
-		MaterialsByName.clear();
+		for (auto& material : MaterialInstancesByName) if (material.second) delete (material.second);
+		MaterialInstancesByName.clear();
 	}
 
 	if (!TexturesByName.empty())
@@ -279,6 +307,8 @@ LevelGraph::LevelGraph()
 {
 	RenderData.LightSources.reserve(30);
 	FreeLightSlots = std::set<unsigned int>();
+	FVector2 windowSize = CoreEngine::GetInstance()->GetWindowSize();
+	RenderData.AspectRatio = windowSize.X / windowSize.Y;
 }
 
 LevelGraph::~LevelGraph()

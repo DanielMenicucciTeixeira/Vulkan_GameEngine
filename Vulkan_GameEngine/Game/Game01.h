@@ -12,8 +12,8 @@ public:
 	void Render();
 	static void LoadLevel(int sceneNum, SDL_Event* event);
 
-	static void EndGame(O_Object* object, SDL_Event* event);
-	static void QuitApplication(O_Object* object, SDL_Event* event);
+	static void EndGame(void* object, SDL_Event* event);
+	static void QuitApplication(void* object, SDL_Event* event);
 };
 #endif
 

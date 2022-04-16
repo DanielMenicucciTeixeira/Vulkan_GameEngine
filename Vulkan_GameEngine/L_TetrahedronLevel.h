@@ -22,7 +22,7 @@ protected:
 	GO_Pawn* T2 = nullptr;
 
 	GO_Skybox* Skybox = nullptr;
-
+	
 	void PrintMinowskiDifference();
 };
 

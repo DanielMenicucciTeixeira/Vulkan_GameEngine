@@ -9,6 +9,8 @@ class VulkanManager;
 class FMatrix4;
 class Material;
 class M_VulkanMaterial;
+class M_UI_Material;
+class M_UI_VulkanMaterial;
 
 enum VkPresentModeKHR;
 enum VkFormat;
@@ -88,6 +90,7 @@ public:
 	void CreateDescriptorSetLayouts();
 	void CreateDescriptorPool();
 	void CreateDescriptorSets();
+	void CreateUIDescriptorSets();
 	void CreateTextureImages();
 	void CreateSkyboxImages();
 	void CreateTextureSampler(VkSampler_T*& sampler);
@@ -106,9 +109,11 @@ public:
 
 	inline std::vector<VkFramebuffer_T*> GetFramebuffers() const { return Framebuffers; }
 	inline std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> GetDescriptorSetsMap() const { return DescriptorSetsMap; }
+	inline std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> GetUIDescriptorSetsMap() const { return UIDescriptorSetsMap; }
 	inline std::vector<VkImage_T*> GetImages() const { return Images; }
 	inline VkSwapchainKHR_T* GetSwapchain() const { return Swapchain; }
 	inline std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorLayoutsByShader() const { return DescriptorLayoutsByShader; }
+	inline std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetUIDescriptorSetLayoutMap() const { return UIDescriptorSetLayoutByShader; }
 
 	void UpdateBuffers(unsigned int currentImageIndex);
 
@@ -138,14 +143,21 @@ protected:
 	VkImageView_T* DepthImageView = nullptr;
 
 	std::unordered_map<const FMatrix4*, std::vector<S_BufferData>> ModelMap;
+	std::unordered_map<const FMatrix4*, std::vector<S_BufferData>> UIRectMap;
 	std::unordered_map<Material*, std::vector<std::vector<S_BufferData>>> MaterialMap;
 	std::vector<S_BufferData> CameraData;
+	std::vector<S_BufferData> AspectRatioData;
 	std::vector<S_BufferData> LightsData;
 	std::vector<S_BufferData> NumberOfLightsData;
 
 	VkDescriptorPool_T* DescriptorPool = nullptr;
+
 	std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> DescriptorSetsMap;
 	std::unordered_map<std::string, VkDescriptorSetLayout_T*> DescriptorLayoutsByShader;
+
+	std::unordered_map<const FMatrix4*, std::vector<VkDescriptorSet_T*>> UIDescriptorSetsMap;
+	std::unordered_map<std::string, VkDescriptorSetLayout_T*> UIDescriptorSetLayoutByShader;
+
 	std::unordered_map<S_Texture*, S_TextureData> TextureDataMap;
 	std::unordered_map<S_CubeSampler*, S_TextureData> SkyboxDataMap;
 
@@ -154,6 +166,8 @@ protected:
 	void CreateDescriptorSetLayoutFromGenericMaterial(std::string shader, Material* material);
 	void CreateDescriptorSetLayoutFromVulkanMaterial(std::string shader, M_VulkanMaterial* material);
 
+	void CreateUIDescriptorSetLayoutFromGenericMaterial(std::string shader, M_UI_Material* material);
+	void CreateUIDescriptorSetLayoutFromVulkanMaterial(std::string shader, M_UI_VulkanMaterial* material);
 };
 #endif
 

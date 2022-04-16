@@ -40,7 +40,7 @@ public:
 	void Grab();
 
 protected:
-	float Speed = 10.0f;
+	float Speed = 30.0f;
 	float CameraTurnSpeed = 0.005f;
 	float CameraZoomSpeed = 1.0f;
 	FVector3 CameraRotation;

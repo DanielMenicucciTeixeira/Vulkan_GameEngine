@@ -64,7 +64,6 @@ FVector3 O_GameObject::GetScale() const
 
 void O_GameObject::SetTransform(const FTransform& transform)
 {
-
 	Root->SetComponentTransform(transform);
 }
 

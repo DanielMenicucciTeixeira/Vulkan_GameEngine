@@ -100,7 +100,6 @@ public:
 	LevelGraph& operator=(const LevelGraph&) = delete;
 	LevelGraph& operator=(LevelGraph&&) = delete;
 
-
 	void Render();
 
 

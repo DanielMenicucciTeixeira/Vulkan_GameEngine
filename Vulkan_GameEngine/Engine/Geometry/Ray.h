@@ -3,6 +3,7 @@
 
 #include "Math/FVector3.h"
 class C_BoundingBox;
+class O_GameObject;
 
 class Ray
 {
@@ -40,6 +41,13 @@ public:
 		return intersectDistance;
 	}
 	void SetIntersectDistance(float dis);
+
+
+	float GetDistanceFromOrigin(FVector3 point);
+
+
+	O_GameObject* obj;
+
 };
 
 #endif

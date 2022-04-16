@@ -1,8 +1,5 @@
 #include "IVector3.h"
 #include "FQuaternion.h"
-#include "FVector2.h"
-#include "FVector3.h"
-#include "IVector2.h"
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -30,27 +27,6 @@ IVector3::IVector3(int value)
 inline IVector3::IVector3(const IVector3& vector)
 {
 	Load(vector.X, vector.Y, vector.Z);
-}
-
-IVector3::IVector3(const FVector3& vector)
-{
-	X = vector.X;
-	Y = vector.Y;
-	Z = vector.Z;
-}
-
-IVector3::IVector3(const FVector2& vector)
-{
-	X = vector.X;
-	Y = vector.Y;
-	Z = 0;
-}
-
-IVector3::IVector3(const IVector2& vector)
-{
-	X = vector.X;
-	Y = vector.Y;
-	Z = 0;
 }
 
 IVector3::IVector3(int values[3])
@@ -228,11 +204,11 @@ void IVector3::Print()
 	printf("[ %f,\t%f,\t%f ]\n", X, Y, Z);
 }
 
-size_t HASH_IVector3::operator()(const IVector3& vector) const
-{
-	std::size_t vectorX = std::hash<int>()(vector.X);
-	std::size_t vectorY = std::hash<int>()(vector.Y);
-	std::size_t vectorZ = std::hash<int>()(vector.Z);
+//size_t HASH_FVector3::operator()(const IVector3& vector) const
+//{
+//	std::size_t vectorX = std::hash<int>()(vector.X);
+//	std::size_t vectorY = std::hash<int>()(vector.Y);
+//	std::size_t vectorZ = std::hash<int>()(vector.Z);
 
-	return vectorX ^ vectorY ^ vectorZ;
-}
+//	return vectorX ^ vectorY ^ vectorZ;
+//}

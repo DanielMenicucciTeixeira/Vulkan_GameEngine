@@ -7,6 +7,7 @@
 void C_BoxCollider::SetComponentPosition(const FVector3& position)
 {
 	C_TransformComponent::SetComponentPosition(position);
+	CollisionBox.Min = position;
 	CollisionBox.model = GetComponentModelMatrix();
 }
 
@@ -19,6 +20,7 @@ void C_BoxCollider::SetComponentRotation(const FQuaternion& rotation)
 void C_BoxCollider::SetComponentScale(const FVector3& scale)
 {
 	C_TransformComponent::SetComponentScale(scale);
+	CollisionBox.Max = CollisionBox.Min + scale;
 	CollisionBox.model = GetComponentModelMatrix();
 }
 
@@ -72,7 +74,7 @@ void C_BoxCollider::GetDimensionsFromMesh(S_Mesh* mesh)
 		else if (CollisionBox.Max.Y < vertex.Position.Y) CollisionBox.Max.Y = vertex.Position.Y;
 
 		if (CollisionBox.Min.Z > vertex.Position.Z) CollisionBox.Min.Z = vertex.Position.Z;
-		else if (CollisionBox.Max.Y < vertex.Position.Y) CollisionBox.Max.Y = vertex.Position.Y;
+		else if (CollisionBox.Max.Z < vertex.Position.Z) CollisionBox.Max.Z = vertex.Position.Z;
 	}
 }
 
@@ -92,16 +94,18 @@ void C_BoxCollider::Update(float deltaTime)
 
 FVector3 C_BoxCollider::GetMin()
 {
-	FVector4 temp = GetComponentModelMatrix() * FVector4(CollisionBox.Min, 1.0f);
-	temp = temp / temp.W;
-	return FVector3(temp.X, temp.Y, temp.Z);
+	return CollisionBox.Min;
+	//FVector4 temp = GetComponentModelMatrix() * FVector4(CollisionBox.Min, 1.0f);
+	//temp = temp / temp.W;
+	//return FVector3(temp.X, temp.Y, temp.Z);
 }
 
 FVector3 C_BoxCollider::GetMax()
 {
-	FVector4 temp = GetComponentModelMatrix() * FVector4(CollisionBox.Max, 1.0f);
-	temp = temp / temp.W;
-	return FVector3(temp.X, temp.Y, temp.Z);
+	return CollisionBox.Max;
+	//FVector4 temp = GetComponentModelMatrix() * FVector4(CollisionBox.Max, 1.0f);
+	//temp = temp / temp.W;
+	//return FVector3(temp.X, temp.Y, temp.Z);
 }
 
 void C_BoxCollider::PostUpdate(float deltaTime)

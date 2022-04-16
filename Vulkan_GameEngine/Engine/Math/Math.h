@@ -4,16 +4,11 @@ namespace MATH {
 	class Math
 	{
 	public:
-		inline static float Clamp(float a, float b, bool max) {
-			if (max) {
-				if (a < b) { return b; }
-				else { return a; }
-			}
-			else {
-				if (a < b) { return a; }
-				else { return b; }
-			}
-		}
+
+
+		//TODO: Could change this function to clamp to a givin number, not just 0.
+		//Return the value closest to the givin value; 
+		static float Clamp(float a, float b, float value);
 
 		inline static float Max(float a, float b) {
 			if (a > b) { return a; }
@@ -24,6 +19,7 @@ namespace MATH {
 			if (a < b) { return a; }
 			else { return b; }
 		}
+		
 	};
 }
 

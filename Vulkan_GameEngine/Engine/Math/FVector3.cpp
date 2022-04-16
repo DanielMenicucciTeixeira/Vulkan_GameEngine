@@ -139,6 +139,11 @@ FVector3 FVector3::operator/(float divisor) const
 	return FVector3(X / divisor, Y / divisor, Z / divisor);
 }
 
+FVector3 FVector3::operator/(const FVector3& vector) const
+{
+	return FVector3(X / vector.X, Y / vector.Y, Z / vector.Z);
+}
+
 //Overload of the "*" operator, makes a vector times vector dot product.
 float FVector3::operator*(const FVector3& vector) const
 {
@@ -233,6 +238,37 @@ inline void FVector3::Load(float x, float y, float z)
 	X = x;
 	Y = y;
 	Z = z;
+}
+
+FVector3 FVector3::GetSmallestVector()
+{
+	FVector3 min;
+	FVector3 temp;
+
+	temp = this;
+
+	if (temp.X < 0) { temp.X *= -1; }
+	if (temp.Y < 0) { temp.Y *= -1; }
+	if (temp.Z < 0) { temp.Z *= -1; }
+
+	if (temp.X < temp.Y && temp.X != 0 || temp.Y == 0) {
+		if (temp.X < temp.Z || temp.Z == 0) { min.X = X; }
+		else { min.Z = Z; }
+	}
+	else if (temp.Y < temp.Z || temp.Z == 0) { min.Y = Y; }
+	else { min.Z = Z; }
+
+	return min;
+}
+
+FVector3 FVector3::Divide(float value)
+{
+	return FVector3(value / X, value / Y, value / Z);
+}
+
+FVector3 FVector3::Multiply(FVector3 b)
+{
+	return FVector3(X * b.X, Y * b.Y, Z * b.Z);
 }
 
 void FVector3::Print()

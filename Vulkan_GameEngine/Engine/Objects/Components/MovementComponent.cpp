@@ -32,6 +32,8 @@ void C_MovementComponent::Translate(FVector3 translation_)
 {
 	if (!Owner->GetRoot()->GetIsStatic()) {
 		Owner->SetPosition(Owner->GetPosition() + translation_);
+		//std::cout << Owner->GetPosition().X << " " << Owner->GetPosition().Y << " " << Owner->GetPosition().Z << " "
+		//	<< velocity.X << " " << velocity.Y << " " << velocity.Z << std::endl;
 	}
 }
 

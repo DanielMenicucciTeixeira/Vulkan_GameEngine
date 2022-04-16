@@ -224,6 +224,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Ball.cpp" />
     <ClCompile Include="Engine\Audio\AudioHandler.cpp" />
     <ClCompile Include="Engine\Audio\AudioSource.cpp" />
     <ClCompile Include="Engine\Audio\BackgroundSound.cpp" />
@@ -312,6 +313,7 @@
     <ClCompile Include="Game\Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Ball.h" />
     <ClInclude Include="Engine\Audio\AudioHandler.h" />
     <ClInclude Include="Engine\Audio\AudioSource.h" />
     <ClInclude Include="Engine\Audio\BackgroundSound.h" />

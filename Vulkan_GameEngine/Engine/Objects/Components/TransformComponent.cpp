@@ -61,10 +61,10 @@ FVector3 C_TransformComponent::GetComponentAbsolutePosition() const
 {
 	if (this != Owner->GetRoot())
 	{
-		FMatrix4 transform = Owner->GetTransform().GetModelMatrix() * Transform->GetModelMatrix();
-		FVector3 position = FVector3(transform[3][0], transform[3][1], transform[3][2]);
-		//return GetComponentPosition() + Owner->GetPosition();
-		return position;
+		//FMatrix4 transform = Owner->GetTransform().GetModelMatrix() * Transform->GetModelMatrix();
+		//FVector3 position = FVector3(transform[3][0], transform[3][1], transform[3][2]);
+		return GetComponentPosition() + Owner->GetPosition();
+		//return position;
 	}
 	else return GetComponentPosition();
 }

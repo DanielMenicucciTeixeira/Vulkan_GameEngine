@@ -16,7 +16,7 @@ struct VkDescriptorSetLayout_T;
 struct VkRenderPass_T;
 struct VkPipelineLayout_T;
 
-class M_VulkanMaterial : public Material
+class M_VulkanMaterial : virtual public Material
 {
 public:
 	M_VulkanMaterial(bool initilizeDefaultValues = true);

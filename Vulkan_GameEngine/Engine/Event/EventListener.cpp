@@ -20,6 +20,18 @@ void EventListener::HandleEvents()
 	inputKey key;
 	while (SDL_PollEvent(&event))
 	{
+		switch (event.type)
+		{
+		case SDL_EventType::SDL_WINDOWEVENT:
+			if (event.window.event == SDL_WINDOWEVENT_SIZE_CHANGED)
+			{
+				CoreEngine::GetInstance()->GetRenderer()->FramebufferResizeCallback();
+			}
+			break;
+		case SDL_EventType::SDL_QUIT:
+			CoreEngine::GetInstance()->Quit(&event);
+		}
+		
 		key.first = event.type;
 
 		//If the event is keyboard or button realted, set key.second
@@ -40,9 +52,6 @@ void EventListener::HandleEvents()
 		case SDL_MOUSEWHEEL:
 			MouseEventHandler::UpdateCursorPosition();
 			break;
-
-
-			break;
 		default:
 			key.second = SDLK_UNKNOWN;
 			break;
@@ -58,13 +67,39 @@ void EventListener::CallFunctions(inputKey key, SDL_Event* event)
 	{
 		for (const auto& function : EventMap[Event])
 		{
-			for (const auto& object : FunctionMap[function]) function(object, event);
+			auto iterator = FunctionMap[function].begin();
+			while (iterator != FunctionMap[function].end())
+			{
+				if (*iterator)
+				{
+					function(*iterator, event);
+					iterator++;
+				}
+				else
+				{
+					FunctionMap[function].erase(*iterator);
+				}
+			}
+			//for (const auto& object : FunctionMap[function]) function(object, event);
 		}
 	}
 
-	for (const auto& function : InputMap[key])
+	for (auto& function : InputMap[key])
 	{
-		for (const auto& object : function.second) function.first(object, event);
+		auto iterator = function.second.begin();
+		while (iterator != function.second.end())
+		{
+			if (*iterator)
+			{
+				function.first(*iterator, event);
+				iterator++;
+			}
+			else
+			{
+				function.second.erase(*iterator);
+			}
+		}
+		//for (const auto& object : function.second) function.first(object, event);
 	}
 }
 
@@ -86,7 +121,7 @@ bool EventListener::AddInputToEvent(const char* event, sdlEventType type, sdlKey
 	return true;
 }
 
-bool EventListener::AddObjectToFunctionMap(inputFunction_t function, O_Object* object)
+bool EventListener::AddObjectToFunctionMap(inputFunction_t function, void* object)
 {
 	if (!function)
 	{
@@ -95,13 +130,13 @@ bool EventListener::AddObjectToFunctionMap(inputFunction_t function, O_Object* o
 	}
 	else
 	{
-		if (!FunctionMap.count(function)) FunctionMap[function] = std::set<O_Object*>();
+		if (!FunctionMap.count(function)) FunctionMap[function] = std::set<void*>();
 		FunctionMap[function].insert(object);
 		return true;
 	}
 }
 
-void EventListener::RemoveObjectToFunctionMap(inputFunction_t function, O_Object* object)
+void EventListener::RemoveObjectToFunctionMap(inputFunction_t function, void* object)
 {
 	if (!object || !function || !!FunctionMap.count(function)) return;
 	else
@@ -119,7 +154,7 @@ EventListener::~EventListener()
 {
 }
 
-bool EventListener::AddFunctionByInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
+bool EventListener::AddFunctionByInput(void* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
 {
 	if (!function)
 	{
@@ -131,13 +166,13 @@ bool EventListener::AddFunctionByInput(O_Object* object, inputFunction_t functio
 	{
 		inputKey key(type, keyCode);
 		if (!InputMap.count(key)) InputMap[key] = functionMap_t();
-		if (!InputMap[key].count(function)) InputMap[key][function] = std::set<O_Object*>();
+		if (!InputMap[key].count(function)) InputMap[key][function] = std::set<void*>();
 		InputMap[key][function].insert(object);
 		return true;
 	}
 }
 
-void EventListener::RemoveObjectFromInput(O_Object* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
+void EventListener::RemoveObjectFromInput(void* object, inputFunction_t function, sdlEventType type, sdlKeycode keyCode)
 {
 	if (!function || !object) return;
 	inputKey key(type, keyCode);
@@ -145,7 +180,7 @@ void EventListener::RemoveObjectFromInput(O_Object* object, inputFunction_t func
 	else InputMap[key][function].erase(object);
 }
 
-bool EventListener::AddFunctionByEvent(O_Object* object, inputFunction_t function, eventName_t event)
+bool EventListener::AddFunctionByEvent(void* object, inputFunction_t function, eventName_t event)
 {
 	if (!EventMap.count(event))
 	{
@@ -159,7 +194,7 @@ bool EventListener::AddFunctionByEvent(O_Object* object, inputFunction_t functio
 	}
 }
 
-void EventListener::RemoveFunctionFromEvent(O_Object* object, inputFunction_t function, eventName_t event)
+void EventListener::RemoveFunctionFromEvent(void* object, inputFunction_t function, eventName_t event)
 {
 	if (!object || !function || !FunctionMap.count(function)) return;
 	FunctionMap[function].erase(object);

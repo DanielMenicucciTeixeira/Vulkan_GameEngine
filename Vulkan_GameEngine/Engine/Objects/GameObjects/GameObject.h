@@ -14,7 +14,7 @@ struct FTransform;
 class C_TransformComponent;
 class LevelGraph;
 
-class O_GameObject : public O_Object
+class O_GameObject : virtual public O_Object
 {
 public:
 	O_GameObject(std::string name = "", bool isStatic = false);

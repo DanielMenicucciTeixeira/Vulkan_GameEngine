@@ -68,54 +68,54 @@ void GO_Pawn::Update(float deltaTime)
 	O_GameObject::Update(deltaTime);
 }
 
-void GO_Pawn::MoveForward(O_Object* self, SDL_Event* event)
+void GO_Pawn::MoveForward(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->MoveForward(false);
+	((GO_Pawn*)self)->MoveForward(false);
 }
 
-void GO_Pawn::MoveBackwards(O_Object* self, SDL_Event* event)
+void GO_Pawn::MoveBackwards(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->MoveForward(true);
+	((GO_Pawn*)self)->MoveForward(true);
 }
 
-void GO_Pawn::StopMoving(O_Object* self, SDL_Event* event)
+void GO_Pawn::StopMoving(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->StopMoving();
+	((GO_Pawn*)self)->StopMoving();
 }
 
-void GO_Pawn::TurnRight(O_Object* self, SDL_Event* event)
+void GO_Pawn::TurnRight(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->Turn(false);
+	((GO_Pawn*)self)->Turn(false);
 }
 
-void GO_Pawn::TurnLeft(O_Object* self, SDL_Event* event)
+void GO_Pawn::TurnLeft(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->Turn(true);
+	((GO_Pawn*)self)->Turn(true);
 }
 
-void GO_Pawn::StopTurning(O_Object* self, SDL_Event* event)
+void GO_Pawn::StopTurning(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->StopTurning();
+	((GO_Pawn*)self)->StopTurning();
 }
 
-void GO_Pawn::TurnCamera(O_Object* self, SDL_Event* event)
+void GO_Pawn::TurnCamera(void* self, SDL_Event* event)
 {
 	IVector2 offset = MouseEventHandler::GetCursorOffset();
-	dynamic_cast<GO_Pawn*>(self)->TurnCamera({(float)offset.X, (float)offset.Y});
+	((GO_Pawn*)self)->TurnCamera({(float)offset.X, (float)offset.Y});
 }
 
-void GO_Pawn::ZoomCamera(O_Object* self, SDL_Event* event)
+void GO_Pawn::ZoomCamera(void* self, SDL_Event* event)
 {
 }
 
-void GO_Pawn::PrintFrustum(O_Object* self, SDL_Event* event)
+void GO_Pawn::PrintFrustum(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->Camera->PrintFrustum();
+	((GO_Pawn*)self)->Camera->PrintFrustum();
 }
 
-void GO_Pawn::Grab(O_Object* self, SDL_Event* event)
+void GO_Pawn::Grab(void* self, SDL_Event* event)
 {
-	dynamic_cast<GO_Pawn*>(self)->Grab();
+	((GO_Pawn*)self)->Grab();
 }
 
 void GO_Pawn::MoveForward(bool backwards)

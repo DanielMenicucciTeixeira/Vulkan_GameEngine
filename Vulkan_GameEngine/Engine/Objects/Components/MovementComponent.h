@@ -10,7 +10,7 @@ class FQuaternion;
 /// <summary>
 /// Responsable for moveing objects
 /// </summary>
-class C_MovementComponent : public O_Component
+class C_MovementComponent : virtual public O_Component
 {
 protected:
 	bool AlwaysFaceForward;

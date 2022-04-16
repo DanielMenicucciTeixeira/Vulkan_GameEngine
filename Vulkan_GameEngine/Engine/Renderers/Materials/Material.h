@@ -121,12 +121,12 @@ public:
 	virtual ~Material() {}
 
 protected:
-	std::string MaterialName;
+	std::string InstanceName;
 	S_ShaderInfo Shader;
 
 public:
-	inline const std::string& GetMaterialName() const { return MaterialName; }
-	inline void SetMaterialName(std::string name) { MaterialName = name; }
+	inline const std::string& GetMaterialName() const { return InstanceName; }
+	inline void SetMaterialName(std::string name) { InstanceName = name; }
 	inline const S_ShaderInfo& GetShaderInfo() const { return Shader; }
 
 	virtual std::vector<void*> GetShaderVariablesData() const = 0;

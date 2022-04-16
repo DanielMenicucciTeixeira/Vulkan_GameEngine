@@ -20,16 +20,16 @@ public:
 
 	void Update(float deltaTime) override;
 
-	static void MoveForward(O_Object* self, SDL_Event* event);
-	static void MoveBackwards(O_Object* self, SDL_Event* event);
-	static void StopMoving(O_Object* self, SDL_Event* event);
-	static void TurnRight(O_Object* self, SDL_Event* event);
-	static void TurnLeft(O_Object* self, SDL_Event* event);
-	static void StopTurning(O_Object* self, SDL_Event* event);
-	static void TurnCamera(O_Object* self, SDL_Event* event);
-	static void ZoomCamera(O_Object* self, SDL_Event* event);
-	static void PrintFrustum(O_Object* self, SDL_Event* event);
-	static void Grab(O_Object* self, SDL_Event* event);
+	static void MoveForward(void* self, SDL_Event* event);
+	static void MoveBackwards(void* self, SDL_Event* event);
+	static void StopMoving(void* self, SDL_Event* event);
+	static void TurnRight(void* self, SDL_Event* event);
+	static void TurnLeft(void* self, SDL_Event* event);
+	static void StopTurning(void* self, SDL_Event* event);
+	static void TurnCamera(void* self, SDL_Event* event);
+	static void ZoomCamera(void* self, SDL_Event* event);
+	static void PrintFrustum(void* self, SDL_Event* event);
+	static void Grab(void* self, SDL_Event* event);
 
 	void MoveForward(bool backwards);
 	void StopMoving();

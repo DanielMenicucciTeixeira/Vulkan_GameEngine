@@ -4,7 +4,7 @@
 #include "LevelGraph.h"
 #include <algorithm>
 
-C_LightSourceComponent::C_LightSourceComponent(O_GameObject* owner) : C_TransformComponent(owner), Intensity(1.0f)
+C_LightSourceComponent::C_LightSourceComponent(O_GameObject* owner) : C_TransformComponent(owner), Intensity(1.0f), O_Component(owner)
 {
 	LevelGraph::GetInstance()->AddLight(LightInfo, LightIndex);
 	SetAmbientMultiplier(0.005f);

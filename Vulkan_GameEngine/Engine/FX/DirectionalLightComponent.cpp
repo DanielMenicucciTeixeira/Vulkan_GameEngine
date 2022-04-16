@@ -2,7 +2,7 @@
 #include "LightInfo.h"
 #include "Math/FQuaternion.h"
 
-C_DirectionalLightComponent::C_DirectionalLightComponent(O_GameObject* owner) : C_LightSourceComponent(owner)
+C_DirectionalLightComponent::C_DirectionalLightComponent(O_GameObject* owner) : C_LightSourceComponent(owner), O_Component(owner)
 {
 	(*LightInfo)[3][0] = E_LightType::DIRECTIONAL_LIGHT;
 }

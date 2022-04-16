@@ -42,7 +42,7 @@ void C_StaticMeshComponent::Update(const float deltaTime)
 	UpdateModelMatrix();
 }
 
-C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_RenderableComponent(owner)
+C_StaticMeshComponent::C_StaticMeshComponent(O_GameObject* owner) : C_RenderableComponent(owner), O_Component(owner)
 {
 	ModelMatrix = new FMatrix4();
 	UpdateModelMatrix();

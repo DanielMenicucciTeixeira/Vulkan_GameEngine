@@ -71,7 +71,7 @@ void C_SphereCollider::RefreshSphere()
 //	return false;
 //}
 
-C_SphereCollider::C_SphereCollider(O_GameObject* owner) : C_CollisionComponent(owner)
+C_SphereCollider::C_SphereCollider(O_GameObject* owner) : C_CollisionComponent(owner), O_Component(owner)
 {
 	//CollisionSphere = new Sphere(GetComponentPosition() + GetOwner()->GetPosition(), 1.0f);
 	CollisionSphere = Sphere(GetComponentAbsolutePosition(), 1.0f);

@@ -37,7 +37,7 @@
 //	return true;
 //}
 
-C_MeshCollision::C_MeshCollision(O_GameObject* owner) : C_CollisionComponent(owner)
+C_MeshCollision::C_MeshCollision(O_GameObject* owner) : C_CollisionComponent(owner), O_Component(owner)
 {
 }
 

@@ -42,12 +42,12 @@ void G_Game01::LoadLevel(int sceneNum_, SDL_Event* event)
 	CoreEngine::GetInstance()->SetCurrentScene(sceneNum_);
 }
 
-void G_Game01::EndGame(O_Object* object, SDL_Event* event)
+void G_Game01::EndGame(void* object, SDL_Event* event)
 {
 	CoreEngine::GetInstance()->Exit();
 }
 
-void G_Game01::QuitApplication(O_Object* object, SDL_Event* event)
+void G_Game01::QuitApplication(void* object, SDL_Event* event)
 {
 	CoreEngine::GetInstance()->Exit();
 	CoreEngine::GetInstance()->Quit(event);

@@ -15,14 +15,13 @@
 #include "Engine/Serialize/Serialize.h"
 
 
-
 void printUp(SDL_Event* event) { printf("Key up!\n"); }
 void printDown(SDL_Event* event) { printf("Key down!\n"); }
 void printEngine(SDL_Event* event) { printf("In Engine!\n"); }
 
-
 int main(int argc, char* argv[])
 {
+
 	Serialize myObj(10);
 	Serialize other(1);
 
@@ -59,6 +58,7 @@ int main(int argc, char* argv[])
 
 	//Game start
 	CoreEngine::GetInstance()->Run();
+
 
 	return 0;
 }

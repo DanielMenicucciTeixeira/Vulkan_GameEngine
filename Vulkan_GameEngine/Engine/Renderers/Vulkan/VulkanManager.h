@@ -110,6 +110,7 @@ public:
 	SwapchainSupportDetails GetSwapchainSupportDetails();
 	VkExtent2D* GetSwapchainExtent();
 	std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetDescriptorSetLayoutsByShader();
+	std::unordered_map<std::string, VkDescriptorSetLayout_T*> GetUIDescriptorSetLayoutMap();
 	VkRenderPass_T* GetRenderPass();
 
 	QueueFamilyIndices FindQueueFamilies(VkPhysicalDevice_T* physicalDevice);
@@ -156,6 +157,7 @@ protected:
 	bool FramebufferResized = false;
 
 	std::unordered_map<S_Mesh*, S_MeshData*> MeshDataMap;
+	S_MeshData* RectMeshData;
 
 	std::vector<VkSemaphore_T*> ImageAvailableSemaphores;
 	std::vector<VkSemaphore_T*> RenderFinishedSemaphores;

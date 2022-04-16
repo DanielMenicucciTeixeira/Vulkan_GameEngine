@@ -8,7 +8,7 @@ MV_SkyboxMaterial::MV_SkyboxMaterial() : M_VulkanMaterial()
     Shader.Name = "Skybox";
     Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::VERTEX_BIT, "SkyboxShaderVert"));
     Shader.ShaderFiles.push_back(std::make_pair(E_ShaderStage::FRAGMENT_BIT, "SkyboxShaderFrag"));
-    MaterialName = "M_Skybox";
+    InstanceName = "M_Skybox";
 
     CubeMap.Info.Stage = E_ShaderStage::FRAGMENT_BIT;
     CubeMap.Info.Type = E_ShaderVariableType::COMBINED_IMAGE_SAMPLER;

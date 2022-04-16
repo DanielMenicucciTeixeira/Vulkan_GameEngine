@@ -54,6 +54,7 @@ void main()
 	vec3 viewDirection = normalize(CameraPosition - FragPosition);
 	vec3 lightDirection;
 	float intensity = 1;
+	vec4 textureVec = texture(TextureDifuse, textureCoords);
 
 	for(int index = 0; index < NumberOfLights.Number; index++)
 	{
@@ -66,11 +67,11 @@ void main()
 			else lightDirection = normalize(Lights.InfoMatrix[index][0].xyz - FragPosition);
 			
 			//Ambient light calculations
-			ambient = ambient + (Material.Data[0].xyz * texture(TextureDifuse, textureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
+			ambient = ambient + (Material.Data[0].xyz * textureVec.rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
 
 			//Difuse light calculations
 			float diff = max(dot(normal,lightDirection), 0.0);
-			diffuse = diffuse + ((diff * Material.Data[1].xyz) * texture(TextureDifuse, textureCoords).rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
+			diffuse = diffuse + ((diff * Material.Data[1].xyz) * textureVec.rgb) * (Lights.InfoMatrix[index][2].xyz * intensity);
 
 			//Specular light calculations
 			vec3 reflectionDirection = normalize(-lightDirection - FragPosition);
@@ -79,5 +80,6 @@ void main()
 		}
 	}
 
-	FragColour = vec4(ambient + diffuse + specular, Material.Data[3].y);
+	//FragColour = vec4(ambient + diffuse + specular, Material.Data[3].y);
+	FragColour = vec4(ambient + diffuse + specular, Material.Data[3].y * textureVec.a);
 }

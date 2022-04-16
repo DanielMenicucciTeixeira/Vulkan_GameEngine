@@ -130,7 +130,7 @@ void C_CollisionComponent::Update(const float deltaTime)
 	if (CollisionType == ECollisionType::OVERLAP) { SetDoneOverlapCheck(false); }
 }
 
-C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic())
+C_CollisionComponent::C_CollisionComponent(O_GameObject* owner, ECollisionType collisionType) : C_TransformComponent(owner, owner->GetIsStatic()), O_Component(owner)
 {
 	CurrentNodes.reserve(5);
 	SetCollisionType(collisionType);

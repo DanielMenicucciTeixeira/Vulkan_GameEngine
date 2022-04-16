@@ -3,6 +3,9 @@
 
 class FQuaternion;
 class FVector4;
+class IVector3;
+class FVector2;
+class IVector2;
 
 class FVector3
 {
@@ -19,9 +22,18 @@ public:
 	FVector3(float value);
 
 	//Constructor initializing to match a given FVector3, a copy constructor
-	FVector3(const FVector3& vector);
+	FVector3(const IVector3& vector);
 
 	//Constructor initializing to match a given FVector3, a copy constructor
+	FVector3(const FVector2& vector);
+
+	//Constructor initializing to match a given FVector3, a copy constructor
+	FVector3(const IVector2& vector);
+
+	//Constructor initializing to match a given FVector3, a copy constructor
+	FVector3(const FVector3& vector);
+
+	//Constructor initializing to match a given FVector4, a copy constructor
 	FVector3(const FVector4& vector);
 
 	//Contructor initalizaing to match given values
@@ -48,6 +60,9 @@ public:
 
 	float operator* (const FVector3& vector) const;//Overload of the "*" operator, makes a vector times vector dot product.
 	inline float operator* (const FVector3*& vector) const { return *this * *vector; }
+
+	inline FVector3 operator| (const FVector3& vector) const { return FVector3(X * vector.X, Y * vector.Y, Z * vector.Z); }//Overload of the "|" operator, returns vector { X*x, Y*y, Z*z}
+	inline FVector3 operator| (const FVector3*& vector) const { return *this | vector; }
 
 	void operator= (const FVector3& vector);//Overload of the "=" operator, makes each component of the vector equal to the equivalent component of a given vector.
 	inline void operator= (FVector3* vector) { *this = *vector; }

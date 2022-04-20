@@ -38,6 +38,8 @@ var class_f_vector2 =
     [ "operator==", "class_f_vector2.html#afc70cfe01a33302a2f8a53f4ad94a50f", null ],
     [ "operator[]", "class_f_vector2.html#aaf717afd19889d9f9594453ca6314bb8", null ],
     [ "operator[]", "class_f_vector2.html#ade3fc205d2fd29181ad5580c1b40e90e", null ],
+    [ "operator|", "class_f_vector2.html#a47dd344804f5433c695a0f241a67cb36", null ],
+    [ "operator|", "class_f_vector2.html#a4b41bd5384fa24ad04cef7da4d673929", null ],
     [ "Print", "class_f_vector2.html#a48290a48a92c005598f4da3ac5e6c3f8", null ],
     [ "Rotate", "class_f_vector2.html#af639943c2f188d93da0c18a94d22314f", null ],
     [ "X", "class_f_vector2.html#a4149790b0bcdb391bc575cd008df9bdb", null ],

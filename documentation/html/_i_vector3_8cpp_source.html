@@ -288,14 +288,14 @@ $(document).ready(function(){initNavTree('_i_vector3_8cpp_source.html',''); init
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    printf(<span class="stringliteral">&quot;[ %f,\t%f,\t%f ]\n&quot;</span>, <a class="code hl_variable" href="class_i_vector3.html#a37a98a539596d80e880397bbed675ba7">X</a>, <a class="code hl_variable" href="class_i_vector3.html#a38a6b53e8648c7363ed25b15f5093304">Y</a>, <a class="code hl_variable" href="class_i_vector3.html#a608303f8ad7ecdc2dc5597caf450e224">Z</a>);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="struct_h_a_s_h___f_vector3.html#a7da803334d6180fa3657a2eed4462033">  207</a></span><span class="keywordtype">size_t</span> <a class="code hl_function" href="struct_h_a_s_h___f_vector3.html#a6c01ea6bbb901393cf507f2abbac2d41">HASH_FVector3::operator()</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_i_vector3.html">IVector3</a>&amp; vector)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    std::size_t vectorX = std::hash&lt;int&gt;()(vector.<a class="code hl_variable" href="class_i_vector3.html#a37a98a539596d80e880397bbed675ba7">X</a>);</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    std::size_t vectorY = std::hash&lt;int&gt;()(vector.<a class="code hl_variable" href="class_i_vector3.html#a38a6b53e8648c7363ed25b15f5093304">Y</a>);</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    std::size_t vectorZ = std::hash&lt;int&gt;()(vector.<a class="code hl_variable" href="class_i_vector3.html#a608303f8ad7ecdc2dc5597caf450e224">Z</a>);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">//size_t HASH_FVector3::operator()(const IVector3&amp; vector) const</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">//{</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">//  std::size_t vectorX = std::hash&lt;int&gt;()(vector.X);</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">//  std::size_t vectorY = std::hash&lt;int&gt;()(vector.Y);</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">//  std::size_t vectorZ = std::hash&lt;int&gt;()(vector.Z);</span></div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">return</span> vectorX ^ vectorY ^ vectorZ;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">//  return vectorX ^ vectorY ^ vectorZ;</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">//}</span></div>
 <div class="ttc" id="a_f_quaternion_8h_html"><div class="ttname"><a href="_f_quaternion_8h.html">FQuaternion.h</a></div></div>
 <div class="ttc" id="a_i_vector3_8h_html"><div class="ttname"><a href="_i_vector3_8h.html">IVector3.h</a></div></div>
 <div class="ttc" id="aclass_f_quaternion_html"><div class="ttname"><a href="class_f_quaternion.html">FQuaternion</a></div><div class="ttdef"><b>Definition:</b> <a href="_f_quaternion_8h_source.html#l00008">FQuaternion.h:9</a></div></div>
@@ -326,7 +326,6 @@ $(document).ready(function(){initNavTree('_i_vector3_8cpp_source.html',''); init
 <div class="ttc" id="aclass_i_vector3_html_ad01bf3592ffc2ce890aa3bb12e60195f"><div class="ttname"><a href="class_i_vector3.html#ad01bf3592ffc2ce890aa3bb12e60195f">IVector3::IVector3</a></div><div class="ttdeci">IVector3()</div><div class="ttdef"><b>Definition:</b> <a href="_i_vector3_8cpp_source.html#l00040">IVector3.cpp:40</a></div></div>
 <div class="ttc" id="aclass_i_vector3_html_ad43cc94827ff6b7cad9afe40db47f3ac"><div class="ttname"><a href="class_i_vector3.html#ad43cc94827ff6b7cad9afe40db47f3ac">IVector3::operator*</a></div><div class="ttdeci">IVector3 operator*(int multiplier) const</div><div class="ttdef"><b>Definition:</b> <a href="_i_vector3_8cpp_source.html#l00102">IVector3.cpp:102</a></div></div>
 <div class="ttc" id="aclass_i_vector3_html_ad6afcab9904b39a1fa99150f4eb8522f"><div class="ttname"><a href="class_i_vector3.html#ad6afcab9904b39a1fa99150f4eb8522f">IVector3::CrossProduct</a></div><div class="ttdeci">IVector3 CrossProduct(const IVector3 &amp;vector)</div><div class="ttdef"><b>Definition:</b> <a href="_i_vector3_8cpp_source.html#l00156">IVector3.cpp:156</a></div></div>
-<div class="ttc" id="astruct_h_a_s_h___f_vector3_html_a6c01ea6bbb901393cf507f2abbac2d41"><div class="ttname"><a href="struct_h_a_s_h___f_vector3.html#a6c01ea6bbb901393cf507f2abbac2d41">HASH_FVector3::operator()</a></div><div class="ttdeci">size_t operator()(const FVector3 &amp;vector) const</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8cpp_source.html#l00219">FVector3.cpp:219</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -15,5 +15,9 @@ var dir_548c2321fa36effbb19054771331eaeb =
     [ "Skybox.cpp", "_skybox_8cpp.html", null ],
     [ "Skybox.h", "_skybox_8h.html", [
       [ "GO_Skybox", "class_g_o___skybox.html", "class_g_o___skybox" ]
+    ] ],
+    [ "UserInterface.cpp", "_user_interface_8cpp.html", null ],
+    [ "UserInterface.h", "_user_interface_8h.html", [
+      [ "GO_UserInterface", "class_g_o___user_interface.html", "class_g_o___user_interface" ]
     ] ]
 ];

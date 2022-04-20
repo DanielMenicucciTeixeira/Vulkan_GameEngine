@@ -88,92 +88,100 @@ $(document).ready(function(){initNavTree('_ray_8cpp_source.html',''); initResiza
 <div class="contents">
 <a href="_ray_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">Ray.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;../Math/FVector3.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_collision_detection_8h.html">Physics/CollisionDetection.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">    8</a></span><a class="code hl_function" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a>()</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    Origin = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>();</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Direction = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>(0.0f, 0.0f, -1.0f);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Length = 0;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Infinit = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_ray.html#a77d451b374fee69dd0e18486af966dd3">   16</a></span><a class="code hl_function" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a> start, <span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a> direction, <span class="keywordtype">float</span> length, <span class="keywordtype">bool</span> infinit)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Origin = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>(start);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Direction = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>(direction.<a class="code hl_function" href="class_f_vector3.html#a858673b76007df4d6c4c416d9dba31a7">GetNormal</a>());<span class="comment">//Direction should always be normalized</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Length = length;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Infinit = infinit;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">   24</a></span><a class="code hl_function" href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">Ray::~Ray</a>()</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span> (Origin) <span class="keyword">delete</span>(Origin);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">if</span> (Direction) <span class="keyword">delete</span>(Direction);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">   30</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">Ray::GetPositionAtLength</a>(<span class="keywordtype">float</span> displacement)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">if</span> (Infinit || abs(displacement) &lt;= Length)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> *Origin + (*Direction * displacement);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Ray::GetPosition() tried to acess position beyond ray lenght&quot;</span>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">   42</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">Ray::GetOrigin</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span> *Origin;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">   47</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">Ray::GetDirection</a>()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword"></span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">return</span> *Direction;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">   52</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">Ray::SetOrigin</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>&amp; position)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    *Origin = position;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">Ray::SetDirection</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>&amp; direction)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    *Direction = direction;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">   62</a></span><a class="code hl_class" href="class_ray.html">Ray</a>&amp; <a class="code hl_function" href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">Ray::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_ray.html">Ray</a>&amp; ray)</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Origin = ray.Origin;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    Direction = ray.Direction;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    Length = ray.Length;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    Infinit = ray.Infinit;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">Ray::SetIntersectDistance</a>(<span class="keywordtype">float</span> dis)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    intersectDistance = dis;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="_collision_detection_8h.html">Physics/CollisionDetection.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">    7</a></span><a class="code hl_function" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a>()</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    Origin = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>();</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    Direction = <span class="keyword">new</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>(0.0f, 0.0f, -1.0f);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Length = 0;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Infinit = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>}</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_ray.html#a77d451b374fee69dd0e18486af966dd3">   15</a></span><a class="code hl_function" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a> start, <span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a> direction, <span class="keywordtype">float</span> length, <span class="keywordtype">bool</span> infinit)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Origin = start;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Direction = direction.<a class="code hl_function" href="class_f_vector3.html#a858673b76007df4d6c4c416d9dba31a7">GetNormal</a>();<span class="comment">//Direction should always be normalized</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    Length = length;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Infinit = infinit;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">   23</a></span><a class="code hl_function" href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">Ray::~Ray</a>()</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">   27</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">Ray::GetPositionAtLength</a>(<span class="keywordtype">float</span> displacement)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (Infinit || abs(displacement) &lt;= Length)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> Origin + (Direction * displacement);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Ray::GetPosition() tried to acess position beyond ray length&quot;</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">   39</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">Ray::GetOrigin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> Origin;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">   44</a></span><a class="code hl_class" href="class_f_vector3.html">FVector3</a> <a class="code hl_function" href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">Ray::GetDirection</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span> Direction;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">Ray::SetOrigin</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>&amp; position)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    Origin = position;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">Ray::SetDirection</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_f_vector3.html">FVector3</a>&amp; direction)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Direction = direction;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">   59</a></span><a class="code hl_class" href="class_ray.html">Ray</a>&amp; <a class="code hl_function" href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">Ray::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_ray.html">Ray</a>&amp; ray)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    Origin = ray.Origin;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    Direction = ray.Direction;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    Length = ray.Length;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Infinit = ray.Infinit;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">Ray::SetIntersectDistance</a>(<span class="keywordtype">float</span> dis)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>{</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    intersectDistance = dis;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_ray.html#a1301f7e679f340355f26c203bcb330d7">   73</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_ray.html#a1301f7e679f340355f26c203bcb330d7">Ray::GetDistanceFromOrigin</a>(<a class="code hl_class" href="class_f_vector3.html">FVector3</a> point)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> ((Origin.<a class="code hl_variable" href="class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e">X</a> - point.<a class="code hl_variable" href="class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e">X</a>) * (Origin.<a class="code hl_variable" href="class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e">X</a> - point.<a class="code hl_variable" href="class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e">X</a>) +</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        (Origin.<a class="code hl_variable" href="class_f_vector3.html#a10ba3ed47b315d00151e218878a3f1b9">Y</a> - point.<a class="code hl_variable" href="class_f_vector3.html#a10ba3ed47b315d00151e218878a3f1b9">Y</a>) * (Origin.<a class="code hl_variable" href="class_f_vector3.html#a10ba3ed47b315d00151e218878a3f1b9">Y</a> - point.<a class="code hl_variable" href="class_f_vector3.html#a10ba3ed47b315d00151e218878a3f1b9">Y</a>) +</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        (Origin.<a class="code hl_variable" href="class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36">Z</a> - point.<a class="code hl_variable" href="class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36">Z</a>) * (Origin.<a class="code hl_variable" href="class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36">Z</a> - point.<a class="code hl_variable" href="class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36">Z</a>));</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
 <div class="ttc" id="a_collision_detection_8h_html"><div class="ttname"><a href="_collision_detection_8h.html">CollisionDetection.h</a></div></div>
 <div class="ttc" id="a_ray_8h_html"><div class="ttname"><a href="_ray_8h.html">Ray.h</a></div></div>
-<div class="ttc" id="aclass_f_vector3_html"><div class="ttname"><a href="class_f_vector3.html">FVector3</a></div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8h_source.html#l00007">FVector3.h:8</a></div></div>
-<div class="ttc" id="aclass_f_vector3_html_a858673b76007df4d6c4c416d9dba31a7"><div class="ttname"><a href="class_f_vector3.html#a858673b76007df4d6c4c416d9dba31a7">FVector3::GetNormal</a></div><div class="ttdeci">FVector3 GetNormal() const</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8cpp_source.html#l00174">FVector3.cpp:174</a></div></div>
-<div class="ttc" id="aclass_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdef"><b>Definition:</b> <a href="_ray_8h_source.html#l00007">Ray.h:8</a></div></div>
-<div class="ttc" id="aclass_ray_html_a0940b57d551ac2654bbfea42ef6e6a95"><div class="ttname"><a href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">Ray::SetDirection</a></div><div class="ttdeci">void SetDirection(const FVector3 &amp;direction)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00057">Ray.cpp:57</a></div></div>
-<div class="ttc" id="aclass_ray_html_a2859e9188636187d64dc28fd70b9bce5"><div class="ttname"><a href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">Ray::GetOrigin</a></div><div class="ttdeci">FVector3 GetOrigin() const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00042">Ray.cpp:42</a></div></div>
-<div class="ttc" id="aclass_ray_html_a2e3d2c29f2df4ab3da10da79d4acb852"><div class="ttname"><a href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a></div><div class="ttdeci">Ray()</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00008">Ray.cpp:8</a></div></div>
-<div class="ttc" id="aclass_ray_html_a4bd23f0a025d5371ae1e61c4df5a391c"><div class="ttname"><a href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">Ray::SetIntersectDistance</a></div><div class="ttdeci">void SetIntersectDistance(float dis)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00071">Ray.cpp:71</a></div></div>
-<div class="ttc" id="aclass_ray_html_a754a60340207f8d4bb1a5a20286e104e"><div class="ttname"><a href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">Ray::SetOrigin</a></div><div class="ttdeci">void SetOrigin(const FVector3 &amp;position)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00052">Ray.cpp:52</a></div></div>
-<div class="ttc" id="aclass_ray_html_a8b0e575ce5df046c0c7615c32a96a46f"><div class="ttname"><a href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">Ray::~Ray</a></div><div class="ttdeci">~Ray()</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00024">Ray.cpp:24</a></div></div>
-<div class="ttc" id="aclass_ray_html_abcb3e0fae1477c35201b32881d47e20f"><div class="ttname"><a href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">Ray::GetDirection</a></div><div class="ttdeci">FVector3 GetDirection() const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00047">Ray.cpp:47</a></div></div>
-<div class="ttc" id="aclass_ray_html_ac7a18134c5cc9c7e1f0e87eb1b8a62ab"><div class="ttname"><a href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">Ray::GetPositionAtLength</a></div><div class="ttdeci">FVector3 GetPositionAtLength(float displacement) const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00030">Ray.cpp:30</a></div></div>
-<div class="ttc" id="aclass_ray_html_af04d1c90be1218bb605dae5fc7d62d87"><div class="ttname"><a href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">Ray::operator=</a></div><div class="ttdeci">Ray &amp; operator=(const Ray &amp;ray)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00062">Ray.cpp:62</a></div></div>
+<div class="ttc" id="aclass_f_vector3_html"><div class="ttname"><a href="class_f_vector3.html">FVector3</a></div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8h_source.html#l00010">FVector3.h:11</a></div></div>
+<div class="ttc" id="aclass_f_vector3_html_a10ba3ed47b315d00151e218878a3f1b9"><div class="ttname"><a href="class_f_vector3.html#a10ba3ed47b315d00151e218878a3f1b9">FVector3::Y</a></div><div class="ttdeci">float Y</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8h_source.html#l00014">FVector3.h:14</a></div></div>
+<div class="ttc" id="aclass_f_vector3_html_a4a84942e8ea39dd717b9ade9ba0cfe36"><div class="ttname"><a href="class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36">FVector3::Z</a></div><div class="ttdeci">float Z</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8h_source.html#l00014">FVector3.h:14</a></div></div>
+<div class="ttc" id="aclass_f_vector3_html_a858673b76007df4d6c4c416d9dba31a7"><div class="ttname"><a href="class_f_vector3.html#a858673b76007df4d6c4c416d9dba31a7">FVector3::GetNormal</a></div><div class="ttdeci">FVector3 GetNormal() const</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8cpp_source.html#l00203">FVector3.cpp:203</a></div></div>
+<div class="ttc" id="aclass_f_vector3_html_aa6655e85376fd79f5e0b0fd89ba0258e"><div class="ttname"><a href="class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e">FVector3::X</a></div><div class="ttdeci">float X</div><div class="ttdef"><b>Definition:</b> <a href="_f_vector3_8h_source.html#l00014">FVector3.h:14</a></div></div>
+<div class="ttc" id="aclass_ray_html"><div class="ttname"><a href="class_ray.html">Ray</a></div><div class="ttdef"><b>Definition:</b> <a href="_ray_8h_source.html#l00008">Ray.h:9</a></div></div>
+<div class="ttc" id="aclass_ray_html_a0940b57d551ac2654bbfea42ef6e6a95"><div class="ttname"><a href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">Ray::SetDirection</a></div><div class="ttdeci">void SetDirection(const FVector3 &amp;direction)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00054">Ray.cpp:54</a></div></div>
+<div class="ttc" id="aclass_ray_html_a1301f7e679f340355f26c203bcb330d7"><div class="ttname"><a href="class_ray.html#a1301f7e679f340355f26c203bcb330d7">Ray::GetDistanceFromOrigin</a></div><div class="ttdeci">float GetDistanceFromOrigin(FVector3 point)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00073">Ray.cpp:73</a></div></div>
+<div class="ttc" id="aclass_ray_html_a2859e9188636187d64dc28fd70b9bce5"><div class="ttname"><a href="class_ray.html#a2859e9188636187d64dc28fd70b9bce5">Ray::GetOrigin</a></div><div class="ttdeci">FVector3 GetOrigin() const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00039">Ray.cpp:39</a></div></div>
+<div class="ttc" id="aclass_ray_html_a2e3d2c29f2df4ab3da10da79d4acb852"><div class="ttname"><a href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray::Ray</a></div><div class="ttdeci">Ray()</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00007">Ray.cpp:7</a></div></div>
+<div class="ttc" id="aclass_ray_html_a4bd23f0a025d5371ae1e61c4df5a391c"><div class="ttname"><a href="class_ray.html#a4bd23f0a025d5371ae1e61c4df5a391c">Ray::SetIntersectDistance</a></div><div class="ttdeci">void SetIntersectDistance(float dis)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00068">Ray.cpp:68</a></div></div>
+<div class="ttc" id="aclass_ray_html_a754a60340207f8d4bb1a5a20286e104e"><div class="ttname"><a href="class_ray.html#a754a60340207f8d4bb1a5a20286e104e">Ray::SetOrigin</a></div><div class="ttdeci">void SetOrigin(const FVector3 &amp;position)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00049">Ray.cpp:49</a></div></div>
+<div class="ttc" id="aclass_ray_html_a8b0e575ce5df046c0c7615c32a96a46f"><div class="ttname"><a href="class_ray.html#a8b0e575ce5df046c0c7615c32a96a46f">Ray::~Ray</a></div><div class="ttdeci">~Ray()</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00023">Ray.cpp:23</a></div></div>
+<div class="ttc" id="aclass_ray_html_abcb3e0fae1477c35201b32881d47e20f"><div class="ttname"><a href="class_ray.html#abcb3e0fae1477c35201b32881d47e20f">Ray::GetDirection</a></div><div class="ttdeci">FVector3 GetDirection() const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00044">Ray.cpp:44</a></div></div>
+<div class="ttc" id="aclass_ray_html_ac7a18134c5cc9c7e1f0e87eb1b8a62ab"><div class="ttname"><a href="class_ray.html#ac7a18134c5cc9c7e1f0e87eb1b8a62ab">Ray::GetPositionAtLength</a></div><div class="ttdeci">FVector3 GetPositionAtLength(float displacement) const</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00027">Ray.cpp:27</a></div></div>
+<div class="ttc" id="aclass_ray_html_af04d1c90be1218bb605dae5fc7d62d87"><div class="ttname"><a href="class_ray.html#af04d1c90be1218bb605dae5fc7d62d87">Ray::operator=</a></div><div class="ttdeci">Ray &amp; operator=(const Ray &amp;ray)</div><div class="ttdef"><b>Definition:</b> <a href="_ray_8cpp_source.html#l00059">Ray.cpp:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

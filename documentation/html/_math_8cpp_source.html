@@ -87,7 +87,19 @@ $(document).ready(function(){initNavTree('_math_8cpp_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="_math_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="_math_8h.html">Math.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno"><a class="line" href="class_m_a_t_h_1_1_math.html#a1e046746f23766a1226e186657988ad9">    3</a></span><span class="keywordtype">float</span> <a class="code hl_function" href="class_m_a_t_h_1_1_math.html#a1e046746f23766a1226e186657988ad9">MATH::Math::Clamp</a>(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> value)</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    <span class="keywordtype">float</span> tempA = a - value, tempB = b - value;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordflow">if</span> (a &lt; 0) { tempA *= -1; }</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keywordflow">if</span> (b &lt; 0) { tempB *= -1; }</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordflow">if</span> (tempA &lt; tempB) { <span class="keywordflow">return</span> a; }</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordflow">else</span> { <span class="keywordflow">return</span> b; }</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
 <div class="ttc" id="a_math_8h_html"><div class="ttname"><a href="_math_8h.html">Math.h</a></div></div>
+<div class="ttc" id="aclass_m_a_t_h_1_1_math_html_a1e046746f23766a1226e186657988ad9"><div class="ttname"><a href="class_m_a_t_h_1_1_math.html#a1e046746f23766a1226e186657988ad9">MATH::Math::Clamp</a></div><div class="ttdeci">static float Clamp(float a, float b, float value)</div><div class="ttdef"><b>Definition:</b> <a href="_math_8cpp_source.html#l00003">Math.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -146,6 +146,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0162037b619139d8ef5f3d669865fe1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1195a9015bb201e748021132b94b17a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#ab1195a9015bb201e748021132b94b17a">GetDescriptorSetLayoutsByShader</a> ()</td></tr>
 <tr class="separator:ab1195a9015bb201e748021132b94b17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ab14c2e1b21510444fc5f1295f67bb"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#aa0ab14c2e1b21510444fc5f1295f67bb">GetUIDescriptorSetLayoutMap</a> ()</td></tr>
+<tr class="separator:aa0ab14c2e1b21510444fc5f1295f67bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3374e79b099201dbd8854177763255f3"><td class="memItemLeft" align="right" valign="top">VkRenderPass_T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#a3374e79b099201dbd8854177763255f3">GetRenderPass</a> ()</td></tr>
 <tr class="separator:a3374e79b099201dbd8854177763255f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83fa696ceab6dee9118110033db23a7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_queue_family_indices.html">QueueFamilyIndices</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#a83fa696ceab6dee9118110033db23a7d">FindQueueFamilies</a> (VkPhysicalDevice_T *physicalDevice)</td></tr>
@@ -225,6 +227,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af2ef81db8c3d0a265c847574aa579859"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a263be3850d7f1108c25b5490c1598d66"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="struct_s___mesh.html">S_Mesh</a> *, <a class="el" href="struct_s___mesh_data.html">S_MeshData</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#a263be3850d7f1108c25b5490c1598d66">MeshDataMap</a></td></tr>
 <tr class="separator:a263be3850d7f1108c25b5490c1598d66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56974ba9260d577ed62eafd9811c8f1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_s___mesh_data.html">S_MeshData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#a56974ba9260d577ed62eafd9811c8f1d">RectMeshData</a></td></tr>
+<tr class="separator:a56974ba9260d577ed62eafd9811c8f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6503df70b3135047dd541d0b24aca82"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkSemaphore_T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#aa6503df70b3135047dd541d0b24aca82">ImageAvailableSemaphores</a></td></tr>
 <tr class="separator:aa6503df70b3135047dd541d0b24aca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727aa29181877eb25509bf80f20877bb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; VkSemaphore_T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vulkan_manager.html#a727aa29181877eb25509bf80f20877bb">RenderFinishedSemaphores</a></td></tr>
@@ -266,7 +270,7 @@ Protected Attributes</h2></td></tr>
 
 <p><a class="el" href="class_vulkan_renderer.html">VulkanRenderer</a> includes: </p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00031">31</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -293,7 +297,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00041">41</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00042">42</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -313,7 +317,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00375">375</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00435">435</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -342,7 +346,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_renderer.html#a2269363ca9383bf319d341099bc4c9e4">Renderer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00449">449</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00509">509</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,7 +390,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00336">336</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00396">396</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +438,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00142">142</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00149">149</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +465,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00204">204</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00211">211</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -488,7 +492,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00189">189</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00196">196</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -515,7 +519,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00312">312</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00354">354</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -559,7 +563,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00574">574</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00634">634</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -586,7 +590,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00480">480</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00540">540</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -613,7 +617,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00347">347</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00407">407</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +644,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00288">288</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00312">312</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -660,7 +664,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00403">403</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00463">463</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -690,7 +694,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00126">126</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00133">133</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -710,7 +714,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00096">96</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00103">103</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -739,7 +743,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_renderer.html#ae8ad442674378b1f531c62b005d70c2f">Renderer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00050">50</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00051">51</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -785,7 +789,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00088">88</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -885,7 +889,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00065">65</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00067">67</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -904,7 +908,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00071">71</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00073">73</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -977,7 +981,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00091">91</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00098">98</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1004,7 +1008,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00619">619</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00679">679</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1081,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00081">81</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00083">83</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1100,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00076">76</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00078">78</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa0ab14c2e1b21510444fc5f1295f67bb" name="aa0ab14c2e1b21510444fc5f1295f67bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ab14c2e1b21510444fc5f1295f67bb">&#9670;&nbsp;</a></span>GetUIDescriptorSetLayoutMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, VkDescriptorSetLayout_T * &gt; VulkanManager::GetUIDescriptorSetLayoutMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00093">93</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1125,7 +1148,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_renderer.html#a9db42ad45cf8ab6e78c0951ebed955c7">Renderer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00418">418</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00478">478</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1152,7 +1175,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00630">630</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00690">690</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1171,7 +1194,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00171">171</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00178">178</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1217,7 +1240,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_renderer.html#ac0de484282496e9d832112534e81ffc1">Renderer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00488">488</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00548">548</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1246,7 +1269,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="class_renderer.html#adc8e97d9f0d8633baeb281def24a5d4a">Renderer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00055">55</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8cpp_source.html#l00057">57</a> of file <a class="el" href="_vulkan_manager_8cpp_source.html">VulkanManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -1271,7 +1294,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00125">125</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00126">126</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1295,7 +1318,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00123">123</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00124">124</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1319,7 +1342,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00164">164</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00166">166</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1366,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00146">146</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00147">147</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1367,7 +1390,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00147">147</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00148">148</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1391,7 +1414,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00156">156</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00157">157</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1415,7 +1438,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00148">148</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00149">149</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1439,7 +1462,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00160">160</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00162">162</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1463,7 +1486,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00163">163</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00165">165</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1487,7 +1510,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00162">162</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00164">164</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1534,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00153">153</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00154">154</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1535,7 +1558,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00165">165</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00167">167</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1559,7 +1582,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00158">158</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00159">159</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1606,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00169">169</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00171">171</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1607,7 +1630,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00154">154</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00155">155</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+
+</div>
+</div>
+<a id="a56974ba9260d577ed62eafd9811c8f1d" name="a56974ba9260d577ed62eafd9811c8f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56974ba9260d577ed62eafd9811c8f1d">&#9670;&nbsp;</a></span>RectMeshData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_s___mesh_data.html">S_MeshData</a>* VulkanManager::RectMeshData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00160">160</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1678,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00166">166</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00168">168</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1655,7 +1702,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00161">161</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00163">163</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1679,7 +1726,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00151">151</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00152">152</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>
@@ -1703,7 +1750,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00149">149</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_vulkan_manager_8h_source.html#l00150">150</a> of file <a class="el" href="_vulkan_manager_8h_source.html">VulkanManager.h</a>.</p>
 
 </div>
 </div>

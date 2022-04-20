@@ -7,6 +7,6 @@ var class_material =
     [ "GetShaderVariablesData", "class_material.html#a979f2c45e705d37185cbb22f5916bb5e", null ],
     [ "GetShaderVariablesInfo", "class_material.html#ad0498bf7f098c0ecb406039b5b83decc", null ],
     [ "SetMaterialName", "class_material.html#aebd25f2204bb833caf57e72320eaeadf", null ],
-    [ "MaterialName", "class_material.html#a9b6dc2cd561853e65069005b621685e8", null ],
+    [ "InstanceName", "class_material.html#a40a918967cae03ba8f0ea1f244a80084", null ],
     [ "Shader", "class_material.html#a5e8a3f1aa5b6809f81ee7fb15a014a9f", null ]
 ];

@@ -5,6 +5,10 @@ var dir_50b44ebb09f8ec23c1a3d3842e5eb730 =
     [ "Apple.h", "_apple_8h.html", [
       [ "GO_Apple", "class_g_o___apple.html", "class_g_o___apple" ]
     ] ],
+    [ "Ball.cpp", "_ball_8cpp.html", null ],
+    [ "Ball.h", "_ball_8h.html", [
+      [ "GO_Ball", "class_g_o___ball.html", "class_g_o___ball" ]
+    ] ],
     [ "BilliardBall.cpp", "_billiard_ball_8cpp.html", null ],
     [ "BilliardBall.h", "_billiard_ball_8h.html", [
       [ "GO_BilliardBall", "class_g_o___billiard_ball.html", "class_g_o___billiard_ball" ]

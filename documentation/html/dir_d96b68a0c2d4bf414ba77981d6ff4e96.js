@@ -31,5 +31,13 @@ var dir_d96b68a0c2d4bf414ba77981d6ff4e96 =
     [ "TransformComponent.cpp", "_transform_component_8cpp.html", null ],
     [ "TransformComponent.h", "_transform_component_8h.html", [
       [ "C_TransformComponent", "class_c___transform_component.html", "class_c___transform_component" ]
+    ] ],
+    [ "UIComponent.cpp", "_u_i_component_8cpp.html", null ],
+    [ "UIComponent.h", "_u_i_component_8h.html", [
+      [ "S_UIRect", "struct_s___u_i_rect.html", "struct_s___u_i_rect" ],
+      [ "UI_Element", "class_u_i___element.html", "class_u_i___element" ],
+      [ "UI_Image", "class_u_i___image.html", "class_u_i___image" ],
+      [ "UI_Button", "class_u_i___button.html", "class_u_i___button" ],
+      [ "C_UIComponent", "class_c___u_i_component.html", "class_c___u_i_component" ]
     ] ]
 ];

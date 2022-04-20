@@ -89,6 +89,9 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>S_CubeSampler()&#160;:&#160;<a class="el" href="struct_s___cube_sampler.html#a7112a6172708fb349f9ce6efd68873ed">S_CubeSampler</a></li>
 <li>S_GraphicsPipelineStagesInfo()&#160;:&#160;<a class="el" href="struct_s___graphics_pipeline_stages_info.html#af947d92cf86cdc90ab98ca6e60ba78e9">S_GraphicsPipelineStagesInfo</a></li>
 <li>S_ModelData()&#160;:&#160;<a class="el" href="struct_s___model_data.html#a1805772706112049fecf9e3766a1669a">S_ModelData</a></li>
+<li>S_Rectangle()&#160;:&#160;<a class="el" href="struct_s___rectangle.html#ac14e1c0b7271cc5f4386a005a721ce02">S_Rectangle</a></li>
+<li>S_UIRect()&#160;:&#160;<a class="el" href="struct_s___u_i_rect.html#a5e3ef5d156724b05881e4a741788386e">S_UIRect</a></li>
+<li>S_Vertex()&#160;:&#160;<a class="el" href="struct_s___vertex.html#a9a279b10df1297ea38949a4ac419760a">S_Vertex</a></li>
 <li>SameDirection()&#160;:&#160;<a class="el" href="class_c___collision_component.html#aad982218222f251241c99ffa2d9f6955">C_CollisionComponent</a></li>
 <li>SceneManager()&#160;:&#160;<a class="el" href="class_scene_manager.html#a52085e6737c23b491c228e86781af808">SceneManager</a></li>
 <li>Serialize()&#160;:&#160;<a class="el" href="class_serialize.html#ab6a20380e9a4393e61f270759f219114">Serialize</a></li>
@@ -98,6 +101,7 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SetAmbientMultiplier()&#160;:&#160;<a class="el" href="class_c___light_source_component.html#a9a29507cc93365d61ae97bf8e5cd7418">C_LightSourceComponent</a>, <a class="el" href="class_g_o___light_source.html#a70157cc94cf2bee7137b4da6acba4f08">GO_LightSource</a></li>
 <li>SetAngularAcceleration()&#160;:&#160;<a class="el" href="class_c___physics_component.html#a54a68feed6470cdcfeaebe96047bc0a8">C_PhysicsComponent</a></li>
 <li>SetAngularVelocity()&#160;:&#160;<a class="el" href="class_c___physics_component.html#af8bf03b17f439fe1a3d952caef85428d">C_PhysicsComponent</a></li>
+<li>SetApplyGravity()&#160;:&#160;<a class="el" href="class_c___physics_component.html#abaf7219a33e684fe3c67c17429d1d2c7">C_PhysicsComponent</a></li>
 <li>SetBoxExtent()&#160;:&#160;<a class="el" href="class_c___box_collider.html#a04e64ba1d40296185d3da5e6d10fdea1">C_BoxCollider</a></li>
 <li>SetColliderType()&#160;:&#160;<a class="el" href="class_c___collision_component.html#a56aa942ce33a189080fd0fccd6e0c00f">C_CollisionComponent</a></li>
 <li>SetCollisionFunction()&#160;:&#160;<a class="el" href="class_c___collision_component.html#a8653dc333836ffc3a94373379376df09">C_CollisionComponent</a></li>
@@ -116,8 +120,9 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SetDirection()&#160;:&#160;<a class="el" href="class_ray.html#a0940b57d551ac2654bbfea42ef6e6a95">Ray</a></li>
 <li>SetDoneOverlapCheck()&#160;:&#160;<a class="el" href="class_c___collision_component.html#ada2ce0a509116225c6ab8a20f5c3f068">C_CollisionComponent</a></li>
 <li>SetEngineInputFunction()&#160;:&#160;<a class="el" href="class_core_engine.html#a59befb82f7c6183617cec81a759e0146">CoreEngine</a></li>
-<li>SetExtent()&#160;:&#160;<a class="el" href="class_box_bounds.html#a096698a0afb174fcb2310b6332ebf4b2">BoxBounds</a></li>
+<li>SetExtent()&#160;:&#160;<a class="el" href="class_box_bounds.html#a096698a0afb174fcb2310b6332ebf4b2">BoxBounds</a>, <a class="el" href="class_u_i___element.html#a5f63f9e8ceae720c21d669981ea5c5d8">UI_Element</a></li>
 <li>SetGameInterface()&#160;:&#160;<a class="el" href="class_core_engine.html#a5190fd366bb13fdeee909faee9c223b3">CoreEngine</a></li>
+<li>SetHiddenInGame()&#160;:&#160;<a class="el" href="class_c___renderable_component.html#ac1930b303f8247287f9cb8def8e16205">C_RenderableComponent</a></li>
 <li>SetInfinit()&#160;:&#160;<a class="el" href="class_ray.html#aa4fe5f340b72437d9b7fbfe183b8097a">Ray</a></li>
 <li>SetInFrustum()&#160;:&#160;<a class="el" href="class_c___static_mesh_component.html#a1670de2a79d4ab5ccac1d46d36e5a88e">C_StaticMeshComponent</a></li>
 <li>SetIntensity()&#160;:&#160;<a class="el" href="class_c___light_source_component.html#a2759d1899bd33d99d470463b45703b0c">C_LightSourceComponent</a>, <a class="el" href="class_g_o___light_source.html#a9c8dd321823c47de7bc69ada1343df9a">GO_LightSource</a></li>
@@ -133,16 +138,19 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SetOverlapBeginFunction()&#160;:&#160;<a class="el" href="class_c___collision_component.html#a2d82554fbe842e80107f6beefe5371cc">C_CollisionComponent</a></li>
 <li>SetOverlapEndFunction()&#160;:&#160;<a class="el" href="class_c___collision_component.html#a9224986aab2e2319f81c83a709ad22bf">C_CollisionComponent</a></li>
 <li>SetOwner()&#160;:&#160;<a class="el" href="class_o___component.html#ae88d1df4fe6405d66521d8e79b2f6e35">O_Component</a></li>
-<li>SetPosition()&#160;:&#160;<a class="el" href="class_box_bounds.html#a009276f70dfe66cb8c4cc44bcc49bf31">BoxBounds</a>, <a class="el" href="struct_f_transform.html#a2379695ab15301ab9a6161012367e74d">FTransform</a>, <a class="el" href="class_o___game_object.html#a2db1d0c11817a6d9df10f72a499fdefa">O_GameObject</a></li>
+<li>SetPosition()&#160;:&#160;<a class="el" href="class_box_bounds.html#a009276f70dfe66cb8c4cc44bcc49bf31">BoxBounds</a>, <a class="el" href="struct_f_transform.html#a2379695ab15301ab9a6161012367e74d">FTransform</a>, <a class="el" href="class_o___game_object.html#a2db1d0c11817a6d9df10f72a499fdefa">O_GameObject</a>, <a class="el" href="class_u_i___element.html#a4ee41148582bc95bbf2d9697a866996e">UI_Element</a></li>
 <li>SetPostAttributes()&#160;:&#160;<a class="el" href="class_window.html#a84b358a605b61111a5cc396bac46a2a7">Window</a></li>
 <li>SetPreAttributes()&#160;:&#160;<a class="el" href="class_window.html#a4140f53a75ecdbbc3d9abe2598241b67">Window</a></li>
 <li>SetPrevOverlaps()&#160;:&#160;<a class="el" href="class_c___collision_component.html#ae58d2d1cd3f0df3d9531e761ae71d587">C_CollisionComponent</a></li>
 <li>SetRadius()&#160;:&#160;<a class="el" href="class_c___sphere_collider.html#aabdbb469c92e1ddb93b82b4e69e63eee">C_SphereCollider</a></li>
+<li>SetRectExtent()&#160;:&#160;<a class="el" href="struct_s___u_i_rect.html#a8d2af2dce8d80741087ea13f2d234900">S_UIRect</a></li>
 <li>SetReflectionDataDefaults()&#160;:&#160;<a class="el" href="class_m___standard_material.html#ac95a24e2b4b984669918ac0cdbebe667">M_StandardMaterial</a></li>
 <li>SetRoot()&#160;:&#160;<a class="el" href="class_o___game_object.html#a2e414b2ad82c97845066560bf9372476">O_GameObject</a></li>
-<li>SetRotation()&#160;:&#160;<a class="el" href="struct_f_transform.html#a8846e889364a5c58e32d162ef3601c30">FTransform</a>, <a class="el" href="class_o___game_object.html#adec6c4d343677e8b6af258df61ce86ca">O_GameObject</a></li>
+<li>SetRotation()&#160;:&#160;<a class="el" href="struct_f_transform.html#a8846e889364a5c58e32d162ef3601c30">FTransform</a>, <a class="el" href="class_o___game_object.html#adec6c4d343677e8b6af258df61ce86ca">O_GameObject</a>, <a class="el" href="struct_s___u_i_rect.html#aaa9b98cb21b2d4a8b0642ae5f0704feb">S_UIRect</a>, <a class="el" href="class_u_i___element.html#a1bba2e436622bae104c0a54d81cda764">UI_Element</a></li>
 <li>SetRow()&#160;:&#160;<a class="el" href="class_f_matrix4.html#a33fde727be198a028e5e222e70d215d1">FMatrix4</a></li>
+<li>SetRubberness()&#160;:&#160;<a class="el" href="class_c___physics_component.html#acb860459055a3fb5da01a1af4a4d73bb">C_PhysicsComponent</a></li>
 <li>SetScale()&#160;:&#160;<a class="el" href="struct_f_transform.html#af48f218e4d31f0e50345f128e07e8771">FTransform</a>, <a class="el" href="class_o___game_object.html#a725a24138a6b88547b3d21d84624bbaf">O_GameObject</a></li>
+<li>SetScreenPosition()&#160;:&#160;<a class="el" href="struct_s___u_i_rect.html#a28d5cffa2c929ecc39d8ef72aa2ff608">S_UIRect</a></li>
 <li>SetSDLManager()&#160;:&#160;<a class="el" href="class_vulkan_renderer.html#aca937c97d159021900ff9ee525d84472">VulkanRenderer</a></li>
 <li>SetSeverity()&#160;:&#160;<a class="el" href="class_debug_logger.html#a43d3de0d6bde5eaf4912bea7c5e6d27d">DebugLogger</a></li>
 <li>SetSpecularMultiplier()&#160;:&#160;<a class="el" href="class_c___light_source_component.html#acf673e171a040dd1e9c43634de475876">C_LightSourceComponent</a>, <a class="el" href="class_g_o___light_source.html#a25ac3cdff500c48475312447242aa436">GO_LightSource</a></li>
@@ -158,14 +166,14 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SetUpDebugMessenger()&#160;:&#160;<a class="el" href="class_vulkan_debugger.html#a2754c2f4f3ebae63ff891056b3939349">VulkanDebugger</a>, <a class="el" href="class_vulkan_renderer.html#aa7b8ac951fd9e206f134a71b9fb57c50">VulkanRenderer</a></li>
 <li>SetUseAbsolutes()&#160;:&#160;<a class="el" href="class_c___transform_component.html#a496e329c63316db2c00b0d6496cac519">C_TransformComponent</a></li>
 <li>SetVelocity()&#160;:&#160;<a class="el" href="class_c___physics_component.html#ae87657fcc1c95358178af3594b042c40">C_PhysicsComponent</a></li>
-<li>SetVisibility()&#160;:&#160;<a class="el" href="class_c___renderable_component.html#a5b9123a360955d695904e659fe15663b">C_RenderableComponent</a></li>
+<li>SetVisibility()&#160;:&#160;<a class="el" href="class_c___renderable_component.html#a5b9123a360955d695904e659fe15663b">C_RenderableComponent</a>, <a class="el" href="class_u_i___element.html#a8d264cbe18b3dfdcf6a86352a8d20bcb">UI_Element</a></li>
 <li>SetWindow()&#160;:&#160;<a class="el" href="class_vulkan_renderer.html#a8a1079dfe304174c5b11c959bd60eb22">VulkanRenderer</a></li>
 <li>ShaderVariable()&#160;:&#160;<a class="el" href="struct_shader_variable.html#a58ae9006db34c676d7fbba6b6b5e1802">ShaderVariable&lt; T &gt;</a></li>
 <li>ShaderVariableInfo()&#160;:&#160;<a class="el" href="struct_shader_variable_info.html#a4e8e0343141a72d1217a654849e2716c">ShaderVariableInfo</a></li>
 <li>Simplex()&#160;:&#160;<a class="el" href="struct_simplex.html#a6111f5657ca04b243a5823b645b70bc6">Simplex</a></li>
 <li>size()&#160;:&#160;<a class="el" href="struct_simplex.html#aeede2b943bcd3d7ab16da0a2715113da">Simplex</a></li>
 <li>SLerp()&#160;:&#160;<a class="el" href="class_f_quaternion.html#af115e8afca1fb0257876881645c41609">FQuaternion</a></li>
-<li>SlowDown()&#160;:&#160;<a class="el" href="class_c___physics_component.html#a07f6f2933f78f077efa3a0d217c7f623">C_PhysicsComponent</a></li>
+<li>SlowDown()&#160;:&#160;<a class="el" href="class_c___physics_component.html#a0b7a7bf606ea72693b07170d5bd7cf42">C_PhysicsComponent</a></li>
 <li>SpawnGameObjectOfClass()&#160;:&#160;<a class="el" href="class_l___level.html#a76a596a09acf908023eb7b2dab0d3609">L_Level</a></li>
 <li>Sphere()&#160;:&#160;<a class="el" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a></li>
 <li>SphereAABBIntersection()&#160;:&#160;<a class="el" href="class_collision_detection.html#a44e19ceb2567a45b2b6e90aa4af2972e">CollisionDetection</a></li>
@@ -176,11 +184,11 @@ $(document).ready(function(){initNavTree('functions_func_s.html',''); initResiza
 <li>SpherePlaneCollision()&#160;:&#160;<a class="el" href="class_c___collision_component.html#a7c1ba14fd9b8b451ae43b30f4dafe24b">C_CollisionComponent</a></li>
 <li>SphereSpatialCheck()&#160;:&#160;<a class="el" href="class_collision_handler.html#a8d598c1b8ab18a12fa1f098b1390dc5d">CollisionHandler</a></li>
 <li>SphereSphereResponse()&#160;:&#160;<a class="el" href="class_c___physics_component.html#a5e797fa2c82d5dac9fb9d89b15b6b033">C_PhysicsComponent</a></li>
-<li>Start()&#160;:&#160;<a class="el" href="class_c___bounding_box.html#a32c57d6f8581c0b32d66dbaec72b2278">C_BoundingBox</a>, <a class="el" href="class_c___box_collider.html#a3d2f72bd24c8a3d0d72ab4506977a259">C_BoxCollider</a>, <a class="el" href="class_c___camera_component.html#adc4d5ab8a17a5fc3f7a5636276c9fdd1">C_CameraComponent</a>, <a class="el" href="class_c___static_mesh_component.html#aa06ce38041e5faef4f9fbdcd2afc6c24">C_StaticMeshComponent</a>, <a class="el" href="class_g_o___apple.html#ae61d8ebea8b8ef01682782ce25ad4700">GO_Apple</a>, <a class="el" href="class_g_o___camera.html#ab5e0aa5c70a8a225cf0a8c97acd9620d">GO_Camera</a>, <a class="el" href="class_g_o___tetrahedron.html#aed1d4245119a1b0a1ef44070e1456b58">GO_Tetrahedron</a>, <a class="el" href="class_g_o___triangle.html#a9a46c0cde76022c58f394550458fefc3">GO_Triangle</a>, <a class="el" href="class_g_o___wall.html#ad4b8ba37cc1e754a5cc315ef97d077bb">GO_Wall</a>, <a class="el" href="class_l___billiard_level.html#adbca6edcb3caaec1200d6fef0715eb44">L_BilliardLevel</a>, <a class="el" href="class_l___level.html#a69e2e0b9d9ae1157de30fdc2456877dd">L_Level</a>, <a class="el" href="class_l___main_level.html#a1f68263d259d78e321dc7da86db7e7e2">L_MainLevel</a>, <a class="el" href="class_l___start_level.html#a82babcccc18d29eeba0c5d77a9206ca0">L_StartLevel</a>, <a class="el" href="class_l___tetrahedron_level.html#ae0cc50da525aeb0b5fbf9747a1551c26">L_TetrahedronLevel</a>, <a class="el" href="class_o___game_object.html#a7b115555e70224e0f59f806fefbb1c8a">O_GameObject</a>, <a class="el" href="class_o___object.html#aecaf9f30a1c4e5af1c6b9c9b569fa784">O_Object</a></li>
+<li>Start()&#160;:&#160;<a class="el" href="class_c___bounding_box.html#a32c57d6f8581c0b32d66dbaec72b2278">C_BoundingBox</a>, <a class="el" href="class_c___box_collider.html#a3d2f72bd24c8a3d0d72ab4506977a259">C_BoxCollider</a>, <a class="el" href="class_c___camera_component.html#adc4d5ab8a17a5fc3f7a5636276c9fdd1">C_CameraComponent</a>, <a class="el" href="class_c___static_mesh_component.html#aa06ce38041e5faef4f9fbdcd2afc6c24">C_StaticMeshComponent</a>, <a class="el" href="class_g_o___apple.html#ae61d8ebea8b8ef01682782ce25ad4700">GO_Apple</a>, <a class="el" href="class_g_o___ball.html#a11e7454ff489497e8ee28dae4d7badf3">GO_Ball</a>, <a class="el" href="class_g_o___camera.html#ab5e0aa5c70a8a225cf0a8c97acd9620d">GO_Camera</a>, <a class="el" href="class_g_o___tetrahedron.html#aed1d4245119a1b0a1ef44070e1456b58">GO_Tetrahedron</a>, <a class="el" href="class_g_o___triangle.html#a9a46c0cde76022c58f394550458fefc3">GO_Triangle</a>, <a class="el" href="class_g_o___wall.html#ad4b8ba37cc1e754a5cc315ef97d077bb">GO_Wall</a>, <a class="el" href="class_l___billiard_level.html#adbca6edcb3caaec1200d6fef0715eb44">L_BilliardLevel</a>, <a class="el" href="class_l___level.html#a69e2e0b9d9ae1157de30fdc2456877dd">L_Level</a>, <a class="el" href="class_l___main_level.html#a1f68263d259d78e321dc7da86db7e7e2">L_MainLevel</a>, <a class="el" href="class_l___start_level.html#a82babcccc18d29eeba0c5d77a9206ca0">L_StartLevel</a>, <a class="el" href="class_l___tetrahedron_level.html#ae0cc50da525aeb0b5fbf9747a1551c26">L_TetrahedronLevel</a>, <a class="el" href="class_o___game_object.html#a7b115555e70224e0f59f806fefbb1c8a">O_GameObject</a>, <a class="el" href="class_o___object.html#aecaf9f30a1c4e5af1c6b9c9b569fa784">O_Object</a></li>
 <li>StartClock()&#160;:&#160;<a class="el" href="class_clock.html#a9e055f2c0d33e4bc6225bcac380210f7">Clock</a></li>
 <li>StopEngine()&#160;:&#160;<a class="el" href="class_core_engine.html#a337cf414790134dbb5fe3aed33bac626">CoreEngine</a></li>
-<li>StopMoving()&#160;:&#160;<a class="el" href="class_g_o___pawn.html#ae5698a179f30119b1f4bf474544782b7">GO_Pawn</a></li>
-<li>StopTurning()&#160;:&#160;<a class="el" href="class_g_o___pawn.html#a33495262054a77642aab8f039624fb7b">GO_Pawn</a></li>
+<li>StopMoving()&#160;:&#160;<a class="el" href="class_g_o___pawn.html#a10fbf586d5fafbed6cdb506bd1ab47ab">GO_Pawn</a></li>
+<li>StopTurning()&#160;:&#160;<a class="el" href="class_g_o___pawn.html#aa35f602ee24d2399d5ddce760240f72a">GO_Pawn</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

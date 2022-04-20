@@ -9,6 +9,8 @@ var dir_c17988c5fea54ca829cc69f63be58838 =
     [ "StandardMaterial.h", "_standard_material_8h.html", [
       [ "M_StandardMaterial", "class_m___standard_material.html", "class_m___standard_material" ]
     ] ],
+    [ "UIMaterial.cpp", "_u_i_material_8cpp.html", null ],
+    [ "UIMaterial.h", "_u_i_material_8h.html", "_u_i_material_8h" ],
     [ "VulkanMaterial.cpp", "_engine_2_renderers_2_materials_2_vulkan_material_8cpp.html", null ],
     [ "VulkanMaterial.h", "_engine_2_renderers_2_materials_2_vulkan_material_8h.html", [
       [ "M_VulkanMaterial", "class_m___vulkan_material.html", "class_m___vulkan_material" ]

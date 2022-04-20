@@ -10,6 +10,6 @@ var struct_s___model_data =
     [ "operator<", "struct_s___model_data.html#ad731c021990abadad5610be9ed91972a", null ],
     [ "operator==", "struct_s___model_data.html#a328d13a75fc3db6445f9549c8354a802", null ],
     [ "operator==", "struct_s___model_data.html#a6f66968e3d4214faf412f9b2f9106654", null ],
-    [ "InFrustum", "struct_s___model_data.html#ae44bf97175b49509808f2fd3c5264c38", null ],
+    [ "IsVisible", "struct_s___model_data.html#aed358f62c96b882907ea387e18aef4dc", null ],
     [ "ModelMatrix", "struct_s___model_data.html#adbbefe77f6e73f03d825456364448204", null ]
 ];

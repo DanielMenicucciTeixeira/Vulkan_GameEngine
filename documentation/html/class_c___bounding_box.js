@@ -2,8 +2,10 @@ var class_c___bounding_box =
 [
     [ "C_BoundingBox", "class_c___bounding_box.html#a50f7b4d918ae5783de445b7254772814", null ],
     [ "~C_BoundingBox", "class_c___bounding_box.html#a5fbb1ab2e0612b531bdbb6ef76277283", null ],
+    [ "GetBoundsFromMesh", "class_c___bounding_box.html#a2d93563e73425dd51421cb9e2e602a2e", null ],
     [ "GetBoxBounds", "class_c___bounding_box.html#a4a1bc23f63ccb1db71244e2174e2509f", null ],
     [ "PostUpdate", "class_c___bounding_box.html#aef6ba1f8f818e306702c1dade55ff94c", null ],
+    [ "RefreshBox", "class_c___bounding_box.html#ae4bf56e8433c983d82426496adf5b288", null ],
     [ "SetComponentPosition", "class_c___bounding_box.html#a8988fd76374315719b89801c7ae9a449", null ],
     [ "SetComponentScale", "class_c___bounding_box.html#a26fc31a0d3928ae4bdc9e00b402e7e2d", null ],
     [ "Start", "class_c___bounding_box.html#a32c57d6f8581c0b32d66dbaec72b2278", null ],

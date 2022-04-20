@@ -5,7 +5,7 @@ var class_collision_handler =
     [ "AABBSpatialCheck", "class_collision_handler.html#a65e0965d19c38831137f724e83fa8283", null ],
     [ "AddCollider", "class_collision_handler.html#a14686b80004df820b96d94fa1e462417", null ],
     [ "GetAABBCollision", "class_collision_handler.html#aac0b1fdcc328fb64735200e2d2e5b778", null ],
-    [ "GetCollisionMuliRay", "class_collision_handler.html#a7fd1f55029bca9ff4e2dace308f4b38e", null ],
+    [ "GetCollisionMultiRay", "class_collision_handler.html#a975f8e0c770daa5ebade1e3015d7cd31", null ],
     [ "GetCollisionSingleRay", "class_collision_handler.html#a5e1d2e0ad785d79131d8bf9235850e6f", null ],
     [ "GetOBBCollision", "class_collision_handler.html#aea492e83fb0a4d5adb7edfeb2a9e11a8", null ],
     [ "GetSphereCollision", "class_collision_handler.html#a8c4f864b8ed50a3629045534f78f6431", null ],

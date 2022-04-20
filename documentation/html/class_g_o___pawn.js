@@ -16,6 +16,6 @@ var class_g_o___pawn =
     [ "CameraTurnSpeed", "class_g_o___pawn.html#a7fa7206166b8a14db01d8a7d05a8bb78", null ],
     [ "CameraZoomSpeed", "class_g_o___pawn.html#af6d90da2536c1975a750476df7deb6ae", null ],
     [ "Mesh", "class_g_o___pawn.html#a66870c08fffff97ca1c686944c797dfb", null ],
-    [ "Movement", "class_g_o___pawn.html#ae8b383cef7d40617dcb704d336fab497", null ],
+    [ "Movement", "class_g_o___pawn.html#a0b9b4caa2b36986914495d55a67b2ad9", null ],
     [ "Speed", "class_g_o___pawn.html#ac69ff506cce9a79221b4578c95694421", null ]
 ];

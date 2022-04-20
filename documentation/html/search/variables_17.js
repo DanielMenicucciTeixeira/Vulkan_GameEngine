@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['z_0',['Z',['../class_f_vector3.html#a4a84942e8ea39dd717b9ade9ba0cfe36',1,'FVector3::Z()'],['../class_f_vector4.html#ade0ea8e42af4f492968e7209b7c12bca',1,'FVector4::Z()'],['../class_i_vector3.html#a608303f8ad7ecdc2dc5597caf450e224',1,'IVector3::Z()']]]
+  ['x_0',['x',['../struct_f_t___vector__.html#a941e818e6dfca06409cddff4f325f74c',1,'FT_Vector_::x()'],['../struct_f_t___span__.html#a7f7235a404c66398b49c50fa09691ba5',1,'FT_Span_::x()'],['../struct_f_t___unit_vector__.html#a03c9f8ae35a5ad1bcac49995a9dac714',1,'FT_UnitVector_::x()'],['../struct_a_f_m___kern_pair_rec__.html#a4b7f90a0e17ed89353fec14ddb29fa12',1,'AFM_KernPairRec_::x()'],['../struct_w_o_f_f2___point_rec__.html#a1eacc4d4e17a4cdb9ba1528675119d80',1,'WOFF2_PointRec_::x()']]],
+  ['x_1',['X',['../class_f_vector2.html#a4149790b0bcdb391bc575cd008df9bdb',1,'FVector2::X()'],['../class_f_vector3.html#aa6655e85376fd79f5e0b0fd89ba0258e',1,'FVector3::X()'],['../class_f_vector4.html#adde7d6c779d671097d93be10971ab469',1,'FVector4::X()'],['../class_i_vector2.html#ad7a8142d65cc58bf4da9dd10ad8d9845',1,'IVector2::X()'],['../class_i_vector3.html#a37a98a539596d80e880397bbed675ba7',1,'IVector3::X()']]],
+  ['x_5fmins_2',['x_mins',['../struct_w_o_f_f2___info_rec__.html#a33126bfd9e28d514c18af913b593ddfd',1,'WOFF2_InfoRec_']]],
+  ['x_5foffset_3',['x_offset',['../struct_t_t___s_bit___component_rec__.html#a97799704aa59bf737e274289fa70ca3f',1,'TT_SBit_ComponentRec_']]],
+  ['x_5fppem_4',['x_ppem',['../struct_f_t___bitmap___size__.html#a6f877a792d2dc93328037c928979215f',1,'FT_Bitmap_Size_::x_ppem()'],['../struct_f_t___size___metrics__.html#abb42b175a3450e9d8b84483f166d6c8a',1,'FT_Size_Metrics_::x_ppem()'],['../struct_t_t___s_bit___strike_rec__.html#a2a1b17c24df2084fe485aefe8f34e7d4',1,'TT_SBit_StrikeRec_::x_ppem()'],['../struct_t_t___s_bit___scale_rec__.html#a235731b0452ea063cccacd2f59b3f44c',1,'TT_SBit_ScaleRec_::x_ppem()']]],
+  ['x_5fppem_5fsubstitute_5',['x_ppem_substitute',['../struct_t_t___s_bit___scale_rec__.html#a71955e363b0b5da84ed2c15d0e6f832d',1,'TT_SBit_ScaleRec_']]],
+  ['x_5fres_6',['x_res',['../struct_f_t_c___scaler_rec__.html#a886c7c1230dc5d5e6b3fc32d06274752',1,'FTC_ScalerRec_']]],
+  ['x_5fscale_7',['x_scale',['../struct_f_t___size___metrics__.html#a5e92028bb9881e107a6fb75d557eaff1',1,'FT_Size_Metrics_::x_scale()'],['../struct_c_f_f___glyph_slot_rec__.html#a857419576728f4526756d5fad23db38c',1,'CFF_GlyphSlotRec_::x_scale()']]],
+  ['x_5fskew_5fangle_8',['x_skew_angle',['../struct_f_t___paint_skew__.html#a7cae75fcdfec89ef78ae59ecd793247d',1,'FT_PaintSkew_']]],
+  ['xadvance_9',['xadvance',['../struct_f_t_c___s_bit_rec__.html#a502a0bb69d973d2ae626a842eb9fefd3',1,'FTC_SBitRec_']]],
+  ['xavgcharwidth_10',['xAvgCharWidth',['../struct_t_t___o_s2__.html#af903883918479780d17a72f6fee992bd',1,'TT_OS2_']]],
+  ['xheight_11',['xHeight',['../struct_t_t___p_c_l_t__.html#a4b2f3e6bf6508eacbff5e4eb16745872',1,'TT_PCLT_']]],
+  ['xmax_12',['xMax',['../struct_f_t___b_box__.html#ac6da5c44f4cb7b97eef1f438eb69c0ec',1,'FT_BBox_::xMax()'],['../struct_t_t___header__.html#a593b9cc3e11532972a7fc96944dd1ae9',1,'TT_Header_::xMax()']]],
+  ['xmax_5fextent_13',['xMax_Extent',['../struct_t_t___hori_header__.html#ab483cb323f9adc9d959209a42eb19957',1,'TT_HoriHeader_']]],
+  ['xmin_14',['xMin',['../struct_f_t___b_box__.html#a1f2a5d0565d496c1d41e43d018f45add',1,'FT_BBox_::xMin()'],['../struct_t_t___header__.html#ae4553d76427d9f7a28595ed71897dcbb',1,'TT_Header_::xMin()']]],
+  ['xuid_15',['xuid',['../struct_c_i_d___face_info_rec__.html#a32cd8836dd8a395d9aa6fb5831f06b27',1,'CID_FaceInfoRec_']]],
+  ['xx_16',['xx',['../struct_f_t___affine__23__.html#a72e3398887b02943605920d3ff580cdf',1,'FT_Affine_23_::xx()'],['../struct_f_t___matrix__.html#a27d51c2958634abe7bf377610e095f74',1,'FT_Matrix_::xx()'],['../struct_c_f_f___transform__.html#ab298a077bcdb766295e143b75a804d56',1,'CFF_Transform_::xx()']]],
+  ['xy_17',['xy',['../struct_f_t___affine__23__.html#a1042ae284ceed174ef70bd8ae0a98d73',1,'FT_Affine_23_::xy()'],['../struct_f_t___matrix__.html#a7e9f439d37c00ba1a11919bcaa8937a2',1,'FT_Matrix_::xy()'],['../struct_c_f_f___transform__.html#a416f86bda38e8419c3cc257318428527',1,'CFF_Transform_::xy()']]]
 ];

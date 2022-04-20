@@ -8,6 +8,6 @@ var class_l___tetrahedron_level =
     [ "Update", "class_l___tetrahedron_level.html#a76ba2421acd058e6b0e2b91057ebf81f", null ],
     [ "Skybox", "class_l___tetrahedron_level.html#ac00243a8b938bc52bef7f618e9637bc0", null ],
     [ "T1", "class_l___tetrahedron_level.html#a6c2c803c3e952d1385ffd624693e8a68", null ],
-    [ "T2", "class_l___tetrahedron_level.html#a546580c72e21997ea2975d4d861c5a82", null ],
-    [ "T3", "class_l___tetrahedron_level.html#ad51288795ae692cf382d4844db8404eb", null ]
+    [ "T2", "class_l___tetrahedron_level.html#a63b1e5244c699aa386207efb85475aa2", null ],
+    [ "T3", "class_l___tetrahedron_level.html#ac06afe7ddbf83cbfe99c1c4d22ba5dc6", null ]
 ];

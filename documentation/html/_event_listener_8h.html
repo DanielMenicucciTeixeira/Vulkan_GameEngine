@@ -118,10 +118,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:a63507a8c22f83ddb013486c1cb21d307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6afa489c7c562f0dafb3015ba25be92b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a6afa489c7c562f0dafb3015ba25be92b">inputKey</a> = std::pair&lt; <a class="el" href="_core_engine_8h.html#a44a759a76b9296235bc038dde3e596eb">sdlEventType</a>, <a class="el" href="_core_engine_8h.html#a2a74f059a0b6495a0e40890a4a4d1bab">sdlKeycode</a> &gt;</td></tr>
 <tr class="separator:a6afa489c7c562f0dafb3015ba25be92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a4c7f253d52a2c4c7682a7b8393c320"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a7a4c7f253d52a2c4c7682a7b8393c320">inputFunction_t</a> = void(*)(<a class="el" href="class_o___object.html">O_Object</a> *, SDL_Event *)</td></tr>
-<tr class="separator:a7a4c7f253d52a2c4c7682a7b8393c320"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3976bf44585a1c412813af465a11870"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#ae3976bf44585a1c412813af465a11870">functionMap_t</a> = std::unordered_map&lt; <a class="el" href="_event_listener_8h.html#a7a4c7f253d52a2c4c7682a7b8393c320">inputFunction_t</a>, std::set&lt; <a class="el" href="class_o___object.html">O_Object</a> * &gt; &gt;</td></tr>
-<tr class="separator:ae3976bf44585a1c412813af465a11870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d166a0746fa8960d4638ce468fd328d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a5d166a0746fa8960d4638ce468fd328d">inputFunction_t</a> = void(*)(void *, SDL_Event *)</td></tr>
+<tr class="separator:a5d166a0746fa8960d4638ce468fd328d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c1ef2b8e040aa1d7c2153c687259475"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_event_listener_8h.html#a3c1ef2b8e040aa1d7c2153c687259475">functionMap_t</a> = std::unordered_map&lt; <a class="el" href="_event_listener_8h.html#a5d166a0746fa8960d4638ce468fd328d">inputFunction_t</a>, std::set&lt; void * &gt; &gt;</td></tr>
+<tr class="separator:a3c1ef2b8e040aa1d7c2153c687259475"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a18bb30c3e30d1b08394690241a739a27" name="a18bb30c3e30d1b08394690241a739a27"></a>
@@ -157,14 +157,14 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a id="ae3976bf44585a1c412813af465a11870" name="ae3976bf44585a1c412813af465a11870"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3976bf44585a1c412813af465a11870">&#9670;&nbsp;</a></span>functionMap_t</h2>
+<a id="a3c1ef2b8e040aa1d7c2153c687259475" name="a3c1ef2b8e040aa1d7c2153c687259475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1ef2b8e040aa1d7c2153c687259475">&#9670;&nbsp;</a></span>functionMap_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_event_listener_8h.html#ae3976bf44585a1c412813af465a11870">functionMap_t</a> =  std::unordered_map &lt;<a class="el" href="_event_listener_8h.html#a7a4c7f253d52a2c4c7682a7b8393c320">inputFunction_t</a>, std::set&lt;<a class="el" href="class_o___object.html">O_Object</a>*&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="_event_listener_8h.html#a3c1ef2b8e040aa1d7c2153c687259475">functionMap_t</a> =  std::unordered_map &lt;<a class="el" href="_event_listener_8h.html#a5d166a0746fa8960d4638ce468fd328d">inputFunction_t</a>, std::set&lt;void*&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -173,14 +173,14 @@ Typedefs</h2></td></tr>
 
 </div>
 </div>
-<a id="a7a4c7f253d52a2c4c7682a7b8393c320" name="a7a4c7f253d52a2c4c7682a7b8393c320"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a4c7f253d52a2c4c7682a7b8393c320">&#9670;&nbsp;</a></span>inputFunction_t</h2>
+<a id="a5d166a0746fa8960d4638ce468fd328d" name="a5d166a0746fa8960d4638ce468fd328d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d166a0746fa8960d4638ce468fd328d">&#9670;&nbsp;</a></span>inputFunction_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="_event_listener_8h.html#a7a4c7f253d52a2c4c7682a7b8393c320">inputFunction_t</a> =  void(*)(<a class="el" href="class_o___object.html">O_Object</a>*, SDL_Event*)</td>
+          <td class="memname">using <a class="el" href="_event_listener_8h.html#a5d166a0746fa8960d4638ce468fd328d">inputFunction_t</a> =  void(*)(void*, SDL_Event*)</td>
         </tr>
       </table>
 </div><div class="memdoc">

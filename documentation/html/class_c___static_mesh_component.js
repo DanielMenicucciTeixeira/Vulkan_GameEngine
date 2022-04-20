@@ -18,11 +18,11 @@ var class_c___static_mesh_component =
     [ "Start", "class_c___static_mesh_component.html#aa06ce38041e5faef4f9fbdcd2afc6c24", null ],
     [ "Update", "class_c___static_mesh_component.html#ab750f1f4d9b0e222b2c627a7b0469dc3", null ],
     [ "UpdateModelMatrix", "class_c___static_mesh_component.html#addc6152b8859d60b093f8929c3740d91", null ],
+    [ "Box", "class_c___static_mesh_component.html#a34b1563d32c999957eda96dd34011032", null ],
     [ "InFrustum", "class_c___static_mesh_component.html#a453f27e21cbdb05257e745e6952077c9", null ],
     [ "Material", "class_c___static_mesh_component.html#af71c210cb2b80fe96c9402a74e5061aa", null ],
     [ "MaterialName", "class_c___static_mesh_component.html#ab510bc06dc782e1e4c9ab64d2532ce38", null ],
     [ "Mesh", "class_c___static_mesh_component.html#a514c3b7960701617272e291f40c39918", null ],
     [ "MeshName", "class_c___static_mesh_component.html#a0a78390f2b69014e67ef11f22f7a906e", null ],
-    [ "ModelMatrix", "class_c___static_mesh_component.html#a35b9bdf139b6800e7b84238411ee511f", null ],
-    [ "S_Box", "class_c___static_mesh_component.html#adf55b85fcb77f8cd7e03e2220852f92b", null ]
+    [ "ModelMatrix", "class_c___static_mesh_component.html#a35b9bdf139b6800e7b84238411ee511f", null ]
 ];

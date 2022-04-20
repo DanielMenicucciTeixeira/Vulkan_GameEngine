@@ -94,8 +94,8 @@ $(document).ready(function(){initNavTree('class_m_a_t_h_1_1_math.html',''); init
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:adc10e67f7b3b60acbf55d22212fa5ea8"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_t_h_1_1_math.html#adc10e67f7b3b60acbf55d22212fa5ea8">Clamp</a> (float a, float b, bool max)</td></tr>
-<tr class="separator:adc10e67f7b3b60acbf55d22212fa5ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e046746f23766a1226e186657988ad9"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_t_h_1_1_math.html#a1e046746f23766a1226e186657988ad9">Clamp</a> (float a, float b, float value)</td></tr>
+<tr class="separator:a1e046746f23766a1226e186657988ad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac75d85a48bac348a11b7daae7b2f0726"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_t_h_1_1_math.html#ac75d85a48bac348a11b7daae7b2f0726">Max</a> (float a, float b)</td></tr>
 <tr class="separator:ac75d85a48bac348a11b7daae7b2f0726"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a033821e1b101c5db41c31b7c6117f1"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_t_h_1_1_math.html#a4a033821e1b101c5db41c31b7c6117f1">Min</a> (float a, float b)</td></tr>
@@ -105,8 +105,8 @@ Static Public Member Functions</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00004">4</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="adc10e67f7b3b60acbf55d22212fa5ea8" name="adc10e67f7b3b60acbf55d22212fa5ea8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc10e67f7b3b60acbf55d22212fa5ea8">&#9670;&nbsp;</a></span>Clamp()</h2>
+<a id="a1e046746f23766a1226e186657988ad9" name="a1e046746f23766a1226e186657988ad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e046746f23766a1226e186657988ad9">&#9670;&nbsp;</a></span>Clamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +115,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static float MATH::Math::Clamp </td>
+          <td class="memname">float MATH::Math::Clamp </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -129,8 +129,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>max</em>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -140,12 +140,12 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00007">7</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_math_8cpp_source.html#l00003">3</a> of file <a class="el" href="_math_8cpp_source.html">Math.cpp</a>.</p>
 
 </div>
 </div>
@@ -183,7 +183,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00018">18</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00013">13</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
 
 </div>
 </div>
@@ -221,12 +221,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00023">23</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_math_8h_source.html#l00018">18</a> of file <a class="el" href="_math_8h_source.html">Math.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/<a class="el" href="_math_8h_source.html">Math.h</a></li>
+<li>C:/Dev/Vulkan_Engine/Vulkan_GameEngine/Engine/Math/<a class="el" href="_math_8cpp_source.html">Math.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

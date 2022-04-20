@@ -7,5 +7,7 @@ var _level_graph_8h =
     [ "MeshesByMaterial_T", "_level_graph_8h.html#a4ec940ba045c14c0fb2e3eaec966292c", null ],
     [ "ModelsByMesh_T", "_level_graph_8h.html#af5f8c6d72beb981c1adaaf9ec04b1847", null ],
     [ "ObjectName", "_level_graph_8h.html#abceca9d93e40bfd2c564cb4283759030", null ],
-    [ "ShaderID", "_level_graph_8h.html#a41721955f17df6e94f008654630c1d2a", null ]
+    [ "ShaderID", "_level_graph_8h.html#a41721955f17df6e94f008654630c1d2a", null ],
+    [ "UIMaterialsByShader_T", "_level_graph_8h.html#ac1e3a0aa787564331cf6f90202a50572", null ],
+    [ "UIModelsByMaterial_T", "_level_graph_8h.html#a176aec61826c28c5f242ccb01e8e7603", null ]
 ];

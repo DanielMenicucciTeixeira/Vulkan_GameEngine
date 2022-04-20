@@ -10,7 +10,13 @@ var dir_5a570d77119a51dbbe9583dbbd635aee =
       [ "S_CubeSampler", "struct_s___cube_sampler.html", "struct_s___cube_sampler" ],
       [ "S_Mesh", "struct_s___mesh.html", "struct_s___mesh" ],
       [ "S_Material", "struct_s___material.html", "struct_s___material" ],
+      [ "S_Rectangle", "struct_s___rectangle.html", "struct_s___rectangle" ],
       [ "RenderObject", "struct_render_object.html", "struct_render_object" ]
+    ] ],
+    [ "TextRenderer.cpp", "_text_renderer_8cpp.html", null ],
+    [ "TextRenderer.h", "_text_renderer_8h.html", [
+      [ "S_Character", "struct_s___character.html", "struct_s___character" ],
+      [ "TextRenderer", "class_text_renderer.html", "class_text_renderer" ]
     ] ],
     [ "TextureHandler.cpp", "_texture_handler_8cpp.html", null ],
     [ "TextureHandler.h", "_texture_handler_8h.html", [
